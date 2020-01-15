@@ -16,6 +16,7 @@ namespace Sports4All
         public Form1()
         {
             InitializeComponent();
+            (new Core.DropShaddow()).ApplyShadows(this);
             moveSidePanel(btn_Home);
             
         }

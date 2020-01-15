@@ -54,13 +54,13 @@
             this.btnAddfriend = new System.Windows.Forms.Button();
             this.lbWelcomeUser = new System.Windows.Forms.Label();
             this.pbUserImage = new System.Windows.Forms.PictureBox();
+            this.UC_Home1 = new Sports4All.UC_Home();
             this.eventosControl1 = new Sports4All.UC_Events();
             this.UC_Rank1 = new Sports4All.UC_Rank();
             this.uC_MyEvents1 = new Sports4All.UC_MyEvents();
             this.uC_AddFriend1 = new Sports4All.UC_AddFriend();
             this.subscricoesControl1 = new Sports4All.UserControls_Screens.UC_Subscriptions();
             this.recintosControl1 = new Sports4All.UC_SportsGround();
-            this.UC_Home1 = new Sports4All.UC_Home();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar4)).BeginInit();
@@ -83,18 +83,18 @@
             this.panel1.Controls.Add(this.btn_Home);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(314, 775);
+            this.panel1.Size = new System.Drawing.Size(262, 784);
             this.panel1.TabIndex = 0;
             // 
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.OliveDrab;
-            this.SidePanel.Location = new System.Drawing.Point(2, 94);
-            this.SidePanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SidePanel.Location = new System.Drawing.Point(2, 78);
+            this.SidePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SidePanel.Name = "SidePanel";
-            this.SidePanel.Size = new System.Drawing.Size(15, 82);
+            this.SidePanel.Size = new System.Drawing.Size(12, 68);
             this.SidePanel.TabIndex = 4;
             // 
             // btnRanking
@@ -105,10 +105,10 @@
             this.btnRanking.ForeColor = System.Drawing.Color.White;
             this.btnRanking.Image = ((System.Drawing.Image)(resources.GetObject("btnRanking.Image")));
             this.btnRanking.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRanking.Location = new System.Drawing.Point(18, 504);
-            this.btnRanking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRanking.Location = new System.Drawing.Point(15, 420);
+            this.btnRanking.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRanking.Name = "btnRanking";
-            this.btnRanking.Size = new System.Drawing.Size(296, 82);
+            this.btnRanking.Size = new System.Drawing.Size(247, 68);
             this.btnRanking.TabIndex = 4;
             this.btnRanking.Text = "       Classificações";
             this.btnRanking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -123,10 +123,10 @@
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(18, 422);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button6.Location = new System.Drawing.Point(15, 352);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(296, 82);
+            this.button6.Size = new System.Drawing.Size(247, 68);
             this.button6.TabIndex = 4;
             this.button6.Text = "       Minhas Partidas";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -141,10 +141,10 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(18, 340);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button4.Location = new System.Drawing.Point(15, 283);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(296, 82);
+            this.button4.Size = new System.Drawing.Size(247, 68);
             this.button4.TabIndex = 4;
             this.button4.Text = "       Subscrições";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -159,10 +159,10 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(18, 258);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button3.Location = new System.Drawing.Point(15, 215);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(296, 82);
+            this.button3.Size = new System.Drawing.Size(247, 68);
             this.button3.TabIndex = 4;
             this.button3.Text = "       Recintos";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -176,10 +176,10 @@
             this.button14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.ForeColor = System.Drawing.Color.White;
             this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.Location = new System.Drawing.Point(13, 709);
-            this.button14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button14.Location = new System.Drawing.Point(15, 731);
+            this.button14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(54, 52);
+            this.button14.Size = new System.Drawing.Size(45, 43);
             this.button14.TabIndex = 4;
             this.button14.Text = "?";
             this.button14.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -193,10 +193,10 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(18, 174);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Location = new System.Drawing.Point(15, 145);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(296, 82);
+            this.button2.Size = new System.Drawing.Size(247, 68);
             this.button2.TabIndex = 4;
             this.button2.Text = "       Eventos";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -211,10 +211,10 @@
             this.btn_Home.ForeColor = System.Drawing.Color.White;
             this.btn_Home.Image = ((System.Drawing.Image)(resources.GetObject("btn_Home.Image")));
             this.btn_Home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Home.Location = new System.Drawing.Point(18, 91);
-            this.btn_Home.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_Home.Location = new System.Drawing.Point(15, 76);
+            this.btn_Home.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(296, 82);
+            this.btn_Home.Size = new System.Drawing.Size(247, 68);
             this.btn_Home.TabIndex = 4;
             this.btn_Home.Text = "       Home";
             this.btn_Home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -225,10 +225,10 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.OliveDrab;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(314, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Location = new System.Drawing.Point(262, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1245, 15);
+            this.panel2.Size = new System.Drawing.Size(1111, 12);
             this.panel2.TabIndex = 1;
             // 
             // panel5
@@ -236,16 +236,18 @@
             this.panel5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel5.Location = new System.Drawing.Point(314, 129);
+            this.panel5.Location = new System.Drawing.Point(262, 107);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1856, 1);
+            this.panel5.Size = new System.Drawing.Size(1547, 2);
             this.panel5.TabIndex = 70;
             // 
             // lbPoints
             // 
             this.lbPoints.AutoSize = true;
             this.lbPoints.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lbPoints.Location = new System.Drawing.Point(545, 67);
+            this.lbPoints.Location = new System.Drawing.Point(454, 56);
+            this.lbPoints.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbPoints.Name = "lbPoints";
             this.lbPoints.Size = new System.Drawing.Size(25, 20);
             this.lbPoints.TabIndex = 69;
@@ -259,10 +261,10 @@
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(1498, 34);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExit.Location = new System.Drawing.Point(1321, 32);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(48, 54);
+            this.btnExit.Size = new System.Drawing.Size(40, 45);
             this.btnExit.TabIndex = 66;
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
@@ -276,10 +278,10 @@
             this.btnSettings.ForeColor = System.Drawing.Color.White;
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(1442, 34);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSettings.Location = new System.Drawing.Point(1274, 32);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(48, 54);
+            this.btnSettings.Size = new System.Drawing.Size(40, 45);
             this.btnSettings.TabIndex = 67;
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -292,10 +294,10 @@
             this.btnNotification.ForeColor = System.Drawing.Color.White;
             this.btnNotification.Image = ((System.Drawing.Image)(resources.GetObject("btnNotification.Image")));
             this.btnNotification.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotification.Location = new System.Drawing.Point(1386, 34);
-            this.btnNotification.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNotification.Location = new System.Drawing.Point(1228, 32);
+            this.btnNotification.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(48, 54);
+            this.btnNotification.Size = new System.Drawing.Size(40, 45);
             this.btnNotification.TabIndex = 68;
             this.btnNotification.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNotification.UseVisualStyleBackColor = true;
@@ -304,10 +306,10 @@
             // 
             this.pbStar5.Cursor = System.Windows.Forms.Cursors.Default;
             this.pbStar5.Image = ((System.Drawing.Image)(resources.GetObject("pbStar5.Image")));
-            this.pbStar5.Location = new System.Drawing.Point(681, 93);
-            this.pbStar5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbStar5.Location = new System.Drawing.Point(567, 77);
+            this.pbStar5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbStar5.Name = "pbStar5";
-            this.pbStar5.Size = new System.Drawing.Size(28, 26);
+            this.pbStar5.Size = new System.Drawing.Size(23, 22);
             this.pbStar5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStar5.TabIndex = 65;
             this.pbStar5.TabStop = false;
@@ -316,10 +318,10 @@
             // 
             this.pbStar4.Cursor = System.Windows.Forms.Cursors.Default;
             this.pbStar4.Image = ((System.Drawing.Image)(resources.GetObject("pbStar4.Image")));
-            this.pbStar4.Location = new System.Drawing.Point(656, 93);
-            this.pbStar4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbStar4.Location = new System.Drawing.Point(547, 77);
+            this.pbStar4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbStar4.Name = "pbStar4";
-            this.pbStar4.Size = new System.Drawing.Size(28, 26);
+            this.pbStar4.Size = new System.Drawing.Size(23, 22);
             this.pbStar4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStar4.TabIndex = 64;
             this.pbStar4.TabStop = false;
@@ -328,10 +330,10 @@
             // 
             this.pbStar3.Cursor = System.Windows.Forms.Cursors.Default;
             this.pbStar3.Image = ((System.Drawing.Image)(resources.GetObject("pbStar3.Image")));
-            this.pbStar3.Location = new System.Drawing.Point(630, 93);
-            this.pbStar3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbStar3.Location = new System.Drawing.Point(525, 77);
+            this.pbStar3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbStar3.Name = "pbStar3";
-            this.pbStar3.Size = new System.Drawing.Size(28, 26);
+            this.pbStar3.Size = new System.Drawing.Size(23, 22);
             this.pbStar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStar3.TabIndex = 63;
             this.pbStar3.TabStop = false;
@@ -340,10 +342,10 @@
             // 
             this.pbStar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.pbStar2.Image = ((System.Drawing.Image)(resources.GetObject("pbStar2.Image")));
-            this.pbStar2.Location = new System.Drawing.Point(607, 93);
-            this.pbStar2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbStar2.Location = new System.Drawing.Point(506, 77);
+            this.pbStar2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbStar2.Name = "pbStar2";
-            this.pbStar2.Size = new System.Drawing.Size(28, 26);
+            this.pbStar2.Size = new System.Drawing.Size(23, 22);
             this.pbStar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStar2.TabIndex = 62;
             this.pbStar2.TabStop = false;
@@ -352,8 +354,7 @@
             // 
             this.lbPointsUser.AutoSize = true;
             this.lbPointsUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPointsUser.Location = new System.Drawing.Point(463, 67);
-            this.lbPointsUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPointsUser.Location = new System.Drawing.Point(386, 56);
             this.lbPointsUser.Name = "lbPointsUser";
             this.lbPointsUser.Size = new System.Drawing.Size(62, 20);
             this.lbPointsUser.TabIndex = 61;
@@ -364,10 +365,10 @@
             this.pbStar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pbStar1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pbStar1.ErrorImage")));
             this.pbStar1.Image = ((System.Drawing.Image)(resources.GetObject("pbStar1.Image")));
-            this.pbStar1.Location = new System.Drawing.Point(581, 93);
-            this.pbStar1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbStar1.Location = new System.Drawing.Point(484, 77);
+            this.pbStar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbStar1.Name = "pbStar1";
-            this.pbStar1.Size = new System.Drawing.Size(28, 26);
+            this.pbStar1.Size = new System.Drawing.Size(23, 22);
             this.pbStar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStar1.TabIndex = 60;
             this.pbStar1.TabStop = false;
@@ -376,8 +377,7 @@
             // 
             this.lbSkillUser.AutoSize = true;
             this.lbSkillUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSkillUser.Location = new System.Drawing.Point(463, 93);
-            this.lbSkillUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSkillUser.Location = new System.Drawing.Point(386, 77);
             this.lbSkillUser.Name = "lbSkillUser";
             this.lbSkillUser.Size = new System.Drawing.Size(98, 20);
             this.lbSkillUser.TabIndex = 59;
@@ -391,10 +391,10 @@
             this.btnAddfriend.ForeColor = System.Drawing.Color.White;
             this.btnAddfriend.Image = ((System.Drawing.Image)(resources.GetObject("btnAddfriend.Image")));
             this.btnAddfriend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddfriend.Location = new System.Drawing.Point(1316, 35);
-            this.btnAddfriend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddfriend.Location = new System.Drawing.Point(1169, 33);
+            this.btnAddfriend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddfriend.Name = "btnAddfriend";
-            this.btnAddfriend.Size = new System.Drawing.Size(62, 52);
+            this.btnAddfriend.Size = new System.Drawing.Size(52, 43);
             this.btnAddfriend.TabIndex = 58;
             this.btnAddfriend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddfriend.UseVisualStyleBackColor = true;
@@ -404,7 +404,8 @@
             // 
             this.lbWelcomeUser.AutoSize = true;
             this.lbWelcomeUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWelcomeUser.Location = new System.Drawing.Point(463, 27);
+            this.lbWelcomeUser.Location = new System.Drawing.Point(386, 22);
+            this.lbWelcomeUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbWelcomeUser.Name = "lbWelcomeUser";
             this.lbWelcomeUser.Size = new System.Drawing.Size(220, 21);
             this.lbWelcomeUser.TabIndex = 57;
@@ -416,74 +417,77 @@
             this.pbUserImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbUserImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbUserImage.Image = ((System.Drawing.Image)(resources.GetObject("pbUserImage.Image")));
-            this.pbUserImage.Location = new System.Drawing.Point(340, 24);
+            this.pbUserImage.Location = new System.Drawing.Point(283, 20);
+            this.pbUserImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbUserImage.Name = "pbUserImage";
-            this.pbUserImage.Size = new System.Drawing.Size(101, 99);
+            this.pbUserImage.Size = new System.Drawing.Size(84, 83);
             this.pbUserImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbUserImage.TabIndex = 56;
             this.pbUserImage.TabStop = false;
             // 
+            // UC_Home1
+            // 
+            this.UC_Home1.Location = new System.Drawing.Point(268, 126);
+            this.UC_Home1.Margin = new System.Windows.Forms.Padding(2);
+            this.UC_Home1.Name = "UC_Home1";
+            this.UC_Home1.Size = new System.Drawing.Size(1095, 648);
+            this.UC_Home1.TabIndex = 9;
+            // 
             // eventosControl1
             // 
-            this.eventosControl1.Location = new System.Drawing.Point(321, 151);
-            this.eventosControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eventosControl1.Location = new System.Drawing.Point(267, 126);
+            this.eventosControl1.Margin = new System.Windows.Forms.Padding(2);
             this.eventosControl1.Name = "eventosControl1";
-            this.eventosControl1.Size = new System.Drawing.Size(1225, 778);
+            this.eventosControl1.Size = new System.Drawing.Size(1021, 648);
             this.eventosControl1.TabIndex = 5;
             this.eventosControl1.Load += new System.EventHandler(this.eventosControl1_Load);
             // 
             // UC_Rank1
             // 
-            this.UC_Rank1.Location = new System.Drawing.Point(322, 151);
-            this.UC_Rank1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UC_Rank1.Location = new System.Drawing.Point(268, 126);
+            this.UC_Rank1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UC_Rank1.Name = "UC_Rank1";
-            this.UC_Rank1.Size = new System.Drawing.Size(1225, 778);
+            this.UC_Rank1.Size = new System.Drawing.Size(1021, 648);
             this.UC_Rank1.TabIndex = 11;
             // 
             // uC_MyEvents1
             // 
-            this.uC_MyEvents1.Location = new System.Drawing.Point(322, 151);
-            this.uC_MyEvents1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.uC_MyEvents1.Location = new System.Drawing.Point(268, 126);
+            this.uC_MyEvents1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.uC_MyEvents1.Name = "uC_MyEvents1";
-            this.uC_MyEvents1.Size = new System.Drawing.Size(1225, 778);
+            this.uC_MyEvents1.Size = new System.Drawing.Size(1021, 648);
             this.uC_MyEvents1.TabIndex = 12;
             this.uC_MyEvents1.Visible = false;
             // 
             // uC_AddFriend1
             // 
-            this.uC_AddFriend1.Location = new System.Drawing.Point(322, 151);
-            this.uC_AddFriend1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uC_AddFriend1.Location = new System.Drawing.Point(268, 126);
+            this.uC_AddFriend1.Margin = new System.Windows.Forms.Padding(2);
             this.uC_AddFriend1.Name = "uC_AddFriend1";
-            this.uC_AddFriend1.Size = new System.Drawing.Size(1225, 778);
+            this.uC_AddFriend1.Size = new System.Drawing.Size(1021, 648);
             this.uC_AddFriend1.TabIndex = 71;
             // 
             // subscricoesControl1
             // 
-            this.subscricoesControl1.Location = new System.Drawing.Point(322, 151);
-            this.subscricoesControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.subscricoesControl1.Location = new System.Drawing.Point(268, 126);
+            this.subscricoesControl1.Margin = new System.Windows.Forms.Padding(2);
             this.subscricoesControl1.Name = "subscricoesControl1";
-            this.subscricoesControl1.Size = new System.Drawing.Size(1225, 778);
+            this.subscricoesControl1.Size = new System.Drawing.Size(1021, 648);
             this.subscricoesControl1.TabIndex = 7;
             // 
             // recintosControl1
             // 
-            this.recintosControl1.Location = new System.Drawing.Point(322, 151);
-            this.recintosControl1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.recintosControl1.Location = new System.Drawing.Point(268, 126);
+            this.recintosControl1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.recintosControl1.Name = "recintosControl1";
-            this.recintosControl1.Size = new System.Drawing.Size(1225, 778);
+            this.recintosControl1.Size = new System.Drawing.Size(1021, 648);
             this.recintosControl1.TabIndex = 6;
-            // 
-            // UC_Home1
-            // 
-            this.UC_Home1.Location = new System.Drawing.Point(322, 151);
-            this.UC_Home1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.UC_Home1.Name = "UC_Home1";
-            this.UC_Home1.Size = new System.Drawing.Size(1225, 778);
-            this.UC_Home1.TabIndex = 9;
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1559, 775);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1373, 784);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.lbPoints);
             this.Controls.Add(this.btnExit);
@@ -509,7 +513,9 @@
             this.Controls.Add(this.subscricoesControl1);
             this.Controls.Add(this.recintosControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(1373, 784);
+            this.MinimumSize = new System.Drawing.Size(1373, 784);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

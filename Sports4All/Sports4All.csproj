@@ -83,6 +83,7 @@
     <Compile Include="CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Core\DropShaddow.cs" />
     <Compile Include="County.cs" />
     <Compile Include="District.cs" />
     <Compile Include="Evaluation.cs" />
