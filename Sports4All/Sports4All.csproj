@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2BDDB774-9994-45CD-A910-8A07B4C7AFA6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sports4All</RootNamespace>
+    <AssemblyName>Sports4All</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="CircularButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CircularPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="County.cs" />
+    <Compile Include="District.cs" />
+    <Compile Include="Evaluation.cs" />
+    <Compile Include="Event.cs" />
+    <Compile Include="Ground.cs" />
+    <Compile Include="GroundEvaluation.cs" />
+    <Compile Include="Migrations\202001151931579_M001.cs" />
+    <Compile Include="Migrations\202001151931579_M001.designer.cs">
+      <DependentUpon>202001151931579_M001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelContext.cs" />
+    <Compile Include="Park.cs" />
+    <Compile Include="Picture.cs" />
+    <Compile Include="PropertiesUC.cs" />
+    <Compile Include="Reserve.cs" />
+    <Compile Include="Sport.cs" />
+    <Compile Include="UC_HeaderUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_HeaderUser.Designer.cs">
+      <DependentUpon>UC_HeaderUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_AddFriend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_AddFriend.Designer.cs">
+      <DependentUpon>UC_AddFriend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_CreateEvent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_CreateEvent.Designer.cs">
+      <DependentUpon>UC_CreateEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Home.Designer.cs">
+      <DependentUpon>UC_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_HomeMyEventsItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_HomeMyEventsItem.Designer.cs">
+      <DependentUpon>UC_HomeMyEventsItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Rank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Rank.Designer.cs">
+      <DependentUpon>UC_Rank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_RankItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_RankItems.Designer.cs">
+      <DependentUpon>UC_RankItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_SportsgroundEvItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_SportsgroundEvItem.Designer.cs">
+      <DependentUpon>UC_SportsgroundEvItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_EventEvaluation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_EventEvaluation.Designer.cs">
+      <DependentUpon>UC_EventEvaluation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_PlayerEvaluationItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_PlayerEvaluationItem.Designer.cs">
+      <DependentUpon>UC_PlayerEvaluationItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_SportsgroundDesc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_SportsgroundDesc.Designer.cs">
+      <DependentUpon>UC_SportsgroundDesc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_UserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_UserProfile.Designer.cs">
+      <DependentUpon>UC_UserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_EventModalityItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_EventModalityItem.Designer.cs">
+      <DependentUpon>UC_EventModalityItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_EventMyEventsItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_EventMyEventsItem.Designer.cs">
+      <DependentUpon>UC_EventMyEventsItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_EventsModality.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_EventsModality.Designer.cs">
+      <DependentUpon>UC_EventsModality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_EventSportsGroundItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_EventSportsGroundItem.Designer.cs">
+      <DependentUpon>UC_EventSportsGroundItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_EventsSportsGrounds.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_EventsSportsGrounds.Designer.cs">
+      <DependentUpon>UC_EventsSportsGrounds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_MyEvents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MyEvents.Designer.cs">
+      <DependentUpon>UC_MyEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs" />
+    <Compile Include="UserEvaluation.cs" />
+    <Compile Include="View\UserControls_Items\UC_EventItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls_Items\UC_EventItem.Designer.cs">
+      <DependentUpon>UC_EventItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls_Items\UC_SportsGroundItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls_Items\UC_SportsGroundItem.Designer.cs">
+      <DependentUpon>UC_SportsGroundItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls_Items\UC_SubscriptionItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls_Items\UC_SubscriptionItem.Designer.cs">
+      <DependentUpon>UC_SubscriptionItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls_Screens\UC_Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls_Screens\UC_Events.Designer.cs">
+      <DependentUpon>UC_Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\UserControls_Screens\UC_SportsGround.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls_Screens\UC_SportsGround.Designer.cs">
+      <DependentUpon>UC_SportsGround.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls_Screens\UC_Subscriptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls_Screens\UC_Subscriptions.Designer.cs">
+      <DependentUpon>UC_Subscriptions.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Migrations\202001151931579_M001.resx">
+      <DependentUpon>202001151931579_M001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_HeaderUser.resx">
+      <DependentUpon>UC_HeaderUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_AddFriend.resx">
+      <DependentUpon>UC_AddFriend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_CreateEvent.resx">
+      <DependentUpon>UC_CreateEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_EventEvaluation.resx">
+      <DependentUpon>UC_EventEvaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Home.resx">
+      <DependentUpon>UC_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_HomeMyEventsItem.resx">
+      <DependentUpon>UC_HomeMyEventsItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_MyEvents.resx">
+      <DependentUpon>UC_MyEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_PlayerEvaluationItem.resx">
+      <DependentUpon>UC_PlayerEvaluationItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Rank.resx">
+      <DependentUpon>UC_Rank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_RankItems.resx">
+      <DependentUpon>UC_RankItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_SportsgroundDesc.resx">
+      <DependentUpon>UC_SportsgroundDesc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_SportsgroundEvItem.resx">
+      <DependentUpon>UC_SportsgroundEvItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_UserProfile.resx">
+      <DependentUpon>UC_UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_EventModalityItem.resx">
+      <DependentUpon>UC_EventModalityItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_EventMyEventsItem.resx">
+      <DependentUpon>UC_EventMyEventsItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_EventsModality.resx">
+      <DependentUpon>UC_EventsModality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_EventSportsGroundItem.resx">
+      <DependentUpon>UC_EventSportsGroundItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_EventsSportsGrounds.resx">
+      <DependentUpon>UC_EventsSportsGrounds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls_Items\UC_EventItem.resx">
+      <DependentUpon>UC_EventItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls_Items\UC_SportsGroundItem.resx">
+      <DependentUpon>UC_SportsGroundItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls_Items\UC_SubscriptionItem.resx">
+      <DependentUpon>UC_SubscriptionItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls_Screens\UC_Events.resx">
+      <DependentUpon>UC_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\UserControls_Screens\UC_SportsGround.resx">
+      <DependentUpon>UC_SportsGround.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls_Screens\UC_Subscriptions.resx">
+      <DependentUpon>UC_Subscriptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
