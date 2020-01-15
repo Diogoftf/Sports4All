@@ -106,7 +106,7 @@
             this.Controls.Add(this.gpEventEvaluation);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_EventEvaluation";
-            this.Size = new System.Drawing.Size(PropertiesUC.UCWidth, PropertiesUC.UCHeight);
+            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
             this.Load += new System.EventHandler(this.UCEventEvaluation_Load);
             this.gpEventEvaluation.ResumeLayout(false);
             this.plSportsgroundEvaluation.ResumeLayout(false);

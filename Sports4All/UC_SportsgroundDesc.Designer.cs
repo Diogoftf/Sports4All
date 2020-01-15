@@ -157,7 +157,7 @@
             this.Controls.Add(this.lbSportsgndName);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_SportsgroundDesc";
-            this.Size = new System.Drawing.Size(PropertiesUC.UCWidth, PropertiesUC.UCHeight);
+            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
             ((System.ComponentModel.ISupportInitialize)(this.pbSubscribe)).EndInit();
             this.plSportsgroundProfile.ResumeLayout(false);
             this.plSportsgroundProfile.PerformLayout();

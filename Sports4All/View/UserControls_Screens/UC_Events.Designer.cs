@@ -45,7 +45,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flpEvents);
             this.Name = "UC_Events";
-            this.Size = new System.Drawing.Size(PropertiesUC.UCWidth, PropertiesUC.UCHeight);
+            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
             this.Load += new System.EventHandler(this.UC_Events_Load);
             this.ResumeLayout(false);
 

@@ -116,7 +116,7 @@
             this.Controls.Add(this.btnFindFriends);
             this.Controls.Add(this.tbFindFriends);
             this.Name = "UC_AddFriend";
-            this.Size = new System.Drawing.Size(PropertiesUC.UCWidth, PropertiesUC.UCHeight);
+            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
             ((System.ComponentModel.ISupportInitialize)(this.pbFriends)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

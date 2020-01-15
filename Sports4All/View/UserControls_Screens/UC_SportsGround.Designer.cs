@@ -98,7 +98,7 @@
             this.Controls.Add(this.lblLocation);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UC_SportsGround";
-            this.Size = new System.Drawing.Size(PropertiesUC.UCWidth, PropertiesUC.UCHeight);
+            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
             this.Load += new System.EventHandler(this.UC_SportsGround_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

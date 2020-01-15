@@ -97,7 +97,7 @@
     <Compile Include="ModelContext.cs" />
     <Compile Include="Park.cs" />
     <Compile Include="Picture.cs" />
-    <Compile Include="PropertiesUC.cs" />
+    <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
     <Compile Include="Sport.cs" />
     <Compile Include="UC_HeaderUser.cs">

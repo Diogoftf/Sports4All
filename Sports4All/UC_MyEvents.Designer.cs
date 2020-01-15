@@ -86,7 +86,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_MyEvents";
-            this.Size = new System.Drawing.Size(PropertiesUC.UCWidth, PropertiesUC.UCHeight);
+            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
             this.Load += new System.EventHandler(this.Minhas_Partidas_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

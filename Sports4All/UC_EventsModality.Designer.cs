@@ -170,7 +170,7 @@
             this.Controls.Add(this.plTopContentModality);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_EventsModality";
-            this.Size = new System.Drawing.Size(PropertiesUC.UCWidth, PropertiesUC.UCHeight);
+            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
             this.Load += new System.EventHandler(this.onLoad);
             this.plTopContentModality.ResumeLayout(false);
             this.plTopContentModality.PerformLayout();

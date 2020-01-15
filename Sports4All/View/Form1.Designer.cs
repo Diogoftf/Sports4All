@@ -85,7 +85,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(314, 943);
+            this.panel1.Size = new System.Drawing.Size(314, 775);
             this.panel1.TabIndex = 0;
             // 
             // SidePanel
@@ -176,7 +176,7 @@
             this.button14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.ForeColor = System.Drawing.Color.White;
             this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.Location = new System.Drawing.Point(13, 877);
+            this.button14.Location = new System.Drawing.Point(13, 709);
             this.button14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(54, 52);
@@ -247,7 +247,7 @@
             this.lbPoints.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.lbPoints.Location = new System.Drawing.Point(545, 67);
             this.lbPoints.Name = "lbPoints";
-            this.lbPoints.Size = new System.Drawing.Size(30, 21);
+            this.lbPoints.Size = new System.Drawing.Size(25, 20);
             this.lbPoints.TabIndex = 69;
             this.lbPoints.Text = "22";
             // 
@@ -355,7 +355,7 @@
             this.lbPointsUser.Location = new System.Drawing.Point(463, 67);
             this.lbPointsUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPointsUser.Name = "lbPointsUser";
-            this.lbPointsUser.Size = new System.Drawing.Size(75, 21);
+            this.lbPointsUser.Size = new System.Drawing.Size(62, 20);
             this.lbPointsUser.TabIndex = 61;
             this.lbPointsUser.Text = "Pontos:";
             // 
@@ -379,7 +379,7 @@
             this.lbSkillUser.Location = new System.Drawing.Point(463, 93);
             this.lbSkillUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSkillUser.Name = "lbSkillUser";
-            this.lbSkillUser.Size = new System.Drawing.Size(115, 21);
+            this.lbSkillUser.Size = new System.Drawing.Size(98, 20);
             this.lbSkillUser.TabIndex = 59;
             this.lbSkillUser.Text = "Habilidades:";
             // 
@@ -406,7 +406,7 @@
             this.lbWelcomeUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbWelcomeUser.Location = new System.Drawing.Point(463, 27);
             this.lbWelcomeUser.Name = "lbWelcomeUser";
-            this.lbWelcomeUser.Size = new System.Drawing.Size(254, 23);
+            this.lbWelcomeUser.Size = new System.Drawing.Size(220, 21);
             this.lbWelcomeUser.TabIndex = 57;
             this.lbWelcomeUser.Text = "Bem-vindo, <USERNAME>";
             this.lbWelcomeUser.Click += new System.EventHandler(this.lbWelcomeUser_Click);
@@ -452,6 +452,7 @@
             // uC_AddFriend1
             // 
             this.uC_AddFriend1.Location = new System.Drawing.Point(322, 151);
+            this.uC_AddFriend1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uC_AddFriend1.Name = "uC_AddFriend1";
             this.uC_AddFriend1.Size = new System.Drawing.Size(1225, 778);
             this.uC_AddFriend1.TabIndex = 71;
@@ -482,9 +483,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1559, 943);
+            this.ClientSize = new System.Drawing.Size(1559, 775);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.lbPoints);
             this.Controls.Add(this.btnExit);

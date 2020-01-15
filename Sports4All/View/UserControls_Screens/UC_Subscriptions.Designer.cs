@@ -93,7 +93,7 @@
             this.Controls.Add(this.btnSports);
             this.Controls.Add(this.flpSubscriptions);
             this.Name = "UC_Subscriptions";
-            this.Size = new System.Drawing.Size(PropertiesUC.UCWidth, PropertiesUC.UCHeight);
+            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
             this.Load += new System.EventHandler(this.UC_Subscriptions_Load);
             this.ResumeLayout(false);
 

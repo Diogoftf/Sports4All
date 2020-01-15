@@ -243,7 +243,7 @@
             this.Controls.Add(this.plLine);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_UserProfile";
-            this.Size = new System.Drawing.Size(PropertiesUC.UCWidth, PropertiesUC.UCHeight);
+            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
             ((System.ComponentModel.ISupportInitialize)(this.pbSkill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFairPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpbUser)).EndInit();
