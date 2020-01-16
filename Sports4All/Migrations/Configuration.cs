@@ -42,6 +42,12 @@
 
              ICollection<User> listUsers = new Collection<User>();
              listUsers.Add(new User() {PictureId = listPictures.First().PictureId, Username = "scarf", Age = 23, Email = "scarf1@gmail.com", Password = "123", PhoneNumber = 963456789, CountyId = 1});
+             listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "josefa", Age = 23, Email = "josefa31@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = 3 });
+             listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "andreMx", Age = 23, Email = "andre@gmail.com", Password = "123", PhoneNumber = 961451719, CountyId = 4 });
+             listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "ruben21", Age = 23, Email = "ruben1@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = 3 });
+             listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "rubinol0uco", Age = 23, Email = "rubino@gmail.com", Password = "123", PhoneNumber = 961451339, CountyId = 3 });
+             listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "rafaela33", Age = 23, Email = "rubino@gmail.com", Password = "123", PhoneNumber = 961451229, CountyId = 3 });
+             listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "michaelfx", Age = 23, Email = "michaelDal@gmail.com", Password = "123", PhoneNumber = 926456783, CountyId = 4 });
 
             ICollection<Sport> listSports = new Collection<Sport>();
             listSports.Add(new Sport() { SportId = 1, Name = "Futebol", Picture = listPictures.ToList()[0] });
@@ -58,6 +64,32 @@
             ICollection<Park> listParks = new Collection<Park>();
             listParks.Add(new Park() { ParkId = 1, Name = "Agua de Pena", Adress = listAddresses.ToList()[0] });
             listParks.Add(new Park() { ParkId = 2, Name = "Ludens Padel", Adress = listAddresses.ToList()[1]});
+            /*
+            ICollection<Reserve> listReserves = new Collection<Reserve>();
+            listReserves.Add(new Reserve() { ReserveId = 1, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[0].SportId  });
+            listReserves.Add(new Reserve() { ReserveId = 2, Price = 10, UserId = listUsers.ToList()[1].Username, SportId = listSports.ToList()[1].SportId  });
+            listReserves.Add(new Reserve() { ReserveId = 3, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[2].SportId  });
+            listReserves.Add(new Reserve() { ReserveId = 4, Price = 10, UserId = listUsers.ToList()[2].Username, SportId = listSports.ToList()[3].SportId  });*/
+            /* 
+                        ICollection<Event> listEvents = new Collection<Event>();
+                        DateTime dateStartEvent = new DateTime(2019, 1, 18);
+                        DateTime dateEndEvent = dateStartEvent;
+                        dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
+                        dateEndEvent.Date.AddHours(14); dateEndEvent.Date.AddMinutes(00);
+                        listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Name = "Treino - ADM vs Nacional" });
+                      dateStartEvent = dateEndEvent = new DateTime(2019, 1, 25);
+                        dateStartEvent.Date.AddHours(9); dateStartEvent.Date.AddMinutes(30);
+                        dateEndEvent.Date.AddHours(11); dateEndEvent.Date.AddMinutes(00);
+                        listEvents.Add(new Event() { EventId = 2, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 6, MinAge = 10, MaxAge = 18, Name = "Jogo Amigavel de Futebol" });
+                        dateStartEvent = dateEndEvent = new DateTime(2020, 1, 2);
+                        dateStartEvent.Date.AddHours(14); dateStartEvent.Date.AddMinutes(00);
+                        dateEndEvent.Date.AddHours(16); dateEndEvent.Date.AddMinutes(00);
+                        listEvents.Add(new Event() { EventId = 3, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 12, MinAge = 20, MaxAge = 40, Name = "Torneio de Padel" });
+                        dateStartEvent = dateEndEvent = new DateTime(2019, 1, 15);
+                        dateStartEvent.Date.AddHours(18); dateStartEvent.Date.AddMinutes(00);
+                        dateEndEvent.Date.AddHours(20); dateEndEvent.Date.AddMinutes(00);
+                        listEvents.Add(new Event() { EventId = 4, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 8, MinAge = 30, MaxAge = 50, Name = "Jogo Amigavel de Tenis" });
+            */
 
             foreach (District district in listDistricts)
             {
@@ -93,6 +125,21 @@
             {
                 context.Parks.AddOrUpdate(park);
             }
+
+            foreach (Reserve reserve in listReserves)
+            {
+                context.Reserves.AddOrUpdate(reserve);
+            }
+            /*
+
+
+            foreach (Event events in listEvents)
+            {
+                context.Events.AddOrUpdate(events);
+            }
+            */
+
+
             base.Seed(context);
         }
     }
