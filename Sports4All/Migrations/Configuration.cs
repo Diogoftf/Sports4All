@@ -59,9 +59,9 @@
             listParks.Add(new Park() { ParkId = 1, Name = "Agua de Pena", Adress = listAddresses.ToList()[0] });
             listParks.Add(new Park() { ParkId = 2, Name = "Ludens Padel", Adress = listAddresses.ToList()[1]});
 
-            foreach (District districit in listDistricts)
+            foreach (District district in listDistricts)
             {
-                context.Districts.AddOrUpdate(districit);
+                context.Districts.AddOrUpdate(district);
             }
 
             foreach (County county in listCounties)
