@@ -87,10 +87,10 @@ namespace Sports4All
                 .HasForeignKey<string>(s => s.UserId)
                 .WillCascadeOnDelete(false);
 
-            //one to one
+            //one to zero or one
             modelBuilder.Entity<Address>()
-                .HasRequired(s => s.Park)
-                .WithRequiredPrincipal(ad => ad.Adress);
+                .HasOptional(s => s.Park)
+                .WithRequired(ad => ad.Adress);
 
             //one to many
             modelBuilder.Entity<Ground>()
@@ -99,17 +99,17 @@ namespace Sports4All
                 .HasForeignKey<int>(s => s.ParkId)
                 .WillCascadeOnDelete(false);
 
-            //one to one
+            //one to zero or one
             modelBuilder.Entity<Picture>()
                 .HasOptional(s => s.Park)
                 .WithRequired(ad => ad.Picture);
 
-            //one to one
+            //one to zero or one
             modelBuilder.Entity<Picture>()
                 .HasOptional(s => s.Ground)
                 .WithRequired(ad => ad.Picture);
 
-            //one to one
+            //one to zero or one
             modelBuilder.Entity<Picture>()
                 .HasOptional(s => s.Sport)
                 .WithRequired(ad => ad.Picture);

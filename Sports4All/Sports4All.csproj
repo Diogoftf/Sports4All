@@ -98,6 +98,14 @@
     <Compile Include="Migrations\202001160018368_M002.designer.cs">
       <DependentUpon>202001160018368_M002.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001161158355_M003.cs" />
+    <Compile Include="Migrations\202001161158355_M003.designer.cs">
+      <DependentUpon>202001161158355_M003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001161429369_M004.cs" />
+    <Compile Include="Migrations\202001161429369_M004.designer.cs">
+      <DependentUpon>202001161429369_M004.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="Park.cs" />
@@ -264,6 +272,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001160018368_M002.resx">
       <DependentUpon>202001160018368_M002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001161158355_M003.resx">
+      <DependentUpon>202001161158355_M003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001161429369_M004.resx">
+      <DependentUpon>202001161429369_M004.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_HeaderUser.resx">
       <DependentUpon>UC_HeaderUser.cs</DependentUpon>
