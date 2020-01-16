@@ -125,12 +125,12 @@
             {
                 context.Parks.AddOrUpdate(park);
             }
-
+            /*
             foreach (Reserve reserve in listReserves)
             {
                 context.Reserves.AddOrUpdate(reserve);
             }
-            /*
+            
 
 
             foreach (Event events in listEvents)
