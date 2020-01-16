@@ -10,9 +10,10 @@ namespace Sports4All
 {
     class ModelContext : DbContext
     {
-        public ModelContext() : base("name=DataBaseContext") {
+        public ModelContext() : base("name=DataBaseContext")
+        {
 
-//            Database.SetInitializer<ModelContext>(new DropCreateDatabaseIfModelChanges<ModelContext>());
+            //            Database.SetInitializer<ModelContext>(new DropCreateDatabaseIfModelChanges<ModelContext>());
             Database.SetInitializer<ModelContext>(new CreateDatabaseIfNotExists<ModelContext>());
         }
         public DbSet<Event> Events { get; set; }
@@ -70,12 +71,14 @@ namespace Sports4All
                 .WithMany(s => s.Evaluations)
                 .HasForeignKey<string>(s => s.EvaluatorId)
                 .WillCascadeOnDelete(false);
-                
 
+            //one to many
             modelBuilder.Entity<User>()
-                .HasRequired(s => s.Picture)
-                .WithRequiredPrincipal(ad => ad.User)
+                .HasRequired<Picture>(g => g.Picture)
+                .WithMany(s => s.Users)
+                .HasForeignKey<int>(s => s.PictureId)
                 .WillCascadeOnDelete(false);
+
 
             //one to many
             modelBuilder.Entity<Reserve>()
@@ -98,18 +101,18 @@ namespace Sports4All
 
             //one to one
             modelBuilder.Entity<Picture>()
-                .HasRequired(s => s.Park)
-                .WithRequiredPrincipal(ad => ad.Picture);
+                .HasOptional(s => s.Park)
+                .WithRequired(ad => ad.Picture);
 
             //one to one
             modelBuilder.Entity<Picture>()
-                .HasRequired(s => s.Ground)
-                .WithRequiredPrincipal(ad => ad.Picture);
+                .HasOptional(s => s.Ground)
+                .WithRequired(ad => ad.Picture);
 
             //one to one
             modelBuilder.Entity<Picture>()
-                .HasRequired(s => s.Sport)
-                .WithRequiredPrincipal(ad => ad.Picture);
+                .HasOptional(s => s.Sport)
+                .WithRequired(ad => ad.Picture);
 
             //one to many
             modelBuilder.Entity<Reserve>()
@@ -185,5 +188,7 @@ namespace Sports4All
                 .HasForeignKey<int>(s => s.GroundId)
                 .WillCascadeOnDelete(false);
         }
+
+
     }
 }

@@ -10,10 +10,11 @@ namespace Sports4All
    public class Picture
     {
         public int PictureId { get; set; }
-        public string PicdtureBody { get; set; }
+        public string PictureBody { get; set; }
         public virtual Sport Sport { get; set; }
         public virtual Park Park { get; set; }
-        public virtual User User { get; set; }
+        public virtual ICollection<User> Users { get; set; }
         public virtual Ground Ground { get; set; }
+        
     }
 }

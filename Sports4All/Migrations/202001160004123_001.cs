@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class M001 : DbMigration
+    public partial class _001 : DbMigration
     {
         public override void Up()
         {
@@ -51,10 +51,13 @@
                         Password = c.String(),
                         PhoneNumber = c.Int(nullable: false),
                         CountyId = c.Int(nullable: false),
+                        Picture_PictureId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Username)
                 .ForeignKey("dbo.Counties", t => t.CountyId)
-                .Index(t => t.CountyId);
+                .ForeignKey("dbo.Pictures", t => t.Picture_PictureId)
+                .Index(t => t.CountyId)
+                .Index(t => t.Picture_PictureId);
             
             CreateTable(
                 "dbo.Events",
@@ -120,12 +123,9 @@
                 c => new
                     {
                         PictureId = c.Int(nullable: false, identity: true),
-                        PicdtureBody = c.String(),
-                        User_Username = c.String(nullable: false, maxLength: 128),
+                        PictureBody = c.String(),
                     })
-                .PrimaryKey(t => t.PictureId)
-                .ForeignKey("dbo.Users", t => t.User_Username)
-                .Index(t => t.User_Username);
+                .PrimaryKey(t => t.PictureId);
             
             CreateTable(
                 "dbo.Sports",
@@ -214,7 +214,6 @@
             DropForeignKey("dbo.UserEvaluations", "EvaluatorId", "dbo.Users");
             DropForeignKey("dbo.Parks", "ParkId", "dbo.Addresses");
             DropForeignKey("dbo.Addresses", "CountyId", "dbo.Counties");
-            DropForeignKey("dbo.Pictures", "User_Username", "dbo.Users");
             DropForeignKey("dbo.EventsUsers", "UserRefId", "dbo.Users");
             DropForeignKey("dbo.EventsUsers", "EventRefId", "dbo.Events");
             DropForeignKey("dbo.Reserves", "ReserveId", "dbo.Events");
@@ -222,6 +221,7 @@
             DropForeignKey("dbo.Reserves", "SportId", "dbo.Sports");
             DropForeignKey("dbo.Reserves", "GroundId", "dbo.Grounds");
             DropForeignKey("dbo.Grounds", "ParkId", "dbo.Parks");
+            DropForeignKey("dbo.Users", "Picture_PictureId", "dbo.Pictures");
             DropForeignKey("dbo.Sports", "SportId", "dbo.Pictures");
             DropForeignKey("dbo.SportsGrounds", "GroundRefId", "dbo.Grounds");
             DropForeignKey("dbo.SportsGrounds", "SportRefId", "dbo.Sports");
@@ -240,7 +240,6 @@
             DropIndex("dbo.SportsGrounds", new[] { "GroundRefId" });
             DropIndex("dbo.SportsGrounds", new[] { "SportRefId" });
             DropIndex("dbo.Sports", new[] { "SportId" });
-            DropIndex("dbo.Pictures", new[] { "User_Username" });
             DropIndex("dbo.Parks", new[] { "ParkId" });
             DropIndex("dbo.Grounds", new[] { "ParkId" });
             DropIndex("dbo.Grounds", new[] { "GroundId" });
@@ -248,6 +247,7 @@
             DropIndex("dbo.Reserves", new[] { "SportId" });
             DropIndex("dbo.Reserves", new[] { "UserId" });
             DropIndex("dbo.Reserves", new[] { "ReserveId" });
+            DropIndex("dbo.Users", new[] { "Picture_PictureId" });
             DropIndex("dbo.Users", new[] { "CountyId" });
             DropIndex("dbo.Counties", new[] { "DistrictId" });
             DropIndex("dbo.Addresses", new[] { "CountyId" });

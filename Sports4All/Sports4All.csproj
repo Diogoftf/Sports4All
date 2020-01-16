@@ -90,9 +90,13 @@
     <Compile Include="Event.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="GroundEvaluation.cs" />
-    <Compile Include="Migrations\202001151931579_M001.cs" />
-    <Compile Include="Migrations\202001151931579_M001.designer.cs">
-      <DependentUpon>202001151931579_M001.cs</DependentUpon>
+    <Compile Include="Migrations\202001160004123_001.cs" />
+    <Compile Include="Migrations\202001160004123_001.designer.cs">
+      <DependentUpon>202001160004123_001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001160018368_M002.cs" />
+    <Compile Include="Migrations\202001160018368_M002.designer.cs">
+      <DependentUpon>202001160018368_M002.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
@@ -255,8 +259,11 @@
     <Compile Include="View\UserControls_Screens\UC_Subscriptions.Designer.cs">
       <DependentUpon>UC_Subscriptions.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\202001151931579_M001.resx">
-      <DependentUpon>202001151931579_M001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001160004123_001.resx">
+      <DependentUpon>202001160004123_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001160018368_M002.resx">
+      <DependentUpon>202001160018368_M002.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_HeaderUser.resx">
       <DependentUpon>UC_HeaderUser.cs</DependentUpon>
