@@ -46,12 +46,14 @@ namespace Sports4All
                            }
 
                        }
+
+                    && (e.UserId != username || !e.Event.Users.Contains(username)) && (e.User.County.CountyId == e.Ground.Park.Adress.CountyId || e.User.County.DistrictId == e.Ground.Park.Adress.County.DistrictId
                        */
-                    var allReservesandEvents = db.Reserves.Where(e => e.Event.StartDate > DateTime.Now && (e.UserId != user.Username || !e.Event.Users.Contains(user)) && (e.User.County.CountyId == e.Ground.Park.Adress.CountyId || e.User.County.DistrictId == e.Ground.Park.Adress.County.DistrictId)).Take(3).ToList();
+                    var allReservesandEvents = db.Events.Where(e => e.StartDate > DateTime.Now ).Take(3).ToList();
 
                     for (int i = 0; i < allReservesandEvents.Count; i++)
                     {
-                        SuggestionsEvents.Add(allReservesandEvents[i]); // tenho todas as reservas do user especifico
+                      //  SuggestionsEvents.Add(allReservesandEvents[i]); // tenho todas as reservas do user especifico
 
                     }
 
@@ -80,7 +82,7 @@ namespace Sports4All
 
             using (ModelContext db = new ModelContext())
             {
-                var query = db.Users.Where(c => c.Username == "josefa").First();
+                var query = db.Users.Where(c => c.Username == username).First();
 
                 foreach (Event a in query.Events) // todos os eventos que esse user participou
                 {

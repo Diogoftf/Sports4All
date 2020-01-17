@@ -30,7 +30,7 @@ namespace Sports4All
             HomeController a = new HomeController();
 
             a.getMyEvents("josefa");
-            a.getEventSuggestions("josefa");
+            //a.getEventSuggestions("josefa");
 
           //          Application.EnableVisualStyles();
           //  Application.SetCompatibleTextRenderingDefault(false);
