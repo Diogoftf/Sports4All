@@ -53,7 +53,7 @@
             this.lbMySport = new System.Windows.Forms.Label();
             this.pbMonthEnclosure = new System.Windows.Forms.PictureBox();
             this.flpMyEvents = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpNextEvents = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpEventSuggestions = new System.Windows.Forms.FlowLayoutPanel();
             this.UC_CreateEvent1 = new Sports4All.UC_CreateEvent();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMonthuser)).BeginInit();
@@ -305,15 +305,15 @@
             this.flpMyEvents.Size = new System.Drawing.Size(886, 273);
             this.flpMyEvents.TabIndex = 79;
             // 
-            // flpNextEvents
+            // flpEventSuggestions
             // 
-            this.flpNextEvents.AutoScroll = true;
-            this.flpNextEvents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpNextEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.flpNextEvents.Location = new System.Drawing.Point(15, 463);
-            this.flpNextEvents.Name = "flpNextEvents";
-            this.flpNextEvents.Size = new System.Drawing.Size(886, 291);
-            this.flpNextEvents.TabIndex = 80;
+            this.flpEventSuggestions.AutoScroll = true;
+            this.flpEventSuggestions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpEventSuggestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.flpEventSuggestions.Location = new System.Drawing.Point(15, 463);
+            this.flpEventSuggestions.Name = "flpEventSuggestions";
+            this.flpEventSuggestions.Size = new System.Drawing.Size(886, 291);
+            this.flpEventSuggestions.TabIndex = 80;
             // 
             // UC_CreateEvent1
             // 
@@ -328,7 +328,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.UC_CreateEvent1);
-            this.Controls.Add(this.flpNextEvents);
+            this.Controls.Add(this.flpEventSuggestions);
             this.Controls.Add(this.flpMyEvents);
             this.Controls.Add(this.pbMonthEnclosure);
             this.Controls.Add(this.lbMySport);
@@ -387,7 +387,7 @@
         private System.Windows.Forms.PictureBox pbMonthEnclosure;
         private System.Windows.Forms.Label lbMonthuser;
         private System.Windows.Forms.FlowLayoutPanel flpMyEvents;
-        private System.Windows.Forms.FlowLayoutPanel flpNextEvents;
+        private System.Windows.Forms.FlowLayoutPanel flpEventSuggestions;
         private UC_CreateEvent UC_CreateEvent1;
         //private UC_CreateEvent UC_CreateEvent1;
     }

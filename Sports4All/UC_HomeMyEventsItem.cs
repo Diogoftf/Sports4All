@@ -16,7 +16,7 @@ namespace Sports4All
         private string _recinto;
         private string _slots;
         private string _organizador;
-        private DateTime _dateTime;
+        private string _dateTime;
         private string _sport;
         private Color _color;
 
@@ -52,7 +52,7 @@ namespace Sports4All
 
         }
 
-        public DateTime DateTime
+        public string DateTime
         {
 
             get { return _dateTime; }

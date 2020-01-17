@@ -12,18 +12,15 @@ namespace Sports4All
 {
     public partial class UC_Home : UserControl
     {
-                
-        /*
-         * MyEvents GUARDA OS EVENTOS QUE TOU INSCRITO E QUE AINDA VAO OU JA FORAM REALIZADOS!
-         * 
-         * NextEvents Guards os eventos que NAO estou inscrito e só a partir da data atual (HOJE)
-         */
-        
-        private List<UC_HomeMyEventsItem> MyEvents = new List<UC_HomeMyEventsItem>();
-        private List<UC_HomeMyEventsItem> NextEvents = new List<UC_HomeMyEventsItem>();
+        private readonly HomeController _homeController;
+        private List<UC_HomeMyEventsItem> _MyEvents = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
+        private List<UC_HomeMyEventsItem> _EventSuggestions = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
+        private List<Sport> _availableSports;
+
 
         public UC_Home()
         {
+            _homeController = new HomeController();
             InitializeComponent();
             InitializateElements();
         }
@@ -41,7 +38,7 @@ namespace Sports4All
 
         private void dtpMySportDate_ValueChanged(object sender, EventArgs e)
         {
-            flpMyEvents.Controls.Clear();
+        /*    flpMyEvents.Controls.Clear();
             // MessageBox.Show(cbMySport.Text);
 
             if (cbMySport.SelectedIndex == 0) // Se esta na seleção padrao (ou seja nada foi escolhido)
@@ -62,30 +59,22 @@ namespace Sports4All
 
                 }
 
-            }
+            }*/
         }
 
         private void UC_Home_Load(object sender, EventArgs e)
         {
             UC_CreateEvent1.Visible = false;
             dtpNextEventDate.MinDate = DateTime.Today;
-            PopulateList();
-
+            InitializateElements();
         }
 
         private void InitializateElements()
         {
-           /* var context = new QxP1IZ6nAWEntities();
-            var sports = context.Sport.ToList();
+            _availableSports = _homeController.getSports();
+          //  PopulateLists();
+            PopulateComboBox();
 
-            cbMySport.Items.Add("");
-            cbNextSport.Items.Add("");
-            for (int i = 0; i < sports.Count; i++)
-            {
-                cbMySport.Items.Add(sports[i].name);
-                cbNextSport.Items.Add(sports[i].name);
-            }
-            */
         }
 
         private void lbHighlights_Click(object sender, EventArgs e)
@@ -98,53 +87,61 @@ namespace Sports4All
 
         }
 
-        private void PopulateList()
+        private void PopulateComboBox()
         {
-            /*
-              FAZER QUERIE PARA OBTER OS EVENTOS QUE JA REALIZEI E QUE VOU REALIZAR
-              Onde tem 5 , colocar a quantidade de linhas que correspondem à querie:
-              UC_HomeMyEventsItem[] listitems = new UC_HomeMyEventsItem[5];
-            */
-            UC_HomeMyEventsItem[] listitems = new UC_HomeMyEventsItem[5];
-
-            for (int i = 0; i < listitems.Length; i++)
+            cbMySport.Items.Clear();
+            cbNextSport.Items.Clear();
+            foreach (Sport s in _availableSports)
             {
-                listitems[i] = new UC_HomeMyEventsItem();
-                /*
-                         Quando fores buscar à BD colocar o conteudo de cada item AQUI!!
-                          listitems[i].Recinto = "Agua de Pena";
-                          listitems[i].Organizador = "Eduardo Gouveia";
-                */
-
-                MyEvents.Add(listitems[i]); // MEMBRO DA CLASSE QUE GUARDAR EVENTOS
-
-                flpMyEvents.Controls.Add(MyEvents[i]); //add to flowlayout
-
+                cbMySport.Items.Add(s.Name);
+                cbNextSport.Items.Add(s.Name);
             }
+        }
 
-            /* 
-             * 
-             * SAME LOGIC  
-             * FAZER QUERIE PARA OBTER OS PROXIMOS EVENTOS EM QUE NAO ESTOU INSCRITO E AINDA NAO FORAM CONCRETIZADOS
-             */
+        private void PopulateLists(string username)
+        {
+            // Preenche list de meus eventos
 
-            listitems = new UC_HomeMyEventsItem[5]; // Volto a reescrever a variavel utilizada anteriormente
+            List<UC_HomeMyEventsItem> myEventsitems = new List<UC_HomeMyEventsItem>();
+            List<Event> myEvent = _homeController.getMyEvents("scarf"); // passar scarf para username
+            flpMyEvents.Controls.Clear();
 
-            for (int i = 0; i < listitems.Length; i++)
+            for (int i = 0; i < myEvent.Count; i++)
             {
-                listitems[i] = new UC_HomeMyEventsItem();
-                /*
-                         Quando fores buscar à BD colocar o conteudo de cada item AQUI!!
-                          listitems[i].Recinto = "Agua de Pena";
-                          listitems[i].Organizador = "Eduardo Gouveia";
-                */
+                if (i < 3)
+                {
+                    myEventsitems[i] = new UC_HomeMyEventsItem();
+                    myEventsitems[i].DateTime = myEvent[i].StartDate.ToString() + " || " + myEvent[i].EndDate.ToShortTimeString();
+                    myEventsitems[i].Organizador = myEvent[i].Reserve.UserId;
+                    myEventsitems[i].Slots = myEvent[i].Users.Count + "/" + myEvent[i].MaxPlayers.ToString();
+                    myEventsitems[i].Recinto = myEvent[i].Reserve.Ground.Park.Name;
+                    myEventsitems[i].Sport = myEvent[i].Reserve.Sport.Name;
 
-                NextEvents.Add(listitems[i]);
-
-                flpNextEvents.Controls.Add(listitems[i]); //add to flowlayout
-
+                    _MyEvents.Add(myEventsitems[i]); 
+                    flpMyEvents.Controls.Add(myEventsitems[i]); //add to flowlayout
+                }
             }
+            
+            //Preenche lista de sugestoes de eventos
+            List<UC_HomeMyEventsItem> myEventSuggestions = new List<UC_HomeMyEventsItem>();
+            List<Event> EventSuggestions;
+            flpEventSuggestions.Controls.Clear();
 
+            for (int i = 0; i < EventSuggestions.Count; i++)
+            {
+                if (i < 3)
+                {
+                    myEventSuggestions[i] = new UC_HomeMyEventsItem();
+                    myEventSuggestions[i].DateTime = myEvent[i].StartDate.ToString() + " || " + myEvent[i].EndDate.ToShortTimeString();
+                    myEventSuggestions[i].Organizador = myEvent[i].Reserve.UserId;
+                    myEventSuggestions[i].Slots = myEvent[i].Users.Count + "/" + myEvent[i].MaxPlayers.ToString();
+                    myEventSuggestions[i].Recinto = myEvent[i].Reserve.Ground.Park.Name;
+                    myEventSuggestions[i].Sport = myEvent[i].Reserve.Sport.Name;
+
+                    _EventSuggestions.Add(myEventSuggestions[i]);
+                    flpEventSuggestions.Controls.Add(myEventSuggestions[i]); //add to flowlayout
+                }
+            }
 
         }
 
@@ -154,18 +151,18 @@ namespace Sports4All
 
             if (cbMySport.SelectedIndex == 0) // Se esta na seleção padrao (ou seja nada foi escolhido)
             {
-                for (int i = 0; i < MyEvents.Count; i++)
+                for (int i = 0; i < _MyEvents.Count; i++)
                 {
-                    flpMyEvents.Controls.Add(MyEvents[i]); //add to flowlayout
+                    flpMyEvents.Controls.Add(_MyEvents[i]); //add to flowlayout
                 }
             }
             else
             {
-                for (int i = 0; i < MyEvents.Count; i++)
+                for (int i = 0; i < _MyEvents.Count; i++)
                 {
-                    if (MyEvents[i].Sport == cbMySport.Text)
+                    if (_MyEvents[i].Sport == cbMySport.Text)
                     {
-                        flpMyEvents.Controls.Add(MyEvents[i]); //add to flowlayout
+                        flpMyEvents.Controls.Add(_MyEvents[i]); //add to flowlayout
                     }
 
                 }
@@ -176,22 +173,22 @@ namespace Sports4All
 
         private void cbNextSport_SelectedIndexChanged(object sender, EventArgs e)
         {
-            flpNextEvents.Controls.Clear();
+            flpEventSuggestions.Controls.Clear();
 
             if (cbNextSport.SelectedIndex == 0) // Se esta na seleção padrao (ou seja nada foi escolhido)
             {
-                for (int i = 0; i < NextEvents.Count; i++)
+                for (int i = 0; i < _EventSuggestions.Count; i++)
                 {
-                    flpNextEvents.Controls.Add(NextEvents[i]); //add to flowlayout
+                    flpEventSuggestions.Controls.Add(_EventSuggestions[i]); //add to flowlayout
                 }
             }
             else
             {
-                for (int i = 0; i < NextEvents.Count; i++)
+                for (int i = 0; i < _EventSuggestions.Count; i++)
                 {
-                    if (NextEvents[i].Sport == cbNextSport.Text)
+                    if (_EventSuggestions[i].Sport == cbNextSport.Text)
                     {
-                        flpNextEvents.Controls.Add(NextEvents[i]); //add to flowlayout
+                        flpEventSuggestions.Controls.Add(_EventSuggestions[i]); //add to flowlayout
                     }
 
                 }

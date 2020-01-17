@@ -97,6 +97,7 @@
     <Compile Include="Event.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="GroundEvaluation.cs" />
+    <Compile Include="HomeController.cs" />
     <Compile Include="Migrations\202001160004123_001.cs" />
     <Compile Include="Migrations\202001160004123_001.designer.cs">
       <DependentUpon>202001160004123_001.cs</DependentUpon>
