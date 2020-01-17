@@ -41,7 +41,7 @@
 
              ICollection<User> listUsers = new Collection<User>();
              listUsers.Add(new User() {PictureId = listPictures.First().PictureId, Username = "scarf", Age = 23, Email = "scarf1@gmail.com", Password = "123", PhoneNumber = 963456789, CountyId = listCounties.ToList()[0].CountyId, County = listCounties.ToList()[0]});
-             listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "josefa", Age = 23, Email = "josefa31@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[2] });
+             listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "josefa", Age = 23, Email = "josefa31@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[2]});
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "andreMx", Age = 23, Email = "andre@gmail.com", Password = "123", PhoneNumber = 961451719, CountyId = listCounties.ToList()[3].CountyId, County = listCounties.ToList()[3] });
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "ruben21", Age = 23, Email = "ruben1@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[3] });
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "rubinol0uco", Age = 23, Email = "rubino@gmail.com", Password = "123", PhoneNumber = 961451339, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[2] });
@@ -80,7 +80,7 @@
             DateTime dateEndEvent = dateStartEvent;
             dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
             dateEndEvent.Date.AddHours(14); dateEndEvent.Date.AddMinutes(00);
-            listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Name = "Treino - ADM vs Nacional" });
+            listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Reserve = listReserves.ToList()[0],Name = "Treino - ADM vs Nacional" });
             dateStartEvent = dateEndEvent = new DateTime(2019, 1, 25);
             dateStartEvent.Date.AddHours(9); dateStartEvent.Date.AddMinutes(30);
             dateEndEvent.Date.AddHours(11); dateEndEvent.Date.AddMinutes(00);
@@ -110,6 +110,10 @@
             // Esta lista contem todas as avaliações feitas da josefa aos utilizadores desse evento especifico
             // Esta lista contem todas as avaliações feitas da josefa aos recintos
             ICollection<Evaluation> listEvaluationsJosefa = new Collection<Evaluation>();
+            ICollection<Reserve> listReservesJosefa = new Collection<Reserve>();
+            ICollection<Event> listEventsJosefa = new Collection<Event>();
+            listReservesJosefa.Add(listReserves.ToList()[1]);
+            listEventsJosefa.Add(listEvents.ToList()[0]);
 
             foreach (UserEvaluation user in listUserEvaluations)
             {
@@ -122,6 +126,8 @@
             }
 
             listUsers.ToList()[1].Evaluations = listEvaluationsJosefa;
+            listUsers.ToList()[1].Reserves = listReservesJosefa;
+            listUsers.ToList()[1].Events = listEventsJosefa;
 
             foreach (District district in listDistricts)
             {

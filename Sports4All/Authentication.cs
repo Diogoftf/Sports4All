@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace Sports4All
@@ -12,6 +13,12 @@ namespace Sports4All
     {
         private readonly AuthController _authController;
         private int _selectedPicture;
+
+        private string _email = "";
+        private string _password = "";
+        private string _username = "";
+        private string _age = "";
+        private string _cellphone = "";
 
         public Authentication()
         {
@@ -62,6 +69,7 @@ namespace Sports4All
             {
                 if (checkedValues())
                 {
+                    StoreUsername(_username);
                     this.Hide();
                     Form1 form1 = new Form1();
                     form1.Show();
@@ -71,10 +79,10 @@ namespace Sports4All
 
         public bool checkedValues()
         {
-            var email = tbLogEmail.Text;
-            var password = tbLogPassword.Text;
+            _email = tbLogEmail.Text;
+            _password = tbLogPassword.Text;
 
-            if (!_authController.RightLoginCredentials(email, password))
+            if (!_authController.RightLoginCredentials(_email, _password))
             {
                 string message = "Insira um par email/password válido.";
                 MessageBox.Show(message);
@@ -129,27 +137,27 @@ namespace Sports4All
 
         private bool AddDataToDb()
         {
-            var email = tbRegEmail.Text;
-            var password = tbRegPassword.Text;
-            var username = tbRegUsername.Text;
-            var age = tbRegAge.Text;
-            var cellphone = tbRegPhone.Text;
+            _email = tbRegEmail.Text;
+            _password = tbRegPassword.Text;
+            _username = tbRegUsername.Text;
+            _age = tbRegAge.Text;
+            _cellphone = tbRegPhone.Text;
 
-            if (_authController.EmailExists(email))
+            if (_authController.EmailExists(_email))
             {
                 string message = "O email que inseriu já se encontra registado.";
                 MessageBox.Show(message);
                 return false;
             }
 
-            if (_authController.UsernameExists(username))
+            if (_authController.UsernameExists(_username))
             {
                 string message = "O username que inseriu já existe.";
                 MessageBox.Show(message);
                 return false;
             }
 
-            _authController.RegisterUser(email, password, username, age, cellphone);
+            _authController.RegisterUser(_email, _password, _username, _age, _cellphone);
             return true;
 
 
@@ -201,6 +209,11 @@ namespace Sports4All
                 return add;
                 
             }*/
+        }
+
+        private void StoreUsername(string username)
+        {
+            AuthProperties.LoggedUser = username;
         }
 
         private void tbRegEmail_Validating(object sender, CancelEventArgs e)

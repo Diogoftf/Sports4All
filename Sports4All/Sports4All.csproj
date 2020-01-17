@@ -83,6 +83,7 @@
     <Compile Include="Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
+    <Compile Include="AuthProperties.cs" />
     <Compile Include="CircularButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -411,6 +412,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Webp.net-resizeimage %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empire-state-building %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\soccer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stadium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ui.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
