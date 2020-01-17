@@ -124,7 +124,7 @@ namespace Sports4All
             
             //Preenche lista de sugestoes de eventos
             List<UC_HomeMyEventsItem> myEventSuggestions = new List<UC_HomeMyEventsItem>();
-            List<Event> EventSuggestions;
+            List<Reserve> EventSuggestions = _homeController.getEventSuggestions(username);
             flpEventSuggestions.Controls.Clear();
 
             for (int i = 0; i < EventSuggestions.Count; i++)
