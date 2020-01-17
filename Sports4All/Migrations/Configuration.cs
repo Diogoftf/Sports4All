@@ -1,4 +1,6 @@
-﻿namespace Sports4All.Migrations
+﻿using Sports4All.Controller;
+
+namespace Sports4All.Migrations
 {
     using System;
     using System.Collections.Generic;
@@ -16,6 +18,7 @@
 
         protected override void Seed(Sports4All.ModelContext context)
         {
+            ImagesController imgsController = new ImagesController();
 
             ICollection<District> listDistricts = new Collection<District>();
 
@@ -29,17 +32,16 @@
             listCounties.Add(new County() { CountyId = 3, DistrictId = 1, Name = "Funchal" });
             listCounties.Add(new County() { CountyId = 4, DistrictId = 1, Name = "São Vicente" });
             listCounties.Add(new County() { CountyId = 5, DistrictId = 1, Name = "Santa Cruz" });
-            
-            // ICollection<Picture> listPictures = new Collection<Picture>();
-            //listPictures.Add(new Picture() { PictureId = default, PicdtureBody = "imagemFicticia", User = listUsers.ToList()[0] });
-            //Picture test = new Picture() { PictureId = 1, PicdtureBody = "imagemFicticia", User = listUsers.ToList()[0] };
+
+            IList<string> images = imgsController.InsertImagetoDB();
 
             ICollection<Picture> listPictures = new Collection<Picture>();
-            listPictures.Add(new Picture() { PictureId = 1, PictureBody = "Sigaaaaa" });
-            listPictures.Add(new Picture() { PictureId = 2, PictureBody = "TESTEEEEEEEEEEEEE" });
-            listPictures.Add(new Picture() { PictureId = 3, PictureBody = "VAMOSSSSSSSSSSSSSSSSSSSS" });
+            listPictures.Add(new Picture() { PictureId = 1, PictureBody = images[0] });
+            listPictures.Add(new Picture() { PictureId = 2, PictureBody = images[1] });
+            listPictures.Add(new Picture() { PictureId = 3, PictureBody = images[2] });
+            listPictures.Add(new Picture() { PictureId = 4, PictureBody = images[3] });
 
-             ICollection<User> listUsers = new Collection<User>();
+            ICollection<User> listUsers = new Collection<User>();
              listUsers.Add(new User() {PictureId = listPictures.First().PictureId, Username = "scarf", Age = 23, Email = "scarf1@gmail.com", Password = "123", PhoneNumber = 963456789, CountyId = listCounties.ToList()[0].CountyId, County = listCounties.ToList()[0]});
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "josefa", Age = 23, Email = "josefa31@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[2]});
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "andreMx", Age = 23, Email = "andre@gmail.com", Password = "123", PhoneNumber = 961451719, CountyId = listCounties.ToList()[3].CountyId, County = listCounties.ToList()[3] });
