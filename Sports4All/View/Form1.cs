@@ -15,10 +15,19 @@ namespace Sports4All
         
         public Form1()
         {
+            // =============================================================
+            //
+            // //APAGAR ISTO DEPOIS E COMEÇAR O PROGRAMA NO LOGIN
+            AuthProperties.LoggedUser = "josefa";
+            //
+            // =============================================================
+
             InitializeComponent();
             (new Core.DropShaddow()).ApplyShadows(this);
             moveSidePanel(btn_Home);
-            
+            lbWelcomeUser.Text = "Bem vindo, " + AuthProperties.LoggedUser;
+
+
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
