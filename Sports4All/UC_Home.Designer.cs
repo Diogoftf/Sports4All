@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Home));
-            this.lvEvaluation = new System.Windows.Forms.ListView();
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbNextEvents = new System.Windows.Forms.Label();
             this.lbMyevents = new System.Windows.Forms.Label();
             this.lbHighlights = new System.Windows.Forms.Label();
@@ -54,55 +50,40 @@
             this.pbMonthEnclosure = new System.Windows.Forms.PictureBox();
             this.flpMyEvents = new System.Windows.Forms.FlowLayoutPanel();
             this.flpEventSuggestions = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.UC_CreateEvent1 = new Sports4All.UC_CreateEvent();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMonthuser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMonthEnclosure)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lvEvaluation
-            // 
-            this.lvEvaluation.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader12,
-            this.columnHeader14,
-            this.columnHeader15});
-            this.lvEvaluation.HideSelection = false;
-            this.lvEvaluation.Location = new System.Drawing.Point(974, 528);
-            this.lvEvaluation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lvEvaluation.Name = "lvEvaluation";
-            this.lvEvaluation.Size = new System.Drawing.Size(250, 167);
-            this.lvEvaluation.TabIndex = 63;
-            this.lvEvaluation.UseCompatibleStateImageBehavior = false;
-            this.lvEvaluation.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "Recinto";
-            this.columnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader12.Width = 64;
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "Data";
-            this.columnHeader14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader14.Width = 58;
-            // 
-            // columnHeader15
-            // 
-            this.columnHeader15.Text = "Hora";
-            this.columnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader15.Width = 51;
             // 
             // lbNextEvents
             // 
             this.lbNextEvents.AutoSize = true;
             this.lbNextEvents.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNextEvents.Location = new System.Drawing.Point(10, 428);
+            this.lbNextEvents.Location = new System.Drawing.Point(10, 431);
             this.lbNextEvents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNextEvents.Name = "lbNextEvents";
-            this.lbNextEvents.Size = new System.Drawing.Size(197, 26);
+            this.lbNextEvents.Size = new System.Drawing.Size(120, 26);
             this.lbNextEvents.TabIndex = 61;
-            this.lbNextEvents.Text = "Proximos eventos";
+            this.lbNextEvents.Text = "Sugestões";
             // 
             // lbMyevents
             // 
@@ -119,7 +100,7 @@
             // 
             this.lbHighlights.AutoSize = true;
             this.lbHighlights.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHighlights.Location = new System.Drawing.Point(969, 11);
+            this.lbHighlights.Location = new System.Drawing.Point(969, 14);
             this.lbHighlights.Name = "lbHighlights";
             this.lbHighlights.Size = new System.Drawing.Size(211, 26);
             this.lbHighlights.TabIndex = 52;
@@ -130,7 +111,7 @@
             // 
             this.lbEvaluation.AutoSize = true;
             this.lbEvaluation.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEvaluation.Location = new System.Drawing.Point(1024, 495);
+            this.lbEvaluation.Location = new System.Drawing.Point(1004, 449);
             this.lbEvaluation.Name = "lbEvaluation";
             this.lbEvaluation.Size = new System.Drawing.Size(132, 26);
             this.lbEvaluation.TabIndex = 57;
@@ -170,9 +151,12 @@
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.panel13);
+            this.panel6.Controls.Add(this.panel11);
+            this.panel6.Controls.Add(this.panel5);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel6.Location = new System.Drawing.Point(926, 0);
+            this.panel6.Location = new System.Drawing.Point(926, -60);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1, 1149);
             this.panel6.TabIndex = 50;
@@ -180,7 +164,6 @@
             // btnCreateEvent
             // 
             this.btnCreateEvent.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnCreateEvent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCreateEvent.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.btnCreateEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateEvent.Image")));
             this.btnCreateEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -315,18 +298,147 @@
             this.flpEventSuggestions.Size = new System.Drawing.Size(886, 291);
             this.flpEventSuggestions.TabIndex = 80;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel1.Location = new System.Drawing.Point(926, 43);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1149, 1);
+            this.panel1.TabIndex = 52;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel2.Location = new System.Drawing.Point(0, 378);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(444, 1);
+            this.panel2.TabIndex = 51;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel3.Location = new System.Drawing.Point(926, 445);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1149, 1);
+            this.panel3.TabIndex = 53;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel4.Location = new System.Drawing.Point(0, 378);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(444, 1);
+            this.panel4.TabIndex = 51;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.panel8);
+            this.panel5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel5.Location = new System.Drawing.Point(0, 478);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1149, 1);
+            this.panel5.TabIndex = 53;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel8.Location = new System.Drawing.Point(0, 378);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(444, 1);
+            this.panel8.TabIndex = 51;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel9.Location = new System.Drawing.Point(926, 485);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1149, 1);
+            this.panel9.TabIndex = 54;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel10.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel10.Location = new System.Drawing.Point(0, 378);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(444, 1);
+            this.panel10.TabIndex = 51;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel11.Location = new System.Drawing.Point(0, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1149, 1);
+            this.panel11.TabIndex = 53;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel12.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel12.Location = new System.Drawing.Point(0, 378);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(444, 1);
+            this.panel12.TabIndex = 51;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel13.Controls.Add(this.panel14);
+            this.panel13.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel13.Location = new System.Drawing.Point(0, 10);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1149, 1);
+            this.panel13.TabIndex = 53;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel14.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel14.Location = new System.Drawing.Point(0, 378);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(444, 1);
+            this.panel14.TabIndex = 51;
+            // 
             // UC_CreateEvent1
             // 
-            this.UC_CreateEvent1.Location = new System.Drawing.Point(6, 337);
+            this.UC_CreateEvent1.Location = new System.Drawing.Point(38, 376);
             this.UC_CreateEvent1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UC_CreateEvent1.Name = "UC_CreateEvent1";
-            this.UC_CreateEvent1.Size = new System.Drawing.Size(435, 448);
+            this.UC_CreateEvent1.Size = new System.Drawing.Size(701, 448);
             this.UC_CreateEvent1.TabIndex = 81;
             // 
             // UC_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.UC_CreateEvent1);
             this.Controls.Add(this.flpEventSuggestions);
             this.Controls.Add(this.flpMyEvents);
@@ -339,7 +451,6 @@
             this.Controls.Add(this.dtpMySportDate);
             this.Controls.Add(this.lbMySportDate);
             this.Controls.Add(this.cbMySport);
-            this.Controls.Add(this.lvEvaluation);
             this.Controls.Add(this.lbNextEvents);
             this.Controls.Add(this.lbMyevents);
             this.Controls.Add(this.lbHighlights);
@@ -355,17 +466,18 @@
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbMonthuser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMonthEnclosure)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView lvEvaluation;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
-        private System.Windows.Forms.ColumnHeader columnHeader14;
-        private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.Label lbNextEvents;
         private System.Windows.Forms.Label lbMyevents;
         private System.Windows.Forms.Button btnCreateEvent;
@@ -389,6 +501,18 @@
         private System.Windows.Forms.FlowLayoutPanel flpMyEvents;
         private System.Windows.Forms.FlowLayoutPanel flpEventSuggestions;
         private UC_CreateEvent UC_CreateEvent1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
         //private UC_CreateEvent UC_CreateEvent1;
     }
 }

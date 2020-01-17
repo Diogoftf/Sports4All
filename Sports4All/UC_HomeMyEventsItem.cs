@@ -19,6 +19,26 @@ namespace Sports4All
         private string _dateTime;
         private string _sport;
         private Color _color;
+        private Image _SportPicture;
+
+        public string resetNameProprieties //
+        {
+            set { lblDate.Text = lblEventOwner.Text = lblPlayers.Text = lblPlace.Text = value;
+                //this.Size = new Size(400,170);
+                
+
+            }
+        }
+
+        public Image DisableImage //
+        {
+            set { pbModality.Image = pbMoreDetails.Image = pbDelete.Image = pbEdit.Image = value; }
+        }
+
+        public Image SportPicture
+        {
+            set { _SportPicture = value; } // provisorio
+        }
 
         public string Sport //Quantidade de jogadores por evento
         {
@@ -41,6 +61,19 @@ namespace Sports4All
 
             get { return _slots; }
             set { _slots = value; lblHowManyPlayers.Text = value; }
+
+        }
+
+        public string NoEvents //Quantidade de jogadores por evento
+        {
+
+            get { return _slots; }
+            set 
+            { 
+                _slots = value; 
+                lblHowManyPlayers.Font = new Font("Century Gothic", 12, FontStyle.Bold);
+                lblHowManyPlayers.Text = value;
+            }
 
         }
 
