@@ -87,5 +87,10 @@ namespace Sports4All
         {
             load_GlobalRank();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
