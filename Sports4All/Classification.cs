@@ -14,6 +14,6 @@ namespace Sports4All
         public double racio { get; set; }
         public double fairplayAverage { get; set; }
         public double skillAverage { get; set; }
-        public User userId { get; set; }
+        public virtual User userId { get; set; }
     }
 }

@@ -135,6 +135,10 @@
     <Compile Include="Migrations\202001181747117_M009.designer.cs">
       <DependentUpon>202001181747117_M009.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001182023394_M010.cs" />
+    <Compile Include="Migrations\202001182023394_M010.designer.cs">
+      <DependentUpon>202001182023394_M010.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="Park.cs" />
@@ -324,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001181747117_M009.resx">
       <DependentUpon>202001181747117_M009.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001182023394_M010.resx">
+      <DependentUpon>202001182023394_M010.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_HeaderUser.resx">
       <DependentUpon>UC_HeaderUser.cs</DependentUpon>

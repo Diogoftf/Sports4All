@@ -46,6 +46,8 @@ namespace Sports4All
             modelBuilder.Entity<District>().HasKey<int>(s => s.DistrictId);
             modelBuilder.Entity<Ground>().HasKey<int>(s => s.GroundId);
             modelBuilder.Entity<Material>().HasKey<int>(s => s.MaterialId);
+            modelBuilder.Entity<Classification>().HasKey<int>(s => s.idClassification);
+
             //one to many
             modelBuilder.Entity<Evaluation>()
                 .HasRequired<Event>(g => g.Event)
