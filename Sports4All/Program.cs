@@ -17,13 +17,13 @@ namespace Sports4All
         {
 
             /** DEBUG**/
-            HomeController a = new HomeController();
+            //HomeController a = new HomeController();
             //a.getMyEvents("josefa");
-            a.getEventSuggestions("josefa");
+            //a.getEventSuggestions("josefa");
 
-           //Application.EnableVisualStyles();
-           //Application.SetCompatibleTextRenderingDefault(false);
-           //Application.Run(new Form1());
+           Application.EnableVisualStyles();
+           Application.SetCompatibleTextRenderingDefault(false);
+           Application.Run(new Form1());
 
 
         }
