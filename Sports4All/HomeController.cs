@@ -10,12 +10,22 @@ namespace Sports4All
     {
         public List<Sport> getSports()
         {
-
             using (ModelContext db = new ModelContext())
             {
                 return db.Sports.ToList();
             }
 
+        }
+
+        public string getMyStats(string username)
+        {
+            using (ModelContext db = new ModelContext())
+            {
+                var matchesPlayed = db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Reserves.ToList().Count()
+                    + db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Events.ToList().Count();
+
+                return matchesPlayed.ToString();
+            }
         }
 
         public List<Reserve> getEventSuggestions(string username)

@@ -79,8 +79,8 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.rtbInfoStats = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.UC_CreateEvent1 = new Sports4All.UC_CreateEvent();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.UC_CreateEvent1 = new Sports4All.UC_CreateEvent();
             this.panel6.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -105,7 +105,7 @@
             this.lbNextEvents.Location = new System.Drawing.Point(10, 431);
             this.lbNextEvents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNextEvents.Name = "lbNextEvents";
-            this.lbNextEvents.Size = new System.Drawing.Size(120, 26);
+            this.lbNextEvents.Size = new System.Drawing.Size(81, 18);
             this.lbNextEvents.TabIndex = 61;
             this.lbNextEvents.Text = "Sugestões";
             // 
@@ -116,7 +116,7 @@
             this.lbMyevents.Location = new System.Drawing.Point(10, 18);
             this.lbMyevents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMyevents.Name = "lbMyevents";
-            this.lbMyevents.Size = new System.Drawing.Size(159, 26);
+            this.lbMyevents.Size = new System.Drawing.Size(108, 18);
             this.lbMyevents.TabIndex = 60;
             this.lbMyevents.Text = "Meus eventos";
             // 
@@ -126,7 +126,7 @@
             this.lbHighlights.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHighlights.Location = new System.Drawing.Point(969, 14);
             this.lbHighlights.Name = "lbHighlights";
-            this.lbHighlights.Size = new System.Drawing.Size(211, 26);
+            this.lbHighlights.Size = new System.Drawing.Size(142, 18);
             this.lbHighlights.TabIndex = 52;
             this.lbHighlights.Text = "Destaques do mês";
             this.lbHighlights.Click += new System.EventHandler(this.lbHighlights_Click);
@@ -135,9 +135,9 @@
             // 
             this.lbStatistics.AutoSize = true;
             this.lbStatistics.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatistics.Location = new System.Drawing.Point(1025, 415);
+            this.lbStatistics.Location = new System.Drawing.Point(1027, 423);
             this.lbStatistics.Name = "lbStatistics";
-            this.lbStatistics.Size = new System.Drawing.Size(128, 26);
+            this.lbStatistics.Size = new System.Drawing.Size(84, 18);
             this.lbStatistics.TabIndex = 57;
             this.lbStatistics.Text = "Estatísticas";
             // 
@@ -157,7 +157,7 @@
             this.lbMonthEnclosure.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.lbMonthEnclosure.Location = new System.Drawing.Point(1026, 378);
             this.lbMonthEnclosure.Name = "lbMonthEnclosure";
-            this.lbMonthEnclosure.Size = new System.Drawing.Size(78, 21);
+            this.lbMonthEnclosure.Size = new System.Drawing.Size(54, 17);
             this.lbMonthEnclosure.TabIndex = 56;
             this.lbMonthEnclosure.Text = "Recinto";
             // 
@@ -167,7 +167,7 @@
             this.lbMonthuser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMonthuser.Location = new System.Drawing.Point(1020, 198);
             this.lbMonthuser.Name = "lbMonthuser";
-            this.lbMonthuser.Size = new System.Drawing.Size(87, 21);
+            this.lbMonthuser.Size = new System.Drawing.Size(63, 17);
             this.lbMonthuser.TabIndex = 54;
             this.lbMonthuser.Text = "Utilizador";
             // 
@@ -279,7 +279,7 @@
             this.cbMySport.FormattingEnabled = true;
             this.cbMySport.Location = new System.Drawing.Point(357, 11);
             this.cbMySport.Name = "cbMySport";
-            this.cbMySport.Size = new System.Drawing.Size(157, 38);
+            this.cbMySport.Size = new System.Drawing.Size(157, 29);
             this.cbMySport.TabIndex = 67;
             this.cbMySport.SelectedIndexChanged += new System.EventHandler(this.cbMySport_SelectedIndexChanged);
             // 
@@ -289,7 +289,7 @@
             this.lbMySportDate.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.lbMySportDate.Location = new System.Drawing.Point(520, 17);
             this.lbMySportDate.Name = "lbMySportDate";
-            this.lbMySportDate.Size = new System.Drawing.Size(66, 25);
+            this.lbMySportDate.Size = new System.Drawing.Size(45, 20);
             this.lbMySportDate.TabIndex = 69;
             this.lbMySportDate.Text = "Data";
             this.lbMySportDate.Click += new System.EventHandler(this.lbMySportDate_Click);
@@ -301,7 +301,7 @@
             this.dtpMySportDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpMySportDate.Location = new System.Drawing.Point(594, 11);
             this.dtpMySportDate.Name = "dtpMySportDate";
-            this.dtpMySportDate.Size = new System.Drawing.Size(182, 37);
+            this.dtpMySportDate.Size = new System.Drawing.Size(182, 27);
             this.dtpMySportDate.TabIndex = 70;
             this.dtpMySportDate.ValueChanged += new System.EventHandler(this.dtpMySportDate_ValueChanged);
             // 
@@ -312,7 +312,7 @@
             this.dtpNextEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNextEventDate.Location = new System.Drawing.Point(594, 415);
             this.dtpNextEventDate.Name = "dtpNextEventDate";
-            this.dtpNextEventDate.Size = new System.Drawing.Size(192, 37);
+            this.dtpNextEventDate.Size = new System.Drawing.Size(192, 27);
             this.dtpNextEventDate.TabIndex = 76;
             // 
             // lbNextEventDate
@@ -321,7 +321,7 @@
             this.lbNextEventDate.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.lbNextEventDate.Location = new System.Drawing.Point(520, 422);
             this.lbNextEventDate.Name = "lbNextEventDate";
-            this.lbNextEventDate.Size = new System.Drawing.Size(66, 25);
+            this.lbNextEventDate.Size = new System.Drawing.Size(45, 20);
             this.lbNextEventDate.TabIndex = 75;
             this.lbNextEventDate.Text = "Data";
             this.lbNextEventDate.Click += new System.EventHandler(this.lbNextEventDate_Click);
@@ -332,7 +332,7 @@
             this.lbNextSport.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.lbNextSport.Location = new System.Drawing.Point(242, 425);
             this.lbNextSport.Name = "lbNextSport";
-            this.lbNextSport.Size = new System.Drawing.Size(109, 25);
+            this.lbNextSport.Size = new System.Drawing.Size(76, 20);
             this.lbNextSport.TabIndex = 72;
             this.lbNextSport.Text = "Desporto";
             // 
@@ -342,7 +342,7 @@
             this.cbNextSport.FormattingEnabled = true;
             this.cbNextSport.Location = new System.Drawing.Point(357, 419);
             this.cbNextSport.Name = "cbNextSport";
-            this.cbNextSport.Size = new System.Drawing.Size(157, 38);
+            this.cbNextSport.Size = new System.Drawing.Size(157, 29);
             this.cbNextSport.TabIndex = 71;
             this.cbNextSport.SelectedIndexChanged += new System.EventHandler(this.cbNextSport_SelectedIndexChanged);
             // 
@@ -352,7 +352,7 @@
             this.lbMySport.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.lbMySport.Location = new System.Drawing.Point(242, 15);
             this.lbMySport.Name = "lbMySport";
-            this.lbMySport.Size = new System.Drawing.Size(109, 25);
+            this.lbMySport.Size = new System.Drawing.Size(76, 20);
             this.lbMySport.TabIndex = 77;
             this.lbMySport.Text = "Desporto";
             // 
@@ -433,7 +433,7 @@
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel9.Location = new System.Drawing.Point(926, 450);
+            this.panel9.Location = new System.Drawing.Point(926, 456);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1149, 1);
             this.panel9.TabIndex = 54;
@@ -452,31 +452,31 @@
             // 
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.31313F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.68687F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.99283F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.00717F));
             this.tableLayoutPanel1.Controls.Add(this.label6, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbMatchesPlayed, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(933, 538);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(933, 548);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(273, 86);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 80);
             this.tableLayoutPanel1.TabIndex = 82;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(89, 57);
+            this.label6.Location = new System.Drawing.Point(110, 53);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 28);
+            this.label6.Size = new System.Drawing.Size(166, 26);
             this.label6.TabIndex = 5;
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -484,10 +484,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 57);
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(4, 53);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 28);
+            this.label5.Size = new System.Drawing.Size(99, 26);
             this.label5.TabIndex = 4;
             this.label5.Text = "Skill";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -496,9 +496,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(89, 29);
+            this.label4.Location = new System.Drawing.Point(110, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(180, 27);
+            this.label4.Size = new System.Drawing.Size(166, 25);
             this.label4.TabIndex = 3;
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -506,10 +506,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 29);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(4, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 27);
+            this.label3.Size = new System.Drawing.Size(99, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "FairPlay";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -518,9 +518,9 @@
             // 
             this.lbMatchesPlayed.AutoSize = true;
             this.lbMatchesPlayed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMatchesPlayed.Location = new System.Drawing.Point(89, 1);
+            this.lbMatchesPlayed.Location = new System.Drawing.Point(110, 1);
             this.lbMatchesPlayed.Name = "lbMatchesPlayed";
-            this.lbMatchesPlayed.Size = new System.Drawing.Size(180, 27);
+            this.lbMatchesPlayed.Size = new System.Drawing.Size(166, 25);
             this.lbMatchesPlayed.TabIndex = 1;
             this.lbMatchesPlayed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbMatchesPlayed.Click += new System.EventHandler(this.lbMatchesPlayed_Click);
@@ -529,10 +529,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 27);
+            this.label1.Size = new System.Drawing.Size(99, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Partidas Jogadas";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -540,16 +540,17 @@
             // pbStats
             // 
             this.pbStats.Image = ((System.Drawing.Image)(resources.GetObject("pbStats.Image")));
-            this.pbStats.Location = new System.Drawing.Point(995, 414);
+            this.pbStats.Location = new System.Drawing.Point(1143, 420);
             this.pbStats.Name = "pbStats";
-            this.pbStats.Size = new System.Drawing.Size(36, 33);
+            this.pbStats.Size = new System.Drawing.Size(24, 24);
+            this.pbStats.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbStats.TabIndex = 83;
             this.pbStats.TabStop = false;
             // 
             // pbProgressBar
             // 
             this.pbProgressBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbProgressBar.Location = new System.Drawing.Point(1021, 463);
+            this.pbProgressBar.Location = new System.Drawing.Point(1021, 470);
             this.pbProgressBar.Name = "pbProgressBar";
             this.pbProgressBar.Size = new System.Drawing.Size(112, 24);
             this.pbProgressBar.TabIndex = 84;
@@ -558,7 +559,7 @@
             // lbCurrentLevel
             // 
             this.lbCurrentLevel.AutoSize = true;
-            this.lbCurrentLevel.Location = new System.Drawing.Point(957, 467);
+            this.lbCurrentLevel.Location = new System.Drawing.Point(957, 474);
             this.lbCurrentLevel.Name = "lbCurrentLevel";
             this.lbCurrentLevel.Size = new System.Drawing.Size(59, 20);
             this.lbCurrentLevel.TabIndex = 85;
@@ -567,7 +568,7 @@
             // lbNextLevel
             // 
             this.lbNextLevel.AutoSize = true;
-            this.lbNextLevel.Location = new System.Drawing.Point(1139, 467);
+            this.lbNextLevel.Location = new System.Drawing.Point(1139, 474);
             this.lbNextLevel.Name = "lbNextLevel";
             this.lbNextLevel.Size = new System.Drawing.Size(59, 20);
             this.lbNextLevel.TabIndex = 86;
@@ -576,10 +577,10 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(929, 515);
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.label17.Location = new System.Drawing.Point(930, 518);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(136, 20);
+            this.label17.Size = new System.Drawing.Size(129, 18);
             this.label17.TabIndex = 88;
             this.label17.Text = "Minha Atividade";
             this.label17.Click += new System.EventHandler(this.label17_Click);
@@ -587,17 +588,17 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(932, 638);
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.label18.Location = new System.Drawing.Point(932, 640);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(137, 20);
+            this.label18.Size = new System.Drawing.Size(122, 18);
             this.label18.TabIndex = 89;
             this.label18.Text = "Meus desportos";
             // 
             // pbInfo
             // 
             this.pbInfo.Image = ((System.Drawing.Image)(resources.GetObject("pbInfo.Image")));
-            this.pbInfo.Location = new System.Drawing.Point(929, 414);
+            this.pbInfo.Location = new System.Drawing.Point(935, 418);
             this.pbInfo.Name = "pbInfo";
             this.pbInfo.Size = new System.Drawing.Size(30, 30);
             this.pbInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -613,9 +614,9 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Controls.Add(this.rtbInfoStats);
             this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(575, 328);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(569, 356);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 238);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(332, 238);
             this.flowLayoutPanel1.TabIndex = 91;
             this.flowLayoutPanel1.Visible = false;
             // 
@@ -643,6 +644,15 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(933, 671);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(280, 106);
+            this.flowLayoutPanel2.TabIndex = 92;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
+            // 
             // UC_CreateEvent1
             // 
             this.UC_CreateEvent1.Location = new System.Drawing.Point(38, 376);
@@ -650,14 +660,6 @@
             this.UC_CreateEvent1.Name = "UC_CreateEvent1";
             this.UC_CreateEvent1.Size = new System.Drawing.Size(701, 448);
             this.UC_CreateEvent1.TabIndex = 81;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(933, 661);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(273, 93);
-            this.flowLayoutPanel2.TabIndex = 92;
             // 
             // UC_Home
             // 

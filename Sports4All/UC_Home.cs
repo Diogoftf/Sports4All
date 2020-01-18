@@ -16,14 +16,13 @@ namespace Sports4All
         private List<UC_HomeMyEventsItem> _MyEvents = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
         private List<UC_HomeMyEventsItem> _EventSuggestions = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
         private List<Sport> _availableSports;
-
         //private LabelX lbStatsInfo = new LabelX("Pontuações: | Eventos Realizados: " + "\r\n" + "Eventos Realizados: 3" + "\r\n" + "Eventos Realizados: 3");
 
         public UC_Home()
         {
             InitializeComponent();
             _homeController = new HomeController();
-            InitializateElements();
+            //InitializateElements();
             flowLayoutPanel1.Visible = false;
 
         }
@@ -71,29 +70,30 @@ namespace Sports4All
             UC_CreateEvent1.Visible = false;
             dtpNextEventDate.MinDate = DateTime.Today;
             //InitializateElements();
+            infoStatsDescription();
         }
 
         private void InitializateElements()
         {
             PopulateLists(AuthProperties.LoggedUser);
             PopulateComboBox();
-            
+            infoStatsDescription();
+            userStatsDetails();
+        }
+
+        private void infoStatsDescription()
+        {
             rtbInfoStats.SelectionFont = new Font("Century Gothic", 10, FontStyle.Bold);
             rtbInfoStats.SelectionColor = Color.Black;
             rtbInfoStats.SelectedText = "Pontuações: \n";
             rtbInfoStats.SelectionFont = new Font("Century Gothic", 8);
             rtbInfoStats.SelectionColor = Color.Black;
-            rtbInfoStats.SelectedText = "Reservas realizadas: " + Points._reservePerformed_Height + " pontos \n" + "Eventos realizados: " + Points._eventPerformed_Height + " pontos \n"+  "Fairplay Global: " + Points._fairplay_Height + " pontos \n" + "Habilidade Global: " + Points._skill_Height + " pontos \n";
+            rtbInfoStats.SelectedText = "Reservas realizadas: " + Points._reservePerformed_Height + " pontos \n" + "Eventos realizados: " + Points._eventPerformed_Height + " pontos \n" + "Fairplay Global: " + Points._fairplay_Height + " pontos \n" + "Habilidade Global: " + Points._skill_Height + " pontos \n";
+        }
 
-            // Provisorio
-            using (ModelContext db = new ModelContext())
-            {
-                var matchesPlayed = db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Reserves.ToList().Count()
-                    + db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Events.ToList().Count();
-
-                lbMatchesPlayed.Text = matchesPlayed.ToString();
-            }
-
+        private void userStatsDetails()
+        {
+            lbMatchesPlayed.Text = _homeController.getMyStats(AuthProperties.LoggedUser);
         }
 
         private void lbHighlights_Click(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace Sports4All
         private void PopulateLists(string username)
         {
             // Preenche list de meus eventos
-
+            
             List<UC_HomeMyEventsItem> myEventsitems = new List<UC_HomeMyEventsItem>();
             List<Event> myEvent = _homeController.getMyEvents(username); // passar scarf para username
             flpMyEvents.Controls.Clear();
@@ -160,9 +160,9 @@ namespace Sports4All
                 flpMyEvents.Controls.Add(noMyEventsitems); //add to flowlayout
             }
 
-            
+            /*
             //Preenche lista de sugestoes de eventos
-     /*       List<UC_HomeMyEventsItem> myEventSuggestions = new List<UC_HomeMyEventsItem>();
+            List<UC_HomeMyEventsItem> myEventSuggestions = new List<UC_HomeMyEventsItem>();
             List<Reserve> EventSuggestions = _homeController.getEventSuggestions(username);
             flpEventSuggestions.Controls.Clear();
 
@@ -268,6 +268,11 @@ namespace Sports4All
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             flowLayoutPanel1.Visible = false;
+        }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
