@@ -100,6 +100,7 @@
     <Compile Include="Event.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="GroundEvaluation.cs" />
+    <Compile Include="Material.cs" />
     <Compile Include="Migrations\202001160004123_001.cs" />
     <Compile Include="Migrations\202001160004123_001.designer.cs">
       <DependentUpon>202001160004123_001.cs</DependentUpon>
@@ -115,6 +116,22 @@
     <Compile Include="Migrations\202001161429369_M004.cs" />
     <Compile Include="Migrations\202001161429369_M004.designer.cs">
       <DependentUpon>202001161429369_M004.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181710370_M006.cs" />
+    <Compile Include="Migrations\202001181710370_M006.designer.cs">
+      <DependentUpon>202001181710370_M006.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181723337_M007.cs" />
+    <Compile Include="Migrations\202001181723337_M007.designer.cs">
+      <DependentUpon>202001181723337_M007.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181743204_M008.cs" />
+    <Compile Include="Migrations\202001181743204_M008.designer.cs">
+      <DependentUpon>202001181743204_M008.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181747117_M009.cs" />
+    <Compile Include="Migrations\202001181747117_M009.designer.cs">
+      <DependentUpon>202001181747117_M009.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
@@ -291,6 +308,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001161429369_M004.resx">
       <DependentUpon>202001161429369_M004.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181710370_M006.resx">
+      <DependentUpon>202001181710370_M006.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181723337_M007.resx">
+      <DependentUpon>202001181723337_M007.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181743204_M008.resx">
+      <DependentUpon>202001181743204_M008.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181747117_M009.resx">
+      <DependentUpon>202001181747117_M009.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_HeaderUser.resx">
       <DependentUpon>UC_HeaderUser.cs</DependentUpon>

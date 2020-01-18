@@ -10,6 +10,6 @@ namespace Sports4All
     {
         public int DistrictId { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<County> Counties { get; set; }
+        public ICollection<County> Counties { get; set; }
     }
 }

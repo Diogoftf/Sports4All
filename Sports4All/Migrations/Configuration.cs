@@ -18,6 +18,7 @@ namespace Sports4All.Migrations
 
         protected override void Seed(Sports4All.ModelContext context)
         {
+            
             ImagesController imgsController = new ImagesController();
 
             ICollection<District> listDistricts = new Collection<District>();
@@ -63,26 +64,27 @@ namespace Sports4All.Migrations
              listAddresses.Add(new Address() { AddressId = 2, PostalCode = "9200-098", Street = "Rua do muro nº1", CountyId = 1});
 
             ICollection<Park> listParks = new Collection<Park>();
-            listParks.Add(new Park() { ParkId = 1, Name = "Agua de Pena", Adress = listAddresses.ToList()[0] });
-            listParks.Add(new Park() { ParkId = 2, Name = "Ludens Padel", Adress = listAddresses.ToList()[1]});
+            listParks.Add(new Park() { ParkId = 1, Name = "Agua de Pena", Adress = listAddresses.ToList()[0], Description = "Teste Descrição1"});
+            listParks.Add(new Park() { ParkId = 2, Name = "Ludens Padel", Adress = listAddresses.ToList()[1], Description = "Teste Descrição2" });
 
             ICollection<Ground> listGrounds = new Collection<Ground>();
             listGrounds.Add(new Ground() { GroundId = 1, ParkId = 1, Sports = listSports.ToList(), Picture = listPictures.ToList()[2] });
             listGrounds.Add(new Ground() { GroundId = 2, ParkId = 2, Sports = listSports.ToList(), Picture = listPictures.ToList()[2] });
-
+            
+            DateTime dateStartEvent = new DateTime(2019, 1, 18);
 
             ICollection<Reserve> listReserves = new Collection<Reserve>();
-            listReserves.Add(new Reserve() { ReserveId = 1, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[0].SportId, GroundId = listGrounds.ToList()[0].GroundId });
-            listReserves.Add(new Reserve() { ReserveId = 2, Price = 10, UserId = listUsers.ToList()[1].Username, SportId = listSports.ToList()[1].SportId, GroundId = listGrounds.ToList()[0].GroundId });
-            listReserves.Add(new Reserve() { ReserveId = 3, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[2].SportId, GroundId = listGrounds.ToList()[0].GroundId });
-            listReserves.Add(new Reserve() { ReserveId = 4, Price = 10, UserId = listUsers.ToList()[2].Username, SportId = listSports.ToList()[3].SportId, GroundId = listGrounds.ToList()[0].GroundId });
+            listReserves.Add(new Reserve() { ReserveId = 1, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[0].SportId, GroundId = listGrounds.ToList()[0].GroundId , Date = dateStartEvent });
+            listReserves.Add(new Reserve() { ReserveId = 2, Price = 10, UserId = listUsers.ToList()[1].Username, SportId = listSports.ToList()[1].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
+            listReserves.Add(new Reserve() { ReserveId = 3, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[2].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
+            listReserves.Add(new Reserve() { ReserveId = 4, Price = 10, UserId = listUsers.ToList()[2].Username, SportId = listSports.ToList()[3].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
              
             ICollection<Event> listEvents = new Collection<Event>();
-            DateTime dateStartEvent = new DateTime(2019, 1, 18);
+            
             DateTime dateEndEvent = dateStartEvent;
             dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
             dateEndEvent.Date.AddHours(14); dateEndEvent.Date.AddMinutes(00);
-            listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Reserve = listReserves.ToList()[0],Name = "Treino - ADM vs Nacional" });
+            listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Reserve = listReserves.ToList()[0],Name = "Treino - ADM vs Nacional"});
             dateStartEvent = dateEndEvent = new DateTime(2019, 1, 25);
             dateStartEvent.Date.AddHours(9); dateStartEvent.Date.AddMinutes(30);
             dateEndEvent.Date.AddHours(11); dateEndEvent.Date.AddMinutes(00);
@@ -189,6 +191,7 @@ namespace Sports4All.Migrations
 
 
             base.Seed(context);
+            
         }
     }
 }

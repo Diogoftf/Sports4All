@@ -12,7 +12,8 @@ namespace Sports4All
         public int SportId { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Ground> Grounds { get; set; }
-        public virtual ICollection<Reserve> Reserves { get; set; }
+        public ICollection<Reserve> Reserves { get; set; }
         public virtual Picture Picture { get; set; }
+        public ICollection<Material> Materials { get; set; }
     }
 }

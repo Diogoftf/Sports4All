@@ -11,13 +11,14 @@ namespace Sports4All
    {
         public int ReserveId { get; set; }
 
+        public DateTime Date { get; set; }
         public double Price { get; set; }
-        public virtual User User { get; set; }
         public string UserId { get; set; }
-        public virtual Sport Sport { get; set; }
         public int SportId { get; set; }
-        public virtual Ground Ground { get; set; }
         public int GroundId { get; set; }
+        public Sport Sport { get; set; }
+        public virtual User User { get; set; }
+        public Ground Ground { get; set; }
         public virtual Event Event { get; set; }
 
 

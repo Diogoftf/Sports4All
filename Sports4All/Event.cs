@@ -15,9 +15,9 @@ namespace Sports4All
         public int MaxPlayers { get; set; }
         public int MaxAge { get; set; }
         public int MinAge { get; set; }
-        public string Name { get; set; }          
+        public string Name { get; set; }
         public virtual Reserve Reserve { get; set; }
         public virtual ICollection<User> Users { get; set; }
-        public virtual ICollection<Evaluation> Evaluations { get; set; }
+        public ICollection<Evaluation> Evaluations { get; set; }
     }
 }

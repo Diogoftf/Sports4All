@@ -10,8 +10,7 @@ namespace Sports4All
     {
         public int Quality { get; set; }
         public int Price { get; set; }
-
-        public virtual Ground Ground { get; set; }
+        public Ground Ground { get; set; }
         public int GroundId { get; set; }
 
     }
