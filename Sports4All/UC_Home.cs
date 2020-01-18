@@ -18,13 +18,13 @@ namespace Sports4All
         private List<Sport> _availableSports;
         private UC_HomeMyEventsItem noMyEventsitems = new UC_HomeMyEventsItem();
         private UC_HomeMyEventsItem noSuggestionsEventsitems = new UC_HomeMyEventsItem();
-        //private LabelX lbStatsInfo = new LabelX("Pontuações: | Eventos Realizados: " + "\r\n" + "Eventos Realizados: 3" + "\r\n" + "Eventos Realizados: 3");
+  
 
         public UC_Home()
         {
             InitializeComponent();
             _homeController = new HomeController();
-           // InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
+            InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
             flpInfoStats.Visible = false;
             infoStatsDescription(); // PROVISORIO
 

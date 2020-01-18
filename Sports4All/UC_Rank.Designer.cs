@@ -37,7 +37,7 @@
             this.lblstart_Hour = new System.Windows.Forms.Label();
             this.lblEventOwnerValue = new System.Windows.Forms.Label();
             this.lblSportsGround = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTopRecintos = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.btnGlobalRank.Location = new System.Drawing.Point(484, 18);
             this.btnGlobalRank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGlobalRank.Name = "btnGlobalRank";
-            this.btnGlobalRank.Size = new System.Drawing.Size(220, 55);
+            this.btnGlobalRank.Size = new System.Drawing.Size(262, 55);
             this.btnGlobalRank.TabIndex = 2;
             this.btnGlobalRank.Text = "Ranking Global Jogadores";
             this.btnGlobalRank.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -76,11 +76,12 @@
             // flpRank
             // 
             this.flpRank.AutoScroll = true;
+            this.flpRank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.flpRank.Location = new System.Drawing.Point(45, 168);
-            this.flpRank.Margin = new System.Windows.Forms.Padding(2);
+            this.flpRank.Margin = new System.Windows.Forms.Padding(0);
             this.flpRank.Name = "flpRank";
-            this.flpRank.Size = new System.Drawing.Size(1128, 593);
+            this.flpRank.Size = new System.Drawing.Size(1130, 593);
             this.flpRank.TabIndex = 80;
             // 
             // tableLayoutPanel1
@@ -154,32 +155,32 @@
             this.lblSportsGround.Text = "Partidas";
             this.lblSportsGround.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btnTopRecintos
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(790, 18);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 55);
-            this.button1.TabIndex = 81;
-            this.button1.Text = "Top Recintos";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnTopRecintos.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnTopRecintos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnTopRecintos.Image = ((System.Drawing.Image)(resources.GetObject("btnTopRecintos.Image")));
+            this.btnTopRecintos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTopRecintos.Location = new System.Drawing.Point(790, 18);
+            this.btnTopRecintos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTopRecintos.Name = "btnTopRecintos";
+            this.btnTopRecintos.Size = new System.Drawing.Size(177, 55);
+            this.btnTopRecintos.TabIndex = 81;
+            this.btnTopRecintos.Text = "Top Recintos";
+            this.btnTopRecintos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTopRecintos.UseVisualStyleBackColor = true;
+            this.btnTopRecintos.Click += new System.EventHandler(this.btnTopRecintos_Click);
             // 
             // UC_Rank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTopRecintos);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.flpRank);
             this.Controls.Add(this.btnGlobalRank);
             this.Controls.Add(this.btnTop10);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UC_Rank";
             this.Size = new System.Drawing.Size(1226, 778);
             this.Load += new System.EventHandler(this.UC_Rank_Load);
@@ -198,6 +199,6 @@
         private System.Windows.Forms.Label lblEventOwnerValue;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSportsGround;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTopRecintos;
     }
 }

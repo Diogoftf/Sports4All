@@ -35,6 +35,7 @@ namespace Sports4All
                     fairplayResult += e.FairPlay;
                     skillResult += e.Skill;
                 }
+
                 fairplayResult /= query.Count;
                 skillResult /= query.Count;
                 racio = fairplayResult / skillResult ;
@@ -64,26 +65,29 @@ namespace Sports4All
 
                 if ((userEvents.Count + userReserves.Count) > 0) // Se ja participou em algum evento
                 {
-                    /*   for (int i = 0; i < userEvents.Count; i++)
-                       {
-                           sportsPerformed.Add(userEvents[i].Reserve.Sport.Name); // tenho todos os eventos em que o user participou
 
-                       }
+                    /*for (int i = 0; i < userEvents.Count; i++)
+                     {
+                         sportsPerformed.Add(userEvents[i].Reserve.Sport.Name); // tenho o nome do desporto dos eventos em que o user participou
 
-                       for (int i = 0; i < userReserves.Count; i++)
-                       {
-                           if (!sportsPerformed.Contains(userReserves[i].Sport.Name))
-                           {
-                               sportsPerformed.Add(userReserves[i].Sport.Name); // tenho todas as reservas do user especifico
-                           }
+                     }
 
-                       }
+                     for (int i = 0; i < userReserves.Count; i++)
+                     {
+                         if (!sportsPerformed.Contains(userReserves[i].Sport.Name))
+                         {
+                             sportsPerformed.Add(userReserves[i].Sport.Name); // tenho o nome de todas as reservas q o user criou
+                         }
 
+                     }*/
+                    /*
                     && (e.UserId != username || !e.Event.Users.Contains(username)) && (e.User.County.CountyId == e.Ground.Park.Adress.CountyId || e.User.County.DistrictId == e.Ground.Park.Adress.County.DistrictId
-                       */
-                    var allReservesandEvents = db.Events.Where(e => e.StartDate > DateTime.Now ).Take(3).ToList();
+                        */
 
-                    for (int i = 0; i < allReservesandEvents.Count; i++)
+                    // Todos os eventos que o user nao esta insscrito COLOCAR ISTO MAIS A FRENTE (.Where(e => e.StartDate > DateTime.Now )
+                    //var allReservesandEvents = db.Events.Take(3).ToList();
+
+                //    for (int i = 0; i < allReservesandEvents.Count; i++)
                     {
                       //  SuggestionsEvents.Add(allReservesandEvents[i]); // tenho todas as reservas do user especifico
 

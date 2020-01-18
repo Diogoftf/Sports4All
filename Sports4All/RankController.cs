@@ -8,28 +8,26 @@ namespace Sports4All
 {
     class RankController
     {
-        public List<User> getUsersTop10(string username)
+        public List<Classification> getTopUsers()
         {
-            List<User> top10users = new List<User>();
-           // top10users[0].
+
             using (var db = new ModelContext())
             {
-                // Pego todos os users que ja fizeram pelo menos 1 reserva ou participaram em pelo menos 1 evento
-                var query = db.Users.Where(e => e.Events.Count > 0 || e.Reserves.Count > 0).ToList();
-
-                foreach (User e in query)
-                {
-                    if (e.Reserves.Count > 0)
-                    { 
-                        
-                    }
-                
-                }
-                // Por corrigir a query
-              //  var query = db.Reserves.ToList()[0].Event.Evaluations.OfType<UserEvaluation>().ToList()[0].
-
+                return db.Classifications.OrderByDescending(c => c.rankClassification).ToList();
             }
-            return top10users;
+            
+        }
+
+        public void getTopRecintos()
+        {
+            List<GroundEvaluation> teste = new List<GroundEvaluation>();
+            GroundEvaluation a = new GroundEvaluation();
+         //   a.
+            using (var db = new ModelContext())
+            {
+                var query = db.Evaluations.OfType<GroundEvaluation>().ToList();
+            }
+
         }
     }
 }
