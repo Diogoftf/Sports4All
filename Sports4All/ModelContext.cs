@@ -13,8 +13,8 @@ namespace Sports4All
         public ModelContext() : base("name=DataBaseContext")
         {
 
-            //            Database.SetInitializer<ModelContext>(new DropCreateDatabaseIfModelChanges<ModelContext>());
-            Database.SetInitializer<ModelContext>(new CreateDatabaseIfNotExists<ModelContext>());
+           // Database.SetInitializer<ModelContext>(new DropCreateDatabaseIfModelChanges<ModelContext>());
+             Database.SetInitializer<ModelContext>(new CreateDatabaseIfNotExists<ModelContext>());
         }
         public DbSet<Event> Events { get; set; }
         public DbSet<User> Users { get; set; }
@@ -29,6 +29,8 @@ namespace Sports4All
         public DbSet<Ground> Grounds { get; set; }
         public DbSet<Material> Materials { get; set; }
      
+
+        public DbSet<Classification> Classifications { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -81,6 +83,10 @@ namespace Sports4All
                 .HasForeignKey<int>(s => s.PictureId)
                 .WillCascadeOnDelete(false);
 
+            //one to one
+            modelBuilder.Entity<User>()
+                .HasRequired(s => s.myStats)
+                .WithRequiredPrincipal(ad => ad.userId);
 
             //one to many
             modelBuilder.Entity<Reserve>()

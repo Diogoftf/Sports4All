@@ -44,16 +44,15 @@
             // btnTop10
             // 
             this.btnTop10.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnTop10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTop10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnTop10.Image = ((System.Drawing.Image)(resources.GetObject("btnTop10.Image")));
             this.btnTop10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTop10.Location = new System.Drawing.Point(261, 18);
+            this.btnTop10.Location = new System.Drawing.Point(210, 18);
             this.btnTop10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTop10.Name = "btnTop10";
-            this.btnTop10.Size = new System.Drawing.Size(141, 55);
+            this.btnTop10.Size = new System.Drawing.Size(192, 55);
             this.btnTop10.TabIndex = 1;
-            this.btnTop10.Text = "Top 10";
+            this.btnTop10.Text = "Top 10 Jogadores";
             this.btnTop10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTop10.UseVisualStyleBackColor = true;
             this.btnTop10.Click += new System.EventHandler(this.btnTop10_Click);
@@ -61,7 +60,6 @@
             // btnGlobalRank
             // 
             this.btnGlobalRank.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnGlobalRank.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGlobalRank.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnGlobalRank.Image = ((System.Drawing.Image)(resources.GetObject("btnGlobalRank.Image")));
             this.btnGlobalRank.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -70,7 +68,7 @@
             this.btnGlobalRank.Name = "btnGlobalRank";
             this.btnGlobalRank.Size = new System.Drawing.Size(220, 55);
             this.btnGlobalRank.TabIndex = 2;
-            this.btnGlobalRank.Text = "Ranking global";
+            this.btnGlobalRank.Text = "Ranking Global Jogadores";
             this.btnGlobalRank.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGlobalRank.UseVisualStyleBackColor = true;
             this.btnGlobalRank.Click += new System.EventHandler(this.btnGlobalRank_Click);
@@ -78,7 +76,6 @@
             // flpRank
             // 
             this.flpRank.AutoScroll = true;
-            this.flpRank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.flpRank.Location = new System.Drawing.Point(45, 168);
             this.flpRank.Margin = new System.Windows.Forms.Padding(2);
@@ -160,11 +157,10 @@
             // button1
             // 
             this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(782, 18);
+            this.button1.Location = new System.Drawing.Point(790, 18);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(220, 55);

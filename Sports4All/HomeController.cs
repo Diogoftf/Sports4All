@@ -17,14 +17,36 @@ namespace Sports4All
 
         }
 
-        public string getMyStats(string username)
+        public List<string> getMyStats(string username)
         {
+            List<string> userStats = new List<string>();
             using (ModelContext db = new ModelContext())
             {
-                var matchesPlayed = db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Reserves.ToList().Count()
-                    + db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Events.ToList().Count();
+                var eventsPlayed = db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Events.ToList().Count();
+                var reservesMade = db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Reserves.ToList().Count();
+                var matchesPlayed = reservesMade + eventsPlayed;
+                var query = db.Evaluations.OfType<UserEvaluation>().Where(e => e.UserId == AuthProperties.LoggedUser).ToList();
+                double fairplayResult = 0;
+                double skillResult = 0;
+                double racio = 0;
 
-                return matchesPlayed.ToString();
+                foreach (UserEvaluation e in query)
+                {
+                    fairplayResult += e.FairPlay;
+                    skillResult += e.Skill;
+                }
+                fairplayResult /= query.Count;
+                skillResult /= query.Count;
+                racio = fairplayResult / skillResult ;
+                double points = fairplayResult * Points._fairplay_Height + skillResult * Points._skill_Height + eventsPlayed * Points._eventPerformed_Height
+                    + reservesMade * Points._reservePerformed_Height;
+
+                userStats.Add(matchesPlayed.ToString());
+                userStats.Add(fairplayResult.ToString());
+                userStats.Add(skillResult.ToString());
+                userStats.Add(racio.ToString());
+                userStats.Add(points.ToString());
+                return userStats;
             }
         }
 
@@ -96,7 +118,7 @@ namespace Sports4All
 
                 foreach (Event a in query.Events) // todos os eventos que esse user participou
                 {
-                    if (a.StartDate > DateTime.Now)
+                   // if (a.StartDate > DateTime.Now) //PROVISORIO!!!!!!!!
                     {
                         myEvents.Add(a);
                     }
@@ -104,9 +126,9 @@ namespace Sports4All
 
                 foreach (Reserve a in query.Reserves)
                 {
-                    if (a.Event.StartDate > DateTime.Now)
+                    //   if (a.Event.StartDate > DateTime.Now) //PROVISORIO!!!!!!!!
                     {
-                        if(!myEvents.Contains(a.Event))
+                        if (!myEvents.Contains(a.Event))
                             myEvents.Add(a.Event);
                     }
                 }
