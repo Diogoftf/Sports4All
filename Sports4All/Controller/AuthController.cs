@@ -7,8 +7,8 @@ namespace Sports4All.Controller
 {
     public class AuthController
     {
+        private readonly ICollection<County> listCounties = new Collection<County>();
 
-        private ICollection<County> listCounties = new Collection<County>();
         public void RegisterUser(string email, string password, string username, string age, string cellphone,
             int pictureId, int countyId)
 
@@ -77,7 +77,6 @@ namespace Sports4All.Controller
 
         public ICollection<County> RetrieveCounties()
         {
-            
             using (var db = new ModelContext())
             {
                 var counties = db.Counties.ToList();
@@ -87,8 +86,5 @@ namespace Sports4All.Controller
                 return listCounties;
             }
         }
-
-
-        }
-    
+    }
 }
