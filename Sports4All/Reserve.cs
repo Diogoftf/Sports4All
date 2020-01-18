@@ -10,7 +10,6 @@ namespace Sports4All
    public class Reserve
    {
         public int ReserveId { get; set; }
-
         public double Price { get; set; }
         public virtual User User { get; set; }
         public string UserId { get; set; }

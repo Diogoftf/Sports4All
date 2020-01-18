@@ -16,17 +16,17 @@ namespace Sports4All
         private List<UC_HomeMyEventsItem> _MyEvents = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
         private List<UC_HomeMyEventsItem> _EventSuggestions = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
         private List<Sport> _availableSports;
-        UC_HomeMyEventsItem noMyEventsitems = new UC_HomeMyEventsItem();
-        UC_HomeMyEventsItem noSuggestionsEventsitems = new UC_HomeMyEventsItem();
+        private UC_HomeMyEventsItem noMyEventsitems = new UC_HomeMyEventsItem();
+        private UC_HomeMyEventsItem noSuggestionsEventsitems = new UC_HomeMyEventsItem();
         //private LabelX lbStatsInfo = new LabelX("Pontuações: | Eventos Realizados: " + "\r\n" + "Eventos Realizados: 3" + "\r\n" + "Eventos Realizados: 3");
 
         public UC_Home()
         {
             InitializeComponent();
             _homeController = new HomeController();
-            InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
+           // InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
             flpInfoStats.Visible = false;
-           // infoStatsDescription(); // PROVISORIO
+            infoStatsDescription(); // PROVISORIO
 
         }
 
@@ -85,7 +85,7 @@ namespace Sports4All
             noMyEventsitems.resetNameProprieties = "";
 
             noSuggestionsEventsitems.Sport = noMyEventsitems.Recinto = noMyEventsitems.Organizador = noMyEventsitems.DateTime = "";
-            noSuggestionsEventsitems.NoEvents = "Não existem sugestões. \n Cria uma Reserva :D";
+            noSuggestionsEventsitems.NoEvents = "Não existem sugestões :(";
             noSuggestionsEventsitems.DisableImage = null;
             noSuggestionsEventsitems.resetNameProprieties = "";
 
@@ -107,7 +107,10 @@ namespace Sports4All
 
         private void userStatsDetails()
         {
-            lbMatchesPlayed.Text = _homeController.getMyStats(AuthProperties.LoggedUser);
+            lbMatchesPlayedValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser)[0];
+            lbFairplayValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser)[1];
+            lbSkillValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser)[2];
+            lbRacioValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser)[3];
         }
 
         private void lbHighlights_Click(object sender, EventArgs e)
@@ -229,6 +232,8 @@ namespace Sports4All
 
         private void cbNextSport_SelectedIndexChanged(object sender, EventArgs e)
         {
+            flpEventSuggestions.Controls.Clear();
+
             if (_EventSuggestions.Count > 0)
             {
                 if (cbNextSport.SelectedIndex == 0) // Se esta na seleção padrao (ou seja nada foi escolhido)

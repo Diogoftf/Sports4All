@@ -91,6 +91,7 @@
     <Compile Include="CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classification.cs" />
     <Compile Include="Controller\AuthController.cs" />
     <Compile Include="Controller\ImagesController.cs" />
     <Compile Include="Core\DropShaddow.cs" />

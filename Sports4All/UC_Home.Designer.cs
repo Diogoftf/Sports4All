@@ -63,12 +63,12 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbSkillValue = new System.Windows.Forms.Label();
+            this.lbSkill = new System.Windows.Forms.Label();
+            this.lbFairplayValue = new System.Windows.Forms.Label();
+            this.lbFairplay = new System.Windows.Forms.Label();
+            this.lbMatchesPlayedValue = new System.Windows.Forms.Label();
             this.lbMatchesPlayed = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pbStats = new System.Windows.Forms.PictureBox();
             this.pbProgressBar = new System.Windows.Forms.PictureBox();
             this.lbCurrentLevel = new System.Windows.Forms.Label();
@@ -77,10 +77,12 @@
             this.label18 = new System.Windows.Forms.Label();
             this.pbInfo = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.UC_CreateEvent1 = new Sports4All.UC_CreateEvent();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtbInfoStats = new System.Windows.Forms.RichTextBox();
             this.flpInfoStats = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbRacio = new System.Windows.Forms.Label();
+            this.lbRacioValue = new System.Windows.Forms.Label();
+            this.UC_CreateEvent1 = new Sports4All.UC_CreateEvent();
             this.panel6.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -454,88 +456,94 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.99283F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.00717F));
-            this.tableLayoutPanel1.Controls.Add(this.label6, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lbMatchesPlayed, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbRacio, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lbSkillValue, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lbSkill, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lbFairplayValue, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbFairplay, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbMatchesPlayedValue, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbMatchesPlayed, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbRacioValue, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(933, 548);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 80);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 95);
             this.tableLayoutPanel1.TabIndex = 82;
             // 
-            // label6
+            // lbSkillValue
             // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(110, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(166, 26);
-            this.label6.TabIndex = 5;
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbSkillValue.AutoSize = true;
+            this.lbSkillValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbSkillValue.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lbSkillValue.Location = new System.Drawing.Point(110, 49);
+            this.lbSkillValue.Name = "lbSkillValue";
+            this.lbSkillValue.Size = new System.Drawing.Size(166, 23);
+            this.lbSkillValue.TabIndex = 5;
+            this.lbSkillValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label5
+            // lbSkill
             // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(4, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 26);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Skill";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbSkill.AutoSize = true;
+            this.lbSkill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbSkill.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lbSkill.Location = new System.Drawing.Point(4, 49);
+            this.lbSkill.Name = "lbSkill";
+            this.lbSkill.Size = new System.Drawing.Size(99, 23);
+            this.lbSkill.TabIndex = 4;
+            this.lbSkill.Text = "Skill";
+            this.lbSkill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // lbFairplayValue
             // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(110, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 25);
-            this.label4.TabIndex = 3;
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbFairplayValue.AutoSize = true;
+            this.lbFairplayValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbFairplayValue.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lbFairplayValue.Location = new System.Drawing.Point(110, 25);
+            this.lbFairplayValue.Name = "lbFairplayValue";
+            this.lbFairplayValue.Size = new System.Drawing.Size(166, 23);
+            this.lbFairplayValue.TabIndex = 3;
+            this.lbFairplayValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lbFairplay
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(4, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "FairPlay";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbFairplay.AutoSize = true;
+            this.lbFairplay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbFairplay.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lbFairplay.Location = new System.Drawing.Point(4, 25);
+            this.lbFairplay.Name = "lbFairplay";
+            this.lbFairplay.Size = new System.Drawing.Size(99, 23);
+            this.lbFairplay.TabIndex = 2;
+            this.lbFairplay.Text = "FairPlay";
+            this.lbFairplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbMatchesPlayedValue
+            // 
+            this.lbMatchesPlayedValue.AutoSize = true;
+            this.lbMatchesPlayedValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbMatchesPlayedValue.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lbMatchesPlayedValue.Location = new System.Drawing.Point(110, 1);
+            this.lbMatchesPlayedValue.Name = "lbMatchesPlayedValue";
+            this.lbMatchesPlayedValue.Size = new System.Drawing.Size(166, 23);
+            this.lbMatchesPlayedValue.TabIndex = 1;
+            this.lbMatchesPlayedValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbMatchesPlayedValue.Click += new System.EventHandler(this.lbMatchesPlayed_Click);
             // 
             // lbMatchesPlayed
             // 
             this.lbMatchesPlayed.AutoSize = true;
             this.lbMatchesPlayed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMatchesPlayed.Location = new System.Drawing.Point(110, 1);
+            this.lbMatchesPlayed.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lbMatchesPlayed.Location = new System.Drawing.Point(4, 1);
             this.lbMatchesPlayed.Name = "lbMatchesPlayed";
-            this.lbMatchesPlayed.Size = new System.Drawing.Size(166, 25);
-            this.lbMatchesPlayed.TabIndex = 1;
+            this.lbMatchesPlayed.Size = new System.Drawing.Size(99, 23);
+            this.lbMatchesPlayed.TabIndex = 0;
+            this.lbMatchesPlayed.Text = "Partidas Jogadas";
             this.lbMatchesPlayed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbMatchesPlayed.Click += new System.EventHandler(this.lbMatchesPlayed_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(4, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Partidas Jogadas";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbStats
             // 
@@ -578,7 +586,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(930, 518);
+            this.label17.Location = new System.Drawing.Point(933, 517);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(129, 18);
             this.label17.TabIndex = 88;
@@ -589,7 +597,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(932, 640);
+            this.label18.Location = new System.Drawing.Point(933, 661);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(122, 18);
             this.label18.TabIndex = 89;
@@ -610,19 +618,11 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(933, 671);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(933, 682);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(280, 106);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(280, 95);
             this.flowLayoutPanel2.TabIndex = 92;
             this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
-            // 
-            // UC_CreateEvent1
-            // 
-            this.UC_CreateEvent1.Location = new System.Drawing.Point(0, 409);
-            this.UC_CreateEvent1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.UC_CreateEvent1.Name = "UC_CreateEvent1";
-            this.UC_CreateEvent1.Size = new System.Drawing.Size(394, 249);
-            this.UC_CreateEvent1.TabIndex = 81;
             // 
             // pictureBox1
             // 
@@ -660,6 +660,37 @@
             this.flpInfoStats.Size = new System.Drawing.Size(378, 238);
             this.flpInfoStats.TabIndex = 91;
             this.flpInfoStats.Visible = false;
+            // 
+            // lbRacio
+            // 
+            this.lbRacio.AutoSize = true;
+            this.lbRacio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbRacio.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lbRacio.Location = new System.Drawing.Point(4, 73);
+            this.lbRacio.Name = "lbRacio";
+            this.lbRacio.Size = new System.Drawing.Size(99, 21);
+            this.lbRacio.TabIndex = 6;
+            this.lbRacio.Text = "Rácio";
+            this.lbRacio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbRacioValue
+            // 
+            this.lbRacioValue.AutoSize = true;
+            this.lbRacioValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbRacioValue.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lbRacioValue.Location = new System.Drawing.Point(110, 73);
+            this.lbRacioValue.Name = "lbRacioValue";
+            this.lbRacioValue.Size = new System.Drawing.Size(166, 21);
+            this.lbRacioValue.TabIndex = 7;
+            this.lbRacioValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // UC_CreateEvent1
+            // 
+            this.UC_CreateEvent1.Location = new System.Drawing.Point(0, 409);
+            this.UC_CreateEvent1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UC_CreateEvent1.Name = "UC_CreateEvent1";
+            this.UC_CreateEvent1.Size = new System.Drawing.Size(394, 249);
+            this.UC_CreateEvent1.TabIndex = 81;
             // 
             // UC_Home
             // 
@@ -762,12 +793,12 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pbStats;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbMatchesPlayed;
+        private System.Windows.Forms.Label lbSkillValue;
+        private System.Windows.Forms.Label lbSkill;
+        private System.Windows.Forms.Label lbFairplayValue;
+        private System.Windows.Forms.Label lbFairplay;
+        private System.Windows.Forms.Label lbMatchesPlayedValue;
         private System.Windows.Forms.PictureBox pbProgressBar;
         private System.Windows.Forms.Label lbCurrentLevel;
         private System.Windows.Forms.Label lbNextLevel;
@@ -779,6 +810,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox rtbInfoStats;
         private System.Windows.Forms.FlowLayoutPanel flpInfoStats;
+        private System.Windows.Forms.Label lbRacio;
+        private System.Windows.Forms.Label lbRacioValue;
         //private UC_CreateEvent UC_CreateEvent1;
     }
 }

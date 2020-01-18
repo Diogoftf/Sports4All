@@ -15,6 +15,8 @@ namespace Sports4All
         public string Password { get; set; }        
         public int PhoneNumber { get; set; }
 
+        public virtual Classification myStats { get; set; }
+
         public virtual County County { get; set; }
         public int CountyId { get; set; }
         public virtual Picture Picture { get; set; }
