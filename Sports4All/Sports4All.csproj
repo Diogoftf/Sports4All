@@ -51,6 +51,7 @@
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
@@ -92,6 +93,7 @@
     </Compile>
     <Compile Include="Controller\AuthController.cs" />
     <Compile Include="Controller\BrowseController.cs" />
+    <Compile Include="Controller\ImagesController.cs" />
     <Compile Include="Core\DropShaddow.cs" />
     <Compile Include="County.cs" />
     <Compile Include="District.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Event.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="GroundEvaluation.cs" />
+    <Compile Include="Material.cs" />
     <Compile Include="Migrations\202001160004123_001.cs" />
     <Compile Include="Migrations\202001160004123_001.designer.cs">
       <DependentUpon>202001160004123_001.cs</DependentUpon>
@@ -114,6 +117,22 @@
     <Compile Include="Migrations\202001161429369_M004.cs" />
     <Compile Include="Migrations\202001161429369_M004.designer.cs">
       <DependentUpon>202001161429369_M004.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181710370_M006.cs" />
+    <Compile Include="Migrations\202001181710370_M006.designer.cs">
+      <DependentUpon>202001181710370_M006.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181723337_M007.cs" />
+    <Compile Include="Migrations\202001181723337_M007.designer.cs">
+      <DependentUpon>202001181723337_M007.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181743204_M008.cs" />
+    <Compile Include="Migrations\202001181743204_M008.designer.cs">
+      <DependentUpon>202001181743204_M008.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181747117_M009.cs" />
+    <Compile Include="Migrations\202001181747117_M009.designer.cs">
+      <DependentUpon>202001181747117_M009.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
@@ -290,6 +309,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001161429369_M004.resx">
       <DependentUpon>202001161429369_M004.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181710370_M006.resx">
+      <DependentUpon>202001181710370_M006.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181723337_M007.resx">
+      <DependentUpon>202001181723337_M007.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181743204_M008.resx">
+      <DependentUpon>202001181743204_M008.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181747117_M009.resx">
+      <DependentUpon>202001181747117_M009.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_HeaderUser.resx">
       <DependentUpon>UC_HeaderUser.cs</DependentUpon>

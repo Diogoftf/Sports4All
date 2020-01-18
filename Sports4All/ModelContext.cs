@@ -27,6 +27,8 @@ namespace Sports4All
         public DbSet<County> Counties { get; set; }
         public DbSet<District> Districts { get; set; }
         public DbSet<Ground> Grounds { get; set; }
+        public DbSet<Material> Materials { get; set; }
+     
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -41,7 +43,7 @@ namespace Sports4All
             modelBuilder.Entity<County>().HasKey<int>(s => s.CountyId);
             modelBuilder.Entity<District>().HasKey<int>(s => s.DistrictId);
             modelBuilder.Entity<Ground>().HasKey<int>(s => s.GroundId);
-
+            modelBuilder.Entity<Material>().HasKey<int>(s => s.MaterialId);
             //one to many
             modelBuilder.Entity<Evaluation>()
                 .HasRequired<Event>(g => g.Event)
@@ -187,6 +189,19 @@ namespace Sports4All
                 .WithMany(s => s.GroundEvaluations)
                 .HasForeignKey<int>(s => s.GroundId)
                 .WillCascadeOnDelete(false);
+
+
+            //one to many
+            modelBuilder.Entity<Material>()
+                .HasRequired<Park>(g => g.Park)
+                .WithMany(s => s.Materials)
+                .HasForeignKey<int>(s => s.ParkId);
+
+            //one to many
+            modelBuilder.Entity<Material>()
+                .HasRequired<Sport>(g => g.Sport)
+                .WithMany(s => s.Materials)
+                .HasForeignKey<int>(s => s.SportId);
         }
 
 

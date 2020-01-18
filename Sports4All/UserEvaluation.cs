@@ -10,7 +10,7 @@ namespace Sports4All
     {
         public int Skill  { get; set; }
         public int FairPlay { get; set; }
-        public virtual User Evaluated { get; set; }
+        public User Evaluated { get; set; }
         public string UserId { get; set; }
     }
 }

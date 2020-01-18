@@ -1,4 +1,6 @@
-﻿namespace Sports4All.Migrations
+﻿using Sports4All.Controller;
+
+namespace Sports4All.Migrations
 {
     using System;
     using System.Collections.Generic;
@@ -16,6 +18,8 @@
 
         protected override void Seed(Sports4All.ModelContext context)
         {
+            
+            ImagesController imgsController = new ImagesController();
 
             ICollection<District> listDistricts = new Collection<District>();
 
@@ -29,19 +33,18 @@
             listCounties.Add(new County() { CountyId = 3, DistrictId = 1, Name = "Funchal" });
             listCounties.Add(new County() { CountyId = 4, DistrictId = 1, Name = "São Vicente" });
             listCounties.Add(new County() { CountyId = 5, DistrictId = 1, Name = "Santa Cruz" });
-            
-            // ICollection<Picture> listPictures = new Collection<Picture>();
-            //listPictures.Add(new Picture() { PictureId = default, PicdtureBody = "imagemFicticia", User = listUsers.ToList()[0] });
-            //Picture test = new Picture() { PictureId = 1, PicdtureBody = "imagemFicticia", User = listUsers.ToList()[0] };
+
+            IList<string> images = imgsController.InsertImagetoDB();
 
             ICollection<Picture> listPictures = new Collection<Picture>();
-            listPictures.Add(new Picture() { PictureId = 1, PictureBody = "Sigaaaaa" });
-            listPictures.Add(new Picture() { PictureId = 2, PictureBody = "TESTEEEEEEEEEEEEE" });
-            listPictures.Add(new Picture() { PictureId = 3, PictureBody = "VAMOSSSSSSSSSSSSSSSSSSSS" });
+            listPictures.Add(new Picture() { PictureId = 1, PictureBody = images[0] });
+            listPictures.Add(new Picture() { PictureId = 2, PictureBody = images[1] });
+            listPictures.Add(new Picture() { PictureId = 3, PictureBody = images[2] });
+            listPictures.Add(new Picture() { PictureId = 4, PictureBody = images[3] });
 
-             ICollection<User> listUsers = new Collection<User>();
+            ICollection<User> listUsers = new Collection<User>();
              listUsers.Add(new User() {PictureId = listPictures.First().PictureId, Username = "scarf", Age = 23, Email = "scarf1@gmail.com", Password = "123", PhoneNumber = 963456789, CountyId = listCounties.ToList()[0].CountyId, County = listCounties.ToList()[0]});
-             listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "josefa", Age = 23, Email = "josefa31@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[2] });
+             listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "josefa", Age = 23, Email = "josefa31@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[2]});
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "andreMx", Age = 23, Email = "andre@gmail.com", Password = "123", PhoneNumber = 961451719, CountyId = listCounties.ToList()[3].CountyId, County = listCounties.ToList()[3] });
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "ruben21", Age = 23, Email = "ruben1@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[3] });
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "rubinol0uco", Age = 23, Email = "rubino@gmail.com", Password = "123", PhoneNumber = 961451339, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[2] });
@@ -61,26 +64,27 @@
              listAddresses.Add(new Address() { AddressId = 2, PostalCode = "9200-098", Street = "Rua do muro nº1", CountyId = 1});
 
             ICollection<Park> listParks = new Collection<Park>();
-            listParks.Add(new Park() { ParkId = 1, Name = "Agua de Pena", Adress = listAddresses.ToList()[0] });
-            listParks.Add(new Park() { ParkId = 2, Name = "Ludens Padel", Adress = listAddresses.ToList()[1]});
+            listParks.Add(new Park() { ParkId = 1, Name = "Agua de Pena", Adress = listAddresses.ToList()[0], Description = "Teste Descrição1"});
+            listParks.Add(new Park() { ParkId = 2, Name = "Ludens Padel", Adress = listAddresses.ToList()[1], Description = "Teste Descrição2" });
 
             ICollection<Ground> listGrounds = new Collection<Ground>();
             listGrounds.Add(new Ground() { GroundId = 1, ParkId = 1, Sports = listSports.ToList(), Picture = listPictures.ToList()[2] });
             listGrounds.Add(new Ground() { GroundId = 2, ParkId = 2, Sports = listSports.ToList(), Picture = listPictures.ToList()[2] });
-
+            
+            DateTime dateStartEvent = new DateTime(2019, 1, 18);
 
             ICollection<Reserve> listReserves = new Collection<Reserve>();
-            listReserves.Add(new Reserve() { ReserveId = 1, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[0].SportId, GroundId = listGrounds.ToList()[0].GroundId });
-            listReserves.Add(new Reserve() { ReserveId = 2, Price = 10, UserId = listUsers.ToList()[1].Username, SportId = listSports.ToList()[1].SportId, GroundId = listGrounds.ToList()[0].GroundId });
-            listReserves.Add(new Reserve() { ReserveId = 3, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[2].SportId, GroundId = listGrounds.ToList()[0].GroundId });
-            listReserves.Add(new Reserve() { ReserveId = 4, Price = 10, UserId = listUsers.ToList()[2].Username, SportId = listSports.ToList()[3].SportId, GroundId = listGrounds.ToList()[0].GroundId });
+            listReserves.Add(new Reserve() { ReserveId = 1, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[0].SportId, GroundId = listGrounds.ToList()[0].GroundId , Date = dateStartEvent });
+            listReserves.Add(new Reserve() { ReserveId = 2, Price = 10, UserId = listUsers.ToList()[1].Username, SportId = listSports.ToList()[1].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
+            listReserves.Add(new Reserve() { ReserveId = 3, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[2].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
+            listReserves.Add(new Reserve() { ReserveId = 4, Price = 10, UserId = listUsers.ToList()[2].Username, SportId = listSports.ToList()[3].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
              
             ICollection<Event> listEvents = new Collection<Event>();
-            DateTime dateStartEvent = new DateTime(2019, 1, 18);
+            
             DateTime dateEndEvent = dateStartEvent;
             dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
             dateEndEvent.Date.AddHours(14); dateEndEvent.Date.AddMinutes(00);
-            listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Name = "Treino - ADM vs Nacional" });
+            listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Reserve = listReserves.ToList()[0],Name = "Treino - ADM vs Nacional"});
             dateStartEvent = dateEndEvent = new DateTime(2019, 1, 25);
             dateStartEvent.Date.AddHours(9); dateStartEvent.Date.AddMinutes(30);
             dateEndEvent.Date.AddHours(11); dateEndEvent.Date.AddMinutes(00);
@@ -110,6 +114,10 @@
             // Esta lista contem todas as avaliações feitas da josefa aos utilizadores desse evento especifico
             // Esta lista contem todas as avaliações feitas da josefa aos recintos
             ICollection<Evaluation> listEvaluationsJosefa = new Collection<Evaluation>();
+            ICollection<Reserve> listReservesJosefa = new Collection<Reserve>();
+            ICollection<Event> listEventsJosefa = new Collection<Event>();
+            listReservesJosefa.Add(listReserves.ToList()[1]);
+            listEventsJosefa.Add(listEvents.ToList()[0]);
 
             foreach (UserEvaluation user in listUserEvaluations)
             {
@@ -122,6 +130,8 @@
             }
 
             listUsers.ToList()[1].Evaluations = listEvaluationsJosefa;
+            listUsers.ToList()[1].Reserves = listReservesJosefa;
+            listUsers.ToList()[1].Events = listEventsJosefa;
 
             foreach (District district in listDistricts)
             {
@@ -181,6 +191,7 @@
 
 
             base.Seed(context);
+            
         }
     }
 }

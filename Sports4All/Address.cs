@@ -14,7 +14,7 @@ namespace Sports4All
         public string PostalCode { get; set; }
         public string Street { get; set; }
         public virtual Park Park { get; set; }
-        public virtual County County { get; set; }
+        public County County { get; set; }
         public int CountyId { get; set; }
 
     }

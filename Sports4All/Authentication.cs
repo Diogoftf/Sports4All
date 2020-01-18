@@ -19,6 +19,7 @@ namespace Sports4All
         private string _username = "";
         private string _age = "";
         private string _cellphone = "";
+        private int _countyId;
 
         public Authentication()
         {
@@ -31,6 +32,7 @@ namespace Sports4All
             HideTabHeaders();
             EnableValidationFromTab(tabRegister, false);
             //EnableTab(tabRegister, false);
+            PopulateCounties();
         }
 
         public void HideTabHeaders()
@@ -142,6 +144,8 @@ namespace Sports4All
             _username = tbRegUsername.Text;
             _age = tbRegAge.Text;
             _cellphone = tbRegPhone.Text;
+            _countyId = cbCounty.SelectedIndex;
+
 
             if (_authController.EmailExists(_email))
             {
@@ -157,11 +161,8 @@ namespace Sports4All
                 return false;
             }
 
-            _authController.RegisterUser(_email, _password, _username, _age, _cellphone);
+            _authController.RegisterUser(_email, _password, _username, _age, _cellphone,_selectedPicture, _countyId);
             return true;
-
-
-
             /*
             bool add = true;
             bool combinacaoInvalida = true;
@@ -363,5 +364,24 @@ namespace Sports4All
             }
         }
 
+        private void PopulateCounties()
+        {
+
+            //ComboboxItem item = new ComboboxItem();
+            //item.Text = "Item text1";
+            //item.Value = 12;
+
+            //comboBox1.Items.Add(item);
+
+            //comboBox1.SelectedIndex = 0;
+            
+            foreach (var county in _authController.RetrieveCounties())
+            {
+                cbCounty.Items.Add(county.Name);
+            }
+
+        }
+
+       
     }
 }

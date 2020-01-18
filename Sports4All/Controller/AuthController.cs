@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sports4All.Controller
 {
     public class AuthController
     {
-        public void RegisterUser(string email, string password, string username, string age, string cellphone)
+        private readonly ICollection<County> listCounties = new Collection<County>();
+
+        public void RegisterUser(string email, string password, string username, string age, string cellphone,
+            int pictureId, int countyId)
+
         {
             using (var db = new ModelContext())
             {
@@ -18,7 +21,8 @@ namespace Sports4All.Controller
                 newUser.Username = username;
                 newUser.Age = Convert.ToInt32(age);
                 newUser.PhoneNumber = Convert.ToInt32(cellphone);
-                //newUser.Picture = _selectedPicture;
+                newUser.PictureId = pictureId;
+                newUser.CountyId = countyId;
 
                 db.Users.Add(newUser);
                 db.SaveChanges();
@@ -30,15 +34,11 @@ namespace Sports4All.Controller
             using (var db = new ModelContext())
             {
                 var query = from u in db.Users
-                            select u;
+                    select u;
 
                 foreach (var item in query)
-                {
                     if (item.Email.Equals(email))
-                    {
                         return true;
-                    }
-                }
             }
 
             return false;
@@ -49,15 +49,11 @@ namespace Sports4All.Controller
             using (var db = new ModelContext())
             {
                 var query = from u in db.Users
-                            select u;
+                    select u;
 
                 foreach (var item in query)
-                {
                     if (item.Username.Equals(username))
-                    {
                         return true;
-                    }
-                }
             }
 
             return false;
@@ -67,24 +63,28 @@ namespace Sports4All.Controller
         {
             using (var db = new ModelContext())
             {
-
                 var query = from u in db.Users
-                            select u;
+                    select u;
 
                 foreach (var item in query)
-                {
                     if (item.Email.Equals(email))
-                    {
                         if (item.Password.Equals(password))
-                        {
                             return true;
-                        }
-                    }
-                }
             }
 
             return false;
         }
 
+        public ICollection<County> RetrieveCounties()
+        {
+            using (var db = new ModelContext())
+            {
+                var counties = db.Counties.ToList();
+
+                foreach (var ct in counties) listCounties.Add(ct);
+
+                return listCounties;
+            }
+        }
     }
 }
