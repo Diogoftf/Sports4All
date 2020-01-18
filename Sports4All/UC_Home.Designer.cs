@@ -62,7 +62,21 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.UC_CreateEvent1 = new Sports4All.UC_CreateEvent();
+            this.pbProgressBar = new System.Windows.Forms.PictureBox();
+            this.lbCurrentLevel = new System.Windows.Forms.Label();
+            this.lbNextLevel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMonthuser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMonthEnclosure)).BeginInit();
@@ -72,6 +86,9 @@
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProgressBar)).BeginInit();
             this.SuspendLayout();
             // 
             // lbNextEvents
@@ -111,11 +128,11 @@
             // 
             this.lbEvaluation.AutoSize = true;
             this.lbEvaluation.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEvaluation.Location = new System.Drawing.Point(1004, 449);
+            this.lbEvaluation.Location = new System.Drawing.Point(1025, 415);
             this.lbEvaluation.Name = "lbEvaluation";
-            this.lbEvaluation.Size = new System.Drawing.Size(132, 26);
+            this.lbEvaluation.Size = new System.Drawing.Size(128, 26);
             this.lbEvaluation.TabIndex = 57;
-            this.lbEvaluation.Text = "Avaliações";
+            this.lbEvaluation.Text = "Estatísticas";
             // 
             // panel7
             // 
@@ -131,7 +148,7 @@
             // 
             this.lbMonthEnclosure.AutoSize = true;
             this.lbMonthEnclosure.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lbMonthEnclosure.Location = new System.Drawing.Point(1034, 402);
+            this.lbMonthEnclosure.Location = new System.Drawing.Point(1026, 378);
             this.lbMonthEnclosure.Name = "lbMonthEnclosure";
             this.lbMonthEnclosure.Size = new System.Drawing.Size(78, 21);
             this.lbMonthEnclosure.TabIndex = 56;
@@ -272,7 +289,7 @@
             // pbMonthEnclosure
             // 
             this.pbMonthEnclosure.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbMonthEnclosure.Location = new System.Drawing.Point(998, 245);
+            this.pbMonthEnclosure.Location = new System.Drawing.Point(998, 233);
             this.pbMonthEnclosure.Name = "pbMonthEnclosure";
             this.pbMonthEnclosure.Size = new System.Drawing.Size(138, 139);
             this.pbMonthEnclosure.TabIndex = 78;
@@ -325,7 +342,7 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel3.Location = new System.Drawing.Point(926, 445);
+            this.panel3.Location = new System.Drawing.Point(926, 411);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1149, 1);
             this.panel3.TabIndex = 53;
@@ -367,7 +384,7 @@
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel9.Location = new System.Drawing.Point(926, 485);
+            this.panel9.Location = new System.Drawing.Point(926, 450);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1149, 1);
             this.panel9.TabIndex = 54;
@@ -424,6 +441,105 @@
             this.panel14.Size = new System.Drawing.Size(444, 1);
             this.panel14.TabIndex = 51;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.31313F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.68687F));
+            this.tableLayoutPanel1.Controls.Add(this.label6, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(930, 516);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(290, 86);
+            this.tableLayoutPanel1.TabIndex = 82;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(995, 414);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 33);
+            this.pictureBox1.TabIndex = 83;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 28);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Partidas Jogadas";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(93, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(194, 28);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Partidas";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 28);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "FairPlay";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Location = new System.Drawing.Point(93, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(194, 28);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Partidas";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 56);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 30);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Skill";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Location = new System.Drawing.Point(93, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(194, 30);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Partidas";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // UC_CreateEvent1
             // 
             this.UC_CreateEvent1.Location = new System.Drawing.Point(38, 376);
@@ -432,10 +548,80 @@
             this.UC_CreateEvent1.Size = new System.Drawing.Size(701, 448);
             this.UC_CreateEvent1.TabIndex = 81;
             // 
+            // pbProgressBar
+            // 
+            this.pbProgressBar.Location = new System.Drawing.Point(1021, 463);
+            this.pbProgressBar.Name = "pbProgressBar";
+            this.pbProgressBar.Size = new System.Drawing.Size(112, 24);
+            this.pbProgressBar.TabIndex = 84;
+            this.pbProgressBar.TabStop = false;
+            // 
+            // lbCurrentLevel
+            // 
+            this.lbCurrentLevel.AutoSize = true;
+            this.lbCurrentLevel.Location = new System.Drawing.Point(957, 467);
+            this.lbCurrentLevel.Name = "lbCurrentLevel";
+            this.lbCurrentLevel.Size = new System.Drawing.Size(59, 20);
+            this.lbCurrentLevel.TabIndex = 85;
+            this.lbCurrentLevel.Text = "Level 1";
+            // 
+            // lbNextLevel
+            // 
+            this.lbNextLevel.AutoSize = true;
+            this.lbNextLevel.Location = new System.Drawing.Point(1139, 467);
+            this.lbNextLevel.Name = "lbNextLevel";
+            this.lbNextLevel.Size = new System.Drawing.Size(59, 20);
+            this.lbNextLevel.TabIndex = 86;
+            this.lbNextLevel.Text = "Level 2";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.31313F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.68687F));
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(930, 647);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(281, 93);
+            this.tableLayoutPanel2.TabIndex = 87;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(926, 493);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(137, 20);
+            this.label17.TabIndex = 88;
+            this.label17.Text = "Sumário Global:";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(926, 625);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(122, 20);
+            this.label18.TabIndex = 89;
+            this.label18.Text = "Sumário Global:";
+            // 
             // UC_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.lbNextLevel);
+            this.Controls.Add(this.lbCurrentLevel);
+            this.Controls.Add(this.pbProgressBar);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -460,6 +646,7 @@
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.pbMonthuser);
             this.Controls.Add(this.btnCreateEvent);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "UC_Home";
             this.Size = new System.Drawing.Size(1226, 778);
             this.Load += new System.EventHandler(this.UC_Home_Load);
@@ -472,6 +659,10 @@
             this.panel9.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProgressBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,6 +704,20 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pbProgressBar;
+        private System.Windows.Forms.Label lbCurrentLevel;
+        private System.Windows.Forms.Label lbNextLevel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
         //private UC_CreateEvent UC_CreateEvent1;
     }
 }
