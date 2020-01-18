@@ -16,9 +16,14 @@ namespace Sports4All
         static void Main()
         {
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            /** DEBUG**/
+            HomeController a = new HomeController();
+            // a.getMyEvents("josefa");
+            //a.getEventSuggestions("josefa");
+
+           Application.EnableVisualStyles();
+           Application.SetCompatibleTextRenderingDefault(false);
+           Application.Run(new Form1());
 
 
         }
