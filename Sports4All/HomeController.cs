@@ -96,7 +96,7 @@ namespace Sports4All
 
                 foreach (Event a in query.Events) // todos os eventos que esse user participou
                 {
-                    if (a.StartDate > DateTime.Now)
+                   // if (a.StartDate > DateTime.Now) //PROVISORIO!!!!!!!!
                     {
                         myEvents.Add(a);
                     }
@@ -104,9 +104,9 @@ namespace Sports4All
 
                 foreach (Reserve a in query.Reserves)
                 {
-                    if (a.Event.StartDate > DateTime.Now)
+                    //   if (a.Event.StartDate > DateTime.Now) //PROVISORIO!!!!!!!!
                     {
-                        if(!myEvents.Contains(a.Event))
+                        if (!myEvents.Contains(a.Event))
                             myEvents.Add(a.Event);
                     }
                 }
