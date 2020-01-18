@@ -99,6 +99,9 @@
     <Compile Include="Ground.cs" />
     <Compile Include="GroundEvaluation.cs" />
     <Compile Include="HomeController.cs" />
+    <Compile Include="LabelX.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Migrations\202001160004123_001.cs" />
     <Compile Include="Migrations\202001160004123_001.designer.cs">
       <DependentUpon>202001160004123_001.cs</DependentUpon>
@@ -119,6 +122,7 @@
     <Compile Include="ModelContext.cs" />
     <Compile Include="Park.cs" />
     <Compile Include="Picture.cs" />
+    <Compile Include="Points.cs" />
     <Compile Include="RankController.cs" />
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
