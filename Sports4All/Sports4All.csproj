@@ -92,8 +92,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controller\AuthController.cs" />
-    <Compile Include="Controller\BrowseController.cs" />
     <Compile Include="Controller\ImagesController.cs" />
+    <Compile Include="Controller\BrowseController.cs" />
     <Compile Include="Core\DropShaddow.cs" />
     <Compile Include="County.cs" />
     <Compile Include="District.cs" />
