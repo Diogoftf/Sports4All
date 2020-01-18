@@ -76,11 +76,11 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.pbInfo = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rtbInfoStats = new System.Windows.Forms.RichTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.UC_CreateEvent1 = new Sports4All.UC_CreateEvent();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.rtbInfoStats = new System.Windows.Forms.RichTextBox();
+            this.flpInfoStats = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -94,8 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbStats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProgressBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInfo)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flpInfoStats.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbNextEvents
@@ -254,10 +254,10 @@
             this.btnCreateEvent.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.btnCreateEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateEvent.Image")));
             this.btnCreateEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateEvent.Location = new System.Drawing.Point(362, 337);
+            this.btnCreateEvent.Location = new System.Drawing.Point(367, 337);
             this.btnCreateEvent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCreateEvent.Name = "btnCreateEvent";
-            this.btnCreateEvent.Size = new System.Drawing.Size(200, 62);
+            this.btnCreateEvent.Size = new System.Drawing.Size(214, 58);
             this.btnCreateEvent.TabIndex = 59;
             this.btnCreateEvent.Text = "Criar Evento";
             this.btnCreateEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -607,43 +607,6 @@
             this.pbInfo.Click += new System.EventHandler(this.pbInfo_Click);
             this.pbInfo.MouseHover += new System.EventHandler(this.pbInfo_MouseHover);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.rtbInfoStats);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(569, 356);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(332, 238);
-            this.flowLayoutPanel1.TabIndex = 91;
-            this.flowLayoutPanel1.Visible = false;
-            // 
-            // rtbInfoStats
-            // 
-            this.rtbInfoStats.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.rtbInfoStats.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbInfoStats.Location = new System.Drawing.Point(3, 3);
-            this.rtbInfoStats.Name = "rtbInfoStats";
-            this.rtbInfoStats.ReadOnly = true;
-            this.rtbInfoStats.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtbInfoStats.Size = new System.Drawing.Size(270, 323);
-            this.rtbInfoStats.TabIndex = 94;
-            this.rtbInfoStats.Text = "";
-            this.rtbInfoStats.Click += new System.EventHandler(this.rtbInfoStats_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(279, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 93;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
-            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -655,18 +618,55 @@
             // 
             // UC_CreateEvent1
             // 
-            this.UC_CreateEvent1.Location = new System.Drawing.Point(38, 376);
+            this.UC_CreateEvent1.Location = new System.Drawing.Point(0, 409);
             this.UC_CreateEvent1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UC_CreateEvent1.Name = "UC_CreateEvent1";
-            this.UC_CreateEvent1.Size = new System.Drawing.Size(701, 448);
+            this.UC_CreateEvent1.Size = new System.Drawing.Size(394, 249);
             this.UC_CreateEvent1.TabIndex = 81;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(333, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 93;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
+            // rtbInfoStats
+            // 
+            this.rtbInfoStats.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.rtbInfoStats.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbInfoStats.Location = new System.Drawing.Point(3, 3);
+            this.rtbInfoStats.Name = "rtbInfoStats";
+            this.rtbInfoStats.ReadOnly = true;
+            this.rtbInfoStats.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtbInfoStats.Size = new System.Drawing.Size(324, 233);
+            this.rtbInfoStats.TabIndex = 94;
+            this.rtbInfoStats.Text = "";
+            this.rtbInfoStats.Click += new System.EventHandler(this.rtbInfoStats_Click);
+            // 
+            // flpInfoStats
+            // 
+            this.flpInfoStats.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.flpInfoStats.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.flpInfoStats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpInfoStats.Controls.Add(this.rtbInfoStats);
+            this.flpInfoStats.Controls.Add(this.pictureBox1);
+            this.flpInfoStats.Location = new System.Drawing.Point(542, 337);
+            this.flpInfoStats.Name = "flpInfoStats";
+            this.flpInfoStats.Size = new System.Drawing.Size(378, 238);
+            this.flpInfoStats.TabIndex = 91;
+            this.flpInfoStats.Visible = false;
             // 
             // UC_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.flpInfoStats);
             this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pbInfo);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -716,9 +716,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbStats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProgressBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInfo)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.flpInfoStats.ResumeLayout(false);
+            this.flpInfoStats.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -774,11 +774,11 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.PictureBox pbInfo;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label lbInfoStats;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox rtbInfoStats;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flpInfoStats;
         //private UC_CreateEvent UC_CreateEvent1;
     }
 }

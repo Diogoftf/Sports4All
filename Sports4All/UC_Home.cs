@@ -22,8 +22,9 @@ namespace Sports4All
         {
             InitializeComponent();
             _homeController = new HomeController();
-            //InitializateElements();
-            flowLayoutPanel1.Visible = false;
+            //InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
+            flpInfoStats.Visible = false;
+            infoStatsDescription(); // PROVISORIO
 
         }
 
@@ -70,7 +71,7 @@ namespace Sports4All
             UC_CreateEvent1.Visible = false;
             dtpNextEventDate.MinDate = DateTime.Today;
             //InitializateElements();
-            infoStatsDescription();
+            
         }
 
         private void InitializateElements()
@@ -83,10 +84,10 @@ namespace Sports4All
 
         private void infoStatsDescription()
         {
-            rtbInfoStats.SelectionFont = new Font("Century Gothic", 10, FontStyle.Bold);
+            rtbInfoStats.SelectionFont = new Font("Century Gothic", 11, FontStyle.Bold);
             rtbInfoStats.SelectionColor = Color.Black;
-            rtbInfoStats.SelectedText = "Pontuações: \n";
-            rtbInfoStats.SelectionFont = new Font("Century Gothic", 8);
+            rtbInfoStats.SelectedText = "Pontuações: \n\n";
+            rtbInfoStats.SelectionFont = new Font("Century Gothic", 9);
             rtbInfoStats.SelectionColor = Color.Black;
             rtbInfoStats.SelectedText = "Reservas realizadas: " + Points._reservePerformed_Height + " pontos \n" + "Eventos realizados: " + Points._eventPerformed_Height + " pontos \n" + "Fairplay Global: " + Points._fairplay_Height + " pontos \n" + "Habilidade Global: " + Points._skill_Height + " pontos \n";
         }
@@ -242,12 +243,12 @@ namespace Sports4All
 
         private void pbInfo_MouseHover(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Visible = true;
+            flpInfoStats.Visible = true;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Visible = false;
+            flpInfoStats.Visible = false;
         }
 
         private void rtbInfoStats_Click(object sender, EventArgs e)
@@ -267,7 +268,7 @@ namespace Sports4All
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Visible = false;
+            flpInfoStats.Visible = false;
         }
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
