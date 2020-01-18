@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
@@ -15,6 +17,15 @@ namespace Sports4All
         [STAThread]
         static void Main()
         {
+            BrowseController b = new BrowseController();
+            ICollection<int> sports = b.ReturnSportsIds();
+
+            foreach (var sportId in sports)
+            {
+                b.GetSport(sportId);
+            }
+
+
 
             /** DEBUG**/
             HomeController a = new HomeController();
