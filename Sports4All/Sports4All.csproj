@@ -101,7 +101,7 @@
     <Compile Include="Event.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="GroundEvaluation.cs" />
-    <Compile Include="HomeController.cs" />
+    <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Migrations\202001160004123_001.cs" />
     <Compile Include="Migrations\202001160004123_001.designer.cs">
@@ -144,7 +144,7 @@
     <Compile Include="Park.cs" />
     <Compile Include="Picture.cs" />
     <Compile Include="Points.cs" />
-    <Compile Include="RankController.cs" />
+    <Compile Include="Controller\RankController.cs" />
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
     <Compile Include="Sport.cs" />
