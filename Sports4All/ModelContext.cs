@@ -13,8 +13,8 @@ namespace Sports4All
         public ModelContext() : base("name=DataBaseContext")
         {
 
-            //            Database.SetInitializer<ModelContext>(new DropCreateDatabaseIfModelChanges<ModelContext>());
-            Database.SetInitializer<ModelContext>(new CreateDatabaseIfNotExists<ModelContext>());
+           // Database.SetInitializer<ModelContext>(new DropCreateDatabaseIfModelChanges<ModelContext>());
+             Database.SetInitializer<ModelContext>(new CreateDatabaseIfNotExists<ModelContext>());
         }
         public DbSet<Event> Events { get; set; }
         public DbSet<User> Users { get; set; }
@@ -30,6 +30,8 @@ namespace Sports4All
         public DbSet<Material> Materials { get; set; }
      
 
+        public DbSet<Classification> Classifications { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Event>().HasKey<int>(s => s.EventId);
@@ -44,6 +46,8 @@ namespace Sports4All
             modelBuilder.Entity<District>().HasKey<int>(s => s.DistrictId);
             modelBuilder.Entity<Ground>().HasKey<int>(s => s.GroundId);
             modelBuilder.Entity<Material>().HasKey<int>(s => s.MaterialId);
+            modelBuilder.Entity<Classification>().HasKey<int>(s => s.idClassification);
+
             //one to many
             modelBuilder.Entity<Evaluation>()
                 .HasRequired<Event>(g => g.Event)
@@ -81,6 +85,10 @@ namespace Sports4All
                 .HasForeignKey<int>(s => s.PictureId)
                 .WillCascadeOnDelete(false);
 
+            //one to one
+            modelBuilder.Entity<User>()
+                .HasRequired(s => s.myStats)
+                .WithRequiredPrincipal(ad => ad.userId);
 
             //one to many
             modelBuilder.Entity<Reserve>()
