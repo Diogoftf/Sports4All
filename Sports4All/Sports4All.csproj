@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2BDDB774-9994-45CD-A910-8A07B4C7AFA6}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sports4All</RootNamespace>
     <AssemblyName>Sports4All</AssemblyName>
@@ -225,11 +225,11 @@
     <Compile Include="UC_SportsgroundDesc.Designer.cs">
       <DependentUpon>UC_SportsgroundDesc.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_EventDetails.cs">
+    <Compile Include="UC_EventDetailsB.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_EventDetails.Designer.cs">
-      <DependentUpon>UC_EventDetails.cs</DependentUpon>
+    <Compile Include="UC_EventDetailsB.Designer.cs">
+      <DependentUpon>UC_EventDetailsB.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_UserProfile.cs">
       <SubType>UserControl</SubType>
@@ -388,8 +388,8 @@
     <EmbeddedResource Include="UC_SportsgroundEvItem.resx">
       <DependentUpon>UC_SportsgroundEvItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventDetails.resx">
-      <DependentUpon>UC_EventDetails.cs</DependentUpon>
+    <EmbeddedResource Include="UC_EventDetailsB.resx">
+      <DependentUpon>UC_EventDetailsB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_UserProfile.resx">
       <DependentUpon>UC_UserProfile.cs</DependentUpon>
@@ -455,7 +455,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
@@ -493,6 +492,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\goal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sportsground1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

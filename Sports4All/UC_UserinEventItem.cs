@@ -22,7 +22,7 @@ namespace Sports4All
         private string _userAge;
         private string _playerSkill;
         private Image _icon;
-        public string PlayerId
+        public string PlayerAge
         {
             get => _userAge;
             set { _userAge = value;
@@ -35,11 +35,7 @@ namespace Sports4All
             get => _username;
             set { _username = value; lblUsername.Text = value; }
         }
-        public Image Icon
-        {
-            get => _icon;
-            set { _icon = value; cpbPlayer.Image = value; }
-        }
+   
 
         public string PlayerSkill
         {

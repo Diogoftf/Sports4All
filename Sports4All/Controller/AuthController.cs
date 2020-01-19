@@ -28,7 +28,6 @@ namespace Sports4All.Controller
                 db.SaveChanges();
             }
         }
-
         public bool EmailExists(string email)
         {
             using (var db = new ModelContext())

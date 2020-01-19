@@ -144,7 +144,7 @@ namespace Sports4All
             _username = tbRegUsername.Text;
             _age = tbRegAge.Text;
             _cellphone = tbRegPhone.Text;
-            _countyId = cbCounty.SelectedIndex;
+            _countyId = cbCounty.SelectedIndex ;
 
 
             if (_authController.EmailExists(_email))

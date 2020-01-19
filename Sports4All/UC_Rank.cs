@@ -75,12 +75,12 @@ namespace Sports4All
         private void btnTop10_Click(object sender, EventArgs e)
         {
 
-            load_Top10Rank();
+          //  load_Top10Rank();
         }
 
         private void btnGlobalRank_Click(object sender, EventArgs e)
         {
-            load_GlobalRank();
+         //   load_GlobalRank();
         }
 
         private void btnTopRecintos_Click(object sender, EventArgs e)

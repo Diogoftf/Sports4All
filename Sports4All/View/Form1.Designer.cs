@@ -43,13 +43,6 @@
             this.lbPointsUser = new System.Windows.Forms.Label();
             this.lbSkillUser = new System.Windows.Forms.Label();
             this.lbWelcomeUser = new System.Windows.Forms.Label();
-            this.UC_Home1 = new Sports4All.UC_Home();
-            this.eventosControl1 = new Sports4All.UC_Events();
-            this.UC_Rank1 = new Sports4All.UC_Rank();
-            this.uC_MyEvents1 = new Sports4All.UC_MyEvents();
-            this.uC_AddFriend1 = new Sports4All.UC_AddFriend();
-            this.subscricoesControl1 = new Sports4All.UserControls_Screens.UC_Subscriptions();
-            this.recintosControl1 = new Sports4All.UC_SportsGround();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnNotification = new System.Windows.Forms.Button();
             this.pbStar5 = new System.Windows.Forms.PictureBox();
@@ -59,6 +52,14 @@
             this.pbStar1 = new System.Windows.Forms.PictureBox();
             this.btnAddfriend = new System.Windows.Forms.Button();
             this.pbUserImage = new System.Windows.Forms.PictureBox();
+            this.UC_Home1 = new Sports4All.UC_Home();
+            this.eventosControl1 = new Sports4All.UC_Events();
+            this.UC_Rank1 = new Sports4All.UC_Rank();
+            this.uC_MyEvents1 = new Sports4All.UC_MyEvents();
+            this.uC_AddFriend1 = new Sports4All.UC_AddFriend();
+            this.subscricoesControl1 = new Sports4All.UserControls_Screens.UC_Subscriptions();
+            this.recintosControl1 = new Sports4All.UC_SportsGround();
+            this.uC_EventsDetailsB1 = new Sports4All.UC_EventsDetailsB();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar4)).BeginInit();
@@ -266,64 +267,6 @@
             this.lbWelcomeUser.Text = "Bem-vindo, <USERNAME>";
             this.lbWelcomeUser.Click += new System.EventHandler(this.lbWelcomeUser_Click);
             // 
-            // UC_Home1
-            // 
-            this.UC_Home1.Location = new System.Drawing.Point(268, 126);
-            this.UC_Home1.Margin = new System.Windows.Forms.Padding(2);
-            this.UC_Home1.Name = "UC_Home1";
-            this.UC_Home1.Size = new System.Drawing.Size(1095, 648);
-            this.UC_Home1.TabIndex = 9;
-            // 
-            // eventosControl1
-            // 
-            this.eventosControl1.Location = new System.Drawing.Point(267, 126);
-            this.eventosControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.eventosControl1.Name = "eventosControl1";
-            this.eventosControl1.Size = new System.Drawing.Size(1021, 648);
-            this.eventosControl1.TabIndex = 5;
-            this.eventosControl1.Load += new System.EventHandler(this.eventosControl1_Load);
-            // 
-            // UC_Rank1
-            // 
-            this.UC_Rank1.Location = new System.Drawing.Point(268, 126);
-            this.UC_Rank1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.UC_Rank1.Name = "UC_Rank1";
-            this.UC_Rank1.Size = new System.Drawing.Size(1021, 648);
-            this.UC_Rank1.TabIndex = 11;
-            // 
-            // uC_MyEvents1
-            // 
-            this.uC_MyEvents1.Location = new System.Drawing.Point(268, 126);
-            this.uC_MyEvents1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.uC_MyEvents1.Name = "uC_MyEvents1";
-            this.uC_MyEvents1.Size = new System.Drawing.Size(1021, 648);
-            this.uC_MyEvents1.TabIndex = 12;
-            this.uC_MyEvents1.Visible = false;
-            // 
-            // uC_AddFriend1
-            // 
-            this.uC_AddFriend1.Location = new System.Drawing.Point(268, 126);
-            this.uC_AddFriend1.Margin = new System.Windows.Forms.Padding(2);
-            this.uC_AddFriend1.Name = "uC_AddFriend1";
-            this.uC_AddFriend1.Size = new System.Drawing.Size(1021, 648);
-            this.uC_AddFriend1.TabIndex = 71;
-            // 
-            // subscricoesControl1
-            // 
-            this.subscricoesControl1.Location = new System.Drawing.Point(268, 126);
-            this.subscricoesControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.subscricoesControl1.Name = "subscricoesControl1";
-            this.subscricoesControl1.Size = new System.Drawing.Size(1021, 648);
-            this.subscricoesControl1.TabIndex = 7;
-            // 
-            // recintosControl1
-            // 
-            this.recintosControl1.Location = new System.Drawing.Point(268, 126);
-            this.recintosControl1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.recintosControl1.Name = "recintosControl1";
-            this.recintosControl1.Size = new System.Drawing.Size(1021, 648);
-            this.recintosControl1.TabIndex = 6;
-            // 
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
@@ -448,11 +391,78 @@
             this.pbUserImage.TabIndex = 56;
             this.pbUserImage.TabStop = false;
             // 
+            // UC_Home1
+            // 
+            this.UC_Home1.Location = new System.Drawing.Point(268, 126);
+            this.UC_Home1.Margin = new System.Windows.Forms.Padding(2);
+            this.UC_Home1.Name = "UC_Home1";
+            this.UC_Home1.Size = new System.Drawing.Size(1095, 648);
+            this.UC_Home1.TabIndex = 9;
+            // 
+            // eventosControl1
+            // 
+            this.eventosControl1.Location = new System.Drawing.Point(267, 126);
+            this.eventosControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.eventosControl1.Name = "eventosControl1";
+            this.eventosControl1.Size = new System.Drawing.Size(1021, 648);
+            this.eventosControl1.TabIndex = 5;
+            this.eventosControl1.Load += new System.EventHandler(this.eventosControl1_Load);
+            // 
+            // UC_Rank1
+            // 
+            this.UC_Rank1.Location = new System.Drawing.Point(268, 126);
+            this.UC_Rank1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.UC_Rank1.Name = "UC_Rank1";
+            this.UC_Rank1.Size = new System.Drawing.Size(1021, 648);
+            this.UC_Rank1.TabIndex = 11;
+            // 
+            // uC_MyEvents1
+            // 
+            this.uC_MyEvents1.Location = new System.Drawing.Point(268, 126);
+            this.uC_MyEvents1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.uC_MyEvents1.Name = "uC_MyEvents1";
+            this.uC_MyEvents1.Size = new System.Drawing.Size(1021, 648);
+            this.uC_MyEvents1.TabIndex = 12;
+            this.uC_MyEvents1.Visible = false;
+            // 
+            // uC_AddFriend1
+            // 
+            this.uC_AddFriend1.Location = new System.Drawing.Point(268, 126);
+            this.uC_AddFriend1.Margin = new System.Windows.Forms.Padding(2);
+            this.uC_AddFriend1.Name = "uC_AddFriend1";
+            this.uC_AddFriend1.Size = new System.Drawing.Size(1021, 648);
+            this.uC_AddFriend1.TabIndex = 71;
+            // 
+            // subscricoesControl1
+            // 
+            this.subscricoesControl1.Location = new System.Drawing.Point(268, 126);
+            this.subscricoesControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.subscricoesControl1.Name = "subscricoesControl1";
+            this.subscricoesControl1.Size = new System.Drawing.Size(1021, 648);
+            this.subscricoesControl1.TabIndex = 7;
+            // 
+            // recintosControl1
+            // 
+            this.recintosControl1.Location = new System.Drawing.Point(268, 126);
+            this.recintosControl1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.recintosControl1.Name = "recintosControl1";
+            this.recintosControl1.Size = new System.Drawing.Size(1021, 648);
+            this.recintosControl1.TabIndex = 6;
+            // 
+            // uC_EventsDetailsB1
+            // 
+            this.uC_EventsDetailsB1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_EventsDetailsB1.Location = new System.Drawing.Point(262, 107);
+            this.uC_EventsDetailsB1.Name = "uC_EventsDetailsB1";
+            this.uC_EventsDetailsB1.Size = new System.Drawing.Size(1090, 622);
+            this.uC_EventsDetailsB1.TabIndex = 72;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1373, 784);
+            this.Controls.Add(this.uC_EventsDetailsB1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.lbPoints);
             this.Controls.Add(this.btnExit);
@@ -528,6 +538,7 @@
         private System.Windows.Forms.PictureBox pbUserImage;
         private UC_AddFriend uC_AddFriend1;
         private UC_Home UC_Home1;
+        private UC_EventsDetailsB uC_EventsDetailsB1;
     }
 }
 

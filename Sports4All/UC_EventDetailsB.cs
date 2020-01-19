@@ -10,43 +10,13 @@ using System.Windows.Forms;
 
 namespace Sports4All
 {
-    public partial class UC_EventDetails : UserControl
+    public partial class UC_EventsDetailsB : UserControl
     {
-        public UC_EventDetails()
+        public UC_EventsDetailsB()
         {
             InitializeComponent();
+            PopulateList();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEmail_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblUserEmail_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UC_EventDetails_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMaxPlayers_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void PopulateList()
         {
@@ -56,8 +26,9 @@ namespace Sports4All
             {
                 listusers[i] = new UC_UserinEventItem();
                 listusers[i].Username = "Gouveia";
-                listusers[i].PlayerId = "gouveia_user";
-                //add to flowlayout
+                listusers[i].PlayerAge = "34 Anos";
+                listusers[i].PlayerSkill = "#003";
+
                 if (flpUsersEvent.Controls.Count < 0)
                 {
 
@@ -69,8 +40,12 @@ namespace Sports4All
                 }
             }
 
-
+            pbPark.ImageLocation = @"C:\Users\Tiago.Gouveia\Desktop\ProjectDIS\Sports4All\Images\sportsground1.jpg";
+            pbPark.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
+
+
+
 
 }

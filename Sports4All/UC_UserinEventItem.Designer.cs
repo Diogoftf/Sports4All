@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_UserinEventItem));
             this.plPlayerEvaluation = new System.Windows.Forms.Panel();
-            this.lblLine = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lbUserAge = new System.Windows.Forms.Label();
             this.lblUserRankingValue = new System.Windows.Forms.Label();
             this.lblRanking = new System.Windows.Forms.Label();
+            this.lbUserAge = new System.Windows.Forms.Label();
+            this.lblLine = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.cpbPlayer = new Sports4All.CircularPictureBox();
             this.plPlayerEvaluation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpbPlayer)).BeginInit();
@@ -42,44 +42,17 @@
             // 
             // plPlayerEvaluation
             // 
+
+            this.plPlayerEvaluation.Controls.Add(this.cpbPlayer);
             this.plPlayerEvaluation.Controls.Add(this.lblUserRankingValue);
             this.plPlayerEvaluation.Controls.Add(this.lblRanking);
             this.plPlayerEvaluation.Controls.Add(this.lbUserAge);
             this.plPlayerEvaluation.Controls.Add(this.lblLine);
             this.plPlayerEvaluation.Controls.Add(this.lblUsername);
-            this.plPlayerEvaluation.Controls.Add(this.cpbPlayer);
             this.plPlayerEvaluation.Location = new System.Drawing.Point(0, 3);
             this.plPlayerEvaluation.Name = "plPlayerEvaluation";
             this.plPlayerEvaluation.Size = new System.Drawing.Size(325, 56);
             this.plPlayerEvaluation.TabIndex = 1;
-            // 
-            // lblLine
-            // 
-            this.lblLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblLine.Location = new System.Drawing.Point(0, 94);
-            this.lblLine.Name = "lblLine";
-            this.lblLine.Size = new System.Drawing.Size(650, 1);
-            this.lblLine.TabIndex = 2;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblUsername.Location = new System.Drawing.Point(69, 10);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(91, 19);
-            this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "Username";
-            // 
-            // lbUserAge
-            // 
-            this.lbUserAge.AutoSize = true;
-            this.lbUserAge.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.lbUserAge.Location = new System.Drawing.Point(81, 32);
-            this.lbUserAge.Name = "lbUserAge";
-            this.lbUserAge.Size = new System.Drawing.Size(64, 18);
-            this.lbUserAge.TabIndex = 3;
-            this.lbUserAge.Text = "34 Anos";
             // 
             // lblUserRankingValue
             // 
@@ -101,15 +74,43 @@
             this.lblRanking.TabIndex = 16;
             this.lblRanking.Text = "Ranking:";
             // 
+            // lbUserAge
+            // 
+            this.lbUserAge.AutoSize = true;
+            this.lbUserAge.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.lbUserAge.Location = new System.Drawing.Point(81, 32);
+            this.lbUserAge.Name = "lbUserAge";
+            this.lbUserAge.Size = new System.Drawing.Size(64, 18);
+            this.lbUserAge.TabIndex = 3;
+            this.lbUserAge.Text = "34 Anos";
+            // 
+            // lblLine
+            // 
+            this.lblLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblLine.Location = new System.Drawing.Point(0, 94);
+            this.lblLine.Name = "lblLine";
+            this.lblLine.Size = new System.Drawing.Size(650, 1);
+            this.lblLine.TabIndex = 2;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lblUsername.Location = new System.Drawing.Point(69, 10);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(91, 19);
+            this.lblUsername.TabIndex = 1;
+            this.lblUsername.Text = "Username";
+            // 
             // cpbPlayer
             // 
             this.cpbPlayer.BackColor = System.Drawing.Color.LightGray;
             this.cpbPlayer.Image = ((System.Drawing.Image)(resources.GetObject("cpbPlayer.Image")));
-            this.cpbPlayer.Location = new System.Drawing.Point(3, 14);
+            this.cpbPlayer.Location = new System.Drawing.Point(8, 3);
             this.cpbPlayer.Name = "cpbPlayer";
-            this.cpbPlayer.Size = new System.Drawing.Size(51, 34);
+            this.cpbPlayer.Size = new System.Drawing.Size(41, 48);
             this.cpbPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cpbPlayer.TabIndex = 0;
+            this.cpbPlayer.TabIndex = 18;
             this.cpbPlayer.TabStop = false;
             // 
             // UC_UserinEventItem
@@ -127,14 +128,13 @@
         }
 
         #endregion
-
-        private CircularPictureBox cpbPlayer;
         private System.Windows.Forms.Panel plPlayerEvaluation;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblLine;
         private System.Windows.Forms.Label lbUserAge;
         private System.Windows.Forms.Label lblUserRankingValue;
         private System.Windows.Forms.Label lblRanking;
+        private CircularPictureBox cpbPlayer;
     }
 }
 

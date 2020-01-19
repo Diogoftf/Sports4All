@@ -9,8 +9,10 @@ namespace Sports4All.Controller
     {
         private const int ImagesCount = 4;
         private IList<string> imgs = new List<string>();
-        private readonly int PictureId = 23;//ID estático, futuramente para mudar.
+        private readonly int PictureId = 23; //ID estático, futuramente para mudar.
+
         private readonly string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+
         //método usado no Seed para inserir as imagens na BD
         public IList<string> InsertImagetoDB()
         {
@@ -36,33 +38,41 @@ namespace Sports4All.Controller
             }
             return imgs;
         }
+
         //método que guarda na pasta do projeto a imagem passada no PictureId
-        public void DownloadImage()
+        public void DownloadImage(int PictureId, string fileName)
         {
-            var body = GetImagefromDB(PictureId);
-            Console.WriteLine("Attachment downloaded.");
+            string PictureBody;
+            string FolderAndFileName;
 
-            var fileContent = Convert.FromBase64String(body);
-            Stream stream = new MemoryStream(fileContent);
-
-            //Picture Downloaded
-            using (var fileStream =
-                new FileStream(projectPath + "\\Images\\User" + PictureId + ".png", FileMode.OpenOrCreate))
-            {
-                var fileContent1 = Convert.FromBase64String(body);
-                fileStream.Write(fileContent1, 0, fileContent1.Count());
-            }
-        }
-
-        public string GetImagefromDB(int PictureId)
-        {
             using (var ctx = new ModelContext())
             {
                 var Picture = (from s in ctx.Pictures
                     where s.PictureId == PictureId
                     select s).FirstOrDefault();
-                return Picture.PictureBody;
+              PictureBody =  Picture.PictureBody;
             }
+
+            Console.WriteLine("Attachment downloaded.");
+            var fileContent = Convert.FromBase64String(PictureBody);
+            Stream stream = new MemoryStream(fileContent);
+
+            FolderAndFileName = FormatPictureType(fileName);
+            using (var fileStream =
+                new FileStream(projectPath + "\\Images\\"+ FolderAndFileName+"\\" + FolderAndFileName + PictureId + ".png", FileMode.OpenOrCreate))
+            {
+                var fileContent1 = Convert.FromBase64String(PictureBody);
+                fileStream.Write(fileContent1, 0, fileContent1.Count());
+            }
+        }
+        public string FormatPictureType(string Filename)
+        {
+            string result = "";
+            if (Filename.Contains("User"))  result = "User";
+            if (Filename.Contains("Park"))  result = "Park";
+            if (Filename.Contains("Sport")) result = "Sport";
+
+            return result;
         }
     }
 }
