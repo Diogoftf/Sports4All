@@ -25,7 +25,8 @@ namespace Sports4All
                 var eventsPlayed = db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Events.ToList().Count();
                 var reservesMade = db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Reserves.ToList().Count();
                 var matchesPlayed = reservesMade + eventsPlayed;
-                var query = db.Evaluations.OfType<UserEvaluation>().Where(e => e.UserId == AuthProperties.LoggedUser).ToList();
+                
+                var query = db.Evaluations.OfType<UserEvaluation>().Where(e => e.Evaluated.Username == AuthProperties.LoggedUser).ToList();
                 double fairplayResult = 0;
                 double skillResult = 0;
                 double racio = 0;
@@ -38,7 +39,8 @@ namespace Sports4All
 
                 fairplayResult /= query.Count;
                 skillResult /= query.Count;
-                racio = fairplayResult / skillResult ;
+                racio = fairplayResult / skillResult;
+
                 double points = fairplayResult * Points._fairplay_Height + skillResult * Points._skill_Height + eventsPlayed * Points._eventPerformed_Height
                     + reservesMade * Points._reservePerformed_Height;
 
@@ -55,61 +57,19 @@ namespace Sports4All
         {
             //events -> todos os eventos que o user participou
             // reservs -> todos os eventos que o user criou
-            var sportsPerformed = new List<string>();
-            List<Reserve> SuggestionsEvents = new List<Reserve>();
+
             using (ModelContext db = new ModelContext())
             {
                 var user = db.Users.Where(c => c.Username == username).First();
-                var userEvents = user.Events.ToList(); //tenho todos os eventos que ele participou
-                var userReserves = user.Reserves.ToList();
 
-                if ((userEvents.Count + userReserves.Count) > 0) // Se ja participou em algum evento
-                {
+                // var userReserves1 = db.Reserves.Where(e => e.UserId != username).ToList();
 
-                    /*for (int i = 0; i < userEvents.Count; i++)
-                     {
-                         sportsPerformed.Add(userEvents[i].Reserve.Sport.Name); // tenho o nome do desporto dos eventos em que o user participou
-
-                     }
-
-                     for (int i = 0; i < userReserves.Count; i++)
-                     {
-                         if (!sportsPerformed.Contains(userReserves[i].Sport.Name))
-                         {
-                             sportsPerformed.Add(userReserves[i].Sport.Name); // tenho o nome de todas as reservas q o user criou
-                         }
-
-                     }*/
-                    /*
-                    && (e.UserId != username || !e.Event.Users.Contains(username)) && (e.User.County.CountyId == e.Ground.Park.Adress.CountyId || e.User.County.DistrictId == e.Ground.Park.Adress.County.DistrictId
-                        */
-
-                    // Todos os eventos que o user nao esta insscrito COLOCAR ISTO MAIS A FRENTE (.Where(e => e.StartDate > DateTime.Now )
-                    //var allReservesandEvents = db.Events.Take(3).ToList();
-
-                //    for (int i = 0; i < allReservesandEvents.Count; i++)
-                    {
-                      //  SuggestionsEvents.Add(allReservesandEvents[i]); // tenho todas as reservas do user especifico
-
-                    }
-
-                }
-                else
-                {
-                    var allReservesandEvents = db.Reserves.Where(e => e.Event.StartDate > DateTime.Now && (e.User.County.CountyId == e.Ground.Park.Adress.CountyId || e.User.County.DistrictId == e.Ground.Park.Adress.County.DistrictId)).Take(3).ToList();
-
-                    for (int i = 0; i < allReservesandEvents.Count; i++)
-                    {
-                        SuggestionsEvents.Add(allReservesandEvents[i]); // tenho todas as reservas do user especifico
-
-                    }
-
-                }
-                 // se nao tiver no concelho, vai ao distrito, se nao tiver no distrito incentiva o user a criar
-                
+                // Pego todas as reservas que nao foram realizadas pelo user especifico                //Todos os players + quem fez a reserva
+                return db.Reserves.Where(e => e.UserId != username && e.Event.StartDate > DateTime.Now && (e.Event.Users.Count + 1) < e.Event.MaxPlayers
+                    && (e.Ground.Park.Adress.CountyId == user.CountyId || e.Ground.Park.Adress.County.DistrictId == user.County.DistrictId
+                     && e.Event.Users.Contains(user))).ToList();
             }
 
-            return SuggestionsEvents;
         }
 
         public List<Event> getMyEvents(string username)
@@ -118,23 +78,21 @@ namespace Sports4All
 
             using (ModelContext db = new ModelContext())
             {
-                var query = db.Users.Where(c => c.Username == username).First();
+                var queryMyReserves = db.Users.Where(c => c.Username == username).First().Reserves //Filtro pelas reservas realizadas por o user
+                    .Where(e => e.Event.StartDate > DateTime.Now).ToList();
 
-                foreach (Event a in query.Events) // todos os eventos que esse user participou
+                var queryMyEvents = db.Users.Where(c => c.Username == username).First().Events //Filtro pelos eventos em que o user vai participar
+                    .Where(e => e.StartDate > DateTime.Now).ToList();
+
+                foreach (Reserve a in queryMyReserves) // todos os eventos que esse user participou
                 {
-                   // if (a.StartDate > DateTime.Now) //PROVISORIO!!!!!!!!
-                    {
-                        myEvents.Add(a);
-                    }
+                    myEvents.Add(a.Event);
                 }
 
-                foreach (Reserve a in query.Reserves)
+                foreach (Event a in queryMyEvents)
                 {
-                    //   if (a.Event.StartDate > DateTime.Now) //PROVISORIO!!!!!!!!
-                    {
-                        if (!myEvents.Contains(a.Event))
-                            myEvents.Add(a.Event);
-                    }
+
+                    myEvents.Add(a);
                 }
 
             }
