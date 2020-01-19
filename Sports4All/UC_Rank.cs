@@ -12,6 +12,11 @@ namespace Sports4All
 {
     public partial class UC_Rank : UserControl
     {
+       // private List<UC_RankItems> _top10Users = new List<UC_RankItems>();
+       // private List<UC_RankItems> _globalUsers = new List<UC_RankItems>();
+       // private List<UC_RankItems> _topRecintos = new List<UC_RankItems>();
+        private readonly RankController rankController = new RankController();
+
         public UC_Rank()
         {
             InitializeComponent();
@@ -24,57 +29,47 @@ namespace Sports4All
 
         private void load_Top10Rank()
         {
-            UC_RankItems[] listitems = new UC_RankItems[5];
             flpRank.Controls.Clear();
+            List<Classification> topUsers = rankController.getTopUsers();
 
-
-            /*
-             * FAZER QUERIE À BD E COLOCAR AQUI PARA O TOP10 DE USERS
-             * 
-             * ´TIRAR O 50 --->
-             */
-
-            for (int i = 0; i < listitems.Length; i++)
+            for (int i = 0; i < topUsers.Count; i++)
             {
 
-                listitems[i] = new UC_RankItems();
-                listitems[i].Classificacao = "1";
-                listitems[i].Utilizador = "Ramenaca";
-                listitems[i].PartidasJogadas = "12 partidas";
-                listitems[i].Pontos = "12 pontos";
-                flpRank.Controls.Add(listitems[i]); //add to flowlayout
+                if (i < 10)
+                {
+                    UC_RankItems rankItems = new UC_RankItems();
+                    rankItems.Classificacao = topUsers[i].rankClassification.ToString();
+                    rankItems.Utilizador = topUsers[i].userId.Username.ToString();
+                    rankItems.PartidasJogadas = (topUsers[i].userId.Events.Count + topUsers[i].userId.Reserves.Count).ToString();
+                    rankItems.Pontos = topUsers[i].points.ToString();
+                    //_top10Users.Add(rankItems);
+                    flpRank.Controls.Add(rankItems); //add to flowlayout
+                }
 
             }
+
         }
 
         private void load_GlobalRank()
         {
-            UC_RankItems[] listitems = new UC_RankItems[5];
             flpRank.Controls.Clear();
+            List<Classification> topUsers = rankController.getTopUsers();
 
-
-            /*
-             * FAZER QUERIE À BD E COLOCAR AQUI PARA O TOP10 DE USERS
-             * 
-             * ´TIRAR O 50 --->
-             */
-
-            for (int i = 0; i < listitems.Length; i++)
+            foreach (Classification e in topUsers)
             {
-
-                listitems[i] = new UC_RankItems();
-                listitems[i].Classificacao = "1";
-                listitems[i].Utilizador = "Ramenaca";
-                listitems[i].PartidasJogadas = "12 partidas";
-                listitems[i].Pontos = "12 pontos";
-                flpRank.Controls.Add(listitems[i]); //add to flowlayout
-
+                UC_RankItems rankItems = new UC_RankItems();
+                rankItems.Classificacao = e.rankClassification.ToString();
+                rankItems.Utilizador = e.userId.Username.ToString();
+                rankItems.PartidasJogadas = (e.userId.Events.Count + e.userId.Reserves.Count).ToString();
+                rankItems.Pontos = e.points.ToString();
+                //_top10Users.Add(rankItems);
+                flpRank.Controls.Add(rankItems); //add to flowlayout
             }
         }
 
         private void UC_Rank_Load(object sender, EventArgs e)
         {
-            load_Top10Rank();
+            //load_Top10Rank();
         }
 
         private void btnTop10_Click(object sender, EventArgs e)
@@ -88,7 +83,7 @@ namespace Sports4All
             load_GlobalRank();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnTopRecintos_Click(object sender, EventArgs e)
         {
 
         }

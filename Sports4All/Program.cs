@@ -22,8 +22,8 @@ namespace Sports4All
             }
 
             /** DEBUG**/
-            HomeController a = new HomeController();
-            // a.getMyEvents("josefa");
+            //HomeController a = new HomeController();
+            //a.getMyEvents("josefa");
             //a.getEventSuggestions("josefa");
 
            Application.EnableVisualStyles();

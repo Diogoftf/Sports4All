@@ -23,7 +23,7 @@ namespace Sports4All
 
         public string resetNameProprieties //
         {
-            set { lblDate.Text = lblEventOwner.Text = lblPlayers.Text = lblPlace.Text = value;
+            set { lblDate.Text = lblEventOwner.Text = lblEventOwnerValue.Text = lblSportsGround.Text = lblstart_Hour.Text = lblPlayers.Text = lblPlace.Text = value;
                 //this.Size = new Size(400,170);
                 
 

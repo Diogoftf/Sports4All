@@ -91,6 +91,7 @@
     <Compile Include="CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classification.cs" />
     <Compile Include="Controller\AuthController.cs" />
     <Compile Include="Controller\ImagesController.cs" />
     <Compile Include="Controller\ParkDescriptionController.cs" />
@@ -101,7 +102,7 @@
     <Compile Include="Event.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="GroundEvaluation.cs" />
-    <Compile Include="HomeController.cs" />
+    <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Migrations\202001160004123_001.cs" />
     <Compile Include="Migrations\202001160004123_001.designer.cs">
@@ -135,11 +136,16 @@
     <Compile Include="Migrations\202001181747117_M009.designer.cs">
       <DependentUpon>202001181747117_M009.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001182023394_M010.cs" />
+    <Compile Include="Migrations\202001182023394_M010.designer.cs">
+      <DependentUpon>202001182023394_M010.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="Park.cs" />
     <Compile Include="Picture.cs" />
     <Compile Include="Points.cs" />
+    <Compile Include="Controller\RankController.cs" />
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
     <Compile Include="Sport.cs" />
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001181747117_M009.resx">
       <DependentUpon>202001181747117_M009.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001182023394_M010.resx">
+      <DependentUpon>202001182023394_M010.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_HeaderUser.resx">
       <DependentUpon>UC_HeaderUser.cs</DependentUpon>
