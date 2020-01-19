@@ -316,6 +316,7 @@
             this.dtpNextEventDate.Name = "dtpNextEventDate";
             this.dtpNextEventDate.Size = new System.Drawing.Size(192, 37);
             this.dtpNextEventDate.TabIndex = 76;
+            this.dtpNextEventDate.ValueChanged += new System.EventHandler(this.dtpNextEventDate_ValueChanged);
             // 
             // lbNextEventDate
             // 
