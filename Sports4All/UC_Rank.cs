@@ -69,7 +69,7 @@ namespace Sports4All
 
         private void UC_Rank_Load(object sender, EventArgs e)
         {
-            load_Top10Rank();
+            //load_Top10Rank();
         }
 
         private void btnTop10_Click(object sender, EventArgs e)

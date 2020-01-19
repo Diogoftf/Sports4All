@@ -17,7 +17,6 @@ namespace Sports4All
         public int CountyId { get; set; }
         public int PictureId { get; set; }
         public County County { get; set; }
-
         public virtual Classification myStats { get; set; }
         public ICollection<Evaluation> Evaluations { get; set; }
         public ICollection<UserEvaluation> UserEvaluations { get; set; }
