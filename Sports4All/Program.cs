@@ -16,10 +16,9 @@ namespace Sports4All
         [STAThread]
         static void Main()
         {
-            Park park;
             using (var db = new ModelContext())
             {
-                park = db.Parks.Find(1);
+                var park = db.Parks.Find(1);
             }
 
             /** DEBUG**/
