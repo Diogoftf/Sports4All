@@ -78,7 +78,11 @@ namespace Sports4All.Migrations
             listReserves.Add(new Reserve() { ReserveId = 2, Price = 10, UserId = listUsers.ToList()[1].Username, SportId = listSports.ToList()[1].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
             listReserves.Add(new Reserve() { ReserveId = 3, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[2].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
             listReserves.Add(new Reserve() { ReserveId = 4, Price = 10, UserId = listUsers.ToList()[2].Username, SportId = listSports.ToList()[3].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
-             
+
+
+            Reserve r = new Reserve() { Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[0].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent };
+            r.Ground = listGrounds.ElementAt(0);
+
             ICollection<Event> listEvents = new Collection<Event>();
             
             DateTime dateEndEvent = dateStartEvent;

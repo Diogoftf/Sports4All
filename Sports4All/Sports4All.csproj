@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2BDDB774-9994-45CD-A910-8A07B4C7AFA6}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sports4All</RootNamespace>
     <AssemblyName>Sports4All</AssemblyName>
@@ -37,6 +37,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
@@ -93,6 +96,7 @@
     </Compile>
     <Compile Include="Classification.cs" />
     <Compile Include="Controller\AuthController.cs" />
+    <Compile Include="Controller\BrowseParksController.cs" />
     <Compile Include="Controller\ImagesController.cs" />
     <Compile Include="Controller\ParkDescriptionController.cs" />
     <Compile Include="Core\DropShaddow.cs" />

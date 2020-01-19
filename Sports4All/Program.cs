@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -16,9 +17,18 @@ namespace Sports4All
         [STAThread]
         static void Main()
         {
+            ICollection<string> countyIds = new HashSet<string>();
             using (var db = new ModelContext())
             {
-                var park = db.Parks.Find(1);
+                var userList = db.Users.Include("County").ToList();
+                string name = userList[1].County.Name;
+
+                //foreach (var user in userList)
+                //{
+                //    string countyId = user.County.Name;
+                //    countyIds.Add(countyId);
+                    Console.WriteLine(name);
+            
             }
 
             /** DEBUG**/
@@ -26,7 +36,15 @@ namespace Sports4All
             //a.getMyEvents("josefa");
             //a.getEventSuggestions("josefa");
 
-           Application.EnableVisualStyles();
+            BrowseParksController b = new BrowseParksController();
+            ICollection<int> list = b.GetReservesCountyIds();
+
+            foreach (var id in list)
+            {
+                Console.WriteLine(id);
+            }
+
+                Application.EnableVisualStyles();
            Application.SetCompatibleTextRenderingDefault(false);
            Application.Run(new Form1());
 
