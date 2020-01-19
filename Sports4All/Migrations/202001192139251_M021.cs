@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class M020 : DbMigration
+    public partial class M021 : DbMigration
     {
         public override void Up()
         {
@@ -154,6 +154,7 @@
                     {
                         PictureId = c.Int(nullable: false, identity: true),
                         PictureBody = c.String(),
+                        FileName = c.String(),
                     })
                 .PrimaryKey(t => t.PictureId);
             
