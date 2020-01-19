@@ -84,34 +84,32 @@ namespace Sports4All
                 //var queryMyEvents = db.Users.Where(c => c.Username == username).First().Events //Filtro pelos eventos em que o user vai participar
                 //    .Where(e => e.StartDate > DateTime.Now).ToList();
 
-                var queryMyReserves = db.Users.Where(c => c.Username == username).First().Reserves //Filtro pelas reservas realizadas por o user
-    .ToList();
+                /* var queryMyReserves = db.Users.Where(c => c.Username == username).First(); //Filtro pelas reservas realizadas por o user
 
-                var queryMyEvents = db.Users.Where(c => c.Username == username).First().Events //Filtro pelos eventos em que o user vai participar
-                    .ToList();
+                 var queryMyEvents = db.Users.Where(c => c.Username == username).First().Events.ToList(); //Filtro pelos eventos em que o user vai participar
 
-                foreach (Reserve a in queryMyReserves) // todos os eventos que esse user participou
-                {
-                    myEvents.Add(a.Event); //guardo o evento dessa reserva
-                }
+                 foreach (Reserve a in queryMyReserves) // todos os eventos que esse user participou
+                 {
+                     myEvents.Add(a.Event); //guardo o evento dessa reserva
+                 }
 
-                // Verificador para garantir que nao há eventos repetidos
-                bool verificador = false;
-                for (int i = 0; i < queryMyEvents.Count; i++)
-                {
-                    for (int j = 0; j < myEvents.Count; j++)
-                    {
-                        if (queryMyEvents[i].EventId == myEvents[j].EventId)
-                            verificador = true;
-                    }
+                 // Verificador para garantir que nao há eventos repetidos
+                 bool verificador = false;
+                 for (int i = 0; i < queryMyEvents.Count; i++)
+                 {
+                     for (int j = 0; j < myEvents.Count; j++)
+                     {
+                         if (queryMyEvents[i].EventId == myEvents[j].EventId)
+                             verificador = true;
+                     }
 
-                    if (!verificador)
-                    {
-                        myEvents.Add(queryMyEvents[i]);
-                        verificador = false;
-                    }
+                     if (!verificador)
+                     {
+                         myEvents.Add(queryMyEvents[i]);
+                         verificador = false;
+                     }
 
-                }
+                 }*/
 
             }
 

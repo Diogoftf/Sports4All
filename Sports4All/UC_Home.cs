@@ -24,7 +24,7 @@ namespace Sports4All
         {
             InitializeComponent();
             _homeController = new HomeController();
-            InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
+           // InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
             flpInfoStats.Visible = false;
             infoStatsDescription(); // PROVISORIO
 
