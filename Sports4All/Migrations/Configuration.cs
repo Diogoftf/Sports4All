@@ -43,7 +43,10 @@ namespace Sports4All.Migrations
             listPictures.Add(new Picture() { PictureId = 4, PictureBody = images[3] });
 
             ICollection<User> listUsers = new Collection<User>();
-             listUsers.Add(new User() {PictureId = listPictures.First().PictureId, Username = "scarf", Age = 23, Email = "scarf1@gmail.com", Password = "123", PhoneNumber = 963456789, CountyId = listCounties.ToList()[0].CountyId, County = listCounties.ToList()[0]});
+             listUsers.Add(new User()
+             {
+                 PictureId = listPictures.First().PictureId, Username = "scarf", Age = 23, Email = "scarf1@gmail.com", Password = "123", PhoneNumber = 963456789, CountyId = listCounties.ToList()[0].CountyId, County = listCounties.ToList()[0]
+                });
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "josefa", Age = 23, Email = "josefa31@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[2]});
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "andreMx", Age = 23, Email = "andre@gmail.com", Password = "123", PhoneNumber = 961451719, CountyId = listCounties.ToList()[3].CountyId, County = listCounties.ToList()[3] });
              listUsers.Add(new User() { PictureId = listPictures.First().PictureId, Username = "ruben21", Age = 23, Email = "ruben1@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = listCounties.ToList()[2].CountyId, County = listCounties.ToList()[3] });
@@ -84,7 +87,8 @@ namespace Sports4All.Migrations
             DateTime dateEndEvent = dateStartEvent;
             dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
             dateEndEvent.Date.AddHours(14); dateEndEvent.Date.AddMinutes(00);
-            listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Reserve = listReserves.ToList()[0],Name = "Treino - ADM vs Nacional"});
+            listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Reserve = listReserves.ToList()[0],
+                Name = "Treino - ADM vs Nacional"});
             dateStartEvent = dateEndEvent = new DateTime(2019, 1, 25);
             dateStartEvent.Date.AddHours(9); dateStartEvent.Date.AddMinutes(30);
             dateEndEvent.Date.AddHours(11); dateEndEvent.Date.AddMinutes(00);
@@ -97,6 +101,11 @@ namespace Sports4All.Migrations
             dateStartEvent.Date.AddHours(18); dateStartEvent.Date.AddMinutes(00);
             dateEndEvent.Date.AddHours(20); dateEndEvent.Date.AddMinutes(00);
             listEvents.Add(new Event() { EventId = 4, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 8, MinAge = 30, MaxAge = 50, Name = "Jogo Amigavel de Tenis" });
+
+            
+            //listEvents.ToList()[0].Users.Add(listUsers.ToList()[0]);
+
+            //listUsers.ToList()[0].Events.Add(listEvents.ToList()[0]);
 
 
             ICollection<UserEvaluation> listUserEvaluations = new Collection<UserEvaluation>();
@@ -113,6 +122,7 @@ namespace Sports4All.Migrations
 
             // Esta lista contem todas as avaliações feitas da josefa aos utilizadores desse evento especifico
             // Esta lista contem todas as avaliações feitas da josefa aos recintos
+
             ICollection<Evaluation> listEvaluationsJosefa = new Collection<Evaluation>();
             ICollection<Reserve> listReservesJosefa = new Collection<Reserve>();
             ICollection<Event> listEventsJosefa = new Collection<Event>();
@@ -188,6 +198,49 @@ namespace Sports4All.Migrations
                 context.Evaluations.AddOrUpdate(userEvaluation);
             }
 
+     
+            var users = new Collection<User>()
+            {
+                new User()
+                {
+                    Username = "Gouveia",
+                    PictureId = listPictures.First().PictureId,
+                    Age = 24,
+                    Email = "gouveia@gmail.com",
+                    Password = "123",
+                    PhoneNumber = 924333648,
+                    CountyId =  listCounties.ToList()[0].CountyId
+                },
+                new User()
+                {
+                    Username = "Leonel",
+                    PictureId = listPictures.First().PictureId,
+                    Age = 24,
+                    Email = "leonel@gmail.com",
+                    Password = "123",
+                    PhoneNumber = 924433648,
+                    CountyId =  listCounties.ToList()[1].CountyId
+                }
+            };
+          
+            var eventsFinal = new List<Event>()
+            {
+                new Event()
+                {
+                    StartDate = dateStartEvent,
+                    EndDate = dateEndEvent,
+                    MaxPlayers = 10,
+                    MinAge = 21,
+                    MaxAge = 31,
+                    Reserve = listReserves.ToList()[0],
+                    Name = "Treino - ADM vs Nacional",
+
+                    Users = users
+                }
+            };
+            context.Users.AddOrUpdate(users.ToList()[0]);
+            context.Users.AddOrUpdate(users.ToList()[1]);
+            context.Events.AddOrUpdate(eventsFinal.ToList()[0]);
 
 
             base.Seed(context);

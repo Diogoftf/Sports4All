@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2BDDB774-9994-45CD-A910-8A07B4C7AFA6}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sports4All</RootNamespace>
     <AssemblyName>Sports4All</AssemblyName>
@@ -38,6 +38,9 @@
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -61,6 +64,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
@@ -94,6 +98,7 @@
     <Compile Include="Classification.cs" />
     <Compile Include="Controller\AuthController.cs" />
     <Compile Include="Controller\ImagesController.cs" />
+    <Compile Include="Controller\MyEventsController.cs" />
     <Compile Include="Core\DropShaddow.cs" />
     <Compile Include="County.cs" />
     <Compile Include="District.cs" />
@@ -178,6 +183,12 @@
     <Compile Include="UC_HomeMyEventsItem.Designer.cs">
       <DependentUpon>UC_HomeMyEventsItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_UserinEventItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_UserinEventItem.Designer.cs">
+      <DependentUpon>UC_UserinEventItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Rank.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -213,6 +224,12 @@
     </Compile>
     <Compile Include="UC_SportsgroundDesc.Designer.cs">
       <DependentUpon>UC_SportsgroundDesc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_EventDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_EventDetails.Designer.cs">
+      <DependentUpon>UC_EventDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_UserProfile.cs">
       <SubType>UserControl</SubType>
@@ -353,6 +370,9 @@
     <EmbeddedResource Include="UC_MyEvents.resx">
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_UserinEventItem.resx">
+      <DependentUpon>UC_UserinEventItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_PlayerEvaluationItem.resx">
       <DependentUpon>UC_PlayerEvaluationItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -367,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_SportsgroundEvItem.resx">
       <DependentUpon>UC_SportsgroundEvItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_EventDetails.resx">
+      <DependentUpon>UC_EventDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_UserProfile.resx">
       <DependentUpon>UC_UserProfile.cs</DependentUpon>
