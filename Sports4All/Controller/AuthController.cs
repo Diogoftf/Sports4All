@@ -10,7 +10,7 @@ namespace Sports4All.Controller
         private readonly ICollection<County> listCounties = new Collection<County>();
 
         public void RegisterUser(string email, string password, string username, string age, string cellphone,
-            int pictureId, int countyId)
+            int pictureId, string county)
 
         {
             using (var db = new ModelContext())
@@ -22,7 +22,9 @@ namespace Sports4All.Controller
                 newUser.Age = Convert.ToInt32(age);
                 newUser.PhoneNumber = Convert.ToInt32(cellphone);
                 newUser.PictureId = pictureId;
-                newUser.CountyId = countyId;
+
+                var query = db.Counties.Where(f => f.Name == county).First();
+                newUser.CountyId = query.CountyId;
 
                 db.Users.Add(newUser);
                 db.SaveChanges();

@@ -19,7 +19,7 @@ namespace Sports4All
         private string _username = "";
         private string _age = "";
         private string _cellphone = "";
-        private int _countyId;
+        private string _countyId;
 
         public Authentication()
         {
@@ -144,8 +144,7 @@ namespace Sports4All
             _username = tbRegUsername.Text;
             _age = tbRegAge.Text;
             _cellphone = tbRegPhone.Text;
-            _countyId = cbCounty.SelectedIndex ;
-
+            _countyId = cbCounty.Text;
 
             if (_authController.EmailExists(_email))
             {
@@ -163,53 +162,7 @@ namespace Sports4All
 
             _authController.RegisterUser(_email, _password, _username, _age, _cellphone,_selectedPicture, _countyId);
             return true;
-            /*
-            bool add = true;
-            bool combinacaoInvalida = true;
-
-            using (var db = new ModelContext())
-            {
-                
-                //var user = (from u in db.Users
-                //    where u.Email == email
-                //    select u).FirstOrDefault<User>();
-
-                var query = from u in db.Users
-                            select u;
-
-                foreach (var item in query)
-                {
-                    if (item.Email.Equals(email))
-                    {
-                        string message = "O email que inseriu já se contra registado.";
-                        MessageBox.Show(message);
-                        add = false;
-                        return add;
-                    }
-
-                    if (item.Username.Equals(username))
-                    {
-                        string message = "O username que inseriu já existe.";
-                        MessageBox.Show(message);
-                        add = false;
-                        return add;
-                    }
-                }
-
-                var newUser = new User();
-                newUser.Email = email;
-                newUser.Password = password;
-                newUser.Username = username;
-                newUser.Age = Convert.ToInt32(age);
-                newUser.PhoneNumber = Convert.ToInt32(cellphone);
-                //newUser.Picture = _selectedPicture;
-
-                db.Users.Add(newUser);
-                db.SaveChanges();
-
-                return add;
-                
-            }*/
+            
         }
 
         private void StoreUsername(string username)
@@ -382,6 +335,9 @@ namespace Sports4All
 
         }
 
-       
+        private void cbCounty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _countyId = cbCounty.Text;
+        }
     }
 }

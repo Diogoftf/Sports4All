@@ -81,11 +81,11 @@
             // 
             this.tabControl1.Controls.Add(this.tabLogin);
             this.tabControl1.Controls.Add(this.tabRegister);
-            this.tabControl1.Location = new System.Drawing.Point(20, 19);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Location = new System.Drawing.Point(24, 23);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(887, 464);
+            this.tabControl1.Size = new System.Drawing.Size(1064, 557);
             this.tabControl1.TabIndex = 1;
             // 
             // tabLogin
@@ -98,11 +98,11 @@
             this.tabLogin.Controls.Add(this.lblLogPassword);
             this.tabLogin.Controls.Add(this.lblLogEmail);
             this.tabLogin.Controls.Add(this.lbLogin);
-            this.tabLogin.Location = new System.Drawing.Point(4, 25);
-            this.tabLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabLogin.Location = new System.Drawing.Point(4, 29);
+            this.tabLogin.Margin = new System.Windows.Forms.Padding(2);
             this.tabLogin.Name = "tabLogin";
-            this.tabLogin.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabLogin.Size = new System.Drawing.Size(879, 435);
+            this.tabLogin.Padding = new System.Windows.Forms.Padding(2);
+            this.tabLogin.Size = new System.Drawing.Size(1056, 524);
             this.tabLogin.TabIndex = 0;
             this.tabLogin.Text = "tabPage1";
             this.tabLogin.UseVisualStyleBackColor = true;
@@ -112,10 +112,10 @@
             this.linkReg.AutoSize = true;
             this.linkReg.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.linkReg.LinkColor = System.Drawing.Color.OliveDrab;
-            this.linkReg.Location = new System.Drawing.Point(459, 415);
+            this.linkReg.Location = new System.Drawing.Point(551, 498);
             this.linkReg.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkReg.Name = "linkReg";
-            this.linkReg.Size = new System.Drawing.Size(136, 21);
+            this.linkReg.Size = new System.Drawing.Size(156, 23);
             this.linkReg.TabIndex = 3;
             this.linkReg.TabStop = true;
             this.linkReg.Text = "Registe-se aqui";
@@ -125,20 +125,20 @@
             // 
             this.tbInfoLog.AutoSize = true;
             this.tbInfoLog.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.tbInfoLog.Location = new System.Drawing.Point(273, 415);
+            this.tbInfoLog.Location = new System.Drawing.Point(328, 498);
             this.tbInfoLog.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tbInfoLog.Name = "tbInfoLog";
-            this.tbInfoLog.Size = new System.Drawing.Size(185, 21);
+            this.tbInfoLog.Size = new System.Drawing.Size(217, 23);
             this.tbInfoLog.TabIndex = 7;
             this.tbInfoLog.Text = "Novo na aplicação?";
             // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnLogin.Location = new System.Drawing.Point(367, 269);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Location = new System.Drawing.Point(440, 323);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(137, 46);
+            this.btnLogin.Size = new System.Drawing.Size(164, 55);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -147,21 +147,21 @@
             // tbLogPassword
             // 
             this.tbLogPassword.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.tbLogPassword.Location = new System.Drawing.Point(294, 172);
-            this.tbLogPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbLogPassword.Location = new System.Drawing.Point(353, 206);
+            this.tbLogPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbLogPassword.Name = "tbLogPassword";
             this.tbLogPassword.PasswordChar = '*';
-            this.tbLogPassword.Size = new System.Drawing.Size(362, 30);
+            this.tbLogPassword.Size = new System.Drawing.Size(434, 34);
             this.tbLogPassword.TabIndex = 1;
             this.tbLogPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbLogPassword_Validating);
             // 
             // tbLogEmail
             // 
             this.tbLogEmail.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.tbLogEmail.Location = new System.Drawing.Point(294, 138);
-            this.tbLogEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbLogEmail.Location = new System.Drawing.Point(353, 166);
+            this.tbLogEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbLogEmail.Name = "tbLogEmail";
-            this.tbLogEmail.Size = new System.Drawing.Size(362, 30);
+            this.tbLogEmail.Size = new System.Drawing.Size(434, 34);
             this.tbLogEmail.TabIndex = 0;
             this.tbLogEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbLogEmail_Validating);
             // 
@@ -169,10 +169,10 @@
             // 
             this.lblLogPassword.AutoSize = true;
             this.lblLogPassword.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblLogPassword.Location = new System.Drawing.Point(167, 172);
+            this.lblLogPassword.Location = new System.Drawing.Point(200, 206);
             this.lblLogPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLogPassword.Name = "lblLogPassword";
-            this.lblLogPassword.Size = new System.Drawing.Size(95, 22);
+            this.lblLogPassword.Size = new System.Drawing.Size(114, 25);
             this.lblLogPassword.TabIndex = 6;
             this.lblLogPassword.Text = "Password";
             // 
@@ -180,10 +180,10 @@
             // 
             this.lblLogEmail.AutoSize = true;
             this.lblLogEmail.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblLogEmail.Location = new System.Drawing.Point(167, 138);
+            this.lblLogEmail.Location = new System.Drawing.Point(200, 166);
             this.lblLogEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLogEmail.Name = "lblLogEmail";
-            this.lblLogEmail.Size = new System.Drawing.Size(56, 22);
+            this.lblLogEmail.Size = new System.Drawing.Size(71, 25);
             this.lblLogEmail.TabIndex = 5;
             this.lblLogEmail.Text = "Email";
             // 
@@ -194,7 +194,7 @@
             this.lbLogin.Location = new System.Drawing.Point(2, 2);
             this.lbLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(875, 78);
+            this.lbLogin.Size = new System.Drawing.Size(1052, 94);
             this.lbLogin.TabIndex = 4;
             this.lbLogin.Text = "Bem Vindo!";
             this.lbLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -226,11 +226,11 @@
             this.tabRegister.Controls.Add(this.lblRegPassword);
             this.tabRegister.Controls.Add(this.lblRegEmail);
             this.tabRegister.Controls.Add(this.lblRegistration);
-            this.tabRegister.Location = new System.Drawing.Point(4, 25);
-            this.tabRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabRegister.Location = new System.Drawing.Point(4, 29);
+            this.tabRegister.Margin = new System.Windows.Forms.Padding(2);
             this.tabRegister.Name = "tabRegister";
-            this.tabRegister.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabRegister.Size = new System.Drawing.Size(879, 435);
+            this.tabRegister.Padding = new System.Windows.Forms.Padding(2);
+            this.tabRegister.Size = new System.Drawing.Size(1056, 524);
             this.tabRegister.TabIndex = 1;
             this.tabRegister.Text = "tabPage2";
             this.tabRegister.UseVisualStyleBackColor = true;
@@ -238,10 +238,10 @@
             // cPB4
             // 
             this.cPB4.Image = global::Sports4All.Properties.Resources.Webp_net_resizeimage__1_;
-            this.cPB4.Location = new System.Drawing.Point(635, 237);
-            this.cPB4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cPB4.Location = new System.Drawing.Point(762, 284);
+            this.cPB4.Margin = new System.Windows.Forms.Padding(2);
             this.cPB4.Name = "cPB4";
-            this.cPB4.Size = new System.Drawing.Size(75, 75);
+            this.cPB4.Size = new System.Drawing.Size(90, 90);
             this.cPB4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cPB4.TabIndex = 23;
             this.cPB4.TabStop = false;
@@ -250,10 +250,10 @@
             // cPB3
             // 
             this.cPB3.Image = global::Sports4All.Properties.Resources.Webp_net_resizeimage__2_;
-            this.cPB3.Location = new System.Drawing.Point(486, 237);
-            this.cPB3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cPB3.Location = new System.Drawing.Point(583, 284);
+            this.cPB3.Margin = new System.Windows.Forms.Padding(2);
             this.cPB3.Name = "cPB3";
-            this.cPB3.Size = new System.Drawing.Size(75, 75);
+            this.cPB3.Size = new System.Drawing.Size(90, 90);
             this.cPB3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cPB3.TabIndex = 24;
             this.cPB3.TabStop = false;
@@ -262,10 +262,10 @@
             // cPB2
             // 
             this.cPB2.Image = global::Sports4All.Properties.Resources.Webp_net_resizeimage__3_;
-            this.cPB2.Location = new System.Drawing.Point(338, 237);
-            this.cPB2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cPB2.Location = new System.Drawing.Point(406, 284);
+            this.cPB2.Margin = new System.Windows.Forms.Padding(2);
             this.cPB2.Name = "cPB2";
-            this.cPB2.Size = new System.Drawing.Size(75, 75);
+            this.cPB2.Size = new System.Drawing.Size(90, 90);
             this.cPB2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cPB2.TabIndex = 25;
             this.cPB2.TabStop = false;
@@ -274,10 +274,10 @@
             // cPB1
             // 
             this.cPB1.Image = global::Sports4All.Properties.Resources.Webp_net_resizeimage;
-            this.cPB1.Location = new System.Drawing.Point(198, 237);
-            this.cPB1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cPB1.Location = new System.Drawing.Point(238, 284);
+            this.cPB1.Margin = new System.Windows.Forms.Padding(2);
             this.cPB1.Name = "cPB1";
-            this.cPB1.Size = new System.Drawing.Size(75, 75);
+            this.cPB1.Size = new System.Drawing.Size(90, 90);
             this.cPB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cPB1.TabIndex = 22;
             this.cPB1.TabStop = false;
@@ -287,10 +287,10 @@
             // 
             this.lblRegPicture.AutoSize = true;
             this.lblRegPicture.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRegPicture.Location = new System.Drawing.Point(41, 193);
+            this.lblRegPicture.Location = new System.Drawing.Point(49, 232);
             this.lblRegPicture.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRegPicture.Name = "lblRegPicture";
-            this.lblRegPicture.Size = new System.Drawing.Size(260, 22);
+            this.lblRegPicture.Size = new System.Drawing.Size(314, 25);
             this.lblRegPicture.TabIndex = 29;
             this.lblRegPicture.Text = "Selecione imagem de perfil:";
             // 
@@ -298,30 +298,31 @@
             // 
             this.cbCounty.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.cbCounty.FormattingEnabled = true;
-            this.cbCounty.Location = new System.Drawing.Point(574, 151);
-            this.cbCounty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCounty.Location = new System.Drawing.Point(689, 181);
+            this.cbCounty.Margin = new System.Windows.Forms.Padding(2);
             this.cbCounty.Name = "cbCounty";
-            this.cbCounty.Size = new System.Drawing.Size(266, 29);
+            this.cbCounty.Size = new System.Drawing.Size(318, 33);
             this.cbCounty.TabIndex = 28;
+            this.cbCounty.SelectedIndexChanged += new System.EventHandler(this.cbCounty_SelectedIndexChanged);
             // 
             // lblRegCounty
             // 
             this.lblRegCounty.AutoSize = true;
             this.lblRegCounty.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRegCounty.Location = new System.Drawing.Point(460, 152);
+            this.lblRegCounty.Location = new System.Drawing.Point(552, 182);
             this.lblRegCounty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRegCounty.Name = "lblRegCounty";
-            this.lblRegCounty.Size = new System.Drawing.Size(100, 22);
+            this.lblRegCounty.Size = new System.Drawing.Size(118, 25);
             this.lblRegCounty.TabIndex = 27;
             this.lblRegCounty.Text = "Concelho";
             // 
             // rb4
             // 
             this.rb4.AutoSize = true;
-            this.rb4.Location = new System.Drawing.Point(615, 262);
-            this.rb4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb4.Location = new System.Drawing.Point(738, 314);
+            this.rb4.Margin = new System.Windows.Forms.Padding(2);
             this.rb4.Name = "rb4";
-            this.rb4.Size = new System.Drawing.Size(37, 21);
+            this.rb4.Size = new System.Drawing.Size(43, 24);
             this.rb4.TabIndex = 21;
             this.rb4.Text = "4";
             this.rb4.UseVisualStyleBackColor = true;
@@ -330,10 +331,10 @@
             // rb3
             // 
             this.rb3.AutoSize = true;
-            this.rb3.Location = new System.Drawing.Point(467, 262);
-            this.rb3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb3.Location = new System.Drawing.Point(560, 314);
+            this.rb3.Margin = new System.Windows.Forms.Padding(2);
             this.rb3.Name = "rb3";
-            this.rb3.Size = new System.Drawing.Size(37, 21);
+            this.rb3.Size = new System.Drawing.Size(43, 24);
             this.rb3.TabIndex = 20;
             this.rb3.Text = "3";
             this.rb3.UseVisualStyleBackColor = true;
@@ -342,10 +343,10 @@
             // rb2
             // 
             this.rb2.AutoSize = true;
-            this.rb2.Location = new System.Drawing.Point(320, 262);
-            this.rb2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb2.Location = new System.Drawing.Point(384, 314);
+            this.rb2.Margin = new System.Windows.Forms.Padding(2);
             this.rb2.Name = "rb2";
-            this.rb2.Size = new System.Drawing.Size(37, 21);
+            this.rb2.Size = new System.Drawing.Size(43, 24);
             this.rb2.TabIndex = 19;
             this.rb2.Text = "2";
             this.rb2.UseVisualStyleBackColor = true;
@@ -355,10 +356,10 @@
             // 
             this.rb1.AutoSize = true;
             this.rb1.Checked = true;
-            this.rb1.Location = new System.Drawing.Point(180, 262);
-            this.rb1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb1.Location = new System.Drawing.Point(216, 314);
+            this.rb1.Margin = new System.Windows.Forms.Padding(2);
             this.rb1.Name = "rb1";
-            this.rb1.Size = new System.Drawing.Size(37, 21);
+            this.rb1.Size = new System.Drawing.Size(43, 24);
             this.rb1.TabIndex = 18;
             this.rb1.TabStop = true;
             this.rb1.Text = "1";
@@ -368,10 +369,10 @@
             // tbRegPhone
             // 
             this.tbRegPhone.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.tbRegPhone.Location = new System.Drawing.Point(574, 117);
-            this.tbRegPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbRegPhone.Location = new System.Drawing.Point(689, 140);
+            this.tbRegPhone.Margin = new System.Windows.Forms.Padding(2);
             this.tbRegPhone.Name = "tbRegPhone";
-            this.tbRegPhone.Size = new System.Drawing.Size(266, 30);
+            this.tbRegPhone.Size = new System.Drawing.Size(318, 34);
             this.tbRegPhone.TabIndex = 4;
             this.tbRegPhone.Validating += new System.ComponentModel.CancelEventHandler(this.tbRegPhone_Validating);
             // 
@@ -379,30 +380,30 @@
             // 
             this.lblRegPhone.AutoSize = true;
             this.lblRegPhone.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRegPhone.Location = new System.Drawing.Point(460, 118);
+            this.lblRegPhone.Location = new System.Drawing.Point(552, 142);
             this.lblRegPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRegPhone.Name = "lblRegPhone";
-            this.lblRegPhone.Size = new System.Drawing.Size(102, 22);
+            this.lblRegPhone.Size = new System.Drawing.Size(126, 25);
             this.lblRegPhone.TabIndex = 12;
             this.lblRegPhone.Text = "Telemóvel";
             // 
             // tbRegAge
             // 
             this.tbRegAge.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.tbRegAge.Location = new System.Drawing.Point(574, 83);
-            this.tbRegAge.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbRegAge.Location = new System.Drawing.Point(689, 100);
+            this.tbRegAge.Margin = new System.Windows.Forms.Padding(2);
             this.tbRegAge.Name = "tbRegAge";
-            this.tbRegAge.Size = new System.Drawing.Size(266, 30);
+            this.tbRegAge.Size = new System.Drawing.Size(318, 34);
             this.tbRegAge.TabIndex = 3;
             this.tbRegAge.Validating += new System.ComponentModel.CancelEventHandler(this.tbRegAge_Validating);
             // 
             // tbRegUsername
             // 
             this.tbRegUsername.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.tbRegUsername.Location = new System.Drawing.Point(151, 150);
-            this.tbRegUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbRegUsername.Location = new System.Drawing.Point(181, 180);
+            this.tbRegUsername.Margin = new System.Windows.Forms.Padding(2);
             this.tbRegUsername.Name = "tbRegUsername";
-            this.tbRegUsername.Size = new System.Drawing.Size(266, 30);
+            this.tbRegUsername.Size = new System.Drawing.Size(318, 34);
             this.tbRegUsername.TabIndex = 2;
             this.tbRegUsername.Validating += new System.ComponentModel.CancelEventHandler(this.tbRegUsername_Validating);
             // 
@@ -410,10 +411,10 @@
             // 
             this.lblRegAge.AutoSize = true;
             this.lblRegAge.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRegAge.Location = new System.Drawing.Point(462, 85);
+            this.lblRegAge.Location = new System.Drawing.Point(554, 102);
             this.lblRegAge.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRegAge.Name = "lblRegAge";
-            this.lblRegAge.Size = new System.Drawing.Size(66, 22);
+            this.lblRegAge.Size = new System.Drawing.Size(77, 25);
             this.lblRegAge.TabIndex = 11;
             this.lblRegAge.Text = "Idade";
             // 
@@ -421,10 +422,10 @@
             // 
             this.lblRegUsername.AutoSize = true;
             this.lblRegUsername.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRegUsername.Location = new System.Drawing.Point(39, 152);
+            this.lblRegUsername.Location = new System.Drawing.Point(47, 182);
             this.lblRegUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRegUsername.Name = "lblRegUsername";
-            this.lblRegUsername.Size = new System.Drawing.Size(101, 22);
+            this.lblRegUsername.Size = new System.Drawing.Size(121, 25);
             this.lblRegUsername.TabIndex = 10;
             this.lblRegUsername.Text = "Username";
             // 
@@ -433,10 +434,10 @@
             this.linkLog.AutoSize = true;
             this.linkLog.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.linkLog.LinkColor = System.Drawing.Color.OliveDrab;
-            this.linkLog.Location = new System.Drawing.Point(477, 415);
+            this.linkLog.Location = new System.Drawing.Point(572, 498);
             this.linkLog.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLog.Name = "linkLog";
-            this.linkLog.Size = new System.Drawing.Size(94, 21);
+            this.linkLog.Size = new System.Drawing.Size(108, 23);
             this.linkLog.TabIndex = 6;
             this.linkLog.TabStop = true;
             this.linkLog.Text = "Entre aqui";
@@ -446,20 +447,20 @@
             // 
             this.tbInfoReg.AutoSize = true;
             this.tbInfoReg.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.tbInfoReg.Location = new System.Drawing.Point(329, 415);
+            this.tbInfoReg.Location = new System.Drawing.Point(395, 498);
             this.tbInfoReg.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tbInfoReg.Name = "tbInfoReg";
-            this.tbInfoReg.Size = new System.Drawing.Size(151, 21);
+            this.tbInfoReg.Size = new System.Drawing.Size(175, 23);
             this.tbInfoReg.TabIndex = 13;
             this.tbInfoReg.Text = "Já possui conta?";
             // 
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnRegister.Location = new System.Drawing.Point(367, 340);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRegister.Location = new System.Drawing.Point(440, 408);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(137, 46);
+            this.btnRegister.Size = new System.Drawing.Size(164, 55);
             this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = "Registar";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -468,21 +469,21 @@
             // tbRegPassword
             // 
             this.tbRegPassword.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.tbRegPassword.Location = new System.Drawing.Point(151, 117);
-            this.tbRegPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbRegPassword.Location = new System.Drawing.Point(181, 140);
+            this.tbRegPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbRegPassword.Name = "tbRegPassword";
             this.tbRegPassword.PasswordChar = '*';
-            this.tbRegPassword.Size = new System.Drawing.Size(266, 30);
+            this.tbRegPassword.Size = new System.Drawing.Size(318, 34);
             this.tbRegPassword.TabIndex = 1;
             this.tbRegPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbRegPassword_Validating);
             // 
             // tbRegEmail
             // 
             this.tbRegEmail.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.tbRegEmail.Location = new System.Drawing.Point(151, 83);
-            this.tbRegEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbRegEmail.Location = new System.Drawing.Point(181, 100);
+            this.tbRegEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbRegEmail.Name = "tbRegEmail";
-            this.tbRegEmail.Size = new System.Drawing.Size(266, 30);
+            this.tbRegEmail.Size = new System.Drawing.Size(318, 34);
             this.tbRegEmail.TabIndex = 0;
             this.tbRegEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbRegEmail_Validating);
             // 
@@ -490,10 +491,10 @@
             // 
             this.lblRegPassword.AutoSize = true;
             this.lblRegPassword.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRegPassword.Location = new System.Drawing.Point(39, 118);
+            this.lblRegPassword.Location = new System.Drawing.Point(47, 142);
             this.lblRegPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRegPassword.Name = "lblRegPassword";
-            this.lblRegPassword.Size = new System.Drawing.Size(95, 22);
+            this.lblRegPassword.Size = new System.Drawing.Size(114, 25);
             this.lblRegPassword.TabIndex = 9;
             this.lblRegPassword.Text = "Password";
             // 
@@ -501,10 +502,10 @@
             // 
             this.lblRegEmail.AutoSize = true;
             this.lblRegEmail.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRegEmail.Location = new System.Drawing.Point(38, 85);
+            this.lblRegEmail.Location = new System.Drawing.Point(46, 102);
             this.lblRegEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRegEmail.Name = "lblRegEmail";
-            this.lblRegEmail.Size = new System.Drawing.Size(56, 22);
+            this.lblRegEmail.Size = new System.Drawing.Size(71, 25);
             this.lblRegEmail.TabIndex = 8;
             this.lblRegEmail.Text = "Email";
             // 
@@ -515,7 +516,7 @@
             this.lblRegistration.Location = new System.Drawing.Point(2, 2);
             this.lblRegistration.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRegistration.Name = "lblRegistration";
-            this.lblRegistration.Size = new System.Drawing.Size(875, 78);
+            this.lblRegistration.Size = new System.Drawing.Size(1052, 94);
             this.lblRegistration.TabIndex = 7;
             this.lblRegistration.Text = "Registo";
             this.lblRegistration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -533,10 +534,10 @@
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = global::Sports4All.Properties.Resources.btnExit_Image;
-            this.btnExit.Location = new System.Drawing.Point(882, 12);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExit.Location = new System.Drawing.Point(1058, 14);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(40, 45);
+            this.btnExit.Size = new System.Drawing.Size(48, 54);
             this.btnExit.TabIndex = 0;
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
@@ -544,13 +545,13 @@
             // 
             // Authentication
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(933, 501);
+            this.ClientSize = new System.Drawing.Size(1120, 601);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Authentication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Authentication";
