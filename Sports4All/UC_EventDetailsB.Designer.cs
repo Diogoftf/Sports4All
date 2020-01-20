@@ -50,7 +50,7 @@
             this.tbEventDate = new System.Windows.Forms.TextBox();
             this.tbminAge = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPark)).BeginInit();
             this.SuspendLayout();
             // 
@@ -217,6 +217,7 @@
             this.tbNome.BackColor = System.Drawing.SystemColors.Menu;
             this.tbNome.Location = new System.Drawing.Point(241, 240);
             this.tbNome.Name = "tbNome";
+            this.tbNome.ReadOnly = true;
             this.tbNome.Size = new System.Drawing.Size(47, 28);
             this.tbNome.TabIndex = 47;
             this.tbNome.Text = "12";
@@ -227,6 +228,7 @@
             this.tbMaxAge.BackColor = System.Drawing.SystemColors.Menu;
             this.tbMaxAge.Location = new System.Drawing.Point(200, 277);
             this.tbMaxAge.Name = "tbMaxAge";
+            this.tbMaxAge.ReadOnly = true;
             this.tbMaxAge.Size = new System.Drawing.Size(88, 28);
             this.tbMaxAge.TabIndex = 48;
             this.tbMaxAge.Text = "45 anos";
@@ -237,6 +239,7 @@
             this.tbEventDate.BackColor = System.Drawing.SystemColors.Menu;
             this.tbEventDate.Location = new System.Drawing.Point(120, 348);
             this.tbEventDate.Name = "tbEventDate";
+            this.tbEventDate.ReadOnly = true;
             this.tbEventDate.Size = new System.Drawing.Size(182, 28);
             this.tbEventDate.TabIndex = 49;
             this.tbEventDate.Text = "30 Janeiro 2020";
@@ -247,6 +250,7 @@
             this.tbminAge.BackColor = System.Drawing.SystemColors.Menu;
             this.tbminAge.Location = new System.Drawing.Point(196, 315);
             this.tbminAge.Name = "tbminAge";
+            this.tbminAge.ReadOnly = true;
             this.tbminAge.Size = new System.Drawing.Size(88, 28);
             this.tbminAge.TabIndex = 50;
             this.tbminAge.Text = "16 anos";
@@ -263,20 +267,23 @@
             this.btnEdit.Size = new System.Drawing.Size(30, 27);
             this.btnEdit.TabIndex = 51;
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // button1
+            // btnSaveChanges
             // 
-            this.button1.Location = new System.Drawing.Point(370, 352);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 32);
-            this.button1.TabIndex = 52;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSaveChanges.Location = new System.Drawing.Point(370, 352);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(107, 32);
+            this.btnSaveChanges.TabIndex = 52;
+            this.btnSaveChanges.Text = "Guardar";
+            this.btnSaveChanges.UseVisualStyleBackColor = true;
+            this.btnSaveChanges.Visible = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // UC_EventsDetailsB
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.tbminAge);
             this.Controls.Add(this.tbEventDate);
@@ -330,6 +337,6 @@
         private System.Windows.Forms.TextBox tbEventDate;
         private System.Windows.Forms.TextBox tbminAge;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveChanges;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Sports4All
 {
@@ -43,9 +44,26 @@ namespace Sports4All
             pbPark.ImageLocation = @"C:\Users\Tiago.Gouveia\Desktop\ProjectDIS\Sports4All\Images\sportsground1.jpg";
             pbPark.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+            btnSaveChanges.Visible = true;
+            tbEventDate.ReadOnly = false;
+            tbMaxAge.ReadOnly = false;
+            tbminAge.ReadOnly = false;
+            tbNome.ReadOnly = false;
+            
+        }
+
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Dados Guardados com Sucesso!");
+            btnSaveChanges.Visible = false;
+            tbEventDate.ReadOnly = true;
+            tbMaxAge.ReadOnly = true;
+            tbminAge.ReadOnly = true;
+            tbNome.ReadOnly = true;
+        }
     }
-
-
-
-
 }
