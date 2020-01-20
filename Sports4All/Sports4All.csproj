@@ -103,9 +103,9 @@
     <Compile Include="GroundEvaluation.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Material.cs" />
-    <Compile Include="Migrations\202001192139251_M021.cs" />
-    <Compile Include="Migrations\202001192139251_M021.designer.cs">
-      <DependentUpon>202001192139251_M021.cs</DependentUpon>
+    <Compile Include="Migrations\202001201123065_M001.cs" />
+    <Compile Include="Migrations\202001201123065_M001.designer.cs">
+      <DependentUpon>202001201123065_M001.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
@@ -273,8 +273,8 @@
     <EmbeddedResource Include="Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001192139251_M021.resx">
-      <DependentUpon>202001192139251_M021.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001201123065_M001.resx">
+      <DependentUpon>202001201123065_M001.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_HeaderUser.resx">
       <DependentUpon>UC_HeaderUser.cs</DependentUpon>

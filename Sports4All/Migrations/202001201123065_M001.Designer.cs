@@ -7,13 +7,13 @@ namespace Sports4All.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class M021 : IMigrationMetadata
+    public sealed partial class M001 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(M021));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(M001));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001192139251_M021"; }
+            get { return "202001201123065_M001"; }
         }
         
         string IMigrationMetadata.Source
