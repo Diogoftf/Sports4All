@@ -20,6 +20,7 @@ namespace Sports4All
         public UC_Rank()
         {
             InitializeComponent();
+            load_Rank(true);
         }
 
         private void lblEventOwnerValue_Click(object sender, EventArgs e)
@@ -27,21 +28,24 @@ namespace Sports4All
 
         }
 
-        private void load_Top10Rank()
+        private void load_Rank(bool top10)
         {
             flpRank.Controls.Clear();
-            List<Classification> topUsers = rankController.getTopUsers();
+            ICollection<Classification> topUsers = rankController.getTopUsers();
+            var auxiliar = topUsers.Count;
+            
+            if (top10)
+                auxiliar = 10;
 
             for (int i = 0; i < topUsers.Count; i++)
             {
-
-                if (i < 10)
+                if (i < auxiliar)
                 {
                     UC_RankItems rankItems = new UC_RankItems();
-                    rankItems.Classificacao = topUsers[i].rankClassification.ToString();
-                    rankItems.Utilizador = topUsers[i].userId.Username.ToString();
-                    rankItems.PartidasJogadas = (topUsers[i].userId.Events.Count + topUsers[i].userId.Reserves.Count).ToString();
-                    rankItems.Pontos = topUsers[i].points.ToString();
+                    rankItems.Classificacao = topUsers.ToList()[i].rankClassification.ToString();
+                    rankItems.Utilizador = topUsers.ToList()[i].userId.Username.ToString();
+                    rankItems.PartidasJogadas = topUsers.ToList()[i].userId.Events.Count.ToString();
+                    rankItems.Pontos = topUsers.ToList()[i].points.ToString();
                     //_top10Users.Add(rankItems);
                     flpRank.Controls.Add(rankItems); //add to flowlayout
                 }
@@ -50,42 +54,23 @@ namespace Sports4All
 
         }
 
-        private void load_GlobalRank()
-        {
-            flpRank.Controls.Clear();
-            List<Classification> topUsers = rankController.getTopUsers();
-
-            foreach (Classification e in topUsers)
-            {
-                UC_RankItems rankItems = new UC_RankItems();
-                rankItems.Classificacao = e.rankClassification.ToString();
-                rankItems.Utilizador = e.userId.Username.ToString();
-                rankItems.PartidasJogadas = (e.userId.Events.Count + e.userId.Reserves.Count).ToString();
-                rankItems.Pontos = e.points.ToString();
-                //_top10Users.Add(rankItems);
-                flpRank.Controls.Add(rankItems); //add to flowlayout
-            }
-        }
-
         private void UC_Rank_Load(object sender, EventArgs e)
         {
-            //load_Top10Rank();
         }
 
         private void btnTop10_Click(object sender, EventArgs e)
         {
-
-            load_Top10Rank();
+            load_Rank(true);
         }
 
         private void btnGlobalRank_Click(object sender, EventArgs e)
         {
-            load_GlobalRank();
+            load_Rank(false);
         }
 
         private void btnTopRecintos_Click(object sender, EventArgs e)
         {
-
+            load_Rank(true);
         }
     }
 }

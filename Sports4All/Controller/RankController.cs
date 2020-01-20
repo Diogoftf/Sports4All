@@ -8,12 +8,12 @@ namespace Sports4All
 {
     class RankController
     {
-        public List<Classification> getTopUsers()
+        public ICollection<Classification> getTopUsers()
         {
 
             using (var db = new ModelContext())
             {
-                return db.Classifications.OrderByDescending(c => c.rankClassification).ToList();
+                return db.Classifications.Include("userId.Events").OrderBy(c => c.rankClassification).ToList();
             }
             
         }
