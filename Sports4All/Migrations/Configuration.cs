@@ -76,72 +76,50 @@ namespace Sports4All.Migrations
             listGrounds.Add(new Ground() { GroundId = 1, ParkId = 1, Sports = listSports.ToList(), Picture = listPictures.ToList()[6] });
             listGrounds.Add(new Ground() { GroundId = 2, ParkId = 2, Sports = listSports.ToList(), Picture = listPictures.ToList()[7] });
 
+             DateTime dateStartEvent = new DateTime(2020, 2, 18);
+             dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
+             ICollection<Reserve> listReserves = new Collection<Reserve>();
+             listReserves.Add(new Reserve() { ReserveId = 1, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[0].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
+             listReserves.Add(new Reserve() { ReserveId = 2, Price = 10, UserId = listUsers.ToList()[1].Username, SportId = listSports.ToList()[1].SportId, GroundId = listGrounds.ToList()[1].GroundId, Date = dateStartEvent });
+      
+             ICollection<Event> listEvents = new Collection<Event>();
+             DateTime dateEndEvent = dateStartEvent;
+             dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
+             dateEndEvent.Date.AddHours(14); dateEndEvent.Date.AddMinutes(00);
+             listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Reserve = listReserves.ToList()[1], Name = "Treino - ADM vs Nacional", Users = listUsers });
+             dateStartEvent = dateEndEvent = new DateTime(2019, 1, 25);
+             dateStartEvent.Date.AddHours(9); dateStartEvent.Date.AddMinutes(30);
+             dateEndEvent.Date.AddHours(11); dateEndEvent.Date.AddMinutes(00);
+             listEvents.Add(new Event() { EventId = 2, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 6, MinAge = 10, Reserve = listReserves.ToList()[1], MaxAge = 18, Name = "Jogo Amigavel de Futebol", Users = listUsers });
+  
+             ICollection<UserEvaluation> listUserEvaluations = new Collection<UserEvaluation>();
+             listUserEvaluations.Add(new UserEvaluation() { EvaluationId = 1, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[0].EventId, Skill = 4, FairPlay = 5, UserId = listUsers.ToList()[1].Username });
+             listUserEvaluations.Add(new UserEvaluation() { EvaluationId = 2, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[1].EventId, Skill = 3, FairPlay = 2, UserId = listUsers.ToList()[1].Username });
 
-        
-            /*  
-            
-         DateTime dateStartEvent = new DateTime(2020, 2, 18);
-         dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
-         ICollection<Reserve> listReserves = new Collection<Reserve>();
-         listReserves.Add(new Reserve() { ReserveId = 1, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[0].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
-         listReserves.Add(new Reserve() { ReserveId = 2, Price = 10, UserId = listUsers.ToList()[1].Username, SportId = listSports.ToList()[1].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
-         listReserves.Add(new Reserve() { ReserveId = 3, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[2].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
-         listReserves.Add(new Reserve() { ReserveId = 4, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[3].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
+             ICollection<GroundEvaluation> listGroundEvaluations = new Collection<GroundEvaluation>();
+             listGroundEvaluations.Add(new GroundEvaluation() { EvaluationId = 5, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[0].EventId, Quality = 4, Price = 5, GroundId = listGrounds.ToList()[0].GroundId });
+             listGroundEvaluations.Add(new GroundEvaluation() { EvaluationId = 6, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[1].EventId, Quality = 3, Price = 2, GroundId = listGrounds.ToList()[1].GroundId });
+             listGroundEvaluations.Add(new GroundEvaluation() { EvaluationId = 7, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[0].EventId, Quality = 5, Price = 5, GroundId = listGrounds.ToList()[0].GroundId });
+             listGroundEvaluations.Add(new GroundEvaluation() { EvaluationId = 8, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[1].EventId, Quality = 4, Price = 4, GroundId = listGrounds.ToList()[1].GroundId });
 
-         ICollection<Event> listEvents = new Collection<Event>();
+             // Esta lista contem todas as avaliações feitas da josefa aos utilizadores desse evento especifico
+             // Esta lista contem todas as avaliações feitas da josefa aos recintos
+             ICollection<Evaluation> listEvaluationsRuben = new Collection<Evaluation>();
+             ICollection<Reserve> listReservesRuben = new Collection<Reserve>();
+             ICollection<Event> listEventsRuben= new Collection<Event>();
+             listReservesRuben.Add(listReserves.ToList()[1]);
+             listEventsRuben.Add(listEvents.ToList()[0]);
 
-         DateTime dateEndEvent = dateStartEvent;
-         dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
-         dateEndEvent.Date.AddHours(14); dateEndEvent.Date.AddMinutes(00);
-         listEvents.Add(new Event() { EventId = 1, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 10, MinAge = 21, MaxAge = 31, Reserve = listReserves.ToList()[1], Name = "Treino - ADM vs Nacional" });
-         dateStartEvent = dateEndEvent = new DateTime(2019, 1, 25);
-         dateStartEvent.Date.AddHours(9); dateStartEvent.Date.AddMinutes(30);
-         dateEndEvent.Date.AddHours(11); dateEndEvent.Date.AddMinutes(00);
-         listEvents.Add(new Event() { EventId = 2, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 6, MinAge = 10, Reserve = listReserves.ToList()[1], MaxAge = 18, Name = "Jogo Amigavel de Futebol" });
-         dateStartEvent = dateEndEvent = new DateTime(2020, 1, 2);
-         dateStartEvent.Date.AddHours(14); dateStartEvent.Date.AddMinutes(00);
-         dateEndEvent.Date.AddHours(16); dateEndEvent.Date.AddMinutes(00);
-         listEvents.Add(new Event() { EventId = 3, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 12, MinAge = 20, Reserve = listReserves.ToList()[2], MaxAge = 40, Name = "Torneio de Padel" });
-         dateStartEvent = dateEndEvent = new DateTime(2019, 1, 15);
-         dateStartEvent.Date.AddHours(18); dateStartEvent.Date.AddMinutes(00);
-         dateEndEvent.Date.AddHours(20); dateEndEvent.Date.AddMinutes(00);
-         listEvents.Add(new Event() { EventId = 4, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 8, MinAge = 30, Reserve = listReserves.ToList()[3], MaxAge = 50, Name = "Jogo Amigavel de Tenis" });
+             foreach (UserEvaluation user in listUserEvaluations)
+             {
+                 listEvaluationsRuben.Add(user);
+             }
 
-         ICollection<UserEvaluation> listUserEvaluations = new Collection<UserEvaluation>();
-         listUserEvaluations.Add(new UserEvaluation() { EvaluationId = 1, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[0].EventId, Skill = 4, FairPlay = 5, UserId = listUsers.ToList()[0].Username });
-         listUserEvaluations.Add(new UserEvaluation() { EvaluationId = 2, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[1].EventId, Skill = 3, FairPlay = 2, UserId = listUsers.ToList()[0].Username });
-         listUserEvaluations.Add(new UserEvaluation() { EvaluationId = 3, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[2].EventId, Skill = 5, FairPlay = 5, UserId = listUsers.ToList()[0].Username });
-         listUserEvaluations.Add(new UserEvaluation() { EvaluationId = 4, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[3].EventId, Skill = 3, FairPlay = 4, UserId = listUsers.ToList()[0].Username });
-
-         ICollection<GroundEvaluation> listGroundEvaluations = new Collection<GroundEvaluation>();
-         listGroundEvaluations.Add(new GroundEvaluation() { EvaluationId = 5, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[0].EventId, Quality = 4, Price = 5, GroundId = listGrounds.ToList()[0].GroundId });
-         listGroundEvaluations.Add(new GroundEvaluation() { EvaluationId = 6, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[1].EventId, Quality = 3, Price = 2, GroundId = listGrounds.ToList()[0].GroundId });
-         listGroundEvaluations.Add(new GroundEvaluation() { EvaluationId = 7, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[2].EventId, Quality = 5, Price = 5, GroundId = listGrounds.ToList()[0].GroundId });
-         listGroundEvaluations.Add(new GroundEvaluation() { EvaluationId = 8, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[3].EventId, Quality = 4, Price = 4, GroundId = listGrounds.ToList()[0].GroundId });
-
-         // Esta lista contem todas as avaliações feitas da josefa aos utilizadores desse evento especifico
-         // Esta lista contem todas as avaliações feitas da josefa aos recintos
-         ICollection<Evaluation> listEvaluationsRuben = new Collection<Evaluation>();
-         ICollection<Reserve> listReservesRuben = new Collection<Reserve>();
-         ICollection<Event> listEventsRuben= new Collection<Event>();
-         listReservesRuben.Add(listReserves.ToList()[1]);
-         listEventsRuben.Add(listEvents.ToList()[0]);
-
-         foreach (UserEvaluation user in listUserEvaluations)
-         {
-             listEvaluationsRuben.Add(user);
-         }
-
-         foreach (GroundEvaluation ground in listGroundEvaluations)
-         {
-             listEvaluationsRuben.Add(ground);
-         }
-         /////////
-
-            //////////////////
-
-            */
-
+             foreach (GroundEvaluation ground in listGroundEvaluations)
+             {
+                 listEvaluationsRuben.Add(ground);
+             }
+     
             foreach (District district in listDistricts)
             {
                 context.Districts.AddOrUpdate(district);
@@ -172,8 +150,6 @@ namespace Sports4All.Migrations
                 context.Sports.AddOrUpdate(sport);
             }
 
-
-
             foreach (Park park in listParks)
             {
                 context.Parks.AddOrUpdate(park);
@@ -184,7 +160,7 @@ namespace Sports4All.Migrations
             {
                 context.Grounds.AddOrUpdate(ground);
             }
-            /*
+            
             foreach (Reserve reserve in listReserves)
             {
                 context.Reserves.AddOrUpdate(reserve);
@@ -199,7 +175,7 @@ namespace Sports4All.Migrations
             {
                 context.Evaluations.AddOrUpdate(userEvaluation);
             }
-            */
+            
 
             base.Seed(context);
         }
