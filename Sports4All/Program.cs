@@ -21,9 +21,9 @@ namespace Sports4All
             //a.getMyEvents("josefa");
             //a.getEventSuggestions("josefa");
 
-           Application.EnableVisualStyles();
-           Application.SetCompatibleTextRenderingDefault(false);
-           Application.Run(new Form1());
+            //  Application.EnableVisualStyles();
+            //  Application.SetCompatibleTextRenderingDefault(false);
+            //  Application.Run(new Form1());
 
 
         }

@@ -15,6 +15,8 @@ namespace Sports4All
         public virtual Park Park { get; set; }
         public virtual ICollection<User> Users { get; set; }
         public virtual Ground Ground { get; set; }
+
+        public string FileName { get; set; }
         
     }
 }
