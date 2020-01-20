@@ -101,10 +101,10 @@ namespace Sports4All
 
         private void userStatsDetails()
         {
-            lbMatchesPlayedValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser)[0];
-            lbFairplayValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser)[1];
-            lbSkillValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser)[2];
-            lbRacioValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser)[3];
+            lbMatchesPlayedValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[0];
+            lbFairplayValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[1];
+            lbSkillValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[2];
+            lbRacioValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[3];
         }
 
         private void lbHighlights_Click(object sender, EventArgs e)
