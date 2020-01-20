@@ -15,12 +15,7 @@ namespace Sports4All
         [STAThread]
         static void Main()
         {
-            using (ModelContext db = new ModelContext() )
-            {
-                var query = db.Sports.Include("Picture").First();
-                string name = query.Picture.PictureBody;
-                MessageBox.Show(name);
-            }
+
             /** DEBUG**/
             //HomeController a = new HomeController();
             //a.getMyEvents("josefa");
