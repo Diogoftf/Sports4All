@@ -13,9 +13,9 @@ namespace Sports4All
     public partial class UC_Home : UserControl
     {
         private readonly HomeController _homeController;
-        private List<UC_HomeMyEventsItem> _MyEvents = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
-        private List<UC_HomeMyEventsItem> _EventSuggestions = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
-        private List<Sport> _availableSports;
+        private ICollection<UC_HomeMyEventsItem> _MyEvents = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
+        private ICollection<UC_HomeMyEventsItem> _EventSuggestions = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
+        private ICollection<Sport> _availableSports;
         private UC_HomeMyEventsItem _noMyEventsitems = new UC_HomeMyEventsItem();
         private UC_HomeMyEventsItem _noSuggestionsEventsitems = new UC_HomeMyEventsItem();
   
@@ -24,7 +24,7 @@ namespace Sports4All
         {
             InitializeComponent();
             _homeController = new HomeController();
-           // InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
+            InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
             flpInfoStats.Visible = false;
             infoStatsDescription(); // PROVISORIO
 
@@ -48,11 +48,11 @@ namespace Sports4All
 
             for (int i = 0; i < _MyEvents.Count; i++)
             {
-                string[] dateStart = _MyEvents[i].DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
+                string[] dateStart = _MyEvents.ToList()[i].DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
 
                 if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy") == dtpMySportDate.Value.Date.ToString("dd-MM-yyyy"))
                 {
-                    flpMyEvents.Controls.Add(_MyEvents[i]); //add to flowlayout
+                    flpMyEvents.Controls.Add(_MyEvents.ToList()[i]); //add to flowlayout
                 }
 
             }
@@ -69,7 +69,7 @@ namespace Sports4All
 
         private void InitializateElements()
         {
-          //  dtpNextEventDate.MinDate = dtpMySportDate.MinDate = DateTime.Now;
+            dtpNextEventDate.MinDate = dtpMySportDate.MinDate = DateTime.Now;
             dtpMySportDate.Format = dtpNextEventDate.Format = DateTimePickerFormat.Custom;
             dtpMySportDate.CustomFormat = dtpNextEventDate.CustomFormat = "dd-MM-yyyy";
 
@@ -135,7 +135,7 @@ namespace Sports4All
         private void PopulateLists(string username)
         {
             // Array auxiliar de meus eventos
-            List<Event> myEvent = _homeController.getMyEvents(username); // passar scarf para username
+            ICollection<Event> myEvent = _homeController.getMyEvents(username); // passar scarf para username
             flpMyEvents.Controls.Clear();
             flpEventSuggestions.Controls.Clear();
             _MyEvents.Clear();
@@ -149,11 +149,11 @@ namespace Sports4All
                     if (i < 3)
                     {
                         UC_HomeMyEventsItem ItemMyEvents = new UC_HomeMyEventsItem();
-                        ItemMyEvents.DateTime = myEvent[i].StartDate.ToString() + " || " + myEvent[i].EndDate.ToString("HH:mm");
-                        ItemMyEvents.Organizador = myEvent[i].Reserve.UserId;
-                        ItemMyEvents.Slots = /* myEvent[i].Users.Count + */ "/" + myEvent[i].MaxPlayers.ToString();
-                        ItemMyEvents.Recinto = /* myEvent[i].Reserve.Ground.Park.Name; */ "Espera da criação de eventos";
-                        ItemMyEvents.Sport = /* myEvent[i].Reserve.Sport.Name;*/ "Espera da criação de eventos";
+                        ItemMyEvents.DateTime = myEvent.ToList()[i].StartDate.ToString() + " || " + myEvent.ToList()[i].EndDate.ToString("HH:mm");
+                        ItemMyEvents.Organizador = myEvent.ToList()[i].Reserve.UserId;
+                        ItemMyEvents.Slots =  myEvent.ToList()[i].Users.Count.ToString() + "/" + myEvent.ToList()[i].MaxPlayers.ToString();
+                        ItemMyEvents.Recinto =  myEvent.ToList()[i].Reserve.Ground.Park.Name; 
+                        ItemMyEvents.Sport =  myEvent.ToList()[i].Reserve.Sport.Name;
                         _MyEvents.Add(ItemMyEvents);
                         flpMyEvents.Controls.Add(ItemMyEvents); //add to flowlayout
                     }
@@ -166,7 +166,7 @@ namespace Sports4All
 
 
             //Preenche lista de sugestoes de eventos
-            List<Reserve> EventSuggestions = new List<Reserve>(); // _homeController.getEventSuggestions(username);
+            ICollection<Reserve> EventSuggestions = _homeController.getEventSuggestions(username);
             flpEventSuggestions.Controls.Clear();
 
             if (EventSuggestions.Count > 0)
@@ -176,11 +176,11 @@ namespace Sports4All
                     if (i < 3)
                     {
                         UC_HomeMyEventsItem ItemSuggestion = new UC_HomeMyEventsItem();
-                        /*  ItemSuggestion.DateTime = EventSuggestions[i].StartDate.ToString() + " || " + EventSuggestions[i].EndDate.ToShortTimeString();
-                          ItemSuggestion.Organizador = EventSuggestions[i].Reserve.UserId;
-                          ItemSuggestion.Slots =  EventSuggestions[i].Users.Count +  "/" + EventSuggestions[i].MaxPlayers.ToString();
-                          ItemSuggestion.Recinto =  EventSuggestions[i].Reserve.Ground.Park.Name;  "Espera da criação de eventos";
-                          ItemSuggestion.Sport =  EventSuggestions[i].Reserve.Sport.Name; "Espera da criação de eventos";*/
+                          ItemSuggestion.DateTime = EventSuggestions.ToList()[i].Event.StartDate.ToString() + " || " + EventSuggestions.ToList()[i].Event.EndDate.ToShortTimeString();
+                          ItemSuggestion.Organizador = EventSuggestions.ToList()[i].UserId;
+                          ItemSuggestion.Slots =  EventSuggestions.ToList()[i].Event.Users.Count +  "/" + EventSuggestions.ToList()[i].Event.MaxPlayers.ToString();
+                          ItemSuggestion.Recinto =  EventSuggestions.ToList()[i].Ground.Park.Name;
+                          ItemSuggestion.Sport =  EventSuggestions.ToList()[i].Sport.Name; 
                         _EventSuggestions.Add(ItemSuggestion);
                         flpEventSuggestions.Controls.Add(ItemSuggestion); //add to flowlayout
                     }
@@ -205,16 +205,16 @@ namespace Sports4All
                 {
                     for (int i = 0; i < _MyEvents.Count; i++)
                     {
-                        flpMyEvents.Controls.Add(_MyEvents[i]); //add to flowlayout
+                        flpMyEvents.Controls.Add(_MyEvents.ToList()[i]); //add to flowlayout
                     }
                 }
                 else
                 {
                     for (int i = 0; i < _MyEvents.Count; i++)
                     {
-                        if (_MyEvents[i].Sport == cbMySport.Text)
+                        if (_MyEvents.ToList()[i].Sport == cbMySport.Text)
                         {
-                            flpMyEvents.Controls.Add(_MyEvents[i]); //add to flowlayout
+                            flpMyEvents.Controls.Add(_MyEvents.ToList()[i]); //add to flowlayout
                         }
 
                     }
@@ -235,16 +235,16 @@ namespace Sports4All
                 {
                     for (int i = 0; i < _EventSuggestions.Count; i++)
                     {
-                        flpEventSuggestions.Controls.Add(_EventSuggestions[i]); //add to flowlayout
+                        flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]); //add to flowlayout
                     }
                 }
                 else
                 {
                     for (int i = 0; i < _EventSuggestions.Count; i++)
                     {
-                        if (_EventSuggestions[i].Sport == cbNextSport.Text)
+                        if (_EventSuggestions.ToList()[i].Sport == cbNextSport.Text)
                         {
-                            flpEventSuggestions.Controls.Add(_EventSuggestions[i]); //add to flowlayout
+                            flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]); //add to flowlayout
                         }
 
                     }
@@ -302,11 +302,11 @@ namespace Sports4All
 
             for (int i = 0; i < _EventSuggestions.Count; i++)
             {
-                string[] dateStart = _EventSuggestions[i].DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
+                string[] dateStart = _EventSuggestions.ToList()[i].DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
 
                 if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy") == dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy"))
                 {
-                    flpEventSuggestions.Controls.Add(_EventSuggestions[i]); //add to flowlayout
+                    flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]); //add to flowlayout
                 }
 
             }

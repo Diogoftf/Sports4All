@@ -8,7 +8,7 @@ namespace Sports4All
 {
     class HomeController
     {
-        public List<Sport> getSports()
+        public ICollection<Sport> getSports()
         {
             using (ModelContext db = new ModelContext())
             {
@@ -53,64 +53,36 @@ namespace Sports4All
             }
         }
 
-        public List<Reserve> getEventSuggestions(string username)
+        public ICollection<Reserve> getEventSuggestions(string username)
         {
             //events -> todos os eventos que o user participou
             // reservs -> todos os eventos que o user criou
 
             using (ModelContext db = new ModelContext())
             {
-                var user = db.Users.Where(c => c.Username == username).First();
 
-                // var userReserves1 = db.Reserves.Where(e => e.UserId != username).ToList();
-
-                // Pego todas as reservas que nao foram realizadas pelo user especifico                //Todos os players + quem fez a reserva
-                return db.Reserves.Where(e => e.UserId != username && e.Event.StartDate > DateTime.Now && (e.Event.Users.Count + 1) < e.Event.MaxPlayers
-                    && (e.Ground.Park.Adress.CountyId == user.CountyId || e.Ground.Park.Adress.County.DistrictId == user.County.DistrictId
-                     && e.Event.Users.Contains(user))).ToList();
+                // Query para dar Sugestões            
+                return db.Reserves.Include("User").Include("Ground.Park").Include("Sport").Where(e => e.User.Username != username && e.Event.StartDate > DateTime.Now && (e.Event.Users.Count) < e.Event.MaxPlayers
+                    && (e.Ground.Park.Adress.CountyId == e.User.CountyId || e.Ground.Park.Adress.County.DistrictId == e.User.County.DistrictId
+                     && e.Event.Users.Contains(e.User) == false)).ToList();
             }
 
         }
 
-        public List<Event> getMyEvents(string username)
+        public ICollection<Event> getMyEvents(string username)
         {
-            List<Event> myEvents = new List<Event>();
+            ICollection<Event> myEvents = new List<Event>();
 
             using (ModelContext db = new ModelContext())
             {
-                //var queryMyReserves = db.Users.Where(c => c.Username == username).First().Reserves //Filtro pelas reservas realizadas por o user
-                //    .Where(e => e.Event.StartDate > DateTime.Now).ToList();
+                var teste = db.Reserves.Include("Ground.Park").Include("Sport").Where(c => c.Event.StartDate > DateTime.Now).ToList();
+                var whoIam = db.Users.Where(e => e.Username == username).First();
 
-                //var queryMyEvents = db.Users.Where(c => c.Username == username).First().Events //Filtro pelos eventos em que o user vai participar
-                //    .Where(e => e.StartDate > DateTime.Now).ToList();
-
-                /* var queryMyReserves = db.Users.Where(c => c.Username == username).First(); //Filtro pelas reservas realizadas por o user
-
-                 var queryMyEvents = db.Users.Where(c => c.Username == username).First().Events.ToList(); //Filtro pelos eventos em que o user vai participar
-
-                 foreach (Reserve a in queryMyReserves) // todos os eventos que esse user participou
+                foreach (Reserve a in teste) // todos os eventos que esse user participou (Tanto os que esta inscrito, como reservou)
                  {
-                     myEvents.Add(a.Event); //guardo o evento dessa reserva
+                    if(a.Event.Users.Contains(whoIam)) 
+                        myEvents.Add(a.Event); //guardo o evento dessa reserva
                  }
-
-                 // Verificador para garantir que nao há eventos repetidos
-                 bool verificador = false;
-                 for (int i = 0; i < queryMyEvents.Count; i++)
-                 {
-                     for (int j = 0; j < myEvents.Count; j++)
-                     {
-                         if (queryMyEvents[i].EventId == myEvents[j].EventId)
-                             verificador = true;
-                     }
-
-                     if (!verificador)
-                     {
-                         myEvents.Add(queryMyEvents[i]);
-                         verificador = false;
-                     }
-
-                 }*/
-
             }
 
             return myEvents;
