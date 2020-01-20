@@ -17,7 +17,8 @@ namespace Sports4All
         {
 
             /** DEBUG**/
-            //HomeController a = new HomeController();
+            HomeController a = new HomeController();
+            a.pointsCalculator();
             //a.getMyEvents("josefa");
             //a.getEventSuggestions("josefa");
 

@@ -35,15 +35,15 @@ namespace Sports4All
             }
         }
 
+        /**
+         * 
+         * Método que calcula as pontuações de todos os utilizadores
+         */
         public void pointsCalculator()
         {
             using (ModelContext db = new ModelContext())
             {
-                var myStats = db.Classifications.Where(e => e.rankClassification > 0).ToList(); // Classificação de todos os users
-               // var eventsPlayed = db.Users.Include("Events").Where(e => e.myStats.rankClassification > 0).ToList();
-                
-                // Avaliações em que esse user foi avaliado
-                var userEvaluations = db.Evaluations.OfType<UserEvaluation>().Where(e => e.Evaluated.myStats.rankClassification > 0).ToList();
+                var myStats = db.Classifications.Where(e => e.points > 0).ToList(); // Classificação de todos os users
                 var auxReservesPerformed = 0;
                 var auxFairplayResult = 0;
                 var auxSkillResult = 0;
@@ -51,43 +51,54 @@ namespace Sports4All
                 var auxRacio = 0;
                 var auxPoints = 0;
 
-                for (int i = 0; i < myStats.Count; i++)
+                for (int i = 0; i < myStats.Count; i++) // percorro todos os users que possuem pontos > 0
                 {
                     auxEventsPerfomed = myStats[i].userId.Events.Count; // total de partidas de cada user
                     auxReservesPerformed = myStats[i].userId.Reserves.Count;
-                    var query = db.Evaluations.OfType<UserEvaluation>().Where(e => e.Evaluated.Username == myStats[i].userId.Username).ToList();
+                    var auxUser = myStats[i].userId.Username;
+                    var userEvaluations = db.Evaluations.OfType<UserEvaluation>().Where(e => e.Evaluated.Username == auxUser).ToList(); // se esse user ja foi avaliado alguma vez...
 
-                    for (int j = 0; j < userEvaluations.Count; j++)
+                    // Se esse user ja foi avaliado alguma vez....
+                    if (userEvaluations.Count > 0)
                     {
-                            if (userEvaluations[j].Evaluated.Username == myStats[i].userId.Username)
-                            {
-                                auxFairplayResult += userEvaluations[j].FairPlay; //total de fairplay de cada user
-                                auxSkillResult += userEvaluations[j].Skill;  //total de skill de cada user
-                            }
+                        for (int j = 0; j < userEvaluations.Count; j++)
+                        {
+                            auxFairplayResult += userEvaluations[j].FairPlay; //total de fairplay de cada user
+                            auxSkillResult += userEvaluations[j].Skill;  //total de skill de cada user
+                        }
+
+                        auxFairplayResult /= userEvaluations.Count;
+                        auxSkillResult /= userEvaluations.Count;
+                        auxRacio = auxFairplayResult / auxSkillResult;
+
+                    }
+                    else
+                    {
+                        auxFairplayResult = auxSkillResult = auxRacio = 0;
                     }
 
-                    auxFairplayResult /= query.Count;
-                    auxSkillResult /= query.Count;
-                    auxRacio = auxFairplayResult / auxSkillResult;
-                    auxPoints = auxFairplayResult * Points._fairplay_Height + auxSkillResult * Points._skill_Height + 
-                        auxEventsPerfomed * Points._eventPerformed_Height + 
-                        auxReservesPerformed * Points._reservePerformed_Height + auxRacio * Points._racio_Height;
+                    auxPoints = auxFairplayResult * Points._fairplay_Height + auxSkillResult * Points._skill_Height +
+                    auxEventsPerfomed * Points._eventPerformed_Height +
+                    auxReservesPerformed * Points._reservePerformed_Height + auxRacio * Points._racio_Height;
 
                     if (auxPoints != myStats[i].points) // se os pontos atuais estiverem diferentes dos pontos da BD entao algo mudou
                     {
-                        // !!!  Remove classificação do utilizador temporariamente !!! //
-                        
-                        var tempRemove = new Classification { idClassification = myStats[i].idClassification };
-                        db.Classifications.Attach(tempRemove);
-                        db.Classifications.Remove(tempRemove);
-                        //db.SaveChanges();
-
-                        var newClassification = new Classification { points = auxPoints, racio = auxRacio, skillAverage = auxSkillResult, fairplayAverage = auxFairplayResult, userId = myStats[i].userId, rankClassification = 0 };
-                        db.Classifications.Add(newClassification);
+                        myStats[i].points = auxPoints;
+                        myStats[i].racio = auxRacio;
+                        myStats[i].skillAverage = auxSkillResult;
+                        myStats[i].fairplayAverage = auxFairplayResult;
                         db.SaveChanges();
-
                     }
                 }
+
+                myStats = db.Classifications.Where(e => e.points > 0).OrderByDescending(e => e.points).ToList(); // volto a pegar nos users todos e agora vou estabelecer a ordem das classificações
+
+                for (int i = 0; i < myStats.Count; i++)
+                {
+                    myStats[i].rankClassification = i + 1;
+                }
+                db.SaveChanges();
+
 
             }
 
