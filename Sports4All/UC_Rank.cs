@@ -12,9 +12,6 @@ namespace Sports4All
 {
     public partial class UC_Rank : UserControl
     {
-       // private List<UC_RankItems> _top10Users = new List<UC_RankItems>();
-       // private List<UC_RankItems> _globalUsers = new List<UC_RankItems>();
-       // private List<UC_RankItems> _topRecintos = new List<UC_RankItems>();
         private readonly RankController rankController = new RankController();
 
         public UC_Rank()
@@ -30,6 +27,9 @@ namespace Sports4All
 
         private void load_Rank(bool top10)
         {
+            lblName1.Text = "Utilizador";
+            lblName2.Text = "Partidas";
+            lblName3.Text = "Pontos";
             flpRank.Controls.Clear();
             ICollection<Classification> topUsers = rankController.getTopUsers();
             var auxiliar = topUsers.Count;
@@ -39,7 +39,7 @@ namespace Sports4All
 
             for (int i = 0; i < topUsers.Count; i++)
             {
-                if (i < auxiliar)
+                if (i < auxiliar && topUsers.ToList()[i].rankClassification > 0)
                 {
                     UC_RankItems rankItems = new UC_RankItems();
                     rankItems.Classificacao = topUsers.ToList()[i].rankClassification.ToString();
@@ -70,7 +70,17 @@ namespace Sports4All
 
         private void btnTopRecintos_Click(object sender, EventArgs e)
         {
-            load_Rank(true);
+            flpRank.Controls.Clear();
+            lblName1.Text = "Nome";
+            lblName2.Text = "Preço";
+            lblName3.Text = "Qualidade";
+
+            IOrderedEnumerable<UC_RankItems> RecintosClassification = rankController.getTopRecintos();
+
+            for (int i = 0; i < RecintosClassification.ToList().Count; i++)
+            {
+                    flpRank.Controls.Add(RecintosClassification.ToList()[i]); //add to flowlayout
+            }
         }
     }
 }

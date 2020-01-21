@@ -32,13 +32,13 @@
             this.btnTop10 = new System.Windows.Forms.Button();
             this.btnGlobalRank = new System.Windows.Forms.Button();
             this.flpRank = new System.Windows.Forms.FlowLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblstart_Hour = new System.Windows.Forms.Label();
-            this.lblEventOwnerValue = new System.Windows.Forms.Label();
-            this.lblSportsGround = new System.Windows.Forms.Label();
+            this.tbpClassification = new System.Windows.Forms.TableLayoutPanel();
+            this.lblName3 = new System.Windows.Forms.Label();
+            this.lblName1 = new System.Windows.Forms.Label();
+            this.lblClassification = new System.Windows.Forms.Label();
+            this.lblName2 = new System.Windows.Forms.Label();
             this.btnTopRecintos = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tbpClassification.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTop10
@@ -84,76 +84,76 @@
             this.flpRank.Size = new System.Drawing.Size(1130, 593);
             this.flpRank.TabIndex = 80;
             // 
-            // tableLayoutPanel1
+            // tbpClassification
             // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblstart_Hour, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblEventOwnerValue, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblSportsGround, 1, 0);
-            this.tableLayoutPanel1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(45, 103);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1130, 63);
-            this.tableLayoutPanel1.TabIndex = 34;
+            this.tbpClassification.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tbpClassification.ColumnCount = 4;
+            this.tbpClassification.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbpClassification.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbpClassification.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbpClassification.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbpClassification.Controls.Add(this.lblName3, 3, 0);
+            this.tbpClassification.Controls.Add(this.lblName1, 0, 0);
+            this.tbpClassification.Controls.Add(this.lblClassification, 0, 0);
+            this.tbpClassification.Controls.Add(this.lblName2, 1, 0);
+            this.tbpClassification.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.tbpClassification.Location = new System.Drawing.Point(45, 103);
+            this.tbpClassification.Name = "tbpClassification";
+            this.tbpClassification.RowCount = 1;
+            this.tbpClassification.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbpClassification.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tbpClassification.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tbpClassification.Size = new System.Drawing.Size(1130, 63);
+            this.tbpClassification.TabIndex = 34;
             // 
-            // label1
+            // lblName3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(850, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(276, 61);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Pontos";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblName3.AutoSize = true;
+            this.lblName3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblName3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lblName3.Location = new System.Drawing.Point(850, 1);
+            this.lblName3.Name = "lblName3";
+            this.lblName3.Size = new System.Drawing.Size(276, 61);
+            this.lblName3.TabIndex = 31;
+            this.lblName3.Text = "Pontos";
+            this.lblName3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblstart_Hour
+            // lblName1
             // 
-            this.lblstart_Hour.AutoSize = true;
-            this.lblstart_Hour.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblstart_Hour.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblstart_Hour.Location = new System.Drawing.Point(286, 1);
-            this.lblstart_Hour.Name = "lblstart_Hour";
-            this.lblstart_Hour.Size = new System.Drawing.Size(275, 61);
-            this.lblstart_Hour.TabIndex = 30;
-            this.lblstart_Hour.Text = "Utilizador";
-            this.lblstart_Hour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblName1.AutoSize = true;
+            this.lblName1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblName1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lblName1.Location = new System.Drawing.Point(286, 1);
+            this.lblName1.Name = "lblName1";
+            this.lblName1.Size = new System.Drawing.Size(275, 61);
+            this.lblName1.TabIndex = 30;
+            this.lblName1.Text = "Utilizador";
+            this.lblName1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblEventOwnerValue
+            // lblClassification
             // 
-            this.lblEventOwnerValue.AutoSize = true;
-            this.lblEventOwnerValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEventOwnerValue.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEventOwnerValue.Location = new System.Drawing.Point(4, 1);
-            this.lblEventOwnerValue.Name = "lblEventOwnerValue";
-            this.lblEventOwnerValue.Size = new System.Drawing.Size(275, 61);
-            this.lblEventOwnerValue.TabIndex = 29;
-            this.lblEventOwnerValue.Text = "Classificação";
-            this.lblEventOwnerValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblEventOwnerValue.Click += new System.EventHandler(this.lblEventOwnerValue_Click);
+            this.lblClassification.AutoSize = true;
+            this.lblClassification.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblClassification.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lblClassification.Location = new System.Drawing.Point(4, 1);
+            this.lblClassification.Name = "lblClassification";
+            this.lblClassification.Size = new System.Drawing.Size(275, 61);
+            this.lblClassification.TabIndex = 29;
+            this.lblClassification.Text = "Classificação";
+            this.lblClassification.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClassification.Click += new System.EventHandler(this.lblEventOwnerValue_Click);
             // 
-            // lblSportsGround
+            // lblName2
             // 
-            this.lblSportsGround.AutoSize = true;
-            this.lblSportsGround.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSportsGround.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSportsGround.Location = new System.Drawing.Point(568, 1);
-            this.lblSportsGround.Name = "lblSportsGround";
-            this.lblSportsGround.Size = new System.Drawing.Size(275, 61);
-            this.lblSportsGround.TabIndex = 15;
-            this.lblSportsGround.Text = "Partidas";
-            this.lblSportsGround.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblName2.AutoSize = true;
+            this.lblName2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblName2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lblName2.Location = new System.Drawing.Point(568, 1);
+            this.lblName2.Name = "lblName2";
+            this.lblName2.Size = new System.Drawing.Size(275, 61);
+            this.lblName2.TabIndex = 15;
+            this.lblName2.Text = "Partidas";
+            this.lblName2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnTopRecintos
             // 
@@ -176,7 +176,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnTopRecintos);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tbpClassification);
             this.Controls.Add(this.flpRank);
             this.Controls.Add(this.btnGlobalRank);
             this.Controls.Add(this.btnTop10);
@@ -184,8 +184,8 @@
             this.Name = "UC_Rank";
             this.Size = new System.Drawing.Size(1226, 778);
             this.Load += new System.EventHandler(this.UC_Rank_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tbpClassification.ResumeLayout(false);
+            this.tbpClassification.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -194,11 +194,11 @@
         private System.Windows.Forms.Button btnTop10;
         private System.Windows.Forms.Button btnGlobalRank;
         private System.Windows.Forms.FlowLayoutPanel flpRank;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label lblstart_Hour;
-        private System.Windows.Forms.Label lblEventOwnerValue;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblSportsGround;
+        private System.Windows.Forms.TableLayoutPanel tbpClassification;
+        private System.Windows.Forms.Label lblName1;
+        private System.Windows.Forms.Label lblClassification;
+        private System.Windows.Forms.Label lblName3;
+        private System.Windows.Forms.Label lblName2;
         private System.Windows.Forms.Button btnTopRecintos;
     }
 }

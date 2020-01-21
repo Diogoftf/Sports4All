@@ -17,10 +17,14 @@ namespace Sports4All
         {
 
             /** DEBUG**/
-           // HomeController a = new HomeController();
+            // HomeController a = new HomeController();
             //a.pointsCalculator();
             //a.getMyEvents("josefa");
             //a.getEventSuggestions("josefa");
+
+           // RankController a = new RankController();
+           // a.getTopRecintos();
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
