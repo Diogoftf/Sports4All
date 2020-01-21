@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
@@ -15,11 +17,11 @@ namespace Sports4All
         [STAThread]
         static void Main()
         {
+            //BrowseParksController b = new BrowseParksController();
+            //ICollection<int> list = b.GetReservesCountyIds();
+            //ParkDescriptionController b = new ParkDescriptionController();
+            //ICollection<string> list = b.GetParkAvailableSports(1);
 
-            /** DEBUG**/
-            //HomeController a = new HomeController();
-            //a.getMyEvents("josefa");
-            //a.getEventSuggestions("josefa");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

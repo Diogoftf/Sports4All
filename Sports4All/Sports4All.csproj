@@ -38,6 +38,9 @@
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -96,7 +99,9 @@
     </Compile>
     <Compile Include="Classification.cs" />
     <Compile Include="Controller\AuthController.cs" />
+    <Compile Include="Controller\BrowseParksController.cs" />
     <Compile Include="Controller\ImagesController.cs" />
+    <Compile Include="Controller\ParkDescriptionController.cs" />
     <Compile Include="Core\DropShaddow.cs" />
     <Compile Include="County.cs" />
     <Compile Include="District.cs" />

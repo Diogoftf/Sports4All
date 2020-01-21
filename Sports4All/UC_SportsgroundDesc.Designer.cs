@@ -31,26 +31,28 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_SportsgroundDesc));
             this.lbSportsgndName = new System.Windows.Forms.Label();
             this.btnSeeEvents = new System.Windows.Forms.Button();
-            this.pbSubscribe = new System.Windows.Forms.PictureBox();
             this.plSportsgroundProfile = new System.Windows.Forms.Panel();
             this.pbRightArrow = new System.Windows.Forms.PictureBox();
             this.pbLeftArrow = new System.Windows.Forms.PictureBox();
             this.plSportsgroundPics = new System.Windows.Forms.Panel();
             this.lblAvailableSports = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSubscribe)).BeginInit();
+            this.lblSportsList = new System.Windows.Forms.Label();
+            this.pbSubscribe = new System.Windows.Forms.PictureBox();
             this.plSportsgroundProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRightArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLeftArrow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubscribe)).BeginInit();
             this.SuspendLayout();
             // 
             // lbSportsgndName
             // 
-            this.lbSportsgndName.AutoSize = true;
             this.lbSportsgndName.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.lbSportsgndName.Location = new System.Drawing.Point(79, 48);
+            this.lbSportsgndName.Location = new System.Drawing.Point(118, 42);
+            this.lbSportsgndName.MaximumSize = new System.Drawing.Size(683, 38);
+            this.lbSportsgndName.MinimumSize = new System.Drawing.Size(683, 38);
             this.lbSportsgndName.Name = "lbSportsgndName";
-            this.lbSportsgndName.Size = new System.Drawing.Size(122, 43);
+            this.lbSportsgndName.Size = new System.Drawing.Size(683, 38);
             this.lbSportsgndName.TabIndex = 0;
             this.lbSportsgndName.Text = "Matur";
             // 
@@ -60,109 +62,111 @@
             this.btnSeeEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeeEvents.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnSeeEvents.Image = ((System.Drawing.Image)(resources.GetObject("btnSeeEvents.Image")));
-            this.btnSeeEvents.Location = new System.Drawing.Point(919, 52);
-            this.btnSeeEvents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSeeEvents.Location = new System.Drawing.Point(817, 42);
             this.btnSeeEvents.Name = "btnSeeEvents";
-            this.btnSeeEvents.Size = new System.Drawing.Size(205, 41);
+            this.btnSeeEvents.Size = new System.Drawing.Size(182, 33);
             this.btnSeeEvents.TabIndex = 1;
             this.btnSeeEvents.Text = "Ver Eventos";
             this.btnSeeEvents.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnSeeEvents.UseVisualStyleBackColor = true;
             // 
-            // pbSubscribe
-            // 
-            this.pbSubscribe.Image = ((System.Drawing.Image)(resources.GetObject("pbSubscribe.Image")));
-            this.pbSubscribe.Location = new System.Drawing.Point(201, 48);
-            this.pbSubscribe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pbSubscribe.Name = "pbSubscribe";
-            this.pbSubscribe.Size = new System.Drawing.Size(39, 46);
-            this.pbSubscribe.TabIndex = 2;
-            this.pbSubscribe.TabStop = false;
-            // 
             // plSportsgroundProfile
             // 
+            this.plSportsgroundProfile.Controls.Add(this.lblSportsList);
             this.plSportsgroundProfile.Controls.Add(this.pbRightArrow);
             this.plSportsgroundProfile.Controls.Add(this.pbLeftArrow);
             this.plSportsgroundProfile.Controls.Add(this.plSportsgroundPics);
             this.plSportsgroundProfile.Controls.Add(this.lblAvailableSports);
             this.plSportsgroundProfile.Controls.Add(this.tbDescription);
-            this.plSportsgroundProfile.Location = new System.Drawing.Point(87, 172);
-            this.plSportsgroundProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.plSportsgroundProfile.Location = new System.Drawing.Point(77, 138);
             this.plSportsgroundProfile.Name = "plSportsgroundProfile";
-            this.plSportsgroundProfile.Size = new System.Drawing.Size(1048, 465);
+            this.plSportsgroundProfile.Size = new System.Drawing.Size(932, 372);
             this.plSportsgroundProfile.TabIndex = 4;
             // 
             // pbRightArrow
             // 
             this.pbRightArrow.Image = ((System.Drawing.Image)(resources.GetObject("pbRightArrow.Image")));
-            this.pbRightArrow.Location = new System.Drawing.Point(1010, 272);
-            this.pbRightArrow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbRightArrow.Location = new System.Drawing.Point(898, 218);
             this.pbRightArrow.Name = "pbRightArrow";
-            this.pbRightArrow.Size = new System.Drawing.Size(27, 30);
+            this.pbRightArrow.Size = new System.Drawing.Size(24, 24);
             this.pbRightArrow.TabIndex = 7;
             this.pbRightArrow.TabStop = false;
             // 
             // pbLeftArrow
             // 
             this.pbLeftArrow.Image = ((System.Drawing.Image)(resources.GetObject("pbLeftArrow.Image")));
-            this.pbLeftArrow.Location = new System.Drawing.Point(634, 272);
-            this.pbLeftArrow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbLeftArrow.Location = new System.Drawing.Point(564, 218);
             this.pbLeftArrow.Name = "pbLeftArrow";
-            this.pbLeftArrow.Size = new System.Drawing.Size(29, 29);
+            this.pbLeftArrow.Size = new System.Drawing.Size(26, 23);
             this.pbLeftArrow.TabIndex = 6;
             this.pbLeftArrow.TabStop = false;
             // 
             // plSportsgroundPics
             // 
             this.plSportsgroundPics.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.plSportsgroundPics.Location = new System.Drawing.Point(634, 25);
-            this.plSportsgroundPics.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.plSportsgroundPics.Location = new System.Drawing.Point(564, 20);
             this.plSportsgroundPics.Name = "plSportsgroundPics";
-            this.plSportsgroundPics.Size = new System.Drawing.Size(402, 240);
+            this.plSportsgroundPics.Size = new System.Drawing.Size(358, 192);
             this.plSportsgroundPics.TabIndex = 5;
             // 
             // lblAvailableSports
             // 
             this.lblAvailableSports.AutoSize = true;
             this.lblAvailableSports.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblAvailableSports.Location = new System.Drawing.Point(16, 246);
+            this.lblAvailableSports.Location = new System.Drawing.Point(14, 197);
             this.lblAvailableSports.Name = "lblAvailableSports";
-            this.lblAvailableSports.Size = new System.Drawing.Size(175, 23);
+            this.lblAvailableSports.Size = new System.Drawing.Size(150, 21);
             this.lblAvailableSports.TabIndex = 4;
             this.lblAvailableSports.Text = "Available Sports:";
             // 
             // tbDescription
             // 
             this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDescription.Location = new System.Drawing.Point(3, 68);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbDescription.MinimumSize = new System.Drawing.Size(338, 62);
+            this.tbDescription.Location = new System.Drawing.Point(18, 42);
+            this.tbDescription.MinimumSize = new System.Drawing.Size(300, 50);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
             this.tbDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbDescription.Size = new System.Drawing.Size(609, 175);
+            this.tbDescription.Size = new System.Drawing.Size(526, 140);
             this.tbDescription.TabIndex = 3;
             this.tbDescription.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mattis convallis" +
     " ex, a imperdiet nibh suscipit at. Seria que não mas num lugar distante aqui per" +
     "to, ele anda e tresanda a lixo.";
             // 
+            // lblSportsList
+            // 
+            this.lblSportsList.AutoSize = true;
+            this.lblSportsList.Location = new System.Drawing.Point(15, 225);
+            this.lblSportsList.Name = "lblSportsList";
+            this.lblSportsList.Size = new System.Drawing.Size(46, 17);
+            this.lblSportsList.TabIndex = 8;
+            this.lblSportsList.Text = "label1";
+            // 
+            // pbSubscribe
+            // 
+            this.pbSubscribe.Image = ((System.Drawing.Image)(resources.GetObject("pbSubscribe.Image")));
+            this.pbSubscribe.Location = new System.Drawing.Point(77, 42);
+            this.pbSubscribe.Name = "pbSubscribe";
+            this.pbSubscribe.Size = new System.Drawing.Size(35, 37);
+            this.pbSubscribe.TabIndex = 2;
+            this.pbSubscribe.TabStop = false;
+            // 
             // UC_SportsgroundDesc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.plSportsgroundProfile);
             this.Controls.Add(this.pbSubscribe);
             this.Controls.Add(this.btnSeeEvents);
             this.Controls.Add(this.lbSportsgndName);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_SportsgroundDesc";
-            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
-            ((System.ComponentModel.ISupportInitialize)(this.pbSubscribe)).EndInit();
+            this.Size = new System.Drawing.Size(1089, 622);
             this.plSportsgroundProfile.ResumeLayout(false);
             this.plSportsgroundProfile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRightArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLeftArrow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubscribe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,13 +176,14 @@
 
         private System.Windows.Forms.Label lbSportsgndName;
         private System.Windows.Forms.Button btnSeeEvents;
-        private System.Windows.Forms.PictureBox pbSubscribe;
         private System.Windows.Forms.Panel plSportsgroundProfile;
         private System.Windows.Forms.Panel plSportsgroundPics;
         private System.Windows.Forms.Label lblAvailableSports;
         private System.Windows.Forms.PictureBox pbRightArrow;
         private System.Windows.Forms.PictureBox pbLeftArrow;
         private System.Windows.Forms.TextBox tbDescription;
+        private System.Windows.Forms.Label lblSportsList;
+        private System.Windows.Forms.PictureBox pbSubscribe;
     }
 }
 

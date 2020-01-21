@@ -4,55 +4,55 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using System.Linq;
+using Sports4All.Controller;
 using Sports4All.UserControls_Items;
 
 namespace Sports4All
 {
     public partial class UC_SportsGround : UserControl
     {
+
+        private BrowseParksController _browseParksController;
+        private bool _handle = true;
+
         public UC_SportsGround()
         {
             InitializeComponent();
+            _browseParksController = new BrowseParksController();
         }
 
         private void UC_SportsGround_Load(object sender, EventArgs e)
         {
-            PopulateItems();
-            PopulateScoreComboBox();
+            PopulateItems(true, 0);
             PopulateLocationComboBox();
+            PopulateScoreComboBox();
         }
 
-        private void PopulateItems()
+        private void PopulateItems(bool ascending, int id)
         {
+            ICollection<Park> parks = _browseParksController.GetParksAscending(ascending, id);
+
             flpSportsGround.Controls.Clear();
 
             List<String> imageList = new List<string>
             {
                 "https://dovethemes.com/wp-content/uploads/2016/12/Eiffel-Tower-Theme.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/12/Space-Debris.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/12/Small-Waterfall.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/12/Island-of-Love.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/12/Dinosaur-Theme.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Forest-Waterfall.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Central-Park.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Sea-Turtle.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Endless-Fields.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Mountain-Sunrise.jpg"
             };
 
-            ImageList img = new ImageList {ImageSize = new Size(140, 140), ColorDepth = ColorDepth.Depth32Bit};
+            UC_SportsGroundItem[] listItems = new UC_SportsGroundItem[parks.Count];
 
-            UC_SportsGroundItem[] listItems = new UC_SportsGroundItem[imageList.Count];
+            WebClient w = new WebClient();
+            byte[] imageByte = w.DownloadData(imageList[0]);
+            MemoryStream stream = new MemoryStream(imageByte);
+           
 
-            for (int i = 0; i < imageList.Count; i++)
+            for (int i = 0; i < parks.Count; i++)
             {
-                WebClient w = new WebClient();
-                byte[] imageByte = w.DownloadData(imageList[i]);
-                MemoryStream stream = new MemoryStream(imageByte);
-
                 listItems[i] = new UC_SportsGroundItem
                 {
-                    Title = "Título do recinto " + i, Score = i.ToString(), Image = Image.FromStream(stream)
+                    Title = parks.ElementAt(i).Name, Score = (parks.ElementAt(i).Quality == null ? "0" : 
+                        parks.ElementAt(i).Quality) + "/5", Image = Image.FromStream(stream)
                 };
 
                 flpSportsGround.Controls.Add(listItems[i]);
@@ -62,32 +62,48 @@ namespace Sports4All
         public void PopulateScoreComboBox()
         {
             // Bind combobox to dictionary
-            Dictionary<string, string> test = new Dictionary<string, string>
+            Dictionary<int, string> values = new Dictionary<int, string>
             {
-                {"1", "dfdfdf"}, {"2", "dfdfdf"}, {"3", "dfdfdf"}
+                {1, "Ascendente"}, {2, "Descendente"}
             };
-            cbScore.DataSource = new BindingSource(test, null);
+            cbScore.DataSource = new BindingSource(values, null);
             cbScore.DisplayMember = "Value";
             cbScore.ValueMember = "Key";
 
             // Get combobox selection (in handler)
-            string value = ((KeyValuePair<string, string>)cbScore.SelectedItem).Value;
+            string value = ((KeyValuePair<int, string>)cbScore.SelectedItem).Value;
         }
 
         public void PopulateLocationComboBox()
         {
-            // Bind combobox to dictionary
-            Dictionary<string, string> test = new Dictionary<string, string>
-            {
-                {"1", "dfdfdf"}, {"2", "dfdfdf"}, {"3", "dfdfdf"}
-            };
-            cbLocation.DataSource = new BindingSource(test, null);
+            ICollection<int> countyIds = _browseParksController.GetReservesCountyIds();
+            IDictionary<int, string> values = _browseParksController.GetLocationsDictionary(countyIds);
+
+            values.Add(0, "");
+
+            cbLocation.DataSource = new BindingSource(values, null);
             cbLocation.DisplayMember = "Value";
             cbLocation.ValueMember = "Key";
 
+            cbLocation.SelectedValue = 0;
+
             // Get combobox selection (in handler)
-            string value = ((KeyValuePair<string, string>)cbLocation.SelectedItem).Value;
+            string value = ((KeyValuePair<int, string>)cbLocation.SelectedItem).Value;
         }
 
+        private void SortItemChanged(object sender, EventArgs e)
+        {
+            int key = ((KeyValuePair<int, string>)cbLocation.SelectedItem).Key;
+            bool asc = IsAscending();
+
+            PopulateItems(true, key);
+        }
+
+        private bool IsAscending()
+        {
+            int key = ((KeyValuePair<int, string>)cbScore.SelectedItem).Key;
+
+            return key == 1;
+        }
     }
 }
