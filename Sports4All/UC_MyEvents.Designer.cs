@@ -94,10 +94,8 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "UC_MyEvents";
             this.Size = new System.Drawing.Size(1089, 622);
-            this.Load += new System.EventHandler(this.Minhas_Partidas_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion

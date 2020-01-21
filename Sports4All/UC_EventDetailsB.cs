@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -8,41 +9,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
     public partial class UC_EventsDetailsB : UserControl
     {
+        private MyEventsController eventsController;
+
+
         public UC_EventsDetailsB()
         {
             InitializeComponent();
-            PopulateList();
+            //eventsController = new MyEventsController();
+            //PopulateList();
         }
 
         private void PopulateList()
         {
-            UC_UserinEventItem[] listusers = new UC_UserinEventItem[20];
+            ICollection<User> enrolledUsers = eventsController.RetrieveEnrolledUsers(1);
+            int enrolledUsersCount = enrolledUsers.Count;
+            UC_UserinEventItem[] listusers = new UC_UserinEventItem[enrolledUsersCount];
 
-            for (int i = 0; i < listusers.Length; i++)
+            for (int i = 0; i < enrolledUsersCount; i++)
             {
-                listusers[i] = new UC_UserinEventItem();
-                listusers[i].Username = "Gouveia";
-                listusers[i].PlayerAge = "34 Anos";
-                listusers[i].PlayerSkill = "#003";
-
-                if (flpUsersEvent.Controls.Count < 0)
+                listusers[i] = new UC_UserinEventItem()
                 {
+                    Username = enrolledUsers.ToList()[i].Username,
+                    PlayerAge = enrolledUsers.ToList()[i].Age + "Anos",
+                    //PlayerSkill = enrolledUsers.ToList()[i].myStats.rankClassification.ToString()
+                };
 
-                    flpUsersEvent.Controls.Clear();
-                }
-                else
-                {
-                    flpUsersEvent.Controls.Add(listusers[i]);
-                }
+                flpUsersEvent.Controls.Add(listusers[i]);
             }
 
-            pbPark.ImageLocation = @"C:\Users\Tiago.Gouveia\Desktop\ProjectDIS\Sports4All\Images\sportsground1.jpg";
-            pbPark.SizeMode = PictureBoxSizeMode.StretchImage;
+            //pbPark.ImageLocation = @"C:\Users\Tiago.Gouveia\Desktop\ProjectDIS\Sports4All\Images\sportsground1.jpg";
+            //pbPark.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -64,6 +66,18 @@ namespace Sports4All
             tbMaxAge.ReadOnly = true;
             tbminAge.ReadOnly = true;
             tbNome.ReadOnly = true;
+        }
+
+
+
+        private void UC_EventsDetailsB_Load(object sender, EventArgs e)
+        {
+            if (!DesignMode)
+            {
+                eventsController = new MyEventsController();
+                PopulateList();
+            }
+          
         }
     }
 }

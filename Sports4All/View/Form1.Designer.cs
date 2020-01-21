@@ -452,7 +452,7 @@
             // uC_EventsDetailsB1
             // 
             this.uC_EventsDetailsB1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_EventsDetailsB1.Location = new System.Drawing.Point(262, 107);
+            this.uC_EventsDetailsB1.Location = new System.Drawing.Point(262, 12);
             this.uC_EventsDetailsB1.Name = "uC_EventsDetailsB1";
             this.uC_EventsDetailsB1.Size = new System.Drawing.Size(1090, 622);
             this.uC_EventsDetailsB1.TabIndex = 72;

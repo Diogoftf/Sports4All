@@ -1,32 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using Org.BouncyCastle.Asn1;
 
 namespace Sports4All.Controller
 {
     public class ImagesController
     {
         private const int ImagesCount = 4;
-        private IList<string> imgs = new List<string>();
+        public ICollection<Picture> imgs1 { get; set; } = new Collection<Picture>();
+    
         private readonly int PictureId = 23; //ID estático, futuramente para mudar.
 
         private readonly string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
 
         //método usado no Seed para inserir as imagens na BD
-        public IList<string> InsertImagetoDB()
+        public ICollection<Picture> InsertImagetoDB(string PictureType, int number,ICollection<Picture> imgs)
         {
-            for (var i = 1; i <= ImagesCount; i++)
+            int PictureId = 1;
+            if (PictureType == "Park") PictureId = 5;
+            if (PictureType == "Sport") PictureId = 8;
+            for (var i = 1; i <= number; i++)
             {
-                // User Preto
-                var localImage = @"C:\Users\Tiago.Gouveia\Documents\Imagens\user" + i + ".png";
-                var localData = File.ReadAllBytes(localImage);
+                string path = @"C:\Users\Tiago.Gouveia\Documents\Imagens\" + PictureType + "\\" + PictureType + i + ".png";
+               
+                string fileName = PictureType + i + ".png";
+                var localData = File.ReadAllBytes(path);
                 localData.ToString();
                 var streamFinal = new MemoryStream(localData);
                 streamFinal.Position = 0;
                 var result = Convert.ToBase64String(localData);
-                imgs.Add(result);
-
+              
+                
+                imgs.Add(new Picture(){PictureId = PictureId, PictureBody = result,FileName = fileName });
+                imgs1.Add(new Picture() { PictureId = PictureId, PictureBody = result, FileName = fileName });
+                PictureId++; 
                 //using (var db = new ModelContext())
                 //{
                 //    var newPicture = new Picture();
@@ -36,12 +46,13 @@ namespace Sports4All.Controller
                 //    db.SaveChanges();
                 //}
             }
-            return imgs;
+            return imgs1;
         }
 
         //método que guarda na pasta do projeto a imagem passada no PictureId
         public void DownloadImage(int PictureId, string fileName)
         {
+
             string PictureBody;
             string FolderAndFileName;
 

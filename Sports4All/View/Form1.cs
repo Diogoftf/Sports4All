@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
     public partial class Form1 : Form
     {
-        
+        MyEventsController eventsControllerForm = new MyEventsController();
         public Form1()
         {
             // =============================================================
@@ -26,7 +27,6 @@ namespace Sports4All
             (new Core.DropShaddow()).ApplyShadows(this);
             moveSidePanel(btn_Home);
             lbWelcomeUser.Text = "Bem vindo, " + AuthProperties.LoggedUser;
-
 
         }
 
