@@ -101,6 +101,8 @@ namespace Sports4All
 
         private void userStatsDetails()
         {
+            lbCurrentLevel.Text = _homeController.myLevel().ToString();
+            lbNextLevel.Text = (_homeController.myLevel()+1).ToString();
             lbMatchesPlayedValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[0];
             lbFairplayValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[1];
             lbSkillValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[2];

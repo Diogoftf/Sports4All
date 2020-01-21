@@ -171,7 +171,7 @@
             // 
             this.lblSport.AutoSize = true;
             this.lblSport.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSport.Location = new System.Drawing.Point(497, 2);
+            this.lblSport.Location = new System.Drawing.Point(520, 2);
             this.lblSport.Name = "lblSport";
             this.lblSport.Size = new System.Drawing.Size(97, 23);
             this.lblSport.TabIndex = 28;

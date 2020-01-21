@@ -35,6 +35,18 @@ namespace Sports4All
             }
         }
 
+        public int myLevel()
+        {
+            using(ModelContext db = new ModelContext())
+            {
+                var myPoints = db.Classifications.Where(e => e.userId.Username == AuthProperties.LoggedUser).FirstOrDefault();
+
+                return Convert.ToInt32(myPoints.points/Points._levelChange);
+            }
+
+            
+        }
+
         /**
          * 
          * Método que calcula as pontuações de todos os utilizadores
