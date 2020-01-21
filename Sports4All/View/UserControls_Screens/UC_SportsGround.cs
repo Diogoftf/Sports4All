@@ -24,6 +24,8 @@ namespace Sports4All
 
         private void UC_SportsGround_Load(object sender, EventArgs e)
         {
+            if (DesignMode) return;
+
             PopulateItems(true, 0);
             PopulateLocationComboBox();
             PopulateScoreComboBox();
@@ -51,8 +53,11 @@ namespace Sports4All
             {
                 listItems[i] = new UC_SportsGroundItem
                 {
-                    Title = parks.ElementAt(i).Name, Score = (parks.ElementAt(i).Quality == null ? "0" : 
-                        parks.ElementAt(i).Quality) + "/5", Image = Image.FromStream(stream)
+                    Title = parks.ElementAt(i).Name, 
+                    Id = parks.ElementAt(i).ParkId, 
+                    Score = (parks.ElementAt(i).Quality == null ? "0" 
+                                : parks.ElementAt(i).Quality) + "/5",
+                    Image = Image.FromStream(stream)
                 };
 
                 flpSportsGround.Controls.Add(listItems[i]);
@@ -105,5 +110,6 @@ namespace Sports4All
 
             return key == 1;
         }
+
     }
 }

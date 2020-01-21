@@ -21,7 +21,14 @@ namespace Sports4All
             //ICollection<int> list = b.GetReservesCountyIds();
             //ParkDescriptionController b = new ParkDescriptionController();
             //ICollection<string> list = b.GetParkAvailableSports(1);
-
+           
+            //UserController b = new UserController();
+           
+            //var c= b.GetUser("rubin0").GetType().GetProperties();
+            //foreach (var prop in c)
+            //{
+            //    Console.WriteLine(prop.Name, prop.GetValue(c, null));
+            //}
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

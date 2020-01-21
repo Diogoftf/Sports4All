@@ -32,12 +32,12 @@
             this.lbSportsgndName = new System.Windows.Forms.Label();
             this.btnSeeEvents = new System.Windows.Forms.Button();
             this.plSportsgroundProfile = new System.Windows.Forms.Panel();
+            this.lblSportsList = new System.Windows.Forms.Label();
             this.pbRightArrow = new System.Windows.Forms.PictureBox();
             this.pbLeftArrow = new System.Windows.Forms.PictureBox();
             this.plSportsgroundPics = new System.Windows.Forms.Panel();
             this.lblAvailableSports = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
-            this.lblSportsList = new System.Windows.Forms.Label();
             this.pbSubscribe = new System.Windows.Forms.PictureBox();
             this.plSportsgroundProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRightArrow)).BeginInit();
@@ -82,6 +82,15 @@
             this.plSportsgroundProfile.Name = "plSportsgroundProfile";
             this.plSportsgroundProfile.Size = new System.Drawing.Size(932, 372);
             this.plSportsgroundProfile.TabIndex = 4;
+            // 
+            // lblSportsList
+            // 
+            this.lblSportsList.AutoSize = true;
+            this.lblSportsList.Location = new System.Drawing.Point(15, 225);
+            this.lblSportsList.Name = "lblSportsList";
+            this.lblSportsList.Size = new System.Drawing.Size(46, 17);
+            this.lblSportsList.TabIndex = 8;
+            this.lblSportsList.Text = "label1";
             // 
             // pbRightArrow
             // 
@@ -134,15 +143,6 @@
     " ex, a imperdiet nibh suscipit at. Seria que não mas num lugar distante aqui per" +
     "to, ele anda e tresanda a lixo.";
             // 
-            // lblSportsList
-            // 
-            this.lblSportsList.AutoSize = true;
-            this.lblSportsList.Location = new System.Drawing.Point(15, 225);
-            this.lblSportsList.Name = "lblSportsList";
-            this.lblSportsList.Size = new System.Drawing.Size(46, 17);
-            this.lblSportsList.TabIndex = 8;
-            this.lblSportsList.Text = "label1";
-            // 
             // pbSubscribe
             // 
             this.pbSubscribe.Image = ((System.Drawing.Image)(resources.GetObject("pbSubscribe.Image")));
@@ -162,6 +162,7 @@
             this.Controls.Add(this.lbSportsgndName);
             this.Name = "UC_SportsgroundDesc";
             this.Size = new System.Drawing.Size(1089, 622);
+            this.Load += new System.EventHandler(this.UC_SportsgroundDesc_Load);
             this.plSportsgroundProfile.ResumeLayout(false);
             this.plSportsgroundProfile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRightArrow)).EndInit();

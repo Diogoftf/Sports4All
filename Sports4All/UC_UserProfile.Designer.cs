@@ -54,7 +54,7 @@
             // plLine
             // 
             this.plLine.BackColor = System.Drawing.Color.Gray;
-            this.plLine.Location = new System.Drawing.Point(174, 330);
+            this.plLine.Location = new System.Drawing.Point(304, 417);
             this.plLine.Name = "plLine";
             this.plLine.Size = new System.Drawing.Size(335, 1);
             this.plLine.TabIndex = 0;
@@ -63,9 +63,9 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(285, 208);
+            this.lblUsername.Location = new System.Drawing.Point(301, 312);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(133, 30);
+            this.lblUsername.Size = new System.Drawing.Size(108, 23);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,9 +74,9 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(171, 259);
+            this.lblEmail.Location = new System.Drawing.Point(301, 346);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(82, 23);
+            this.lblEmail.Size = new System.Drawing.Size(70, 19);
             this.lblEmail.TabIndex = 2;
             this.lblEmail.Text = "E-mail :";
             // 
@@ -84,9 +84,9 @@
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(171, 301);
+            this.lblPhone.Location = new System.Drawing.Point(301, 388);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(167, 23);
+            this.lblPhone.Size = new System.Drawing.Size(142, 19);
             this.lblPhone.TabIndex = 3;
             this.lblPhone.Text = "Phone Number :";
             // 
@@ -94,9 +94,9 @@
             // 
             this.lblSubscribers.AutoSize = true;
             this.lblSubscribers.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscribers.Location = new System.Drawing.Point(171, 388);
+            this.lblSubscribers.Location = new System.Drawing.Point(301, 475);
             this.lblSubscribers.Name = "lblSubscribers";
-            this.lblSubscribers.Size = new System.Drawing.Size(149, 23);
+            this.lblSubscribers.Size = new System.Drawing.Size(127, 19);
             this.lblSubscribers.TabIndex = 5;
             this.lblSubscribers.Text = "# Subscribers :";
             // 
@@ -104,9 +104,9 @@
             // 
             this.lblEvents.AutoSize = true;
             this.lblEvents.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEvents.Location = new System.Drawing.Point(171, 352);
+            this.lblEvents.Location = new System.Drawing.Point(301, 439);
             this.lblEvents.Name = "lblEvents";
-            this.lblEvents.Size = new System.Drawing.Size(101, 23);
+            this.lblEvents.Size = new System.Drawing.Size(86, 19);
             this.lblEvents.TabIndex = 4;
             this.lblEvents.Text = "# Events :";
             // 
@@ -114,9 +114,9 @@
             // 
             this.lblUserEmail.AutoSize = true;
             this.lblUserEmail.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserEmail.Location = new System.Drawing.Point(236, 257);
+            this.lblUserEmail.Location = new System.Drawing.Point(366, 344);
             this.lblUserEmail.Name = "lblUserEmail";
-            this.lblUserEmail.Size = new System.Drawing.Size(141, 23);
+            this.lblUserEmail.Size = new System.Drawing.Size(120, 21);
             this.lblUserEmail.TabIndex = 7;
             this.lblUserEmail.Text = "Email do User";
             // 
@@ -124,9 +124,9 @@
             // 
             this.lblUserPhone.AutoSize = true;
             this.lblUserPhone.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserPhone.Location = new System.Drawing.Point(308, 299);
+            this.lblUserPhone.Location = new System.Drawing.Point(438, 386);
             this.lblUserPhone.Name = "lblUserPhone";
-            this.lblUserPhone.Size = new System.Drawing.Size(214, 23);
+            this.lblUserPhone.Size = new System.Drawing.Size(182, 21);
             this.lblUserPhone.TabIndex = 8;
             this.lblUserPhone.Text = "User\'s phone number";
             // 
@@ -134,9 +134,9 @@
             // 
             this.lblUserEvents.AutoSize = true;
             this.lblUserEvents.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserEvents.Location = new System.Drawing.Point(252, 350);
+            this.lblUserEvents.Location = new System.Drawing.Point(382, 437);
             this.lblUserEvents.Name = "lblUserEvents";
-            this.lblUserEvents.Size = new System.Drawing.Size(101, 23);
+            this.lblUserEvents.Size = new System.Drawing.Size(88, 21);
             this.lblUserEvents.TabIndex = 9;
             this.lblUserEvents.Text = "Nr Events";
             // 
@@ -144,9 +144,9 @@
             // 
             this.lblUserSubscribers.AutoSize = true;
             this.lblUserSubscribers.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserSubscribers.Location = new System.Drawing.Point(293, 386);
+            this.lblUserSubscribers.Location = new System.Drawing.Point(423, 473);
             this.lblUserSubscribers.Name = "lblUserSubscribers";
-            this.lblUserSubscribers.Size = new System.Drawing.Size(144, 23);
+            this.lblUserSubscribers.Size = new System.Drawing.Size(124, 21);
             this.lblUserSubscribers.TabIndex = 10;
             this.lblUserSubscribers.Text = "Nr Subscribers";
             // 
@@ -154,9 +154,9 @@
             // 
             this.lblSkill.AutoSize = true;
             this.lblSkill.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkill.Location = new System.Drawing.Point(467, 106);
+            this.lblSkill.Location = new System.Drawing.Point(528, 193);
             this.lblSkill.Name = "lblSkill";
-            this.lblSkill.Size = new System.Drawing.Size(59, 23);
+            this.lblSkill.Size = new System.Drawing.Size(50, 19);
             this.lblSkill.TabIndex = 11;
             this.lblSkill.Text = "Skill :";
             // 
@@ -164,9 +164,9 @@
             // 
             this.lblFairPlay.AutoSize = true;
             this.lblFairPlay.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFairPlay.Location = new System.Drawing.Point(467, 157);
+            this.lblFairPlay.Location = new System.Drawing.Point(528, 244);
             this.lblFairPlay.Name = "lblFairPlay";
-            this.lblFairPlay.Size = new System.Drawing.Size(103, 23);
+            this.lblFairPlay.Size = new System.Drawing.Size(87, 19);
             this.lblFairPlay.TabIndex = 12;
             this.lblFairPlay.Text = "Fair Play :";
             // 
@@ -174,9 +174,9 @@
             // 
             this.lblUserSkill.AutoSize = true;
             this.lblUserSkill.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserSkill.Location = new System.Drawing.Point(512, 104);
+            this.lblUserSkill.Location = new System.Drawing.Point(573, 191);
             this.lblUserSkill.Name = "lblUserSkill";
-            this.lblUserSkill.Size = new System.Drawing.Size(37, 23);
+            this.lblUserSkill.Size = new System.Drawing.Size(33, 21);
             this.lblUserSkill.TabIndex = 13;
             this.lblUserSkill.Text = "6,8";
             // 
@@ -184,16 +184,16 @@
             // 
             this.lblUserFairPlay.AutoSize = true;
             this.lblUserFairPlay.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserFairPlay.Location = new System.Drawing.Point(550, 155);
+            this.lblUserFairPlay.Location = new System.Drawing.Point(611, 242);
             this.lblUserFairPlay.Name = "lblUserFairPlay";
-            this.lblUserFairPlay.Size = new System.Drawing.Size(141, 23);
+            this.lblUserFairPlay.Size = new System.Drawing.Size(120, 21);
             this.lblUserFairPlay.TabIndex = 14;
             this.lblUserFairPlay.Text = "Email do User";
             // 
             // pbSkill
             // 
             this.pbSkill.Image = ((System.Drawing.Image)(resources.GetObject("pbSkill.Image")));
-            this.pbSkill.Location = new System.Drawing.Point(551, 100);
+            this.pbSkill.Location = new System.Drawing.Point(612, 187);
             this.pbSkill.Name = "pbSkill";
             this.pbSkill.Size = new System.Drawing.Size(25, 25);
             this.pbSkill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -203,7 +203,7 @@
             // pbFairPlay
             // 
             this.pbFairPlay.Image = ((System.Drawing.Image)(resources.GetObject("pbFairPlay.Image")));
-            this.pbFairPlay.Location = new System.Drawing.Point(676, 151);
+            this.pbFairPlay.Location = new System.Drawing.Point(737, 238);
             this.pbFairPlay.Name = "pbFairPlay";
             this.pbFairPlay.Size = new System.Drawing.Size(25, 25);
             this.pbFairPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -214,7 +214,7 @@
             // 
             this.cpbUser.BackColor = System.Drawing.Color.Silver;
             this.cpbUser.Image = ((System.Drawing.Image)(resources.GetObject("cpbUser.Image")));
-            this.cpbUser.Location = new System.Drawing.Point(264, 55);
+            this.cpbUser.Location = new System.Drawing.Point(304, 150);
             this.cpbUser.Name = "cpbUser";
             this.cpbUser.Size = new System.Drawing.Size(150, 150);
             this.cpbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -243,7 +243,8 @@
             this.Controls.Add(this.plLine);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_UserProfile";
-            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
+            this.Size = new System.Drawing.Size(1090, 622);
+            this.Load += new System.EventHandler(this.UC_UserProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSkill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFairPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpbUser)).EndInit();

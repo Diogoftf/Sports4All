@@ -13,15 +13,14 @@ namespace Sports4All
 {
     public partial class UC_SportsgroundDesc : UserControl
     {
-        ParkDescriptionController _parkDescriptionController = new ParkDescriptionController();
+        private ParkDescriptionController _parkDescriptionController;
+        public int Id { get; set; }
+
         public UC_SportsgroundDesc()
         {
-            InitializeComponent();
-            lbSportsgndName.Text = _parkDescriptionController.GetPark(1).Name;
-            tbDescription.Text = _parkDescriptionController.GetPark(1).Description;
-            //pbPark.Image = _parkDescriptionController.GetPark(1).Picture;
-            lblSportsList.Text = GetFormatedSportsList();
+            _parkDescriptionController = new ParkDescriptionController();
 
+            InitializeComponent();
         }
 
 
@@ -38,6 +37,19 @@ namespace Sports4All
             string trimmed = result.TrimEnd('|');
 
             return trimmed;
+        }
+
+        private void UC_SportsgroundDesc_Load(object sender, EventArgs e)
+        {
+            PopulateUserControl();
+        }
+
+        public void PopulateUserControl()
+        {
+            lbSportsgndName.Text = _parkDescriptionController.GetPark(Id).Name;
+            tbDescription.Text = _parkDescriptionController.GetPark(Id).Description;
+            //pbPark.Image = _parkDescriptionController.GetPark(Id).Picture;
+            lblSportsList.Text = GetFormatedSportsList();
         }
     }
 }
