@@ -18,7 +18,13 @@ namespace Sports4All
         private ICollection<Sport> _availableSports;
         private UC_HomeMyEventsItem _noMyEventsitems = new UC_HomeMyEventsItem();
         private UC_HomeMyEventsItem _noSuggestionsEventsitems = new UC_HomeMyEventsItem();
-  
+
+        // Progress Bar//
+        private double pbUnit;
+        private int pbWIDTH, pbHEIGHT, pbComplete;
+        private Bitmap bmp;
+        private Graphics g;
+        private Timer timerProgressBar = new Timer();
 
         public UC_Home()
         {
@@ -38,6 +44,37 @@ namespace Sports4All
 
         private void lbMySportDate_Click(object sender, EventArgs e)
         {
+
+        }
+
+        public void ProgressBarInitializer()
+        {
+            pbWIDTH = pbProgressBar.Width;
+            pbHEIGHT = pbProgressBar.Height;
+            pbUnit = pbWIDTH / Points._levelChange;
+            pbComplete = 0;
+            pbProgressBar.Image = null;
+            bmp = new Bitmap(pbWIDTH, pbHEIGHT);
+            timerProgressBar.Interval = 50;   
+            timerProgressBar.Tick += new EventHandler(this.FillProgressBar);
+            timerProgressBar.Start();
+        }
+
+        private void FillProgressBar(object sender, EventArgs e)
+        {
+
+            g = Graphics.FromImage(bmp);
+            g.Clear(Color.LightGray);
+            g.FillRectangle(Brushes.LightGreen, new Rectangle(0, 0, (int)(pbComplete * pbUnit), pbHEIGHT));
+            g.DrawString(pbComplete + " pontos", new Font("Arial", pbHEIGHT / 2), Brushes.Black, new PointF(pbWIDTH / 2 - pbHEIGHT, pbHEIGHT / 10));
+            pbProgressBar.Image = bmp;
+            pbComplete++;
+            if (pbComplete > Int32.Parse(_homeController.getMyStats(AuthProperties.LoggedUser).ToList()[4]))
+            {
+                //dispose
+                g.Dispose();
+                timerProgressBar.Stop();
+            }
 
         }
 
@@ -64,7 +101,8 @@ namespace Sports4All
         private void UC_Home_Load(object sender, EventArgs e)
         {
             UC_CreateEvent1.Visible = false;
-            dtpNextEventDate.MinDate = DateTime.Today;           
+            //dtpNextEventDate.MinDate = DateTime.Today;
+            ProgressBarInitializer();
         }
 
         private void InitializateElements()
