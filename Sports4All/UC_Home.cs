@@ -179,62 +179,62 @@ namespace Sports4All
 
         private void PopulateLists(string username)
         {
-            // Array auxiliar de meus eventos
-            ICollection<Event> myEvent = _homeController.getMyEvents(username); // passar scarf para username
-            flpMyEvents.Controls.Clear();
-            flpEventSuggestions.Controls.Clear();
-            _MyEvents.Clear();
-            _EventSuggestions.Clear();
+            //// Array auxiliar de meus eventos
+            //ICollection<Event> myEvent = _homeController.getMyEvents(username); // passar scarf para username
+            //flpMyEvents.Controls.Clear();
+            //flpEventSuggestions.Controls.Clear();
+            //_MyEvents.Clear();
+            //_EventSuggestions.Clear();
             
-            if (myEvent.Count > 0)
-            {
+            //if (myEvent.Count > 0)
+            //{
                 
-                for (int i = 0; i < myEvent.Count; i++)
-                {
-                    if (i < 3)
-                    {
-                        UC_HomeMyEventsItem ItemMyEvents = new UC_HomeMyEventsItem();
-                        ItemMyEvents.DateTime = myEvent.ToList()[i].StartDate.ToString() + " || " + myEvent.ToList()[i].EndDate.ToString("HH:mm");
-                        ItemMyEvents.Organizador = myEvent.ToList()[i].Reserve.UserId;
-                        ItemMyEvents.Slots =  myEvent.ToList()[i].Users.Count.ToString() + "/" + myEvent.ToList()[i].MaxPlayers.ToString();
-                        ItemMyEvents.Recinto =  myEvent.ToList()[i].Reserve.Ground.Park.Name; 
-                        ItemMyEvents.Sport =  myEvent.ToList()[i].Reserve.Sport.Name;
-                        _MyEvents.Add(ItemMyEvents);
-                        flpMyEvents.Controls.Add(ItemMyEvents); //add to flowlayout
-                    }
-                }
-            }
-            else
-            {
-                flpMyEvents.Controls.Add(_noMyEventsitems); //add to flowlayout
-            }
+            //    for (int i = 0; i < myEvent.Count; i++)
+            //    {
+            //        if (i < 3)
+            //        {
+            //            UC_HomeMyEventsItem ItemMyEvents = new UC_HomeMyEventsItem();
+            //            ItemMyEvents.DateTime = myEvent.ToList()[i].StartDate.ToString() + " || " + myEvent.ToList()[i].EndDate.ToString("HH:mm");
+            //            ItemMyEvents.Organizador = myEvent.ToList()[i].Reserve.UserId;
+            //            ItemMyEvents.Slots =  myEvent.ToList()[i].Users.Count.ToString() + "/" + myEvent.ToList()[i].MaxPlayers.ToString();
+            //            ItemMyEvents.Recinto =  myEvent.ToList()[i].Reserve.Ground.Park.Name; 
+            //            ItemMyEvents.Sport =  myEvent.ToList()[i].Reserve.Sport.Name;
+            //            _MyEvents.Add(ItemMyEvents);
+            //            flpMyEvents.Controls.Add(ItemMyEvents); //add to flowlayout
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    flpMyEvents.Controls.Add(_noMyEventsitems); //add to flowlayout
+            //}
 
 
-            //Preenche lista de sugestoes de eventos
-            ICollection<Reserve> EventSuggestions = _homeController.getEventSuggestions(username);
-            flpEventSuggestions.Controls.Clear();
+            ////Preenche lista de sugestoes de eventos
+            //ICollection<Reserve> EventSuggestions = _homeController.getEventSuggestions(username);
+            //flpEventSuggestions.Controls.Clear();
 
-            if (EventSuggestions.Count > 0)
-            {
-                for (int i = 0; i < EventSuggestions.Count; i++)
-                {
-                    if (i < 3)
-                    {
-                        UC_HomeMyEventsItem ItemSuggestion = new UC_HomeMyEventsItem();
-                          ItemSuggestion.DateTime = EventSuggestions.ToList()[i].Event.StartDate.ToString() + " || " + EventSuggestions.ToList()[i].Event.EndDate.ToShortTimeString();
-                          ItemSuggestion.Organizador = EventSuggestions.ToList()[i].UserId;
-                          ItemSuggestion.Slots =  EventSuggestions.ToList()[i].Event.Users.Count +  "/" + EventSuggestions.ToList()[i].Event.MaxPlayers.ToString();
-                          ItemSuggestion.Recinto =  EventSuggestions.ToList()[i].Ground.Park.Name;
-                          ItemSuggestion.Sport =  EventSuggestions.ToList()[i].Sport.Name; 
-                        _EventSuggestions.Add(ItemSuggestion);
-                        flpEventSuggestions.Controls.Add(ItemSuggestion); //add to flowlayout
-                    }
-                }
-            }
-            else
-            {
-                flpEventSuggestions.Controls.Add(_noSuggestionsEventsitems); //add to flowlayout
-            }
+            //if (EventSuggestions.Count > 0)
+            //{
+            //    for (int i = 0; i < EventSuggestions.Count; i++)
+            //    {
+            //        if (i < 3)
+            //        {
+            //            UC_HomeMyEventsItem ItemSuggestion = new UC_HomeMyEventsItem();
+            //              ItemSuggestion.DateTime = EventSuggestions.ToList()[i].Event.StartDate.ToString() + " || " + EventSuggestions.ToList()[i].Event.EndDate.ToShortTimeString();
+            //              ItemSuggestion.Organizador = EventSuggestions.ToList()[i].UserId;
+            //              ItemSuggestion.Slots =  EventSuggestions.ToList()[i].Event.Users.Count +  "/" + EventSuggestions.ToList()[i].Event.MaxPlayers.ToString();
+            //              ItemSuggestion.Recinto =  EventSuggestions.ToList()[i].Ground.Park.Name;
+            //              ItemSuggestion.Sport =  EventSuggestions.ToList()[i].Sport.Name; 
+            //            _EventSuggestions.Add(ItemSuggestion);
+            //            flpEventSuggestions.Controls.Add(ItemSuggestion); //add to flowlayout
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    flpEventSuggestions.Controls.Add(_noSuggestionsEventsitems); //add to flowlayout
+            //}
 
          /*   if (flpMyEvents.Controls.Count == 0)
                 flpMyEvents.Controls.Add(noMyEventsitems);*/
