@@ -8,7 +8,7 @@ namespace Sports4All
 {
     class HomeController
     {
-        public List<Sport> getSports()
+        public ICollection<Sport> getSports()
         {
             using (ModelContext db = new ModelContext())
             {
@@ -17,100 +17,135 @@ namespace Sports4All
 
         }
 
-        public List<string> getMyStats(string username)
+        public ICollection<string> getMyStats(string username)
         {
-            List<string> userStats = new List<string>();
+            ICollection<string> userStats = new List<string>();
+            
             using (ModelContext db = new ModelContext())
             {
-                var eventsPlayed = db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Events.ToList().Count();
-                var reservesMade = db.Users.Where(e => e.Username == AuthProperties.LoggedUser).First().Reserves.ToList().Count();
-                var matchesPlayed = reservesMade + eventsPlayed;
-                
-                var query = db.Evaluations.OfType<UserEvaluation>().Where(e => e.Evaluated.Username == AuthProperties.LoggedUser).ToList();
-                double fairplayResult = 0;
-                double skillResult = 0;
-                double racio = 0;
+                var myStats = db.Classifications.Where(e => e.userId.Username == AuthProperties.LoggedUser).First();
 
-                foreach (UserEvaluation e in query)
-                {
-                    fairplayResult += e.FairPlay;
-                    skillResult += e.Skill;
-                }
+                userStats.Add(myStats.userId.Events.Count.ToString());
+                userStats.Add(myStats.fairplayAverage.ToString());
+                userStats.Add(myStats.skillAverage.ToString());
+                userStats.Add(myStats.racio.ToString());
+                userStats.Add(myStats.points.ToString());
 
-                fairplayResult /= query.Count;
-                skillResult /= query.Count;
-                racio = fairplayResult / skillResult;
-
-                double points = fairplayResult * Points._fairplay_Height + skillResult * Points._skill_Height + eventsPlayed * Points._eventPerformed_Height
-                    + reservesMade * Points._reservePerformed_Height;
-
-                userStats.Add(matchesPlayed.ToString());
-                userStats.Add(fairplayResult.ToString());
-                userStats.Add(skillResult.ToString());
-                userStats.Add(racio.ToString());
-                userStats.Add(points.ToString());
                 return userStats;
             }
         }
 
-        public List<Reserve> getEventSuggestions(string username)
+        public int myLevel()
+        {
+            using(ModelContext db = new ModelContext())
+            {
+                var myPoints = db.Classifications.Where(e => e.userId.Username == AuthProperties.LoggedUser).FirstOrDefault();
+
+                return Convert.ToInt32(myPoints.points/Points._levelChange);
+            }
+
+            
+        }
+
+        /**
+         * 
+         * Método que calcula as pontuações de todos os utilizadores
+         */
+        public void pointsCalculator()
+        {
+            using (ModelContext db = new ModelContext())
+            {
+                var myStats = db.Classifications.Where(e => e.points > 0).ToList(); // Classificação de todos os users
+                var auxReservesPerformed = 0;
+                var auxFairplayResult = 0;
+                var auxSkillResult = 0;
+                var auxEventsPerfomed = 0;
+                var auxRacio = 0;
+                var auxPoints = 0;
+
+                for (int i = 0; i < myStats.Count; i++) // percorro todos os users que possuem pontos > 0
+                {
+                    auxEventsPerfomed = myStats[i].userId.Events.Count; // total de partidas de cada user
+                    auxReservesPerformed = myStats[i].userId.Reserves.Count;
+                    var auxUser = myStats[i].userId.Username;
+                    var userEvaluations = db.Evaluations.OfType<UserEvaluation>().Where(e => e.Evaluated.Username == auxUser).ToList(); // se esse user ja foi avaliado alguma vez...
+
+                    // Se esse user ja foi avaliado alguma vez....
+                    if (userEvaluations.Count > 0)
+                    {
+                        for (int j = 0; j < userEvaluations.Count; j++)
+                        {
+                            auxFairplayResult += userEvaluations[j].FairPlay; //total de fairplay de cada user
+                            auxSkillResult += userEvaluations[j].Skill;  //total de skill de cada user
+                        }
+
+                        auxFairplayResult /= userEvaluations.Count;
+                        auxSkillResult /= userEvaluations.Count;
+                        auxRacio = auxFairplayResult / auxSkillResult;
+
+                    }
+                    else
+                    {
+                        auxFairplayResult = auxSkillResult = auxRacio = 0;
+                    }
+
+                    auxPoints = auxFairplayResult * Points._fairplay_Weight + auxSkillResult * Points._skill_Weight +
+                    auxEventsPerfomed * Points._eventPerformed_Weight +
+                    auxReservesPerformed * Points._reservePerformed_Weight + auxRacio * Points._racio_Weight;
+
+                    if (auxPoints != myStats[i].points) // se os pontos atuais estiverem diferentes dos pontos da BD entao algo mudou
+                    {
+                        myStats[i].points = auxPoints;
+                        myStats[i].racio = auxRacio;
+                        myStats[i].skillAverage = auxSkillResult;
+                        myStats[i].fairplayAverage = auxFairplayResult;
+                        db.SaveChanges();
+                    }
+                }
+
+                myStats = db.Classifications.Where(e => e.points > 0).OrderByDescending(e => e.points).ToList(); // volto a pegar nos users todos e agora vou estabelecer a ordem das classificações
+
+                for (int i = 0; i < myStats.Count; i++)
+                {
+                    myStats[i].rankClassification = i + 1;
+                }
+                db.SaveChanges();
+
+
+            }
+
+        }
+
+        public ICollection<Reserve> getEventSuggestions(string username)
         {
             //events -> todos os eventos que o user participou
             // reservs -> todos os eventos que o user criou
 
             using (ModelContext db = new ModelContext())
             {
-                var user = db.Users.Where(c => c.Username == username).First();
 
-                // var userReserves1 = db.Reserves.Where(e => e.UserId != username).ToList();
-
-                // Pego todas as reservas que nao foram realizadas pelo user especifico                //Todos os players + quem fez a reserva
-                return db.Reserves.Where(e => e.UserId != username && e.Event.StartDate > DateTime.Now && (e.Event.Users.Count + 1) < e.Event.MaxPlayers
-                    && (e.Ground.Park.Adress.CountyId == user.CountyId || e.Ground.Park.Adress.County.DistrictId == user.County.DistrictId
-                     && e.Event.Users.Contains(user))).ToList();
+                // Query para dar Sugestões            
+                return db.Reserves.Include("User").Include("Ground.Park").Include("Sport").Where(e => e.User.Username != username && e.Event.StartDate > DateTime.Now && (e.Event.Users.Count) < e.Event.MaxPlayers
+                    && (e.Ground.Park.Adress.CountyId == e.User.CountyId || e.Ground.Park.Adress.County.DistrictId == e.User.County.DistrictId
+                     && e.Event.Users.Contains(e.User) == false)).ToList();
             }
 
         }
 
-        public List<Event> getMyEvents(string username)
+        public ICollection<Event> getMyEvents(string username)
         {
-            List<Event> myEvents = new List<Event>();
+            ICollection<Event> myEvents = new List<Event>();
 
             using (ModelContext db = new ModelContext())
             {
-                //var queryMyReserves = db.Users.Where(c => c.Username == username).First().Reserves //Filtro pelas reservas realizadas por o user
-                //    .Where(e => e.Event.StartDate > DateTime.Now).ToList();
+                var teste = db.Reserves.Include("Ground.Park").Include("Sport").Where(c => c.Event.StartDate > DateTime.Now).ToList();
+                var whoIam = db.Users.Where(e => e.Username == username).First();
 
-                //var queryMyEvents = db.Users.Where(c => c.Username == username).First().Events //Filtro pelos eventos em que o user vai participar
-                //    .Where(e => e.StartDate > DateTime.Now).ToList();
-
-                /* var queryMyReserves = db.Users.Where(c => c.Username == username).First(); //Filtro pelas reservas realizadas por o user
-
-                 var queryMyEvents = db.Users.Where(c => c.Username == username).First().Events.ToList(); //Filtro pelos eventos em que o user vai participar
-
-                 foreach (Reserve a in queryMyReserves) // todos os eventos que esse user participou
+                foreach (Reserve a in teste) // todos os eventos que esse user participou (Tanto os que esta inscrito, como reservou)
                  {
-                     myEvents.Add(a.Event); //guardo o evento dessa reserva
+                    if(a.Event.Users.Contains(whoIam)) 
+                        myEvents.Add(a.Event); //guardo o evento dessa reserva
                  }
-
-                 // Verificador para garantir que nao há eventos repetidos
-                 bool verificador = false;
-                 for (int i = 0; i < queryMyEvents.Count; i++)
-                 {
-                     for (int j = 0; j < myEvents.Count; j++)
-                     {
-                         if (queryMyEvents[i].EventId == myEvents[j].EventId)
-                             verificador = true;
-                     }
-
-                     if (!verificador)
-                     {
-                         myEvents.Add(queryMyEvents[i]);
-                         verificador = false;
-                     }
-
-                 }*/
-
             }
 
             return myEvents;

@@ -62,9 +62,10 @@
             // 
             // pbSportsGround
             // 
-            this.pbSportsGround.Location = new System.Drawing.Point(31, 70);
+            this.pbSportsGround.Location = new System.Drawing.Point(28, 56);
+            this.pbSportsGround.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbSportsGround.Name = "pbSportsGround";
-            this.pbSportsGround.Size = new System.Drawing.Size(206, 199);
+            this.pbSportsGround.Size = new System.Drawing.Size(183, 159);
             this.pbSportsGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSportsGround.TabIndex = 1;
             this.pbSportsGround.TabStop = false;
@@ -73,9 +74,9 @@
             // 
             this.lblTitle.AutoEllipsis = true;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(5, 9);
+            this.lblTitle.Location = new System.Drawing.Point(4, 7);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(262, 45);
+            this.lblTitle.Size = new System.Drawing.Size(233, 36);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -84,22 +85,24 @@
             // 
             this.lblScore.AutoEllipsis = true;
             this.lblScore.Font = new System.Drawing.Font("Century Gothic", 8F);
-            this.lblScore.Location = new System.Drawing.Point(1, 297);
+            this.lblScore.Location = new System.Drawing.Point(1, 238);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(267, 29);
+            this.lblScore.Size = new System.Drawing.Size(237, 23);
             this.lblScore.TabIndex = 3;
             this.lblScore.Text = "Avaliação: 0";
             this.lblScore.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // UC_SportsGroundItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pbSportsGround);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UC_SportsGroundItem";
-            this.Size = new System.Drawing.Size(270, 334);
+            this.Size = new System.Drawing.Size(240, 267);
+            this.DoubleClick += new System.EventHandler(this.UC_SportsGroundItem_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSportsGround)).EndInit();
             this.ResumeLayout(false);

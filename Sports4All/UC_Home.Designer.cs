@@ -71,14 +71,16 @@
             this.lbMatchesPlayedValue = new System.Windows.Forms.Label();
             this.lbMatchesPlayed = new System.Windows.Forms.Label();
             this.lbRacioValue = new System.Windows.Forms.Label();
+            this.pbMatchesPlayed = new System.Windows.Forms.PictureBox();
+            this.pbFairplay = new System.Windows.Forms.PictureBox();
+            this.pbSkill = new System.Windows.Forms.PictureBox();
+            this.pbRatio = new System.Windows.Forms.PictureBox();
             this.pbStats = new System.Windows.Forms.PictureBox();
             this.pbProgressBar = new System.Windows.Forms.PictureBox();
             this.lbCurrentLevel = new System.Windows.Forms.Label();
             this.lbNextLevel = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.pbInfo = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtbInfoStats = new System.Windows.Forms.RichTextBox();
             this.flpInfoStats = new System.Windows.Forms.FlowLayoutPanel();
@@ -93,6 +95,10 @@
             this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMatchesPlayed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFairplay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRatio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProgressBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInfo)).BeginInit();
@@ -137,7 +143,7 @@
             // 
             this.lbStatistics.AutoSize = true;
             this.lbStatistics.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatistics.Location = new System.Drawing.Point(1027, 423);
+            this.lbStatistics.Location = new System.Drawing.Point(1022, 421);
             this.lbStatistics.Name = "lbStatistics";
             this.lbStatistics.Size = new System.Drawing.Size(128, 26);
             this.lbStatistics.TabIndex = 57;
@@ -453,26 +459,30 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.99283F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.00717F));
-            this.tableLayoutPanel1.Controls.Add(this.lbRacio, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lbSkillValue, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lbSkill, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lbFairplayValue, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lbFairplay, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lbMatchesPlayedValue, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lbMatchesPlayed, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lbRacioValue, 1, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(933, 548);
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.9534F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.0466F));
+            this.tableLayoutPanel1.Controls.Add(this.lbRacio, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lbSkillValue, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lbSkill, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lbFairplayValue, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbFairplay, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbMatchesPlayedValue, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbMatchesPlayed, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbRacioValue, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pbMatchesPlayed, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pbFairplay, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pbSkill, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pbRatio, 0, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(949, 548);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 110);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(264, 215);
             this.tableLayoutPanel1.TabIndex = 82;
             // 
             // lbRacio
@@ -480,9 +490,9 @@
             this.lbRacio.AutoSize = true;
             this.lbRacio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbRacio.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lbRacio.Location = new System.Drawing.Point(4, 82);
+            this.lbRacio.Location = new System.Drawing.Point(49, 159);
             this.lbRacio.Name = "lbRacio";
-            this.lbRacio.Size = new System.Drawing.Size(99, 27);
+            this.lbRacio.Size = new System.Drawing.Size(96, 56);
             this.lbRacio.TabIndex = 6;
             this.lbRacio.Text = "Rácio";
             this.lbRacio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -492,9 +502,9 @@
             this.lbSkillValue.AutoSize = true;
             this.lbSkillValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbSkillValue.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lbSkillValue.Location = new System.Drawing.Point(110, 55);
+            this.lbSkillValue.Location = new System.Drawing.Point(151, 106);
             this.lbSkillValue.Name = "lbSkillValue";
-            this.lbSkillValue.Size = new System.Drawing.Size(166, 26);
+            this.lbSkillValue.Size = new System.Drawing.Size(110, 53);
             this.lbSkillValue.TabIndex = 5;
             this.lbSkillValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -503,9 +513,9 @@
             this.lbSkill.AutoSize = true;
             this.lbSkill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbSkill.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lbSkill.Location = new System.Drawing.Point(4, 55);
+            this.lbSkill.Location = new System.Drawing.Point(49, 106);
             this.lbSkill.Name = "lbSkill";
-            this.lbSkill.Size = new System.Drawing.Size(99, 26);
+            this.lbSkill.Size = new System.Drawing.Size(96, 53);
             this.lbSkill.TabIndex = 4;
             this.lbSkill.Text = "Skill";
             this.lbSkill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -515,9 +525,9 @@
             this.lbFairplayValue.AutoSize = true;
             this.lbFairplayValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbFairplayValue.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lbFairplayValue.Location = new System.Drawing.Point(110, 28);
+            this.lbFairplayValue.Location = new System.Drawing.Point(151, 53);
             this.lbFairplayValue.Name = "lbFairplayValue";
-            this.lbFairplayValue.Size = new System.Drawing.Size(166, 26);
+            this.lbFairplayValue.Size = new System.Drawing.Size(110, 53);
             this.lbFairplayValue.TabIndex = 3;
             this.lbFairplayValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -526,9 +536,9 @@
             this.lbFairplay.AutoSize = true;
             this.lbFairplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbFairplay.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lbFairplay.Location = new System.Drawing.Point(4, 28);
+            this.lbFairplay.Location = new System.Drawing.Point(49, 53);
             this.lbFairplay.Name = "lbFairplay";
-            this.lbFairplay.Size = new System.Drawing.Size(99, 26);
+            this.lbFairplay.Size = new System.Drawing.Size(96, 53);
             this.lbFairplay.TabIndex = 2;
             this.lbFairplay.Text = "FairPlay";
             this.lbFairplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -538,9 +548,9 @@
             this.lbMatchesPlayedValue.AutoSize = true;
             this.lbMatchesPlayedValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbMatchesPlayedValue.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lbMatchesPlayedValue.Location = new System.Drawing.Point(110, 1);
+            this.lbMatchesPlayedValue.Location = new System.Drawing.Point(151, 0);
             this.lbMatchesPlayedValue.Name = "lbMatchesPlayedValue";
-            this.lbMatchesPlayedValue.Size = new System.Drawing.Size(166, 26);
+            this.lbMatchesPlayedValue.Size = new System.Drawing.Size(110, 53);
             this.lbMatchesPlayedValue.TabIndex = 1;
             this.lbMatchesPlayedValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbMatchesPlayedValue.Click += new System.EventHandler(this.lbMatchesPlayed_Click);
@@ -550,9 +560,9 @@
             this.lbMatchesPlayed.AutoSize = true;
             this.lbMatchesPlayed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbMatchesPlayed.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lbMatchesPlayed.Location = new System.Drawing.Point(4, 1);
+            this.lbMatchesPlayed.Location = new System.Drawing.Point(49, 0);
             this.lbMatchesPlayed.Name = "lbMatchesPlayed";
-            this.lbMatchesPlayed.Size = new System.Drawing.Size(99, 26);
+            this.lbMatchesPlayed.Size = new System.Drawing.Size(96, 53);
             this.lbMatchesPlayed.TabIndex = 0;
             this.lbMatchesPlayed.Text = "Partidas Jogadas";
             this.lbMatchesPlayed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -562,26 +572,66 @@
             this.lbRacioValue.AutoSize = true;
             this.lbRacioValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbRacioValue.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lbRacioValue.Location = new System.Drawing.Point(110, 82);
+            this.lbRacioValue.Location = new System.Drawing.Point(151, 159);
             this.lbRacioValue.Name = "lbRacioValue";
-            this.lbRacioValue.Size = new System.Drawing.Size(166, 27);
+            this.lbRacioValue.Size = new System.Drawing.Size(110, 56);
             this.lbRacioValue.TabIndex = 7;
             this.lbRacioValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pbMatchesPlayed
+            // 
+            this.pbMatchesPlayed.Image = ((System.Drawing.Image)(resources.GetObject("pbMatchesPlayed.Image")));
+            this.pbMatchesPlayed.Location = new System.Drawing.Point(3, 3);
+            this.pbMatchesPlayed.Name = "pbMatchesPlayed";
+            this.pbMatchesPlayed.Size = new System.Drawing.Size(40, 47);
+            this.pbMatchesPlayed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbMatchesPlayed.TabIndex = 8;
+            this.pbMatchesPlayed.TabStop = false;
+            // 
+            // pbFairplay
+            // 
+            this.pbFairplay.Image = ((System.Drawing.Image)(resources.GetObject("pbFairplay.Image")));
+            this.pbFairplay.Location = new System.Drawing.Point(3, 56);
+            this.pbFairplay.Name = "pbFairplay";
+            this.pbFairplay.Size = new System.Drawing.Size(40, 47);
+            this.pbFairplay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbFairplay.TabIndex = 9;
+            this.pbFairplay.TabStop = false;
+            // 
+            // pbSkill
+            // 
+            this.pbSkill.Image = ((System.Drawing.Image)(resources.GetObject("pbSkill.Image")));
+            this.pbSkill.Location = new System.Drawing.Point(3, 109);
+            this.pbSkill.Name = "pbSkill";
+            this.pbSkill.Size = new System.Drawing.Size(40, 47);
+            this.pbSkill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbSkill.TabIndex = 10;
+            this.pbSkill.TabStop = false;
+            // 
+            // pbRatio
+            // 
+            this.pbRatio.Image = ((System.Drawing.Image)(resources.GetObject("pbRatio.Image")));
+            this.pbRatio.Location = new System.Drawing.Point(3, 162);
+            this.pbRatio.Name = "pbRatio";
+            this.pbRatio.Size = new System.Drawing.Size(40, 50);
+            this.pbRatio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbRatio.TabIndex = 11;
+            this.pbRatio.TabStop = false;
             // 
             // pbStats
             // 
             this.pbStats.Image = ((System.Drawing.Image)(resources.GetObject("pbStats.Image")));
-            this.pbStats.Location = new System.Drawing.Point(1156, 421);
+            this.pbStats.Location = new System.Drawing.Point(1156, 417);
             this.pbStats.Name = "pbStats";
-            this.pbStats.Size = new System.Drawing.Size(24, 24);
-            this.pbStats.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbStats.Size = new System.Drawing.Size(42, 33);
+            this.pbStats.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStats.TabIndex = 83;
             this.pbStats.TabStop = false;
             // 
             // pbProgressBar
             // 
             this.pbProgressBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbProgressBar.Location = new System.Drawing.Point(1021, 470);
+            this.pbProgressBar.Location = new System.Drawing.Point(1024, 470);
             this.pbProgressBar.Name = "pbProgressBar";
             this.pbProgressBar.Size = new System.Drawing.Size(112, 24);
             this.pbProgressBar.TabIndex = 84;
@@ -590,7 +640,7 @@
             // lbCurrentLevel
             // 
             this.lbCurrentLevel.AutoSize = true;
-            this.lbCurrentLevel.Location = new System.Drawing.Point(957, 474);
+            this.lbCurrentLevel.Location = new System.Drawing.Point(948, 474);
             this.lbCurrentLevel.Name = "lbCurrentLevel";
             this.lbCurrentLevel.Size = new System.Drawing.Size(59, 20);
             this.lbCurrentLevel.TabIndex = 85;
@@ -599,7 +649,7 @@
             // lbNextLevel
             // 
             this.lbNextLevel.AutoSize = true;
-            this.lbNextLevel.Location = new System.Drawing.Point(1139, 474);
+            this.lbNextLevel.Location = new System.Drawing.Point(1151, 474);
             this.lbNextLevel.Name = "lbNextLevel";
             this.lbNextLevel.Size = new System.Drawing.Size(59, 20);
             this.lbNextLevel.TabIndex = 86;
@@ -616,16 +666,6 @@
             this.label17.Text = "Minha Atividade";
             this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(933, 661);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(181, 26);
-            this.label18.TabIndex = 89;
-            this.label18.Text = "Meus desportos";
-            // 
             // pbInfo
             // 
             this.pbInfo.Image = ((System.Drawing.Image)(resources.GetObject("pbInfo.Image")));
@@ -637,15 +677,6 @@
             this.pbInfo.TabStop = false;
             this.pbInfo.Click += new System.EventHandler(this.pbInfo_Click);
             this.pbInfo.MouseHover += new System.EventHandler(this.pbInfo_MouseHover);
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(935, 695);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(280, 95);
-            this.flowLayoutPanel2.TabIndex = 92;
-            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // pictureBox1
             // 
@@ -697,9 +728,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flpInfoStats);
-            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.pbInfo);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.lbNextLevel);
             this.Controls.Add(this.lbCurrentLevel);
@@ -744,6 +773,10 @@
             this.panel9.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMatchesPlayed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFairplay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkill)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRatio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProgressBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInfo)).EndInit();
@@ -803,15 +836,17 @@
         private System.Windows.Forms.Label lbCurrentLevel;
         private System.Windows.Forms.Label lbNextLevel;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.PictureBox pbInfo;
         private System.Windows.Forms.Label lbInfoStats;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox rtbInfoStats;
         private System.Windows.Forms.FlowLayoutPanel flpInfoStats;
         private System.Windows.Forms.Label lbRacio;
         private System.Windows.Forms.Label lbRacioValue;
+        private System.Windows.Forms.PictureBox pbMatchesPlayed;
+        private System.Windows.Forms.PictureBox pbFairplay;
+        private System.Windows.Forms.PictureBox pbSkill;
+        private System.Windows.Forms.PictureBox pbRatio;
         //private UC_CreateEvent UC_CreateEvent1;
     }
 }

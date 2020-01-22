@@ -54,7 +54,7 @@
             // pbModality
             // 
             this.pbModality.Image = ((System.Drawing.Image)(resources.GetObject("pbModality.Image")));
-            this.pbModality.Location = new System.Drawing.Point(507, 28);
+            this.pbModality.Location = new System.Drawing.Point(524, 30);
             this.pbModality.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pbModality.Name = "pbModality";
             this.pbModality.Size = new System.Drawing.Size(62, 68);
@@ -67,7 +67,7 @@
             this.lblModalityName.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.lblModalityName.Location = new System.Drawing.Point(844, -18);
             this.lblModalityName.Name = "lblModalityName";
-            this.lblModalityName.Size = new System.Drawing.Size(61, 19);
+            this.lblModalityName.Size = new System.Drawing.Size(84, 23);
             this.lblModalityName.TabIndex = 20;
             this.lblModalityName.Text = "Futebol";
             // 
@@ -171,9 +171,9 @@
             // 
             this.lblSport.AutoSize = true;
             this.lblSport.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSport.Location = new System.Drawing.Point(476, 3);
+            this.lblSport.Location = new System.Drawing.Point(520, 2);
             this.lblSport.Name = "lblSport";
-            this.lblSport.Size = new System.Drawing.Size(68, 17);
+            this.lblSport.Size = new System.Drawing.Size(97, 23);
             this.lblSport.TabIndex = 28;
             this.lblSport.Text = "Desporto";
             // 
@@ -206,7 +206,7 @@
             // 
             this.pbEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
-            this.pbEdit.Location = new System.Drawing.Point(415, 49);
+            this.pbEdit.Location = new System.Drawing.Point(440, 49);
             this.pbEdit.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pbEdit.Name = "pbEdit";
             this.pbEdit.Size = new System.Drawing.Size(31, 40);
@@ -217,7 +217,7 @@
             // 
             this.pbDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
-            this.pbDelete.Location = new System.Drawing.Point(452, 49);
+            this.pbDelete.Location = new System.Drawing.Point(474, 49);
             this.pbDelete.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pbDelete.Name = "pbDelete";
             this.pbDelete.Size = new System.Drawing.Size(31, 40);
@@ -228,7 +228,7 @@
             // 
             this.pbMoreDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbMoreDetails.Image = ((System.Drawing.Image)(resources.GetObject("pbMoreDetails.Image")));
-            this.pbMoreDetails.Location = new System.Drawing.Point(440, 9);
+            this.pbMoreDetails.Location = new System.Drawing.Point(407, 49);
             this.pbMoreDetails.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pbMoreDetails.Name = "pbMoreDetails";
             this.pbMoreDetails.Size = new System.Drawing.Size(27, 34);
@@ -249,7 +249,7 @@
             this.Controls.Add(this.lblModalityName);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UC_HomeMyEventsItem";
-            this.Size = new System.Drawing.Size(572, 88);
+            this.Size = new System.Drawing.Size(589, 88);
             ((System.ComponentModel.ISupportInitialize)(this.pbModality)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

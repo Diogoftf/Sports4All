@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,106 +8,148 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sports4All.Controller;
+using Sports4All.UserControls_Screens;
 
 namespace Sports4All
 {
     public partial class Form1 : Form
     {
-        MyEventsController eventsControllerForm = new MyEventsController();
+        private static Form1 _obj;
+
+        public static Form1 Instance
+        {
+            get
+            {
+                if (_obj == null) { _obj = new Form1(); }
+
+                return _obj;
+            }
+        }
+
+        public Panel PnlContainer
+        {
+            get => panelContainer;
+            set => panelContainer = value;
+        }
+
+        public UserControl FrontControl { get; set; }
+
         public Form1()
         {
+            
             // =============================================================
             //
             // //APAGAR ISTO DEPOIS E COMEÇAR O PROGRAMA NO LOGIN
-            AuthProperties.LoggedUser = "josefa";
+            AuthProperties.LoggedUser = "ruben21";
             //
             // =============================================================
 
             InitializeComponent();
+
             (new Core.DropShaddow()).ApplyShadows(this);
-            moveSidePanel(btn_Home);
-            lbWelcomeUser.Text = "Bem vindo, " + AuthProperties.LoggedUser;
-
         }
 
-        private void btn_Home_Click(object sender, EventArgs e)
+        private void BringUcToFront<T>(string ucName) where T : UserControl, new()
         {
-            moveSidePanel(btn_Home);
-            UC_Home1.BringToFront();
-            
+            if (!Instance.PnlContainer.Controls.ContainsKey(ucName))
+            {
+                AddUserControl<T>();
+            }
+
+            Instance.PnlContainer.Controls[ucName].BringToFront();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void AddUserControl<T>() where T : UserControl, new()
         {
-            moveSidePanel(button2);
-            eventosControl1.BringToFront();
+            T uc = new T { Dock = DockStyle.Fill };
+            Instance.PnlContainer.Controls.Add(uc);
+            FrontControl = uc;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Btn_Home_Click(object sender, EventArgs e)
         {
-            moveSidePanel(button3);
-            recintosControl1.BringToFront();
+            MoveSidePanel(btn_Home);
+            BringUcToFront<UC_Home>("UC_Home");
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Btn_Events_Click(object sender, EventArgs e)
         {
-            moveSidePanel(button4);
-            subscricoesControl1.BringToFront();
+            MoveSidePanel(button2);
+            BringUcToFront<UC_Events>("UC_Events");
         }
 
-        private void moveSidePanel(Button button)
+        private void Btn_SportsGround_Click(object sender, EventArgs e)
+        {
+            MoveSidePanel(button3);
+            BringUcToFront<UC_SportsGround>("UC_SportsGround");
+        }
+
+        private void Btn_Subscriptions_Click(object sender, EventArgs e)
+        {
+            MoveSidePanel(button4);
+            BringUcToFront<UC_Subscriptions>("UC_Subscriptions");
+        }
+
+        private void Btn_MyEvents_Click(object sender, EventArgs e)
+        {
+            SidePanel.Height = button6.Height;
+            SidePanel.Top = button6.Top;
+            //button6.BackColor = Color.DarkGray;
+            BringUcToFront<UC_MyEvents>("UC_MyEvents");
+
+        }
+
+        private void Btn_Addfriend_Click(object sender, EventArgs e)
+        {
+            BringUcToFront<UC_AddFriend>("UC_AddFriend");
+        }
+
+        private void MoveSidePanel(Button button)
         {
             SidePanel.Height = button.Height;
             SidePanel.Top = button.Top;
         }
 
-        private void btnRanking_Click(object sender, EventArgs e)
+        private void BtnRanking_Click(object sender, EventArgs e)
         {
-            moveSidePanel(btnRanking);
-            UC_Rank1.BringToFront();
+            MoveSidePanel(btnRanking);
+            BringUcToFront<UC_Rank>("UC_Rank");
         }
 
-        private void uC_HeaderUser1_Load(object sender, EventArgs e)
+        private void PbUserImage_Click(object sender, EventArgs e)
         {
-
+            BringUcToFront<UC_UserProfile>("UC_UserProfile");
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = button6.Height;
-            SidePanel.Top = button6.Top;
-            //button6.BackColor = Color.DarkGray;
-            uC_MyEvents1.Visible = true;
-            uC_MyEvents1.BringToFront();
-   
-        }
-
-        private void btnAddfriend_Click(object sender, EventArgs e)
-        {
-            uC_AddFriend1.BringToFront();
-        }
-
-        private void eventosControl1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          // var context = new QxP1IZ6nAWEntities();
-        // !! TEMPORARIO!! PEGA O PRIMEIRO USER DA TABELA
-       // lbWelcomeUser.Text = "Bem-vindo, " + context.User.ToList()[0].username;
+            MoveSidePanel(btn_Home);
+            lbWelcomeUser.Text = "Bem vindo, " + AuthProperties.LoggedUser;
+
+            _obj = this;
+            AddUserControlsToForm();
+
+            // var context = new QxP1IZ6nAWEntities();
+            // !! TEMPORARIO!! PEGA O PRIMEIRO USER DA TABELA
+            // lbWelcomeUser.Text = "Bem-vindo, " + context.User.ToList()[0].username;
         }
 
-        private void lbWelcomeUser_Click(object sender, EventArgs e)
+        private void AddUserControlsToForm()
         {
-
+            AddUserControl<UC_Home>();
+            AddUserControl<UC_Events>();
+            AddUserControl<UC_SportsGround>();
+            AddUserControl<UC_Subscriptions>();
+            AddUserControl<UC_Rank>();
+            AddUserControl<UC_MyEvents>();
+            AddUserControl<UC_AddFriend>();
+            AddUserControl<UC_UserProfile>();
         }
+
     }
 }
