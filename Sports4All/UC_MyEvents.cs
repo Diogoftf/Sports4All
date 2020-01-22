@@ -84,7 +84,7 @@ namespace Sports4All
                     Sport = completedEvents.ToList()[i].Reserve.Sport.Name,
                     Date = completedEvents.ToList()[i].StartDate.ToLongDateString(),
                     Park = completedEvents.ToList()[i].Reserve.Ground.Park.Name,
-                    MessageInfo = "Recinto Já avaliado!",
+                    MessageInfo = "Evento já avaliado!",
                     Change_BackColor = Color.Green
 
 

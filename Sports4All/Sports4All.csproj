@@ -116,8 +116,10 @@
     </Compile>
     <Compile Include="Classification.cs" />
     <Compile Include="Controller\AuthController.cs" />
+    <Compile Include="Controller\BrowseParksController.cs" />
     <Compile Include="Controller\ImagesController.cs" />
     <Compile Include="Controller\MyEventsController.cs" />
+    <Compile Include="Controller\ParkDescriptionController.cs" />
     <Compile Include="Core\DropShaddow.cs" />
     <Compile Include="County.cs" />
     <Compile Include="District.cs" />
@@ -267,6 +269,7 @@
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="UserEvaluation.cs" />
     <Compile Include="View\UserControls_Items\UC_EventItem.cs">
       <SubType>UserControl</SubType>
