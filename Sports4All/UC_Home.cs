@@ -48,18 +48,16 @@ namespace Sports4All
         {
             pbWIDTH = pbProgressBar.Width;
             pbHEIGHT = pbProgressBar.Height;
-            pbUnit = pbWIDTH / Points._levelChange;
+            pbUnit = pbWIDTH / 100.0;
             pbComplete = 0;
-            pbProgressBar.Image = null;
             bmp = new Bitmap(pbWIDTH, pbHEIGHT);
-            timerProgressBar.Interval = 50;   
+            timerProgressBar.Interval = 20;   
             timerProgressBar.Tick += new EventHandler(this.FillProgressBar);
             timerProgressBar.Start();
         }
 
         private void FillProgressBar(object sender, EventArgs e)
         {
-
             g = Graphics.FromImage(bmp);
             g.Clear(Color.LightGray);
             g.FillRectangle(Brushes.LightGreen, new Rectangle(0, 0, (int)(pbComplete * pbUnit), pbHEIGHT));
@@ -68,7 +66,6 @@ namespace Sports4All
             pbComplete++;
             if (pbComplete > Int32.Parse(_homeController.getMyStats(AuthProperties.LoggedUser).ToList()[4]))
             {
-                //dispose
                 g.Dispose();
                 timerProgressBar.Stop();
             }
@@ -99,18 +96,18 @@ namespace Sports4All
         {
             if(!DesignMode)
             {
-                UC_CreateEvent1.Visible = false;
+                
                 _homeController = new HomeController();
-                InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
-                flpInfoStats.Visible = false;
-                infoStatsDescription(); // PROVISORIO
-                ProgressBarInitializer();
+                InitializateElements();
             }
 
         }
 
         private void InitializateElements()
         {
+            UC_CreateEvent1.Visible = false;
+            flpInfoStats.Visible = false;
+            ProgressBarInitializer();
             dtpNextEventDate.MinDate = dtpMySportDate.MinDate = DateTime.Now;
             dtpMySportDate.Format = dtpNextEventDate.Format = DateTimePickerFormat.Custom;
             dtpMySportDate.CustomFormat = dtpNextEventDate.CustomFormat = "dd-MM-yyyy";
@@ -138,13 +135,13 @@ namespace Sports4All
             rtbInfoStats.SelectedText = "Pontuações: \n\n";
             rtbInfoStats.SelectionFont = new Font("Century Gothic", 9);
             rtbInfoStats.SelectionColor = Color.Black;
-            rtbInfoStats.SelectedText = "Reservas realizadas: " + Points._reservePerformed_Height + " pontos \n" + "Eventos realizados: " + Points._eventPerformed_Height + " pontos \n" + "Fairplay Global: " + Points._fairplay_Height + " pontos \n" + "Habilidade Global: " + Points._skill_Height + " pontos \n";
+            rtbInfoStats.SelectedText = "Reservas realizadas: " + Points._reservePerformed_Weight + " pontos \n" + "Eventos realizados: " + Points._eventPerformed_Weight + " pontos \n" + "Fairplay Global: " + Points._fairplay_Weight + " pontos \n" + "Habilidade Global: " + Points._skill_Weight + " pontos \n";
         }
 
         private void userStatsDetails()
         {
-            lbCurrentLevel.Text = _homeController.myLevel().ToString();
-            lbNextLevel.Text = (_homeController.myLevel()+1).ToString();
+            lbCurrentLevel.Text = "Nivel " +_homeController.myLevel().ToString();
+            lbNextLevel.Text = "Nivel " + (_homeController.myLevel()+1).ToString();
             if(_homeController.getMyStats(AuthProperties.LoggedUser).ToList().Count > 0)
             {
                 lbMatchesPlayedValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[0];

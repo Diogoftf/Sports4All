@@ -89,9 +89,9 @@ namespace Sports4All
                         auxFairplayResult = auxSkillResult = auxRacio = 0;
                     }
 
-                    auxPoints = auxFairplayResult * Points._fairplay_Height + auxSkillResult * Points._skill_Height +
-                    auxEventsPerfomed * Points._eventPerformed_Height +
-                    auxReservesPerformed * Points._reservePerformed_Height + auxRacio * Points._racio_Height;
+                    auxPoints = auxFairplayResult * Points._fairplay_Weight + auxSkillResult * Points._skill_Weight +
+                    auxEventsPerfomed * Points._eventPerformed_Weight +
+                    auxReservesPerformed * Points._reservePerformed_Weight + auxRacio * Points._racio_Weight;
 
                     if (auxPoints != myStats[i].points) // se os pontos atuais estiverem diferentes dos pontos da BD entao algo mudou
                     {
