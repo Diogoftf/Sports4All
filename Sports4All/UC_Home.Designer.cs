@@ -71,6 +71,10 @@
             this.lbMatchesPlayedValue = new System.Windows.Forms.Label();
             this.lbMatchesPlayed = new System.Windows.Forms.Label();
             this.lbRacioValue = new System.Windows.Forms.Label();
+            this.pbMatchesPlayed = new System.Windows.Forms.PictureBox();
+            this.pbFairplay = new System.Windows.Forms.PictureBox();
+            this.pbSkill = new System.Windows.Forms.PictureBox();
+            this.pbRatio = new System.Windows.Forms.PictureBox();
             this.pbStats = new System.Windows.Forms.PictureBox();
             this.pbProgressBar = new System.Windows.Forms.PictureBox();
             this.lbCurrentLevel = new System.Windows.Forms.Label();
@@ -81,10 +85,6 @@
             this.rtbInfoStats = new System.Windows.Forms.RichTextBox();
             this.flpInfoStats = new System.Windows.Forms.FlowLayoutPanel();
             this.UC_CreateEvent1 = new Sports4All.UC_CreateEvent();
-            this.pbMatchesPlayed = new System.Windows.Forms.PictureBox();
-            this.pbFairplay = new System.Windows.Forms.PictureBox();
-            this.pbSkill = new System.Windows.Forms.PictureBox();
-            this.pbRatio = new System.Windows.Forms.PictureBox();
             this.panel6.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -95,15 +95,15 @@
             this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMatchesPlayed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFairplay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRatio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProgressBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flpInfoStats.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMatchesPlayed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFairplay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRatio)).BeginInit();
             this.SuspendLayout();
             // 
             // lbNextEvents
@@ -578,6 +578,46 @@
             this.lbRacioValue.TabIndex = 7;
             this.lbRacioValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // pbMatchesPlayed
+            // 
+            this.pbMatchesPlayed.Image = ((System.Drawing.Image)(resources.GetObject("pbMatchesPlayed.Image")));
+            this.pbMatchesPlayed.Location = new System.Drawing.Point(3, 3);
+            this.pbMatchesPlayed.Name = "pbMatchesPlayed";
+            this.pbMatchesPlayed.Size = new System.Drawing.Size(40, 50);
+            this.pbMatchesPlayed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbMatchesPlayed.TabIndex = 8;
+            this.pbMatchesPlayed.TabStop = false;
+            // 
+            // pbFairplay
+            // 
+            this.pbFairplay.Image = ((System.Drawing.Image)(resources.GetObject("pbFairplay.Image")));
+            this.pbFairplay.Location = new System.Drawing.Point(3, 59);
+            this.pbFairplay.Name = "pbFairplay";
+            this.pbFairplay.Size = new System.Drawing.Size(40, 50);
+            this.pbFairplay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbFairplay.TabIndex = 9;
+            this.pbFairplay.TabStop = false;
+            // 
+            // pbSkill
+            // 
+            this.pbSkill.Image = ((System.Drawing.Image)(resources.GetObject("pbSkill.Image")));
+            this.pbSkill.Location = new System.Drawing.Point(3, 115);
+            this.pbSkill.Name = "pbSkill";
+            this.pbSkill.Size = new System.Drawing.Size(40, 50);
+            this.pbSkill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbSkill.TabIndex = 10;
+            this.pbSkill.TabStop = false;
+            // 
+            // pbRatio
+            // 
+            this.pbRatio.Image = ((System.Drawing.Image)(resources.GetObject("pbRatio.Image")));
+            this.pbRatio.Location = new System.Drawing.Point(3, 171);
+            this.pbRatio.Name = "pbRatio";
+            this.pbRatio.Size = new System.Drawing.Size(40, 50);
+            this.pbRatio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbRatio.TabIndex = 11;
+            this.pbRatio.TabStop = false;
+            // 
             // pbStats
             // 
             this.pbStats.Image = ((System.Drawing.Image)(resources.GetObject("pbStats.Image")));
@@ -591,7 +631,7 @@
             // pbProgressBar
             // 
             this.pbProgressBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbProgressBar.Location = new System.Drawing.Point(1021, 470);
+            this.pbProgressBar.Location = new System.Drawing.Point(1024, 470);
             this.pbProgressBar.Name = "pbProgressBar";
             this.pbProgressBar.Size = new System.Drawing.Size(112, 24);
             this.pbProgressBar.TabIndex = 84;
@@ -600,7 +640,7 @@
             // lbCurrentLevel
             // 
             this.lbCurrentLevel.AutoSize = true;
-            this.lbCurrentLevel.Location = new System.Drawing.Point(957, 474);
+            this.lbCurrentLevel.Location = new System.Drawing.Point(958, 474);
             this.lbCurrentLevel.Name = "lbCurrentLevel";
             this.lbCurrentLevel.Size = new System.Drawing.Size(59, 20);
             this.lbCurrentLevel.TabIndex = 85;
@@ -609,7 +649,7 @@
             // lbNextLevel
             // 
             this.lbNextLevel.AutoSize = true;
-            this.lbNextLevel.Location = new System.Drawing.Point(1139, 474);
+            this.lbNextLevel.Location = new System.Drawing.Point(1151, 474);
             this.lbNextLevel.Name = "lbNextLevel";
             this.lbNextLevel.Size = new System.Drawing.Size(59, 20);
             this.lbNextLevel.TabIndex = 86;
@@ -683,46 +723,6 @@
             this.UC_CreateEvent1.Size = new System.Drawing.Size(394, 249);
             this.UC_CreateEvent1.TabIndex = 81;
             // 
-            // pbMatchesPlayed
-            // 
-            this.pbMatchesPlayed.Image = ((System.Drawing.Image)(resources.GetObject("pbMatchesPlayed.Image")));
-            this.pbMatchesPlayed.Location = new System.Drawing.Point(3, 3);
-            this.pbMatchesPlayed.Name = "pbMatchesPlayed";
-            this.pbMatchesPlayed.Size = new System.Drawing.Size(40, 50);
-            this.pbMatchesPlayed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbMatchesPlayed.TabIndex = 8;
-            this.pbMatchesPlayed.TabStop = false;
-            // 
-            // pbFairplay
-            // 
-            this.pbFairplay.Image = ((System.Drawing.Image)(resources.GetObject("pbFairplay.Image")));
-            this.pbFairplay.Location = new System.Drawing.Point(3, 59);
-            this.pbFairplay.Name = "pbFairplay";
-            this.pbFairplay.Size = new System.Drawing.Size(40, 50);
-            this.pbFairplay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbFairplay.TabIndex = 9;
-            this.pbFairplay.TabStop = false;
-            // 
-            // pbSkill
-            // 
-            this.pbSkill.Image = ((System.Drawing.Image)(resources.GetObject("pbSkill.Image")));
-            this.pbSkill.Location = new System.Drawing.Point(3, 115);
-            this.pbSkill.Name = "pbSkill";
-            this.pbSkill.Size = new System.Drawing.Size(40, 50);
-            this.pbSkill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbSkill.TabIndex = 10;
-            this.pbSkill.TabStop = false;
-            // 
-            // pbRatio
-            // 
-            this.pbRatio.Image = ((System.Drawing.Image)(resources.GetObject("pbRatio.Image")));
-            this.pbRatio.Location = new System.Drawing.Point(3, 171);
-            this.pbRatio.Name = "pbRatio";
-            this.pbRatio.Size = new System.Drawing.Size(40, 50);
-            this.pbRatio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbRatio.TabIndex = 11;
-            this.pbRatio.TabStop = false;
-            // 
             // UC_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -773,16 +773,16 @@
             this.panel9.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMatchesPlayed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFairplay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSkill)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRatio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProgressBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flpInfoStats.ResumeLayout(false);
             this.flpInfoStats.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMatchesPlayed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFairplay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSkill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRatio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

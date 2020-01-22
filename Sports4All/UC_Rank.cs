@@ -36,20 +36,29 @@ namespace Sports4All
             if (top10)
                 auxiliar = 10;
 
-            for (int i = 0; i < topUsers.Count; i++)
+            if(topUsers.Count > 0)
             {
-                if (i < auxiliar && topUsers.ToList()[i].rankClassification > 0)
+                for (int i = 0; i < topUsers.Count; i++)
                 {
-                    UC_RankItems rankItems = new UC_RankItems();
-                    rankItems.Classificacao = topUsers.ToList()[i].rankClassification.ToString();
-                    rankItems.Utilizador = topUsers.ToList()[i].userId.Username.ToString();
-                    rankItems.PartidasJogadas = topUsers.ToList()[i].userId.Events.Count.ToString();
-                    rankItems.Pontos = topUsers.ToList()[i].points.ToString();
-                    //_top10Users.Add(rankItems);
-                    flpRank.Controls.Add(rankItems); //add to flowlayout
+                    if (i < auxiliar && topUsers.ToList()[i].rankClassification > 0)
+                    {
+                        UC_RankItems rankItems = new UC_RankItems();
+                        rankItems.Classificacao = topUsers.ToList()[i].rankClassification.ToString();
+                        rankItems.Utilizador = topUsers.ToList()[i].userId.Username.ToString();
+                        rankItems.PartidasJogadas = topUsers.ToList()[i].userId.Events.Count.ToString();
+                        rankItems.Pontos = topUsers.ToList()[i].points.ToString();
+                        flpRank.Controls.Add(rankItems); //add to flowlayout
+                    }
                 }
-
             }
+            else
+            {
+                UC_RankItems rankItems = new UC_RankItems();
+                rankItems.Classificacao = rankItems.PartidasJogadas = rankItems.Pontos = "";
+                rankItems.Utilizador = "Não existem jogadores com pontos";
+                flpRank.Controls.Add(rankItems); //add to flowlayout
+            }
+
 
         }
 
@@ -82,9 +91,20 @@ namespace Sports4All
 
             IOrderedEnumerable<UC_RankItems> RecintosClassification = _rankController.getTopRecintos();
 
-            for (int i = 0; i < RecintosClassification.ToList().Count; i++)
+            if (RecintosClassification.ToList().Count > 0)
             {
+                for (int i = 0; i < RecintosClassification.ToList().Count; i++)
+                {
                     flpRank.Controls.Add(RecintosClassification.ToList()[i]); //add to flowlayout
+                }
+            }
+            else
+            {
+                UC_RankItems rankItems = new UC_RankItems();
+                rankItems.Classificacao = rankItems.PartidasJogadas = rankItems.Pontos = "";
+                rankItems.Utilizador = "Não existem recintos avaliados";
+                flpRank.Controls.Add(rankItems); //add to flowlayout
+
             }
         }
     }

@@ -145,10 +145,14 @@ namespace Sports4All
         {
             lbCurrentLevel.Text = _homeController.myLevel().ToString();
             lbNextLevel.Text = (_homeController.myLevel()+1).ToString();
-            lbMatchesPlayedValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[0];
-            lbFairplayValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[1];
-            lbSkillValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[2];
-            lbRacioValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[3];
+            if(_homeController.getMyStats(AuthProperties.LoggedUser).ToList().Count > 0)
+            {
+                lbMatchesPlayedValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[0];
+                lbFairplayValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[1];
+                lbSkillValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[2];
+                lbRacioValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[3];
+            }
+
         }
 
         private void lbHighlights_Click(object sender, EventArgs e)
