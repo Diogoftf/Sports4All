@@ -12,7 +12,7 @@ namespace Sports4All
 {
     public partial class UC_Home : UserControl
     {
-        private readonly HomeController _homeController;
+        private HomeController _homeController;
         private ICollection<UC_HomeMyEventsItem> _MyEvents = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
         private ICollection<UC_HomeMyEventsItem> _EventSuggestions = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
         private ICollection<Sport> _availableSports;
@@ -29,10 +29,7 @@ namespace Sports4All
         public UC_Home()
         {
             InitializeComponent();
-            _homeController = new HomeController();
-            InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
-            flpInfoStats.Visible = false;
-            infoStatsDescription(); // PROVISORIO
+
 
         }
 
@@ -100,9 +97,16 @@ namespace Sports4All
 
         private void UC_Home_Load(object sender, EventArgs e)
         {
-            UC_CreateEvent1.Visible = false;
-            //dtpNextEventDate.MinDate = DateTime.Today;
-            ProgressBarInitializer();
+            if(!DesignMode)
+            {
+                UC_CreateEvent1.Visible = false;
+                _homeController = new HomeController();
+                InitializateElements();   // COMENTADO AS QUERYS DO HOME PORQUE SE ATIVADO AO ACEDER O FORM1 DESIGN APARECE ERROS DA CONNECTIONSTRING !!!
+                flpInfoStats.Visible = false;
+                infoStatsDescription(); // PROVISORIO
+                ProgressBarInitializer();
+            }
+
         }
 
         private void InitializateElements()

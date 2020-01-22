@@ -12,12 +12,11 @@ namespace Sports4All
 {
     public partial class UC_Rank : UserControl
     {
-        private readonly RankController rankController = new RankController();
+        private RankController _rankController;
 
         public UC_Rank()
         {
             InitializeComponent();
-            load_Rank(true);
         }
 
         private void lblEventOwnerValue_Click(object sender, EventArgs e)
@@ -31,7 +30,7 @@ namespace Sports4All
             lblName2.Text = "Partidas";
             lblName3.Text = "Pontos";
             flpRank.Controls.Clear();
-            ICollection<Classification> topUsers = rankController.getTopUsers();
+            ICollection<Classification> topUsers = _rankController.getTopUsers();
             var auxiliar = topUsers.Count;
             
             if (top10)
@@ -56,6 +55,12 @@ namespace Sports4All
 
         private void UC_Rank_Load(object sender, EventArgs e)
         {
+            if(!DesignMode)
+            {
+                _rankController = new RankController();
+                load_Rank(true);
+            }
+
         }
 
         private void btnTop10_Click(object sender, EventArgs e)
@@ -75,7 +80,7 @@ namespace Sports4All
             lblName2.Text = "Preço";
             lblName3.Text = "Qualidade";
 
-            IOrderedEnumerable<UC_RankItems> RecintosClassification = rankController.getTopRecintos();
+            IOrderedEnumerable<UC_RankItems> RecintosClassification = _rankController.getTopRecintos();
 
             for (int i = 0; i < RecintosClassification.ToList().Count; i++)
             {
