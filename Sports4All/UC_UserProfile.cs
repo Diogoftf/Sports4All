@@ -21,14 +21,13 @@ namespace Sports4All
            
         }
 
-        private void UC_UserProfile_Load(object sender, EventArgs e)
+        public void populateUC ()
         {
-            _userController = new UserController();
-            _userController.UserId = "rubin0";
-            if (!DesignMode)
-            {
-                User user = _userController.GetUser(_userController.UserId);
-                IDictionary<string, string> classifications = _userController.GetUserClassification(_userController.UserId); //cpbUser.Image = _userController.GetUser(_userController.UserId).Picture;
+                _userController = new UserController();
+                _userController.UserId = "rubin0"; //APAGAR DEPOIS
+                var user = _userController.GetUser(_userController.UserId);
+                IDictionary<string, string> classifications = _userController.GetUserClassification(_userController.UserId);
+                //cpbUser.Image = _userController.GetUser(_userController.UserId).Picture;
                 lblUsername.Text = user.Username;
                 lblUserEmail.Text = user.Email;
                 lblUserPhone.Text = user.PhoneNumber.ToString();
@@ -36,6 +35,13 @@ namespace Sports4All
                 lblUserSubscribers.Text = "AINDA POR FAZER";
                 lblUserSkill.Text = classifications["Skill"];
                 lblUserFairPlay.Text = classifications["FairPlay"];
+        }
+
+        private void UC_UserProfile_Load(object sender, EventArgs e)
+        {
+            if (!DesignMode)
+            {
+                populateUC();
             }
         }
     }
