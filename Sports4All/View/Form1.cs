@@ -40,7 +40,7 @@ namespace Sports4All
             // =============================================================
             //
             // //APAGAR ISTO DEPOIS E COMEÇAR O PROGRAMA NO LOGIN
-            AuthProperties.LoggedUser = "josefa";
+            AuthProperties.LoggedUser = "andreMx";
             //
             // =============================================================
 
