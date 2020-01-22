@@ -1,6 +1,6 @@
 ﻿namespace Sports4All
 {
-    partial class UC_EventsDetailsB
+    partial class UC_EventsDetails
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsDetailsB));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsDetails));
             this.flpUsersEvent = new System.Windows.Forms.FlowLayoutPanel();
             this.lbIdadeMax = new System.Windows.Forms.Label();
             this.lbIdadeMin = new System.Windows.Forms.Label();
             this.lbEventDetails = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbParkName = new System.Windows.Forms.Label();
-            this.lbSportsgndName = new System.Windows.Forms.Label();
+            this.lbEventId = new System.Windows.Forms.Label();
             this.lblUserPhoneValue = new System.Windows.Forms.Label();
             this.lblOwnerValue = new System.Windows.Forms.Label();
             this.lblMaxPlayers = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.lblProprietario = new System.Windows.Forms.Label();
             this.plLine = new System.Windows.Forms.Panel();
             this.pbPark = new System.Windows.Forms.PictureBox();
-            this.tbNome = new System.Windows.Forms.TextBox();
+            this.tbMaxPlayers = new System.Windows.Forms.TextBox();
             this.tbMaxAge = new System.Windows.Forms.TextBox();
             this.tbEventDate = new System.Windows.Forms.TextBox();
             this.tbminAge = new System.Windows.Forms.TextBox();
@@ -115,15 +115,15 @@
             this.lbParkName.Text = "Parque Desportivo Água de Pena";
             this.lbParkName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbSportsgndName
+            // lbEventId
             // 
-            this.lbSportsgndName.AutoSize = true;
-            this.lbSportsgndName.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.lbSportsgndName.Location = new System.Drawing.Point(96, 12);
-            this.lbSportsgndName.Name = "lbSportsgndName";
-            this.lbSportsgndName.Size = new System.Drawing.Size(215, 37);
-            this.lbSportsgndName.TabIndex = 37;
-            this.lbSportsgndName.Text = "Evento #0001";
+            this.lbEventId.AutoSize = true;
+            this.lbEventId.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.lbEventId.Location = new System.Drawing.Point(96, 12);
+            this.lbEventId.Name = "lbEventId";
+            this.lbEventId.Size = new System.Drawing.Size(215, 37);
+            this.lbEventId.TabIndex = 37;
+            this.lbEventId.Text = "Evento #0001";
             // 
             // lblUserPhoneValue
             // 
@@ -212,35 +212,41 @@
             this.pbPark.TabIndex = 46;
             this.pbPark.TabStop = false;
             // 
-            // tbNome
+            // tbMaxPlayers
             // 
-            this.tbNome.BackColor = System.Drawing.SystemColors.Menu;
-            this.tbNome.Location = new System.Drawing.Point(241, 240);
-            this.tbNome.Name = "tbNome";
-            this.tbNome.ReadOnly = true;
-            this.tbNome.Size = new System.Drawing.Size(47, 28);
-            this.tbNome.TabIndex = 47;
-            this.tbNome.Text = "12";
-            this.tbNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbMaxPlayers.BackColor = System.Drawing.SystemColors.Menu;
+            this.tbMaxPlayers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbMaxPlayers.Enabled = false;
+            this.tbMaxPlayers.Location = new System.Drawing.Point(241, 240);
+            this.tbMaxPlayers.Name = "tbMaxPlayers";
+            this.tbMaxPlayers.ReadOnly = true;
+            this.tbMaxPlayers.Size = new System.Drawing.Size(47, 21);
+            this.tbMaxPlayers.TabIndex = 47;
+            this.tbMaxPlayers.Text = "12";
+            this.tbMaxPlayers.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbMaxAge
             // 
             this.tbMaxAge.BackColor = System.Drawing.SystemColors.Menu;
-            this.tbMaxAge.Location = new System.Drawing.Point(200, 277);
+            this.tbMaxAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbMaxAge.Enabled = false;
+            this.tbMaxAge.Location = new System.Drawing.Point(192, 281);
             this.tbMaxAge.Name = "tbMaxAge";
             this.tbMaxAge.ReadOnly = true;
-            this.tbMaxAge.Size = new System.Drawing.Size(88, 28);
+            this.tbMaxAge.Size = new System.Drawing.Size(88, 21);
             this.tbMaxAge.TabIndex = 48;
-            this.tbMaxAge.Text = "45 anos";
+            this.tbMaxAge.Text = "45";
             this.tbMaxAge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbEventDate
             // 
             this.tbEventDate.BackColor = System.Drawing.SystemColors.Menu;
+            this.tbEventDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbEventDate.Enabled = false;
             this.tbEventDate.Location = new System.Drawing.Point(120, 348);
             this.tbEventDate.Name = "tbEventDate";
             this.tbEventDate.ReadOnly = true;
-            this.tbEventDate.Size = new System.Drawing.Size(182, 28);
+            this.tbEventDate.Size = new System.Drawing.Size(182, 21);
             this.tbEventDate.TabIndex = 49;
             this.tbEventDate.Text = "30 Janeiro 2020";
             this.tbEventDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -248,12 +254,14 @@
             // tbminAge
             // 
             this.tbminAge.BackColor = System.Drawing.SystemColors.Menu;
+            this.tbminAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbminAge.Enabled = false;
             this.tbminAge.Location = new System.Drawing.Point(196, 315);
             this.tbminAge.Name = "tbminAge";
             this.tbminAge.ReadOnly = true;
-            this.tbminAge.Size = new System.Drawing.Size(88, 28);
+            this.tbminAge.Size = new System.Drawing.Size(88, 21);
             this.tbminAge.TabIndex = 50;
-            this.tbminAge.Text = "16 anos";
+            this.tbminAge.Text = "16";
             this.tbminAge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnEdit
@@ -271,7 +279,7 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(370, 352);
+            this.btnSaveChanges.Location = new System.Drawing.Point(354, 344);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(107, 32);
             this.btnSaveChanges.TabIndex = 52;
@@ -280,7 +288,7 @@
             this.btnSaveChanges.Visible = false;
             this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
-            // UC_EventsDetailsB
+            // UC_EventsDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.btnSaveChanges);
@@ -288,7 +296,7 @@
             this.Controls.Add(this.tbminAge);
             this.Controls.Add(this.tbEventDate);
             this.Controls.Add(this.tbMaxAge);
-            this.Controls.Add(this.tbNome);
+            this.Controls.Add(this.tbMaxPlayers);
             this.Controls.Add(this.pbPark);
             this.Controls.Add(this.flpUsersEvent);
             this.Controls.Add(this.lbIdadeMax);
@@ -296,7 +304,7 @@
             this.Controls.Add(this.lbEventDetails);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbParkName);
-            this.Controls.Add(this.lbSportsgndName);
+            this.Controls.Add(this.lbEventId);
             this.Controls.Add(this.lblUserPhoneValue);
             this.Controls.Add(this.lblOwnerValue);
             this.Controls.Add(this.lblMaxPlayers);
@@ -306,7 +314,7 @@
             this.Controls.Add(this.lblProprietario);
             this.Controls.Add(this.plLine);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UC_EventsDetailsB";
+            this.Name = "UC_EventsDetails";
             this.Size = new System.Drawing.Size(1090, 622);
             this.Load += new System.EventHandler(this.UC_EventsDetailsB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPark)).EndInit();
@@ -323,7 +331,7 @@
         private System.Windows.Forms.Label lbEventDetails;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbParkName;
-        private System.Windows.Forms.Label lbSportsgndName;
+        private System.Windows.Forms.Label lbEventId;
         private System.Windows.Forms.Label lblUserPhoneValue;
         private System.Windows.Forms.Label lblOwnerValue;
         private System.Windows.Forms.Label lblMaxPlayers;
@@ -333,7 +341,7 @@
         private System.Windows.Forms.Label lblProprietario;
         private System.Windows.Forms.Panel plLine;
         private System.Windows.Forms.PictureBox pbPark;
-        private System.Windows.Forms.TextBox tbNome;
+        private System.Windows.Forms.TextBox tbMaxPlayers;
         private System.Windows.Forms.TextBox tbMaxAge;
         private System.Windows.Forms.TextBox tbEventDate;
         private System.Windows.Forms.TextBox tbminAge;

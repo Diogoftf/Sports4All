@@ -35,7 +35,6 @@ namespace Sports4All
             get => _username;
             set { _username = value; lblUsername.Text = value; }
         }
-   
 
         public string PlayerSkill
         {

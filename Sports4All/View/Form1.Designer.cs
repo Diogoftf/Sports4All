@@ -59,7 +59,6 @@
             this.uC_AddFriend1 = new Sports4All.UC_AddFriend();
             this.subscricoesControl1 = new Sports4All.UserControls_Screens.UC_Subscriptions();
             this.recintosControl1 = new Sports4All.UC_SportsGround();
-            this.uC_EventsDetailsB1 = new Sports4All.UC_EventsDetailsB();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar4)).BeginInit();
@@ -449,20 +448,11 @@
             this.recintosControl1.Size = new System.Drawing.Size(1021, 648);
             this.recintosControl1.TabIndex = 6;
             // 
-            // uC_EventsDetailsB1
-            // 
-            this.uC_EventsDetailsB1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_EventsDetailsB1.Location = new System.Drawing.Point(262, 12);
-            this.uC_EventsDetailsB1.Name = "uC_EventsDetailsB1";
-            this.uC_EventsDetailsB1.Size = new System.Drawing.Size(1090, 622);
-            this.uC_EventsDetailsB1.TabIndex = 72;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1373, 784);
-            this.Controls.Add(this.uC_EventsDetailsB1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.lbPoints);
             this.Controls.Add(this.btnExit);
@@ -538,7 +528,6 @@
         private System.Windows.Forms.PictureBox pbUserImage;
         private UC_AddFriend uC_AddFriend1;
         private UC_Home UC_Home1;
-        private UC_EventsDetailsB uC_EventsDetailsB1;
     }
 }
 

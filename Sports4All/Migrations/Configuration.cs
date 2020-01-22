@@ -102,7 +102,7 @@ namespace Sports4All.Migrations
              DateTime dateStartEvent = new DateTime(2020, 2, 18);
              dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
              ICollection<Reserve> listReserves = new Collection<Reserve>();
-             listReserves.Add(new Reserve() { ReserveId = 1, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[0].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
+             listReserves.Add(new Reserve() {ReserveId = 1, Price = 10, UserId = listUsers.ToList()[0].Username, SportId = listSports.ToList()[0].SportId, GroundId = listGrounds.ToList()[0].GroundId, Date = dateStartEvent });
              listReserves.Add(new Reserve() { ReserveId = 2, Price = 10, UserId = listUsers.ToList()[1].Username, SportId = listSports.ToList()[1].SportId, GroundId = listGrounds.ToList()[1].GroundId, Date = dateStartEvent });
       
              ICollection<Event> listEvents = new Collection<Event>();

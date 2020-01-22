@@ -20,12 +20,58 @@ namespace Sports4All
         private string _day;
 
         private string _avaliar;
-
+        private string _eventId;
         private Color _color;
+        private string _owner;
+        private string _sport;
+        private string _date;
+        private string _Park;
+        private string _ButtonEvaluation;
+        private string _messageInfo;
 
 
+        public string MessageInfo
+        {
 
+            get { return _messageInfo; }
+            set { _messageInfo = value; lblRemainingTimeEvaluation.Text = _messageInfo; }
 
+        }
+        public string Park
+        {
+
+            get { return _Park; }
+            set { _Park = value; lblSportsGround.Text = _Park; }
+
+        }
+        public string Date
+        {
+
+            get { return _date; }
+            set { _date = value; lblstart_Hour.Text = _date; }
+
+        }
+        public string Sport
+        {
+
+            get { return _sport; }
+            set { _sport = value; lblModalityName.Text = _sport; }
+
+        }
+        public string EventID
+        {
+
+            get { return _eventId; }
+            set { _eventId = value; lbEventID.Text = _eventId; }
+
+        }
+        public string Owner
+        {
+
+            get { return _owner; }
+            set { _owner = value; lblEventOwnerValue.Text = _owner; }
+
+        }
         public string Avaliar
         {
 
@@ -86,5 +132,12 @@ namespace Sports4All
             System.Windows.Forms.MessageBox.Show("My message here");
 
         }
+        public void DisableButtonEvaluation()
+        {
+            btnEvaluate.Text = "Avaliado!";
+            btnEvaluate.Enabled = false;
+        }
+
+       
     }
 }

@@ -140,6 +140,12 @@
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
     <Compile Include="Sport.cs" />
+    <Compile Include="UC_NextEventsandReserveItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NextEventsandReserveItem.Designer.cs">
+      <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_HeaderUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -212,11 +218,11 @@
     <Compile Include="UC_SportsgroundDesc.Designer.cs">
       <DependentUpon>UC_SportsgroundDesc.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_EventDetailsB.cs">
+    <Compile Include="UC_EventDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_EventDetailsB.Designer.cs">
-      <DependentUpon>UC_EventDetailsB.cs</DependentUpon>
+    <Compile Include="UC_EventDetails.Designer.cs">
+      <DependentUpon>UC_EventDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_UserProfile.cs">
       <SubType>UserControl</SubType>
@@ -312,6 +318,9 @@
     <EmbeddedResource Include="Migrations\202001201252276_M001.resx">
       <DependentUpon>202001201252276_M001.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_NextEventsandReserveItem.resx">
+      <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_HeaderUser.resx">
       <DependentUpon>UC_HeaderUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,8 +360,8 @@
     <EmbeddedResource Include="UC_SportsgroundEvItem.resx">
       <DependentUpon>UC_SportsgroundEvItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventDetailsB.resx">
-      <DependentUpon>UC_EventDetailsB.cs</DependentUpon>
+    <EmbeddedResource Include="UC_EventDetails.resx">
+      <DependentUpon>UC_EventDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_UserProfile.resx">
       <DependentUpon>UC_UserProfile.cs</DependentUpon>
