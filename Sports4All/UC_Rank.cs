@@ -36,28 +36,28 @@ namespace Sports4All
             if (top10)
                 auxiliar = 10;
 
-            if(topUsers.Count > 0)
-            {
-                for (int i = 0; i < topUsers.Count; i++)
-                {
-                    if (i < auxiliar && topUsers.ToList()[i].rankClassification > 0)
-                    {
-                        UC_RankItems rankItems = new UC_RankItems();
-                        rankItems.Classificacao = topUsers.ToList()[i].rankClassification.ToString();
-                        rankItems.Utilizador = topUsers.ToList()[i].userId.Username.ToString();
-                        rankItems.PartidasJogadas = topUsers.ToList()[i].userId.Events.Count.ToString();
-                        rankItems.Pontos = topUsers.ToList()[i].points.ToString();
-                        flpRank.Controls.Add(rankItems); //add to flowlayout
-                    }
-                }
-            }
-            else
-            {
-                UC_RankItems rankItems = new UC_RankItems();
-                rankItems.Classificacao = rankItems.PartidasJogadas = rankItems.Pontos = "";
-                rankItems.Utilizador = "Não existem jogadores com pontos";
-                flpRank.Controls.Add(rankItems); //add to flowlayout
-            }
+            //if(topUsers.Count > 0)
+            //{
+            //    for (int i = 0; i < topUsers.Count; i++)
+            //    {
+            //        if (i < auxiliar && topUsers.ToList()[i].rankClassification > 0)
+            //        {
+            //            UC_RankItems rankItems = new UC_RankItems();
+            //            rankItems.Classificacao = topUsers.ToList()[i].rankClassification.ToString();
+            //            rankItems.Utilizador = topUsers.ToList()[i].userId.Username.ToString();
+            //            rankItems.PartidasJogadas = topUsers.ToList()[i].userId.Events.Count.ToString();
+            //            rankItems.Pontos = topUsers.ToList()[i].points.ToString();
+            //            flpRank.Controls.Add(rankItems); //add to flowlayout
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    UC_RankItems rankItems = new UC_RankItems();
+            //    rankItems.Classificacao = rankItems.PartidasJogadas = rankItems.Pontos = "";
+            //    rankItems.Utilizador = "Não existem jogadores com pontos";
+            //    flpRank.Controls.Add(rankItems); //add to flowlayout
+            //}
 
 
         }

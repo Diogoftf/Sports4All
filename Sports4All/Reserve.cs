@@ -20,7 +20,7 @@ namespace Sports4All
         public virtual User User { get; set; }
         public Ground Ground { get; set; }
         public virtual Event Event { get; set; }
+        public ICollection<Use> Uses { get; set; }
 
-
-   }
+    }
 }

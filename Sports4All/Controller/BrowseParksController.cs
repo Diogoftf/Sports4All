@@ -20,7 +20,7 @@ namespace Sports4All.Controller
 
                 foreach (var reserve in reservesList)
                 {
-                    int countyId = reserve.Ground.Park.Adress.CountyId;
+                    int countyId = reserve.Ground.Park.Address.CountyId;
                     countyIds.Add(countyId);
                 }
             }
@@ -51,28 +51,29 @@ namespace Sports4All.Controller
 
         public ICollection<Park> GetParksAscending(bool value, int idLocation)
         {
-            List<Park> parkList;
+            List<Park> parkList = null; //isto eliminar
 
-            using (var db = new ModelContext())
-            {
-                if (idLocation == 0)
-                {
-                    parkList = value
-                        ? db.Parks.OrderBy(x => x.Quality).ToList()
-                        : db.Parks.OrderByDescending(x => x.Quality).ToList();
-                }
-                else
-                {
-                    parkList = value ? db.Parks
-                            .Where(a => a.Adress.CountyId == idLocation)
-                            .OrderBy(x => x.Quality).ToList() 
-                        : db.Parks
-                            .Where(a => a.Adress.CountyId == idLocation)
-                            .OrderByDescending(x => x.Quality).ToList();
-                }
-            }
+            //using (var db = new ModelContext())
+            //{
+            //    if (idLocation == 0)
+            //    {
+            //        parkList = value
+            //            ? db.Parks.OrderBy(x => x.Quality).ToList()
+            //            : db.Parks.OrderByDescending(x => x.Quality).ToList();
+            //    }
+            //    else
+            //    {
+            //        parkList = value ? db.Parks
+            //                .Where(a => a.Address.CountyId == idLocation)
+            //                .OrderBy(x => x.Quality).ToList() 
+            //            : db.Parks
+            //                .Where(a => a.Address.CountyId == idLocation)
+            //                .OrderByDescending(x => x.Quality).ToList();
+            //    }
+            //}
 
             return parkList;
+
         }
     }
 }
