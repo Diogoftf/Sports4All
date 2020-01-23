@@ -76,5 +76,18 @@ namespace Sports4All.Controller
             return parkList;
 
         }
+
+        public ParkClassification GetParkClassification(int id)
+        {
+            ParkClassification classification;
+
+            using (var db = new ModelContext())
+            {
+                var classifications = db.Classifications.Include("Park");
+                classification = classifications.OfType<ParkClassification>().Where(x => x.Park.ParkId == id).FirstOrDefault();
+            }
+
+            return classification;
+        }
     }
 }

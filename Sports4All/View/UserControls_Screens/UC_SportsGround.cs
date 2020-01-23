@@ -55,7 +55,7 @@ namespace Sports4All
                 {
                     Title = parks.ElementAt(i).Name,
                     Id = parks.ElementAt(i).ParkId,
-                    Score = parks.ElementAt(i).ParkClassification.QualityAverage + "/5",
+                    Score = _browseParksController.GetParkClassification(parks.ElementAt(i).ParkId).QualityAverage + "/5",
                     Image = Image.FromStream(stream)
                 };
 
@@ -100,7 +100,7 @@ namespace Sports4All
             int key = ((KeyValuePair<int, string>)cbLocation.SelectedItem).Key;
             bool asc = IsAscending();
 
-            PopulateItems(true, key);
+            PopulateItems(asc, key);
         }
 
         private bool IsAscending()
