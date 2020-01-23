@@ -30,9 +30,8 @@ namespace Sports4All
         public DbSet<District> Districts { get; set; }
         public DbSet<Ground> Grounds { get; set; }
         public DbSet<Material> Materials { get; set; }
-     
-
         public DbSet<Classification> Classifications { get; set; }
+        public DbSet<Use> Uses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -48,7 +47,8 @@ namespace Sports4All
             modelBuilder.Entity<District>().HasKey<int>(s => s.DistrictId);
             modelBuilder.Entity<Ground>().HasKey<int>(s => s.GroundId);
             modelBuilder.Entity<Material>().HasKey<int>(s => s.MaterialId);
-            modelBuilder.Entity<Classification>().HasKey<int>(s => s.idClassification);
+            modelBuilder.Entity<Classification>().HasKey<int>(s => s.ClassificationId);
+            modelBuilder.Entity<Use>().HasKey<int>(s => s.UseId);
 
             //one to many
             modelBuilder.Entity<Evaluation>()
@@ -87,11 +87,6 @@ namespace Sports4All
                 .HasForeignKey<int>(s => s.PictureId)
                 .WillCascadeOnDelete(false);
 
-            //one to zero or one
-            modelBuilder.Entity<User>()
-                .HasOptional(s => s.myStats)
-                .WithRequired(ad => ad.userId);
-
             //one to many
             modelBuilder.Entity<Reserve>()
                 .HasRequired<User>(g => g.User)
@@ -102,7 +97,7 @@ namespace Sports4All
             //one to zero or one
             modelBuilder.Entity<Address>()
                 .HasOptional(s => s.Park)
-                .WithOptionalPrincipal(ad => ad.Adress);
+                .WithOptionalPrincipal(ad => ad.Address);
 
             //one to many
             modelBuilder.Entity<Ground>()
@@ -177,15 +172,42 @@ namespace Sports4All
                 m.ToTable("UserEvaluations");
             });
 
-            modelBuilder.Entity<GroundEvaluation>().Map(m =>
+            modelBuilder.Entity<ParkEvaluation>().Map(m =>
             {
                 m.MapInheritedProperties();
-                m.ToTable("GroundEvaluations");
+                m.ToTable("ParkEvaluations");
             });
 
             modelBuilder.Entity<Evaluation>()
                 .Property(p => p.EvaluationId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+
+            modelBuilder.Entity<UserClassification>().Map(m =>
+            {
+                m.MapInheritedProperties();
+                m.ToTable("UserClassifications");
+            });
+
+            modelBuilder.Entity<ParkClassification>().Map(m =>
+            {
+                m.MapInheritedProperties();
+                m.ToTable("ParkClassifications");
+            });
+
+            modelBuilder.Entity<Classification>()
+                .Property(p => p.ClassificationId)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+            //one to one
+            modelBuilder.Entity<UserClassification>()
+                .HasRequired(s => s.User)
+                .WithRequiredPrincipal(ad => ad.UserClassification);
+
+            //one to one
+            modelBuilder.Entity<ParkClassification>()
+                .HasRequired(s => s.Park)
+                .WithRequiredPrincipal(ad => ad.ParkClassification);
 
             //one to many
             modelBuilder.Entity<UserEvaluation>()
@@ -193,11 +215,12 @@ namespace Sports4All
                 .WithMany(s => s.UserEvaluations)
                 .HasForeignKey<string>(s => s.UserId)
                 .WillCascadeOnDelete(false);
+
             //one to many
-            modelBuilder.Entity<GroundEvaluation>()
-                .HasRequired<Ground>(g => g.Ground)
-                .WithMany(s => s.GroundEvaluations)
-                .HasForeignKey<int>(s => s.GroundId)
+            modelBuilder.Entity<ParkEvaluation>()
+                .HasRequired<Park>(g => g.Park)
+                .WithMany(s => s.ParkEvaluations)
+                .HasForeignKey<int>(s => s.ParkId)
                 .WillCascadeOnDelete(false);
 
 
@@ -212,6 +235,20 @@ namespace Sports4All
                 .HasRequired<Sport>(g => g.Sport)
                 .WithMany(s => s.Materials)
                 .HasForeignKey<int>(s => s.SportId);
+
+            ////one to many
+            modelBuilder.Entity<Use>()
+                .HasRequired<Material>(g => g.Material)
+                .WithMany(s => s.Uses)
+                .HasForeignKey<int>(s => s.MaterialId)
+                .WillCascadeOnDelete(false);
+
+            ////one to many
+            modelBuilder.Entity<Use>()
+                .HasRequired<Reserve>(g => g.Reserve)
+                .WithMany(s => s.Uses)
+                .HasForeignKey<int>(s => s.ReserveId)
+                .WillCascadeOnDelete(false);
         }
 
 

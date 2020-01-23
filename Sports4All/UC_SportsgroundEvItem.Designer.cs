@@ -33,37 +33,53 @@
             this.lblGood = new System.Windows.Forms.Label();
             this.lblBad = new System.Windows.Forms.Label();
             this.cpbSportsground = new Sports4All.CircularPictureBox();
-            this.rbtnSportsgnd5 = new System.Windows.Forms.RadioButton();
-            this.rbtnSportsgnd4 = new System.Windows.Forms.RadioButton();
-            this.lblEvaluate = new System.Windows.Forms.Label();
-            this.rbtnSportsgnd3 = new System.Windows.Forms.RadioButton();
-            this.rbtnSportsgnd2 = new System.Windows.Forms.RadioButton();
-            this.rbtnSportsgnd1 = new System.Windows.Forms.RadioButton();
+            this.rbtnQuality5 = new System.Windows.Forms.RadioButton();
+            this.rbtnQuality4 = new System.Windows.Forms.RadioButton();
+            this.lblQuality = new System.Windows.Forms.Label();
+            this.rbtnQuality3 = new System.Windows.Forms.RadioButton();
+            this.rbtnQuality2 = new System.Windows.Forms.RadioButton();
+            this.rbtnQuality1 = new System.Windows.Forms.RadioButton();
+            this.lblExpensive = new System.Windows.Forms.Label();
+            this.lblCheap = new System.Windows.Forms.Label();
+            this.rbtnPrice5 = new System.Windows.Forms.RadioButton();
+            this.rbtnPrice4 = new System.Windows.Forms.RadioButton();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.rbtnPrice3 = new System.Windows.Forms.RadioButton();
+            this.rbtnPrice2 = new System.Windows.Forms.RadioButton();
+            this.rbtnPrice1 = new System.Windows.Forms.RadioButton();
             this.plSportsgndEvaluation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpbSportsground)).BeginInit();
             this.SuspendLayout();
             // 
             // plSportsgndEvaluation
             // 
+            this.plSportsgndEvaluation.Controls.Add(this.lblExpensive);
+            this.plSportsgndEvaluation.Controls.Add(this.lblCheap);
+            this.plSportsgndEvaluation.Controls.Add(this.rbtnPrice5);
+            this.plSportsgndEvaluation.Controls.Add(this.rbtnPrice4);
+            this.plSportsgndEvaluation.Controls.Add(this.lblPrice);
+            this.plSportsgndEvaluation.Controls.Add(this.rbtnPrice3);
+            this.plSportsgndEvaluation.Controls.Add(this.rbtnPrice2);
+            this.plSportsgndEvaluation.Controls.Add(this.rbtnPrice1);
             this.plSportsgndEvaluation.Controls.Add(this.lblGood);
             this.plSportsgndEvaluation.Controls.Add(this.lblBad);
             this.plSportsgndEvaluation.Controls.Add(this.cpbSportsground);
-            this.plSportsgndEvaluation.Controls.Add(this.rbtnSportsgnd5);
-            this.plSportsgndEvaluation.Controls.Add(this.rbtnSportsgnd4);
-            this.plSportsgndEvaluation.Controls.Add(this.lblEvaluate);
-            this.plSportsgndEvaluation.Controls.Add(this.rbtnSportsgnd3);
-            this.plSportsgndEvaluation.Controls.Add(this.rbtnSportsgnd2);
-            this.plSportsgndEvaluation.Controls.Add(this.rbtnSportsgnd1);
+            this.plSportsgndEvaluation.Controls.Add(this.rbtnQuality5);
+            this.plSportsgndEvaluation.Controls.Add(this.rbtnQuality4);
+            this.plSportsgndEvaluation.Controls.Add(this.lblQuality);
+            this.plSportsgndEvaluation.Controls.Add(this.rbtnQuality3);
+            this.plSportsgndEvaluation.Controls.Add(this.rbtnQuality2);
+            this.plSportsgndEvaluation.Controls.Add(this.rbtnQuality1);
             this.plSportsgndEvaluation.Location = new System.Drawing.Point(4, 4);
             this.plSportsgndEvaluation.Name = "plSportsgndEvaluation";
-            this.plSportsgndEvaluation.Size = new System.Drawing.Size(650, 103);
+            this.plSportsgndEvaluation.Size = new System.Drawing.Size(650, 155);
             this.plSportsgndEvaluation.TabIndex = 0;
             // 
             // lblGood
             // 
             this.lblGood.AutoSize = true;
             this.lblGood.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblGood.Location = new System.Drawing.Point(497, 51);
+            this.lblGood.Location = new System.Drawing.Point(438, 50);
             this.lblGood.Name = "lblGood";
             this.lblGood.Size = new System.Drawing.Size(41, 20);
             this.lblGood.TabIndex = 17;
@@ -73,7 +89,7 @@
             // 
             this.lblBad.AutoSize = true;
             this.lblBad.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblBad.Location = new System.Drawing.Point(153, 47);
+            this.lblBad.Location = new System.Drawing.Point(153, 52);
             this.lblBad.Name = "lblBad";
             this.lblBad.Size = new System.Drawing.Size(43, 20);
             this.lblBad.TabIndex = 16;
@@ -82,82 +98,172 @@
             // cpbSportsground
             // 
             this.cpbSportsground.Image = ((System.Drawing.Image)(resources.GetObject("cpbSportsground.Image")));
-            this.cpbSportsground.Location = new System.Drawing.Point(16, 12);
+            this.cpbSportsground.Location = new System.Drawing.Point(15, 15);
             this.cpbSportsground.Name = "cpbSportsground";
-            this.cpbSportsground.Size = new System.Drawing.Size(60, 60);
+            this.cpbSportsground.Size = new System.Drawing.Size(117, 116);
             this.cpbSportsground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cpbSportsground.TabIndex = 9;
             this.cpbSportsground.TabStop = false;
             // 
-            // rbtnSportsgnd5
+            // rbtnQuality5
             // 
-            this.rbtnSportsgnd5.AutoSize = true;
-            this.rbtnSportsgnd5.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnSportsgnd5.Location = new System.Drawing.Point(431, 47);
-            this.rbtnSportsgnd5.Name = "rbtnSportsgnd5";
-            this.rbtnSportsgnd5.Size = new System.Drawing.Size(38, 24);
-            this.rbtnSportsgnd5.TabIndex = 14;
-            this.rbtnSportsgnd5.TabStop = true;
-            this.rbtnSportsgnd5.Text = "5";
-            this.rbtnSportsgnd5.UseVisualStyleBackColor = true;
+            this.rbtnQuality5.AutoSize = true;
+            this.rbtnQuality5.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rbtnQuality5.Location = new System.Drawing.Point(394, 50);
+            this.rbtnQuality5.Name = "rbtnQuality5";
+            this.rbtnQuality5.Size = new System.Drawing.Size(38, 24);
+            this.rbtnQuality5.TabIndex = 14;
+            this.rbtnQuality5.TabStop = true;
+            this.rbtnQuality5.Text = "5";
+            this.rbtnQuality5.UseVisualStyleBackColor = true;
             // 
-            // rbtnSportsgnd4
+            // rbtnQuality4
             // 
-            this.rbtnSportsgnd4.AutoSize = true;
-            this.rbtnSportsgnd4.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnSportsgnd4.Location = new System.Drawing.Point(383, 47);
-            this.rbtnSportsgnd4.Name = "rbtnSportsgnd4";
-            this.rbtnSportsgnd4.Size = new System.Drawing.Size(38, 24);
-            this.rbtnSportsgnd4.TabIndex = 13;
-            this.rbtnSportsgnd4.TabStop = true;
-            this.rbtnSportsgnd4.Text = "4";
-            this.rbtnSportsgnd4.UseVisualStyleBackColor = true;
+            this.rbtnQuality4.AutoSize = true;
+            this.rbtnQuality4.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rbtnQuality4.Location = new System.Drawing.Point(346, 50);
+            this.rbtnQuality4.Name = "rbtnQuality4";
+            this.rbtnQuality4.Size = new System.Drawing.Size(38, 24);
+            this.rbtnQuality4.TabIndex = 13;
+            this.rbtnQuality4.TabStop = true;
+            this.rbtnQuality4.Text = "4";
+            this.rbtnQuality4.UseVisualStyleBackColor = true;
             // 
-            // lblEvaluate
+            // lblQuality
             // 
-            this.lblEvaluate.AutoSize = true;
-            this.lblEvaluate.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblEvaluate.Location = new System.Drawing.Point(153, 25);
-            this.lblEvaluate.Name = "lblEvaluate";
-            this.lblEvaluate.Size = new System.Drawing.Size(457, 20);
-            this.lblEvaluate.TabIndex = 15;
-            this.lblEvaluate.Text = "Classifique o recinto Complexo Desportivo de Água de Pena:";
+            this.lblQuality.AutoSize = true;
+            this.lblQuality.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.lblQuality.Location = new System.Drawing.Point(153, 25);
+            this.lblQuality.Name = "lblQuality";
+            this.lblQuality.Size = new System.Drawing.Size(235, 20);
+            this.lblQuality.TabIndex = 15;
+            this.lblQuality.Text = "Avalie a qualidade do parque:";
             // 
-            // rbtnSportsgnd3
+            // rbtnQuality3
             // 
-            this.rbtnSportsgnd3.AutoSize = true;
-            this.rbtnSportsgnd3.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnSportsgnd3.Location = new System.Drawing.Point(335, 47);
-            this.rbtnSportsgnd3.Name = "rbtnSportsgnd3";
-            this.rbtnSportsgnd3.Size = new System.Drawing.Size(38, 24);
-            this.rbtnSportsgnd3.TabIndex = 12;
-            this.rbtnSportsgnd3.TabStop = true;
-            this.rbtnSportsgnd3.Text = "3";
-            this.rbtnSportsgnd3.UseVisualStyleBackColor = true;
+            this.rbtnQuality3.AutoSize = true;
+            this.rbtnQuality3.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rbtnQuality3.Location = new System.Drawing.Point(298, 50);
+            this.rbtnQuality3.Name = "rbtnQuality3";
+            this.rbtnQuality3.Size = new System.Drawing.Size(38, 24);
+            this.rbtnQuality3.TabIndex = 12;
+            this.rbtnQuality3.TabStop = true;
+            this.rbtnQuality3.Text = "3";
+            this.rbtnQuality3.UseVisualStyleBackColor = true;
             // 
-            // rbtnSportsgnd2
+            // rbtnQuality2
             // 
-            this.rbtnSportsgnd2.AutoSize = true;
-            this.rbtnSportsgnd2.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnSportsgnd2.Location = new System.Drawing.Point(287, 47);
-            this.rbtnSportsgnd2.Name = "rbtnSportsgnd2";
-            this.rbtnSportsgnd2.Size = new System.Drawing.Size(38, 24);
-            this.rbtnSportsgnd2.TabIndex = 11;
-            this.rbtnSportsgnd2.TabStop = true;
-            this.rbtnSportsgnd2.Text = "2";
-            this.rbtnSportsgnd2.UseVisualStyleBackColor = true;
+            this.rbtnQuality2.AutoSize = true;
+            this.rbtnQuality2.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rbtnQuality2.Location = new System.Drawing.Point(250, 50);
+            this.rbtnQuality2.Name = "rbtnQuality2";
+            this.rbtnQuality2.Size = new System.Drawing.Size(38, 24);
+            this.rbtnQuality2.TabIndex = 11;
+            this.rbtnQuality2.TabStop = true;
+            this.rbtnQuality2.Text = "2";
+            this.rbtnQuality2.UseVisualStyleBackColor = true;
             // 
-            // rbtnSportsgnd1
+            // rbtnQuality1
             // 
-            this.rbtnSportsgnd1.AutoSize = true;
-            this.rbtnSportsgnd1.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnSportsgnd1.Location = new System.Drawing.Point(239, 47);
-            this.rbtnSportsgnd1.Name = "rbtnSportsgnd1";
-            this.rbtnSportsgnd1.Size = new System.Drawing.Size(38, 24);
-            this.rbtnSportsgnd1.TabIndex = 10;
-            this.rbtnSportsgnd1.TabStop = true;
-            this.rbtnSportsgnd1.Text = "1";
-            this.rbtnSportsgnd1.UseVisualStyleBackColor = true;
+            this.rbtnQuality1.AutoSize = true;
+            this.rbtnQuality1.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rbtnQuality1.Location = new System.Drawing.Point(202, 50);
+            this.rbtnQuality1.Name = "rbtnQuality1";
+            this.rbtnQuality1.Size = new System.Drawing.Size(38, 24);
+            this.rbtnQuality1.TabIndex = 10;
+            this.rbtnQuality1.TabStop = true;
+            this.rbtnQuality1.Text = "1";
+            this.rbtnQuality1.UseVisualStyleBackColor = true;
+            // 
+            // lblExpensive
+            // 
+            this.lblExpensive.AutoSize = true;
+            this.lblExpensive.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.lblExpensive.Location = new System.Drawing.Point(438, 121);
+            this.lblExpensive.Name = "lblExpensive";
+            this.lblExpensive.Size = new System.Drawing.Size(46, 20);
+            this.lblExpensive.TabIndex = 25;
+            this.lblExpensive.Text = "Caro";
+            // 
+            // lblCheap
+            // 
+            this.lblCheap.AutoSize = true;
+            this.lblCheap.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.lblCheap.Location = new System.Drawing.Point(138, 121);
+            this.lblCheap.Name = "lblCheap";
+            this.lblCheap.Size = new System.Drawing.Size(58, 20);
+            this.lblCheap.TabIndex = 24;
+            this.lblCheap.Text = "Barato";
+            // 
+            // rbtnPrice5
+            // 
+            this.rbtnPrice5.AutoSize = true;
+            this.rbtnPrice5.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rbtnPrice5.Location = new System.Drawing.Point(394, 119);
+            this.rbtnPrice5.Name = "rbtnPrice5";
+            this.rbtnPrice5.Size = new System.Drawing.Size(38, 24);
+            this.rbtnPrice5.TabIndex = 22;
+            this.rbtnPrice5.TabStop = true;
+            this.rbtnPrice5.Text = "5";
+            this.rbtnPrice5.UseVisualStyleBackColor = true;
+            // 
+            // rbtnPrice4
+            // 
+            this.rbtnPrice4.AutoSize = true;
+            this.rbtnPrice4.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rbtnPrice4.Location = new System.Drawing.Point(346, 119);
+            this.rbtnPrice4.Name = "rbtnPrice4";
+            this.rbtnPrice4.Size = new System.Drawing.Size(38, 24);
+            this.rbtnPrice4.TabIndex = 21;
+            this.rbtnPrice4.TabStop = true;
+            this.rbtnPrice4.Text = "4";
+            this.rbtnPrice4.UseVisualStyleBackColor = true;
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.lblPrice.Location = new System.Drawing.Point(153, 94);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(205, 20);
+            this.lblPrice.TabIndex = 23;
+            this.lblPrice.Text = "Avalie o preço do parque:";
+            // 
+            // rbtnPrice3
+            // 
+            this.rbtnPrice3.AutoSize = true;
+            this.rbtnPrice3.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rbtnPrice3.Location = new System.Drawing.Point(298, 119);
+            this.rbtnPrice3.Name = "rbtnPrice3";
+            this.rbtnPrice3.Size = new System.Drawing.Size(38, 24);
+            this.rbtnPrice3.TabIndex = 20;
+            this.rbtnPrice3.TabStop = true;
+            this.rbtnPrice3.Text = "3";
+            this.rbtnPrice3.UseVisualStyleBackColor = true;
+            // 
+            // rbtnPrice2
+            // 
+            this.rbtnPrice2.AutoSize = true;
+            this.rbtnPrice2.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rbtnPrice2.Location = new System.Drawing.Point(250, 119);
+            this.rbtnPrice2.Name = "rbtnPrice2";
+            this.rbtnPrice2.Size = new System.Drawing.Size(38, 24);
+            this.rbtnPrice2.TabIndex = 19;
+            this.rbtnPrice2.TabStop = true;
+            this.rbtnPrice2.Text = "2";
+            this.rbtnPrice2.UseVisualStyleBackColor = true;
+            // 
+            // rbtnPrice1
+            // 
+            this.rbtnPrice1.AutoSize = true;
+            this.rbtnPrice1.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rbtnPrice1.Location = new System.Drawing.Point(202, 119);
+            this.rbtnPrice1.Name = "rbtnPrice1";
+            this.rbtnPrice1.Size = new System.Drawing.Size(38, 24);
+            this.rbtnPrice1.TabIndex = 18;
+            this.rbtnPrice1.TabStop = true;
+            this.rbtnPrice1.Text = "1";
+            this.rbtnPrice1.UseVisualStyleBackColor = true;
             // 
             // UC_SportsgroundEvItem
             // 
@@ -165,7 +271,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.plSportsgndEvaluation);
             this.Name = "UC_SportsgroundEvItem";
-            this.Size = new System.Drawing.Size(658, 111);
+            this.Size = new System.Drawing.Size(658, 159);
             this.plSportsgndEvaluation.ResumeLayout(false);
             this.plSportsgndEvaluation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpbSportsground)).EndInit();
@@ -179,11 +285,19 @@
         private System.Windows.Forms.Label lblGood;
         private System.Windows.Forms.Label lblBad;
         private CircularPictureBox cpbSportsground;
-        private System.Windows.Forms.RadioButton rbtnSportsgnd5;
-        private System.Windows.Forms.RadioButton rbtnSportsgnd4;
-        private System.Windows.Forms.Label lblEvaluate;
-        private System.Windows.Forms.RadioButton rbtnSportsgnd3;
-        private System.Windows.Forms.RadioButton rbtnSportsgnd2;
-        private System.Windows.Forms.RadioButton rbtnSportsgnd1;
+        private System.Windows.Forms.RadioButton rbtnQuality5;
+        private System.Windows.Forms.RadioButton rbtnQuality4;
+        private System.Windows.Forms.Label lblQuality;
+        private System.Windows.Forms.RadioButton rbtnQuality3;
+        private System.Windows.Forms.RadioButton rbtnQuality2;
+        private System.Windows.Forms.RadioButton rbtnQuality1;
+        private System.Windows.Forms.Label lblExpensive;
+        private System.Windows.Forms.Label lblCheap;
+        private System.Windows.Forms.RadioButton rbtnPrice5;
+        private System.Windows.Forms.RadioButton rbtnPrice4;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.RadioButton rbtnPrice3;
+        private System.Windows.Forms.RadioButton rbtnPrice2;
+        private System.Windows.Forms.RadioButton rbtnPrice1;
     }
 }
