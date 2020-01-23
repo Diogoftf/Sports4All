@@ -51,26 +51,27 @@ namespace Sports4All.Controller
 
         public ICollection<Park> GetParksAscending(bool value, int idLocation)
         {
-            List<Park> parkList = null; //isto eliminar
+            List<Park> parkList;
 
-            //using (var db = new ModelContext())
-            //{
-            //    if (idLocation == 0)
-            //    {
-            //        parkList = value
-            //            ? db.Parks.OrderBy(x => x.Quality).ToList()
-            //            : db.Parks.OrderByDescending(x => x.Quality).ToList();
-            //    }
-            //    else
-            //    {
-            //        parkList = value ? db.Parks
-            //                .Where(a => a.Address.CountyId == idLocation)
-            //                .OrderBy(x => x.Quality).ToList() 
-            //            : db.Parks
-            //                .Where(a => a.Address.CountyId == idLocation)
-            //                .OrderByDescending(x => x.Quality).ToList();
-            //    }
-            //}
+            using (var db = new ModelContext())
+            {
+                if (idLocation == 0)
+                {
+                    parkList = value
+                        ? db.Parks.OrderBy(x => x.ParkClassification.QualityAverage).ToList()
+                        : db.Parks.OrderByDescending(x => x.ParkClassification.QualityAverage).ToList();
+                }
+                
+                else
+                {
+                    parkList = value ? db.Parks
+                            .Where(a => a.Address.CountyId == idLocation)
+                            .OrderBy(x => x.ParkClassification.QualityAverage).ToList()
+                        : db.Parks
+                            .Where(a => a.Address.CountyId == idLocation)
+                            .OrderByDescending(x => x.ParkClassification.QualityAverage).ToList();
+                }
+            }
 
             return parkList;
 
