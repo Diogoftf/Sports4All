@@ -87,6 +87,7 @@ namespace Sports4All.Controller
                     .Where(c => c.Reserve.Sport.Name == sportName && c.StartDate > _todayDate)
                     .Include("Reserve.Sport")
                     .Include("Reserve.Ground.Park")
+                    .Include("Users")
                     .ToList();
                 return EventsbySport;
             }
@@ -100,10 +101,53 @@ namespace Sports4All.Controller
                     .Where(c => c.Reserve.Ground.Park.Name == groundName && c.StartDate > _todayDate)
                     .Include("Reserve.Sport")
                     .Include("Reserve.Ground.Park")
+                    .Include("Users")
                     .ToList();
                 return EventsbyGroundt;
             }
         }
+
+        public ICollection<Event> EventsbyGroundandSport(string groundName,string sport)
+        {
+            using (var db = new ModelContext())
+            {
+                var EventsbyGroundt = db.Events
+                    .Where(c => c.Reserve.Ground.Park.Name == groundName && c.Reserve.Sport.Name == sport && c.StartDate > _todayDate)
+                    .Include("Reserve.Sport")
+                    .Include("Reserve.Ground.Park")
+                    .Include("Users")
+                    .ToList();
+                return EventsbyGroundt;
+            }
+        }
+        //falta testar
+        public void UpdateEventRecord(int ReserveId, int maxAge,int minAge ,int maxPlayers)
+        {
+            using (var context = new ModelContext())
+            {
+                var reserveRecord = context.Reserves
+                    .Where(a => a.ReserveId == ReserveId)
+                    .Include("Event").ToList();
+                reserveRecord[0].Event.MaxAge = maxAge;
+                reserveRecord[0].Event.MinAge = minAge;
+                reserveRecord[0].Event.MaxPlayers = maxPlayers; 
+              context.SaveChanges();
+            }
+        }
+        //**falta testar!!!
+        public void DeleteEvent(int EventId)
+        {
+            using (var context = new ModelContext())
+            {
+                var eventRecord = context.Events
+                    .Where(a => a.EventId == EventId)
+                    .FirstOrDefault();
+
+                context.Events.Remove(eventRecord);
+                context.SaveChanges();
+            }
+        }
+
         /*UC_EVentDetails*
          *Função que retorna todos os utilizadores presentes no evento. Argumento:EventID.
          */
@@ -130,5 +174,8 @@ namespace Sports4All.Controller
                 return SingleEvent;
             }
         }
+
+
+
     }
 }

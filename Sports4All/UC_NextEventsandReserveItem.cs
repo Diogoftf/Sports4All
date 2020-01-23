@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
@@ -17,6 +19,7 @@ namespace Sports4All
 
         #region Properties
 
+        private MyEventsController _eventsController = new MyEventsController();
         private string _day;
         private string _month;
         private string _hour;
@@ -115,11 +118,6 @@ namespace Sports4All
 
         }
 
-        private void btnJoinEvent_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void lblSpaceAvailable_Click(object sender, EventArgs e)
         {
 
@@ -148,6 +146,14 @@ namespace Sports4All
         public void HideJoinButton()
         {
             btnCancel.Visible = false;
+        }
+
+        private void btn_CancelEvent(object sender, EventArgs e)
+        {
+            _eventsController.DeleteEvent(Convert.ToInt32(_eventId));
+
+
+
         }
     }
 }

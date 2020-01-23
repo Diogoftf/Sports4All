@@ -92,13 +92,13 @@ namespace Sports4All
             var EventsbySportCount = EventsbySport.Count;
             UC_EventModalityItem[] listitems = new UC_EventModalityItem[EventsbySportCount];
 
-
             for (int i = 0; i < EventsbySportCount; i++)
             {
                 var usersCount = EventsbySport.ToList()[i].Users.Count;
                 var maxUsers = EventsbySport.ToList()[i].MaxPlayers;
                 var hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString();
                 var month = EventsbySport.ToList()[i].StartDate.ToLongDateString();
+                month = month.Substring(6, 3).ToUpper();
                 listitems[i] = new UC_EventModalityItem
                 {
                     Owner = EventsbySport.ToList()[0].Reserve.UserId,

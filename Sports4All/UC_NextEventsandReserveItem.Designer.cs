@@ -33,6 +33,10 @@
             this.lblMonth_Event = new System.Windows.Forms.Label();
             this.plEventDate = new System.Windows.Forms.Panel();
             this.plEventData = new System.Windows.Forms.Panel();
+            this.lbEventID = new System.Windows.Forms.Label();
+            this.lbEvent = new System.Windows.Forms.Label();
+            this.lblSportsGround = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.lblSpaceAvailableValue = new System.Windows.Forms.Label();
             this.lblSpaceAvailable = new System.Windows.Forms.Label();
             this.lblEventOwnerValue = new System.Windows.Forms.Label();
@@ -41,10 +45,6 @@
             this.lblEventHourValue = new System.Windows.Forms.Label();
             this.plLine = new System.Windows.Forms.Panel();
             this.lblModalityName = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.lblSportsGround = new System.Windows.Forms.Label();
-            this.lbEventID = new System.Windows.Forms.Label();
-            this.lbEvent = new System.Windows.Forms.Label();
             this.plEventDate.SuspendLayout();
             this.plEventData.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +101,50 @@
             this.plEventData.Size = new System.Drawing.Size(817, 103);
             this.plEventData.TabIndex = 3;
             this.plEventData.Paint += new System.Windows.Forms.PaintEventHandler(this.plEventData_Paint);
+            // 
+            // lbEventID
+            // 
+            this.lbEventID.AutoSize = true;
+            this.lbEventID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEventID.Location = new System.Drawing.Point(83, 5);
+            this.lbEventID.Name = "lbEventID";
+            this.lbEventID.Size = new System.Drawing.Size(77, 23);
+            this.lbEventID.TabIndex = 15;
+            this.lbEventID.Text = "#23342";
+            // 
+            // lbEvent
+            // 
+            this.lbEvent.AutoSize = true;
+            this.lbEvent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEvent.Location = new System.Drawing.Point(8, 4);
+            this.lbEvent.Name = "lbEvent";
+            this.lbEvent.Size = new System.Drawing.Size(81, 23);
+            this.lbEvent.TabIndex = 14;
+            this.lbEvent.Text = "Evento:";
+            // 
+            // lblSportsGround
+            // 
+            this.lblSportsGround.AutoSize = true;
+            this.lblSportsGround.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSportsGround.Location = new System.Drawing.Point(231, 43);
+            this.lblSportsGround.Name = "lblSportsGround";
+            this.lblSportsGround.Size = new System.Drawing.Size(310, 19);
+            this.lblSportsGround.TabIndex = 9;
+            this.lblSportsGround.Text = "Parque Desportivo de Água de Pena";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(723, 28);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(33, 38);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btn_CancelEvent);
             // 
             // lblSpaceAvailableValue
             // 
@@ -187,50 +231,6 @@
             this.lblModalityName.TabIndex = 0;
             this.lblModalityName.Text = "Futebol";
             this.lblModalityName.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(677, 29);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(39, 42);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnJoinEvent_Click);
-            // 
-            // lblSportsGround
-            // 
-            this.lblSportsGround.AutoSize = true;
-            this.lblSportsGround.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSportsGround.Location = new System.Drawing.Point(231, 43);
-            this.lblSportsGround.Name = "lblSportsGround";
-            this.lblSportsGround.Size = new System.Drawing.Size(310, 19);
-            this.lblSportsGround.TabIndex = 9;
-            this.lblSportsGround.Text = "Parque Desportivo de Água de Pena";
-            // 
-            // lbEventID
-            // 
-            this.lbEventID.AutoSize = true;
-            this.lbEventID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEventID.Location = new System.Drawing.Point(83, 5);
-            this.lbEventID.Name = "lbEventID";
-            this.lbEventID.Size = new System.Drawing.Size(77, 23);
-            this.lbEventID.TabIndex = 15;
-            this.lbEventID.Text = "#23342";
-            // 
-            // lbEvent
-            // 
-            this.lbEvent.AutoSize = true;
-            this.lbEvent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEvent.Location = new System.Drawing.Point(8, 4);
-            this.lbEvent.Name = "lbEvent";
-            this.lbEvent.Size = new System.Drawing.Size(81, 23);
-            this.lbEvent.TabIndex = 14;
-            this.lbEvent.Text = "Evento:";
             // 
             // UC_NextEventsandReserveItem
             // 

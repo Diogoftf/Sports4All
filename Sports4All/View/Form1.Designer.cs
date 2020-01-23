@@ -53,6 +53,7 @@
             this.btnAddfriend = new System.Windows.Forms.Button();
             this.pbUserImage = new System.Windows.Forms.PictureBox();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.uC_EventsSportsGrounds1 = new Sports4All.UC_EventsSportsGrounds();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar4)).BeginInit();
@@ -60,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbStar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserImage)).BeginInit();
+            this.panelContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -386,10 +388,18 @@
             // 
             // panelContainer
             // 
+            this.panelContainer.Controls.Add(this.uC_EventsSportsGrounds1);
             this.panelContainer.Location = new System.Drawing.Point(269, 114);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1093, 658);
             this.panelContainer.TabIndex = 71;
+            // 
+            // uC_EventsSportsGrounds1
+            // 
+            this.uC_EventsSportsGrounds1.Location = new System.Drawing.Point(-7, -4);
+            this.uC_EventsSportsGrounds1.Name = "uC_EventsSportsGrounds1";
+            this.uC_EventsSportsGrounds1.Size = new System.Drawing.Size(1089, 622);
+            this.uC_EventsSportsGrounds1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -428,6 +438,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbStar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserImage)).EndInit();
+            this.panelContainer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,6 +471,7 @@
         private System.Windows.Forms.Label lbWelcomeUser;
         private System.Windows.Forms.PictureBox pbUserImage;
         private System.Windows.Forms.Panel panelContainer;
+        private UC_EventsSportsGrounds uC_EventsSportsGrounds1;
     }
 }
 

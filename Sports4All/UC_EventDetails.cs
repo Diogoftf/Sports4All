@@ -21,7 +21,20 @@ namespace Sports4All
         private string _maxPlayerAge;
         private string _minPlayerAge;
         private string _eventDate;
+        private string _eventID; //ID QUE VEM DE OUTROS ECRAS!
+
         #region  EventDetails
+
+
+        public string EventId
+        {
+            get => _eventID;
+            set
+            {
+                _eventID = value;
+                lbEventIDValue.Text = value;
+            }
+        }
         public string MaxPlayers
         {
             get => _maxPlayers;
@@ -108,6 +121,7 @@ namespace Sports4All
             ICollection<User> enrolledUsers = eventsController.RetrieveEnrolledUsers(1);
             int enrolledUsersCount = enrolledUsers.Count;
             UC_UserinEventItem[] listusers = new UC_UserinEventItem[enrolledUsersCount];
+            
 
             for (int i = 0; i < enrolledUsersCount; i++)
             {

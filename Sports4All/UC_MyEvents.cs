@@ -9,13 +9,14 @@ namespace Sports4All
 {
     public partial class UC_MyEvents : UserControl
     {
-        private readonly string _username = "andreMx";
-        private readonly MyEventsController eventsController = new MyEventsController();
-        private ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
 
+        private ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
+        private string _username { get; set; } // ID que vem 
+        private readonly MyEventsController eventsController = new MyEventsController();
         public UC_MyEvents()
         {
             InitializeComponent();
+            _username = "andreMx";
         }
 
         private int _totalUserEvents { get; set; }
@@ -153,6 +154,8 @@ namespace Sports4All
                 flpListMyEvents.Controls.Add(listitems[i]);
             }
         }
+
+
 
         private void btnFinishedEvents_Click(object sender, EventArgs e)
         {

@@ -51,6 +51,7 @@
             this.tbminAge = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSaveChanges = new System.Windows.Forms.Button();
+            this.lbEventIDValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbPark)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,9 +122,9 @@
             this.lbEventId.Font = new System.Drawing.Font("Century Gothic", 18F);
             this.lbEventId.Location = new System.Drawing.Point(96, 12);
             this.lbEventId.Name = "lbEventId";
-            this.lbEventId.Size = new System.Drawing.Size(215, 37);
+            this.lbEventId.Size = new System.Drawing.Size(117, 37);
             this.lbEventId.TabIndex = 37;
-            this.lbEventId.Text = "Evento #0001";
+            this.lbEventId.Text = "Evento";
             // 
             // lblUserPhoneValue
             // 
@@ -217,7 +218,7 @@
             this.tbMaxPlayers.BackColor = System.Drawing.SystemColors.Menu;
             this.tbMaxPlayers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbMaxPlayers.Enabled = false;
-            this.tbMaxPlayers.Location = new System.Drawing.Point(241, 240);
+            this.tbMaxPlayers.Location = new System.Drawing.Point(237, 243);
             this.tbMaxPlayers.Name = "tbMaxPlayers";
             this.tbMaxPlayers.ReadOnly = true;
             this.tbMaxPlayers.Size = new System.Drawing.Size(47, 21);
@@ -230,10 +231,10 @@
             this.tbMaxAge.BackColor = System.Drawing.SystemColors.Menu;
             this.tbMaxAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbMaxAge.Enabled = false;
-            this.tbMaxAge.Location = new System.Drawing.Point(192, 281);
+            this.tbMaxAge.Location = new System.Drawing.Point(203, 281);
             this.tbMaxAge.Name = "tbMaxAge";
             this.tbMaxAge.ReadOnly = true;
-            this.tbMaxAge.Size = new System.Drawing.Size(88, 21);
+            this.tbMaxAge.Size = new System.Drawing.Size(77, 21);
             this.tbMaxAge.TabIndex = 48;
             this.tbMaxAge.Text = "45";
             this.tbMaxAge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -256,10 +257,10 @@
             this.tbminAge.BackColor = System.Drawing.SystemColors.Menu;
             this.tbminAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbminAge.Enabled = false;
-            this.tbminAge.Location = new System.Drawing.Point(196, 315);
+            this.tbminAge.Location = new System.Drawing.Point(199, 319);
             this.tbminAge.Name = "tbminAge";
             this.tbminAge.ReadOnly = true;
-            this.tbminAge.Size = new System.Drawing.Size(88, 21);
+            this.tbminAge.Size = new System.Drawing.Size(81, 21);
             this.tbminAge.TabIndex = 50;
             this.tbminAge.Text = "16";
             this.tbminAge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -288,9 +289,20 @@
             this.btnSaveChanges.Visible = false;
             this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
+            // lbEventIDValue
+            // 
+            this.lbEventIDValue.AutoSize = true;
+            this.lbEventIDValue.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.lbEventIDValue.Location = new System.Drawing.Point(202, 13);
+            this.lbEventIDValue.Name = "lbEventIDValue";
+            this.lbEventIDValue.Size = new System.Drawing.Size(85, 37);
+            this.lbEventIDValue.TabIndex = 53;
+            this.lbEventIDValue.Text = "0001";
+            // 
             // UC_EventsDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.lbEventIDValue);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.tbminAge);
@@ -347,5 +359,6 @@
         private System.Windows.Forms.TextBox tbminAge;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSaveChanges;
+        private System.Windows.Forms.Label lbEventIDValue;
     }
 }
