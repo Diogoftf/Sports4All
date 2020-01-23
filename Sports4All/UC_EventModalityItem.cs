@@ -16,7 +16,6 @@ namespace Sports4All
 
 
         #region Properties
-
         private string _day;
         private string _month;
         private string _hour;
@@ -51,13 +50,10 @@ namespace Sports4All
             set { _day = value; lblDay_Event.Text = value; }
         }
 
-
         public string Month
         {
-
             get { return _month; }
             set { _month = value; lblMonth_Event.Text = value; }
-
         }
 
         #endregion
@@ -65,6 +61,11 @@ namespace Sports4All
         {
             InitializeComponent();
 
+        }
+
+        public void DisableJoinEventbtn()
+        {
+            btnJoinEvent.Visible = false;
         }
 
 

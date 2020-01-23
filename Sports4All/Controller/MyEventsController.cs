@@ -27,7 +27,6 @@ namespace Sports4All.Controller
                     .Include("Reserve.Ground.Park")
                     .Include("Users")
                     .ToList();
-
                 Console.WriteLine("Completed Eventos:" + UserCompletedEvents.ToList());
                 _userCompletedEventsCount = UserCompletedEvents.Count;
                 return UserCompletedEvents;
@@ -66,7 +65,6 @@ namespace Sports4All.Controller
             }
         }
 
-
         public bool VerifyEvaluation(int eventId, string username)
         {
             bool state = false;
@@ -81,6 +79,31 @@ namespace Sports4All.Controller
             return state;
         }
 
+        public ICollection<Event> EventsbySport(string sportName)
+        {
+            using (var db = new ModelContext())
+            {
+                var EventsbySport = db.Events
+                    .Where(c => c.Reserve.Sport.Name == sportName && c.StartDate > _todayDate)
+                    .Include("Reserve.Sport")
+                    .Include("Reserve.Ground.Park")
+                    .ToList();
+                return EventsbySport;
+            }
+        }
+
+        public ICollection<Event> EventsbyGround(string groundName)
+        {
+            using (var db = new ModelContext())
+            {
+                var EventsbyGroundt = db.Events
+                    .Where(c => c.Reserve.Ground.Park.Name == groundName && c.StartDate > _todayDate)
+                    .Include("Reserve.Sport")
+                    .Include("Reserve.Ground.Park")
+                    .ToList();
+                return EventsbyGroundt;
+            }
+        }
         /*UC_EVentDetails*
          *Função que retorna todos os utilizadores presentes no evento. Argumento:EventID.
          */

@@ -13,23 +13,42 @@ namespace Sports4All
     public partial class UC_EventSportsGroundItem : UserControl
     {
 
-
-
         #region Properties
 
         private string _day;
-
         private string _month;
+        private string _hour;
+        private string _sport;
+        private string _owner;
+        private string _lotation;
+        public string Lotation
+        {
+            get { return _lotation; }
+            set { _lotation = value; lblSpaceAvailableValue.Text = value; }
+        }
+        public string Owner
+        {
+            get { return _owner; }
+            set { _owner = value; lblEventOwnerValue.Text = value; }
+        }
 
+        public string SportGround
+        {
+            get { return _sport; }
+            set { _sport = value; lblModalityName.Text = value; }
+        }
 
+        public string Hour
+        {
+            get { return _hour; }
+            set { _hour = value; lblEventHourValue.Text = value; }
+        }
         public string Day
         {
 
             get { return _day; }
             set { _day = value; lblDay_Event.Text = value; }
-
         }
-
 
         public string Month
         {
@@ -45,6 +64,15 @@ namespace Sports4All
             InitializeComponent();
 
         }
+
+        public void DisableJoinEventbtn()
+        {
+            btnJoinEvent.Visible = false;
+        }
+
+
+
+    
 
 
         private void label1_Click(object sender, EventArgs e)

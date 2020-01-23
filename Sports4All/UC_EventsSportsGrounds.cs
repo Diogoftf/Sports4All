@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
     public partial class UC_EventsSportsGrounds : UserControl
     {
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsModality));
-
+        private readonly MyEventsController _eventsController = new MyEventsController();
+        private string _sportGround { get; set; }
         private bool _controlSub = false;
         public UC_EventsSportsGrounds()
         {
@@ -21,30 +23,38 @@ namespace Sports4All
         }
         private void Recintos_Load(object sender, EventArgs e)
         {
-
-            PopulateList();
-
+            _sportGround = "Agua de Pena";
+            if (!DesignMode) ListEventsbyGround();
         }
 
-        private void PopulateList()
+        private void ListEventsbyGround()
         {
-            UC_EventSportsGroundItem[] listitems = new UC_EventSportsGroundItem[20];
+            if (flpEventListSportsground.Controls.Count > 0)
+                flpEventListSportsground.Controls.Clear();
+            var EventsbyGround = _eventsController.EventsbyGround(_sportGround);
+            var EventsbyGroundCount = EventsbyGround.Count;
 
-            for (int i = 0; i < listitems.Length; i++)
+            UC_EventSportsGroundItem[] listitems = new UC_EventSportsGroundItem[EventsbyGroundCount];
+
+            for (int i = 0; i < EventsbyGroundCount; i++)
             {
-                listitems[i] = new UC_EventSportsGroundItem();
-                listitems[i].Day = "01";
-                listitems[i].Month = "Fev";
-                //add to flowlayout
-                if (flpEventListSportsground.Controls.Count < 0)
-                {
+                var usersCount = EventsbyGround.ToList()[i].Users.Count;
+                var maxUsers = EventsbyGround.ToList()[i].MaxPlayers;
+                var hour = EventsbyGround.ToList()[i].StartDate.ToShortTimeString();
+                var month = EventsbyGround.ToList()[i].StartDate.ToLongDateString();
 
-                    flpEventListSportsground.Controls.Clear();
-                }
-                else
+                listitems[i] = new UC_EventSportsGroundItem
                 {
-                    flpEventListSportsground.Controls.Add(listitems[i]);
-                }
+                Owner = EventsbyGround.ToList()[0].Reserve.UserId,
+                SportGround = EventsbyGround.ToList()[0].Reserve.Ground.Park.Name,
+                Hour = EventsbyGround.ToList()[i].StartDate.ToShortTimeString(),
+                Day = Convert.ToString(EventsbyGround.ToList()[i].StartDate.Day),
+                Month = month,
+                Lotation = usersCount + "/" + maxUsers
+                };
+
+                if (usersCount == maxUsers) listitems[i].DisableJoinEventbtn(); // remove botao para se juntar ao evento
+                flpEventListSportsground.Controls.Add(listitems[i]);
             }
 
         }
