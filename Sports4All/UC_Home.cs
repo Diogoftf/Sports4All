@@ -20,11 +20,11 @@ namespace Sports4All
         private UC_HomeMyEventsItem _noSuggestionsEventsitems = new UC_HomeMyEventsItem();
 
         // Progress Bar//
-        private double pbUnit;
-        private int pbWIDTH, pbHEIGHT, pbComplete;
-        private Bitmap bmp;
-        private Graphics g;
-        private Timer timerProgressBar = new Timer();
+        private double _pbUnit;
+        private int _pbWIDTH, _pbHEIGHT, _pbComplete;
+        private Bitmap _bmp;
+        private Graphics _graphic;
+        private Timer _timerProgressBar = new Timer();
 
         public UC_Home()
         {
@@ -46,28 +46,28 @@ namespace Sports4All
 
         public void ProgressBarInitializer()
         {
-            pbWIDTH = pbProgressBar.Width;
-            pbHEIGHT = pbProgressBar.Height;
-            pbUnit = pbWIDTH / 100.0;
-            pbComplete = 0;
-            bmp = new Bitmap(pbWIDTH, pbHEIGHT);
-            timerProgressBar.Interval = 20;   
-            timerProgressBar.Tick += new EventHandler(this.FillProgressBar);
-            timerProgressBar.Start();
+            _pbWIDTH = pbProgressBar.Width;
+            _pbHEIGHT = pbProgressBar.Height;
+            _pbUnit = _pbWIDTH / 100.0;
+            _pbComplete = 0;
+            _bmp = new Bitmap(_pbWIDTH, _pbHEIGHT);  
+            _timerProgressBar.Tick += new EventHandler(this.FillProgressBar);
+            _timerProgressBar.Interval = 10;
+            _timerProgressBar.Start();
         }
 
         private void FillProgressBar(object sender, EventArgs e)
         {
-            g = Graphics.FromImage(bmp);
-            g.Clear(Color.LightGray);
-            g.FillRectangle(Brushes.LightGreen, new Rectangle(0, 0, (int)(pbComplete * pbUnit), pbHEIGHT));
-            g.DrawString(pbComplete + " pontos", new Font("Arial", pbHEIGHT / 2), Brushes.Black, new PointF(pbWIDTH / 2 - pbHEIGHT, pbHEIGHT / 10));
-            pbProgressBar.Image = bmp;
-            pbComplete++;
-            if (pbComplete > Int32.Parse(_homeController.getMyStats(AuthProperties.LoggedUser).ToList()[4]))
+            _graphic = Graphics.FromImage(_bmp);
+            _graphic.Clear(Color.LightGray);
+            _graphic.FillRectangle(Brushes.LightGreen, new Rectangle(0, 0, (int)(_pbComplete * _pbUnit), _pbHEIGHT));
+            _graphic.DrawString(_pbComplete.ToString() + " pts", new Font("Arial", _pbHEIGHT / 2), Brushes.Black, new PointF(_pbWIDTH / 2 - _pbHEIGHT, _pbHEIGHT / 10));
+            pbProgressBar.Image = _bmp;
+            _pbComplete++;
+            if (_pbComplete > Int32.Parse(_homeController.getMyStats().ToList()[4]))
             {
-                g.Dispose();
-                timerProgressBar.Stop();
+                _graphic.Dispose();
+                _timerProgressBar.Stop();
             }
 
         }
@@ -75,13 +75,12 @@ namespace Sports4All
         private void dtpMySportDate_ValueChanged(object sender, EventArgs e)
         {
             flpMyEvents.Controls.Clear();
-            //List<Event> myEvent = _homeController.getMyEvents(AuthProperties.LoggedUser); 
 
             for (int i = 0; i < _MyEvents.Count; i++)
             {
                 string[] dateStart = _MyEvents.ToList()[i].DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
 
-                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy") == dtpMySportDate.Value.Date.ToString("dd-MM-yyyy"))
+                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy") == dtpMySportDate.Value.Date.ToString("dd-MM-yyyy") || DateTime.Now.ToString("dd-MM-yyyy") == dtpMySportDate.Value.Date.ToString("dd-MM-yyyy"))
                 {
                     flpMyEvents.Controls.Add(_MyEvents.ToList()[i]); //add to flowlayout
                 }
@@ -113,7 +112,7 @@ namespace Sports4All
             dtpMySportDate.CustomFormat = dtpNextEventDate.CustomFormat = "dd-MM-yyyy";
 
             _noMyEventsitems.Sport = _noMyEventsitems.Recinto = _noMyEventsitems.Organizador = _noMyEventsitems.DateTime = "";
-            _noMyEventsitems.NoEvents = AuthProperties.LoggedUser + " não tens nenhum evento hoje :(";
+            _noMyEventsitems.NoEvents = "Não tens nenhum evento :(";
             _noMyEventsitems.DisableImage = null;
             _noMyEventsitems.resetNameProprieties = "";
 
@@ -122,7 +121,8 @@ namespace Sports4All
             _noSuggestionsEventsitems.DisableImage = null;
             _noSuggestionsEventsitems.resetNameProprieties = "";
 
-            PopulateLists(AuthProperties.LoggedUser);
+            PopulateMyEventsList();
+            PopulateMySuggestionsList();
             PopulateComboBox();
             infoStatsDescription();
             userStatsDetails();
@@ -140,14 +140,15 @@ namespace Sports4All
 
         private void userStatsDetails()
         {
-            lbCurrentLevel.Text = "Nivel " +_homeController.myLevel().ToString();
-            lbNextLevel.Text = "Nivel " + (_homeController.myLevel()+1).ToString();
-            if(_homeController.getMyStats(AuthProperties.LoggedUser).ToList().Count > 0)
+
+            lbCurrentLevel.Text = "Nivel " + (Convert.ToInt32(_homeController.getMyStats().ToList()[4]) / Points._levelChange).ToString();
+            lbNextLevel.Text = "Nivel " + ((Convert.ToInt32(_homeController.getMyStats().ToList()[4]) / Points._levelChange) + 1).ToString();
+            if (_homeController.getMyStats().ToList().Count > 0)
             {
-                lbMatchesPlayedValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[0];
-                lbFairplayValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[1];
-                lbSkillValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[2];
-                lbRacioValue.Text = _homeController.getMyStats(AuthProperties.LoggedUser).ToList()[3];
+                lbMatchesPlayedValue.Text = _homeController.getMyStats().ToList()[0];
+                lbFairplayValue.Text = _homeController.getMyStats().ToList()[1];
+                lbSkillValue.Text = _homeController.getMyStats().ToList()[2];
+                lbRacioValue.Text = _homeController.getMyStats().ToList()[3];
             }
 
         }
@@ -177,68 +178,66 @@ namespace Sports4All
             }
         }
 
-        private void PopulateLists(string username)
+        private void PopulateMyEventsList()
         {
-            //// Array auxiliar de meus eventos
-            //ICollection<Event> myEvent = _homeController.getMyEvents(username); // passar scarf para username
-            //flpMyEvents.Controls.Clear();
-            //flpEventSuggestions.Controls.Clear();
-            //_MyEvents.Clear();
-            //_EventSuggestions.Clear();
-            
-            //if (myEvent.Count > 0)
-            //{
-                
-            //    for (int i = 0; i < myEvent.Count; i++)
-            //    {
-            //        if (i < 3)
-            //        {
-            //            UC_HomeMyEventsItem ItemMyEvents = new UC_HomeMyEventsItem();
-            //            ItemMyEvents.DateTime = myEvent.ToList()[i].StartDate.ToString() + " || " + myEvent.ToList()[i].EndDate.ToString("HH:mm");
-            //            ItemMyEvents.Organizador = myEvent.ToList()[i].Reserve.UserId;
-            //            ItemMyEvents.Slots =  myEvent.ToList()[i].Users.Count.ToString() + "/" + myEvent.ToList()[i].MaxPlayers.ToString();
-            //            ItemMyEvents.Recinto =  myEvent.ToList()[i].Reserve.Ground.Park.Name; 
-            //            ItemMyEvents.Sport =  myEvent.ToList()[i].Reserve.Sport.Name;
-            //            _MyEvents.Add(ItemMyEvents);
-            //            flpMyEvents.Controls.Add(ItemMyEvents); //add to flowlayout
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    flpMyEvents.Controls.Add(_noMyEventsitems); //add to flowlayout
-            //}
+            ICollection<Event> myEvent = _homeController.getMyEvents(); // passar scarf para username
+            flpMyEvents.Controls.Clear();
+            flpEventSuggestions.Controls.Clear();
+            _MyEvents.Clear();
+            _EventSuggestions.Clear();
 
+            if (myEvent.Count > 0)
+            {
 
-            ////Preenche lista de sugestoes de eventos
-            //ICollection<Reserve> EventSuggestions = _homeController.getEventSuggestions(username);
-            //flpEventSuggestions.Controls.Clear();
-
-            //if (EventSuggestions.Count > 0)
-            //{
-            //    for (int i = 0; i < EventSuggestions.Count; i++)
-            //    {
-            //        if (i < 3)
-            //        {
-            //            UC_HomeMyEventsItem ItemSuggestion = new UC_HomeMyEventsItem();
-            //              ItemSuggestion.DateTime = EventSuggestions.ToList()[i].Event.StartDate.ToString() + " || " + EventSuggestions.ToList()[i].Event.EndDate.ToShortTimeString();
-            //              ItemSuggestion.Organizador = EventSuggestions.ToList()[i].UserId;
-            //              ItemSuggestion.Slots =  EventSuggestions.ToList()[i].Event.Users.Count +  "/" + EventSuggestions.ToList()[i].Event.MaxPlayers.ToString();
-            //              ItemSuggestion.Recinto =  EventSuggestions.ToList()[i].Ground.Park.Name;
-            //              ItemSuggestion.Sport =  EventSuggestions.ToList()[i].Sport.Name; 
-            //            _EventSuggestions.Add(ItemSuggestion);
-            //            flpEventSuggestions.Controls.Add(ItemSuggestion); //add to flowlayout
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    flpEventSuggestions.Controls.Add(_noSuggestionsEventsitems); //add to flowlayout
-            //}
-
-         /*   if (flpMyEvents.Controls.Count == 0)
-                flpMyEvents.Controls.Add(noMyEventsitems);*/
+                for (int i = 0; i < myEvent.Count; i++)
+                {
+                    if (i < 3)
+                    {
+                        UC_HomeMyEventsItem ItemMyEvents = new UC_HomeMyEventsItem();
+                        ItemMyEvents.DateTime = myEvent.ToList()[i].StartDate.ToString() + " || " + myEvent.ToList()[i].EndDate.ToString("HH:mm");
+                        ItemMyEvents.Organizador = myEvent.ToList()[i].Reserve.UserId;
+                        ItemMyEvents.Slots = myEvent.ToList()[i].Users.Count.ToString() + "/" + myEvent.ToList()[i].MaxPlayers.ToString();
+                        ItemMyEvents.Recinto = myEvent.ToList()[i].Reserve.Ground.Park.Name;
+                        ItemMyEvents.Sport = myEvent.ToList()[i].Reserve.Sport.Name;
+                        _MyEvents.Add(ItemMyEvents);
+                        flpMyEvents.Controls.Add(ItemMyEvents); //add to flowlayout
+                    }
+                }
+            }
+            else
+            {
+                flpMyEvents.Controls.Add(_noMyEventsitems); //add to flowlayout
+            }
         }
+
+        private void PopulateMySuggestionsList()
+        {
+            ICollection<Reserve> EventSuggestions = _homeController.getEventSuggestions();
+            flpEventSuggestions.Controls.Clear();
+
+            if (EventSuggestions.Count > 0)
+            {
+                for (int i = 0; i < EventSuggestions.Count; i++)
+                {
+                    if (i < 3)
+                    {
+                        UC_HomeMyEventsItem ItemSuggestion = new UC_HomeMyEventsItem();
+                        ItemSuggestion.DateTime = EventSuggestions.ToList()[i].Event.StartDate.ToString() + " || " + EventSuggestions.ToList()[i].Event.EndDate.ToShortTimeString();
+                        ItemSuggestion.Organizador = EventSuggestions.ToList()[i].UserId;
+                        ItemSuggestion.Slots = EventSuggestions.ToList()[i].Event.Users.Count + "/" + EventSuggestions.ToList()[i].Event.MaxPlayers.ToString();
+                        ItemSuggestion.Recinto = EventSuggestions.ToList()[i].Ground.Park.Name;
+                        ItemSuggestion.Sport = EventSuggestions.ToList()[i].Sport.Name;
+                        _EventSuggestions.Add(ItemSuggestion);
+                        flpEventSuggestions.Controls.Add(ItemSuggestion); //add to flowlayout
+                    }
+                }
+            }
+            else
+            {
+                flpEventSuggestions.Controls.Add(_noSuggestionsEventsitems); //add to flowlayout
+            }
+        }
+
 
         private void cbMySport_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -335,6 +334,11 @@ namespace Sports4All
             flpInfoStats.Visible = false;
         }
 
+        private void lbNextLevel_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -343,13 +347,12 @@ namespace Sports4All
         private void dtpNextEventDate_ValueChanged(object sender, EventArgs e)
         {
             flpEventSuggestions.Controls.Clear();
-            //List<Event> myEvent = _homeController.getMyEvents(AuthProperties.LoggedUser); 
 
             for (int i = 0; i < _EventSuggestions.Count; i++)
             {
                 string[] dateStart = _EventSuggestions.ToList()[i].DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
 
-                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy") == dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy"))
+                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy") == dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy") || DateTime.Now.ToString("dd-MM-yyyy") == dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy"))
                 {
                     flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]); //add to flowlayout
                 }

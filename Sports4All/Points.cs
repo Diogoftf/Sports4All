@@ -15,5 +15,7 @@ namespace Sports4All
         public static readonly int _racio_Weight = 2;
         public static readonly int _levelChange = 100; // variavel somente usada para determinar a quantidade de pontos necessaria para transitar de nivel
 
+        public static readonly int _ParkPrice_Weight = 3;
+        public static readonly int _ParkQuality_Weight = 4;
     }
 }

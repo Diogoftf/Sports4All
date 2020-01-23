@@ -25,15 +25,14 @@ namespace Sports4All.Controller
 
                 var query = db.Counties.Where(f => f.Name == county).First();
                 newUser.CountyId = query.CountyId;
-                
-                //Classification userClassification = new Classification();
-                //userClassification.points = userClassification.racio =
-                //    userClassification.skillAverage = userClassification.fairplayAverage =
-                //    userClassification.rankClassification = 0;
 
-                //userClassification.userId = newUser;
-                //db.Users.Add(newUser);
-                //db.Classifications.Add(userClassification);
+                UserClassification userClassification = new UserClassification();
+                userClassification.Points = userClassification.Ratio =
+                userClassification.SkillAverage = userClassification.FairplayAverage = 0;
+
+                userClassification.User = newUser;
+                db.Users.Add(newUser);
+                db.Classifications.Add(userClassification);
                 db.SaveChanges();
             }
         }

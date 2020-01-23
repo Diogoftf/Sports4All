@@ -48,13 +48,14 @@
             this.tableLayoutPanel1.Controls.Add(this.lblUsername, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbUserRank, 0, 0);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(741, 60);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(501, 39);
             this.tableLayoutPanel1.TabIndex = 33;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -63,9 +64,10 @@
             this.lblPoints.AutoSize = true;
             this.lblPoints.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPoints.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblPoints.Location = new System.Drawing.Point(558, 0);
+            this.lblPoints.Location = new System.Drawing.Point(377, 0);
+            this.lblPoints.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPoints.Name = "lblPoints";
-            this.lblPoints.Size = new System.Drawing.Size(180, 60);
+            this.lblPoints.Size = new System.Drawing.Size(122, 39);
             this.lblPoints.TabIndex = 37;
             this.lblPoints.Text = "45555";
             this.lblPoints.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -75,9 +77,10 @@
             this.lblGamesPlayed.AutoSize = true;
             this.lblGamesPlayed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblGamesPlayed.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblGamesPlayed.Location = new System.Drawing.Point(373, 0);
+            this.lblGamesPlayed.Location = new System.Drawing.Point(252, 0);
+            this.lblGamesPlayed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGamesPlayed.Name = "lblGamesPlayed";
-            this.lblGamesPlayed.Size = new System.Drawing.Size(179, 60);
+            this.lblGamesPlayed.Size = new System.Drawing.Size(121, 39);
             this.lblGamesPlayed.TabIndex = 36;
             this.lblGamesPlayed.Text = "3222";
             this.lblGamesPlayed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -87,9 +90,10 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblUsername.Location = new System.Drawing.Point(188, 0);
+            this.lblUsername.Location = new System.Drawing.Point(127, 0);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(179, 60);
+            this.lblUsername.Size = new System.Drawing.Size(121, 39);
             this.lblUsername.TabIndex = 35;
             this.lblUsername.Text = "Ramenaca";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -99,22 +103,23 @@
             this.lbUserRank.AutoSize = true;
             this.lbUserRank.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbUserRank.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.lbUserRank.Location = new System.Drawing.Point(3, 0);
+            this.lbUserRank.Location = new System.Drawing.Point(2, 0);
+            this.lbUserRank.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbUserRank.Name = "lbUserRank";
-            this.lbUserRank.Size = new System.Drawing.Size(179, 60);
+            this.lbUserRank.Size = new System.Drawing.Size(121, 39);
             this.lbUserRank.TabIndex = 34;
             this.lbUserRank.Text = "#1";
             this.lbUserRank.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UC_RankItems
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UC_RankItems";
-            this.Size = new System.Drawing.Size(748, 65);
+            this.Size = new System.Drawing.Size(502, 42);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
