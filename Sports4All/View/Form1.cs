@@ -87,7 +87,8 @@ namespace Sports4All
         private void Btn_Subscriptions_Click(object sender, EventArgs e)
         {
             MoveSidePanel(button4);
-            BringUcToFront<UC_Subscriptions>("UC_Subscriptions");
+            //BringUcToFront<UC_Subscriptions>("UC_Subscriptions");
+            BringUcToFront<UC_EventEvaluation>("UC_EventEvaluation");
         }
 
         private void Btn_MyEvents_Click(object sender, EventArgs e)
