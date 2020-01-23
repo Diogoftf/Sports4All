@@ -41,7 +41,7 @@ namespace Sports4All
         {
             if (!DesignMode)
             {
-                populateUC();
+              //  populateUC();
             }
         }
     }

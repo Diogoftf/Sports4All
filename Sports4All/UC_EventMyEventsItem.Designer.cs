@@ -147,7 +147,7 @@
             // 
             this.lblEventOwner.AutoSize = true;
             this.lblEventOwner.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventOwner.Location = new System.Drawing.Point(4, 74);
+            this.lblEventOwner.Location = new System.Drawing.Point(8, 74);
             this.lblEventOwner.Name = "lblEventOwner";
             this.lblEventOwner.Size = new System.Drawing.Size(64, 20);
             this.lblEventOwner.TabIndex = 4;
@@ -157,7 +157,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblDate.Location = new System.Drawing.Point(8, 48);
+            this.lblDate.Location = new System.Drawing.Point(17, 48);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(49, 20);
             this.lblDate.TabIndex = 3;
@@ -167,7 +167,7 @@
             // 
             this.lblstart_Hour.AutoSize = true;
             this.lblstart_Hour.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblstart_Hour.Location = new System.Drawing.Point(63, 48);
+            this.lblstart_Hour.Location = new System.Drawing.Point(74, 48);
             this.lblstart_Hour.Name = "lblstart_Hour";
             this.lblstart_Hour.Size = new System.Drawing.Size(130, 20);
             this.lblstart_Hour.TabIndex = 2;

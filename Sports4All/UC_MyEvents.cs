@@ -92,6 +92,24 @@ namespace Sports4All
                 listitems[i].DisableButtonEvaluation();
                 flpListMyEvents.Controls.Add(listitems[i]);
             }
+            for (var i = 0; i < completedEventsCounts; i++)
+            {
+                //inverter if ; APENAS PARA TESTES, POUCOS DADOS NA BD
+                if (eventsController.VerifyEvaluation(completedEvents.ToList()[i].EventId, _username)) { 
+                listitems[i] = new UC_EventMyEventsItem
+                {
+                    Avaliar = "Avaliar",
+                    EventID = Convert.ToString(completedEvents.ToList()[i].EventId),
+                    Owner = completedEvents.ToList()[i].Reserve.UserId,
+                    Sport = completedEvents.ToList()[i].Reserve.Sport.Name,
+                    Date = completedEvents.ToList()[i].StartDate.ToLongDateString(),
+                    Park = completedEvents.ToList()[i].Reserve.Ground.Park.Name,
+                    MessageInfo = "Evento já avaliado!",
+                    Change_BackColor = Color.Green
+                }; 
+                listitems[i].DisableButtonEvaluation();
+                flpListMyEvents.Controls.Add(listitems[i]);
+            }
 
             }
         }
@@ -154,6 +172,9 @@ namespace Sports4All
                 };
                 flpListMyEvents.Controls.Add(listitems[i]);
             }
+            */
+
+            //testeQuery();
         }
 
         private void btnFinishedEvents_Click(object sender, EventArgs e)

@@ -67,7 +67,7 @@
             this.cbLocation.Name = "cbLocation";
             this.cbLocation.Size = new System.Drawing.Size(215, 27);
             this.cbLocation.TabIndex = 2;
-            //this.cbLocation.SelectionChangeCommitted += new System.EventHandler(this.SortItemChanged);
+            this.cbLocation.SelectionChangeCommitted += new System.EventHandler(this.SortItemChanged);
             // 
             // cbScore
             // 
@@ -79,7 +79,7 @@
             this.cbScore.Name = "cbScore";
             this.cbScore.Size = new System.Drawing.Size(173, 27);
             this.cbScore.TabIndex = 3;
-            //this.cbScore.SelectionChangeCommitted += new System.EventHandler(this.SortItemChanged);
+            this.cbScore.SelectionChangeCommitted += new System.EventHandler(this.SortItemChanged);
             // 
             // flpSportsGround
             // 
