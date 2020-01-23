@@ -28,15 +28,16 @@ namespace Sports4All.Controller
         public IDictionary<string,string> GetUserClassification(string userId)
         {
             IDictionary<string, string> userClassifications = new Dictionary<string, string>();
-            using (var db = new ModelContext())
-            {
-                var query = db.Users.Find(userId);
-                var userSkill = query.myStats.skillAverage.ToString();
-                var userFairPlay = query.myStats.fairplayAverage.ToString();
-                userClassifications.Add("Skill",userSkill);
-                userClassifications.Add("FairPlay", userFairPlay);
-                return userClassifications;
-            }
+            //using (var db = new ModelContext())
+            //{
+            //    var query = db.Users.Find(userId);
+            //    var userSkill = query.myStats.skillAverage.ToString();
+            //    var userFairPlay = query.myStats.fairplayAverage.ToString();
+            //    userClassifications.Add("Skill",userSkill);
+            //    userClassifications.Add("FairPlay", userFairPlay);
+            //    return userClassifications;
+            //}
+            return null;
         }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Sports4All
 {
-    public class GroundEvaluation : Evaluation
+    public class ParkEvaluation : Evaluation
     {
         public int Quality { get; set; }
         public int Price { get; set; }
-        public Ground Ground { get; set; }
-        public int GroundId { get; set; }
+        public Park Park { get; set; }
+        public int ParkId { get; set; }
 
     }
 }

@@ -52,12 +52,15 @@
                         PhoneNumber = c.Int(nullable: false),
                         CountyId = c.Int(nullable: false),
                         PictureId = c.Int(nullable: false),
+                        UserClassification_ClassificationId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Username)
                 .ForeignKey("dbo.Counties", t => t.CountyId)
                 .ForeignKey("dbo.Pictures", t => t.PictureId)
+                .ForeignKey("dbo.UserClassifications", t => t.UserClassification_ClassificationId)
                 .Index(t => t.CountyId)
-                .Index(t => t.PictureId);
+                .Index(t => t.PictureId)
+                .Index(t => t.UserClassification_ClassificationId);
             
             CreateTable(
                 "dbo.Events",
@@ -83,8 +86,10 @@
                         UserId = c.String(nullable: false, maxLength: 128),
                         SportId = c.Int(nullable: false),
                         GroundId = c.Int(nullable: false),
+                        Use_UseId = c.Int(),
                     })
                 .PrimaryKey(t => t.ReserveId)
+                .ForeignKey("dbo.Uses", t => t.Use_UseId)
                 .ForeignKey("dbo.Grounds", t => t.GroundId)
                 .ForeignKey("dbo.Sports", t => t.SportId)
                 .ForeignKey("dbo.Users", t => t.UserId)
@@ -92,7 +97,8 @@
                 .Index(t => t.ReserveId)
                 .Index(t => t.UserId)
                 .Index(t => t.SportId)
-                .Index(t => t.GroundId);
+                .Index(t => t.GroundId)
+                .Index(t => t.Use_UseId);
             
             CreateTable(
                 "dbo.Grounds",
@@ -112,18 +118,19 @@
                 "dbo.Parks",
                 c => new
                     {
-                        ParkId = c.Int(nullable: false, identity: true),
+                        ParkId = c.Int(nullable: false),
                         Name = c.String(),
                         Description = c.String(),
-                        Quality = c.String(),
                         Picture_PictureId = c.Int(),
-                        Adress_AddressId = c.Int(),
+                        Address_AddressId = c.Int(),
                     })
                 .PrimaryKey(t => t.ParkId)
                 .ForeignKey("dbo.Pictures", t => t.Picture_PictureId)
-                .ForeignKey("dbo.Addresses", t => t.Adress_AddressId)
+                .ForeignKey("dbo.ParkClassifications", t => t.ParkId)
+                .ForeignKey("dbo.Addresses", t => t.Address_AddressId)
+                .Index(t => t.ParkId)
                 .Index(t => t.Picture_PictureId)
-                .Index(t => t.Adress_AddressId);
+                .Index(t => t.Address_AddressId);
             
             CreateTable(
                 "dbo.Materials",
@@ -131,6 +138,7 @@
                     {
                         MaterialId = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        Available = c.Int(nullable: false),
                         Price = c.Double(nullable: false),
                         SportId = c.Int(nullable: false),
                         ParkId = c.Int(nullable: false),
@@ -158,26 +166,24 @@
                 c => new
                     {
                         PictureId = c.Int(nullable: false, identity: true),
-                        PictureBody = c.String(),
-                        FileName = c.String(),
+                        Path = c.String(),
                     })
                 .PrimaryKey(t => t.PictureId);
             
             CreateTable(
-                "dbo.Classifications",
+                "dbo.Uses",
                 c => new
                     {
-                        idClassification = c.Int(nullable: false, identity: true),
-                        rankClassification = c.Int(nullable: false),
-                        points = c.Double(nullable: false),
-                        racio = c.Double(nullable: false),
-                        fairplayAverage = c.Double(nullable: false),
-                        skillAverage = c.Double(nullable: false),
-                        userId_Username = c.String(nullable: false, maxLength: 128),
+                        UseId = c.Int(nullable: false, identity: true),
+                        Quantity = c.Int(nullable: false),
+                        MaterialId = c.Int(nullable: false),
+                        ReserveId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.idClassification)
-                .ForeignKey("dbo.Users", t => t.userId_Username)
-                .Index(t => t.userId_Username);
+                .PrimaryKey(t => t.UseId)
+                .ForeignKey("dbo.Materials", t => t.MaterialId)
+                .ForeignKey("dbo.Reserves", t => t.ReserveId)
+                .Index(t => t.MaterialId)
+                .Index(t => t.ReserveId);
             
             CreateTable(
                 "dbo.SportsGrounds",
@@ -225,7 +231,7 @@
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.GroundEvaluations",
+                "dbo.ParkEvaluations",
                 c => new
                     {
                         EvaluationId = c.Int(nullable: false),
@@ -233,30 +239,54 @@
                         EventId = c.Int(nullable: false),
                         Quality = c.Int(nullable: false),
                         Price = c.Int(nullable: false),
-                        GroundId = c.Int(nullable: false),
+                        ParkId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.EvaluationId)
                 .ForeignKey("dbo.Users", t => t.EvaluatorId)
                 .ForeignKey("dbo.Events", t => t.EventId)
-                .ForeignKey("dbo.Grounds", t => t.GroundId)
+                .ForeignKey("dbo.Parks", t => t.ParkId)
                 .Index(t => t.EvaluatorId)
                 .Index(t => t.EventId)
-                .Index(t => t.GroundId);
+                .Index(t => t.ParkId);
+            
+            CreateTable(
+                "dbo.UserClassifications",
+                c => new
+                    {
+                        ClassificationId = c.Int(nullable: false),
+                        Points = c.Double(nullable: false),
+                        Ratio = c.Double(nullable: false),
+                        FairplayAverage = c.Double(nullable: false),
+                        SkillAverage = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.ClassificationId);
+            
+            CreateTable(
+                "dbo.ParkClassifications",
+                c => new
+                    {
+                        ClassificationId = c.Int(nullable: false),
+                        Points = c.Double(nullable: false),
+                        Ratio = c.Double(nullable: false),
+                        QualityAverage = c.Double(nullable: false),
+                        PriceAverage = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.ClassificationId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.GroundEvaluations", "GroundId", "dbo.Grounds");
-            DropForeignKey("dbo.GroundEvaluations", "EventId", "dbo.Events");
-            DropForeignKey("dbo.GroundEvaluations", "EvaluatorId", "dbo.Users");
+            DropForeignKey("dbo.ParkEvaluations", "ParkId", "dbo.Parks");
+            DropForeignKey("dbo.ParkEvaluations", "EventId", "dbo.Events");
+            DropForeignKey("dbo.ParkEvaluations", "EvaluatorId", "dbo.Users");
             DropForeignKey("dbo.UserEvaluations", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserEvaluations", "EventId", "dbo.Events");
             DropForeignKey("dbo.UserEvaluations", "EvaluatorId", "dbo.Users");
-            DropForeignKey("dbo.Parks", "Adress_AddressId", "dbo.Addresses");
+            DropForeignKey("dbo.Parks", "Address_AddressId", "dbo.Addresses");
             DropForeignKey("dbo.Addresses", "CountyId", "dbo.Counties");
+            DropForeignKey("dbo.Users", "UserClassification_ClassificationId", "dbo.UserClassifications");
             DropForeignKey("dbo.Users", "PictureId", "dbo.Pictures");
-            DropForeignKey("dbo.Classifications", "userId_Username", "dbo.Users");
             DropForeignKey("dbo.EventsUsers", "UserRefId", "dbo.Users");
             DropForeignKey("dbo.EventsUsers", "EventRefId", "dbo.Events");
             DropForeignKey("dbo.Reserves", "ReserveId", "dbo.Events");
@@ -264,6 +294,10 @@
             DropForeignKey("dbo.Reserves", "SportId", "dbo.Sports");
             DropForeignKey("dbo.Reserves", "GroundId", "dbo.Grounds");
             DropForeignKey("dbo.Grounds", "ParkId", "dbo.Parks");
+            DropForeignKey("dbo.Parks", "ParkId", "dbo.ParkClassifications");
+            DropForeignKey("dbo.Reserves", "Use_UseId", "dbo.Uses");
+            DropForeignKey("dbo.Uses", "ReserveId", "dbo.Reserves");
+            DropForeignKey("dbo.Uses", "MaterialId", "dbo.Materials");
             DropForeignKey("dbo.Materials", "SportId", "dbo.Sports");
             DropForeignKey("dbo.Sports", "Picture_PictureId", "dbo.Pictures");
             DropForeignKey("dbo.Parks", "Picture_PictureId", "dbo.Pictures");
@@ -273,9 +307,9 @@
             DropForeignKey("dbo.Materials", "ParkId", "dbo.Parks");
             DropForeignKey("dbo.Users", "CountyId", "dbo.Counties");
             DropForeignKey("dbo.Counties", "DistrictId", "dbo.Districts");
-            DropIndex("dbo.GroundEvaluations", new[] { "GroundId" });
-            DropIndex("dbo.GroundEvaluations", new[] { "EventId" });
-            DropIndex("dbo.GroundEvaluations", new[] { "EvaluatorId" });
+            DropIndex("dbo.ParkEvaluations", new[] { "ParkId" });
+            DropIndex("dbo.ParkEvaluations", new[] { "EventId" });
+            DropIndex("dbo.ParkEvaluations", new[] { "EvaluatorId" });
             DropIndex("dbo.UserEvaluations", new[] { "UserId" });
             DropIndex("dbo.UserEvaluations", new[] { "EventId" });
             DropIndex("dbo.UserEvaluations", new[] { "EvaluatorId" });
@@ -283,27 +317,33 @@
             DropIndex("dbo.EventsUsers", new[] { "EventRefId" });
             DropIndex("dbo.SportsGrounds", new[] { "GroundRefId" });
             DropIndex("dbo.SportsGrounds", new[] { "SportRefId" });
-            DropIndex("dbo.Classifications", new[] { "userId_Username" });
+            DropIndex("dbo.Uses", new[] { "ReserveId" });
+            DropIndex("dbo.Uses", new[] { "MaterialId" });
             DropIndex("dbo.Sports", new[] { "Picture_PictureId" });
             DropIndex("dbo.Materials", new[] { "ParkId" });
             DropIndex("dbo.Materials", new[] { "SportId" });
-            DropIndex("dbo.Parks", new[] { "Adress_AddressId" });
+            DropIndex("dbo.Parks", new[] { "Address_AddressId" });
             DropIndex("dbo.Parks", new[] { "Picture_PictureId" });
+            DropIndex("dbo.Parks", new[] { "ParkId" });
             DropIndex("dbo.Grounds", new[] { "Picture_PictureId" });
             DropIndex("dbo.Grounds", new[] { "ParkId" });
+            DropIndex("dbo.Reserves", new[] { "Use_UseId" });
             DropIndex("dbo.Reserves", new[] { "GroundId" });
             DropIndex("dbo.Reserves", new[] { "SportId" });
             DropIndex("dbo.Reserves", new[] { "UserId" });
             DropIndex("dbo.Reserves", new[] { "ReserveId" });
+            DropIndex("dbo.Users", new[] { "UserClassification_ClassificationId" });
             DropIndex("dbo.Users", new[] { "PictureId" });
             DropIndex("dbo.Users", new[] { "CountyId" });
             DropIndex("dbo.Counties", new[] { "DistrictId" });
             DropIndex("dbo.Addresses", new[] { "CountyId" });
-            DropTable("dbo.GroundEvaluations");
+            DropTable("dbo.ParkClassifications");
+            DropTable("dbo.UserClassifications");
+            DropTable("dbo.ParkEvaluations");
             DropTable("dbo.UserEvaluations");
             DropTable("dbo.EventsUsers");
             DropTable("dbo.SportsGrounds");
-            DropTable("dbo.Classifications");
+            DropTable("dbo.Uses");
             DropTable("dbo.Pictures");
             DropTable("dbo.Sports");
             DropTable("dbo.Materials");

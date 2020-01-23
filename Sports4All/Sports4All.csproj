@@ -109,16 +109,17 @@
     <Compile Include="Evaluation.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Ground.cs" />
-    <Compile Include="GroundEvaluation.cs" />
+    <Compile Include="Migrations\202001221831210_M001.cs" />
+    <Compile Include="Migrations\202001221831210_M001.designer.cs">
+      <DependentUpon>202001221831210_M001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParkEvaluation.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Material.cs" />
-    <Compile Include="Migrations\202001201252276_M001.cs" />
-    <Compile Include="Migrations\202001201252276_M001.designer.cs">
-      <DependentUpon>202001201252276_M001.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="Park.cs" />
+    <Compile Include="ParkClassification.cs" />
     <Compile Include="Picture.cs" />
     <Compile Include="Points.cs" />
     <Compile Include="Controller\RankController.cs" />
@@ -233,7 +234,9 @@
     <Compile Include="UC_MyEvents.Designer.cs">
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Use.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserClassification.cs" />
     <Compile Include="UserEvaluation.cs" />
     <Compile Include="View\UserControls_Items\UC_EventItem.cs">
       <SubType>UserControl</SubType>
@@ -282,8 +285,8 @@
     <EmbeddedResource Include="Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001201252276_M001.resx">
-      <DependentUpon>202001201252276_M001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001221831210_M001.resx">
+      <DependentUpon>202001221831210_M001.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_HeaderUser.resx">
       <DependentUpon>UC_HeaderUser.cs</DependentUpon>

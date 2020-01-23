@@ -15,7 +15,6 @@ namespace Sports4All
         public int ParkId { get; set; }
         public virtual Picture Picture { get; set; }
         public  ICollection<Reserve> Reserves { get; set; }
-        public ICollection<GroundEvaluation> GroundEvaluations { get; set; }
 
     }
 }

@@ -61,7 +61,7 @@ namespace Sports4All.Controller
                 var Picture = (from s in ctx.Pictures
                     where s.PictureId == PictureId
                     select s).FirstOrDefault();
-                return Picture.PictureBody;
+                return Picture.Path;
             }
         }
     }
