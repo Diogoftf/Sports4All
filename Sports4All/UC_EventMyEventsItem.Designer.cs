@@ -126,10 +126,10 @@
             // lblModalityName
             // 
             this.lblModalityName.AutoSize = true;
-            this.lblModalityName.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblModalityName.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.lblModalityName.Location = new System.Drawing.Point(675, 3);
             this.lblModalityName.Name = "lblModalityName";
-            this.lblModalityName.Size = new System.Drawing.Size(98, 28);
+            this.lblModalityName.Size = new System.Drawing.Size(78, 23);
             this.lblModalityName.TabIndex = 10;
             this.lblModalityName.Text = "Futebol";
             // 
@@ -147,7 +147,7 @@
             // 
             this.lblEventOwner.AutoSize = true;
             this.lblEventOwner.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventOwner.Location = new System.Drawing.Point(4, 74);
+            this.lblEventOwner.Location = new System.Drawing.Point(8, 74);
             this.lblEventOwner.Name = "lblEventOwner";
             this.lblEventOwner.Size = new System.Drawing.Size(64, 20);
             this.lblEventOwner.TabIndex = 4;
@@ -157,7 +157,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblDate.Location = new System.Drawing.Point(8, 48);
+            this.lblDate.Location = new System.Drawing.Point(17, 48);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(49, 20);
             this.lblDate.TabIndex = 3;
@@ -167,7 +167,7 @@
             // 
             this.lblstart_Hour.AutoSize = true;
             this.lblstart_Hour.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblstart_Hour.Location = new System.Drawing.Point(63, 48);
+            this.lblstart_Hour.Location = new System.Drawing.Point(74, 48);
             this.lblstart_Hour.Name = "lblstart_Hour";
             this.lblstart_Hour.Size = new System.Drawing.Size(130, 20);
             this.lblstart_Hour.TabIndex = 2;
@@ -176,10 +176,10 @@
             // lblSportsGround
             // 
             this.lblSportsGround.AutoSize = true;
-            this.lblSportsGround.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblSportsGround.Location = new System.Drawing.Point(277, 41);
+            this.lblSportsGround.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.lblSportsGround.Location = new System.Drawing.Point(247, 41);
             this.lblSportsGround.Name = "lblSportsGround";
-            this.lblSportsGround.Size = new System.Drawing.Size(440, 28);
+            this.lblSportsGround.Size = new System.Drawing.Size(347, 23);
             this.lblSportsGround.TabIndex = 0;
             this.lblSportsGround.Text = "Parque Desportivo de Água de Pena";
             // 
