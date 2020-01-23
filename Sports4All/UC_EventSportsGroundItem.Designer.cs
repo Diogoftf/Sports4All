@@ -113,7 +113,7 @@
             // lblSpaceAvailableValue
             // 
             this.lblSpaceAvailableValue.AutoSize = true;
-            this.lblSpaceAvailableValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpaceAvailableValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpaceAvailableValue.Location = new System.Drawing.Point(581, 36);
             this.lblSpaceAvailableValue.Name = "lblSpaceAvailableValue";
             this.lblSpaceAvailableValue.Size = new System.Drawing.Size(52, 23);
@@ -124,10 +124,10 @@
             // lblSpaceAvailable
             // 
             this.lblSpaceAvailable.AutoSize = true;
-            this.lblSpaceAvailable.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpaceAvailable.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpaceAvailable.Location = new System.Drawing.Point(479, 36);
             this.lblSpaceAvailable.Name = "lblSpaceAvailable";
-            this.lblSpaceAvailable.Size = new System.Drawing.Size(96, 23);
+            this.lblSpaceAvailable.Size = new System.Drawing.Size(123, 29);
             this.lblSpaceAvailable.TabIndex = 6;
             this.lblSpaceAvailable.Text = "Lotação:";
             this.lblSpaceAvailable.Click += new System.EventHandler(this.lblSpaceAvailable_Click);
@@ -188,10 +188,10 @@
             // lblModalityName
             // 
             this.lblModalityName.AutoSize = true;
-            this.lblModalityName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblModalityName.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblModalityName.Location = new System.Drawing.Point(12, 9);
             this.lblModalityName.Name = "lblModalityName";
-            this.lblModalityName.Size = new System.Drawing.Size(82, 23);
+            this.lblModalityName.Size = new System.Drawing.Size(105, 29);
             this.lblModalityName.TabIndex = 0;
             this.lblModalityName.Text = "Futebol";
             this.lblModalityName.Click += new System.EventHandler(this.label3_Click);
