@@ -15,6 +15,21 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,6 +52,10 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
@@ -65,6 +84,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
@@ -100,8 +120,8 @@
     <Compile Include="Controller\BrowseParksController.cs" />
     <Compile Include="Controller\EvaluationController.cs" />
     <Compile Include="Controller\ImagesController.cs" />
+    <Compile Include="Controller\MyEventsController.cs" />
     <Compile Include="Controller\ParkDescriptionController.cs" />
-    <Compile Include="Controller\UserController.cs" />
     <Compile Include="Core\DropShaddow.cs" />
     <Compile Include="County.cs" />
     <Compile Include="District.cs" />
@@ -125,6 +145,12 @@
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
     <Compile Include="Sport.cs" />
+    <Compile Include="UC_NextEventsandReserveItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NextEventsandReserveItem.Designer.cs">
+      <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_HeaderUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,6 +180,12 @@
     </Compile>
     <Compile Include="UC_HomeMyEventsItem.Designer.cs">
       <DependentUpon>UC_HomeMyEventsItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_UserinEventItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_UserinEventItem.Designer.cs">
+      <DependentUpon>UC_UserinEventItem.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_Rank.cs">
       <SubType>UserControl</SubType>
@@ -190,6 +222,12 @@
     </Compile>
     <Compile Include="UC_SportsgroundDesc.Designer.cs">
       <DependentUpon>UC_SportsgroundDesc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_EventDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_EventDetails.Designer.cs">
+      <DependentUpon>UC_EventDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_UserProfile.cs">
       <SubType>UserControl</SubType>
@@ -236,6 +274,7 @@
     <Compile Include="Use.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserClassification.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="UserEvaluation.cs" />
     <Compile Include="View\UserControls_Items\UC_EventItem.cs">
       <SubType>UserControl</SubType>
@@ -287,6 +326,9 @@
     <EmbeddedResource Include="Migrations\202001241216501_M001.resx">
       <DependentUpon>202001241216501_M001.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_NextEventsandReserveItem.resx">
+      <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_HeaderUser.resx">
       <DependentUpon>UC_HeaderUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,6 +350,9 @@
     <EmbeddedResource Include="UC_MyEvents.resx">
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_UserinEventItem.resx">
+      <DependentUpon>UC_UserinEventItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_PlayerEvaluationItem.resx">
       <DependentUpon>UC_PlayerEvaluationItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_SportsgroundEvItem.resx">
       <DependentUpon>UC_SportsgroundEvItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_EventDetails.resx">
+      <DependentUpon>UC_EventDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_UserProfile.resx">
       <DependentUpon>UC_UserProfile.cs</DependentUpon>
@@ -387,7 +435,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
@@ -425,6 +472,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\goal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sportsground1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

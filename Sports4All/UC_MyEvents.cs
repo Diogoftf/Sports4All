@@ -1,163 +1,172 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
     public partial class UC_MyEvents : UserControl
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+
+        private ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
+        private string _username { get; set; } // ID que vem 
+        private readonly MyEventsController eventsController = new MyEventsController();
         public UC_MyEvents()
         {
             InitializeComponent();
-            btnFinishedEvents.Select();
-            btnFinishedEvents.Focus();
+            _username = "andreMx";
         }
 
+        private int _totalUserEvents { get; set; }
 
         private void button_EventosTerminados_Click(object sender, EventArgs e)
         {
-
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-
         }
 
         private void listView1_SelectedIndexChanged_2(object sender, EventArgs e)
         {
-
         }
 
         private void listView1_SelectedIndexChanged_3(object sender, EventArgs e)
         {
-
         }
 
         private void objectListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
-
-        }
-
-        private void Minhas_Partidas_Load(object sender, EventArgs e)
-        {
-
-            PopulateList();
-
-
-        }
-
-
-
-        private void PopulateList()
-        {
-            UC_EventMyEventsItem[] listitems = new UC_EventMyEventsItem[20];
-
-            for (int i = 0; i < listitems.Length; i++)
-            {
-                if (i % 2 == 0)
-                {
-
-
-
-                    listitems[i] = new UC_EventMyEventsItem();
-                    // listitems[i].Day = "01";
-                    listitems[i].Avaliar = "Avaliar";
-
-                    //add to flowlayout
-                    if (flpListMyEvents.Controls.Count < 0)
-                    {
-
-                        flpListMyEvents.Controls.Clear();
-                    }
-                    else
-                    {
-                        flpListMyEvents.Controls.Add(listitems[i]);
-                    }
-
-                    //*********************lbRemainingTimeEvaluation
-                }
-                else
-                {
-                    listitems[i] = new UC_EventMyEventsItem();
-                    // listitems[i].Day = "01";
-                    listitems[i].Avaliar = "Avaliado!";
-                    listitems[i].Change_BackColor = Color.LightGreen;
-                    listitems[i].Name = "uc_uniqueRow_MinhasPartidas" + i;
-
-
-
-                    //add to flowlayout
-                    if (flpListMyEvents.Controls.Count < 0)
-                    {
-
-                        flpListMyEvents.Controls.Clear();
-                    }
-                    else
-                    {
-                        flpListMyEvents.Controls.Add(listitems[i]);
-                    }
-
-
-                }
-
-            }
         }
 
 
         private void button_ProximosEventos_Click(object sender, EventArgs e)
         {
-
             flpListMyEvents.Controls.Clear();
 
             // filtrar apenas pelas próximas partidas!
+        }
 
+        private void UC_MyEvents_Load(object sender, EventArgs e)
+        {
+            if (!DesignMode) FinishedEvents();
+        }
+
+        private void FinishedEvents()
+        {
+            if (flpListMyEvents.Controls.Count > 0)
+                flpListMyEvents.Controls.Clear();
+            var completedEvents = eventsController.RetrieveCompletedEvents(_username);
+            var completedEventsCounts = completedEvents.Count;
+
+            var listitems = new UC_EventMyEventsItem[completedEventsCounts];
+
+            for (var i = 0; i < completedEventsCounts; i++)
+            {
+                //inverter if ; APENAS PARA TESTES, POUCOS DADOS NA BD
+                if (eventsController.VerifyEvaluation(completedEvents.ToList()[i].EventId, _username))
+                {
+                    listitems[i] = new UC_EventMyEventsItem
+                    {
+                        Avaliar = "Avaliar",
+                        EventID = Convert.ToString(completedEvents.ToList()[i].EventId),
+                        Owner = completedEvents.ToList()[i].Reserve.UserId,
+                        Sport = completedEvents.ToList()[i].Reserve.Sport.Name,
+                        Date = completedEvents.ToList()[i].StartDate.ToLongDateString(),
+                        Park = completedEvents.ToList()[i].Reserve.Ground.Park.Name,
+                        MessageInfo = "Evento já avaliado!",
+                        Change_BackColor = Color.Green
+                    };
+                    listitems[i].DisableButtonEvaluation();
+                    flpListMyEvents.Controls.Add(listitems[i]);
+                }
+
+            }
+        }
+
+        private void MyReserves()
+        {
+            if (flpListMyEvents.Controls.Count > 0)
+                flpListMyEvents.Controls.Clear();
+            var myReserves = eventsController.RetrieveUserReserves(_username);
+            var myReservesCounts = myReserves.Count;
+            var listitems = new UC_NextEventsandReserveItem[myReservesCounts];
+
+            for (var i = 0; i < myReservesCounts; i++)
+            {
+                var usersCount = myReserves.ToList()[i].Event.Users.Count;
+                var maxUsers = myReserves.ToList()[i].Event.MaxPlayers;
+                var hour = myReserves.ToList()[i].Event.StartDate.ToShortTimeString();
+                var month = myReserves.ToList()[i].Event.StartDate.ToLongDateString();
+                month = month.Substring(6, 3).ToUpper();
+                listitems[i] = new UC_NextEventsandReserveItem
+                {
+                    Day = Convert.ToString(myReserves.ToList()[i].Event.StartDate.Day),
+                    Month = month,
+                    Hour = myReserves.ToList()[i].Event.StartDate.ToShortTimeString(),
+                    Owner = myReserves.ToList()[i].UserId,
+                    SportGround = myReserves.ToList()[i].Ground.Park.Name,
+                    Sport = myReserves.ToList()[i].Sport.Name,
+                    Lotation = usersCount + "/" + maxUsers,
+                    EventID = Convert.ToString(myReserves.ToList()[i].Event.EventId)
+                };
+                flpListMyEvents.Controls.Add(listitems[i]);
+            }
         }
 
         private void btnNextEvents_Click(object sender, EventArgs e)
         {
-/*
-            using (QxP1IZ6nAWEntities db = new QxP1IZ6nAWEntities())
+            if (flpListMyEvents.Controls.Count > 0)
+                flpListMyEvents.Controls.Clear();
+
+            var nextEvents = eventsController.RetrieveNextEvents(_username);
+            var nextEventsCount = nextEvents.Count;
+            var listitems = new UC_NextEventsandReserveItem[nextEventsCount];
+            for (var i = 0; i < nextEventsCount; i++)
             {
-                User art = db.User.Where((x) => x.id == 1).FirstOrDefault();
-
-                MessageBox.Show("Teste Query ao User" + art.Address_id);
+                var usersCount = nextEvents.ToList()[i].Users.Count;
+                var maxUsers = nextEvents.ToList()[i].MaxPlayers;
+                var hour = nextEvents.ToList()[i].StartDate.ToShortTimeString();
+                var month = nextEvents.ToList()[i].StartDate.ToLongDateString();
+                month = month.Substring(6, 3).ToUpper();
+                listitems[i] = new UC_NextEventsandReserveItem
+                {
+                    Day = Convert.ToString(nextEvents.ToList()[i].StartDate.Day),
+                    Month = month,
+                    Hour = nextEvents.ToList()[i].StartDate.ToShortTimeString(),
+                    Owner = nextEvents.ToList()[i].Reserve.UserId,
+                    SportGround = nextEvents.ToList()[i].Reserve.Ground.Park.Name,
+                    Sport = nextEvents.ToList()[i].Reserve.Sport.Name,
+                    Lotation = usersCount + "/" + maxUsers,
+                    EventID = Convert.ToString(nextEvents.ToList()[i].EventId)
+                };
+                flpListMyEvents.Controls.Add(listitems[i]);
             }
-            */
-
-            //testeQuery();
         }
-
-        /*
-        public void testeQuery()
+        private void btnFinishedEvents_Click(object sender, EventArgs e)
         {
+            if (flpListMyEvents.Controls.Count > 0)
+                flpListMyEvents.Controls.Clear();
 
-            using (QxP1IZ6nAWEntities db = new QxP1IZ6nAWEntities())
-            {
-                Event art = db.Event.Where((x) => x.id == 1).FirstOrDefault();
-
-                MessageBox.Show("Teste Query ao Evento" + art.Address_id);
-            }
-
-
+            if (!DesignMode) FinishedEvents();
         }
-        */
+
+        private void btnMinhasReservas_Click(object sender, EventArgs e)
+        {
+            if (!DesignMode) MyReserves();
+        }
+
+
     }
 }
+

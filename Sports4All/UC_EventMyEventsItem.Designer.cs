@@ -177,7 +177,7 @@
             // 
             this.lblSportsGround.AutoSize = true;
             this.lblSportsGround.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.lblSportsGround.Location = new System.Drawing.Point(247, 41);
+            this.lblSportsGround.Location = new System.Drawing.Point(277, 41);
             this.lblSportsGround.Name = "lblSportsGround";
             this.lblSportsGround.Size = new System.Drawing.Size(347, 23);
             this.lblSportsGround.TabIndex = 0;

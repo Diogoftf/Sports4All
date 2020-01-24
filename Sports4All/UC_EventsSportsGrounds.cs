@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
@@ -7,13 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
     public partial class UC_EventsSportsGrounds : UserControl
     {
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsModality));
-
+        private readonly MyEventsController _eventsController = new MyEventsController();
+        private ICollection<Event> _eventsList = new Collection<Event>();
+        private string _sportGround { get; set; }
         private bool _controlSub = false;
         public UC_EventsSportsGrounds()
         {
@@ -21,30 +25,40 @@ namespace Sports4All
         }
         private void Recintos_Load(object sender, EventArgs e)
         {
-
-            PopulateList();
-
+            _sportGround = "Agua de Pena";
+            _eventsList = _eventsController.EventsbyGround(_sportGround);
+            if (!DesignMode) ListEventsbyGround();
         }
 
-        private void PopulateList()
+
+
+        private void ListEventsbyGround()
         {
-            UC_EventSportsGroundItem[] listitems = new UC_EventSportsGroundItem[20];
+            if (flpEventListSportsground.Controls.Count > 0)
+                flpEventListSportsground.Controls.Clear();
+            var EventsbyGroundCount = _eventsList.Count;
 
-            for (int i = 0; i < listitems.Length; i++)
+            UC_EventSportsGroundItem[] listitems = new UC_EventSportsGroundItem[EventsbyGroundCount];
+
+            for (int i = 0; i < EventsbyGroundCount; i++)
             {
-                listitems[i] = new UC_EventSportsGroundItem();
-                listitems[i].Day = "01";
-                listitems[i].Month = "Fev";
-                //add to flowlayout
-                if (flpEventListSportsground.Controls.Count < 0)
+                var usersCount = _eventsList.ToList()[i].Users.Count;
+                var maxUsers = _eventsList.ToList()[i].MaxPlayers;
+                var hour = _eventsList.ToList()[i].StartDate.ToShortTimeString();
+                var month = _eventsList.ToList()[i].StartDate.ToLongDateString();
+                month = month.Substring(6, 3).ToUpper();
+                listitems[i] = new UC_EventSportsGroundItem
                 {
+                Owner = _eventsList.ToList()[0].Reserve.UserId,
+                SportGround = _eventsList.ToList()[0].Reserve.Ground.Park.Name,
+                Hour = _eventsList.ToList()[i].StartDate.ToShortTimeString(),
+                Day = Convert.ToString(_eventsList.ToList()[i].StartDate.Day),
+                Month = month,
+                Lotation = usersCount + "/" + maxUsers
+                };
 
-                    flpEventListSportsground.Controls.Clear();
-                }
-                else
-                {
-                    flpEventListSportsground.Controls.Add(listitems[i]);
-                }
+                if (usersCount == maxUsers) listitems[i].DisableJoinEventbtn(); // remove botao para se juntar ao evento
+                flpEventListSportsground.Controls.Add(listitems[i]);
             }
 
         }
@@ -133,5 +147,42 @@ namespace Sports4All
         }
 
 
+
+        private void btnFootball_Click(object sender, EventArgs e)
+        {
+            if (!DesignMode)
+            {
+                _eventsList = _eventsController.EventsbyGroundandSport(_sportGround, btnFootball.Text);
+                ListEventsbyGround();
+            }
+        }
+
+        private void btnTenis_Click(object sender, EventArgs e)
+        {
+            if (!DesignMode)
+            {
+                _eventsList = _eventsController.EventsbyGroundandSport(_sportGround, btnTenis.Text);
+                ListEventsbyGround();
+            }
+        }
+
+        private void btnHandball_Click(object sender, EventArgs e)
+        {
+            if (!DesignMode)
+            {
+                _eventsList=_eventsController.EventsbyGroundandSport(_sportGround, btnHandball.Text);
+                ListEventsbyGround();
+            }
+        }
+
+        private void btnAllSports_Click(object sender, EventArgs e)
+        {
+
+            if (!DesignMode)
+            {
+                _eventsList = _eventsController.EventsbyGround(_sportGround);
+                ListEventsbyGround();
+            }
+        }
     }
 }

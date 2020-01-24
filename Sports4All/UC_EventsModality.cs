@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
     public partial class UC_EventsModality : UserControl
     {
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsModality));
+        private readonly MyEventsController _eventsController = new MyEventsController();
+        private string _sportName { get; set; }
 
         private bool _controlSub = false;
         public UC_EventsModality()
         {
+            _sportName = "Futebol"; // VALOR PARA TESTE
             InitializeComponent();
         }
 
@@ -52,9 +56,7 @@ namespace Sports4All
             {
                 btnSub.Image = ((System.Drawing.Image)(resources.GetObject("subButton.Image")));
                 _controlSub = false;
-
             }
-
         }
         private void showNotification(string title, string body)
         {
@@ -77,41 +79,45 @@ namespace Sports4All
 
         private void onLoad(object sender, EventArgs e)
         {
-            // flowlayoutpanel.autoscrool =false;
-            // flowlayoutt.horizontalScrool.Enabled = false;
-            //  // flowlayoutpanel.autoscrool =false;
-            PopulateList();
+
+            if (!DesignMode) ListEventsBySport();
 
         }
 
-        private void PopulateList()
+        private void ListEventsBySport()
         {
-            UC_EventModalityItem[] listitems = new UC_EventModalityItem[20];
+            if (flpEventListModality.Controls.Count > 0)
+                flpEventListModality.Controls.Clear();
+            var EventsbySport = _eventsController.EventsbySport(_sportName);
+            var EventsbySportCount = EventsbySport.Count;
+            UC_EventModalityItem[] listitems = new UC_EventModalityItem[EventsbySportCount];
 
-            for (int i = 0; i < listitems.Length; i++)
+            for (int i = 0; i < EventsbySportCount; i++)
             {
-                listitems[i] = new UC_EventModalityItem();
-                listitems[i].Day = "05";
-                listitems[i].Month = "Jan";
-                //add to flowlayout
-                if (flpEventListModality.Controls.Count < 0)
+                var usersCount = EventsbySport.ToList()[i].Users.Count;
+                var maxUsers = EventsbySport.ToList()[i].MaxPlayers;
+                var hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString();
+                var month = EventsbySport.ToList()[i].StartDate.ToLongDateString();
+                month = month.Substring(6, 3).ToUpper();
+                listitems[i] = new UC_EventModalityItem
                 {
+                    Owner = EventsbySport.ToList()[0].Reserve.UserId,
+                    SportGround = EventsbySport.ToList()[0].Reserve.Ground.Park.Name,
+                    Hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString(),
+                    Day = Convert.ToString(EventsbySport.ToList()[i].StartDate.Day),
+                    Month = month,
+                    Lotation = usersCount + "/" + maxUsers
 
-                    flpEventListModality.Controls.Clear();
-                }
-                else
-                {
-                    flpEventListModality.Controls.Add(listitems[i]);
-                }
+                };
+                if (usersCount == maxUsers) listitems[i].DisableJoinEventbtn(); // remove botao para se juntar ao evento
+                flpEventListModality.Controls.Add(listitems[i]);
             }
-
         }
 
+        
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
-
-
     }
 }
