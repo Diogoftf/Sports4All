@@ -47,18 +47,23 @@
             this.pbPark = new System.Windows.Forms.PictureBox();
             this.tbMaxPlayers = new System.Windows.Forms.TextBox();
             this.tbMaxAge = new System.Windows.Forms.TextBox();
-            this.tbEventDate = new System.Windows.Forms.TextBox();
             this.tbminAge = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.lbEventIDValue = new System.Windows.Forms.Label();
+            this.dtpNextEventDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpEndEventTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartEventTime = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pbPark)).BeginInit();
             this.SuspendLayout();
             // 
             // flpUsersEvent
             // 
             this.flpUsersEvent.AutoScroll = true;
-            this.flpUsersEvent.Location = new System.Drawing.Point(547, 74);
+            this.flpUsersEvent.Location = new System.Drawing.Point(693, 53);
             this.flpUsersEvent.Name = "flpUsersEvent";
             this.flpUsersEvent.Size = new System.Drawing.Size(345, 530);
             this.flpUsersEvent.TabIndex = 45;
@@ -98,7 +103,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 17F);
-            this.label1.Location = new System.Drawing.Point(646, 24);
+            this.label1.Location = new System.Drawing.Point(776, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 36);
             this.label1.TabIndex = 39;
@@ -109,7 +114,7 @@
             // 
             this.lbParkName.AutoSize = true;
             this.lbParkName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbParkName.Location = new System.Drawing.Point(54, 387);
+            this.lbParkName.Location = new System.Drawing.Point(332, 24);
             this.lbParkName.Name = "lbParkName";
             this.lbParkName.Size = new System.Drawing.Size(342, 23);
             this.lbParkName.TabIndex = 38;
@@ -207,9 +212,9 @@
             // 
             // pbPark
             // 
-            this.pbPark.Location = new System.Drawing.Point(26, 422);
+            this.pbPark.Location = new System.Drawing.Point(404, 78);
             this.pbPark.Name = "pbPark";
-            this.pbPark.Size = new System.Drawing.Size(435, 171);
+            this.pbPark.Size = new System.Drawing.Size(213, 171);
             this.pbPark.TabIndex = 46;
             this.pbPark.TabStop = false;
             // 
@@ -239,19 +244,6 @@
             this.tbMaxAge.Text = "45";
             this.tbMaxAge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbEventDate
-            // 
-            this.tbEventDate.BackColor = System.Drawing.SystemColors.Menu;
-            this.tbEventDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbEventDate.Enabled = false;
-            this.tbEventDate.Location = new System.Drawing.Point(120, 348);
-            this.tbEventDate.Name = "tbEventDate";
-            this.tbEventDate.ReadOnly = true;
-            this.tbEventDate.Size = new System.Drawing.Size(182, 21);
-            this.tbEventDate.TabIndex = 49;
-            this.tbEventDate.Text = "30 Janeiro 2020";
-            this.tbEventDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // tbminAge
             // 
             this.tbminAge.BackColor = System.Drawing.SystemColors.Menu;
@@ -280,7 +272,7 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(354, 344);
+            this.btnSaveChanges.Location = new System.Drawing.Point(325, 418);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(107, 32);
             this.btnSaveChanges.TabIndex = 52;
@@ -299,14 +291,80 @@
             this.lbEventIDValue.TabIndex = 53;
             this.lbEventIDValue.Text = "0001";
             // 
+            // dtpNextEventDate
+            // 
+            this.dtpNextEventDate.CustomFormat = "";
+            this.dtpNextEventDate.Enabled = false;
+            this.dtpNextEventDate.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.dtpNextEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNextEventDate.Location = new System.Drawing.Point(120, 345);
+            this.dtpNextEventDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpNextEventDate.Name = "dtpNextEventDate";
+            this.dtpNextEventDate.Size = new System.Drawing.Size(171, 32);
+            this.dtpNextEventDate.TabIndex = 77;
+            // 
+            // dtpEndEventTime
+            // 
+            this.dtpEndEventTime.Enabled = false;
+            this.dtpEndEventTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpEndEventTime.Location = new System.Drawing.Point(88, 483);
+            this.dtpEndEventTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpEndEventTime.Name = "dtpEndEventTime";
+            this.dtpEndEventTime.Size = new System.Drawing.Size(182, 28);
+            this.dtpEndEventTime.TabIndex = 81;
+            // 
+            // dtpStartEventTime
+            // 
+            this.dtpStartEventTime.Enabled = false;
+            this.dtpStartEventTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpStartEventTime.Location = new System.Drawing.Point(88, 422);
+            this.dtpStartEventTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpStartEventTime.Name = "dtpStartEventTime";
+            this.dtpStartEventTime.Size = new System.Drawing.Size(182, 28);
+            this.dtpStartEventTime.TabIndex = 80;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(62, 401);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 19);
+            this.label5.TabIndex = 83;
+            this.label5.Text = "Inicio do Evento:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(62, 462);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(138, 19);
+            this.label6.TabIndex = 84;
+            this.label6.Text = "Final do Evento:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "d";
+            this.dateTimePicker1.Location = new System.Drawing.Point(404, 331);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 28);
+            this.dateTimePicker1.TabIndex = 85;
+            // 
             // UC_EventsDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dtpEndEventTime);
+            this.Controls.Add(this.dtpStartEventTime);
+            this.Controls.Add(this.dtpNextEventDate);
             this.Controls.Add(this.lbEventIDValue);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.tbminAge);
-            this.Controls.Add(this.tbEventDate);
             this.Controls.Add(this.tbMaxAge);
             this.Controls.Add(this.tbMaxPlayers);
             this.Controls.Add(this.pbPark);
@@ -355,10 +413,15 @@
         private System.Windows.Forms.PictureBox pbPark;
         private System.Windows.Forms.TextBox tbMaxPlayers;
         private System.Windows.Forms.TextBox tbMaxAge;
-        private System.Windows.Forms.TextBox tbEventDate;
         private System.Windows.Forms.TextBox tbminAge;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSaveChanges;
         private System.Windows.Forms.Label lbEventIDValue;
+        private System.Windows.Forms.DateTimePicker dtpNextEventDate;
+        private System.Windows.Forms.DateTimePicker dtpEndEventTime;
+        private System.Windows.Forms.DateTimePicker dtpStartEventTime;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

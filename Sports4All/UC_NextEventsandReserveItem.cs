@@ -150,9 +150,8 @@ namespace Sports4All
 
         private void btn_CancelEvent(object sender, EventArgs e)
         {
+
             _eventsController.DeleteEvent(Convert.ToInt32(_eventId));
-
-
 
         }
     }

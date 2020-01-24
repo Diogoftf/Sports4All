@@ -12,9 +12,6 @@ namespace Sports4All
 {
     public partial class UC_EventMyEventsItem : UserControl
     {
-
-
-
         #region Properties
 
         private string _day;
@@ -28,7 +25,6 @@ namespace Sports4All
         private string _Park;
         private string _ButtonEvaluation;
         private string _messageInfo;
-
 
         public string MessageInfo
         {

@@ -120,8 +120,7 @@ namespace Sports4All.Controller
                 return EventsbyGroundt;
             }
         }
-        //falta testar
-        public void UpdateEventRecord(int ReserveId, int maxAge,int minAge ,int maxPlayers)
+        public void UpdateEventRecord(int ReserveId, int maxAge,int minAge ,int maxPlayers,DateTime startDate,DateTime endDate)
         {
             using (var context = new ModelContext())
             {
@@ -130,11 +129,13 @@ namespace Sports4All.Controller
                     .Include("Event").ToList();
                 reserveRecord[0].Event.MaxAge = maxAge;
                 reserveRecord[0].Event.MinAge = minAge;
-                reserveRecord[0].Event.MaxPlayers = maxPlayers; 
-              context.SaveChanges();
+                reserveRecord[0].Event.MaxPlayers = maxPlayers;
+                reserveRecord[0].Event.StartDate = startDate;
+                reserveRecord[0].Event.EndDate = endDate;
+                context.SaveChanges();
             }
         }
-        //**falta testar!!!
+        //**nao funciona!!!! Corrigir o Delete
         public void DeleteEvent(int EventId)
         {
             using (var context = new ModelContext())
@@ -142,7 +143,6 @@ namespace Sports4All.Controller
                 var eventRecord = context.Events
                     .Where(a => a.EventId == EventId)
                     .FirstOrDefault();
-
                 context.Events.Remove(eventRecord);
                 context.SaveChanges();
             }

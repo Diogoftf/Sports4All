@@ -30,19 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_UserinEventItem));
             this.plPlayerEvaluation = new System.Windows.Forms.Panel();
+            this.cpbPlayer = new Sports4All.CircularPictureBox();
             this.lblUserRankingValue = new System.Windows.Forms.Label();
             this.lblRanking = new System.Windows.Forms.Label();
             this.lbUserAge = new System.Windows.Forms.Label();
             this.lblLine = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.cpbPlayer = new Sports4All.CircularPictureBox();
             this.plPlayerEvaluation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpbPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // plPlayerEvaluation
             // 
-
             this.plPlayerEvaluation.Controls.Add(this.cpbPlayer);
             this.plPlayerEvaluation.Controls.Add(this.lblUserRankingValue);
             this.plPlayerEvaluation.Controls.Add(this.lblRanking);
@@ -53,6 +52,17 @@
             this.plPlayerEvaluation.Name = "plPlayerEvaluation";
             this.plPlayerEvaluation.Size = new System.Drawing.Size(325, 56);
             this.plPlayerEvaluation.TabIndex = 1;
+            // 
+            // cpbPlayer
+            // 
+            this.cpbPlayer.BackColor = System.Drawing.Color.LightGray;
+            this.cpbPlayer.Image = ((System.Drawing.Image)(resources.GetObject("cpbPlayer.Image")));
+            this.cpbPlayer.Location = new System.Drawing.Point(8, 3);
+            this.cpbPlayer.Name = "cpbPlayer";
+            this.cpbPlayer.Size = new System.Drawing.Size(41, 48);
+            this.cpbPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cpbPlayer.TabIndex = 18;
+            this.cpbPlayer.TabStop = false;
             // 
             // lblUserRankingValue
             // 
@@ -102,24 +112,13 @@
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username";
             // 
-            // cpbPlayer
-            // 
-            this.cpbPlayer.BackColor = System.Drawing.Color.LightGray;
-            this.cpbPlayer.Image = ((System.Drawing.Image)(resources.GetObject("cpbPlayer.Image")));
-            this.cpbPlayer.Location = new System.Drawing.Point(8, 3);
-            this.cpbPlayer.Name = "cpbPlayer";
-            this.cpbPlayer.Size = new System.Drawing.Size(41, 48);
-            this.cpbPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cpbPlayer.TabIndex = 18;
-            this.cpbPlayer.TabStop = false;
-            // 
             // UC_UserinEventItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.plPlayerEvaluation);
             this.Name = "UC_UserinEventItem";
-            this.Size = new System.Drawing.Size(334, 67);
+            this.Size = new System.Drawing.Size(330, 64);
             this.plPlayerEvaluation.ResumeLayout(false);
             this.plPlayerEvaluation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpbPlayer)).EndInit();

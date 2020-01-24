@@ -22,6 +22,16 @@ namespace Sports4All
         private string _userAge;
         private string _playerSkill;
         private Image _icon;
+        private string _userID;
+
+        public string UserID
+        {
+            get => _userID;
+            set
+            {
+                _userID = value;
+            }
+        }
         public string PlayerAge
         {
             get => _userAge;
@@ -44,10 +54,5 @@ namespace Sports4All
             }
         }
 
-
-
-       
-
-       
     }
 }

@@ -86,7 +86,6 @@ namespace Sports4All
                         Park = completedEvents.ToList()[i].Reserve.Ground.Park.Name,
                         MessageInfo = "Evento já avaliado!",
                         Change_BackColor = Color.Green
-
                     };
                     listitems[i].DisableButtonEvaluation();
                     flpListMyEvents.Controls.Add(listitems[i]);
@@ -154,9 +153,6 @@ namespace Sports4All
                 flpListMyEvents.Controls.Add(listitems[i]);
             }
         }
-
-
-
         private void btnFinishedEvents_Click(object sender, EventArgs e)
         {
             if (flpListMyEvents.Controls.Count > 0)
@@ -169,6 +165,8 @@ namespace Sports4All
         {
             if (!DesignMode) MyReserves();
         }
+
+
     }
 }
 
