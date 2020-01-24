@@ -8,18 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sports4All.Properties;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
     public partial class UC_EventEvaluation : UserControl
     {
-        //private bool _radioChecked;
+        //public int EventId { get; set; }
+        public int EventId = 1;
 
-        UC_PlayerEvaluationItem[] avaliacaoJogadores = new UC_PlayerEvaluationItem[5];
+        private UC_SportsgroundEvItem uc;
 
+        private ICollection<UC_PlayerEvaluationItem> evaluationItems;
+        EvaluationController _evaluationController = new EvaluationController();
         public UC_EventEvaluation()
         {
             InitializeComponent();
+            evaluationItems = new List<UC_PlayerEvaluationItem>();
+            uc = UC_SportsgroundEvItem1;
         }
 
         private void UCEventEvaluation_Load(object sender, EventArgs e)
@@ -27,67 +33,38 @@ namespace Sports4All
             populateItems();
         }
 
-
-
-        //private bool isRadioChecked(GroupBox group)
-        //{
-        //    foreach (var radio in group.Controls.OfType<RadioButton>())
-        //    {
-        //        if (radio.Checked)
-        //        {
-        //            _radioChecked = true;
-        //            break;
-        //        }
-        //    }
-
-        //    return _radioChecked;
-        //}
-
-        private void validateRadio()
-        {
-            foreach (var item in avaliacaoJogadores)
-            {
-                if (item.PlayerFairplay == 0 || item.PlayerSkill == 0) // será que isto não causa coupling entre esta classe e a avaliacaoJogadores? Não seria melhor tentar validar sem relacionar com playerskill?
-                {
-                    MessageBox.Show("Todos os campos do formulário devem estar preenchidos!");
-                    break;
-                }
-            }
-        }
-
-        //private string getCheckedRadio(Control container)
-        //{
-        //    var checkedRadio = container.Controls.OfType<RadioButton>()
-        //        .FirstOrDefault(r => r.Checked);
-        //    return checkedRadio.Text;
-        //}
-
         private void circularButton1_Click(object sender, EventArgs e)
         {
-            //if (!isRadioChecked(groupEvEvent))
-            //{
-            //    validateRadio();
-            //}
-            //else
-            //{
-            //MessageBox.Show(getCheckedRadio(panel1));
-            //}
-            validateRadio();
+            _evaluationController.SetParkEvaluation(uc.ParkId, uc.ParkQuality, uc.ParkPrice, EventId);
+
+            foreach (var evaluationUser in evaluationItems)
+            {
+                _evaluationController.SetUserEvaluation(evaluationUser.Username,
+                    evaluationUser.PlayerSkill,
+                    evaluationUser.PlayerFairplay,
+                    EventId);
+            }
         }
 
         private void populateItems()
         {
             flpPlayersEvaluation.Controls.Clear();
-            for (int i = 0; i < avaliacaoJogadores.Length; i++)
-            {
-                avaliacaoJogadores[i] = new UC_PlayerEvaluationItem();
-                avaliacaoJogadores[i].PlayerSkill = 0;  //ver se é necessário isto ou já começa a zero
-                avaliacaoJogadores[i].PlayerFairplay = 0; //ver se é necessário isto ou já começa a zero
-                avaliacaoJogadores[i].Username = "Get Data Somewhere";
-                //avaliacaoJogadores[i].Icon = Resources.StarIconGold;
 
-                flpPlayersEvaluation.Controls.Add(avaliacaoJogadores[i]);
+            Park park = _evaluationController.GetEventPark(EventId);
+
+            uc.ParkName = park.Name;
+            //FALTA DEFINIR A IMAGEM
+
+
+            foreach (User user in _evaluationController.GetEvaluableUsers(EventId) )
+            {
+                UC_PlayerEvaluationItem playerEvaluation = new UC_PlayerEvaluationItem();
+                playerEvaluation.Username = user.Username;
+                
+                evaluationItems.Add(playerEvaluation);
+                flpPlayersEvaluation.Controls.Add(playerEvaluation);
             }
+
         }
     }
 }

@@ -17,6 +17,43 @@ namespace Sports4All
         [STAThread]
         static void Main()
         {
+            //using (var db = new ModelContext())
+            //{
+            //    var query = db.Events.Include("Evaluations.Evaluator").ToList().ElementAt(0);
+            //    ICollection<Evaluation> evaluations = query.Evaluations.ToList();
+
+            //    foreach(var e in evaluations)
+            //    {
+            //        Console.WriteLine(e.EvaluationId);
+            //        Console.WriteLine(e.EvaluatorId);
+            //        Console.WriteLine(e.Event.Name);
+            //        Console.WriteLine(e.Evaluator.Username);
+
+            //        var ev = db.Evaluations.Include("Evaluated").OfType<UserEvaluation>().ToList();
+
+            //        foreach (var item in ev)
+            //        {
+            //            Console.WriteLine(item.UserId);
+            //        }
+            //        //if(ev != null ) Console.WriteLine(ev.Evaluated.Username);
+                    
+            //    }
+
+
+
+                //var userEvaluation = new UserEvaluation
+                //{
+                //    Skill = 4,
+                //    FairPlay = 1,
+                //    UserId = "andreMx",
+                //    EvaluatorId = "ruben21",
+                //    EventId = 1
+                //};
+                //db.Evaluations.Add(userEvaluation);
+                //db.SaveChanges();
+            //}
+
+
             //BrowseParksController b = new BrowseParksController();
             //ICollection<int> list = b.GetReservesCountyIds();
             //ParkDescriptionController b = new ParkDescriptionController();
@@ -29,12 +66,9 @@ namespace Sports4All
             //{
             //    Console.WriteLine(prop.Name, prop.GetValue(c, null));
             //}
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-
         }
     }
 }

@@ -7,27 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
     public partial class UC_PlayerEvaluationItem : UserControl
     {
+        private EvaluationController _evaluationController = new EvaluationController();
         public UC_PlayerEvaluationItem()
         {
             InitializeComponent();
         }
 
-        private int _playerId;
         private string _username;
         private Image _icon;
-        private int _playerSkill;
-        private int _playerFairplay;
-
-        public int PlayerId
-        {
-            get => _playerId;
-            set { _playerId = value; }
-        }
 
         public string Username
         {
@@ -40,38 +33,24 @@ namespace Sports4All
             set { _icon = value; cpbPlayer.Image = value; }
         }
 
-        public int PlayerSkill
-        {
-            get => _playerSkill;
-            set { _playerSkill = value; }
-        }
+        public int PlayerSkill { get; set; }
 
-        public int PlayerFairplay
-        {
-            get => _playerFairplay;
-            set { _playerFairplay = value; }
-        }
+        public int PlayerFairplay { get; set; }
 
         private void radioButtonSkill_CheckedChanged(object sender, EventArgs e)
         {
-            if (((RadioButton)sender).Checked)
-            {
-                // This is the correct control.
-                RadioButton rb = (RadioButton)sender;
+            // This is the correct control.
+            RadioButton rb = (RadioButton)sender;
 
-                PlayerSkill = Convert.ToInt32(rb.Text);
-            }
+            PlayerSkill = Convert.ToInt32(rb.Text);
         }
 
         private void rbFairplay_CheckedChanged(object sender, EventArgs e)
         {
-            if (((RadioButton)sender).Checked)
-            {
-                // This is the correct control.
-                RadioButton rb = (RadioButton)sender;
+            // This is the correct control.
+            RadioButton rb = (RadioButton)sender;
 
-                PlayerFairplay = Convert.ToInt32(rb.Text);
-            }
+            PlayerFairplay = Convert.ToInt32(rb.Text);
         }
     }
 }

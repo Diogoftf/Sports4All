@@ -94,7 +94,6 @@
             this.rbtnSkill1.Name = "rbtnSkill1";
             this.rbtnSkill1.Size = new System.Drawing.Size(37, 21);
             this.rbtnSkill1.TabIndex = 3;
-            this.rbtnSkill1.TabStop = true;
             this.rbtnSkill1.Text = "1";
             this.rbtnSkill1.UseVisualStyleBackColor = true;
             this.rbtnSkill1.CheckedChanged += new System.EventHandler(this.radioButtonSkill_CheckedChanged);
@@ -106,7 +105,6 @@
             this.rbtnSkill2.Name = "rbtnSkill2";
             this.rbtnSkill2.Size = new System.Drawing.Size(37, 21);
             this.rbtnSkill2.TabIndex = 6;
-            this.rbtnSkill2.TabStop = true;
             this.rbtnSkill2.Text = "2";
             this.rbtnSkill2.UseVisualStyleBackColor = true;
             this.rbtnSkill2.CheckedChanged += new System.EventHandler(this.radioButtonSkill_CheckedChanged);
@@ -118,7 +116,6 @@
             this.rbtnSkill5.Name = "rbtnSkill5";
             this.rbtnSkill5.Size = new System.Drawing.Size(37, 21);
             this.rbtnSkill5.TabIndex = 7;
-            this.rbtnSkill5.TabStop = true;
             this.rbtnSkill5.Text = "5";
             this.rbtnSkill5.UseVisualStyleBackColor = true;
             this.rbtnSkill5.CheckedChanged += new System.EventHandler(this.radioButtonSkill_CheckedChanged);
@@ -130,7 +127,6 @@
             this.rbtnSkill4.Name = "rbtnSkill4";
             this.rbtnSkill4.Size = new System.Drawing.Size(37, 21);
             this.rbtnSkill4.TabIndex = 8;
-            this.rbtnSkill4.TabStop = true;
             this.rbtnSkill4.Text = "4";
             this.rbtnSkill4.UseVisualStyleBackColor = true;
             this.rbtnSkill4.CheckedChanged += new System.EventHandler(this.radioButtonSkill_CheckedChanged);
@@ -138,6 +134,7 @@
             // rbtnSkill3
             // 
             this.rbtnSkill3.AutoSize = true;
+            this.rbtnSkill3.Checked = true;
             this.rbtnSkill3.Location = new System.Drawing.Point(223, 7);
             this.rbtnSkill3.Name = "rbtnSkill3";
             this.rbtnSkill3.Size = new System.Drawing.Size(37, 21);
@@ -176,7 +173,6 @@
             this.rbtnFairplay1.Name = "rbtnFairplay1";
             this.rbtnFairplay1.Size = new System.Drawing.Size(37, 21);
             this.rbtnFairplay1.TabIndex = 3;
-            this.rbtnFairplay1.TabStop = true;
             this.rbtnFairplay1.Text = "1";
             this.rbtnFairplay1.UseVisualStyleBackColor = true;
             this.rbtnFairplay1.CheckedChanged += new System.EventHandler(this.rbFairplay_CheckedChanged);
@@ -188,7 +184,6 @@
             this.rbtnFairplay2.Name = "rbtnFairplay2";
             this.rbtnFairplay2.Size = new System.Drawing.Size(37, 21);
             this.rbtnFairplay2.TabIndex = 6;
-            this.rbtnFairplay2.TabStop = true;
             this.rbtnFairplay2.Text = "2";
             this.rbtnFairplay2.UseVisualStyleBackColor = true;
             this.rbtnFairplay2.CheckedChanged += new System.EventHandler(this.rbFairplay_CheckedChanged);
@@ -200,7 +195,6 @@
             this.rbtnFairplay5.Name = "rbtnFairplay5";
             this.rbtnFairplay5.Size = new System.Drawing.Size(37, 21);
             this.rbtnFairplay5.TabIndex = 7;
-            this.rbtnFairplay5.TabStop = true;
             this.rbtnFairplay5.Text = "5";
             this.rbtnFairplay5.UseVisualStyleBackColor = true;
             this.rbtnFairplay5.CheckedChanged += new System.EventHandler(this.rbFairplay_CheckedChanged);
@@ -212,7 +206,6 @@
             this.rbtnFairplay4.Name = "rbtnFairplay4";
             this.rbtnFairplay4.Size = new System.Drawing.Size(37, 21);
             this.rbtnFairplay4.TabIndex = 8;
-            this.rbtnFairplay4.TabStop = true;
             this.rbtnFairplay4.Text = "4";
             this.rbtnFairplay4.UseVisualStyleBackColor = true;
             this.rbtnFairplay4.CheckedChanged += new System.EventHandler(this.rbFairplay_CheckedChanged);
@@ -220,6 +213,7 @@
             // rbtnFairplay3
             // 
             this.rbtnFairplay3.AutoSize = true;
+            this.rbtnFairplay3.Checked = true;
             this.rbtnFairplay3.Location = new System.Drawing.Point(223, 7);
             this.rbtnFairplay3.Name = "rbtnFairplay3";
             this.rbtnFairplay3.Size = new System.Drawing.Size(37, 21);

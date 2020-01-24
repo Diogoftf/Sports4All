@@ -15,13 +15,15 @@ namespace Sports4All.Controller
         {
             using (var db = new ModelContext())
             {
-                var newUser = new User();
-                newUser.Email = email;
-                newUser.Password = password;
-                newUser.Username = username;
-                newUser.Age = Convert.ToInt32(age);
-                newUser.PhoneNumber = Convert.ToInt32(cellphone);
-                newUser.PictureId = pictureId;
+                var newUser = new User
+                {
+                    Email = email,
+                    Password = password,
+                    Username = username,
+                    Age = Convert.ToInt32(age),
+                    PhoneNumber = Convert.ToInt32(cellphone),
+                    PictureId = pictureId
+                };
 
                 var query = db.Counties.Where(f => f.Name == county).First();
                 newUser.CountyId = query.CountyId;
