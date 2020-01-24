@@ -24,7 +24,7 @@ namespace Sports4All
         public void populateUC ()
         {
                 _userController = new UserController();
-                _userController.UserId = "rubin0"; //APAGAR DEPOIS
+                _userController.UserId = "andreMx"; //APAGAR DEPOIS
                 var user = _userController.GetUser(_userController.UserId);
                 IDictionary<string, string> classifications = _userController.GetUserClassification(_userController.UserId);
                 //cpbUser.Image = _userController.GetUser(_userController.UserId).Picture;
@@ -41,7 +41,7 @@ namespace Sports4All
         {
             if (!DesignMode)
             {
-              //  populateUC();
+              populateUC();
             }
         }
     }
