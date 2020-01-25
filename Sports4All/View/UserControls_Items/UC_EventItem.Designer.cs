@@ -61,6 +61,7 @@
             this.Controls.Add(this.pbEvent);
             this.Name = "UC_EventItem";
             this.Size = new System.Drawing.Size(281, 287);
+            this.DoubleClick += new System.EventHandler(this.UC_EventItem_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.pbEvent)).EndInit();
             this.ResumeLayout(false);
 

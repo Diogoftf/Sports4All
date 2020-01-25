@@ -8,54 +8,59 @@ using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
+using Sports4All.Controller;
 using Sports4All.UserControls_Items;
 
 namespace Sports4All
 {
     public partial class UC_Events : UserControl
     {
+        private BrowseController _browseController;
+
         public UC_Events()
         {
             InitializeComponent();
+            _browseController = new BrowseController();
         }
 
         private void UC_Events_Load(object sender, EventArgs e)
         {
+            if (DesignMode) return;
             PopulateItems();
         }
 
         private void PopulateItems()
         {
+            ICollection<int> idSportsWithEvents = _browseController.GetSportsIds();
+            ICollection<Sport> sportsWithEvents = _browseController.GetSports(idSportsWithEvents);
+
             flpEvents.Controls.Clear();
 
             List<String> imageList = new List<string>
             {
                 "https://dovethemes.com/wp-content/uploads/2016/12/Eiffel-Tower-Theme.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/12/Space-Debris.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/12/Small-Waterfall.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/12/Island-of-Love.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/12/Dinosaur-Theme.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Forest-Waterfall.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Central-Park.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Sea-Turtle.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Endless-Fields.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Mountain-Sunrise.jpg"
             };
 
-            ImageList img = new ImageList {ImageSize = new Size(140, 140), ColorDepth = ColorDepth.Depth32Bit};
+            UC_EventItem[] listItems = new UC_EventItem[sportsWithEvents.Count];
 
-            UC_EventItem[] listItems = new UC_EventItem[imageList.Count];
 
-            for (int i = 0; i < imageList.Count; i++)
+            WebClient w = new WebClient();
+            byte[] imageByte = w.DownloadData(imageList[0]);
+            MemoryStream stream = new MemoryStream(imageByte);
+
+
+            for (int i = 0; i < sportsWithEvents.Count; i++)
             {
-                WebClient w = new WebClient();
-                byte[] imageByte = w.DownloadData(imageList[i]);
-                MemoryStream stream = new MemoryStream(imageByte);
+                listItems[i] = new UC_EventItem
+                {
+                    Title = sportsWithEvents.ElementAt(i).Name,
+                    Image = Image.FromStream(stream)
+                };
 
-                listItems[i] = new UC_EventItem {Title = "Título do evento " + i, Image = Image.FromStream(stream)};
 
                 flpEvents.Controls.Add(listItems[i]);
             }
+
         }
 
         private Image RoundCorners(Image image, int cornerRadius)

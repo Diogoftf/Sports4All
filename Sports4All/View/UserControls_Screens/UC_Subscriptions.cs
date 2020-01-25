@@ -16,9 +16,6 @@ namespace Sports4All.UserControls_Screens
 {
     public partial class UC_Subscriptions : UserControl
     {
-        private readonly Color _darkBtnColor = Color.DarkGray;
-        private readonly Color _lightBtnColor = Color.Gainsboro;
-
         public UC_Subscriptions()
         {
             InitializeComponent();
@@ -26,50 +23,12 @@ namespace Sports4All.UserControls_Screens
 
         private void UC_Subscriptions_Load(object sender, EventArgs e)
         {
-            changeButtonColor(btnSports);
-            PopulateItemsSports();
+            PopulateItemsSports(pnlSports);
         }
 
-        private void btnSports_Click(object sender, EventArgs e)
+        private void PopulateItemsSports(Panel p)
         {
-            changeButtonColor(btnSports);
-            PopulateItemsSports();
-        }
-
-        private void btnFriends_Click(object sender, EventArgs e)
-        {
-            changeButtonColor(btnFriends);
-            PopulateItemsFriends();
-        }
-
-        private void btnSportsGround_Click(object sender, EventArgs e)
-        {
-            changeButtonColor(btnSportsGround);
-            PopulateItemsSportsGround();
-        }
-
-        private void changeButtonColor(Button btn)
-        {
-            if (btn == btnSports)
-            {
-                btnFriends.BackColor = _lightBtnColor; btnSportsGround.BackColor = _lightBtnColor;
-                btnSports.BackColor = _darkBtnColor;
-            }
-            else if (btn == btnFriends)
-            {
-                btnSports.BackColor = _lightBtnColor; btnSportsGround.BackColor = _lightBtnColor;
-                btnFriends.BackColor = _darkBtnColor;
-            }
-            else if (btn == btnSportsGround)
-            {
-                btnFriends.BackColor = _lightBtnColor; btnSports.BackColor = _lightBtnColor;
-                btnSportsGround.BackColor = _darkBtnColor;
-            }
-        }
-
-        private void PopulateItemsSports()
-        {
-            flpSubscriptions.Controls.Clear();
+            p.Controls.Clear();
 
             List<String> imageList = new List<string>
             {
@@ -94,13 +53,13 @@ namespace Sports4All.UserControls_Screens
                     Title = "Título do recinto " + i, Image = Image.FromStream(stream)
                 };
 
-                flpSubscriptions.Controls.Add(listItems[i]);
+                p.Controls.Add(listItems[i]);
             }
         }
 
-        private void PopulateItemsFriends()
+        private void PopulateItemsFriends(Panel p)
         {
-            flpSubscriptions.Controls.Clear();
+            p.Controls.Clear();
 
             List<String> imageList = new List<string>
             {
@@ -125,13 +84,13 @@ namespace Sports4All.UserControls_Screens
                     Title = "Título do recinto " + i, Image = Image.FromStream(stream)
                 };
 
-                flpSubscriptions.Controls.Add(listItems[i]);
+                p.Controls.Add(listItems[i]);
             }
         }
 
-        private void PopulateItemsSportsGround()
+        private void PopulateItemsParks(Panel p)
         {
-            flpSubscriptions.Controls.Clear();
+            p.Controls.Clear();
 
             List<String> imageList = new List<string>
             {
@@ -154,7 +113,25 @@ namespace Sports4All.UserControls_Screens
                     Title = "Título do recinto " + i, Image = Image.FromStream(stream)
                 };
 
-                flpSubscriptions.Controls.Add(listItems[i]);
+                p.Controls.Add(listItems[i]);
+            }
+        }
+
+        private void tabSubscriptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string name = tabSubscriptions.SelectedTab.Name;
+
+            switch (name)
+            {
+                case "tabPageSports":
+                    PopulateItemsSports(pnlSports);
+                    break;
+                case "tabPageFriends":
+                    PopulateItemsFriends(pnlFriends);
+                    break;
+                case "tabPageParks":
+                    PopulateItemsParks(pnlParks);
+                    break;
             }
         }
     }

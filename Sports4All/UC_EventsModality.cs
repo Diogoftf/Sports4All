@@ -17,6 +17,8 @@ namespace Sports4All
         private readonly MyEventsController _eventsController = new MyEventsController();
         private string _sportName { get; set; }
 
+        public int Id { get; set; }
+
         private bool _controlSub = false;
         public UC_EventsModality()
         {

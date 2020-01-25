@@ -29,72 +29,108 @@
         private void InitializeComponent()
         {
             this.flpSubscriptions = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnSports = new System.Windows.Forms.Button();
-            this.btnSportsGround = new System.Windows.Forms.Button();
-            this.btnFriends = new System.Windows.Forms.Button();
+            this.tabSubscriptions = new System.Windows.Forms.TabControl();
+            this.tabPageSports = new System.Windows.Forms.TabPage();
+            this.pnlSports = new System.Windows.Forms.Panel();
+            this.tabPageFriends = new System.Windows.Forms.TabPage();
+            this.pnlFriends = new System.Windows.Forms.Panel();
+            this.tabPageParks = new System.Windows.Forms.TabPage();
+            this.pnlParks = new System.Windows.Forms.Panel();
+            this.tabSubscriptions.SuspendLayout();
+            this.tabPageSports.SuspendLayout();
+            this.tabPageFriends.SuspendLayout();
+            this.tabPageParks.SuspendLayout();
             this.SuspendLayout();
             // 
             // flpSubscriptions
             // 
             this.flpSubscriptions.AutoScroll = true;
-            this.flpSubscriptions.Location = new System.Drawing.Point(15, 69);
+            this.flpSubscriptions.Location = new System.Drawing.Point(897, 47);
             this.flpSubscriptions.Name = "flpSubscriptions";
             this.flpSubscriptions.Size = new System.Drawing.Size(1160, 629);
             this.flpSubscriptions.TabIndex = 5;
             // 
-            // btnSports
+            // tabSubscriptions
             // 
-            this.btnSports.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnSports.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSports.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSports.Location = new System.Drawing.Point(15, 11);
-            this.btnSports.Name = "btnSports";
-            this.btnSports.Size = new System.Drawing.Size(117, 43);
-            this.btnSports.TabIndex = 6;
-            this.btnSports.Text = "Desportos";
-            this.btnSports.UseVisualStyleBackColor = false;
-            this.btnSports.Click += new System.EventHandler(this.btnSports_Click);
+            this.tabSubscriptions.Controls.Add(this.tabPageSports);
+            this.tabSubscriptions.Controls.Add(this.tabPageFriends);
+            this.tabSubscriptions.Controls.Add(this.tabPageParks);
+            this.tabSubscriptions.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.tabSubscriptions.Location = new System.Drawing.Point(15, 17);
+            this.tabSubscriptions.Name = "tabSubscriptions";
+            this.tabSubscriptions.SelectedIndex = 0;
+            this.tabSubscriptions.Size = new System.Drawing.Size(1193, 743);
+            this.tabSubscriptions.TabIndex = 10;
+            this.tabSubscriptions.SelectedIndexChanged += new System.EventHandler(this.tabSubscriptions_SelectedIndexChanged);
             // 
-            // btnSportsGround
+            // tabPageSports
             // 
-            this.btnSportsGround.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnSportsGround.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSportsGround.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSportsGround.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSportsGround.Location = new System.Drawing.Point(1058, 11);
-            this.btnSportsGround.Name = "btnSportsGround";
-            this.btnSportsGround.Size = new System.Drawing.Size(117, 43);
-            this.btnSportsGround.TabIndex = 8;
-            this.btnSportsGround.Text = "Recintos";
-            this.btnSportsGround.UseVisualStyleBackColor = false;
-            this.btnSportsGround.Click += new System.EventHandler(this.btnSportsGround_Click);
+            this.tabPageSports.Controls.Add(this.pnlSports);
+            this.tabPageSports.Location = new System.Drawing.Point(4, 32);
+            this.tabPageSports.Name = "tabPageSports";
+            this.tabPageSports.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSports.Size = new System.Drawing.Size(1185, 707);
+            this.tabPageSports.TabIndex = 0;
+            this.tabPageSports.Text = "Desportos";
+            this.tabPageSports.UseVisualStyleBackColor = true;
+            this.tabPageSports.UseWaitCursor = true;
             // 
-            // btnFriends
+            // pnlSports
             // 
-            this.btnFriends.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnFriends.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnFriends.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFriends.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFriends.Location = new System.Drawing.Point(523, 11);
-            this.btnFriends.Name = "btnFriends";
-            this.btnFriends.Size = new System.Drawing.Size(117, 43);
-            this.btnFriends.TabIndex = 9;
-            this.btnFriends.Text = "Amigos";
-            this.btnFriends.UseVisualStyleBackColor = false;
-            this.btnFriends.Click += new System.EventHandler(this.btnFriends_Click);
+            this.pnlSports.Location = new System.Drawing.Point(6, 6);
+            this.pnlSports.Name = "pnlSports";
+            this.pnlSports.Size = new System.Drawing.Size(1173, 685);
+            this.pnlSports.TabIndex = 0;
+            // 
+            // tabPageFriends
+            // 
+            this.tabPageFriends.Controls.Add(this.pnlFriends);
+            this.tabPageFriends.Location = new System.Drawing.Point(4, 32);
+            this.tabPageFriends.Name = "tabPageFriends";
+            this.tabPageFriends.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageFriends.Size = new System.Drawing.Size(1185, 707);
+            this.tabPageFriends.TabIndex = 1;
+            this.tabPageFriends.Text = "Amigos";
+            this.tabPageFriends.UseVisualStyleBackColor = true;
+            // 
+            // pnlFriends
+            // 
+            this.pnlFriends.Location = new System.Drawing.Point(6, 6);
+            this.pnlFriends.Name = "pnlFriends";
+            this.pnlFriends.Size = new System.Drawing.Size(1173, 685);
+            this.pnlFriends.TabIndex = 1;
+            // 
+            // tabPageParks
+            // 
+            this.tabPageParks.Controls.Add(this.pnlParks);
+            this.tabPageParks.Location = new System.Drawing.Point(4, 32);
+            this.tabPageParks.Name = "tabPageParks";
+            this.tabPageParks.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageParks.Size = new System.Drawing.Size(1185, 707);
+            this.tabPageParks.TabIndex = 2;
+            this.tabPageParks.Text = "Parques";
+            this.tabPageParks.UseVisualStyleBackColor = true;
+            // 
+            // pnlParks
+            // 
+            this.pnlParks.Location = new System.Drawing.Point(6, 6);
+            this.pnlParks.Name = "pnlParks";
+            this.pnlParks.Size = new System.Drawing.Size(1173, 685);
+            this.pnlParks.TabIndex = 1;
             // 
             // UC_Subscriptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnFriends);
-            this.Controls.Add(this.btnSportsGround);
-            this.Controls.Add(this.btnSports);
+            this.Controls.Add(this.tabSubscriptions);
             this.Controls.Add(this.flpSubscriptions);
             this.Name = "UC_Subscriptions";
-            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
+            this.Size = new System.Drawing.Size(1225, 778);
             this.Load += new System.EventHandler(this.UC_Subscriptions_Load);
+            this.tabSubscriptions.ResumeLayout(false);
+            this.tabPageSports.ResumeLayout(false);
+            this.tabPageFriends.ResumeLayout(false);
+            this.tabPageParks.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -102,8 +138,12 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flpSubscriptions;
-        private System.Windows.Forms.Button btnSports;
-        private System.Windows.Forms.Button btnSportsGround;
-        private System.Windows.Forms.Button btnFriends;
+        private System.Windows.Forms.TabControl tabSubscriptions;
+        private System.Windows.Forms.TabPage tabPageSports;
+        private System.Windows.Forms.Panel pnlSports;
+        private System.Windows.Forms.TabPage tabPageFriends;
+        private System.Windows.Forms.Panel pnlFriends;
+        private System.Windows.Forms.TabPage tabPageParks;
+        private System.Windows.Forms.Panel pnlParks;
     }
 }

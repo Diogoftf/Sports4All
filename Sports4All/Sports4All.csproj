@@ -117,6 +117,7 @@
     </Compile>
     <Compile Include="Classification.cs" />
     <Compile Include="Controller\AuthController.cs" />
+    <Compile Include="Controller\BrowseController.cs" />
     <Compile Include="Controller\BrowseParksController.cs" />
     <Compile Include="Controller\EvaluationController.cs" />
     <Compile Include="Controller\ImagesController.cs" />
