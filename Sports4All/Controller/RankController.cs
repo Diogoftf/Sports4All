@@ -35,11 +35,11 @@ namespace Sports4All
             {
                 var myStats = db.Users.ToList(); // Classificação de todos os users
                 var auxReservesPerformed = 0;
-                var auxFairplayResult = 0;
-                var auxSkillResult = 0;
-                var auxEventsPerfomed = 0;
-                var auxRacio = 0;
-                var auxPoints = 0;
+                double auxFairplayResult = 0;
+                double auxSkillResult = 0;
+                double auxEventsPerfomed = 0;
+                double auxRacio = 0;
+                double auxPoints = 0;
 
                 for (int i = 0; i < myStats.Count; i++) // percorro todos os users que possuem pontos > 0
                 {
@@ -71,12 +71,12 @@ namespace Sports4All
                     auxEventsPerfomed * Points._eventPerformed_Weight +
                     auxReservesPerformed * Points._reservePerformed_Weight + auxRacio * Points._racio_Weight;
 
-                    if (auxPoints != myStats[i].UserClassification.Points) // se os pontos calculados estiverem diferentes dos pontos da BD
+                    //if (auxPoints != myStats[i].UserClassification.Points) // se os pontos calculados estiverem diferentes dos pontos da BD
                     {
-                        myStats[i].UserClassification.Points = auxPoints;
-                        myStats[i].UserClassification.Ratio = auxRacio;
-                        myStats[i].UserClassification.SkillAverage = auxSkillResult;
-                        myStats[i].UserClassification.FairplayAverage = auxFairplayResult;
+                        myStats[i].UserClassification.Points = Math.Round(auxPoints,2);
+                        myStats[i].UserClassification.Ratio = Math.Round(auxRacio,2);
+                        myStats[i].UserClassification.SkillAverage = Math.Round(auxSkillResult,2);
+                        myStats[i].UserClassification.FairplayAverage = Math.Round(auxFairplayResult,2);
                         db.SaveChanges();
                     }
                 }
@@ -90,10 +90,10 @@ namespace Sports4All
             {
                 var myStats = db.Parks.Include("Grounds").ToList(); // Classificação de todos os users
                 var auxReservesPerformed = 0;
-                var auxPriceResult = 0;
-                var auxQualityResult = 0;
-                var auxRacio = 0;
-                var auxPoints = 0;
+                double auxPriceResult = 0;
+                double auxQualityResult = 0;
+                double auxRacio = 0;
+                double auxPoints = 0;
 
                 for (int i = 0; i < myStats.Count; i++) // percorro todos os users que possuem pontos > 0
                 {
@@ -130,10 +130,10 @@ namespace Sports4All
 
                     if (auxPoints != myStats[i].ParkClassification.Points) // se os pontos calculados estiverem diferentes dos pontos da BD
                     {
-                        myStats[i].ParkClassification.Points = auxPoints;
-                        myStats[i].ParkClassification.Ratio = auxRacio;
-                        myStats[i].ParkClassification.PriceAverage = auxPriceResult;
-                        myStats[i].ParkClassification.QualityAverage = auxQualityResult; 
+                        myStats[i].ParkClassification.Points = Math.Round(auxPoints,2);
+                        myStats[i].ParkClassification.Ratio = Math.Round(auxRacio,2);
+                        myStats[i].ParkClassification.PriceAverage = Math.Round(auxPriceResult,2);
+                        myStats[i].ParkClassification.QualityAverage = Math.Round(auxQualityResult,2); 
                         db.SaveChanges();
                     }
                 }

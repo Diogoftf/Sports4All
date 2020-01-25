@@ -64,7 +64,7 @@ namespace Sports4All
             _graphic.DrawString(_pbComplete.ToString() + " pts", new Font("Arial", _pbHEIGHT / 2), Brushes.Black, new PointF(_pbWIDTH / 2 - _pbHEIGHT, _pbHEIGHT / 10));
             pbProgressBar.Image = _bmp;
             _pbComplete++;
-            if (_pbComplete > Int32.Parse(_homeController.getMyStats().ToList()[4]))
+            if (_pbComplete > double.Parse(_homeController.getMyStats().ToList()[4]))
             {
                 _graphic.Dispose();
                 _timerProgressBar.Stop();
@@ -140,9 +140,9 @@ namespace Sports4All
 
         private void userStatsDetails()
         {
-
-            lbCurrentLevel.Text = "Nivel " + (Convert.ToInt32(_homeController.getMyStats().ToList()[4]) / Points._levelChange).ToString();
-            lbNextLevel.Text = "Nivel " + ((Convert.ToInt32(_homeController.getMyStats().ToList()[4]) / Points._levelChange) + 1).ToString();
+            var current = Convert.ToInt32(double.Parse(_homeController.getMyStats().ToList()[4]) / Points._levelChange);
+            lbCurrentLevel.Text = current.ToString();
+            lbNextLevel.Text = (current+1).ToString();
             if (_homeController.getMyStats().ToList().Count > 0)
             {
                 lbMatchesPlayedValue.Text = _homeController.getMyStats().ToList()[0];
