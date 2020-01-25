@@ -74,12 +74,12 @@ namespace Sports4All
             for (var i = 0; i < completedEventsCounts; i++)
             {
                 //inverter if ; APENAS PARA TESTES, POUCOS DADOS NA BD
-                if (eventsController.VerifyEvaluation(completedEvents.ToList()[i].EventId, _username))
+                if (!eventsController.VerifyEvaluation(completedEvents.ToList()[i].EventId, _username))
                 {
                     listitems[i] = new UC_EventMyEventsItem
                     {
                         Avaliar = "Avaliar",
-                        EventID = Convert.ToString(completedEvents.ToList()[i].EventId),
+                        EventID = completedEvents.ToList()[i].EventId,
                         Owner = completedEvents.ToList()[i].Reserve.UserId,
                         Sport = completedEvents.ToList()[i].Reserve.Sport.Name,
                         Date = completedEvents.ToList()[i].StartDate.ToLongDateString(),
@@ -87,7 +87,7 @@ namespace Sports4All
                         MessageInfo = "Evento já avaliado!",
                         Change_BackColor = Color.Green
                     };
-                    listitems[i].DisableButtonEvaluation();
+                    //listitems[i].DisableButtonEvaluation();
                     flpListMyEvents.Controls.Add(listitems[i]);
                 }
 

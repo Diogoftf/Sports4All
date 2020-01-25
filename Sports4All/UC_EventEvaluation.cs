@@ -14,8 +14,7 @@ namespace Sports4All
 {
     public partial class UC_EventEvaluation : UserControl
     {
-        //public int EventId { get; set; }
-        public int EventId = 1;
+        public int EventId { get; set; }
 
         private UC_SportsgroundEvItem uc;
 
@@ -46,7 +45,7 @@ namespace Sports4All
             }
         }
 
-        private void populateItems()
+        public void populateItems()
         {
             flpPlayersEvaluation.Controls.Clear();
 
