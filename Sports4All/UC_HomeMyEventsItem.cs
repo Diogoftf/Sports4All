@@ -21,6 +21,8 @@ namespace Sports4All
         private Color _color;
         private Image _SportPicture;
 
+        public int Id { get; set; }
+
         public string resetNameProprieties //
         {
             set { lblDate.Text = lblEventOwner.Text = lblEventOwnerValue.Text = lblSportsGround.Text = lblstart_Hour.Text = lblPlayers.Text = lblPlace.Text = value;
@@ -32,7 +34,7 @@ namespace Sports4All
 
         public Image DisableImage //
         {
-            set { pbModality.Image = pbMoreDetails.Image = pbDelete.Image = pbEdit.Image = value; }
+            set { pbModality.Image = pbMoreDetails.Image = pbDelete.Image = value; }
         }
 
         public Image SportPicture
@@ -106,6 +108,39 @@ namespace Sports4All
         public UC_HomeMyEventsItem()
         {
             InitializeComponent();
+
+            //se for meu evento, mostrar o pbEdit
+        }
+
+        private void pbEdit_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void pbMoreDetails_Click(object sender, EventArgs e)
+        {
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventDetails"))
+            {
+                UC_EventDetails uc = new UC_EventDetails { Dock = DockStyle.Fill };
+                uc.EventId = Id;
+                Form1.Instance.PnlContainer.Controls.Add(uc);
+            }
+
+            Form1.Instance.PnlContainer.Controls["UC_EventDetails"].BringToFront();
+
+            if (Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventDetails"))
+            {
+                foreach (UserControl x in Form1.Instance.PnlContainer.Controls)
+                {
+                    if (Form1.Instance.PnlContainer.Controls.GetChildIndex(x) == 0)
+                    {
+                        Form1.Instance.FrontControl = x;
+                        UC_EventDetails j = (UC_EventDetails)x;
+                        j.EventId = Id;
+                        j.PopulateUserControl();
+                    }
+                }
+            }
         }
     }
 }

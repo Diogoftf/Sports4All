@@ -1,6 +1,6 @@
 ﻿namespace Sports4All
 {
-    partial class UC_EventsDetails
+    partial class UC_EventDetails
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsDetails));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventDetails));
             this.flpUsersEvent = new System.Windows.Forms.FlowLayoutPanel();
             this.lbIdadeMax = new System.Windows.Forms.Label();
             this.lbIdadeMin = new System.Windows.Forms.Label();
@@ -384,7 +384,7 @@
             this.Controls.Add(this.lblProprietario);
             this.Controls.Add(this.plLine);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UC_EventsDetails";
+            this.Name = "UC_EventDetails";
             this.Size = new System.Drawing.Size(1090, 622);
             this.Load += new System.EventHandler(this.UC_EventsDetailsB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPark)).EndInit();

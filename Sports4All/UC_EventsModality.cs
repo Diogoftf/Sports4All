@@ -15,14 +15,12 @@ namespace Sports4All
     {
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsModality));
         private readonly MyEventsController _eventsController = new MyEventsController();
-        private string _sportName { get; set; }
 
         public int Id { get; set; }
 
         private bool _controlSub = false;
         public UC_EventsModality()
         {
-            _sportName = "Futebol"; // VALOR PARA TESTE
             InitializeComponent();
         }
 
@@ -86,11 +84,12 @@ namespace Sports4All
 
         }
 
-        private void ListEventsBySport()
+        public void ListEventsBySport()
         {
             if (flpEventListModality.Controls.Count > 0)
                 flpEventListModality.Controls.Clear();
-            var EventsbySport = _eventsController.EventsbySport(_sportName);
+
+            var EventsbySport = _eventsController.EventsBySport(Id);
             var EventsbySportCount = EventsbySport.Count;
             UC_EventModalityItem[] listitems = new UC_EventModalityItem[EventsbySportCount];
 

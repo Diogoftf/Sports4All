@@ -51,5 +51,32 @@ namespace Sports4All
             //pbPark.Image = _parkDescriptionController.GetPark(Id).Picture;
             lblSportsList.Text = GetFormatedSportsList();
         }
+
+        private void btnSeeEvents_Click(object sender, EventArgs e)
+        {
+
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventsSportsGrounds"))
+            {
+                UC_EventsSportsGrounds uc = new UC_EventsSportsGrounds { Dock = DockStyle.Fill };
+                uc.Id = Id;
+                Form1.Instance.PnlContainer.Controls.Add(uc);
+            }
+
+            Form1.Instance.PnlContainer.Controls["UC_EventsSportsGrounds"].BringToFront();
+
+            if (Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventsSportsGrounds"))
+            {
+                foreach (UserControl x in Form1.Instance.PnlContainer.Controls)
+                {
+                    if (Form1.Instance.PnlContainer.Controls.GetChildIndex(x) == 0)
+                    {
+                        Form1.Instance.FrontControl = x;
+                        UC_EventsSportsGrounds j = (UC_EventsSportsGrounds)x;
+                        j.Id = Id;
+                        j.ListEventsbyGround();
+                    }
+                }
+            }
+        }
     }
 }

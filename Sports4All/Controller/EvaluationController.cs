@@ -14,8 +14,7 @@ namespace Sports4All.Controller
             {
                 var queryEvent = db.Events
                     .Include("Reserve.Ground.Park")
-                    .Where(x => x.EventId == eventId)
-                    .FirstOrDefault();
+                    .FirstOrDefault(x => x.EventId == eventId);
 
                 var eventPark = queryEvent.Reserve.Ground.Park;
 
