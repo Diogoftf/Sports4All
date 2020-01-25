@@ -14,7 +14,7 @@ using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_EventsDetails : UserControl
+    public partial class UC_EventDetails : UserControl
     {
         private MyEventsController eventsController;
 
@@ -25,6 +25,7 @@ namespace Sports4All
         private string _startHour;
         private string _endHour;
         private int _eventID; //ID QUE VEM DE OUTROS ECRAS!
+
 
         #region  EventDetails
        //dtpNextEventDate.MinDate = dtpMySportDate.MinDate = DateTime.Now;
@@ -97,7 +98,7 @@ namespace Sports4All
         }
         #endregion
 
-        public UC_EventsDetails()
+        public UC_EventDetails()
         {
             InitializeComponent();
             pickDateTimeOnly();
@@ -169,6 +170,12 @@ namespace Sports4All
                 PopulateEventDetails();
                 PopulateUsersList();
             }
+        }
+
+        public void PopulateUserControl()
+        {
+            PopulateUsersList();
+            PopulateEventDetails();
         }
 
         private void PopulateUsersList()

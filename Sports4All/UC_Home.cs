@@ -125,7 +125,7 @@ namespace Sports4All
             PopulateMySuggestionsList();
             PopulateComboBox();
             infoStatsDescription();
-            userStatsDetails();
+            //userStatsDetails();
         }
 
         private void infoStatsDescription()
@@ -199,6 +199,7 @@ namespace Sports4All
                         ItemMyEvents.Slots = myEvent.ToList()[i].Users.Count.ToString() + "/" + myEvent.ToList()[i].MaxPlayers.ToString();
                         ItemMyEvents.Recinto = myEvent.ToList()[i].Reserve.Ground.Park.Name;
                         ItemMyEvents.Sport = myEvent.ToList()[i].Reserve.Sport.Name;
+                        ItemMyEvents.Id = myEvent.ToList()[i].EventId;
                         _MyEvents.Add(ItemMyEvents);
                         flpMyEvents.Controls.Add(ItemMyEvents); //add to flowlayout
                     }

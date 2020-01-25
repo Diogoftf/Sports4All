@@ -17,7 +17,7 @@ namespace Sports4All
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsModality));
         private readonly MyEventsController _eventsController = new MyEventsController();
         private ICollection<Event> _eventsList = new Collection<Event>();
-        private string _sportGround { get; set; }
+        public int Id { get; set; }
         private bool _controlSub = false;
         public UC_EventsSportsGrounds()
         {
@@ -25,14 +25,11 @@ namespace Sports4All
         }
         private void Recintos_Load(object sender, EventArgs e)
         {
-            _sportGround = "Agua de Pena";
-            _eventsList = _eventsController.EventsbyGround(_sportGround);
+            _eventsList = _eventsController.EventsByGround(Id);
             if (!DesignMode) ListEventsbyGround();
         }
 
-
-
-        private void ListEventsbyGround()
+        public void ListEventsbyGround()
         {
             if (flpEventListSportsground.Controls.Count > 0)
                 flpEventListSportsground.Controls.Clear();
@@ -152,7 +149,7 @@ namespace Sports4All
         {
             if (!DesignMode)
             {
-                _eventsList = _eventsController.EventsbyGroundandSport(_sportGround, btnFootball.Text);
+                _eventsList = _eventsController.EventsbyGroundandSport(Id, btnFootball.Text);
                 ListEventsbyGround();
             }
         }
@@ -161,7 +158,7 @@ namespace Sports4All
         {
             if (!DesignMode)
             {
-                _eventsList = _eventsController.EventsbyGroundandSport(_sportGround, btnTenis.Text);
+                _eventsList = _eventsController.EventsbyGroundandSport(Id, btnTenis.Text);
                 ListEventsbyGround();
             }
         }
@@ -170,7 +167,7 @@ namespace Sports4All
         {
             if (!DesignMode)
             {
-                _eventsList=_eventsController.EventsbyGroundandSport(_sportGround, btnHandball.Text);
+                _eventsList=_eventsController.EventsbyGroundandSport(Id, btnHandball.Text);
                 ListEventsbyGround();
             }
         }
@@ -180,7 +177,7 @@ namespace Sports4All
 
             if (!DesignMode)
             {
-                _eventsList = _eventsController.EventsbyGround(_sportGround);
+                _eventsList = _eventsController.EventsByGround(Id);
                 ListEventsbyGround();
             }
         }

@@ -72,7 +72,7 @@ namespace Sports4All.UserControls_Items
                         Form1.Instance.FrontControl = x;
                         UC_EventsModality j = (UC_EventsModality)x;
                         j.Id = Id;
-                        //j.PopulateList();
+                        j.ListEventsBySport();
                     }
                 }
             }

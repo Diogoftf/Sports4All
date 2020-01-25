@@ -41,12 +41,10 @@
             this.lblPlace = new System.Windows.Forms.Label();
             this.lblSport = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pbEdit = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbMoreDetails = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbModality)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMoreDetails)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +65,7 @@
             this.lblModalityName.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.lblModalityName.Location = new System.Drawing.Point(844, -18);
             this.lblModalityName.Name = "lblModalityName";
-            this.lblModalityName.Size = new System.Drawing.Size(84, 23);
+            this.lblModalityName.Size = new System.Drawing.Size(61, 19);
             this.lblModalityName.TabIndex = 20;
             this.lblModalityName.Text = "Futebol";
             // 
@@ -173,7 +171,7 @@
             this.lblSport.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblSport.Location = new System.Drawing.Point(520, 2);
             this.lblSport.Name = "lblSport";
-            this.lblSport.Size = new System.Drawing.Size(97, 23);
+            this.lblSport.Size = new System.Drawing.Size(68, 17);
             this.lblSport.TabIndex = 28;
             this.lblSport.Text = "Desporto";
             // 
@@ -202,22 +200,11 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(413, 80);
             this.tableLayoutPanel1.TabIndex = 29;
             // 
-            // pbEdit
-            // 
-            this.pbEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
-            this.pbEdit.Location = new System.Drawing.Point(440, 49);
-            this.pbEdit.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.pbEdit.Name = "pbEdit";
-            this.pbEdit.Size = new System.Drawing.Size(31, 40);
-            this.pbEdit.TabIndex = 30;
-            this.pbEdit.TabStop = false;
-            // 
             // pbDelete
             // 
             this.pbDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
-            this.pbDelete.Location = new System.Drawing.Point(474, 49);
+            this.pbDelete.Location = new System.Drawing.Point(473, 49);
             this.pbDelete.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pbDelete.Name = "pbDelete";
             this.pbDelete.Size = new System.Drawing.Size(31, 40);
@@ -228,12 +215,13 @@
             // 
             this.pbMoreDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbMoreDetails.Image = ((System.Drawing.Image)(resources.GetObject("pbMoreDetails.Image")));
-            this.pbMoreDetails.Location = new System.Drawing.Point(407, 49);
+            this.pbMoreDetails.Location = new System.Drawing.Point(440, 49);
             this.pbMoreDetails.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pbMoreDetails.Name = "pbMoreDetails";
             this.pbMoreDetails.Size = new System.Drawing.Size(27, 34);
             this.pbMoreDetails.TabIndex = 32;
             this.pbMoreDetails.TabStop = false;
+            this.pbMoreDetails.Click += new System.EventHandler(this.pbMoreDetails_Click);
             // 
             // UC_HomeMyEventsItem
             // 
@@ -242,7 +230,6 @@
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.pbMoreDetails);
             this.Controls.Add(this.pbDelete);
-            this.Controls.Add(this.pbEdit);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblSport);
             this.Controls.Add(this.pbModality);
@@ -253,7 +240,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbModality)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMoreDetails)).EndInit();
             this.ResumeLayout(false);
@@ -275,7 +261,6 @@
         private System.Windows.Forms.Label lblPlace;
         private System.Windows.Forms.Label lblSport;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.PictureBox pbDelete;
         private System.Windows.Forms.PictureBox pbMoreDetails;
     }

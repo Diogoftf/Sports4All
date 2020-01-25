@@ -79,12 +79,12 @@ namespace Sports4All.Controller
             return state;
         }
 
-        public ICollection<Event> EventsbySport(string sportName)
+        public ICollection<Event> EventsBySport(int sportId)
         {
             using (var db = new ModelContext())
             {
                 var EventsbySport = db.Events
-                    .Where(c => c.Reserve.Sport.Name == sportName && c.StartDate > _todayDate)
+                    .Where(c => c.Reserve.Sport.SportId == sportId && c.StartDate > _todayDate)
                     .Include("Reserve.Sport")
                     .Include("Reserve.Ground.Park")
                     .Include("Users")
@@ -93,12 +93,12 @@ namespace Sports4All.Controller
             }
         }
 
-        public ICollection<Event> EventsbyGround(string groundName)
+        public ICollection<Event> EventsByGround(int parkId)
         {
             using (var db = new ModelContext())
             {
                 var EventsbyGroundt = db.Events
-                    .Where(c => c.Reserve.Ground.Park.Name == groundName && c.StartDate > _todayDate)
+                    .Where(c => c.Reserve.Ground.Park.ParkId == parkId && c.StartDate > _todayDate)
                     .Include("Reserve.Sport")
                     .Include("Reserve.Ground.Park")
                     .Include("Users")
@@ -107,12 +107,12 @@ namespace Sports4All.Controller
             }
         }
 
-        public ICollection<Event> EventsbyGroundandSport(string groundName,string sport)
+        public ICollection<Event> EventsbyGroundandSport(int parkId, string sport)
         {
             using (var db = new ModelContext())
             {
                 var EventsbyGroundt = db.Events
-                    .Where(c => c.Reserve.Ground.Park.Name == groundName && c.Reserve.Sport.Name == sport && c.StartDate > _todayDate)
+                    .Where(c => c.Reserve.Ground.Park.ParkId == parkId && c.Reserve.Sport.Name == sport && c.StartDate > _todayDate)
                     .Include("Reserve.Sport")
                     .Include("Reserve.Ground.Park")
                     .Include("Users")

@@ -54,7 +54,8 @@ namespace Sports4All
                 listItems[i] = new UC_EventItem
                 {
                     Title = sportsWithEvents.ElementAt(i).Name,
-                    Image = Image.FromStream(stream)
+                    Image = Image.FromStream(stream),
+                    Id = sportsWithEvents.ElementAt(i).SportId
                 };
 
 
