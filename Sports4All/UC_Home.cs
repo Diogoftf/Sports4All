@@ -125,7 +125,7 @@ namespace Sports4All
             PopulateMySuggestionsList();
             PopulateComboBox();
             infoStatsDescription();
-            //userStatsDetails();
+            userStatsDetails();
         }
 
         private void infoStatsDescription()
