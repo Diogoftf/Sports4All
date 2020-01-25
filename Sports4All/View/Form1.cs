@@ -16,6 +16,21 @@ namespace Sports4All
     {
         private static Form1 _obj;
 
+        private Form1()
+        {
+
+            // =============================================================
+            //
+            // //APAGAR ISTO DEPOIS E COMEÇAR O PROGRAMA NO LOGIN
+            Session.Instance.LoggedUser = "ruben21";
+            //
+            // =============================================================
+
+            InitializeComponent();
+
+            (new Core.DropShaddow()).ApplyShadows(this);
+        }
+
         public static Form1 Instance
         {
             get
@@ -34,20 +49,6 @@ namespace Sports4All
 
         public UserControl FrontControl { get; set; }
 
-        public Form1()
-        {
-            
-            // =============================================================
-            //
-            // //APAGAR ISTO DEPOIS E COMEÇAR O PROGRAMA NO LOGIN
-            AuthProperties.LoggedUser = "ruben21";
-            //
-            // =============================================================
-
-            InitializeComponent();
-
-            (new Core.DropShaddow()).ApplyShadows(this);
-        }
 
         private void BringUcToFront<T>(string ucName) where T : UserControl, new()
         {
@@ -129,7 +130,7 @@ namespace Sports4All
         private void Form1_Load(object sender, EventArgs e)
         {
             MoveSidePanel(btn_Home);
-            lbWelcomeUser.Text = "Bem vindo, " + AuthProperties.LoggedUser;
+            lbWelcomeUser.Text = "Bem vindo, " + Session.Instance.LoggedUser;
 
             _obj = this;
             AddUserControlsToForm();

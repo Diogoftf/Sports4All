@@ -13,30 +13,15 @@ namespace Core
     {
         #region Shadowing
 
-        #region Fields
-
-        private bool _isAeroEnabled = false;
-        private bool _isDraggingEnabled = false;
-        private const int WM_NCHITTEST = 0x84;
-        private const int WS_MINIMIZEBOX = 0x20000;
-        private const int HTCLIENT = 0x1;
-        private const int HTCAPTION = 0x2;
-        private const int CS_DBLCLKS = 0x8;
-        private const int CS_DROPSHADOW = 0x00020000;
-        private const int WM_NCPAINT = 0x0085;
-        private const int WM_ACTIVATEAPP = 0x001C;
-
-        #endregion
-
         #region Structures
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public struct MARGINS
+        public struct Margins
         {
-            public int leftWidth;
-            public int rightWidth;
-            public int topHeight;
-            public int bottomHeight;
+            public int LeftWidth;
+            public int RightWidth;
+            public int TopHeight;
+            public int BottomHeight;
         }
 
         #endregion
@@ -47,7 +32,7 @@ namespace Core
 
         [DllImport("dwmapi.dll")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
+        public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref Margins pMarInset);
 
         [DllImport("dwmapi.dll")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -108,12 +93,12 @@ namespace Core
 
             DwmSetWindowAttribute(form.Handle, 2, ref v, 4);
 
-            MARGINS margins = new MARGINS()
+            Margins margins = new Margins()
             {
-                bottomHeight = 1,
-                leftWidth = 0,
-                rightWidth = 0,
-                topHeight = 0
+                BottomHeight = 1,
+                LeftWidth = 0,
+                RightWidth = 0,
+                TopHeight = 0
             };
 
             DwmExtendFrameIntoClientArea(form.Handle, ref margins);

@@ -72,9 +72,8 @@ namespace Sports4All
                 if (checkedValues())
                 {
                     StoreUsername(_username);
-                    this.Hide();
-                    Form1 form1 = new Form1();
-                    form1.Show();
+                    Hide();
+                    Form1.Instance.Show();
                 }
             }
         }
@@ -130,9 +129,8 @@ namespace Sports4All
             {
                 if (AddDataToDb())
                 {
-                    this.Hide();
-                    Form1 form1 = new Form1();
-                    form1.Show();
+                    Hide();
+                    Form1.Instance.Show();
                 }
             }
         }
@@ -167,7 +165,7 @@ namespace Sports4All
 
         private void StoreUsername(string username)
         {
-            AuthProperties.LoggedUser = username;
+            Session.Instance.LoggedUser = username;
         }
 
         private void tbRegEmail_Validating(object sender, CancelEventArgs e)

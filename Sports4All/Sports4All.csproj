@@ -108,7 +108,7 @@
     <Compile Include="Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="AuthProperties.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="CircularButton.cs">
       <SubType>Component</SubType>
     </Compile>

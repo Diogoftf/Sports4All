@@ -43,7 +43,7 @@ namespace Sports4All.Controller
                     Skill = playerSkill,
                     FairPlay = playerFairplay,
                     UserId = playerId,
-                    EvaluatorId = AuthProperties.LoggedUser,
+                    EvaluatorId = Session.Instance.LoggedUser,
                     EventId = eventId
                 };
                 db.Evaluations.Add(userEvaluation);
@@ -60,7 +60,7 @@ namespace Sports4All.Controller
                     Quality = parkQuality,
                     Price = parkPrice,
                     ParkId = parkId,
-                    EvaluatorId = AuthProperties.LoggedUser,
+                    EvaluatorId = Session.Instance.LoggedUser,
                     EventId = eventId
                 };
                 db.Evaluations.Add(parkEvaluation);
