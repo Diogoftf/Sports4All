@@ -16,6 +16,11 @@ namespace Sports4All.UserControls_Items
         public UC_SportsGroundItem()
         {
             InitializeComponent();
+
+            foreach (Control c in this.Controls)
+            {
+                c.DoubleClick += UC_SportsGroundItem_DoubleClick;
+            }
         }
 
         #region Properties
