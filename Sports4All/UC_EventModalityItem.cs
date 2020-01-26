@@ -95,6 +95,7 @@ namespace Sports4All
 
             events.JoinEvent(_eventid, _username);
             MessageBox.Show("Juntou-se ao evento com sucesso!");
+            btnJoinEvent.Enabled = false;
         }
 
         private void UC_EventModalityItem_Load(object sender, EventArgs e)

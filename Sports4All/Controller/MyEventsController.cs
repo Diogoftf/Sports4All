@@ -145,6 +145,7 @@ namespace Sports4All.Controller
             {
                 var eventRecord = context.Events
                     .Where(a => a.EventId == EventId)
+                    .Include("Reserve")
                     .FirstOrDefault();
                 context.Events.Remove(eventRecord);
                 context.SaveChanges();

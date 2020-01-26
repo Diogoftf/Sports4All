@@ -83,9 +83,8 @@ namespace Sports4All
         {
             events.JoinEvent(_eventId, _username);
             MessageBox.Show("Juntou-se ao evento com sucesso!");
-
+            btnJoinEvent.Enabled = false;
         }
-
         private void UC_EventSportsGroundItem_Load(object sender, EventArgs e)
         {
             if (!events.CheckUserInEvent(_eventId, _username)) btnJoinEvent.Visible = true;
