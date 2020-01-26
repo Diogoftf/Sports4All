@@ -7,42 +7,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.ObjectModel;
 
 namespace Sports4All
 {
     public partial class UC_CreateEvent : UserControl
     {
-        private Event eventoNovo;
+        private Reserve _reserve { get; set; }
+        private Event _evento { get; set; }
 
         public UC_CreateEvent()
         {
             InitializeComponent();
-            InitializeElements();
-            eventoNovo = new Event();
+            _reserve = new Reserve();
+            _evento = new Event();
         }
 
         private void InitializeElements()
         {
             using (ModelContext context = new ModelContext())
             {
-                /* List<SportsGround> recintos = context.Events.ToList();
+                 List<Park> recintos = context.Parks.ToList();
 
                  cbEnclosure.Items.Clear();
                  for (int i = 0; i < recintos.Count; i++)
                  {
-                     cbEnclosure.Items.Add(recintos[i].name);
+                     cbEnclosure.Items.Add(recintos[i].Name);
                  }
-                  */
+                  
             }
 
             dtpEventDate.MinDate = DateTime.Today;
 
-            dtpStartEventTime.Format = DateTimePickerFormat.Custom;
             dtpStartEventTime.CustomFormat = "HH:mm";
+            dtpStartEventTime.Format = DateTimePickerFormat.Custom;
             dtpStartEventTime.ShowUpDown = true;
 
-            dtpEndEventTime.Format = DateTimePickerFormat.Custom;
             dtpEndEventTime.CustomFormat = "HH:mm";
+            dtpEndEventTime.Format = DateTimePickerFormat.Custom;
             dtpEndEventTime.ShowUpDown = true;
 
             for (int i = 1; i < 21; i++)
@@ -50,7 +52,7 @@ namespace Sports4All
                 cbPlayersNumber.Items.Add(i);
             }
             
-            for (int i = 5; i < 80; i++)
+            for (int i = 5; i < 60; i++)
             {
                 cbMinAge.Items.Add(i);
                 cbMaxAge.Items.Add(i);
@@ -58,21 +60,24 @@ namespace Sports4All
            
         }
 
-        private bool verificadorDeCamposEventos()
+        private bool checkIntegrity()
         {
             bool verificador = false;
 
-            // FALTA VERIFICAR OS HORARIOS DOS EVENTOS
-            if (cbEnclosure.SelectedIndex < 0)
+            if (txtEventName.TextLength < 1)
             {
-                MessageBox.Show("Devera selecionar o recinto.");
+                MessageBox.Show("Devera inserir o nome do evento");
+            }
+            else if (cbEnclosure.SelectedIndex < 0)
+            {
+                MessageBox.Show("Devera selecionar o parque desportivo.");
             }
             else if (cbSport.SelectedIndex < 0)
             {
                 MessageBox.Show("Devera selecionar o desporto.");
 
             }
-            else if (dtpStartEventTime.Value.TimeOfDay >= dtpEndEventTime.Value.TimeOfDay || dtpEndEventTime.Value.TimeOfDay <= dtpStartEventTime.Value.TimeOfDay)
+            else if (dtpStartEventTime.Value.Date.Hour == dtpEndEventTime.Value.Date.Hour && dtpStartEventTime.Value.Date.Minute == dtpEndEventTime.Value.Date.Minute)
             {
                 MessageBox.Show("As datas do evento são incoerentes.");
             }
@@ -96,134 +101,118 @@ namespace Sports4All
             return verificador;
         }
 
-        private void btnCreateEvent_Click(object sender, EventArgs e)
-        {
-                //Se nao ocorreu nenhum erro ao verificar os campos da criação de um evento no Home
-            if (verificadorDeCamposEventos())
-            {
-
-                // Event EventHome = new Event();  done
-                //EventHome.SportsGround_id = ;   done
-                //EventHome.Sport_id = ;        done
-                //EventHome.startTime = ;      done
-                //EventHome.endTime = ; done
-
-                var context = new ModelContext();
-               // eventoNovo.id = default;
-               // context.Event.Add(eventoNovo);
-                context.SaveChanges();
-                MessageBox.Show("Evento criado com sucesso!");
-                this.Visible = false;
-            }
-        }
-
         private void btnCancelEvent_Click(object sender, EventArgs e)
         {
             this.Visible = false;
         }
 
-        private void checkIntregrityAgePlayers()
-        {
-            int valueMin = Int32.Parse(cbMinAge.Text);
-            int valueMax = Int32.Parse(cbMaxAge.Text);
-
-            cbMinAge.Items.Clear();
-            cbMaxAge.Items.Clear();
-            if (valueMin > valueMax)
-            {
-                valueMin++;
-                for (int i = valueMin; i < 80; i++)
-                {
-                    cbMaxAge.Items.Add(i);
-                }
-            }
-            else
-            {
-                valueMax++;
-                for (int i = valueMax; i < 80; i++)
-                {
-                    cbMinAge.Items.Add(i);
-                }
-            }
-        }
 
         private void cbMinAge_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //checkIntregrityAgePlayers();
 
         }
 
         private void cbEnclosure_SelectedIndexChanged(object sender, EventArgs e)
         {
-         /*   var context = new ModelContext();
-
-            var localizacaoRecinto = (from a in context.SportsGround
-                                      join c in context.Address on a.Address_id equals c.id
-                                      where a.name == cbEnclosure.Text
-                                      select new
-                                      {
-                                          a.id,
-                                          a.Address_id,
-                                          c.street,
-                                          c.postalCode,
-                                          c.county
-                                      }).SingleOrDefault();
-
-            eventoNovo.Address_id = localizacaoRecinto.Address_id;
-            tbLocation.Text = localizacaoRecinto.street + ", " + localizacaoRecinto.postalCode + ", " + localizacaoRecinto.county;
-
-            var desportosRecinto = (from a in context.SportsGround_has_Sport
-                                      join c in context.Sport on a.SportsGround_id equals localizacaoRecinto.id
-                                    where c.id == a.Sport_id
-                                    select new
-                                      {
-                                          c.name,
-                                          c.id
-                                      }).ToList();
-
-            cbSport.Items.Clear();
-            for (int i = 0; i < desportosRecinto.Count; i++)
+            using(ModelContext db = new ModelContext())
             {
-                cbSport.Items.Add(desportosRecinto[i].name);
-            }
+                cbSport.Items.Clear();
+                var localizacaoRecinto = db.Parks.Include("Address.County").Where(f => f.Name == cbEnclosure.Text).ToList()[0].Address;
 
-            /// !!! TEMPORARIO !!!
-            eventoNovo.SportsGround_id = localizacaoRecinto.id;*/
+                tbLocation.Text = localizacaoRecinto.Street + ", " + localizacaoRecinto.PostalCode + ", " + localizacaoRecinto.County.Name;
+
+                var recintosPark = db.Parks.Include("Grounds").Where(f => f.Name == cbEnclosure.Text).ToList()[0].Grounds.ToList();
+                
+                for(int i = 0; i < recintosPark.Count; i++)
+                {
+                    for(int j = 0; j < recintosPark[i].Sports.Count; j++)
+                    {
+                        cbSport.Items.Add(recintosPark[i].Sports.ToList()[j].Name);
+                    }
+                }
+            }            
         }
 
         private void cbMaxAge_SelectedIndexChanged(object sender, EventArgs e)
         {
-           //checkIntregrityAgePlayers();
+          
         }
 
         private void UC_CreateEvent_Load(object sender, EventArgs e)
         {
-            //InitializeElements();
+            if(!DesignMode)
+            {
+                InitializeElements();
+            }
+            
         }
 
         private void cbSport_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*var context = new ModelContext();
-          var desportoRecinto = (from a in context.SportsGround_has_Sport
-                                   join c in context.Sport on a.SportsGround_id equals eventoNovo.SportsGround_id
-                                   where c.id == a.Sport_id && c.name == cbSport.Text
-                                  select new
-                                   {
-                                       c.name,
-                                       c.id
-                                   }).FirstOrDefault();*/
+            using(ModelContext db = new ModelContext())
+            {
+                var sport = db.Sports.Where(f => f.Name == cbSport.Text).First();
 
-            //  eventoNovo.Sport_id = desportoRecinto.id;
+                var desportoRecinto = db.Grounds.Where(f => f.Park.Name == cbEnclosure.Text).ToList();
+
+                for(int i = 0; i < desportoRecinto.Count; i++)
+                {
+                    for(int j = 0; j < desportoRecinto[i].Sports.ToList().Count; j++)
+                    {
+                        if (desportoRecinto[i].Sports.ToList()[j].SportId == sport.SportId)
+                        {
+                            _reserve.GroundId = desportoRecinto[i].GroundId;
+                        }
+                    }
+                }
+
+                _reserve.SportId = sport.SportId;
+
+            }
+
         }
 
         private void dtpStartEventTime_ValueChanged(object sender, EventArgs e)
         {
-           // eventoNovo.startTime = TimeSpan.Parse(dtpEndEventTime.Value.TimeOfDay.ToString());
+           _evento.StartDate = dtpEndEventTime.Value;
         }
 
         private void dtpEndEventTime_ValueChanged(object sender, EventArgs e)
         {
-           // eventoNovo.endTime = TimeSpan.Parse(dtpEndEventTime.Value.TimeOfDay.ToString());
+            _evento.EndDate = dtpEndEventTime.Value;
+        }
+
+        private void btnCreateEvent_Click_1(object sender, EventArgs e)
+        {
+            //Se nao ocorreu nenhum erro ao verificar os campos da criação de um evento no Home
+            if (checkIntegrity())
+            {
+                using (ModelContext db = new ModelContext())
+                {
+                    var WhoAmI = db.Users.First(f => f.Username == Session.Instance.LoggedUser);
+                    _reserve.Date = DateTime.Now;
+                    _reserve.Price = 10;
+                    _reserve.UserId = WhoAmI.Username;
+                    _reserve.Event = _evento;
+
+                    _evento.Name = txtEventName.Text;
+                    _evento.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
+                    _evento.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
+                    _evento.Name = txtEventName.Text;
+                    ICollection<User> listUsers = new Collection<User>();
+                    listUsers.Add(WhoAmI);
+                    _evento.Users = listUsers;
+                    _evento.MinAge = Convert.ToInt32(cbMinAge.Text);
+                    _evento.MaxAge = Convert.ToInt32(cbMaxAge.Text);
+                    _evento.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
+                    db.Reserves.Add(_reserve);
+                    db.Events.Add(_evento);
+                    db.SaveChanges();
+                    MessageBox.Show("Evento criado com sucesso!");
+                    this.Visible = false;
+                    
+                }
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Sports4All
         {
 
             
-            //Database.SetInitializer<ModelContext>(new DropCreateDatabaseAlways<ModelContext>());
+          //  Database.SetInitializer<ModelContext>(new DropCreateDatabaseAlways<ModelContext>());
             // Database.SetInitializer<ModelContext>(new DropCreateDatabaseIfModelChanges<ModelContext>());
               Database.SetInitializer<ModelContext>(new CreateDatabaseIfNotExists<ModelContext>());
         }
