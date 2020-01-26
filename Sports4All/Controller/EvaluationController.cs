@@ -24,6 +24,29 @@ namespace Sports4All.Controller
                 return eventPark;
             }
         }
+
+        public Event GetEvent(int eventId)
+        {
+            using (var db = new ModelContext())
+            {
+                var queryEvent = db.Events
+                    .FirstOrDefault(x => x.EventId == eventId);
+
+                return queryEvent;
+            }
+        }
+
+        public User GetUser(string userId)
+        {
+            using (var db = new ModelContext())
+            {
+                var queryUser = db.Users.FirstOrDefault(x => x.Username == userId);
+
+                return queryUser;
+            }
+        }
+
+       
         public ICollection<User> GetEvaluableUsers(int eventId)
         {
             ICollection<User> usersList;

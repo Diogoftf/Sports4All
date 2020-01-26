@@ -9,6 +9,7 @@ namespace Sports4All
 {
    public class Park : IObserver
     {
+        private readonly RankController rankController;
         public int ParkId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }  
@@ -19,10 +20,14 @@ namespace Sports4All
         public virtual ParkClassification ParkClassification { get; set; }
         public ICollection<ParkEvaluation> ParkEvaluations { get; set; }
 
+        public Park()
+        {
+            rankController = new RankController();
+        }
+
         public void Update(ISubject subject)
         {
-            var rc = new RankController();
-            rc.UpdateParkClassification(ParkId);
+            rankController.UpdateParkClassification(ParkId);
         }
     }
 }

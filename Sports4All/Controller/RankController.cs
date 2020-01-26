@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Sports4All
 {
@@ -30,57 +26,130 @@ namespace Sports4All
 
         }
 
-        public void UserPointsCalculator()
+        //public void UserPointsCalculator()
+        //{
+        //    using (ModelContext db = new ModelContext())
+        //    {
+        //        var myStats = db.Users.ToList(); // Classificação de todos os users
+        //        var auxReservesPerformed = 0;
+        //        double auxFairplayResult = 0;
+        //        double auxSkillResult = 0;
+        //        double auxEventsPerfomed = 0;
+        //        double auxRacio = 0;
+        //        double auxPoints = 0;
+
+        //        for (int i = 0; i < myStats.Count; i++) // percorro todos os users que possuem pontos > 0
+        //        {
+        //            auxEventsPerfomed = myStats[i].Events.Count; // total de partidas de cada user
+        //            auxReservesPerformed = myStats[i].Reserves.Count;
+        //            var auxUser = myStats[i].Username;
+        //            var userEvaluations = db.Evaluations.OfType<UserEvaluation>().Where(e => e.Evaluated.Username == auxUser).ToList(); // se esse user ja foi avaliado alguma vez...
+
+        //            // Se esse user ja foi avaliado alguma vez....
+        //            if (userEvaluations.Count > 0)
+        //            {
+        //                for (int j = 0; j < userEvaluations.Count; j++)
+        //                {
+        //                    auxFairplayResult += userEvaluations[j].FairPlay; //total de fairplay de cada user
+        //                    auxSkillResult += userEvaluations[j].Skill;  //total de skill de cada user
+        //                }
+
+        //                auxFairplayResult /= userEvaluations.Count;
+        //                auxSkillResult /= userEvaluations.Count;
+        //                auxRacio = auxFairplayResult / auxSkillResult;
+
+        //            }
+        //            else
+        //            {
+        //                auxFairplayResult = auxSkillResult = auxRacio = 0;
+        //            }
+
+        //            auxPoints = auxFairplayResult * Points._fairplay_Weight + auxSkillResult * Points._skill_Weight +
+        //            auxEventsPerfomed * Points._eventPerformed_Weight +
+        //            auxReservesPerformed * Points._reservePerformed_Weight + auxRacio * Points._racio_Weight;
+
+        //            //if (auxPoints != myStats[i].UserClassification.Points) // se os pontos calculados estiverem diferentes dos pontos da BD
+        //            {
+        //                myStats[i].UserClassification.Points = Math.Round(auxPoints,2);
+        //                myStats[i].UserClassification.Ratio = Math.Round(auxRacio,2);
+        //                myStats[i].UserClassification.SkillAverage = Math.Round(auxSkillResult,2);
+        //                myStats[i].UserClassification.FairplayAverage = Math.Round(auxFairplayResult,2);
+        //                db.SaveChanges();
+        //            }
+        //        }
+
+        //    }
+        //}
+
+        internal void UpdateUserClassification(string username)
         {
-            using (ModelContext db = new ModelContext())
+            using (var db = new ModelContext())
             {
-                var myStats = db.Users.ToList(); // Classificação de todos os users
-                var auxReservesPerformed = 0;
-                double auxFairplayResult = 0;
-                double auxSkillResult = 0;
-                double auxEventsPerfomed = 0;
-                double auxRacio = 0;
-                double auxPoints = 0;
+                ICollection<UserEvaluation> userEvaluations = GetUserEvaluations(username);
 
-                for (int i = 0; i < myStats.Count; i++) // percorro todos os users que possuem pontos > 0
+                double avgFairPlay = GetUseFairPlayAvg(userEvaluations);
+                double avgSkill = GetUserSkillAvg(userEvaluations);
+
+
+                var userClassification = db.Classifications.Include("User").OfType<UserClassification>()
+                    .FirstOrDefault(x => x.User.Username == username);
+
+                userClassification.FairplayAverage = Math.Round(avgFairPlay, 2);
+                userClassification.SkillAverage = Math.Round(avgSkill, 2);
+
+                db.SaveChanges();
+            }
+        }
+
+        private double GetUserSkillAvg(ICollection<UserEvaluation> userEvaluations)
+        {
+            int skillSum = 0;
+
+            foreach (var evaluation in userEvaluations)
+            {
+                skillSum += evaluation.Skill;
+            }
+
+            double avgSkill = skillSum / userEvaluations.Count();
+
+            avgSkill = Math.Round(avgSkill, 2);
+
+            return avgSkill;
+        }
+
+        private double GetUseFairPlayAvg(ICollection<UserEvaluation> userEvaluations)
+        {
+            int fairPlaySum = 0;
+
+            foreach (var evaluation in userEvaluations)
+            {
+                fairPlaySum += evaluation.FairPlay;
+            }
+
+            double avgFairPlay = fairPlaySum / userEvaluations.Count();
+
+            avgFairPlay = Math.Round(avgFairPlay, 2);
+
+            return avgFairPlay;
+        }
+
+        private ICollection<UserEvaluation> GetUserEvaluations(string username)
+        {
+            using (var db = new ModelContext())
+            {
+                List<UserEvaluation> userEvaluations = new List<UserEvaluation>();
+
+                var evaluations = db.Evaluations.OfType<UserEvaluation>().ToList();
+
+                foreach (var evaluation in evaluations)
                 {
-                    auxEventsPerfomed = myStats[i].Events.Count; // total de partidas de cada user
-                    auxReservesPerformed = myStats[i].Reserves.Count;
-                    var auxUser = myStats[i].Username;
-                    var userEvaluations = db.Evaluations.OfType<UserEvaluation>().Where(e => e.Evaluated.Username == auxUser).ToList(); // se esse user ja foi avaliado alguma vez...
-
-                    // Se esse user ja foi avaliado alguma vez....
-                    if (userEvaluations.Count > 0)
+                    if (evaluation.UserId == username)
                     {
-                        for (int j = 0; j < userEvaluations.Count; j++)
-                        {
-                            auxFairplayResult += userEvaluations[j].FairPlay; //total de fairplay de cada user
-                            auxSkillResult += userEvaluations[j].Skill;  //total de skill de cada user
-                        }
-
-                        auxFairplayResult /= userEvaluations.Count;
-                        auxSkillResult /= userEvaluations.Count;
-                        auxRacio = auxFairplayResult / auxSkillResult;
-
-                    }
-                    else
-                    {
-                        auxFairplayResult = auxSkillResult = auxRacio = 0;
-                    }
-
-                    auxPoints = auxFairplayResult * Points._fairplay_Weight + auxSkillResult * Points._skill_Weight +
-                    auxEventsPerfomed * Points._eventPerformed_Weight +
-                    auxReservesPerformed * Points._reservePerformed_Weight + auxRacio * Points._racio_Weight;
-
-                    //if (auxPoints != myStats[i].UserClassification.Points) // se os pontos calculados estiverem diferentes dos pontos da BD
-                    {
-                        myStats[i].UserClassification.Points = Math.Round(auxPoints,2);
-                        myStats[i].UserClassification.Ratio = Math.Round(auxRacio,2);
-                        myStats[i].UserClassification.SkillAverage = Math.Round(auxSkillResult,2);
-                        myStats[i].UserClassification.FairplayAverage = Math.Round(auxFairplayResult,2);
-                        db.SaveChanges();
+                        userEvaluations.Add(evaluation);
                     }
                 }
+
+                return userEvaluations;
 
             }
         }
