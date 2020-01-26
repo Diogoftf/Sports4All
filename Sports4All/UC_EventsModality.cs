@@ -101,7 +101,8 @@ namespace Sports4All
             var EventsbySport = _eventsController.EventsBySport(Id);
             var EventsbySportCount = EventsbySport.Count;
             UC_EventModalityItem[] listitems = new UC_EventModalityItem[EventsbySportCount];
-
+            var Sport = _eventsController.RetrieveSingleSport(Id);
+            tbModalityName.Text = Sport.ToList()[0].Name;
             for (int i = 0; i < EventsbySportCount; i++)
             {
                 var usersCount = EventsbySport.ToList()[i].Users.Count;
@@ -122,13 +123,9 @@ namespace Sports4All
                 };
                 if (usersCount == maxUsers) listitems[i].DisableJoinEventbtn(); // remove botao para se juntar ao evento
                 flpEventListModality.Controls.Add(listitems[i]);
+
             }
         }
 
-        
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
     }
 }

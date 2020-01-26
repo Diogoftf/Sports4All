@@ -33,6 +33,7 @@
             this.lblMonth_Event = new System.Windows.Forms.Label();
             this.plEventDate = new System.Windows.Forms.Panel();
             this.plEventData = new System.Windows.Forms.Panel();
+            this.uC_UnregisterButton1 = new Sports4All.UC_UnregisterButton();
             this.btnJoinEvent = new System.Windows.Forms.Button();
             this.lblSpaceAvailableValue = new System.Windows.Forms.Label();
             this.lblSpaceAvailable = new System.Windows.Forms.Label();
@@ -78,6 +79,7 @@
             // 
             // plEventData
             // 
+            this.plEventData.Controls.Add(this.uC_UnregisterButton1);
             this.plEventData.Controls.Add(this.btnJoinEvent);
             this.plEventData.Controls.Add(this.lblSpaceAvailableValue);
             this.plEventData.Controls.Add(this.lblSpaceAvailable);
@@ -91,6 +93,16 @@
             this.plEventData.Name = "plEventData";
             this.plEventData.Size = new System.Drawing.Size(817, 103);
             this.plEventData.TabIndex = 3;
+            // 
+            // uC_UnregisterButton1
+            // 
+            this.uC_UnregisterButton1.Location = new System.Drawing.Point(722, 31);
+            this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
+            this.uC_UnregisterButton1.Size = new System.Drawing.Size(53, 44);
+            this.uC_UnregisterButton1.TabIndex = 9;
+            this.uC_UnregisterButton1.Visible = false;
+            this.uC_UnregisterButton1.Click += new System.EventHandler(this.uC_UnregisterButton1_Click);
+            this.uC_UnregisterButton1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.uC_UnregisterButton1_MouseClick);
             // 
             // btnJoinEvent
             // 
@@ -217,5 +229,6 @@
         private System.Windows.Forms.Label lblEventOwner;
         private System.Windows.Forms.Button btnJoinEvent;
         private System.Windows.Forms.Label lblSpaceAvailableValue;
+        private UC_UnregisterButton uC_UnregisterButton1;
     }
 }

@@ -33,6 +33,7 @@
             this.lblMonth_Event = new System.Windows.Forms.Label();
             this.plEventDate = new System.Windows.Forms.Panel();
             this.plEventData = new System.Windows.Forms.Panel();
+            this.uC_UnregisterButton1 = new Sports4All.UC_UnregisterButton();
             this.btnJoinEvent = new System.Windows.Forms.Button();
             this.lblSpaceAvailableValue = new System.Windows.Forms.Label();
             this.lblSpaceAvailable = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.lblDay_Event.Size = new System.Drawing.Size(85, 62);
             this.lblDay_Event.TabIndex = 0;
             this.lblDay_Event.Text = "04";
-            this.lblDay_Event.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblMonth_Event
             // 
@@ -79,6 +79,7 @@
             // 
             // plEventData
             // 
+            this.plEventData.Controls.Add(this.uC_UnregisterButton1);
             this.plEventData.Controls.Add(this.btnJoinEvent);
             this.plEventData.Controls.Add(this.lblSpaceAvailableValue);
             this.plEventData.Controls.Add(this.lblSpaceAvailable);
@@ -92,6 +93,14 @@
             this.plEventData.Name = "plEventData";
             this.plEventData.Size = new System.Drawing.Size(817, 103);
             this.plEventData.TabIndex = 3;
+            // 
+            // uC_UnregisterButton1
+            // 
+            this.uC_UnregisterButton1.Location = new System.Drawing.Point(714, 26);
+            this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
+            this.uC_UnregisterButton1.Size = new System.Drawing.Size(49, 44);
+            this.uC_UnregisterButton1.TabIndex = 9;
+            this.uC_UnregisterButton1.Visible = false;
             // 
             // btnJoinEvent
             // 
@@ -218,5 +227,6 @@
         private System.Windows.Forms.Label lblEventOwner;
         private System.Windows.Forms.Button btnJoinEvent;
         private System.Windows.Forms.Label lblSpaceAvailableValue;
+        private UC_UnregisterButton uC_UnregisterButton1;
     }
 }

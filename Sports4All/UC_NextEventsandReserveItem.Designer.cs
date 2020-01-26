@@ -45,6 +45,7 @@
             this.lblEventHourValue = new System.Windows.Forms.Label();
             this.plLine = new System.Windows.Forms.Panel();
             this.lblModalityName = new System.Windows.Forms.Label();
+            this.uC_UnregisterButton1 = new Sports4All.UC_UnregisterButton();
             this.plEventDate.SuspendLayout();
             this.plEventData.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +85,7 @@
             // 
             // plEventData
             // 
+            this.plEventData.Controls.Add(this.uC_UnregisterButton1);
             this.plEventData.Controls.Add(this.lbEventID);
             this.plEventData.Controls.Add(this.lbEvent);
             this.plEventData.Controls.Add(this.lblSportsGround);
@@ -232,6 +234,14 @@
             this.lblModalityName.Text = "Futebol";
             this.lblModalityName.Click += new System.EventHandler(this.label3_Click);
             // 
+            // uC_UnregisterButton1
+            // 
+            this.uC_UnregisterButton1.Location = new System.Drawing.Point(676, 29);
+            this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
+            this.uC_UnregisterButton1.Size = new System.Drawing.Size(53, 36);
+            this.uC_UnregisterButton1.TabIndex = 16;
+            this.uC_UnregisterButton1.Visible = false;
+            // 
             // UC_NextEventsandReserveItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -267,5 +277,6 @@
         private System.Windows.Forms.Label lblSportsGround;
         private System.Windows.Forms.Label lbEventID;
         private System.Windows.Forms.Label lbEvent;
+        private UC_UnregisterButton uC_UnregisterButton1;
     }
 }

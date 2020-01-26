@@ -23,7 +23,18 @@ namespace Sports4All
         private string _eventDate;
         private string _startHour;
         private string _endHour;
-        private int _eventID; 
+        private int _eventID;
+        private string _parkname;
+
+        public string ParkName
+        {
+            get => _parkname;
+            set
+            {
+                _parkname = value;
+                lbParkName.Text = value;
+            }
+        }
 
         #region  EventDetails
         public int EventId
@@ -138,7 +149,7 @@ namespace Sports4All
             DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
             // DateTime NewDate = new DateTime();
             eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
-
+        
         }
         private void PropertiesformEventDetails(bool Enabled, BorderStyle border, bool ReadOnly)
         {
@@ -171,15 +182,16 @@ namespace Sports4All
         {
             PopulateUsersList();
             PopulateEventDetails();
+            CheckOwner();
         }
 
         private void PopulateUsersList()
         {
+            flpUsersEvent.Controls.Clear();
             ICollection<User> enrolledUsers = eventsController.RetrieveEnrolledUsers(_eventID);
             int enrolledUsersCount = enrolledUsers.Count;
             UC_UserinEventItem[] listusers = new UC_UserinEventItem[enrolledUsersCount];
             
-
             for (int i = 0; i < enrolledUsersCount; i++)
             {
                 listusers[i] = new UC_UserinEventItem()
@@ -195,6 +207,7 @@ namespace Sports4All
         }
         private void PopulateEventDetails()
         {
+
             var SingleEvent = eventsController.RetrieveSingleEvent(_eventID);
             lbEventId.Text = "Evento #" + SingleEvent.EventId;
             lblOwnerValue.Text = SingleEvent.Reserve.UserId;
@@ -206,8 +219,15 @@ namespace Sports4All
             tbMaxAge.Text = Convert.ToString(SingleEvent.MaxAge);
             tbminAge.Text = Convert.ToString(SingleEvent.MinAge);
             //**Ver Nome do Parque ainda**
+            ParkName = SingleEvent.Reserve.Ground.Park.Name;
 
         }
+
+        public void CheckOwner()
+        {
+            if (lblOwnerValue.Text != Session.Instance.LoggedUser) btnEdit.Visible = false;
+        }
+
 
         private void mC_Calendar_DateChanged(object sender, DateRangeEventArgs e)
         {

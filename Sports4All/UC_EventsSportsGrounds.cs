@@ -41,15 +41,18 @@ namespace Sports4All
             flpEventListSportsground.Controls.Clear();
             _eventsList = _eventsController.EventsByGround(Id);
             if (!DesignMode) ListEventsbyGround();
+
+
         }
 
         public void ListEventsbyGround()
         {
             flpEventListSportsground.Controls.Clear();
             var EventsbyGroundCount = _eventsList.Count;
-
             UC_EventSportsGroundItem[] listitems = new UC_EventSportsGroundItem[EventsbyGroundCount];
-
+            var Park = _eventsController.RetrieveSinglePark(Id);
+            tbSportsgroundName.Text = Park.ToList()[0].Name;
+    
             for (int i = 0; i < EventsbyGroundCount; i++)
             {
                 var usersCount = _eventsList.ToList()[i].Users.Count;
