@@ -17,7 +17,6 @@ namespace Sports4All
     public partial class UC_EventDetails : UserControl
     {
         private MyEventsController eventsController;
-
         private string _maxPlayers;
         private string _maxPlayerAge;
         private string _minPlayerAge;

@@ -17,7 +17,7 @@ namespace Sports4All
         public UC_MyEvents()
         {
             InitializeComponent();
-            _username = "andreMx";
+            _username = Session.Instance.LoggedUser;
             if (!DesignMode) FinishedEvents();
             btnFinishedEvents.BackColor = Color.LightSkyBlue;
         }

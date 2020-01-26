@@ -66,18 +66,6 @@ namespace Sports4All
             ////{
             ////    Console.WriteLine(prop.Name, prop.GetValue(c, null));
             ////}
-
-            //MyEventsController events = new MyEventsController();
-            //events.RetrieveEnrolledUsers(2);
-            //events.CheckUserInEvent(1,"paulo");
-            //// events.JoinEvent(2,"ruben21");
-            //events.JoinEvent(2,"paulo");
-            ////events.EventsbyGround("Agua de Pena");
-            ////events.RetrieveEnrolledUsers(1);
-            ////events.RetrieveNextEvents("andreMx");
-            ////events.RetrieveSingleEvent(1);
-            ////events.RetrieveUserReserves("andreMx");
-            ////events.VerifyEvaluation(1,"andreMx");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(Form1.Instance);

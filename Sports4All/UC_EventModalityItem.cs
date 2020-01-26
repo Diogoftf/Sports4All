@@ -72,8 +72,6 @@ namespace Sports4All
             _username =  Session.Instance.LoggedUser;
             if (!events.CheckUserInEvent(_eventid, _username)) btnJoinEvent.Visible = false;
 
-
-
         }
 
         public void DisableJoinEventbtn()
@@ -94,11 +92,7 @@ namespace Sports4All
 
         private void btnJoinEvent_Click(object sender, EventArgs e)
         {
-
-          
-                events.JoinEvent(_eventid, _username);
-
-            
+            events.JoinEvent(_eventid, _username);
         }
     }
 }
