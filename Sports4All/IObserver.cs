@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sports4All
 {
-    interface IObserver
+    public interface IObserver
     {
         void Update(ISubject subject);
     }

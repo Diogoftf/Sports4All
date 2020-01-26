@@ -13,7 +13,7 @@ namespace Sports4All.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202001251923043_M001"; }
+            get { return "202001252230589_M001"; }
         }
         
         string IMigrationMetadata.Source
