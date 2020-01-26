@@ -96,8 +96,7 @@ namespace Sports4All
 
         public void ListEventsBySport()
         {
-            if (flpEventListModality.Controls.Count > 0)
-                flpEventListModality.Controls.Clear();
+            flpEventListModality.Controls.Clear();
 
             var EventsbySport = _eventsController.EventsBySport(Id);
             var EventsbySportCount = EventsbySport.Count;
@@ -112,9 +111,9 @@ namespace Sports4All
                 month = month.Substring(6, 3).ToUpper();
                 listitems[i] = new UC_EventModalityItem
                 {
-                    EventId = EventsbySport.ToList()[0].EventId,
-                    Owner = EventsbySport.ToList()[0].Reserve.UserId,
-                    SportGround = EventsbySport.ToList()[0].Reserve.Ground.Park.Name,
+                    EventId = EventsbySport.ToList()[i].EventId,
+                    Owner = EventsbySport.ToList()[i].Reserve.UserId,
+                    SportGround = EventsbySport.ToList()[i].Reserve.Ground.Park.Name,
                     Hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString(),
                     Day = Convert.ToString(EventsbySport.ToList()[i].StartDate.Day),
                     Month = month,
