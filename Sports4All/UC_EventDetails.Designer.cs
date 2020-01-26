@@ -56,7 +56,6 @@
             this.dtpStartEventTime = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pbPark)).BeginInit();
             this.SuspendLayout();
             // 
@@ -343,19 +342,10 @@
             this.label6.TabIndex = 84;
             this.label6.Text = "Final do Evento:";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "d";
-            this.dateTimePicker1.Location = new System.Drawing.Point(404, 331);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 28);
-            this.dateTimePicker1.TabIndex = 85;
-            // 
-            // UC_EventsDetails
+            // UC_EventDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpEndEventTime);
@@ -422,6 +412,5 @@
         private System.Windows.Forms.DateTimePicker dtpStartEventTime;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

@@ -22,7 +22,6 @@ namespace Sports4All
         public ICollection<UserEvaluation> UserEvaluations { get; set; }
         public virtual ICollection<Reserve> Reserves { get; set; }
         public virtual ICollection<Event> Events { get; set; }
-       
         public virtual Picture Picture { get; set; }
         public void Update(ISubject subject)
         {

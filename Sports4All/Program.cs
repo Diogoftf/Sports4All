@@ -78,15 +78,6 @@ namespace Sports4All
             ////{
             ////    Console.WriteLine(prop.Name, prop.GetValue(c, null));
             ////}
-
-            //MyEventsController events = new MyEventsController();
-
-            //events.EventsbyGround("Agua de Pena");
-            //events.RetrieveEnrolledUsers(1);
-            //events.RetrieveNextEvents("andreMx");
-            //events.RetrieveSingleEvent(1);
-            //events.RetrieveUserReserves("andreMx");
-            //events.VerifyEvaluation(1,"andreMx");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Authentication());

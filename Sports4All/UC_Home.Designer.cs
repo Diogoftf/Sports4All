@@ -747,6 +747,7 @@
             this.UC_CreateEvent1.Name = "UC_CreateEvent1";
             this.UC_CreateEvent1.Size = new System.Drawing.Size(1226, 770);
             this.UC_CreateEvent1.TabIndex = 81;
+            this.UC_CreateEvent1.Load += new System.EventHandler(this.UC_CreateEvent1_Load);
             // 
             // UC_Home
             // 

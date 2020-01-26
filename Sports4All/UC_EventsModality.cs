@@ -19,6 +19,16 @@ namespace Sports4All
         public int Id { get; set; }
 
         private bool _controlSub = false;
+
+        private string _sportName;
+
+        public string Sport
+        {
+
+            get { return _sportName; }
+            set { _sportName = value; tbModalityName.Text = value; }
+
+        }
         public UC_EventsModality()
         {
             InitializeComponent();
@@ -102,6 +112,7 @@ namespace Sports4All
                 month = month.Substring(6, 3).ToUpper();
                 listitems[i] = new UC_EventModalityItem
                 {
+                    EventId = EventsbySport.ToList()[0].EventId,
                     Owner = EventsbySport.ToList()[0].Reserve.UserId,
                     SportGround = EventsbySport.ToList()[0].Reserve.Ground.Park.Name,
                     Hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString(),

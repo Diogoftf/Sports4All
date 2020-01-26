@@ -345,6 +345,11 @@ namespace Sports4All
             //InitializateElements();
         }
 
+        private void UC_CreateEvent1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
