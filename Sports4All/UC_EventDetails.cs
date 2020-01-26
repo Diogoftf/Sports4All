@@ -24,13 +24,9 @@ namespace Sports4All
         private string _eventDate;
         private string _startHour;
         private string _endHour;
-        private int _eventID; //ID QUE VEM DE OUTROS ECRAS!
-
+        private int _eventID; 
 
         #region  EventDetails
-       //dtpNextEventDate.MinDate = dtpMySportDate.MinDate = DateTime.Now;
-        //dtpMySportDate.Format = dtpNextEventDate.Format = DateTimePickerFormat.Custom;
-        //dtpMySportDate.CustomFormat = dtpNextEventDate.CustomFormat = "dd-MM-yyyy";
         public int EventId
         {
             get => _eventID;
@@ -102,7 +98,7 @@ namespace Sports4All
         {
             InitializeComponent();
             pickDateTimeOnly();
-            _eventID = 1;// VALOR PARA TESTE!!!!!!!!!!
+           // _eventID = 1;// VALOR PARA TESTE!!!!!!!!!!
         }
 
         private void pickDateTimeOnly()

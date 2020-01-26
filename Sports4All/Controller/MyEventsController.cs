@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Sports4All.Controller
 {
@@ -67,7 +66,7 @@ namespace Sports4All.Controller
 
         public bool VerifyEvaluation(int eventId, string username)
         {
-            bool state = false;
+            var state = false;
             using (var db = new ModelContext())
             {
                 var Evaluations = db.Evaluations
@@ -112,7 +111,8 @@ namespace Sports4All.Controller
             using (var db = new ModelContext())
             {
                 var EventsbyGroundt = db.Events
-                    .Where(c => c.Reserve.Ground.Park.ParkId == parkId && c.Reserve.Sport.Name == sport && c.StartDate > _todayDate)
+                    .Where(c => c.Reserve.Ground.Park.ParkId == parkId && c.Reserve.Sport.Name == sport &&
+                                c.StartDate > _todayDate)
                     .Include("Reserve.Sport")
                     .Include("Reserve.Ground.Park")
                     .Include("Users")
@@ -120,7 +120,9 @@ namespace Sports4All.Controller
                 return EventsbyGroundt;
             }
         }
-        public void UpdateEventRecord(int ReserveId, int maxAge,int minAge ,int maxPlayers,DateTime startDate,DateTime endDate)
+
+        public void UpdateEventRecord(int ReserveId, int maxAge, int minAge, int maxPlayers, DateTime startDate,
+            DateTime endDate)
         {
             using (var context = new ModelContext())
             {
@@ -135,6 +137,7 @@ namespace Sports4All.Controller
                 context.SaveChanges();
             }
         }
+
         //**nao funciona!!!! Corrigir o Delete
         public void DeleteEvent(int EventId)
         {
@@ -175,7 +178,50 @@ namespace Sports4All.Controller
             }
         }
 
+        public User RetrieveSingleUser(string username)
+        {
+            using (var db = new ModelContext())
+            {
+                var SingleUser = db.Users
+                    .Where(c => c.Username == username)
+                    .FirstOrDefault();
+                return SingleUser;
+            }
+        }
 
+        public bool CheckUserInEvent(int eventId, string username)
+        {
+            var users = RetrieveEnrolledUsers(eventId);
+            var u = RetrieveSingleUser(username);
+            var result = false;
 
+            //Event e = RetrieveSingleEvent(eventId);
+            foreach (var user in users)
+                if (user.Username == u.Username)
+                {
+                    result = true;
+                    break;
+                }
+
+            return result;
+        }
+
+        public void JoinEvent(int eventId, string username)
+        {
+            using (var db = new ModelContext())
+            {
+                var Event = db.Events
+                    .Where(c => c.EventId == eventId)
+                    .Include("Users")
+                    .FirstOrDefault();
+
+                var SingleUser = db.Users
+                    .Where(c => c.Username == username)
+                    .FirstOrDefault();
+
+                Event.Users.Add(SingleUser);
+                db.SaveChanges();
+            }
+        }
     }
 }

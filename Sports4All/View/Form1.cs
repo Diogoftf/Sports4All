@@ -151,6 +151,5 @@ namespace Sports4All
             AddUserControl<UC_AddFriend>();
             AddUserControl<UC_UserProfile>();
         }
-
     }
 }
