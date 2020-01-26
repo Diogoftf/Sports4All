@@ -22,7 +22,7 @@ namespace Sports4All
             // =============================================================
             //
             // //APAGAR ISTO DEPOIS E COMEÇAR O PROGRAMA NO LOGIN
-            Session.Instance.LoggedUser = "ruben21";
+            Session.Instance.LoggedUser = "andreMx";
             //
             // =============================================================
 

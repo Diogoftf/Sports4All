@@ -164,13 +164,22 @@ namespace Sports4All
                 eventsController = new MyEventsController();
                 PopulateEventDetails();
                 PopulateUsersList();
+                checkOwner();
+            }
+        }
+
+        public void checkOwner()
+        {
+            if(lblOwnerValue.Text != Session.Instance.LoggedUser)
+            {
+                btnEdit.Visible = false;
             }
         }
 
         public void PopulateUserControl()
         {
-            PopulateUsersList();
-            PopulateEventDetails();
+            //PopulateUsersList();
+            //PopulateEventDetails();
         }
 
         private void PopulateUsersList()
