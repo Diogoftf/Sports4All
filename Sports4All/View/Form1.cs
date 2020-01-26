@@ -18,14 +18,6 @@ namespace Sports4All
 
         private Form1()
         {
-
-            // =============================================================
-            //
-            // //APAGAR ISTO DEPOIS E COMEÇAR O PROGRAMA NO LOGIN
-            Session.Instance.LoggedUser = "andreMx";
-            //
-            // =============================================================
-
             InitializeComponent();
 
             (new Core.DropShaddow()).ApplyShadows(this);
@@ -151,5 +143,6 @@ namespace Sports4All
             AddUserControl<UC_AddFriend>();
             AddUserControl<UC_UserProfile>();
         }
+
     }
 }
