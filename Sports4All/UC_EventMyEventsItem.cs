@@ -17,7 +17,7 @@ namespace Sports4All
         private string _day;
 
         private string _avaliar;
-        private int _eventId;
+        private string _eventId;
         private Color _color;
         private string _owner;
         private string _sport;
@@ -54,11 +54,11 @@ namespace Sports4All
             set { _sport = value; lblModalityName.Text = _sport; }
 
         }
-        public int EventID
+        public string EventID
         {
 
             get { return _eventId; }
-            set { _eventId = value; lbEventID.Text = _eventId.ToString(); }
+            set { _eventId = value; lbEventID.Text = _eventId; }
 
         }
         public string Owner
@@ -134,30 +134,6 @@ namespace Sports4All
             btnEvaluate.Enabled = false;
         }
 
-        private void btnEvaluate_Click(object sender, EventArgs e)
-        {
-            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventEvaluation"))
-            {
-                UC_EventEvaluation uc = new UC_EventEvaluation { Dock = DockStyle.Fill };
-                uc.EventId = EventID;
-                Form1.Instance.PnlContainer.Controls.Add(uc);
-            }
-
-            Form1.Instance.PnlContainer.Controls["UC_EventEvaluation"].BringToFront();
-
-            if (Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventEvaluation"))
-            {
-                foreach (UserControl x in Form1.Instance.PnlContainer.Controls)
-                {
-                    if (Form1.Instance.PnlContainer.Controls.GetChildIndex(x) == 0)
-                    {
-                        Form1.Instance.FrontControl = x;
-                        UC_EventEvaluation j = (UC_EventEvaluation)x;
-                        j.EventId = EventID;
-                        j.populateItems();
-                    }
-                }
-            }
-        }
+       
     }
 }

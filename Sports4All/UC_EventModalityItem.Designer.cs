@@ -194,7 +194,6 @@
             this.Controls.Add(this.plEventDate);
             this.Name = "UC_EventModalityItem";
             this.Size = new System.Drawing.Size(1003, 106);
-            this.Load += new System.EventHandler(this.UC_EventModalityItem_Load);
             this.plEventDate.ResumeLayout(false);
             this.plEventDate.PerformLayout();
             this.plEventData.ResumeLayout(false);

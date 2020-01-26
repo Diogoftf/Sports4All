@@ -97,17 +97,7 @@ namespace Sports4All
         {
             InitializeComponent();
             pickDateTimeOnly();
-            eventsController = new MyEventsController();
-            // _eventID = 1;// VALOR PARA TESTE!!!!!!!!!!
-        }
-
-
-          private void UC_EventsDetailsB_Load(object sender, EventArgs e)
-          {
-            //if (!DesignMode)
-            //{
-            //    PopulateUserControl();
-            //}
+           // _eventID = 1;// VALOR PARA TESTE!!!!!!!!!!
         }
 
         private void pickDateTimeOnly()
@@ -137,8 +127,8 @@ namespace Sports4All
             DateTime NewStartDate = DateTime.ParseExact(startdateTime, format, provider);
             DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
             // DateTime NewDate = new DateTime();
-            eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
 
+            eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
         }
         private void PropertiesformEventDetails(bool Enabled, BorderStyle border, bool ReadOnly)
         {
@@ -210,8 +200,8 @@ namespace Sports4All
                 };
                 flpUsersEvent.Controls.Add(listusers[i]);
             }
-
         }
+
         private void PopulateEventDetails()
         {
             var SingleEvent = eventsController.RetrieveSingleEvent(_eventID);

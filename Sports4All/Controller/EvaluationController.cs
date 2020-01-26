@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,8 +8,6 @@ namespace Sports4All.Controller
 {
     class EvaluationController
     {
-        private List<IObserver> _observers = new List<IObserver>();
-
         public Park GetEventPark(int eventId)
         {
             using (var db = new ModelContext())

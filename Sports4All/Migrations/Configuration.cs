@@ -91,16 +91,16 @@ namespace Sports4All.Migrations
              dateStartEvent.Date.AddHours(9); dateStartEvent.Date.AddMinutes(30);
              dateEndEvent.Date.AddHours(11); dateEndEvent.Date.AddMinutes(00);
              listEvents.Add(new Event() { EventId = 2, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 6, MinAge = 10, Reserve = listReserves.ToList()[1], MaxAge = 18, Name = "Jogo Amigavel de Futebol", Users = listUsers });
+  
+             ICollection<UserEvaluation> listUserEvaluations = new Collection<UserEvaluation>();
+             listUserEvaluations.Add(new UserEvaluation() { EvaluationId = 1, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[0].EventId, Skill = 4, FairPlay = 5, UserId = listUsers.ToList()[1].Username });
+             listUserEvaluations.Add(new UserEvaluation() { EvaluationId = 2, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[1].EventId, Skill = 3, FairPlay = 2, UserId = listUsers.ToList()[1].Username });
 
-            ICollection<UserEvaluation> listUserEvaluations = new Collection<UserEvaluation>();
-            listUserEvaluations.Add(new UserEvaluation() { EvaluationId = 1, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[0].EventId, Skill = 4, FairPlay = 5, UserId = listUsers.ToList()[1].Username });
-            listUserEvaluations.Add(new UserEvaluation() { EvaluationId = 2, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[1].EventId, Skill = 3, FairPlay = 2, UserId = listUsers.ToList()[1].Username });
-
-            ICollection<ParkEvaluation> listParkEvaluation = new Collection<ParkEvaluation>();
-            listParkEvaluation.Add(new ParkEvaluation() { EvaluationId = 5, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[0].EventId, Quality = 4, Price = 5, ParkId = listParks.ToList()[0].ParkId });
-            listParkEvaluation.Add(new ParkEvaluation() { EvaluationId = 6, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[1].EventId, Quality = 3, Price = 2, ParkId = listParks.ToList()[1].ParkId });
-            listParkEvaluation.Add(new ParkEvaluation() { EvaluationId = 7, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[0].EventId, Quality = 5, Price = 5, ParkId = listParks.ToList()[0].ParkId });
-            listParkEvaluation.Add(new ParkEvaluation() { EvaluationId = 8, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[1].EventId, Quality = 4, Price = 4, ParkId = listParks.ToList()[1].ParkId });
+             ICollection<ParkEvaluation> listParkEvaluation = new Collection<ParkEvaluation>();
+             listParkEvaluation.Add(new ParkEvaluation() { EvaluationId = 5, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[0].EventId, Quality = 4, Price = 5, ParkId = listParks.ToList()[0].ParkId });
+             listParkEvaluation.Add(new ParkEvaluation() { EvaluationId = 6, EvaluatorId = listUsers.ToList()[0].Username, EventId = listEvents.ToList()[1].EventId, Quality = 3, Price = 2, ParkId = listParks.ToList()[1].ParkId });
+             listParkEvaluation.Add(new ParkEvaluation() { EvaluationId = 7, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[0].EventId, Quality = 5, Price = 5, ParkId = listParks.ToList()[0].ParkId });
+             listParkEvaluation.Add(new ParkEvaluation() { EvaluationId = 8, EvaluatorId = listUsers.ToList()[1].Username, EventId = listEvents.ToList()[1].EventId, Quality = 4, Price = 4, ParkId = listParks.ToList()[1].ParkId });
 
             ICollection<ParkClassification> listParkClassifications = new Collection<ParkClassification>();
             listParkClassifications.Add(new ParkClassification() { ClassificationId = 1, Park = listParks.ToList()[0], Points = 0, PriceAverage = 0, QualityAverage = 0, Ratio = 0 });
@@ -131,16 +131,16 @@ namespace Sports4All.Migrations
              listReservesRuben.Add(listReserves.ToList()[1]);
              listEventsRuben.Add(listEvents.ToList()[0]);
 
-            foreach (UserEvaluation user in listUserEvaluations)
-            {
-                listEvaluationsRuben.Add(user);
-            }
+             foreach (UserEvaluation user in listUserEvaluations)
+             {
+                 listEvaluationsRuben.Add(user);
+             }
 
-            foreach (ParkEvaluation ground in listParkEvaluation)
-            {
-                listEvaluationsRuben.Add(ground);
-            }
-
+             foreach (ParkEvaluation ground in listParkEvaluation)
+             {
+                 listEvaluationsRuben.Add(ground);
+             }
+     
             foreach (District district in listDistricts)
             {
                 context.Districts.AddOrUpdate(district);
@@ -192,14 +192,14 @@ namespace Sports4All.Migrations
                 context.Events.AddOrUpdate(events);
             }
 
-            //foreach (UserEvaluation userEvaluation in listUserEvaluations)
-            //{
-            //    context.Evaluations.AddOrUpdate(userEvaluation);
-            //}
-            //foreach (ParkEvaluation parkEvaluation in listParkEvaluation)
-            //{
-            //    context.Evaluations.AddOrUpdate(parkEvaluation);
-            //}
+            foreach (UserEvaluation userEvaluation in listUserEvaluations)
+            {
+                context.Evaluations.AddOrUpdate(userEvaluation);
+            }
+            foreach (ParkEvaluation parkEvaluation in listParkEvaluation)
+            {
+                context.Evaluations.AddOrUpdate(parkEvaluation);
+            }
             foreach (ParkClassification parkClassification in listParkClassifications)
             {
                 context.Classifications.AddOrUpdate(parkClassification);
@@ -216,6 +216,8 @@ namespace Sports4All.Migrations
             {
                 context.Uses.AddOrUpdate(use);
             }
+
+
             base.Seed(context);
         }
     }

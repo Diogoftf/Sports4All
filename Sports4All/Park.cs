@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sports4All
 {
-   public class Park : IObserver
+   public class Park
     {
         public int ParkId { get; set; }
         public string Name { get; set; }
@@ -19,10 +19,5 @@ namespace Sports4All
         public virtual ParkClassification ParkClassification { get; set; }
         public ICollection<ParkEvaluation> ParkEvaluations { get; set; }
 
-        public void Update(ISubject subject)
-        {
-            var rc = new RankController();
-            rc.UpdateParkClassification(ParkId);
-        }
     }
 }

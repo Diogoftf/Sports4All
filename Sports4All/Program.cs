@@ -17,18 +17,6 @@ namespace Sports4All
         [STAThread]
         static void Main()
         {
-
-            using (var db = new ModelContext())
-            {
-                var query = db.Events.ToList().ElementAt(0);
-                db.SaveChanges();
-            }
-
-
-
-
-
-
             //using (var db = new ModelContext())
             //{
             //    var query = db.Events.Include("Evaluations.Evaluator").ToList().ElementAt(0);
@@ -48,21 +36,21 @@ namespace Sports4All
             //            Console.WriteLine(item.UserId);
             //        }
             //        //if(ev != null ) Console.WriteLine(ev.Evaluated.Username);
-
+                    
             //    }
 
 
 
-            //var userEvaluation = new UserEvaluation
-            //{
-            //    Skill = 4,
-            //    FairPlay = 1,
-            //    UserId = "andreMx",
-            //    EvaluatorId = "ruben21",
-            //    EventId = 1
-            //};
-            //db.Evaluations.Add(userEvaluation);
-            //db.SaveChanges();
+                //var userEvaluation = new UserEvaluation
+                //{
+                //    Skill = 4,
+                //    FairPlay = 1,
+                //    UserId = "andreMx",
+                //    EvaluatorId = "ruben21",
+                //    EventId = 1
+                //};
+                //db.Evaluations.Add(userEvaluation);
+                //db.SaveChanges();
             //}
 
 
@@ -80,7 +68,7 @@ namespace Sports4All
             ////}
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Authentication());
+            Application.Run(Form1.Instance);
         }
     }
 }
