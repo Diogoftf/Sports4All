@@ -15,8 +15,6 @@ namespace Sports4All
     public partial class UC_NextEventsandReserveItem : UserControl
     {
 
-
-
         #region Properties
 
         private MyEventsController _eventsController = new MyEventsController();

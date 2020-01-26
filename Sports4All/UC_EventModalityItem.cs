@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
     public partial class UC_EventModalityItem : UserControl
     {
-
-
-
+        
+        private MyEventsController events = new MyEventsController();
         #region Properties
         private string _day;
         private string _month;
@@ -22,6 +22,14 @@ namespace Sports4All
         private string _sportground;
         private string _owner;
         private string _lotation;
+        private int _eventid;
+        private string _username;
+
+        public int EventId
+        {
+            get { return _eventid; }
+            set { _eventid = value; }
+        }
 
         public string Lotation
         {
@@ -57,9 +65,12 @@ namespace Sports4All
         }
 
         #endregion
+
         public UC_EventModalityItem()
         {
             InitializeComponent();
+            _username =  Session.Instance.LoggedUser;
+            if (!events.CheckUserInEvent(_eventid, _username)) btnJoinEvent.Visible = false;
 
         }
 
@@ -77,6 +88,11 @@ namespace Sports4All
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnJoinEvent_Click(object sender, EventArgs e)
+        {
+            events.JoinEvent(_eventid, _username);
         }
     }
 }

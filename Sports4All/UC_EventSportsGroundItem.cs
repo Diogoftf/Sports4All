@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
@@ -14,13 +15,21 @@ namespace Sports4All
     {
 
         #region Properties
-
+        private MyEventsController events = new MyEventsController();
         private string _day;
         private string _month;
         private string _hour;
         private string _sport;
         private string _owner;
         private string _lotation;
+        private int _eventId;
+        private string _username;
+
+        public int EventId
+        {
+            get { return _eventId; }
+            set { _eventId = value; }
+        }
         public string Lotation
         {
             get { return _lotation; }
@@ -62,6 +71,8 @@ namespace Sports4All
         public UC_EventSportsGroundItem()
         {
             InitializeComponent();
+            _username = Session.Instance.LoggedUser;
+            if (!events.CheckUserInEvent(_eventId, _username)) btnJoinEvent.Visible = false;
 
         }
 
@@ -70,74 +81,12 @@ namespace Sports4All
             btnJoinEvent.Visible = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plEventDate_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblMonth_Event_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblSpaceAvailableValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plEventData_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblEventOwnerValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnJoinEvent_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void lblSpaceAvailable_Click(object sender, EventArgs e)
-        {
+            events.JoinEvent(_eventId, _username);
 
         }
 
-        private void lblEventOwner_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEventHour_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEventHourValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plLine_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
