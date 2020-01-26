@@ -68,7 +68,7 @@ namespace Sports4All
             {
                 _rankController = new RankController();
                 _rankController.UserPointsCalculator(); // PROVISORIO //
-                _rankController.ParkPointsCalculator(); // PROVISORIO //
+                //_rankController.ParkPointsCalculator(); // PROVISORIO //
                 load_Rank(true);
             }
 
