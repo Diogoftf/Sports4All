@@ -742,16 +742,17 @@
             // 
             // UC_CreateEvent1
             // 
-            this.UC_CreateEvent1.Location = new System.Drawing.Point(0, 409);
+            this.UC_CreateEvent1.Location = new System.Drawing.Point(0, 0);
             this.UC_CreateEvent1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.UC_CreateEvent1.Name = "UC_CreateEvent1";
-            this.UC_CreateEvent1.Size = new System.Drawing.Size(394, 249);
+            this.UC_CreateEvent1.Size = new System.Drawing.Size(1226, 770);
             this.UC_CreateEvent1.TabIndex = 81;
             // 
             // UC_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.UC_CreateEvent1);
             this.Controls.Add(this.lbLevel);
             this.Controls.Add(this.flpInfoStats);
             this.Controls.Add(this.pbInfo);
@@ -761,7 +762,6 @@
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.UC_CreateEvent1);
             this.Controls.Add(this.flpEventSuggestions);
             this.Controls.Add(this.flpMyEvents);
             this.Controls.Add(this.pbMonthEnclosure);
@@ -789,6 +789,7 @@
             this.Name = "UC_Home";
             this.Size = new System.Drawing.Size(1226, 778);
             this.Load += new System.EventHandler(this.UC_Home_Load);
+            this.Enter += new System.EventHandler(this.UC_Home_Enter);
             this.panel6.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel11.ResumeLayout(false);

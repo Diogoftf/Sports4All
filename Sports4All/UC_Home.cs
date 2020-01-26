@@ -194,7 +194,7 @@ namespace Sports4All
                     if (i < 3)
                     {
                         UC_HomeMyEventsItem ItemMyEvents = new UC_HomeMyEventsItem();
-                        ItemMyEvents.DateTime = myEvent.ToList()[i].StartDate.ToString() + " || " + myEvent.ToList()[i].EndDate.ToString("HH:mm");
+                        ItemMyEvents.DateTime = myEvent.ToList()[i].StartDate.ToString("dd/MM/yyyy HH:mm") + " || " + myEvent.ToList()[i].EndDate.ToString("HH:mm");
                         ItemMyEvents.Organizador = myEvent.ToList()[i].Reserve.UserId;
                         ItemMyEvents.Slots = myEvent.ToList()[i].Users.Count.ToString() + "/" + myEvent.ToList()[i].MaxPlayers.ToString();
                         ItemMyEvents.Recinto = myEvent.ToList()[i].Reserve.Ground.Park.Name;
@@ -338,6 +338,11 @@ namespace Sports4All
         private void lbNextLevel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UC_Home_Enter(object sender, EventArgs e)
+        {
+            //InitializateElements();
         }
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)

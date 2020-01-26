@@ -55,13 +55,19 @@ namespace Sports4All
 
             using (ModelContext db = new ModelContext())
             {
-                var query = db.Reserves.Include("Ground.Park").Include("Sport").Where(c => c.Event.StartDate > DateTime.Now).ToList();
+                var query = db.Reserves.Include("Ground.Park").Include("Sport").Where(c => c.Event.EndDate > DateTime.Now).OrderByDescending(c => c.Date).ToList();
                 var whoIam = db.Users.Where(e => e.Username == Session.Instance.LoggedUser).First();
 
                 foreach (Reserve a in query) // todos os eventos que esse user participou (Tanto os que esta inscrito, como reservou)
                 {
-                    if (a.Event.Users.Contains(whoIam))
-                        myEvents.Add(a.Event); //guardo o evento dessa reserva
+                    for(int i = 0; i < a.Event.Users.ToList().Count; i++)
+                    {
+                        if(a.Event.Users.ToList()[i].Username == Session.Instance.LoggedUser)
+                        {
+                            myEvents.Add(a.Event);
+                            break;
+                        }
+                    }
                 }
             }
 
