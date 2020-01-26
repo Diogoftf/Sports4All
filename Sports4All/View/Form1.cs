@@ -18,14 +18,6 @@ namespace Sports4All
 
         private Form1()
         {
-
-            // =============================================================
-            //
-            // //APAGAR ISTO DEPOIS E COMEÇAR O PROGRAMA NO LOGIN
-            Session.Instance.LoggedUser = "ruben21";
-            //
-            // =============================================================
-
             InitializeComponent();
 
             (new Core.DropShaddow()).ApplyShadows(this);

@@ -89,7 +89,7 @@ namespace Sports4All
             //events.VerifyEvaluation(1,"andreMx");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Form1.Instance);
+            Application.Run(new Authentication());
         }
     }
 }
