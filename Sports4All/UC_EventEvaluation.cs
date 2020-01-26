@@ -20,6 +20,7 @@ namespace Sports4All
 
         private ICollection<UC_PlayerEvaluationItem> evaluationItems;
         EvaluationController _evaluationController = new EvaluationController();
+        RankController _rankController = new RankController();
         public UC_EventEvaluation()
         {
             InitializeComponent();
@@ -43,13 +44,25 @@ namespace Sports4All
                     evaluationUser.PlayerFairplay,
                     EventId);
             }
+
+
+            Event ev = _evaluationController.GetEvent(EventId);
+
+            ev.Notify();
+
+            int i = 0;
+
         }
 
         public void populateItems()
         {
             flpPlayersEvaluation.Controls.Clear();
 
+            Event ev = _evaluationController.GetEvent(EventId);
+
             Park park = _evaluationController.GetEventPark(EventId);
+
+            ev.Attach(park);
 
             uc.ParkName = park.Name;
             //FALTA DEFINIR A IMAGEM
@@ -62,6 +75,8 @@ namespace Sports4All
                 
                 evaluationItems.Add(playerEvaluation);
                 flpPlayersEvaluation.Controls.Add(playerEvaluation);
+
+                ev.Attach(user);
             }
 
         }
