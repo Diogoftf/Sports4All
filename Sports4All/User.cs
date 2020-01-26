@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sports4All
 {
-    public class User
+    public class User : IObserver
     {
         public string Username { get; set; }
         public int Age { get; set; }
@@ -23,5 +23,9 @@ namespace Sports4All
         public virtual ICollection<Reserve> Reserves { get; set; }
         public virtual ICollection<Event> Events { get; set; }
         public virtual Picture Picture { get; set; }
+        public void Update(ISubject subject)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

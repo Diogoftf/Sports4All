@@ -83,7 +83,7 @@ namespace Sports4All
                     listitems[i] = new UC_EventMyEventsItem
                     {
                         Avaliar = "Avaliar",
-                        EventID = Convert.ToString(completedEvents.ToList()[i].EventId),
+                        EventID = completedEvents.ToList()[i].EventId,
                         Owner = completedEvents.ToList()[i].Reserve.UserId,
                         Sport = completedEvents.ToList()[i].Reserve.Sport.Name,
                         Date = completedEvents.ToList()[i].StartDate.ToLongDateString(),

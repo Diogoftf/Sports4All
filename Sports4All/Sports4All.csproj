@@ -108,6 +108,12 @@
     <Compile Include="Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
+    <Compile Include="IObserver.cs" />
+    <Compile Include="ISubject.cs" />
+    <Compile Include="Migrations\202001252230589_M001.cs" />
+    <Compile Include="Migrations\202001252230589_M001.designer.cs">
+      <DependentUpon>202001252230589_M001.cs</DependentUpon>
+    </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="CircularButton.cs">
       <SubType>Component</SubType>
@@ -129,10 +135,6 @@
     <Compile Include="Evaluation.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Ground.cs" />
-    <Compile Include="Migrations\202001241216501_M001.cs" />
-    <Compile Include="Migrations\202001241216501_M001.designer.cs">
-      <DependentUpon>202001241216501_M001.cs</DependentUpon>
-    </Compile>
     <Compile Include="ParkEvaluation.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Material.cs" />
@@ -324,8 +326,8 @@
     <EmbeddedResource Include="Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001241216501_M001.resx">
-      <DependentUpon>202001241216501_M001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001252230589_M001.resx">
+      <DependentUpon>202001252230589_M001.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_NextEventsandReserveItem.resx">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
