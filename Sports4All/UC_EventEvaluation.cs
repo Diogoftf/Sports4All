@@ -21,6 +21,8 @@ namespace Sports4All
         private ICollection<UC_PlayerEvaluationItem> evaluationItems;
         EvaluationController _evaluationController = new EvaluationController();
         RankController _rankController = new RankController();
+        Event _ev = new Event();
+
         public UC_EventEvaluation()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace Sports4All
 
         private void circularButton1_Click(object sender, EventArgs e)
         {
+
             _evaluationController.SetParkEvaluation(uc.ParkId, uc.ParkQuality, uc.ParkPrice, EventId);
 
             foreach (var evaluationUser in evaluationItems)
@@ -46,22 +49,22 @@ namespace Sports4All
             }
 
 
-            Event ev = _evaluationController.GetEvent(EventId);
-
-            ev.Notify();
+            //Event ev = _evaluationController.GetEvent(EventId);
+            _ev.Observers.ToList();
+            _ev.Notify();
         }
 
         public void populateItems()
         {
             flpPlayersEvaluation.Controls.Clear();
 
-            Event ev = _evaluationController.GetEvent(EventId);
+            //Event ev = _evaluationController.GetEvent(EventId);
 
             Park park = _evaluationController.GetEventPark(EventId);
 
             uc.ParkId = park.ParkId;
 
-            ev.Attach(park);
+            _ev.Attach(park);
 
             uc.ParkName = park.Name;
             //FALTA DEFINIR A IMAGEM
@@ -75,7 +78,8 @@ namespace Sports4All
                 evaluationItems.Add(playerEvaluation);
                 flpPlayersEvaluation.Controls.Add(playerEvaluation);
 
-                ev.Attach(user);
+                _ev.Attach(user);
+                _ev.Observers.ToList();  //APAGAR ISTO DEPOIS DE FUNCIONAR
             }
 
         }
