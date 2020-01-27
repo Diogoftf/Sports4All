@@ -22,7 +22,7 @@ namespace Sports4All
 
             MyEventsController events = new MyEventsController();
 
-            events.DeleteEvent(2);
+           // events.DeleteEvent(2);
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(Form1.Instance);
