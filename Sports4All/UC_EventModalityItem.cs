@@ -14,7 +14,9 @@ namespace Sports4All
     public partial class UC_EventModalityItem : UserControl
     {
         private MyEventsController events = new MyEventsController();
+
         #region Properties
+
         private string _day;
         private string _month;
         private string _hour;
@@ -28,34 +30,61 @@ namespace Sports4All
         public string Lotation
         {
             get { return _lotation; }
-            set { _lotation = value; lblSpaceAvailableValue.Text = value; }
+            set
+            {
+                _lotation = value;
+                lblSpaceAvailableValue.Text = value;
+            }
         }
+
         public string Owner
         {
             get { return _owner; }
-            set { _owner = value; lblEventOwnerValue.Text = value; }
+            set
+            {
+                _owner = value;
+                lblEventOwnerValue.Text = value;
+            }
         }
+
         public string SportGround
         {
             get { return _sportground; }
-            set { _sportground = value; lblSportsGround.Text = value; }
+            set
+            {
+                _sportground = value;
+                lblSportsGround.Text = value;
+            }
         }
+
         public string Hour
         {
             get { return _hour; }
-            set { _hour = value; lblEventHourValue.Text = value; }
+            set
+            {
+                _hour = value;
+                lblEventHourValue.Text = value;
+            }
         }
 
         public string Day
         {
             get { return _day; }
-            set { _day = value; lblDay_Event.Text = value; }
+            set
+            {
+                _day = value;
+                lblDay_Event.Text = value;
+            }
         }
 
         public string Month
         {
             get { return _month; }
-            set { _month = value; lblMonth_Event.Text = value; }
+            set
+            {
+                _month = value;
+                lblMonth_Event.Text = value;
+            }
         }
 
         #endregion
@@ -63,7 +92,7 @@ namespace Sports4All
         public UC_EventModalityItem()
         {
             InitializeComponent();
-            _username =  Session.Instance.LoggedUser;
+            _username = Session.Instance.LoggedUser;
 
             foreach (Control c in uC_UnregisterButton1.Controls)
             {
@@ -71,11 +100,19 @@ namespace Sports4All
             }
 
         }
-
-       
-        public void DisableJoinEventbtn()
+        public void BringToFrontUnregister(bool state)
         {
-            btnJoinEvent.Visible = false;
+            uC_UnregisterButton1.Visible = state;
+        }
+
+        public void ChangeJoinEventbtn(bool state)
+        {
+            btnJoinEvent.Visible = state;
+        }
+
+        public void ChangeCancelbtn(bool state)
+        {
+            btnCancel.Visible = state;
         }
 
         private void btnJoinEvent_Click(object sender, EventArgs e)
@@ -92,26 +129,23 @@ namespace Sports4All
             if (!events.CheckUserInEvent(EventId, _username))
             {
                 btnJoinEvent.Visible = true;
-                uC_UnregisterButton1.Visible = false;
+               
             }
 
             else
             {
                 btnJoinEvent.Visible = false;
-                uC_UnregisterButton1.Visible = true;
-
 
             }
         }
-
         private void Unregister(object sender, EventArgs e)
         {
             events.UnregisterUser(EventId, _username);
         }
 
-        private void uC_UnregisterButton1_Load(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            events.DeleteEvent(Convert.ToInt32(EventId));
         }
     }
 }

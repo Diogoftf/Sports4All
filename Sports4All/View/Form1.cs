@@ -135,7 +135,6 @@ namespace Sports4All
                pbUserImage.Image = Image.FromFile(@"..\..\Images\" + "user1.png");
                 
             }
-
         }
 
         private void AddUserControlsToForm()

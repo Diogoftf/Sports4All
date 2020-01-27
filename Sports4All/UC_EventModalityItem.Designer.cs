@@ -43,6 +43,7 @@
             this.lblEventHourValue = new System.Windows.Forms.Label();
             this.plLine = new System.Windows.Forms.Panel();
             this.lblSportsGround = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.plEventDate.SuspendLayout();
             this.plEventData.SuspendLayout();
             this.SuspendLayout();
@@ -51,9 +52,9 @@
             // 
             this.lblDay_Event.AutoSize = true;
             this.lblDay_Event.Font = new System.Drawing.Font("Century Gothic", 31F, System.Drawing.FontStyle.Bold);
-            this.lblDay_Event.Location = new System.Drawing.Point(56, 5);
+            this.lblDay_Event.Location = new System.Drawing.Point(50, 4);
             this.lblDay_Event.Name = "lblDay_Event";
-            this.lblDay_Event.Size = new System.Drawing.Size(102, 73);
+            this.lblDay_Event.Size = new System.Drawing.Size(85, 62);
             this.lblDay_Event.TabIndex = 0;
             this.lblDay_Event.Text = "04";
             // 
@@ -61,9 +62,9 @@
             // 
             this.lblMonth_Event.AutoSize = true;
             this.lblMonth_Event.Font = new System.Drawing.Font("Century Gothic", 21F, System.Drawing.FontStyle.Bold);
-            this.lblMonth_Event.Location = new System.Drawing.Point(51, 75);
+            this.lblMonth_Event.Location = new System.Drawing.Point(45, 60);
             this.lblMonth_Event.Name = "lblMonth_Event";
-            this.lblMonth_Event.Size = new System.Drawing.Size(104, 49);
+            this.lblMonth_Event.Size = new System.Drawing.Size(87, 41);
             this.lblMonth_Event.TabIndex = 1;
             this.lblMonth_Event.Text = "JAN";
             // 
@@ -73,13 +74,13 @@
             this.plEventDate.Controls.Add(this.lblMonth_Event);
             this.plEventDate.Controls.Add(this.lblDay_Event);
             this.plEventDate.Location = new System.Drawing.Point(0, 0);
-            this.plEventDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.plEventDate.Name = "plEventDate";
-            this.plEventDate.Size = new System.Drawing.Size(199, 132);
+            this.plEventDate.Size = new System.Drawing.Size(177, 106);
             this.plEventDate.TabIndex = 2;
             // 
             // plEventData
             // 
+            this.plEventData.Controls.Add(this.btnCancel);
             this.plEventData.Controls.Add(this.uC_UnregisterButton1);
             this.plEventData.Controls.Add(this.btnJoinEvent);
             this.plEventData.Controls.Add(this.lblSpaceAvailableValue);
@@ -90,23 +91,21 @@
             this.plEventData.Controls.Add(this.lblEventHourValue);
             this.plEventData.Controls.Add(this.plLine);
             this.plEventData.Controls.Add(this.lblSportsGround);
-            this.plEventData.Location = new System.Drawing.Point(206, 0);
-            this.plEventData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.plEventData.Location = new System.Drawing.Point(183, 0);
             this.plEventData.Name = "plEventData";
-            this.plEventData.Size = new System.Drawing.Size(919, 129);
+            this.plEventData.Size = new System.Drawing.Size(817, 103);
             this.plEventData.TabIndex = 3;
             // 
             // uC_UnregisterButton1
             // 
             this.uC_UnregisterButton1.Eventid = 0;
-            this.uC_UnregisterButton1.Location = new System.Drawing.Point(803, 32);
-            this.uC_UnregisterButton1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.uC_UnregisterButton1.Location = new System.Drawing.Point(705, 20);
+            this.uC_UnregisterButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
-            this.uC_UnregisterButton1.Size = new System.Drawing.Size(55, 55);
+            this.uC_UnregisterButton1.Size = new System.Drawing.Size(49, 44);
             this.uC_UnregisterButton1.TabIndex = 9;
             this.uC_UnregisterButton1.Username = null;
             this.uC_UnregisterButton1.Visible = false;
-            this.uC_UnregisterButton1.Load += new System.EventHandler(this.uC_UnregisterButton1_Load);
             // 
             // btnJoinEvent
             // 
@@ -115,10 +114,9 @@
             this.btnJoinEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJoinEvent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJoinEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnJoinEvent.Image")));
-            this.btnJoinEvent.Location = new System.Drawing.Point(729, 25);
-            this.btnJoinEvent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnJoinEvent.Location = new System.Drawing.Point(648, 20);
             this.btnJoinEvent.Name = "btnJoinEvent";
-            this.btnJoinEvent.Size = new System.Drawing.Size(89, 69);
+            this.btnJoinEvent.Size = new System.Drawing.Size(79, 55);
             this.btnJoinEvent.TabIndex = 8;
             this.btnJoinEvent.UseVisualStyleBackColor = false;
             this.btnJoinEvent.Click += new System.EventHandler(this.btnJoinEvent_Click);
@@ -127,9 +125,9 @@
             // 
             this.lblSpaceAvailableValue.AutoSize = true;
             this.lblSpaceAvailableValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpaceAvailableValue.Location = new System.Drawing.Point(654, 45);
+            this.lblSpaceAvailableValue.Location = new System.Drawing.Point(581, 36);
             this.lblSpaceAvailableValue.Name = "lblSpaceAvailableValue";
-            this.lblSpaceAvailableValue.Size = new System.Drawing.Size(62, 28);
+            this.lblSpaceAvailableValue.Size = new System.Drawing.Size(52, 23);
             this.lblSpaceAvailableValue.TabIndex = 7;
             this.lblSpaceAvailableValue.Text = "8/10";
             // 
@@ -137,9 +135,9 @@
             // 
             this.lblSpaceAvailable.AutoSize = true;
             this.lblSpaceAvailable.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpaceAvailable.Location = new System.Drawing.Point(543, 45);
+            this.lblSpaceAvailable.Location = new System.Drawing.Point(483, 36);
             this.lblSpaceAvailable.Name = "lblSpaceAvailable";
-            this.lblSpaceAvailable.Size = new System.Drawing.Size(114, 28);
+            this.lblSpaceAvailable.Size = new System.Drawing.Size(96, 23);
             this.lblSpaceAvailable.TabIndex = 6;
             this.lblSpaceAvailable.Text = "Lotação:";
             // 
@@ -147,9 +145,9 @@
             // 
             this.lblEventOwnerValue.AutoSize = true;
             this.lblEventOwnerValue.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventOwnerValue.Location = new System.Drawing.Point(83, 92);
+            this.lblEventOwnerValue.Location = new System.Drawing.Point(74, 74);
             this.lblEventOwnerValue.Name = "lblEventOwnerValue";
-            this.lblEventOwnerValue.Size = new System.Drawing.Size(91, 21);
+            this.lblEventOwnerValue.Size = new System.Drawing.Size(76, 20);
             this.lblEventOwnerValue.TabIndex = 5;
             this.lblEventOwnerValue.Text = "Rui Sousa";
             // 
@@ -157,9 +155,9 @@
             // 
             this.lblEventOwner.AutoSize = true;
             this.lblEventOwner.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventOwner.Location = new System.Drawing.Point(9, 92);
+            this.lblEventOwner.Location = new System.Drawing.Point(8, 74);
             this.lblEventOwner.Name = "lblEventOwner";
-            this.lblEventOwner.Size = new System.Drawing.Size(73, 21);
+            this.lblEventOwner.Size = new System.Drawing.Size(64, 20);
             this.lblEventOwner.TabIndex = 4;
             this.lblEventOwner.Text = "Owner:";
             // 
@@ -167,9 +165,9 @@
             // 
             this.lblEventHour.AutoSize = true;
             this.lblEventHour.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblEventHour.Location = new System.Drawing.Point(24, 62);
+            this.lblEventHour.Location = new System.Drawing.Point(21, 50);
             this.lblEventHour.Name = "lblEventHour";
-            this.lblEventHour.Size = new System.Drawing.Size(56, 21);
+            this.lblEventHour.Size = new System.Drawing.Size(48, 20);
             this.lblEventHour.TabIndex = 3;
             this.lblEventHour.Text = "Hora:";
             // 
@@ -177,41 +175,54 @@
             // 
             this.lblEventHourValue.AutoSize = true;
             this.lblEventHourValue.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventHourValue.Location = new System.Drawing.Point(81, 64);
+            this.lblEventHourValue.Location = new System.Drawing.Point(72, 51);
             this.lblEventHourValue.Name = "lblEventHourValue";
-            this.lblEventHourValue.Size = new System.Drawing.Size(42, 21);
+            this.lblEventHourValue.Size = new System.Drawing.Size(35, 20);
             this.lblEventHourValue.TabIndex = 2;
             this.lblEventHourValue.Text = "19H";
             // 
             // plLine
             // 
             this.plLine.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.plLine.Location = new System.Drawing.Point(7, 35);
-            this.plLine.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.plLine.Location = new System.Drawing.Point(6, 28);
             this.plLine.Name = "plLine";
-            this.plLine.Size = new System.Drawing.Size(364, 6);
+            this.plLine.Size = new System.Drawing.Size(324, 5);
             this.plLine.TabIndex = 1;
             // 
             // lblSportsGround
             // 
             this.lblSportsGround.AutoSize = true;
             this.lblSportsGround.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSportsGround.Location = new System.Drawing.Point(14, 9);
+            this.lblSportsGround.Location = new System.Drawing.Point(12, 7);
             this.lblSportsGround.Name = "lblSportsGround";
-            this.lblSportsGround.Size = new System.Drawing.Size(385, 25);
+            this.lblSportsGround.Size = new System.Drawing.Size(310, 19);
             this.lblSportsGround.TabIndex = 0;
             this.lblSportsGround.Text = "Parque Desportivo de Água de Pena";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(721, 60);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(33, 38);
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // UC_EventModalityItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Controls.Add(this.plEventData);
             this.Controls.Add(this.plEventDate);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_EventModalityItem";
-            this.Size = new System.Drawing.Size(1128, 132);
+            this.Size = new System.Drawing.Size(1003, 106);
             this.Load += new System.EventHandler(this.UC_EventModalityItem_Load);
             this.plEventDate.ResumeLayout(false);
             this.plEventDate.PerformLayout();
@@ -237,5 +248,6 @@
         private System.Windows.Forms.Button btnJoinEvent;
         private System.Windows.Forms.Label lblSpaceAvailableValue;
         private UC_UnregisterButton uC_UnregisterButton1;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

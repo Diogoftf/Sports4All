@@ -72,6 +72,11 @@ namespace Sports4All
         {
             InitializeComponent();
             _username = Session.Instance.LoggedUser;
+
+            foreach (Control c in uC_UnregisterButton1.Controls)
+            {
+                c.Click += Unregister;
+            }
         }
 
         public void DisableJoinEventbtn()
@@ -100,7 +105,6 @@ namespace Sports4All
 
             }
         }
-
         private void uC_UnregisterButton1_Click(object sender, EventArgs e)
         {
             if (!DesignMode) events.UnregisterUser(_eventId, _username);
@@ -110,5 +114,26 @@ namespace Sports4All
         {
             if (!DesignMode) events.UnregisterUser(_eventId, _username);
         }
+
+        private void Unregister(object sender, EventArgs e)
+        {
+            events.UnregisterUser(EventId, _username);
+        }
+
+        public void BringToFrontUnregister(bool state)
+        {
+            uC_UnregisterButton1.Visible = state;
+        }
+
+        public void ChangeJoinEventbtn(bool state)
+        {
+            btnJoinEvent.Visible = state;
+        }
+
+        public void ChangeCancelbtn(bool state)
+        {
+            btnCancel.Visible = state;
+        }
+
     }
 }

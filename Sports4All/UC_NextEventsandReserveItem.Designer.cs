@@ -33,6 +33,7 @@
             this.lblMonth_Event = new System.Windows.Forms.Label();
             this.plEventDate = new System.Windows.Forms.Panel();
             this.plEventData = new System.Windows.Forms.Panel();
+            this.uC_UnregisterButton1 = new Sports4All.UC_UnregisterButton();
             this.lbEventID = new System.Windows.Forms.Label();
             this.lbEvent = new System.Windows.Forms.Label();
             this.lblSportsGround = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.lblEventHourValue = new System.Windows.Forms.Label();
             this.plLine = new System.Windows.Forms.Panel();
             this.lblModalityName = new System.Windows.Forms.Label();
-            this.uC_UnregisterButton1 = new Sports4All.UC_UnregisterButton();
             this.plEventDate.SuspendLayout();
             this.plEventData.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +59,6 @@
             this.lblDay_Event.Size = new System.Drawing.Size(85, 62);
             this.lblDay_Event.TabIndex = 0;
             this.lblDay_Event.Text = "04";
-            this.lblDay_Event.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblMonth_Event
             // 
@@ -70,7 +69,6 @@
             this.lblMonth_Event.Size = new System.Drawing.Size(87, 41);
             this.lblMonth_Event.TabIndex = 1;
             this.lblMonth_Event.Text = "JAN";
-            this.lblMonth_Event.Click += new System.EventHandler(this.lblMonth_Event_Click);
             // 
             // plEventDate
             // 
@@ -81,7 +79,6 @@
             this.plEventDate.Name = "plEventDate";
             this.plEventDate.Size = new System.Drawing.Size(177, 106);
             this.plEventDate.TabIndex = 2;
-            this.plEventDate.Paint += new System.Windows.Forms.PaintEventHandler(this.plEventDate_Paint);
             // 
             // plEventData
             // 
@@ -102,7 +99,16 @@
             this.plEventData.Name = "plEventData";
             this.plEventData.Size = new System.Drawing.Size(817, 103);
             this.plEventData.TabIndex = 3;
-            this.plEventData.Paint += new System.Windows.Forms.PaintEventHandler(this.plEventData_Paint);
+            // 
+            // uC_UnregisterButton1
+            // 
+            this.uC_UnregisterButton1.Eventid = 0;
+            this.uC_UnregisterButton1.Location = new System.Drawing.Point(717, 34);
+            this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
+            this.uC_UnregisterButton1.Size = new System.Drawing.Size(53, 36);
+            this.uC_UnregisterButton1.TabIndex = 16;
+            this.uC_UnregisterButton1.Username = null;
+            this.uC_UnregisterButton1.Visible = false;
             // 
             // lbEventID
             // 
@@ -141,7 +147,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(722, 32);
+            this.btnCancel.Location = new System.Drawing.Point(691, 32);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(33, 38);
             this.btnCancel.TabIndex = 8;
@@ -157,7 +163,6 @@
             this.lblSpaceAvailableValue.Size = new System.Drawing.Size(52, 23);
             this.lblSpaceAvailableValue.TabIndex = 7;
             this.lblSpaceAvailableValue.Text = "2/10";
-            this.lblSpaceAvailableValue.Click += new System.EventHandler(this.lblSpaceAvailableValue_Click);
             // 
             // lblSpaceAvailable
             // 
@@ -168,7 +173,6 @@
             this.lblSpaceAvailable.Size = new System.Drawing.Size(96, 23);
             this.lblSpaceAvailable.TabIndex = 6;
             this.lblSpaceAvailable.Text = "Lotação:";
-            this.lblSpaceAvailable.Click += new System.EventHandler(this.lblSpaceAvailable_Click);
             // 
             // lblEventOwnerValue
             // 
@@ -179,7 +183,6 @@
             this.lblEventOwnerValue.Size = new System.Drawing.Size(137, 20);
             this.lblEventOwnerValue.TabIndex = 5;
             this.lblEventOwnerValue.Text = "Helena Rodrigues";
-            this.lblEventOwnerValue.Click += new System.EventHandler(this.lblEventOwnerValue_Click);
             // 
             // lblEventOwner
             // 
@@ -190,7 +193,6 @@
             this.lblEventOwner.Size = new System.Drawing.Size(64, 20);
             this.lblEventOwner.TabIndex = 4;
             this.lblEventOwner.Text = "Owner:";
-            this.lblEventOwner.Click += new System.EventHandler(this.lblEventOwner_Click);
             // 
             // lblEventHour
             // 
@@ -201,7 +203,6 @@
             this.lblEventHour.Size = new System.Drawing.Size(48, 20);
             this.lblEventHour.TabIndex = 3;
             this.lblEventHour.Text = "Hora:";
-            this.lblEventHour.Click += new System.EventHandler(this.lblEventHour_Click);
             // 
             // lblEventHourValue
             // 
@@ -212,7 +213,6 @@
             this.lblEventHourValue.Size = new System.Drawing.Size(35, 20);
             this.lblEventHourValue.TabIndex = 2;
             this.lblEventHourValue.Text = "16H";
-            this.lblEventHourValue.Click += new System.EventHandler(this.lblEventHourValue_Click);
             // 
             // plLine
             // 
@@ -221,7 +221,6 @@
             this.plLine.Name = "plLine";
             this.plLine.Size = new System.Drawing.Size(548, 5);
             this.plLine.TabIndex = 1;
-            this.plLine.Paint += new System.Windows.Forms.PaintEventHandler(this.plLine_Paint);
             // 
             // lblModalityName
             // 
@@ -232,15 +231,6 @@
             this.lblModalityName.Size = new System.Drawing.Size(82, 23);
             this.lblModalityName.TabIndex = 0;
             this.lblModalityName.Text = "Futebol";
-            this.lblModalityName.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // uC_UnregisterButton1
-            // 
-            this.uC_UnregisterButton1.Location = new System.Drawing.Point(676, 29);
-            this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
-            this.uC_UnregisterButton1.Size = new System.Drawing.Size(53, 36);
-            this.uC_UnregisterButton1.TabIndex = 16;
-            this.uC_UnregisterButton1.Visible = false;
             // 
             // UC_NextEventsandReserveItem
             // 

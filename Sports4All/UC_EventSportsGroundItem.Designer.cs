@@ -43,6 +43,7 @@
             this.lblEventHourValue = new System.Windows.Forms.Label();
             this.plLine = new System.Windows.Forms.Panel();
             this.lblModalityName = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.plEventDate.SuspendLayout();
             this.plEventData.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +80,7 @@
             // 
             // plEventData
             // 
+            this.plEventData.Controls.Add(this.btnCancel);
             this.plEventData.Controls.Add(this.uC_UnregisterButton1);
             this.plEventData.Controls.Add(this.btnJoinEvent);
             this.plEventData.Controls.Add(this.lblSpaceAvailableValue);
@@ -96,10 +98,12 @@
             // 
             // uC_UnregisterButton1
             // 
-            this.uC_UnregisterButton1.Location = new System.Drawing.Point(722, 31);
+            this.uC_UnregisterButton1.Eventid = 0;
+            this.uC_UnregisterButton1.Location = new System.Drawing.Point(728, 16);
             this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
             this.uC_UnregisterButton1.Size = new System.Drawing.Size(53, 44);
             this.uC_UnregisterButton1.TabIndex = 9;
+            this.uC_UnregisterButton1.Username = null;
             this.uC_UnregisterButton1.Visible = false;
             this.uC_UnregisterButton1.Click += new System.EventHandler(this.uC_UnregisterButton1_Click);
             this.uC_UnregisterButton1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.uC_UnregisterButton1_MouseClick);
@@ -111,7 +115,7 @@
             this.btnJoinEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJoinEvent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJoinEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnJoinEvent.Image")));
-            this.btnJoinEvent.Location = new System.Drawing.Point(666, 20);
+            this.btnJoinEvent.Location = new System.Drawing.Point(652, 16);
             this.btnJoinEvent.Name = "btnJoinEvent";
             this.btnJoinEvent.Size = new System.Drawing.Size(79, 55);
             this.btnJoinEvent.TabIndex = 8;
@@ -196,6 +200,20 @@
             this.lblModalityName.TabIndex = 0;
             this.lblModalityName.Text = "Futebol";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(728, 56);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(33, 38);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Visible = false;
+            // 
             // UC_EventSportsGroundItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -230,5 +248,6 @@
         private System.Windows.Forms.Button btnJoinEvent;
         private System.Windows.Forms.Label lblSpaceAvailableValue;
         private UC_UnregisterButton uC_UnregisterButton1;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

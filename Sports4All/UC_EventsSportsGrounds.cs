@@ -21,6 +21,8 @@ namespace Sports4All
         public int Id { get; set; }
         private bool _controlSub = false;
         private string _parkName;
+        private string _username { get; set; }
+
 
         public string ParkName
         {
@@ -32,6 +34,7 @@ namespace Sports4All
         public UC_EventsSportsGrounds()
         {
             InitializeComponent();
+            _username = Session.Instance.LoggedUser;
           // ParkName = _parkController.GetPark(Id).Name;
           btnAllSports.BackColor = Color.LightBlue;
         }
@@ -55,6 +58,7 @@ namespace Sports4All
     
             for (int i = 0; i < EventsbyGroundCount; i++)
             {
+                var users = _eventsList.ToList()[i].Users.ToList();
                 var usersCount = _eventsList.ToList()[i].Users.Count;
                 var maxUsers = _eventsList.ToList()[i].MaxPlayers;
                 var hour = _eventsList.ToList()[i].StartDate.ToShortTimeString();
@@ -71,7 +75,29 @@ namespace Sports4All
                 EventId = _eventsList.ToList()[0].EventId
                 };
 
-                if (usersCount == maxUsers) listitems[i].DisableJoinEventbtn(); // remove botao para se juntar ao evento
+                if (usersCount == maxUsers) listitems[i].DisableJoinEventbtn();  // remove botao para se juntar ao evento
+                foreach (var user in users)
+                {
+                    if (user.Username == _username) // já estou no evento
+                    {
+                        listitems[i].ChangeJoinEventbtn(false);
+
+                        if (listitems[i].Owner.Equals(_username))
+                        {
+                            // sou o owner, botao de remover evento
+                            listitems[i].ChangeCancelbtn(true);
+
+                        }
+                        else
+                        {
+                            listitems[i].ChangeJoinEventbtn(false);
+                            listitems[i].BringToFrontUnregister(true);
+                        }
+                        break;
+                    }
+                    // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
+                }
+
                 flpEventListSportsground.Controls.Add(listitems[i]);
             }
         }
