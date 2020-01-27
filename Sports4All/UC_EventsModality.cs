@@ -54,20 +54,20 @@ namespace Sports4All
         {
             if (!_controlSub)
             {
-                tbSubNotification.Visible = false;
+                
+                btnSub.Image = Image.FromFile(@"..\..\Images\" + "sub_Button.png");
                 _controlSub = true;
-                //this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-                btnSub.Image = ((System.Drawing.Image)(resources.GetObject("sub_Button")));
                 showNotification("Recinto Subscrito!", "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
                                   " gerir todos os seus favoritos!!!");
             }
             //retira subscrição!
             else
             {
-                btnSub.Image = ((System.Drawing.Image)(resources.GetObject("subButton.Image")));
+                btnSub.Image = Image.FromFile(@"..\..\Images\" + "unsub_Button.png");
                 _controlSub = false;
             }
         }
+        
         private void showNotification(string title, string body)
         {
             NotifyIcon notifyIcon = new NotifyIcon();

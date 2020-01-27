@@ -36,32 +36,14 @@ namespace Sports4All.Controller
             }
             return imgs;
         }
-        //método que guarda na pasta do projeto a imagem passada no PictureId
-        public void DownloadImage()
+
+
+        public string GetImagefromDB(string PictureName)
         {
-            var body = GetImagefromDB(PictureId);
-            Console.WriteLine("Attachment downloaded.");
-
-            var fileContent = Convert.FromBase64String(body);
-            Stream stream = new MemoryStream(fileContent);
-
-            //Picture Downloaded
-            using (var fileStream =
-                new FileStream(projectPath + "\\Images\\User" + PictureId + ".png", FileMode.OpenOrCreate))
+            using (var db = new ModelContext())
             {
-                var fileContent1 = Convert.FromBase64String(body);
-                fileStream.Write(fileContent1, 0, fileContent1.Count());
-            }
-        }
-
-        public string GetImagefromDB(int PictureId)
-        {
-            using (var ctx = new ModelContext())
-            {
-                var Picture = (from s in ctx.Pictures
-                    where s.PictureId == PictureId
-                    select s).FirstOrDefault();
-                return Picture.Path;
+                var Picture = db.Pictures.Where(c => c.Path == PictureName).FirstOrDefault().Path;
+                return Picture;
             }
         }
     }

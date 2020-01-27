@@ -222,8 +222,13 @@ namespace Sports4All
                     _evento.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
                     _evento.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
                     _evento.Name = txtEventName.Text;
+                    var users = db.Users.ToList();
                     ICollection<User> listUsers = new Collection<User>();
-                    listUsers.Add(WhoAmI);
+                    foreach(User a in users)
+                    {
+                        listUsers.Add(a);
+                    }
+                    //listUsers.Add(WhoAmI);
                     _evento.Users = listUsers;
                     _evento.MinAge = Convert.ToInt32(cbMinAge.Text);
                     _evento.MaxAge = Convert.ToInt32(cbMaxAge.Text);

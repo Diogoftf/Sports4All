@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -126,10 +128,17 @@ namespace Sports4All
 
             _obj = this;
             AddUserControlsToForm();
+            
+            using (var db = new ModelContext())
+            {
+                //var query = db.Pictures.Where(e => e.Path == "trophy").FirstOrDefault().Path;
+               // string path = Environment.CurrentDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly().Location), "Images");
+                pbUserImage.Image = Image.FromFile(@"..\..\Images\" + "user1.png");
+                //FileStream fs = new System.IO.FileStream(@"..\..\Images\calendar.png", FileMode.Open, FileAccess.Read);
+                //pbUserImage.Image = Image.FromStream(fs);
+                //fs.Close();
+            }
 
-            // var context = new QxP1IZ6nAWEntities();
-            // !! TEMPORARIO!! PEGA O PRIMEIRO USER DA TABELA
-            // lbWelcomeUser.Text = "Bem-vindo, " + context.User.ToList()[0].username;
         }
 
         private void AddUserControlsToForm()

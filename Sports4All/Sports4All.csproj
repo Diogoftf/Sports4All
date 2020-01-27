@@ -500,6 +500,47 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\add.bmp" />
+    <Content Include="Images\Add.png" />
+    <Content Include="Images\addButton.png" />
+    <Content Include="Images\agreement.png" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\calendar1.png" />
+    <Content Include="Images\cancel.png" />
+    <Content Include="Images\close.png" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\details.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\edit1.png" />
+    <Content Include="Images\fairplay.png" />
+    <Content Include="Images\foot_Icon.png" />
+    <Content Include="Images\friend.png" />
+    <Content Include="Images\group.png" />
+    <Content Include="Images\group1.png" />
+    <Content Include="Images\group2.png" />
+    <Content Include="Images\info.png" />
+    <Content Include="Images\join_iconImage.png" />
+    <Content Include="Images\matches.png" />
+    <Content Include="Images\medal.png" />
+    <Content Include="Images\medal1.png" />
+    <Content Include="Images\medal2.png" />
+    <Content Include="Images\playground.png" />
+    <Content Include="Images\ratio.png" />
+    <Content Include="Images\search.png" />
+    <Content Include="Images\skill.png" />
+    <Content Include="Images\star.png" />
+    <Content Include="Images\star1.png" />
+    <Content Include="Images\stats.png" />
+    <Content Include="Images\sub_Button.png" />
+    <Content Include="Images\trophy.png" />
+    <Content Include="Images\unsub_Button.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\user1.png" />
+    <Content Include="Images\User2.png" />
+    <Content Include="Images\User3.png" />
+    <Content Include="Images\User4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
