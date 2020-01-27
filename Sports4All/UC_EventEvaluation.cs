@@ -49,9 +49,6 @@ namespace Sports4All
             Event ev = _evaluationController.GetEvent(EventId);
 
             ev.Notify();
-
-            int i = 0;
-
         }
 
         public void populateItems()
@@ -61,6 +58,8 @@ namespace Sports4All
             Event ev = _evaluationController.GetEvent(EventId);
 
             Park park = _evaluationController.GetEventPark(EventId);
+
+            uc.ParkId = park.ParkId;
 
             ev.Attach(park);
 

@@ -24,7 +24,7 @@ namespace Sports4All.Controller
                     PictureId = pictureId
                 };
 
-                var query = db.Counties.Where(f => f.Name == county).First();
+                var query = db.Counties.Where(f => f.Name.Equals(county)).First();
                 newUser.CountyId = query.CountyId;
 
                 UserClassification userClassification = CreateUserClassification(newUser);
@@ -39,9 +39,14 @@ namespace Sports4All.Controller
         {
             using (var db = new ModelContext())
             {
-                var query = db.Classifications.OrderByDescending(u => u.ClassificationId).FirstOrDefault().ClassificationId;
+                var query = db.Classifications;
+                int classificationId = 0;
 
-                int classificationId = query + 1;
+                if (query.Any())
+                {
+                    var biggestClassificationId = query.OrderByDescending(u => u.ClassificationId).FirstOrDefault().ClassificationId;
+                    classificationId = biggestClassificationId + 1;
+                }
 
                 UserClassification userClassification = new UserClassification();
                 userClassification.ClassificationId = classificationId;
@@ -105,7 +110,7 @@ namespace Sports4All.Controller
         {
             using (var db = new ModelContext())
             {
-                var username = db.Users.FirstOrDefault(x => x.Email == email).Username;
+                var username = db.Users.FirstOrDefault(x => x.Email.Equals(email)).Username;
 
                 return username;
             }
