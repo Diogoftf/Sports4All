@@ -37,7 +37,38 @@ namespace Sports4All
 
         private void circularButton1_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Deseja submeter as avaliações?", "Confirmation", MessageBoxButtons.YesNoCancel);
 
+            if (result == DialogResult.Yes)
+            {
+                SubmitEvaluations();
+
+
+
+
+                if (!Form1.Instance.PnlContainer.Controls.ContainsKey("UC_MyEvents"))
+                {
+                    UC_MyEvents uc = new UC_MyEvents { Dock = DockStyle.Fill };
+                    Form1.Instance.PnlContainer.Controls.Add(uc);
+                }
+
+                Form1.Instance.PnlContainer.Controls["UC_MyEvents"].BringToFront();
+
+                if (Form1.Instance.PnlContainer.Controls.ContainsKey("UC_MyEvents"))
+                {
+                    foreach (UserControl x in Form1.Instance.PnlContainer.Controls)
+                    {
+                        if (Form1.Instance.PnlContainer.Controls.GetChildIndex(x) == 0)
+                        {
+                            Form1.Instance.FrontControl = x;
+                        }
+                    }
+                }
+
+            }
+        }
+        public void SubmitEvaluations() 
+        {
             _evaluationController.SetParkEvaluation(uc.ParkId, uc.ParkQuality, uc.ParkPrice, EventId);
 
             foreach (var evaluationUser in evaluationItems)
@@ -47,9 +78,6 @@ namespace Sports4All
                     evaluationUser.PlayerFairplay,
                     EventId);
             }
-
-
-            //Event ev = _evaluationController.GetEvent(EventId);
             _ev.Observers.ToList();
             _ev.Notify();
         }
@@ -83,5 +111,6 @@ namespace Sports4All
             }
 
         }
+
     }
 }
