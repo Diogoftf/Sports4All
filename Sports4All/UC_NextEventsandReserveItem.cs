@@ -152,5 +152,9 @@ namespace Sports4All
             _eventsController.DeleteEvent(Convert.ToInt32(_eventId));
 
         }
+        public void HideCancelReserve()
+        {
+            btnCancel.Visible = false;
+        }
     }
 }

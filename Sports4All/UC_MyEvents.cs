@@ -156,6 +156,7 @@ namespace Sports4All
                     Lotation = usersCount + "/" + maxUsers,
                     EventID = Convert.ToString(nextEvents.ToList()[i].EventId)
                 };
+                listitems[i].HideCancelReserve();
                 flpListMyEvents.Controls.Add(listitems[i]);
             }
         }

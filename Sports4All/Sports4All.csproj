@@ -278,6 +278,12 @@
     <Compile Include="User.cs" />
     <Compile Include="UserClassification.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="UC_UnregisterButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_UnregisterButton.Designer.cs">
+      <DependentUpon>UC_UnregisterButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserEvaluation.cs" />
     <Compile Include="View\UserControls_Items\UC_EventItem.cs">
       <SubType>UserControl</SubType>
@@ -391,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_EventsSportsGrounds.resx">
       <DependentUpon>UC_EventsSportsGrounds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_UnregisterButton.resx">
+      <DependentUpon>UC_UnregisterButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls_Items\UC_EventItem.resx">
       <DependentUpon>UC_EventItem.cs</DependentUpon>

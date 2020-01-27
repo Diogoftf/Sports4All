@@ -83,11 +83,32 @@ namespace Sports4All
         {
             events.JoinEvent(_eventId, _username);
             MessageBox.Show("Juntou-se ao evento com sucesso!");
-            btnJoinEvent.Enabled = false;
+            btnJoinEvent.Visible = false;
+            uC_UnregisterButton1.Visible = true;
         }
         private void UC_EventSportsGroundItem_Load(object sender, EventArgs e)
         {
-            if (!events.CheckUserInEvent(_eventId, _username)) btnJoinEvent.Visible = true;
+            if (!events.CheckUserInEvent(_eventId, _username))
+            {
+                btnJoinEvent.Visible = true;
+                uC_UnregisterButton1.Visible = false;
+            }
+            else
+            {
+                btnJoinEvent.Visible = false;
+                uC_UnregisterButton1.Visible = true;
+
+            }
+        }
+
+        private void uC_UnregisterButton1_Click(object sender, EventArgs e)
+        {
+            if (!DesignMode) events.UnregisterUser(_eventId, _username);
+        }
+
+        private void uC_UnregisterButton1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (!DesignMode) events.UnregisterUser(_eventId, _username);
         }
     }
 }

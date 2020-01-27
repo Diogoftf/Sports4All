@@ -267,7 +267,6 @@
             this.btnEdit.Size = new System.Drawing.Size(30, 27);
             this.btnEdit.TabIndex = 51;
             this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSaveChanges
             // 

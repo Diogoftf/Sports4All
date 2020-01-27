@@ -24,11 +24,6 @@ namespace Sports4All
                 db.SaveChanges();
             }
 
-
-
-
-
-
             //using (var db = new ModelContext())
             //{
             //    var query = db.Events.Include("Evaluations.Evaluator").ToList().ElementAt(0);
@@ -50,8 +45,6 @@ namespace Sports4All
             //        //if(ev != null ) Console.WriteLine(ev.Evaluated.Username);
 
             //    }
-
-
 
             //var userEvaluation = new UserEvaluation
             //{
@@ -78,6 +71,9 @@ namespace Sports4All
             ////{
             ////    Console.WriteLine(prop.Name, prop.GetValue(c, null));
             ////}
+            ///
+            MyEventsController events = new MyEventsController();
+           // events.UnregisterUser(2,"paulo");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Authentication());
