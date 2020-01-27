@@ -20,8 +20,7 @@ namespace Sports4All
 
             Session.Instance.LoggedUser = "paulo";
 
-            //ImagesController img = new ImagesController();
-            //img.InsertPathImagesToDB();
+            //ImagesController.InsertPathImagesToDB();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

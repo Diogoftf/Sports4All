@@ -1,46 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 
 namespace Sports4All.Controller
 {
-    public class ImagesController
+    public static class ImagesController
     {
-        private readonly string ImagesPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images";
+        private static readonly string ImagesPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images";
 
-        public void InsertPathImagesToDB()
-        {
-            DirectoryInfo path = new DirectoryInfo(ImagesPath);
+        //public static void InsertPathImagesToDB()
+        //{
+        //    DirectoryInfo path = new DirectoryInfo(ImagesPath);
 
-            using(var db = new ModelContext())
-            {
-                foreach (var file in path.GetFiles())
-                {
-                    Picture a = new Picture();
-                    a.Path = file.Name;
-                    db.Pictures.Add(a);
-                }
-                db.SaveChanges();
-            }
-        }
+        //    using (var db = new ModelContext())
+        //    {
+        //        foreach (var file in path.GetFiles())
+        //        {
+        //            Picture a = new Picture();
+        //            a.Path = file.Name;
+        //            db.Pictures.Add(a);
+        //        }
+        //        db.SaveChanges();
+        //    }
+        //}
 
-        public string GetImageFromID(int id)
+        public static Image GetImageFromID(int id)
         {
             using (var db = new ModelContext())
             {
                 var Picture = db.Pictures.Where(c => c.PictureId == id).FirstOrDefault().Path;
-                return Picture;
+                return Image.FromFile(ImagesPath + "\\" + Picture + ".png");
             }
         }
 
-        public string GetImageFromPath(string name)
+        public static Image GetImageFromName(string name)
         {
             using (var db = new ModelContext())
             {
-                var Picture = db.Pictures.Where(c => c.Path == name).FirstOrDefault().Path;
-                return Picture;
+                var pictures = db.Pictures.Where( e => e.Path == name).SingleOrDefault().Path;
+                return Image.FromFile(ImagesPath + "\\" + pictures + ".png");
             }
         }
+
     }
 }
