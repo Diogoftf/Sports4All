@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
+using System.Windows;
 
 namespace Sports4All.Controller
 {
@@ -164,12 +165,14 @@ namespace Sports4All.Controller
             using (var context = new ModelContext())
             {
                 var eventRecord = context.Events
+                    .Include("Reserve.Uses")
                     .Where(a => a.EventId == EventId)
-                    .Include("Reserve")
                     .FirstOrDefault();
 
+                context.Reserves.Remove(eventRecord.Reserve);
                 context.Events.Remove(eventRecord);
                 context.SaveChanges();
+                MessageBox.Show("Reserva eliminada com sucesso");
             }
         }
 
@@ -186,6 +189,7 @@ namespace Sports4All.Controller
                 context.Entry(events).Collection("Users").Load();
                 events.Users.Remove(users);
                 context.SaveChanges();
+                MessageBox.Show("Saíste com sucesso do Evento");
             }
         }
 

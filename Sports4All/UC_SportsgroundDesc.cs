@@ -16,6 +16,8 @@ namespace Sports4All
         private ParkDescriptionController _parkDescriptionController;
         public int Id { get; set; }
 
+        private bool _controlSub = false;
+
         public UC_SportsgroundDesc()
         {
             _parkDescriptionController = new ParkDescriptionController();
@@ -76,6 +78,22 @@ namespace Sports4All
                         j.ListEventsbyGround();
                     }
                 }
+            }
+        }
+
+        private void pbSubscribe_Click(object sender, EventArgs e)
+        {
+            if (!_controlSub)
+            {
+
+                pbSubscribe.Image = Image.FromFile(@"..\..\Images\" + "sub_Button.png");
+                _controlSub = true;
+            }
+            //retira subscrição!
+            else
+            {
+                pbSubscribe.Image = Image.FromFile(@"..\..\Images\" + "unsub_Button.png");
+                _controlSub = false;
             }
         }
     }

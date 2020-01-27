@@ -42,9 +42,35 @@ namespace Sports4All
             {
 
                 // Query para dar Sugestões            
-                return db.Reserves.Include("Event.Users").Include("User").Include("Ground.Park").Include("Sport").Where(e => e.User.Username != Session.Instance.LoggedUser && e.Event.StartDate > DateTime.Now && (e.Event.Users.Count) < e.Event.MaxPlayers
+                var query = db.Reserves.Include("Event.Users").Include("User").Include("Ground.Park").Include("Sport").Where(e => e.User.Username != Session.Instance.LoggedUser && e.Event.StartDate > DateTime.Now && (e.Event.Users.Count) < e.Event.MaxPlayers
                     && (e.Ground.Park.Address.CountyId == e.User.CountyId || e.Ground.Park.Address.County.DistrictId == e.User.County.DistrictId
                      && e.Event.Users.Contains(e.User) == false)).ToList();
+
+                ICollection<Reserve> listSugestions = new HashSet<Reserve>();
+                bool aux = false;
+
+                for(int i = 0; i < query.Count; i++)
+                {
+                    for(int j = 0; j < query.ToList()[i].Event.Users.Count; j++)
+                    {
+                        if(query.ToList()[i].Event.Users.ToList()[j].Username == Session.Instance.LoggedUser)
+                        {
+                            aux = true;
+                        }
+                    }
+
+                    if (!aux)
+                    {
+                        listSugestions.Add(query.ToList()[i]);
+                    }
+                    else
+                    {
+                        aux = false;
+                    }
+
+                }
+
+                return listSugestions;
             }
 
         }

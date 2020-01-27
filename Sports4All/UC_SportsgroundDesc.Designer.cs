@@ -159,6 +159,7 @@
             this.pbSubscribe.Size = new System.Drawing.Size(39, 46);
             this.pbSubscribe.TabIndex = 2;
             this.pbSubscribe.TabStop = false;
+            this.pbSubscribe.Click += new System.EventHandler(this.pbSubscribe_Click);
             // 
             // UC_SportsgroundDesc
             // 

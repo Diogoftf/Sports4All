@@ -127,5 +127,9 @@ namespace Sports4All
             }
         }
 
+        private void lblTitleFilter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -112,9 +112,9 @@
             // 
             this.lbEventID.AutoSize = true;
             this.lbEventID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEventID.Location = new System.Drawing.Point(88, 9);
+            this.lbEventID.Location = new System.Drawing.Point(104, 8);
             this.lbEventID.Name = "lbEventID";
-            this.lbEventID.Size = new System.Drawing.Size(64, 19);
+            this.lbEventID.Size = new System.Drawing.Size(91, 28);
             this.lbEventID.TabIndex = 13;
             this.lbEventID.Text = "#23342";
             // 
@@ -124,7 +124,7 @@
             this.lbEvent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEvent.Location = new System.Drawing.Point(3, 8);
             this.lbEvent.Name = "lbEvent";
-            this.lbEvent.Size = new System.Drawing.Size(64, 19);
+            this.lbEvent.Size = new System.Drawing.Size(95, 28);
             this.lbEvent.TabIndex = 11;
             this.lbEvent.Text = "Evento:";
             // 
@@ -134,7 +134,7 @@
             this.lblModalityName.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.lblModalityName.Location = new System.Drawing.Point(759, 4);
             this.lblModalityName.Name = "lblModalityName";
-            this.lblModalityName.Size = new System.Drawing.Size(62, 18);
+            this.lblModalityName.Size = new System.Drawing.Size(91, 26);
             this.lblModalityName.TabIndex = 10;
             this.lblModalityName.Text = "Futebol";
             // 
@@ -144,7 +144,7 @@
             this.lblEventOwnerValue.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventOwnerValue.Location = new System.Drawing.Point(83, 92);
             this.lblEventOwnerValue.Name = "lblEventOwnerValue";
-            this.lblEventOwnerValue.Size = new System.Drawing.Size(63, 17);
+            this.lblEventOwnerValue.Size = new System.Drawing.Size(91, 21);
             this.lblEventOwnerValue.TabIndex = 5;
             this.lblEventOwnerValue.Text = "Rui Sousa";
             // 
@@ -154,7 +154,7 @@
             this.lblEventOwner.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventOwner.Location = new System.Drawing.Point(9, 92);
             this.lblEventOwner.Name = "lblEventOwner";
-            this.lblEventOwner.Size = new System.Drawing.Size(50, 17);
+            this.lblEventOwner.Size = new System.Drawing.Size(73, 21);
             this.lblEventOwner.TabIndex = 4;
             this.lblEventOwner.Text = "Owner:";
             // 
@@ -164,7 +164,7 @@
             this.lblDate.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.lblDate.Location = new System.Drawing.Point(19, 60);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(41, 17);
+            this.lblDate.Size = new System.Drawing.Size(59, 21);
             this.lblDate.TabIndex = 3;
             this.lblDate.Text = "Data:";
             // 
@@ -174,7 +174,7 @@
             this.lblstart_Hour.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblstart_Hour.Location = new System.Drawing.Point(83, 60);
             this.lblstart_Hour.Name = "lblstart_Hour";
-            this.lblstart_Hour.Size = new System.Drawing.Size(109, 17);
+            this.lblstart_Hour.Size = new System.Drawing.Size(159, 21);
             this.lblstart_Hour.TabIndex = 2;
             this.lblstart_Hour.Text = "22/05/2020 | 19h";
             // 
@@ -184,7 +184,7 @@
             this.lblSportsGround.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.lblSportsGround.Location = new System.Drawing.Point(312, 51);
             this.lblSportsGround.Name = "lblSportsGround";
-            this.lblSportsGround.Size = new System.Drawing.Size(275, 18);
+            this.lblSportsGround.Size = new System.Drawing.Size(402, 26);
             this.lblSportsGround.TabIndex = 0;
             this.lblSportsGround.Text = "Parque Desportivo de Água de Pena";
             // 

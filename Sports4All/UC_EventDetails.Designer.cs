@@ -73,7 +73,7 @@
             this.lbIdadeMax.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdadeMax.Location = new System.Drawing.Point(62, 319);
             this.lbIdadeMax.Name = "lbIdadeMax";
-            this.lbIdadeMax.Size = new System.Drawing.Size(128, 19);
+            this.lbIdadeMax.Size = new System.Drawing.Size(152, 23);
             this.lbIdadeMax.TabIndex = 43;
             this.lbIdadeMax.Text = "Idade Miníma:";
             // 
@@ -83,7 +83,7 @@
             this.lbIdadeMin.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdadeMin.Location = new System.Drawing.Point(62, 281);
             this.lbIdadeMin.Name = "lbIdadeMin";
-            this.lbIdadeMin.Size = new System.Drawing.Size(135, 19);
+            this.lbIdadeMin.Size = new System.Drawing.Size(159, 23);
             this.lbIdadeMin.TabIndex = 41;
             this.lbIdadeMin.Text = "Idade Máxima:";
             // 
@@ -93,7 +93,7 @@
             this.lbEventDetails.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEventDetails.Location = new System.Drawing.Point(138, 198);
             this.lbEventDetails.Name = "lbEventDetails";
-            this.lbEventDetails.Size = new System.Drawing.Size(97, 23);
+            this.lbEventDetails.Size = new System.Drawing.Size(118, 30);
             this.lbEventDetails.TabIndex = 40;
             this.lbEventDetails.Text = "Detalhes";
             this.lbEventDetails.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,7 +104,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 17F);
             this.label1.Location = new System.Drawing.Point(776, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 36);
+            this.label1.Size = new System.Drawing.Size(145, 40);
             this.label1.TabIndex = 39;
             this.label1.Text = "Inscritos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -115,7 +115,7 @@
             this.lbParkName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbParkName.Location = new System.Drawing.Point(332, 24);
             this.lbParkName.Name = "lbParkName";
-            this.lbParkName.Size = new System.Drawing.Size(342, 23);
+            this.lbParkName.Size = new System.Drawing.Size(410, 30);
             this.lbParkName.TabIndex = 38;
             this.lbParkName.Text = "Parque Desportivo Água de Pena";
             this.lbParkName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,9 +124,9 @@
             // 
             this.lbEventId.AutoSize = true;
             this.lbEventId.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.lbEventId.Location = new System.Drawing.Point(96, 12);
+            this.lbEventId.Location = new System.Drawing.Point(129, 11);
             this.lbEventId.Name = "lbEventId";
-            this.lbEventId.Size = new System.Drawing.Size(117, 37);
+            this.lbEventId.Size = new System.Drawing.Size(140, 43);
             this.lbEventId.TabIndex = 37;
             this.lbEventId.Text = "Evento";
             // 
@@ -136,7 +136,7 @@
             this.lblUserPhoneValue.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserPhoneValue.Location = new System.Drawing.Point(179, 144);
             this.lblUserPhoneValue.Name = "lblUserPhoneValue";
-            this.lblUserPhoneValue.Size = new System.Drawing.Size(101, 21);
+            this.lblUserPhoneValue.Size = new System.Drawing.Size(121, 23);
             this.lblUserPhoneValue.TabIndex = 34;
             this.lblUserPhoneValue.Text = "999 888 777";
             // 
@@ -146,7 +146,7 @@
             this.lblOwnerValue.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOwnerValue.Location = new System.Drawing.Point(170, 102);
             this.lblOwnerValue.Name = "lblOwnerValue";
-            this.lblOwnerValue.Size = new System.Drawing.Size(112, 21);
+            this.lblOwnerValue.Size = new System.Drawing.Size(131, 23);
             this.lblOwnerValue.TabIndex = 33;
             this.lblOwnerValue.Text = "Pedro Sousa";
             // 
@@ -156,7 +156,7 @@
             this.lblMaxPlayers.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaxPlayers.Location = new System.Drawing.Point(62, 244);
             this.lblMaxPlayers.Name = "lblMaxPlayers";
-            this.lblMaxPlayers.Size = new System.Drawing.Size(173, 19);
+            this.lblMaxPlayers.Size = new System.Drawing.Size(204, 23);
             this.lblMaxPlayers.TabIndex = 32;
             this.lblMaxPlayers.Text = "Máximo Jogadores:";
             // 
@@ -166,7 +166,7 @@
             this.lblEventDate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventDate.Location = new System.Drawing.Point(62, 352);
             this.lblEventDate.Name = "lblEventDate";
-            this.lblEventDate.Size = new System.Drawing.Size(52, 19);
+            this.lblEventDate.Size = new System.Drawing.Size(62, 23);
             this.lblEventDate.TabIndex = 31;
             this.lblEventDate.Text = "Data:";
             // 
@@ -176,7 +176,7 @@
             this.lblPhone.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.Location = new System.Drawing.Point(84, 144);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(89, 19);
+            this.lblPhone.Size = new System.Drawing.Size(108, 23);
             this.lblPhone.TabIndex = 30;
             this.lblPhone.Text = "Contacto:";
             // 
@@ -186,7 +186,7 @@
             this.lblOwner.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOwner.Location = new System.Drawing.Point(99, 102);
             this.lblOwner.Name = "lblOwner";
-            this.lblOwner.Size = new System.Drawing.Size(65, 19);
+            this.lblOwner.Size = new System.Drawing.Size(76, 23);
             this.lblOwner.TabIndex = 29;
             this.lblOwner.Text = "Nome:";
             // 
@@ -196,7 +196,7 @@
             this.lblProprietario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProprietario.Location = new System.Drawing.Point(121, 64);
             this.lblProprietario.Name = "lblProprietario";
-            this.lblProprietario.Size = new System.Drawing.Size(120, 23);
+            this.lblProprietario.Size = new System.Drawing.Size(148, 30);
             this.lblProprietario.TabIndex = 28;
             this.lblProprietario.Text = "Proprietário";
             this.lblProprietario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -225,7 +225,7 @@
             this.tbMaxPlayers.Location = new System.Drawing.Point(237, 243);
             this.tbMaxPlayers.Name = "tbMaxPlayers";
             this.tbMaxPlayers.ReadOnly = true;
-            this.tbMaxPlayers.Size = new System.Drawing.Size(47, 21);
+            this.tbMaxPlayers.Size = new System.Drawing.Size(47, 26);
             this.tbMaxPlayers.TabIndex = 47;
             this.tbMaxPlayers.Text = "12";
             this.tbMaxPlayers.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -238,7 +238,7 @@
             this.tbMaxAge.Location = new System.Drawing.Point(203, 281);
             this.tbMaxAge.Name = "tbMaxAge";
             this.tbMaxAge.ReadOnly = true;
-            this.tbMaxAge.Size = new System.Drawing.Size(77, 21);
+            this.tbMaxAge.Size = new System.Drawing.Size(77, 26);
             this.tbMaxAge.TabIndex = 48;
             this.tbMaxAge.Text = "45";
             this.tbMaxAge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -251,7 +251,7 @@
             this.tbminAge.Location = new System.Drawing.Point(199, 319);
             this.tbminAge.Name = "tbminAge";
             this.tbminAge.ReadOnly = true;
-            this.tbminAge.Size = new System.Drawing.Size(81, 21);
+            this.tbminAge.Size = new System.Drawing.Size(81, 26);
             this.tbminAge.TabIndex = 50;
             this.tbminAge.Text = "16";
             this.tbminAge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -285,7 +285,7 @@
             this.lbEventIDValue.Font = new System.Drawing.Font("Century Gothic", 18F);
             this.lbEventIDValue.Location = new System.Drawing.Point(202, 13);
             this.lbEventIDValue.Name = "lbEventIDValue";
-            this.lbEventIDValue.Size = new System.Drawing.Size(85, 37);
+            this.lbEventIDValue.Size = new System.Drawing.Size(99, 43);
             this.lbEventIDValue.TabIndex = 53;
             this.lbEventIDValue.Text = "0001";
             // 
@@ -298,7 +298,7 @@
             this.dtpNextEventDate.Location = new System.Drawing.Point(120, 345);
             this.dtpNextEventDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpNextEventDate.Name = "dtpNextEventDate";
-            this.dtpNextEventDate.Size = new System.Drawing.Size(171, 32);
+            this.dtpNextEventDate.Size = new System.Drawing.Size(171, 37);
             this.dtpNextEventDate.TabIndex = 77;
             // 
             // dtpEndEventTime
@@ -308,7 +308,7 @@
             this.dtpEndEventTime.Location = new System.Drawing.Point(88, 483);
             this.dtpEndEventTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpEndEventTime.Name = "dtpEndEventTime";
-            this.dtpEndEventTime.Size = new System.Drawing.Size(182, 28);
+            this.dtpEndEventTime.Size = new System.Drawing.Size(182, 33);
             this.dtpEndEventTime.TabIndex = 81;
             // 
             // dtpStartEventTime
@@ -318,7 +318,7 @@
             this.dtpStartEventTime.Location = new System.Drawing.Point(88, 422);
             this.dtpStartEventTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpStartEventTime.Name = "dtpStartEventTime";
-            this.dtpStartEventTime.Size = new System.Drawing.Size(182, 28);
+            this.dtpStartEventTime.Size = new System.Drawing.Size(182, 33);
             this.dtpStartEventTime.TabIndex = 80;
             // 
             // label5
@@ -327,7 +327,7 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(62, 401);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 19);
+            this.label5.Size = new System.Drawing.Size(173, 23);
             this.label5.TabIndex = 83;
             this.label5.Text = "Inicio do Evento:";
             // 
@@ -337,7 +337,7 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(62, 462);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 19);
+            this.label6.Size = new System.Drawing.Size(164, 23);
             this.label6.TabIndex = 84;
             this.label6.Text = "Final do Evento:";
             // 
@@ -345,6 +345,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
+            this.Controls.Add(this.lbEventId);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpEndEventTime);
@@ -363,7 +364,6 @@
             this.Controls.Add(this.lbEventDetails);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbParkName);
-            this.Controls.Add(this.lbEventId);
             this.Controls.Add(this.lblUserPhoneValue);
             this.Controls.Add(this.lblOwnerValue);
             this.Controls.Add(this.lblMaxPlayers);

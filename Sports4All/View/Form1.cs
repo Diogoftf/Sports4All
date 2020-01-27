@@ -131,12 +131,8 @@ namespace Sports4All
             
             using (var db = new ModelContext())
             {
-                //var query = db.Pictures.Where(e => e.Path == "trophy").FirstOrDefault().Path;
-               // string path = Environment.CurrentDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly().Location), "Images");
-                pbUserImage.Image = Image.FromFile(@"..\..\Images\" + "user1.png");
-                //FileStream fs = new System.IO.FileStream(@"..\..\Images\calendar.png", FileMode.Open, FileAccess.Read);
-                //pbUserImage.Image = Image.FromStream(fs);
-                //fs.Close();
+               pbUserImage.Image = Image.FromFile(@"..\..\Images\" + "user1.png");
+                
             }
 
         }

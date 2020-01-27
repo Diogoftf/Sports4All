@@ -48,9 +48,10 @@
             this.tbModalityName.BackColor = System.Drawing.SystemColors.Control;
             this.tbModalityName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbModalityName.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold);
-            this.tbModalityName.Location = new System.Drawing.Point(89, 10);
+            this.tbModalityName.Location = new System.Drawing.Point(100, 12);
+            this.tbModalityName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbModalityName.Name = "tbModalityName";
-            this.tbModalityName.Size = new System.Drawing.Size(119, 35);
+            this.tbModalityName.Size = new System.Drawing.Size(134, 42);
             this.tbModalityName.TabIndex = 7;
             this.tbModalityName.Text = "Futebol";
             // 
@@ -59,9 +60,10 @@
             this.btnSub.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSub.Image = ((System.Drawing.Image)(resources.GetObject("btnSub.Image")));
-            this.btnSub.Location = new System.Drawing.Point(36, 3);
+            this.btnSub.Location = new System.Drawing.Point(37, 4);
+            this.btnSub.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSub.Name = "btnSub";
-            this.btnSub.Size = new System.Drawing.Size(51, 47);
+            this.btnSub.Size = new System.Drawing.Size(57, 59);
             this.btnSub.TabIndex = 10;
             this.btnSub.UseVisualStyleBackColor = true;
             this.btnSub.Click += new System.EventHandler(this.subButton_Click);
@@ -70,10 +72,11 @@
             // 
             // tbSubNotification
             // 
-            this.tbSubNotification.Location = new System.Drawing.Point(-2, 49);
+            this.tbSubNotification.Location = new System.Drawing.Point(-2, 61);
+            this.tbSubNotification.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbSubNotification.Name = "tbSubNotification";
             this.tbSubNotification.ReadOnly = true;
-            this.tbSubNotification.Size = new System.Drawing.Size(184, 22);
+            this.tbSubNotification.Size = new System.Drawing.Size(206, 26);
             this.tbSubNotification.TabIndex = 11;
             this.tbSubNotification.Text = "Subscreva esta Modalidade!";
             this.tbSubNotification.Visible = false;
@@ -83,51 +86,57 @@
             this.plTopContentModality.Controls.Add(this.tbModalityName);
             this.plTopContentModality.Controls.Add(this.btnSub);
             this.plTopContentModality.Controls.Add(this.tbSubNotification);
-            this.plTopContentModality.Location = new System.Drawing.Point(5, 4);
+            this.plTopContentModality.Location = new System.Drawing.Point(6, 5);
+            this.plTopContentModality.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.plTopContentModality.Name = "plTopContentModality";
-            this.plTopContentModality.Size = new System.Drawing.Size(438, 71);
+            this.plTopContentModality.Size = new System.Drawing.Size(493, 89);
             this.plTopContentModality.TabIndex = 13;
             // 
             // plEventsFilterModality
             // 
             this.plEventsFilterModality.Controls.Add(this.cbLocationFilter);
-            this.plEventsFilterModality.Controls.Add(this.lblTitleFilter);
             this.plEventsFilterModality.Controls.Add(this.tbEvents_title);
-            this.plEventsFilterModality.Location = new System.Drawing.Point(8, 81);
+            this.plEventsFilterModality.Location = new System.Drawing.Point(9, 101);
+            this.plEventsFilterModality.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.plEventsFilterModality.Name = "plEventsFilterModality";
-            this.plEventsFilterModality.Size = new System.Drawing.Size(999, 53);
+            this.plEventsFilterModality.Size = new System.Drawing.Size(1124, 66);
             this.plEventsFilterModality.TabIndex = 17;
             // 
             // cbLocationFilter
             // 
+            this.cbLocationFilter.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.cbLocationFilter.FormattingEnabled = true;
             this.cbLocationFilter.Items.AddRange(new object[] {
             "Machico",
             "Santa Cruz",
             "Funchal",
             "Ribeira Brava"});
-            this.cbLocationFilter.Location = new System.Drawing.Point(825, 23);
+            this.cbLocationFilter.Location = new System.Drawing.Point(928, 17);
+            this.cbLocationFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbLocationFilter.Name = "cbLocationFilter";
-            this.cbLocationFilter.Size = new System.Drawing.Size(158, 24);
+            this.cbLocationFilter.Size = new System.Drawing.Size(177, 38);
             this.cbLocationFilter.TabIndex = 8;
             // 
             // lblTitleFilter
             // 
             this.lblTitleFilter.AutoSize = true;
-            this.lblTitleFilter.Location = new System.Drawing.Point(868, 3);
+            this.lblTitleFilter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTitleFilter.Location = new System.Drawing.Point(960, 86);
             this.lblTitleFilter.Name = "lblTitleFilter";
-            this.lblTitleFilter.Size = new System.Drawing.Size(83, 17);
+            this.lblTitleFilter.Size = new System.Drawing.Size(154, 28);
             this.lblTitleFilter.TabIndex = 7;
             this.lblTitleFilter.Text = "Localização";
+            this.lblTitleFilter.Click += new System.EventHandler(this.lblTitleFilter_Click);
             // 
             // tbEvents_title
             // 
             this.tbEvents_title.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbEvents_title.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEvents_title.Location = new System.Drawing.Point(3, 3);
+            this.tbEvents_title.Location = new System.Drawing.Point(3, 4);
+            this.tbEvents_title.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbEvents_title.Name = "tbEvents_title";
             this.tbEvents_title.ReadOnly = true;
-            this.tbEvents_title.Size = new System.Drawing.Size(205, 25);
+            this.tbEvents_title.Size = new System.Drawing.Size(231, 30);
             this.tbEvents_title.TabIndex = 4;
             this.tbEvents_title.Text = "Eventos Disponíveis:";
             // 
@@ -137,36 +146,41 @@
             this.btnAddEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAddEvent.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnAddEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddEvent.Location = new System.Drawing.Point(463, 571);
+            this.btnAddEvent.Location = new System.Drawing.Point(521, 714);
+            this.btnAddEvent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddEvent.Name = "btnAddEvent";
-            this.btnAddEvent.Size = new System.Drawing.Size(103, 72);
+            this.btnAddEvent.Size = new System.Drawing.Size(116, 90);
             this.btnAddEvent.TabIndex = 16;
             this.btnAddEvent.UseVisualStyleBackColor = false;
             // 
             // flpEventListModality
             // 
             this.flpEventListModality.AutoScroll = true;
-            this.flpEventListModality.Location = new System.Drawing.Point(8, 140);
+            this.flpEventListModality.Location = new System.Drawing.Point(9, 175);
+            this.flpEventListModality.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flpEventListModality.Name = "flpEventListModality";
-            this.flpEventListModality.Size = new System.Drawing.Size(1010, 431);
+            this.flpEventListModality.Size = new System.Drawing.Size(1136, 539);
             this.flpEventListModality.TabIndex = 19;
             // 
             // UC_EventsModality
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flpEventListModality);
+            this.Controls.Add(this.lblTitleFilter);
             this.Controls.Add(this.plEventsFilterModality);
             this.Controls.Add(this.btnAddEvent);
             this.Controls.Add(this.plTopContentModality);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_EventsModality";
-            this.Size = new System.Drawing.Size(1089, 622);
+            this.Size = new System.Drawing.Size(1225, 778);
             this.Load += new System.EventHandler(this.onLoad);
             this.plTopContentModality.ResumeLayout(false);
             this.plTopContentModality.PerformLayout();
             this.plEventsFilterModality.ResumeLayout(false);
             this.plEventsFilterModality.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         #endregion
