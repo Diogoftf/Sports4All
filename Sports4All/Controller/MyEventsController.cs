@@ -159,7 +159,6 @@ namespace Sports4All.Controller
             }
         }
 
-        //**nao funciona!!!! Corrigir o Delete
         public void DeleteEvent(int EventId)
         {
             using (var context = new ModelContext())
@@ -170,9 +169,10 @@ namespace Sports4All.Controller
                     .Include("Ground")
                     .Include("Sport")
                     .Include("User")
-                    .Where(e => e.Event.EventId == EventId);
+                    .Where(e => e.Event.EventId == EventId).Single();
 
-                context.Reserves.RemoveRange(reserveRecord);
+                 context.Events.Remove(reserveRecord.Event);
+                context.Reserves.Remove(reserveRecord);
                 context.SaveChanges();
                 MessageBox.Show("Reserva eliminada com sucesso");
 

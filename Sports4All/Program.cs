@@ -22,10 +22,10 @@ namespace Sports4All
 
             MyEventsController events = new MyEventsController();
 
-           // events.DeleteEvent(2);
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(Form1.Instance);
+            //events.DeleteEvent(12);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(Form1.Instance);
         }
     }
 }

@@ -71,7 +71,8 @@ namespace Sports4All
             //one to one
             modelBuilder.Entity<Event>()
                 .HasRequired(s => s.Reserve)
-                .WithRequiredPrincipal(ad => ad.Event);
+                .WithRequiredPrincipal(ad => ad.Event)
+                .WillCascadeOnDelete(true);
 
             //one to many
             modelBuilder.Entity<Evaluation>()
@@ -248,7 +249,7 @@ namespace Sports4All
                 .HasRequired<Reserve>(g => g.Reserve)
                 .WithMany(s => s.Uses)
                 .HasForeignKey<int>(s => s.ReserveId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
         }
 
 
