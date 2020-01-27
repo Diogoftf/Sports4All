@@ -129,6 +129,7 @@ namespace Sports4All
             _obj = this;
             AddUserControlsToForm();
             
+            // Só para teste !!!
             using (var db = new ModelContext())
             {
                pbUserImage.Image = Image.FromFile(@"..\..\Images\" + "user1.png");

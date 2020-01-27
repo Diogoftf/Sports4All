@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sports4All
+namespace Sports4All.Controller
 {
     class HomeController
     {

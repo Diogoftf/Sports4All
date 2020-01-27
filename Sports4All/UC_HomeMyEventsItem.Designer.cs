@@ -65,7 +65,7 @@
             this.lblModalityName.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.lblModalityName.Location = new System.Drawing.Point(844, -18);
             this.lblModalityName.Name = "lblModalityName";
-            this.lblModalityName.Size = new System.Drawing.Size(61, 19);
+            this.lblModalityName.Size = new System.Drawing.Size(84, 23);
             this.lblModalityName.TabIndex = 20;
             this.lblModalityName.Text = "Futebol";
             // 
@@ -171,7 +171,7 @@
             this.lblSport.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.lblSport.Location = new System.Drawing.Point(520, 2);
             this.lblSport.Name = "lblSport";
-            this.lblSport.Size = new System.Drawing.Size(68, 17);
+            this.lblSport.Size = new System.Drawing.Size(97, 23);
             this.lblSport.TabIndex = 28;
             this.lblSport.Text = "Desporto";
             // 
@@ -210,6 +210,7 @@
             this.pbDelete.Size = new System.Drawing.Size(31, 40);
             this.pbDelete.TabIndex = 31;
             this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
             // 
             // pbMoreDetails
             // 

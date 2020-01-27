@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Sports4All
+namespace Sports4All.Controller
 {
     class RankController
     {

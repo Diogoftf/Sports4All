@@ -74,6 +74,7 @@
             // 
             // plSportsgroundProfile
             // 
+            this.plSportsgroundProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.plSportsgroundProfile.Controls.Add(this.lblSportsList);
             this.plSportsgroundProfile.Controls.Add(this.pbRightArrow);
             this.plSportsgroundProfile.Controls.Add(this.pbLeftArrow);

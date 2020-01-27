@@ -193,19 +193,19 @@ namespace Sports4All.Controller
             }
         }
 
-        public void GetOutEvent(int eventId, string username)
-        {
+        //public void GetOutEvent(int eventId, string username)
+        //{
 
-            using (var context = new ModelContext())
-            {
-                var eventRecord = context.Events
-                    .Where(a => a.EventId == eventId)
-                    .Include("Reserve")
-                    .FirstOrDefault();
-                context.Events.Remove(eventRecord);
-                context.SaveChanges();
-            }
-        }
+        //    using (var context = new ModelContext())
+        //    {
+        //        var eventRecord = context.Events
+        //            .Where(a => a.EventId == eventId)
+        //            .Include("Reserve")
+        //            .FirstOrDefault();
+        //        context.Events.Remove(eventRecord);
+        //        context.SaveChanges();
+        //    }
+        //}
 
         /*UC_EVentDetails*
          *Função que retorna todos os utilizadores presentes no evento. Argumento:EventID.

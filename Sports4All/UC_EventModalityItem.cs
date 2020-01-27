@@ -109,5 +109,9 @@ namespace Sports4All
             events.UnregisterUser(EventId, _username);
         }
 
+        private void uC_UnregisterButton1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

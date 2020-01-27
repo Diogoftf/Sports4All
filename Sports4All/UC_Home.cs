@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
@@ -18,7 +19,7 @@ namespace Sports4All
         private ICollection<Sport> _availableSports;
         private UC_HomeMyEventsItem _noMyEventsitems = new UC_HomeMyEventsItem();
         private UC_HomeMyEventsItem _noSuggestionsEventsitems = new UC_HomeMyEventsItem();
-
+        private MyEventsController _eventsController = new MyEventsController();
         // Progress Bar//
         private double _pbUnit;
         private int _pbWIDTH, _pbHEIGHT, _pbComplete;
@@ -228,6 +229,8 @@ namespace Sports4All
                         ItemSuggestion.Slots = EventSuggestions.ToList()[i].Event.Users.Count + "/" + EventSuggestions.ToList()[i].Event.MaxPlayers.ToString();
                         ItemSuggestion.Recinto = EventSuggestions.ToList()[i].Ground.Park.Name;
                         ItemSuggestion.Sport = EventSuggestions.ToList()[i].Sport.Name;
+                        ItemSuggestion.Id = EventSuggestions.ToList()[i].Event.EventId;
+                        ItemSuggestion.DisableDeleteImage = null;
                         _EventSuggestions.Add(ItemSuggestion);
                         flpEventSuggestions.Controls.Add(ItemSuggestion); //add to flowlayout
                     }

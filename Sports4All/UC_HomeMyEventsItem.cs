@@ -26,10 +26,12 @@ namespace Sports4All
         public string resetNameProprieties //
         {
             set { lblDate.Text = lblEventOwner.Text = lblEventOwnerValue.Text = lblSportsGround.Text = lblstart_Hour.Text = lblPlayers.Text = lblPlace.Text = value;
-                //this.Size = new Size(400,170);
-                
-
             }
+        }
+
+        public Image DisableDeleteImage //
+        {
+            set { pbDelete.Image = value; }
         }
 
         public Image DisableImage //
@@ -140,6 +142,19 @@ namespace Sports4All
                         j.PopulateUserControl();
                     }
                 }
+            }
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            if (_organizador == Session.Instance.LoggedUser)
+            {
+                DialogResult result = MessageBox.Show("Deseja apagar o evento?", "Confirmation", MessageBoxButtons.YesNoCancel);
+                
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Deseja sair do evento?", "Confirmation", MessageBoxButtons.YesNoCancel);
             }
         }
     }

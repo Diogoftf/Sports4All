@@ -35,8 +35,8 @@
             this.plTopContentModality = new System.Windows.Forms.Panel();
             this.plEventsFilterModality = new System.Windows.Forms.Panel();
             this.cbLocationFilter = new System.Windows.Forms.ComboBox();
-            this.lblTitleFilter = new System.Windows.Forms.Label();
             this.tbEvents_title = new System.Windows.Forms.TextBox();
+            this.lblTitleFilter = new System.Windows.Forms.Label();
             this.btnAddEvent = new System.Windows.Forms.Button();
             this.flpEventListModality = new System.Windows.Forms.FlowLayoutPanel();
             this.plTopContentModality.SuspendLayout();
@@ -48,7 +48,7 @@
             this.tbModalityName.BackColor = System.Drawing.SystemColors.Control;
             this.tbModalityName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbModalityName.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold);
-            this.tbModalityName.Location = new System.Drawing.Point(100, 12);
+            this.tbModalityName.Location = new System.Drawing.Point(52, 9);
             this.tbModalityName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbModalityName.Name = "tbModalityName";
             this.tbModalityName.Size = new System.Drawing.Size(134, 42);
@@ -60,7 +60,7 @@
             this.btnSub.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSub.Image = ((System.Drawing.Image)(resources.GetObject("btnSub.Image")));
-            this.btnSub.Location = new System.Drawing.Point(37, 4);
+            this.btnSub.Location = new System.Drawing.Point(0, 0);
             this.btnSub.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSub.Name = "btnSub";
             this.btnSub.Size = new System.Drawing.Size(57, 59);
@@ -72,7 +72,7 @@
             // 
             // tbSubNotification
             // 
-            this.tbSubNotification.Location = new System.Drawing.Point(-2, 61);
+            this.tbSubNotification.Location = new System.Drawing.Point(3, 59);
             this.tbSubNotification.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbSubNotification.Name = "tbSubNotification";
             this.tbSubNotification.ReadOnly = true;
@@ -86,20 +86,21 @@
             this.plTopContentModality.Controls.Add(this.tbModalityName);
             this.plTopContentModality.Controls.Add(this.btnSub);
             this.plTopContentModality.Controls.Add(this.tbSubNotification);
-            this.plTopContentModality.Location = new System.Drawing.Point(6, 5);
+            this.plTopContentModality.Location = new System.Drawing.Point(43, 8);
             this.plTopContentModality.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.plTopContentModality.Name = "plTopContentModality";
-            this.plTopContentModality.Size = new System.Drawing.Size(493, 89);
+            this.plTopContentModality.Size = new System.Drawing.Size(493, 85);
             this.plTopContentModality.TabIndex = 13;
             // 
             // plEventsFilterModality
             // 
+            this.plEventsFilterModality.Controls.Add(this.lblTitleFilter);
             this.plEventsFilterModality.Controls.Add(this.cbLocationFilter);
             this.plEventsFilterModality.Controls.Add(this.tbEvents_title);
-            this.plEventsFilterModality.Location = new System.Drawing.Point(9, 101);
+            this.plEventsFilterModality.Location = new System.Drawing.Point(43, 89);
             this.plEventsFilterModality.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.plEventsFilterModality.Name = "plEventsFilterModality";
-            this.plEventsFilterModality.Size = new System.Drawing.Size(1124, 66);
+            this.plEventsFilterModality.Size = new System.Drawing.Size(1124, 78);
             this.plEventsFilterModality.TabIndex = 17;
             // 
             // cbLocationFilter
@@ -111,22 +112,11 @@
             "Santa Cruz",
             "Funchal",
             "Ribeira Brava"});
-            this.cbLocationFilter.Location = new System.Drawing.Point(928, 17);
+            this.cbLocationFilter.Location = new System.Drawing.Point(928, 32);
             this.cbLocationFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbLocationFilter.Name = "cbLocationFilter";
             this.cbLocationFilter.Size = new System.Drawing.Size(177, 38);
             this.cbLocationFilter.TabIndex = 8;
-            // 
-            // lblTitleFilter
-            // 
-            this.lblTitleFilter.AutoSize = true;
-            this.lblTitleFilter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTitleFilter.Location = new System.Drawing.Point(960, 86);
-            this.lblTitleFilter.Name = "lblTitleFilter";
-            this.lblTitleFilter.Size = new System.Drawing.Size(154, 28);
-            this.lblTitleFilter.TabIndex = 7;
-            this.lblTitleFilter.Text = "Localização";
-            this.lblTitleFilter.Click += new System.EventHandler(this.lblTitleFilter_Click);
             // 
             // tbEvents_title
             // 
@@ -139,6 +129,17 @@
             this.tbEvents_title.Size = new System.Drawing.Size(231, 30);
             this.tbEvents_title.TabIndex = 4;
             this.tbEvents_title.Text = "Eventos Disponíveis:";
+            // 
+            // lblTitleFilter
+            // 
+            this.lblTitleFilter.AutoSize = true;
+            this.lblTitleFilter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTitleFilter.Location = new System.Drawing.Point(923, 0);
+            this.lblTitleFilter.Name = "lblTitleFilter";
+            this.lblTitleFilter.Size = new System.Drawing.Size(154, 28);
+            this.lblTitleFilter.TabIndex = 7;
+            this.lblTitleFilter.Text = "Localização";
+            this.lblTitleFilter.Click += new System.EventHandler(this.lblTitleFilter_Click);
             // 
             // btnAddEvent
             // 
@@ -156,7 +157,8 @@
             // flpEventListModality
             // 
             this.flpEventListModality.AutoScroll = true;
-            this.flpEventListModality.Location = new System.Drawing.Point(9, 175);
+            this.flpEventListModality.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpEventListModality.Location = new System.Drawing.Point(43, 175);
             this.flpEventListModality.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flpEventListModality.Name = "flpEventListModality";
             this.flpEventListModality.Size = new System.Drawing.Size(1136, 539);
@@ -167,7 +169,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flpEventListModality);
-            this.Controls.Add(this.lblTitleFilter);
             this.Controls.Add(this.plEventsFilterModality);
             this.Controls.Add(this.btnAddEvent);
             this.Controls.Add(this.plTopContentModality);
@@ -180,7 +181,6 @@
             this.plEventsFilterModality.ResumeLayout(false);
             this.plEventsFilterModality.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
         #endregion
