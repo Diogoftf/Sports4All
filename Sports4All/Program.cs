@@ -21,10 +21,11 @@ namespace Sports4All
             Session.Instance.LoggedUser = "paulo";
 
             MyEventsController events = new MyEventsController();
-           // events.UnregisterUser(2,"paulo");
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Form1.Instance);
+
+            events.DeleteEvent(2);
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(Form1.Instance);
         }
     }
 }

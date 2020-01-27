@@ -19,7 +19,7 @@ namespace Sports4All
         private ICollection<Sport> _availableSports;
         private UC_HomeMyEventsItem _noMyEventsitems = new UC_HomeMyEventsItem();
         private UC_HomeMyEventsItem _noSuggestionsEventsitems = new UC_HomeMyEventsItem();
-        private MyEventsController _eventsController = new MyEventsController();
+
         // Progress Bar//
         private double _pbUnit;
         private int _pbWIDTH, _pbHEIGHT, _pbComplete;

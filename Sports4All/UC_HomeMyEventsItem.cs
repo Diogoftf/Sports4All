@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
@@ -20,6 +21,7 @@ namespace Sports4All
         private string _sport;
         private Color _color;
         private Image _SportPicture;
+        private MyEventsController _eventsController = new MyEventsController();
 
         public int Id { get; set; }
 
@@ -150,11 +152,20 @@ namespace Sports4All
             if (_organizador == Session.Instance.LoggedUser)
             {
                 DialogResult result = MessageBox.Show("Deseja apagar o evento?", "Confirmation", MessageBoxButtons.YesNoCancel);
-                
+
+                if ((result == DialogResult.Yes))
+                {
+                    _eventsController.UnregisterUser(this.Id, Session.Instance.LoggedUser);
+                }
             }
             else
             {
                 DialogResult result = MessageBox.Show("Deseja sair do evento?", "Confirmation", MessageBoxButtons.YesNoCancel);
+
+                if((result == DialogResult.Yes))
+                {
+                    _eventsController.UnregisterUser(this.Id,Session.Instance.LoggedUser);
+                }
             }
         }
     }

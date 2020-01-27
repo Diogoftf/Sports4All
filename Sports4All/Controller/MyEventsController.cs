@@ -164,15 +164,18 @@ namespace Sports4All.Controller
         {
             using (var context = new ModelContext())
             {
-                var eventRecord = context.Events
-                    .Include("Reserve.Uses")
-                    .Where(a => a.EventId == EventId)
-                    .FirstOrDefault();
+                var reserveRecord = context.Reserves
+                    .Include("Uses")
+                    .Include("Event")
+                    .Include("Ground")
+                    .Include("Sport")
+                    .Include("User")
+                    .Where(e => e.Event.EventId == EventId);
 
-                context.Reserves.Remove(eventRecord.Reserve);
-                context.Events.Remove(eventRecord);
+                context.Reserves.RemoveRange(reserveRecord);
                 context.SaveChanges();
                 MessageBox.Show("Reserva eliminada com sucesso");
+
             }
         }
 
