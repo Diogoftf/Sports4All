@@ -37,7 +37,7 @@ namespace Sports4All
 
         public int PlayerFairplay { get; set; }
 
-        private void radioButtonSkill_CheckedChanged(object sender, EventArgs e)
+        private void rbtnSkill_CheckedChanged(object sender, EventArgs e)
         {
             // This is the correct control.
             RadioButton rb = (RadioButton)sender;
@@ -45,7 +45,7 @@ namespace Sports4All
             PlayerSkill = Convert.ToInt32(rb.Text);
         }
 
-        private void rbFairplay_CheckedChanged(object sender, EventArgs e)
+        private void rbtnFairplay_CheckedChanged(object sender, EventArgs e)
         {
             // This is the correct control.
             RadioButton rb = (RadioButton)sender;

@@ -96,7 +96,7 @@
             this.rbtnSkill1.TabIndex = 3;
             this.rbtnSkill1.Text = "1";
             this.rbtnSkill1.UseVisualStyleBackColor = true;
-            this.rbtnSkill1.CheckedChanged += new System.EventHandler(this.radioButtonSkill_CheckedChanged);
+            this.rbtnSkill1.CheckedChanged += new System.EventHandler(this.rbtnSkill_CheckedChanged);
             // 
             // rbtnSkill2
             // 
@@ -107,7 +107,7 @@
             this.rbtnSkill2.TabIndex = 6;
             this.rbtnSkill2.Text = "2";
             this.rbtnSkill2.UseVisualStyleBackColor = true;
-            this.rbtnSkill2.CheckedChanged += new System.EventHandler(this.radioButtonSkill_CheckedChanged);
+            this.rbtnSkill2.CheckedChanged += new System.EventHandler(this.rbtnSkill_CheckedChanged);
             // 
             // rbtnSkill5
             // 
@@ -118,7 +118,7 @@
             this.rbtnSkill5.TabIndex = 7;
             this.rbtnSkill5.Text = "5";
             this.rbtnSkill5.UseVisualStyleBackColor = true;
-            this.rbtnSkill5.CheckedChanged += new System.EventHandler(this.radioButtonSkill_CheckedChanged);
+            this.rbtnSkill5.CheckedChanged += new System.EventHandler(this.rbtnSkill_CheckedChanged);
             // 
             // rbtnSkill4
             // 
@@ -129,7 +129,7 @@
             this.rbtnSkill4.TabIndex = 8;
             this.rbtnSkill4.Text = "4";
             this.rbtnSkill4.UseVisualStyleBackColor = true;
-            this.rbtnSkill4.CheckedChanged += new System.EventHandler(this.radioButtonSkill_CheckedChanged);
+            this.rbtnSkill4.CheckedChanged += new System.EventHandler(this.rbtnSkill_CheckedChanged);
             // 
             // rbtnSkill3
             // 
@@ -142,7 +142,7 @@
             this.rbtnSkill3.TabStop = true;
             this.rbtnSkill3.Text = "3";
             this.rbtnSkill3.UseVisualStyleBackColor = true;
-            this.rbtnSkill3.CheckedChanged += new System.EventHandler(this.radioButtonSkill_CheckedChanged);
+            this.rbtnSkill3.CheckedChanged += new System.EventHandler(this.rbtnSkill_CheckedChanged);
             // 
             // plFairPlay
             // 
@@ -175,7 +175,7 @@
             this.rbtnFairplay1.TabIndex = 3;
             this.rbtnFairplay1.Text = "1";
             this.rbtnFairplay1.UseVisualStyleBackColor = true;
-            this.rbtnFairplay1.CheckedChanged += new System.EventHandler(this.rbFairplay_CheckedChanged);
+            this.rbtnFairplay1.CheckedChanged += new System.EventHandler(this.rbtnFairplay_CheckedChanged);
             // 
             // rbtnFairplay2
             // 
@@ -186,7 +186,7 @@
             this.rbtnFairplay2.TabIndex = 6;
             this.rbtnFairplay2.Text = "2";
             this.rbtnFairplay2.UseVisualStyleBackColor = true;
-            this.rbtnFairplay2.CheckedChanged += new System.EventHandler(this.rbFairplay_CheckedChanged);
+            this.rbtnFairplay2.CheckedChanged += new System.EventHandler(this.rbtnFairplay_CheckedChanged);
             // 
             // rbtnFairplay5
             // 
@@ -197,7 +197,7 @@
             this.rbtnFairplay5.TabIndex = 7;
             this.rbtnFairplay5.Text = "5";
             this.rbtnFairplay5.UseVisualStyleBackColor = true;
-            this.rbtnFairplay5.CheckedChanged += new System.EventHandler(this.rbFairplay_CheckedChanged);
+            this.rbtnFairplay5.CheckedChanged += new System.EventHandler(this.rbtnFairplay_CheckedChanged);
             // 
             // rbtnFairplay4
             // 
@@ -208,7 +208,7 @@
             this.rbtnFairplay4.TabIndex = 8;
             this.rbtnFairplay4.Text = "4";
             this.rbtnFairplay4.UseVisualStyleBackColor = true;
-            this.rbtnFairplay4.CheckedChanged += new System.EventHandler(this.rbFairplay_CheckedChanged);
+            this.rbtnFairplay4.CheckedChanged += new System.EventHandler(this.rbtnFairplay_CheckedChanged);
             // 
             // rbtnFairplay3
             // 
@@ -221,7 +221,7 @@
             this.rbtnFairplay3.TabStop = true;
             this.rbtnFairplay3.Text = "3";
             this.rbtnFairplay3.UseVisualStyleBackColor = true;
-            this.rbtnFairplay3.CheckedChanged += new System.EventHandler(this.rbFairplay_CheckedChanged);
+            this.rbtnFairplay3.CheckedChanged += new System.EventHandler(this.rbtnFairplay_CheckedChanged);
             // 
             // lblLine
             // 
