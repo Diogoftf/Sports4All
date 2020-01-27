@@ -151,16 +151,16 @@ namespace Sports4All
         {
             if (_organizador == Session.Instance.LoggedUser)
             {
-                DialogResult result = MessageBox.Show("Deseja apagar o evento?", "Confirmation", MessageBoxButtons.YesNoCancel);
+                DialogResult result = MessageBox.Show("Deseja apagar o evento?", "Confirme", MessageBoxButtons.YesNoCancel);
 
                 if ((result == DialogResult.Yes))
                 {
-                    _eventsController.UnregisterUser(this.Id, Session.Instance.LoggedUser);
+                    _eventsController.DeleteEvent(this.Id);
                 }
             }
             else
             {
-                DialogResult result = MessageBox.Show("Deseja sair do evento?", "Confirmation", MessageBoxButtons.YesNoCancel);
+                DialogResult result = MessageBox.Show("Deseja sair do evento?", "Confirme", MessageBoxButtons.YesNoCancel);
 
                 if((result == DialogResult.Yes))
                 {
