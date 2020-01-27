@@ -92,7 +92,7 @@ namespace Sports4All
 
 
                 var userClassification = db.Classifications.Include("User").OfType<UserClassification>()
-                    .FirstOrDefault(x => x.User.Username == username);
+                    .FirstOrDefault(x => x.User.Username.Equals(username));
 
                 userClassification.FairplayAverage = Math.Round(avgFairPlay, 2);
                 userClassification.SkillAverage = Math.Round(avgSkill, 2);
@@ -143,7 +143,7 @@ namespace Sports4All
 
                 foreach (var evaluation in evaluations)
                 {
-                    if (evaluation.UserId == username)
+                    if (evaluation.UserId.Equals(username))
                     {
                         userEvaluations.Add(evaluation);
                     }

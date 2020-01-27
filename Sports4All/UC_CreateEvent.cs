@@ -132,11 +132,11 @@ namespace Sports4All
                 using (ModelContext db = new ModelContext())
                 {
                     cbSport.Items.Clear();
-                    var localizacaoRecinto = db.Parks.Include("Address.County").Where(f => f.Name == cbEnclosure.Text).ToList()[0].Address;
+                    var localizacaoRecinto = db.Parks.Include("Address.County").Where(f => f.Name.Equals(cbEnclosure.Text)).ToList()[0].Address;
 
                     tbLocation.Text = localizacaoRecinto.Street + ", " + localizacaoRecinto.PostalCode + ", " + localizacaoRecinto.County.Name;
 
-                    var recintosPark = db.Parks.Include("Grounds").Where(f => f.Name == cbEnclosure.Text).ToList()[0].Grounds.ToList();
+                    var recintosPark = db.Parks.Include("Grounds").Where(f => f.Name.Equals(cbEnclosure.Text)).ToList()[0].Grounds.ToList();
 
                     for (int i = 0; i < recintosPark.Count; i++)
                     {
@@ -171,9 +171,9 @@ namespace Sports4All
             {
                 using (ModelContext db = new ModelContext())
                 {
-                    var sport = db.Sports.Where(f => f.Name == cbSport.Text).First();
+                    var sport = db.Sports.Where(f => f.Name.Equals(cbSport.Text)).First();
 
-                    var desportoRecinto = db.Grounds.Where(f => f.Park.Name == cbEnclosure.Text).ToList();
+                    var desportoRecinto = db.Grounds.Where(f => f.Park.Name.Equals(cbEnclosure.Text)).ToList();
 
                     for (int i = 0; i < desportoRecinto.Count; i++)
                     {
@@ -212,7 +212,7 @@ namespace Sports4All
             {
                 using (ModelContext db = new ModelContext())
                 {
-                    var WhoAmI = db.Users.First(f => f.Username == Session.Instance.LoggedUser);
+                    var WhoAmI = db.Users.First(f => f.Username.Equals(Session.Instance.LoggedUser));
                     _reserve.Date = DateTime.Now;
                     _reserve.Price = 10;
                     _reserve.UserId = WhoAmI.Username;

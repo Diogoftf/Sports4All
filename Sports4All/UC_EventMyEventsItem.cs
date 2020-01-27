@@ -154,7 +154,6 @@ namespace Sports4All
                         Form1.Instance.FrontControl = x;
                         UC_EventEvaluation j = (UC_EventEvaluation)x;
                         j.EventId = EventID;
-                        j.populateItems();
                     }
                 }
             }

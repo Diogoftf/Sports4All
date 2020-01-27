@@ -23,7 +23,7 @@ namespace Sports4All
 
             using (ModelContext db = new ModelContext())
             {
-                var myStats = db.Classifications.OfType<UserClassification>().Where(e => e.User.Username == Session.Instance.LoggedUser).First();
+                var myStats = db.Classifications.OfType<UserClassification>().Where(e => e.User.Username.Equals(Session.Instance.LoggedUser)).First();
 
                 userStats.Add(myStats.User.Events.Count.ToString());
                 userStats.Add(myStats.FairplayAverage.ToString());
@@ -56,13 +56,13 @@ namespace Sports4All
             using (ModelContext db = new ModelContext())
             {
                 var query = db.Reserves.Include("Ground.Park").Include("Sport").Where(c => c.Event.EndDate > DateTime.Now).OrderByDescending(c => c.Date).ToList();
-                var whoIam = db.Users.Where(e => e.Username == Session.Instance.LoggedUser).First();
+                var whoIam = db.Users.Where(e => e.Username.Equals(Session.Instance.LoggedUser)).First();
 
                 foreach (Reserve a in query) // todos os eventos que esse user participou (Tanto os que esta inscrito, como reservou)
                 {
                     for(int i = 0; i < a.Event.Users.ToList().Count; i++)
                     {
-                        if(a.Event.Users.ToList()[i].Username == Session.Instance.LoggedUser)
+                        if(a.Event.Users.ToList()[i].Username.Equals(Session.Instance.LoggedUser))
                         {
                             myEvents.Add(a.Event);
                             break;

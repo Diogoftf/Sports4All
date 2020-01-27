@@ -80,7 +80,7 @@ namespace Sports4All
             {
                 string[] dateStart = _MyEvents.ToList()[i].DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
 
-                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy") == dtpMySportDate.Value.Date.ToString("dd-MM-yyyy") || DateTime.Now.ToString("dd-MM-yyyy") == dtpMySportDate.Value.Date.ToString("dd-MM-yyyy"))
+                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy").Equals(dtpMySportDate.Value.Date.ToString("dd-MM-yyyy")) || DateTime.Now.ToString("dd-MM-yyyy").Equals(dtpMySportDate.Value.Date.ToString("dd-MM-yyyy")))
                 {
                     flpMyEvents.Controls.Add(_MyEvents.ToList()[i]); //add to flowlayout
                 }
@@ -257,7 +257,7 @@ namespace Sports4All
                 {
                     for (int i = 0; i < _MyEvents.Count; i++)
                     {
-                        if (_MyEvents.ToList()[i].Sport == cbMySport.Text)
+                        if (_MyEvents.ToList()[i].Sport.Equals(cbMySport.Text))
                         {
                             flpMyEvents.Controls.Add(_MyEvents.ToList()[i]); //add to flowlayout
                         }
@@ -287,7 +287,7 @@ namespace Sports4All
                 {
                     for (int i = 0; i < _EventSuggestions.Count; i++)
                     {
-                        if (_EventSuggestions.ToList()[i].Sport == cbNextSport.Text)
+                        if (_EventSuggestions.ToList()[i].Sport.Equals(cbNextSport.Text))
                         {
                             flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]); //add to flowlayout
                         }
@@ -363,7 +363,7 @@ namespace Sports4All
             {
                 string[] dateStart = _EventSuggestions.ToList()[i].DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
 
-                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy") == dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy") || DateTime.Now.ToString("dd-MM-yyyy") == dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy"))
+                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy").Equals(dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy")) || DateTime.Now.ToString("dd-MM-yyyy").Equals(dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy")))
                 {
                     flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]); //add to flowlayout
                 }
