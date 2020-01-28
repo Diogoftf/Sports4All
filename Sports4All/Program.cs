@@ -18,7 +18,7 @@ namespace Sports4All
         static void Main()
         {
 
-            Session.Instance.LoggedUser = "andreMx";
+            Session.Instance.LoggedUser = "paulo";
 
             MyEventsController events = new MyEventsController();
 

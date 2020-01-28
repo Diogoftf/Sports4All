@@ -25,40 +25,9 @@ namespace Sports4All
 
         private int _totalUserEvents { get; set; }
 
-        private void button_EventosTerminados_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-        }
-
-        private void listView1_SelectedIndexChanged_2(object sender, EventArgs e)
-        {
-        }
-
-        private void listView1_SelectedIndexChanged_3(object sender, EventArgs e)
-        {
-        }
-
-        private void objectListView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-
         private void button_ProximosEventos_Click(object sender, EventArgs e)
         {
             flpListMyEvents.Controls.Clear();
-
-            // filtrar apenas pelas próximas partidas!
         }
 
         private void UC_MyEvents_Load(object sender, EventArgs e)
@@ -77,6 +46,7 @@ namespace Sports4All
             var listitems = new UC_EventMyEventsItem[completedEventsCounts];
 
             for (var i = 0; i < completedEventsCounts; i++)
+            { 
                 //inverter if ; APENAS PARA TESTES, POUCOS DADOS NA BD
                 if (!eventsController.VerifyEvaluation(completedEvents.ToList()[i].EventId, _username))
                 {
@@ -89,11 +59,28 @@ namespace Sports4All
                         Date = completedEvents.ToList()[i].StartDate.ToLongDateString(),
                         Park = completedEvents.ToList()[i].Reserve.Ground.Park.Name,
                         MessageInfo = "Avalie este evento!",
-                        Change_BackColor = Color.Green
+                        Change_BackColor = Color.LightCoral
                     };
                     //listitems[i].DisableButtonEvaluation();
                     flpListMyEvents.Controls.Add(listitems[i]);
                 }
+                else
+                {
+                    listitems[i] = new UC_EventMyEventsItem
+                    {
+                        Avaliar = "Avaliado",
+                        EventID = completedEvents.ToList()[i].EventId,
+                        Owner = completedEvents.ToList()[i].Reserve.UserId,
+                        Sport = completedEvents.ToList()[i].Reserve.Sport.Name,
+                        Date = completedEvents.ToList()[i].StartDate.ToLongDateString(),
+                        Park = completedEvents.ToList()[i].Reserve.Ground.Park.Name,
+                        MessageInfo = "Já avaliou este evento!",
+                        Change_BackColor = Color.Green
+                    };
+                    listitems[i].DisableButtonEvaluation();
+                    flpListMyEvents.Controls.Add(listitems[i]);
+                }
+            }
         }
 
         private void MyReserves()

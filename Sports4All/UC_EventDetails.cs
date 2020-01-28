@@ -109,29 +109,23 @@ namespace Sports4All
             InitializeComponent();
             pickDateTimeOnly();
             eventsController = new MyEventsController();
-            // _eventID = 1;// VALOR PARA TESTE!!!!!!!!!!
         }
-
 
           private void UC_EventsDetailsB_Load(object sender, EventArgs e)
           {
-            //if (!DesignMode)
-            //{
-            //    PopulateUserControl();
-            //}
-        }
+          }
 
         private void pickDateTimeOnly()
         {
+            dtpStartEventTime.CustomFormat = "HH:mm";
+            dtpStartEventTime.Format = DateTimePickerFormat.Custom;
+            dtpStartEventTime.ShowUpDown = true;
 
-            
+            dtpEndEventTime.CustomFormat = "HH:mm";
+            dtpEndEventTime.Format = DateTimePickerFormat.Custom;
+            dtpEndEventTime.ShowUpDown = true;
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            btnSaveChanges.Visible = true;
-            PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
-        }
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Dados Guardados com Sucesso!");
@@ -142,8 +136,8 @@ namespace Sports4All
             int MaxPlayes = Convert.ToInt32(_maxPlayers);
             int MaxAge = Convert.ToInt32(_maxPlayerAge);
             int MinAge = Convert.ToInt32(_minPlayerAge);
-            string startdateTime = dtpNextEventDate.Text +" "+ dtpStartEventTime.Text;
-            string enddatetime = dtpNextEventDate.Text + " " + dtpEndEventTime.Text;
+            string startdateTime = dtpNextEventDate.Text +" "+ dtpStartEventTime.Value.TimeOfDay;
+            string enddatetime = dtpNextEventDate.Text + " " + dtpEndEventTime.Value.TimeOfDay;
             CultureInfo provider = CultureInfo.InvariantCulture;
             DateTime NewStartDate = DateTime.ParseExact(startdateTime, format, provider);
             DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
@@ -229,11 +223,10 @@ namespace Sports4All
         }
 
 
-        private void mC_Calendar_DateChanged(object sender, DateRangeEventArgs e)
+        private void btnEdit_Click_1(object sender, EventArgs e)
         {
-
-
-
+            btnSaveChanges.Visible = true;
+            PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
         }
     }
 }

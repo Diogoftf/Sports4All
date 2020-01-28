@@ -33,6 +33,7 @@
             this.lblMonth_Event = new System.Windows.Forms.Label();
             this.plEventDate = new System.Windows.Forms.Panel();
             this.plEventData = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.uC_UnregisterButton1 = new Sports4All.UC_UnregisterButton();
             this.btnJoinEvent = new System.Windows.Forms.Button();
             this.lblSpaceAvailableValue = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.lblEventHourValue = new System.Windows.Forms.Label();
             this.plLine = new System.Windows.Forms.Panel();
             this.lblModalityName = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.plEventDate.SuspendLayout();
             this.plEventData.SuspendLayout();
             this.SuspendLayout();
@@ -96,10 +96,24 @@
             this.plEventData.Size = new System.Drawing.Size(817, 103);
             this.plEventData.TabIndex = 3;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(706, 24);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(33, 38);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Visible = false;
+            // 
             // uC_UnregisterButton1
             // 
             this.uC_UnregisterButton1.Eventid = 0;
-            this.uC_UnregisterButton1.Location = new System.Drawing.Point(728, 16);
+            this.uC_UnregisterButton1.Location = new System.Drawing.Point(695, 22);
             this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
             this.uC_UnregisterButton1.Size = new System.Drawing.Size(53, 44);
             this.uC_UnregisterButton1.TabIndex = 9;
@@ -115,9 +129,9 @@
             this.btnJoinEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJoinEvent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJoinEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnJoinEvent.Image")));
-            this.btnJoinEvent.Location = new System.Drawing.Point(652, 16);
+            this.btnJoinEvent.Location = new System.Drawing.Point(682, 20);
             this.btnJoinEvent.Name = "btnJoinEvent";
-            this.btnJoinEvent.Size = new System.Drawing.Size(79, 55);
+            this.btnJoinEvent.Size = new System.Drawing.Size(79, 46);
             this.btnJoinEvent.TabIndex = 8;
             this.btnJoinEvent.UseVisualStyleBackColor = false;
             this.btnJoinEvent.Click += new System.EventHandler(this.btnJoinEvent_Click);
@@ -199,20 +213,6 @@
             this.lblModalityName.Size = new System.Drawing.Size(82, 23);
             this.lblModalityName.TabIndex = 0;
             this.lblModalityName.Text = "Futebol";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(728, 56);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(33, 38);
-            this.btnCancel.TabIndex = 11;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Visible = false;
             // 
             // UC_EventSportsGroundItem
             // 

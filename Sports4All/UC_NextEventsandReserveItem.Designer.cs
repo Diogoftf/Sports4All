@@ -103,7 +103,7 @@
             // uC_UnregisterButton1
             // 
             this.uC_UnregisterButton1.Eventid = 0;
-            this.uC_UnregisterButton1.Location = new System.Drawing.Point(717, 34);
+            this.uC_UnregisterButton1.Location = new System.Drawing.Point(681, 30);
             this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
             this.uC_UnregisterButton1.Size = new System.Drawing.Size(53, 36);
             this.uC_UnregisterButton1.TabIndex = 16;
