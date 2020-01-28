@@ -34,18 +34,20 @@
             // flpEvents
             // 
             this.flpEvents.AutoScroll = true;
-            this.flpEvents.Location = new System.Drawing.Point(9, 3);
+            this.flpEvents.Location = new System.Drawing.Point(8, 2);
+            this.flpEvents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpEvents.Name = "flpEvents";
-            this.flpEvents.Size = new System.Drawing.Size(1173, 684);
+            this.flpEvents.Size = new System.Drawing.Size(1043, 547);
             this.flpEvents.TabIndex = 0;
             // 
             // UC_Events
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flpEvents);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UC_Events";
-            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
+            this.Size = new System.Drawing.Size(1089, 622);
             this.Load += new System.EventHandler(this.UC_Events_Load);
             this.ResumeLayout(false);
 

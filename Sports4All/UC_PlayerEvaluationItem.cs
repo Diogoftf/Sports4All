@@ -13,7 +13,6 @@ namespace Sports4All
 {
     public partial class UC_PlayerEvaluationItem : UserControl
     {
-        private EvaluationController _evaluationController = new EvaluationController();
         public UC_PlayerEvaluationItem()
         {
             InitializeComponent();

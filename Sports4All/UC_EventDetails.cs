@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_EventDetails : UserControl
+    public partial class UC_EventDetails : UserControl, IUserControl
     {
-        private MyEventsController eventsController;
+        private MyEventsController _eventsController;
         private string _maxPlayers;
         private string _maxPlayerAge;
         private string _minPlayerAge;
@@ -102,55 +95,39 @@ namespace Sports4All
                 dtpNextEventDate.Text = value;
             }
         }
+
+        public string Id { get; set; }
         #endregion
 
         public UC_EventDetails()
         {
             InitializeComponent();
-            pickDateTimeOnly();
-            eventsController = new MyEventsController();
+            PickDateTimeOnly();
+            _eventsController = new MyEventsController();
+            Id = _eventID.ToString();
             // _eventID = 1;// VALOR PARA TESTE!!!!!!!!!!
         }
 
 
-          private void UC_EventsDetailsB_Load(object sender, EventArgs e)
-          {
-            //if (!DesignMode)
-            //{
-            //    PopulateUserControl();
-            //}
+        private void UC_EventsDetails_Load(object sender, EventArgs e)
+        {
+            if (DesignMode) return;
+            Populate();
         }
 
-        private void pickDateTimeOnly()
+        public void Populate()
         {
-
-            
+            PopulateUsersList();
+            PopulateEventDetails();
+            CheckOwner();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void PickDateTimeOnly()
         {
-            btnSaveChanges.Visible = true;
-            PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
+
+
         }
-        private void btnSaveChanges_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show("Dados Guardados com Sucesso!");
-            btnSaveChanges.Visible = false;
-            PropertiesformEventDetails(false, BorderStyle.None, true);
-            string format = "dd/MM/yyyy HH:mm:ss";
-            int EventID = Convert.ToInt32(_eventID);
-            int MaxPlayes = Convert.ToInt32(_maxPlayers);
-            int MaxAge = Convert.ToInt32(_maxPlayerAge);
-            int MinAge = Convert.ToInt32(_minPlayerAge);
-            string startdateTime = dtpNextEventDate.Text +" "+ dtpStartEventTime.Text;
-            string enddatetime = dtpNextEventDate.Text + " " + dtpEndEventTime.Text;
-            CultureInfo provider = CultureInfo.InvariantCulture;
-            DateTime NewStartDate = DateTime.ParseExact(startdateTime, format, provider);
-            DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
-            // DateTime NewDate = new DateTime();
-            eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
-        
-        }
+
         private void PropertiesformEventDetails(bool Enabled, BorderStyle border, bool ReadOnly)
         {
             dtpNextEventDate.Enabled = Enabled;
@@ -178,20 +155,13 @@ namespace Sports4All
             _minPlayerAge = tbminAge.Text;
         }
 
-        public void PopulateUserControl()
-        {
-            PopulateUsersList();
-            PopulateEventDetails();
-            CheckOwner();
-        }
-
         private void PopulateUsersList()
         {
             flpUsersEvent.Controls.Clear();
-            ICollection<User> enrolledUsers = eventsController.RetrieveEnrolledUsers(_eventID);
+            ICollection<User> enrolledUsers = _eventsController.RetrieveEnrolledUsers(_eventID);
             int enrolledUsersCount = enrolledUsers.Count;
             UC_UserinEventItem[] listusers = new UC_UserinEventItem[enrolledUsersCount];
-            
+
             for (int i = 0; i < enrolledUsersCount; i++)
             {
                 listusers[i] = new UC_UserinEventItem()
@@ -208,14 +178,14 @@ namespace Sports4All
         private void PopulateEventDetails()
         {
 
-            var SingleEvent = eventsController.RetrieveSingleEvent(_eventID);
+            var SingleEvent = _eventsController.RetrieveSingleEvent(_eventID);
             lbEventId.Text = "Evento #" + SingleEvent.EventId;
             lblOwnerValue.Text = SingleEvent.Reserve.UserId;
             //lblUserPhoneValue.Text = Convert.ToString(SingleEvent.Reserve.User.PhoneNumber); campo está a Null na BD ainda, propriedade navegação.
             dtpNextEventDate.Text = SingleEvent.StartDate.ToLongDateString();
             dtpStartEventTime.Text = SingleEvent.StartDate.ToShortTimeString();
             dtpEndEventTime.Text = SingleEvent.EndDate.ToShortTimeString();
-            tbMaxPlayers.Text =Convert.ToString(SingleEvent.MaxPlayers);
+            tbMaxPlayers.Text = Convert.ToString(SingleEvent.MaxPlayers);
             tbMaxAge.Text = Convert.ToString(SingleEvent.MaxAge);
             tbminAge.Text = Convert.ToString(SingleEvent.MinAge);
             //**Ver Nome do Parque ainda**
@@ -228,12 +198,29 @@ namespace Sports4All
             if (lblOwnerValue.Text != Session.Instance.LoggedUser) btnEdit.Visible = false;
         }
 
-
-        private void mC_Calendar_DateChanged(object sender, DateRangeEventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-
-
+            btnSaveChanges.Visible = true;
+            PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
+        }
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Dados Guardados com Sucesso!");
+            btnSaveChanges.Visible = false;
+            PropertiesformEventDetails(false, BorderStyle.None, true);
+            string format = "dd/MM/yyyy HH:mm:ss";
+            int EventID = Convert.ToInt32(_eventID);
+            int MaxPlayes = Convert.ToInt32(_maxPlayers);
+            int MaxAge = Convert.ToInt32(_maxPlayerAge);
+            int MinAge = Convert.ToInt32(_minPlayerAge);
+            string startdateTime = dtpNextEventDate.Text + " " + dtpStartEventTime.Text;
+            string enddatetime = dtpNextEventDate.Text + " " + dtpEndEventTime.Text;
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            DateTime NewStartDate = DateTime.ParseExact(startdateTime, format, provider);
+            DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
+            // DateTime NewDate = new DateTime();
+            _eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
 
         }
-    }
+    } 
 }

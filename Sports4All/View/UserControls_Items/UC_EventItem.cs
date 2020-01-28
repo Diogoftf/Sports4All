@@ -16,7 +16,7 @@ namespace Sports4All.UserControls_Items
         {
             InitializeComponent();
 
-            foreach (Control c in this.Controls)
+            foreach (Control c in Controls)
             {
                 c.DoubleClick += UC_EventItem_DoubleClick;
             }
@@ -53,33 +53,8 @@ namespace Sports4All.UserControls_Items
         public int Id { get; set; }
 
         private void UC_EventItem_DoubleClick(object sender, EventArgs e)
-        {
-            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventsModality"))
-            {
-                UC_EventsModality uc = new UC_EventsModality { Dock = DockStyle.Fill };
-                uc.Id = Id;
-                Form1.Instance.PnlContainer.Controls.Add(uc);
-            }
-
-            Form1.Instance.PnlContainer.Controls["UC_EventsModality"].BringToFront();
-
-            if (Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventsModality"))
-            {
-                foreach (UserControl x in Form1.Instance.PnlContainer.Controls)
-                {
-                    if (Form1.Instance.PnlContainer.Controls.GetChildIndex(x) == 0)
-                    {
-                        Form1.Instance.FrontControl = x;
-                        UC_EventsModality j = (UC_EventsModality)x;
-                        j.Id = Id;
-                        j.ListEventsBySport();
-                    }
-                }
-            }
-
-
-
-            //NECESSÁRIO ATUALIZAR OS VALORES CASO JÁ TENHA SIDO CARREGADO ANTERIORMENTE
+        { 
+            Form1.Instance.BringUcToFront<UC_EventsModality>("UC_EventsModality", Id.ToString());
         }
     }
 }

@@ -17,10 +17,5 @@ namespace Sports4All
         {
             InitializeComponent();
         }
-
-        private MyEventsController _eventsController = new MyEventsController();
-        public int Eventid { get; set; }
-        public string Username { get; set; }
-
     }
 }

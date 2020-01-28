@@ -7,51 +7,34 @@ using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_MyEvents : UserControl
+    public partial class UC_MyEvents : UserControl, IUserControl
     {
-
-        private ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
-        private string _username { get; set; } // ID que vem 
-        private readonly MyEventsController eventsController = new MyEventsController();
-
+        private readonly MyEventsController _eventsController;
+        
         public UC_MyEvents()
         {
             InitializeComponent();
-            _username = Session.Instance.LoggedUser;
-            if (!DesignMode) FinishedEvents();
+
+            Username = Session.Instance.LoggedUser;
+            _eventsController = new MyEventsController();
+        }
+
+        #region Properties
+        private string Username { get; set; }
+        public string Id { get; set; }
+        #endregion
+
+        private void UC_MyEvents_Load(object sender, EventArgs e)
+        {
+            if (DesignMode) return;
+            Populate();
             btnFinishedEvents.BackColor = Color.LightSkyBlue;
         }
 
-        private int _totalUserEvents { get; set; }
-
-        private void button_EventosTerminados_Click(object sender, EventArgs e)
+        public void Populate()
         {
+            FinishedEvents();
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-        }
-
-        private void listView1_SelectedIndexChanged_2(object sender, EventArgs e)
-        {
-        }
-
-        private void listView1_SelectedIndexChanged_3(object sender, EventArgs e)
-        {
-        }
-
-        private void objectListView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
 
         private void button_ProximosEventos_Click(object sender, EventArgs e)
         {
@@ -60,17 +43,12 @@ namespace Sports4All
             // filtrar apenas pelas próximas partidas!
         }
 
-        private void UC_MyEvents_Load(object sender, EventArgs e)
-        {
-            flpListMyEvents.Controls.Clear();
-            if (!DesignMode) FinishedEvents();
-        }
 
         private void FinishedEvents()
         {
             //if (flpListMyEvents.Controls.Count > 0)
                 flpListMyEvents.Controls.Clear();
-            var completedEvents = eventsController.RetrieveCompletedEvents(_username);
+            var completedEvents = _eventsController.RetrieveCompletedEvents(Username);
             var completedEventsCounts = completedEvents.Count;
 
             var listitems = new UC_EventMyEventsItem[completedEventsCounts];
@@ -78,7 +56,7 @@ namespace Sports4All
             for (var i = 0; i < completedEventsCounts; i++)
             {
                 //inverter if ; APENAS PARA TESTES, POUCOS DADOS NA BD
-                if (!eventsController.VerifyEvaluation(completedEvents.ToList()[i].EventId, _username))
+                if (!_eventsController.VerifyEvaluation(completedEvents.ToList()[i].EventId, Username))
                 {
                     listitems[i] = new UC_EventMyEventsItem
                     {
@@ -102,7 +80,7 @@ namespace Sports4All
         {
            // if (flpListMyEvents.Controls.Count > 0)
                 flpListMyEvents.Controls.Clear();
-            var myReserves = eventsController.RetrieveUserReserves(_username);
+            var myReserves = _eventsController.RetrieveUserReserves(Username);
             var myReservesCounts = myReserves.Count;
             var listitems = new UC_NextEventsandReserveItem[myReservesCounts];
 
@@ -135,7 +113,7 @@ namespace Sports4All
               btnNextEvents.BackColor = Color.LightSkyBlue;
               btnFinishedEvents.BackColor = Color.LightGray;
               btnMinhasReservas.BackColor = Color.LightGray;
-            var nextEvents = eventsController.RetrieveNextEvents(_username);
+            var nextEvents = _eventsController.RetrieveNextEvents(Username);
             var nextEventsCount = nextEvents.Count;
             var listitems = new UC_NextEventsandReserveItem[nextEventsCount];
             for (var i = 0; i < nextEventsCount; i++)

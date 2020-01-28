@@ -13,7 +13,8 @@ namespace Sports4All
 {
     public partial class UC_EventModalityItem : UserControl
     {
-        private MyEventsController events = new MyEventsController();
+        private MyEventsController _events;
+
         #region Properties
         private string _day;
         private string _month;
@@ -57,13 +58,13 @@ namespace Sports4All
             get { return _month; }
             set { _month = value; lblMonth_Event.Text = value; }
         }
-
         #endregion
 
         public UC_EventModalityItem()
         {
             InitializeComponent();
             _username =  Session.Instance.LoggedUser;
+            _events = new MyEventsController();
 
             foreach (Control c in uC_UnregisterButton1.Controls)
             {
@@ -72,7 +73,23 @@ namespace Sports4All
 
         }
 
-       
+        private void UC_EventModalityItem_Load(object sender, EventArgs e)
+        {
+            if (DesignMode) return;
+
+            if (!_events.CheckUserInEvent(EventId, _username))
+            {
+                btnJoinEvent.Visible = true;
+                uC_UnregisterButton1.Visible = false;
+            }
+            else
+            {
+                btnJoinEvent.Visible = false;
+                uC_UnregisterButton1.Visible = true;
+            }
+
+        }
+
         public void DisableJoinEventbtn()
         {
             btnJoinEvent.Visible = false;
@@ -80,38 +97,15 @@ namespace Sports4All
 
         private void btnJoinEvent_Click(object sender, EventArgs e)
         {
-
-            events.JoinEvent(EventId, _username);
+            _events.JoinEvent(EventId, _username);
             MessageBox.Show("Juntou-se ao evento com sucesso!");
             btnJoinEvent.Enabled = false;
             uC_UnregisterButton1.Visible = true;
         }
 
-        private void UC_EventModalityItem_Load(object sender, EventArgs e)
-        {
-            if (!events.CheckUserInEvent(EventId, _username))
-            {
-                btnJoinEvent.Visible = true;
-                uC_UnregisterButton1.Visible = false;
-            }
-
-            else
-            {
-                btnJoinEvent.Visible = false;
-                uC_UnregisterButton1.Visible = true;
-
-
-            }
-        }
-
         private void Unregister(object sender, EventArgs e)
         {
-            events.UnregisterUser(EventId, _username);
-        }
-
-        private void uC_UnregisterButton1_Load(object sender, EventArgs e)
-        {
-
+            _events.UnregisterUser(EventId, _username);
         }
     }
 }

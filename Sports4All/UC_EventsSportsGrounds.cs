@@ -3,25 +3,36 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_EventsSportsGrounds : UserControl
+    public partial class UC_EventsSportsGrounds : UserControl, IUserControl
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsModality));
-        private readonly MyEventsController _eventsController = new MyEventsController();
-        private ParkDescriptionController _parkController = new ParkDescriptionController();
-        private ICollection<Event> _eventsList = new Collection<Event>();
-        public int Id { get; set; }
+        private ComponentResourceManager _resources;
+        private readonly MyEventsController _eventsController;
+        private ParkDescriptionController _parkController;
+        private ICollection<Event> _eventsList;
         private bool _controlSub = false;
         private string _parkName;
+        private int _id;
 
+        public UC_EventsSportsGrounds()
+        {
+            InitializeComponent();
+            // ParkName = _parkController.GetPark(Id).Name;
+            btnAllSports.BackColor = Color.LightBlue;
+            _resources = new ComponentResourceManager(typeof(UC_EventsModality));
+            _eventsController = new MyEventsController();
+            _parkController = new ParkDescriptionController();
+            _eventsList = new Collection<Event>();
+            _id = Convert.ToInt32(Id);
+        }
+
+        #region Properties
+        public string Id { get; set; }
         public string ParkName
         {
 
@@ -29,20 +40,20 @@ namespace Sports4All
             set { _parkName = value; tbSportsgroundName.Text = value; }
 
         }
-        public UC_EventsSportsGrounds()
+
+        #endregion
+
+        private void UC_EventsSportsGrounds_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
-          // ParkName = _parkController.GetPark(Id).Name;
-          btnAllSports.BackColor = Color.LightBlue;
+            if (DesignMode) return;
+            Populate();
         }
-        private void Recintos_Load(object sender, EventArgs e)
+
+        public void Populate()
         {
-
             flpEventListSportsground.Controls.Clear();
-            _eventsList = _eventsController.EventsByGround(Id);
+            _eventsList = _eventsController.EventsByGround(Convert.ToInt32(Id));
             if (!DesignMode) ListEventsbyGround();
-
-
         }
 
         public void ListEventsbyGround()
@@ -50,7 +61,7 @@ namespace Sports4All
             flpEventListSportsground.Controls.Clear();
             var EventsbyGroundCount = _eventsList.Count;
             UC_EventSportsGroundItem[] listitems = new UC_EventSportsGroundItem[EventsbyGroundCount];
-            var Park = _eventsController.RetrieveSinglePark(Id);
+            var Park = _eventsController.RetrieveSinglePark(_id);
             tbSportsgroundName.Text = Park.ToList()[0].Name;
     
             for (int i = 0; i < EventsbyGroundCount; i++)
@@ -78,7 +89,6 @@ namespace Sports4All
         private void mouseHover(object sender, EventArgs e)
         {
             if (!_controlSub) tbSubSportsGroundNotification.Visible = true;
-
         }
 
         private void mouseLeave(object sender, EventArgs e)
@@ -93,14 +103,13 @@ namespace Sports4All
                 tbSubSportsGroundNotification.Visible = false;
                 _controlSub = true;
                 //this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-                btnSub.Image = ((System.Drawing.Image)(resources.GetObject("sub_Button")));
+                btnSub.Image = ((System.Drawing.Image)(_resources.GetObject("sub_Button")));
                 showNotification("Recinto Subscrito!", "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
                                   " gerir todos os seus favoritos!!!");
             }
-            //retira subscrição!
             else
             {
-                btnSub.Image = ((System.Drawing.Image)(resources.GetObject("subButton.Image")));
+                btnSub.Image = ((System.Drawing.Image)(_resources.GetObject("subButton.Image")));
                 _controlSub = false;
 
             }
@@ -134,7 +143,7 @@ namespace Sports4All
                 btnHandball.BackColor = Color.LightGray;
                 btnAllSports.BackColor = Color.LightGray;
                 flpEventListSportsground.Controls.Clear();
-                _eventsList = _eventsController.EventsbyGroundandSport(Id, btnFootball.Text);
+                _eventsList = _eventsController.EventsbyGroundandSport(_id, btnFootball.Text);
                 ListEventsbyGround();
             }
         }
@@ -148,7 +157,7 @@ namespace Sports4All
                 btnHandball.BackColor = Color.LightGray;
                 btnAllSports.BackColor = Color.LightGray;
                 flpEventListSportsground.Controls.Clear();
-                _eventsList = _eventsController.EventsbyGroundandSport(Id, btnTenis.Text);
+                _eventsList = _eventsController.EventsbyGroundandSport(_id, btnTenis.Text);
                 ListEventsbyGround();
             }
         }
@@ -162,14 +171,13 @@ namespace Sports4All
                 btnHandball.BackColor = Color.LightBlue;
                 btnAllSports.BackColor = Color.LightGray;
                 flpEventListSportsground.Controls.Clear();
-                _eventsList =_eventsController.EventsbyGroundandSport(Id, btnHandball.Text);
+                _eventsList =_eventsController.EventsbyGroundandSport(_id, btnHandball.Text);
                 ListEventsbyGround();
             }
         }
 
         private void btnAllSports_Click(object sender, EventArgs e)
         {
-
             if (!DesignMode)
             {
                 btnAllSports.BackColor = Color.LightBlue;
@@ -177,7 +185,7 @@ namespace Sports4All
                 btnFootball.BackColor = Color.LightGray;
                 btnHandball.BackColor = Color.LightGray;
                 flpEventListSportsground.Controls.Clear();
-                _eventsList = _eventsController.EventsByGround(Id);
+                _eventsList = _eventsController.EventsByGround(_id);
                 ListEventsbyGround();
             }
         }

@@ -11,97 +11,44 @@ using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_EventsModality : UserControl
+    public partial class UC_EventsModality : UserControl, IUserControl
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsModality));
-        private readonly MyEventsController _eventsController = new MyEventsController();
-
-        public int Id { get; set; }
-
+        private readonly MyEventsController _eventsController;
         private bool _controlSub = false;
-
         private string _sportName;
 
-        public string Sport
-        {
-
-            get { return _sportName; }
-            set { _sportName = value; tbModalityName.Text = value; }
-
-        }
         public UC_EventsModality()
         {
             InitializeComponent();
+            _eventsController = new MyEventsController();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        #region Properties
+        public string Sport
         {
-
+            get { return _sportName; }
+            set { _sportName = value; tbModalityName.Text = value; }
         }
 
-        private void mouseHover(object sender, EventArgs e)
-        {
-            if (!_controlSub) tbSubNotification.Visible = true;
-
-        }
-
-        private void mouseLeave(object sender, EventArgs e)
-        {
-            tbSubNotification.Visible = false;
-        }
-
-        private void subButton_Click(object sender, EventArgs e)
-        {
-            if (!_controlSub)
-            {
-                
-                btnSub.Image = Image.FromFile(@"..\..\Images\" + "sub_Button.png");
-                _controlSub = true;
-                showNotification("Recinto Subscrito!", "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
-                                  " gerir todos os seus favoritos!!!");
-            }
-            //retira subscrição!
-            else
-            {
-                btnSub.Image = Image.FromFile(@"..\..\Images\" + "unsub_Button.png");
-                _controlSub = false;
-            }
-        }
-        
-        private void showNotification(string title, string body)
-        {
-            NotifyIcon notifyIcon = new NotifyIcon();
-            notifyIcon.Icon = SystemIcons.Application;
-            notifyIcon.Visible = true;
-
-            if (title != null)
-            {
-                notifyIcon.BalloonTipTitle = title;
-            }
-
-            if (body != null)
-            {
-                notifyIcon.BalloonTipText = body;
-            }
-
-            notifyIcon.ShowBalloonTip(30000);
-        }
+        public string Id { get; set; }
+        #endregion
 
         private void onLoad(object sender, EventArgs e)
         {
-
-            if (!DesignMode) ListEventsBySport();
-
+            if (DesignMode) return;
+            Populate();
         }
 
-        public void ListEventsBySport()
+        public void Populate()
         {
+            int id = Convert.ToInt32(Id);
+
             flpEventListModality.Controls.Clear();
 
-            var EventsbySport = _eventsController.EventsBySport(Id);
+            var EventsbySport = _eventsController.EventsBySport(id);
             var EventsbySportCount = EventsbySport.Count;
             UC_EventModalityItem[] listitems = new UC_EventModalityItem[EventsbySportCount];
-            var Sport = _eventsController.RetrieveSingleSport(Id);
+            var Sport = _eventsController.RetrieveSingleSport(id);
             tbModalityName.Text = Sport.ToList()[0].Name;
             for (int i = 0; i < EventsbySportCount; i++)
             {
@@ -123,13 +70,56 @@ namespace Sports4All
                 };
                 if (usersCount == maxUsers) listitems[i].DisableJoinEventbtn(); // remove botao para se juntar ao evento
                 flpEventListModality.Controls.Add(listitems[i]);
-
             }
         }
 
-        private void lblTitleFilter_Click(object sender, EventArgs e)
+        private void mouseHover(object sender, EventArgs e)
         {
+            if (!_controlSub) tbSubNotification.Visible = true;
 
         }
+
+        private void mouseLeave(object sender, EventArgs e)
+        {
+            tbSubNotification.Visible = false;
+        }
+
+        private void subButton_Click(object sender, EventArgs e)
+        {
+            if (!_controlSub)
+            {
+                
+                btnSub.Image = Image.FromFile(@"..\..\Images\" + "sub_Button.png");
+                _controlSub = true;
+                ShowNotification("Recinto Subscrito!", "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
+                                  " gerir todos os seus favoritos!!!");
+            }
+            //retira subscrição!
+            else
+            {
+                btnSub.Image = Image.FromFile(@"..\..\Images\" + "unsub_Button.png");
+                _controlSub = false;
+            }
+        }
+        
+        private void ShowNotification(string title, string body)
+        {
+            NotifyIcon notifyIcon = new NotifyIcon();
+            notifyIcon.Icon = SystemIcons.Application;
+            notifyIcon.Visible = true;
+
+            if (title != null)
+            {
+                notifyIcon.BalloonTipTitle = title;
+            }
+
+            if (body != null)
+            {
+                notifyIcon.BalloonTipText = body;
+            }
+
+            notifyIcon.ShowBalloonTip(30000);
+        }
+
     }
 }

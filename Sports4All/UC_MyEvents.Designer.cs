@@ -92,7 +92,6 @@
             this.flpListMyEvents.Name = "flpListMyEvents";
             this.flpListMyEvents.Size = new System.Drawing.Size(1156, 662);
             this.flpListMyEvents.TabIndex = 10;
-            this.flpListMyEvents.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // UC_MyEvents
             // 

@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sports4All.Controller;
 
@@ -72,73 +64,6 @@ namespace Sports4All
         public UC_NextEventsandReserveItem()
         {
             InitializeComponent();
-
-        }
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plEventDate_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblMonth_Event_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblSpaceAvailableValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plEventData_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblEventOwnerValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblSpaceAvailable_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEventOwner_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEventHour_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEventHourValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plLine_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         public void HideJoinButton()

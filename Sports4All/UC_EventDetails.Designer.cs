@@ -375,7 +375,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_EventDetails";
             this.Size = new System.Drawing.Size(1090, 622);
-            this.Load += new System.EventHandler(this.UC_EventsDetailsB_Load);
+            this.Load += new System.EventHandler(this.UC_EventsDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPark)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

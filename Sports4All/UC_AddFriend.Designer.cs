@@ -41,27 +41,29 @@
             // 
             // tbFindFriends
             // 
-            this.tbFindFriends.Location = new System.Drawing.Point(329, 173);
+            this.tbFindFriends.Location = new System.Drawing.Point(292, 138);
+            this.tbFindFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFindFriends.Name = "tbFindFriends";
-            this.tbFindFriends.Size = new System.Drawing.Size(255, 26);
+            this.tbFindFriends.Size = new System.Drawing.Size(227, 22);
             this.tbFindFriends.TabIndex = 1;
             // 
             // lbFindFriends
             // 
             this.lbFindFriends.AutoSize = true;
             this.lbFindFriends.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFindFriends.Location = new System.Drawing.Point(261, 99);
+            this.lbFindFriends.Location = new System.Drawing.Point(232, 79);
             this.lbFindFriends.Name = "lbFindFriends";
-            this.lbFindFriends.Size = new System.Drawing.Size(294, 28);
+            this.lbFindFriends.Size = new System.Drawing.Size(247, 23);
             this.lbFindFriends.TabIndex = 3;
             this.lbFindFriends.Text = "Encontra os teus amigos";
             // 
             // pbFriends
             // 
             this.pbFriends.Image = ((System.Drawing.Image)(resources.GetObject("pbFriends.Image")));
-            this.pbFriends.Location = new System.Drawing.Point(104, 12);
+            this.pbFriends.Location = new System.Drawing.Point(92, 10);
+            this.pbFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbFriends.Name = "pbFriends";
-            this.pbFriends.Size = new System.Drawing.Size(151, 152);
+            this.pbFriends.Size = new System.Drawing.Size(134, 122);
             this.pbFriends.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFriends.TabIndex = 4;
             this.pbFriends.TabStop = false;
@@ -73,9 +75,10 @@
             this.btnFindFriends.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnFindFriends.Image = ((System.Drawing.Image)(resources.GetObject("btnFindFriends.Image")));
             this.btnFindFriends.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFindFriends.Location = new System.Drawing.Point(590, 150);
+            this.btnFindFriends.Location = new System.Drawing.Point(524, 120);
+            this.btnFindFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFindFriends.Name = "btnFindFriends";
-            this.btnFindFriends.Size = new System.Drawing.Size(153, 69);
+            this.btnFindFriends.Size = new System.Drawing.Size(136, 55);
             this.btnFindFriends.TabIndex = 2;
             this.btnFindFriends.Text = "Procurar";
             this.btnFindFriends.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -87,9 +90,10 @@
             this.columnHeader2,
             this.columnHeader3});
             this.lvFindFriends.HideSelection = false;
-            this.lvFindFriends.Location = new System.Drawing.Point(249, 215);
+            this.lvFindFriends.Location = new System.Drawing.Point(221, 172);
+            this.lvFindFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvFindFriends.Name = "lvFindFriends";
-            this.lvFindFriends.Size = new System.Drawing.Size(597, 362);
+            this.lvFindFriends.Size = new System.Drawing.Size(531, 290);
             this.lvFindFriends.TabIndex = 5;
             this.lvFindFriends.UseCompatibleStateImageBehavior = false;
             this.lvFindFriends.View = System.Windows.Forms.View.Details;
@@ -108,15 +112,16 @@
             // 
             // UC_AddFriend
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lvFindFriends);
             this.Controls.Add(this.pbFriends);
             this.Controls.Add(this.lbFindFriends);
             this.Controls.Add(this.btnFindFriends);
             this.Controls.Add(this.tbFindFriends);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UC_AddFriend";
-            this.Size = new System.Drawing.Size(SizeProperties.UCWidth, SizeProperties.UCHeight);
+            this.Size = new System.Drawing.Size(1089, 622);
             ((System.ComponentModel.ISupportInitialize)(this.pbFriends)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

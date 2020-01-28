@@ -63,7 +63,6 @@
             this.pbStar5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStar5.TabIndex = 48;
             this.pbStar5.TabStop = false;
-            this.pbStar5.Click += new System.EventHandler(this.pbStar5_Click);
             // 
             // pbStar4
             // 
@@ -76,7 +75,6 @@
             this.pbStar4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStar4.TabIndex = 47;
             this.pbStar4.TabStop = false;
-            this.pbStar4.Click += new System.EventHandler(this.pbStar4_Click);
             // 
             // pbStar3
             // 
@@ -89,7 +87,6 @@
             this.pbStar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStar3.TabIndex = 46;
             this.pbStar3.TabStop = false;
-            this.pbStar3.Click += new System.EventHandler(this.pbStar3_Click);
             // 
             // pbStar2
             // 
@@ -102,7 +99,6 @@
             this.pbStar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStar2.TabIndex = 45;
             this.pbStar2.TabStop = false;
-            this.pbStar2.Click += new System.EventHandler(this.pbStar2_Click);
             // 
             // lbPointsUser
             // 
@@ -127,7 +123,6 @@
             this.pbStar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbStar1.TabIndex = 43;
             this.pbStar1.TabStop = false;
-            this.pbStar1.Click += new System.EventHandler(this.pbStar1_Click);
             // 
             // lbSkillUser
             // 
@@ -155,7 +150,6 @@
             this.btnAddfriend.TabIndex = 41;
             this.btnAddfriend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddfriend.UseVisualStyleBackColor = true;
-            this.btnAddfriend.Click += new System.EventHandler(this.btnAddfriend_Click);
             // 
             // lbWelcomeUser
             // 
@@ -193,7 +187,6 @@
             this.btnExit.TabIndex = 50;
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSettings
             // 
