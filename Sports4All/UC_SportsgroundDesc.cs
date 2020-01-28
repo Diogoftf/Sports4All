@@ -75,7 +75,6 @@ namespace Sports4All
                         Form1.Instance.FrontControl = x;
                         UC_EventsSportsGrounds j = (UC_EventsSportsGrounds)x;
                         j.Id = Id;
-                        j.ListEventsbyGround();
                     }
                 }
             }

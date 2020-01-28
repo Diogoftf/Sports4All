@@ -34,17 +34,13 @@ namespace Sports4All
         {
             InitializeComponent();
             _username = Session.Instance.LoggedUser;
-          // ParkName = _parkController.GetPark(Id).Name;
-          btnAllSports.BackColor = Color.LightBlue;
-          _eventsList = _eventsController.EventsByGround(Id);
-          if (!DesignMode) ListEventsbyGround();
-
+            btnAllSports.BackColor = Color.LightBlue;
         }
         private void Recintos_Load(object sender, EventArgs e)
         {
-
             flpEventListSportsground.Controls.Clear();
-            
+            _eventsList = _eventsController.EventsByGround(Id);
+            if (!DesignMode) ListEventsbyGround();
         }
         public void ListEventsbyGround()
         {
@@ -163,7 +159,6 @@ namespace Sports4All
                 ListEventsbyGround();
             }
         }
-
         private void btnTenis_Click(object sender, EventArgs e)
         {
             if (!DesignMode)
