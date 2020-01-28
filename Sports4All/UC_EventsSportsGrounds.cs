@@ -23,7 +23,6 @@ namespace Sports4All
         private string _parkName;
         private string _username { get; set; }
 
-
         public string ParkName
         {
 
@@ -37,24 +36,24 @@ namespace Sports4All
             _username = Session.Instance.LoggedUser;
           // ParkName = _parkController.GetPark(Id).Name;
           btnAllSports.BackColor = Color.LightBlue;
+          _eventsList = _eventsController.EventsByGround(Id);
+          if (!DesignMode) ListEventsbyGround();
+
         }
         private void Recintos_Load(object sender, EventArgs e)
         {
 
             flpEventListSportsground.Controls.Clear();
-            _eventsList = _eventsController.EventsByGround(Id);
-            if (!DesignMode) ListEventsbyGround();
-
-
+            
         }
-
         public void ListEventsbyGround()
         {
             flpEventListSportsground.Controls.Clear();
             var EventsbyGroundCount = _eventsList.Count;
-            UC_EventSportsGroundItem[] listitems = new UC_EventSportsGroundItem[EventsbyGroundCount];
-            var Park = _eventsController.RetrieveSinglePark(Id);
-            tbSportsgroundName.Text = Park.ToList()[0].Name;
+            UC_NextEventsandReserveItem[] listitems = new UC_NextEventsandReserveItem[EventsbyGroundCount];
+            var Park = _parkController.GetPark(Id);
+
+            ParkName = Park.Name;
     
             for (int i = 0; i < EventsbyGroundCount; i++)
             {
@@ -64,29 +63,29 @@ namespace Sports4All
                 var hour = _eventsList.ToList()[i].StartDate.ToShortTimeString();
                 var month = _eventsList.ToList()[i].StartDate.ToLongDateString();
                 month = month.Substring(6, 3).ToUpper();
-                listitems[i] = new UC_EventSportsGroundItem
+                listitems[i] = new UC_NextEventsandReserveItem
                 {
-                Owner = _eventsList.ToList()[0].Reserve.UserId,
-                SportGround = _eventsList.ToList()[0].Reserve.Ground.Park.Name,
-                Hour = _eventsList.ToList()[i].StartDate.ToShortTimeString(),
-                Day = Convert.ToString(_eventsList.ToList()[i].StartDate.Day),
-                Month = month,
-                Lotation = usersCount + "/" + maxUsers,
-                EventId = _eventsList.ToList()[0].EventId
+                    EventID = Convert.ToString(_eventsList.ToList()[i].EventId),
+                    Owner = _eventsList.ToList()[i].Reserve.UserId,
+                    SportGround = _eventsList.ToList()[i].Reserve.Ground.Park.Name,
+                    Hour = _eventsList.ToList()[i].StartDate.ToShortTimeString(),
+                    Day = Convert.ToString(_eventsList.ToList()[i].StartDate.Day),
+                    Month = month,
+                    Lotation = usersCount + "/" + maxUsers,
+                    Sport = _eventsList.ToList()[i].Reserve.Sport.Name
                 };
 
-                if (usersCount == maxUsers) listitems[i].DisableJoinEventbtn();  // remove botao para se juntar ao evento
+                if (usersCount == maxUsers) listitems[i].ChangeJoinEventbtn(false);  // remove botao para se juntar ao evento
                 foreach (var user in users)
                 {
                     if (user.Username == _username) // já estou no evento
                     {
                         listitems[i].ChangeJoinEventbtn(false);
-
+                        
                         if (listitems[i].Owner.Equals(_username))
                         {
                             // sou o owner, botao de remover evento
                             listitems[i].ChangeCancelbtn(true);
-
                         }
                         else
                         {

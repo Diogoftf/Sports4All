@@ -46,6 +46,7 @@
             this.lblEventHourValue = new System.Windows.Forms.Label();
             this.plLine = new System.Windows.Forms.Panel();
             this.lblModalityName = new System.Windows.Forms.Label();
+            this.btnJoinEvent = new System.Windows.Forms.Button();
             this.plEventDate.SuspendLayout();
             this.plEventData.SuspendLayout();
             this.SuspendLayout();
@@ -82,6 +83,7 @@
             // 
             // plEventData
             // 
+            this.plEventData.Controls.Add(this.btnJoinEvent);
             this.plEventData.Controls.Add(this.uC_UnregisterButton1);
             this.plEventData.Controls.Add(this.lbEventID);
             this.plEventData.Controls.Add(this.lbEvent);
@@ -232,6 +234,20 @@
             this.lblModalityName.TabIndex = 0;
             this.lblModalityName.Text = "Futebol";
             // 
+            // btnJoinEvent
+            // 
+            this.btnJoinEvent.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnJoinEvent.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnJoinEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJoinEvent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJoinEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnJoinEvent.Image")));
+            this.btnJoinEvent.Location = new System.Drawing.Point(681, 24);
+            this.btnJoinEvent.Name = "btnJoinEvent";
+            this.btnJoinEvent.Size = new System.Drawing.Size(79, 55);
+            this.btnJoinEvent.TabIndex = 17;
+            this.btnJoinEvent.UseVisualStyleBackColor = false;
+            this.btnJoinEvent.Click += new System.EventHandler(this.btnJoinEvent_Click);
+            // 
             // UC_NextEventsandReserveItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -268,5 +284,6 @@
         private System.Windows.Forms.Label lbEventID;
         private System.Windows.Forms.Label lbEvent;
         private UC_UnregisterButton uC_UnregisterButton1;
+        private System.Windows.Forms.Button btnJoinEvent;
     }
 }

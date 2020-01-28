@@ -34,11 +34,6 @@ namespace Sports4All
                 tbModalityName.Text = value;
             }
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         private void mouseHover(object sender, EventArgs e)
         {
             if (!_controlSub) tbSubNotification.Visible = true;
@@ -88,10 +83,9 @@ namespace Sports4All
         public void ListEventsBySport()
         {
             flpEventListModality.Controls.Clear();
-
             var EventsbySport = _eventsController.EventsBySport(Id);
             var EventsbySportCount = EventsbySport.Count;
-            var listitems = new UC_EventModalityItem[EventsbySportCount];
+            var listitems = new UC_NextEventsandReserveItem[EventsbySportCount];
             var Sport = _eventsController.RetrieveSingleSport(Id);
             tbModalityName.Text = Sport.ToList()[0].Name;
             for (var i = 0; i < EventsbySportCount; i++)
@@ -102,16 +96,17 @@ namespace Sports4All
                 var hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString();
                 var month = EventsbySport.ToList()[i].StartDate.ToLongDateString();
                 month = month.Substring(6, 3).ToUpper();
-                listitems[i] = new UC_EventModalityItem
+                listitems[i] = new UC_NextEventsandReserveItem()
                 {
-                    EventId = EventsbySport.ToList()[i].EventId,
+                    EventID = Convert.ToString(EventsbySport.ToList()[i].EventId),
                     Owner = EventsbySport.ToList()[i].Reserve.UserId,
                     SportGround = EventsbySport.ToList()[i].Reserve.Ground.Park.Name,
                     Hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString(),
                     Day = Convert.ToString(EventsbySport.ToList()[i].StartDate.Day),
                     Month = month,
-                    Lotation = usersCount + "/" + maxUsers
-                };
+                    Lotation = usersCount + "/" + maxUsers,
+                    Sport = EventsbySport.ToList()[i].Reserve.Sport.Name
+               };
                 if (usersCount == maxUsers)
                     listitems[i].ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
 
@@ -124,7 +119,6 @@ namespace Sports4All
                         {
                             // sou o owner, botao de remover evento
                             listitems[i].ChangeCancelbtn(true);
-                           
                         }
                         else
                         {
@@ -137,10 +131,6 @@ namespace Sports4All
                 }
                 flpEventListModality.Controls.Add(listitems[i]);
             }
-        }
-
-        private void lblTitleFilter_Click(object sender, EventArgs e)
-        {
         }
     }
 }

@@ -143,15 +143,13 @@ namespace Sports4All
                 // listitems[i].HideCancelReserve(); 
                 if (_username.Equals(listitems[i].Owner))
                 {
-                    listitems[i].ChangeJoinButton(false);
+                    listitems[i].ChangeJoinEventbtn(false);
                 }
                 else
                 {
-                    listitems[i].HideCancelReserve();
-                    listitems[i].ChangeJoinButton(true);
+                    listitems[i].ChangeCancelbtn(false);
+                    listitems[i].ChangeJoinEventbtn(true);
                 }
-
-
                 flpListMyEvents.Controls.Add(listitems[i]);
             }
         }

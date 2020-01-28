@@ -80,24 +80,37 @@ namespace Sports4All
             }
         }
 
-        public void ChangeJoinButton(bool state)
+        public void BringToFrontUnregister(bool state)
         {
             uC_UnregisterButton1.Visible = state;
         }
 
-        private void btn_CancelEvent(object sender, EventArgs e)
+        public void ChangeJoinEventbtn(bool state)
         {
-            _eventsController.DeleteEvent(Convert.ToInt32(_eventId));
-
+            btnJoinEvent.Visible = state;
         }
-        public void HideCancelReserve()
+
+        public void ChangeCancelbtn(bool state)
         {
-            btnCancel.Visible = false;
+            btnCancel.Visible = state;
         }
 
         private void Unregister(object sender, EventArgs e)
         {
             _eventsController.UnregisterUser(Convert.ToInt32(_eventId), _username);
+        }
+
+        private void btnJoinEvent_Click(object sender, EventArgs e)
+        {
+            _eventsController.JoinEvent(Convert.ToInt32(EventID), _username);
+            MessageBox.Show("Juntou-se ao evento com sucesso!");
+            btnJoinEvent.Enabled = false;
+            uC_UnregisterButton1.Visible = true;
+        }
+        private void btn_CancelEvent(object sender, EventArgs e)
+        {
+            _eventsController.DeleteEvent(Convert.ToInt32(_eventId));
+
         }
     }
 }

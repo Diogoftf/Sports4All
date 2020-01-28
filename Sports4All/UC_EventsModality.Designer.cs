@@ -139,7 +139,6 @@
             this.lblTitleFilter.Size = new System.Drawing.Size(154, 28);
             this.lblTitleFilter.TabIndex = 7;
             this.lblTitleFilter.Text = "Localização";
-            this.lblTitleFilter.Click += new System.EventHandler(this.lblTitleFilter_Click);
             // 
             // btnAddEvent
             // 
