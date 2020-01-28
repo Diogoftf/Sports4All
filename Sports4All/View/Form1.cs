@@ -2,6 +2,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Sports4All.Controller;
+using Sports4All.UserControls_Screens;
 
 namespace Sports4All
 {
@@ -40,15 +42,13 @@ namespace Sports4All
         {
             MoveSidePanel(btn_Home);
             lbWelcomeUser.Text = "Bem vindo, " + Session.Instance.LoggedUser;
-
-            _obj = this;
-            AddUserControlsToForm();
-
-            // Só para teste !!!
             using (var db = new ModelContext())
             {
-                pbUserImage.Image = Image.FromFile(@"..\..\Images\" + "user1.png");
+                var user = db.Users.Include("Picture").Where(f => f.Username == Session.Instance.LoggedUser).Single();
+                pbUserImage.Image = ImagesController.GetImageFromName(user.Picture.Path);
             }
+            _obj = this;
+            AddUserControlsToForm();
 
         }
 

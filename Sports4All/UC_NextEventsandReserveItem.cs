@@ -18,6 +18,7 @@ namespace Sports4All
         private string _sport;
         private string _lotation;
         private string _eventId;
+        private string _username { get; set; }
         public string EventID
         {
             get { return _eventId; }
@@ -64,22 +65,31 @@ namespace Sports4All
         public UC_NextEventsandReserveItem()
         {
             InitializeComponent();
+            _username = Session.Instance.LoggedUser;
+            foreach (Control c in uC_UnregisterButton1.Controls)
+            {
+                c.Click += Unregister;
+            }
         }
 
-        public void HideJoinButton()
+        public void ChangeJoinButton(bool state)
         {
-            btnCancel.Visible = false;
+            uC_UnregisterButton1.Visible = state;
         }
 
         private void btn_CancelEvent(object sender, EventArgs e)
         {
-
             _eventsController.DeleteEvent(Convert.ToInt32(_eventId));
 
         }
         public void HideCancelReserve()
         {
             btnCancel.Visible = false;
+        }
+
+        private void Unregister(object sender, EventArgs e)
+        {
+            _eventsController.UnregisterUser(Convert.ToInt32(_eventId), _username);
         }
     }
 }

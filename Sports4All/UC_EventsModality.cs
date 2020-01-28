@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sports4All.Controller;
 
@@ -16,11 +12,13 @@ namespace Sports4All
         private readonly MyEventsController _eventsController;
         private bool _controlSub = false;
         private string _sportName;
+        private ComponentResourceManager resources = new ComponentResourceManager(typeof(UC_EventsModality));
 
         public UC_EventsModality()
         {
             InitializeComponent();
             _eventsController = new MyEventsController();
+            _username = Session.Instance.LoggedUser;
         }
 
         #region Properties
@@ -29,6 +27,8 @@ namespace Sports4All
             get { return _sportName; }
             set { _sportName = value; tbModalityName.Text = value; }
         }
+        public int Id { get; set; }
+        private string _username { get; }
 
         public string Id { get; set; }
         #endregion
@@ -76,7 +76,6 @@ namespace Sports4All
         private void mouseHover(object sender, EventArgs e)
         {
             if (!_controlSub) tbSubNotification.Visible = true;
-
         }
 
         private void mouseLeave(object sender, EventArgs e)
@@ -88,7 +87,6 @@ namespace Sports4All
         {
             if (!_controlSub)
             {
-                
                 btnSub.Image = Image.FromFile(@"..\..\Images\" + "sub_Button.png");
                 _controlSub = true;
                 ShowNotification("Recinto Subscrito!", "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
@@ -104,22 +102,78 @@ namespace Sports4All
         
         private void ShowNotification(string title, string body)
         {
-            NotifyIcon notifyIcon = new NotifyIcon();
+            var notifyIcon = new NotifyIcon();
             notifyIcon.Icon = SystemIcons.Application;
             notifyIcon.Visible = true;
 
-            if (title != null)
-            {
-                notifyIcon.BalloonTipTitle = title;
-            }
+            if (title != null) notifyIcon.BalloonTipTitle = title;
 
-            if (body != null)
-            {
-                notifyIcon.BalloonTipText = body;
-            }
+            if (body != null) notifyIcon.BalloonTipText = body;
 
             notifyIcon.ShowBalloonTip(30000);
         }
 
+        private void onLoad(object sender, EventArgs e)
+        {
+            if (!DesignMode) ListEventsBySport();
+        }
+
+        public void ListEventsBySport()
+        {
+            flpEventListModality.Controls.Clear();
+
+            var EventsbySport = _eventsController.EventsBySport(Id);
+            var EventsbySportCount = EventsbySport.Count;
+            var listitems = new UC_EventModalityItem[EventsbySportCount];
+            var Sport = _eventsController.RetrieveSingleSport(Id);
+            tbModalityName.Text = Sport.ToList()[0].Name;
+            for (var i = 0; i < EventsbySportCount; i++)
+            {
+                var users = EventsbySport.ToList()[i].Users.ToList();
+                var usersCount = EventsbySport.ToList()[i].Users.Count;
+                var maxUsers = EventsbySport.ToList()[i].MaxPlayers;
+                var hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString();
+                var month = EventsbySport.ToList()[i].StartDate.ToLongDateString();
+                month = month.Substring(6, 3).ToUpper();
+                listitems[i] = new UC_EventModalityItem
+                {
+                    EventId = EventsbySport.ToList()[i].EventId,
+                    Owner = EventsbySport.ToList()[i].Reserve.UserId,
+                    SportGround = EventsbySport.ToList()[i].Reserve.Ground.Park.Name,
+                    Hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString(),
+                    Day = Convert.ToString(EventsbySport.ToList()[i].StartDate.Day),
+                    Month = month,
+                    Lotation = usersCount + "/" + maxUsers
+                };
+                if (usersCount == maxUsers)
+                    listitems[i].ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
+
+                foreach (var user in users)
+                {
+                    if (user.Username == _username) // já estou no evento
+                    {
+                        listitems[i].ChangeJoinEventbtn(false);
+                        if (listitems[i].Owner.Equals(_username))
+                        {
+                            // sou o owner, botao de remover evento
+                            listitems[i].ChangeCancelbtn(true);
+                           
+                        }
+                        else
+                        {
+                            listitems[i].ChangeJoinEventbtn(false);
+                            listitems[i].BringToFrontUnregister(true);
+                        }
+                        break;
+                    }
+                    // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
+                }
+                flpEventListModality.Controls.Add(listitems[i]);
+            }
+        }
+
+        private void lblTitleFilter_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

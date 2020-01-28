@@ -29,34 +29,61 @@ namespace Sports4All
         public string Lotation
         {
             get { return _lotation; }
-            set { _lotation = value; lblSpaceAvailableValue.Text = value; }
+            set
+            {
+                _lotation = value;
+                lblSpaceAvailableValue.Text = value;
+            }
         }
+
         public string Owner
         {
             get { return _owner; }
-            set { _owner = value; lblEventOwnerValue.Text = value; }
+            set
+            {
+                _owner = value;
+                lblEventOwnerValue.Text = value;
+            }
         }
+
         public string SportGround
         {
             get { return _sportground; }
-            set { _sportground = value; lblSportsGround.Text = value; }
+            set
+            {
+                _sportground = value;
+                lblSportsGround.Text = value;
+            }
         }
+
         public string Hour
         {
             get { return _hour; }
-            set { _hour = value; lblEventHourValue.Text = value; }
+            set
+            {
+                _hour = value;
+                lblEventHourValue.Text = value;
+            }
         }
 
         public string Day
         {
             get { return _day; }
-            set { _day = value; lblDay_Event.Text = value; }
+            set
+            {
+                _day = value;
+                lblDay_Event.Text = value;
+            }
         }
 
         public string Month
         {
             get { return _month; }
-            set { _month = value; lblMonth_Event.Text = value; }
+            set
+            {
+                _month = value;
+                lblMonth_Event.Text = value;
+            }
         }
         #endregion
 
@@ -72,15 +99,28 @@ namespace Sports4All
             }
 
         }
+        public void BringToFrontUnregister(bool state)
+        {
+            uC_UnregisterButton1.Visible = state;
+        }
+
+        public void ChangeJoinEventbtn(bool state)
+        {
+            btnJoinEvent.Visible = state;
+        }
+
+        public void ChangeCancelbtn(bool state)
+        {
+            btnCancel.Visible = state;
+        }
+
 
         private void UC_EventModalityItem_Load(object sender, EventArgs e)
         {
-            if (DesignMode) return;
-
-            if (!_events.CheckUserInEvent(EventId, _username))
+            if (!events.CheckUserInEvent(EventId, _username))
             {
                 btnJoinEvent.Visible = true;
-                uC_UnregisterButton1.Visible = false;
+               
             }
             else
             {
@@ -106,6 +146,11 @@ namespace Sports4All
         private void Unregister(object sender, EventArgs e)
         {
             _events.UnregisterUser(EventId, _username);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            events.DeleteEvent(Convert.ToInt32(EventId));
         }
     }
 }

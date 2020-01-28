@@ -33,6 +33,7 @@
             this.lblMonth_Event = new System.Windows.Forms.Label();
             this.plEventDate = new System.Windows.Forms.Panel();
             this.plEventData = new System.Windows.Forms.Panel();
+            this.uC_UnregisterButton1 = new Sports4All.UC_UnregisterButton();
             this.lbEventID = new System.Windows.Forms.Label();
             this.lbEvent = new System.Windows.Forms.Label();
             this.lblSportsGround = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.lblEventHourValue = new System.Windows.Forms.Label();
             this.plLine = new System.Windows.Forms.Panel();
             this.lblModalityName = new System.Windows.Forms.Label();
-            this.uC_UnregisterButton1 = new Sports4All.UC_UnregisterButton();
             this.plEventDate.SuspendLayout();
             this.plEventData.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +100,16 @@
             this.plEventData.Size = new System.Drawing.Size(817, 103);
             this.plEventData.TabIndex = 3;
             // 
+            // uC_UnregisterButton1
+            // 
+            this.uC_UnregisterButton1.Eventid = 0;
+            this.uC_UnregisterButton1.Location = new System.Drawing.Point(681, 30);
+            this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
+            this.uC_UnregisterButton1.Size = new System.Drawing.Size(53, 36);
+            this.uC_UnregisterButton1.TabIndex = 16;
+            this.uC_UnregisterButton1.Username = null;
+            this.uC_UnregisterButton1.Visible = false;
+            // 
             // lbEventID
             // 
             this.lbEventID.AutoSize = true;
@@ -137,7 +147,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(722, 32);
+            this.btnCancel.Location = new System.Drawing.Point(691, 32);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(33, 38);
             this.btnCancel.TabIndex = 8;
@@ -221,14 +231,6 @@
             this.lblModalityName.Size = new System.Drawing.Size(82, 23);
             this.lblModalityName.TabIndex = 0;
             this.lblModalityName.Text = "Futebol";
-            // 
-            // uC_UnregisterButton1
-            // 
-            this.uC_UnregisterButton1.Location = new System.Drawing.Point(676, 29);
-            this.uC_UnregisterButton1.Name = "uC_UnregisterButton1";
-            this.uC_UnregisterButton1.Size = new System.Drawing.Size(53, 36);
-            this.uC_UnregisterButton1.TabIndex = 16;
-            this.uC_UnregisterButton1.Visible = false;
             // 
             // UC_NextEventsandReserveItem
             // 
