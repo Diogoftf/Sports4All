@@ -12,6 +12,7 @@ namespace Sports4All
         private readonly MyEventsController _eventsController;
         private bool _controlSub = false;
         private string _sportName;
+        private int _id;
         private ComponentResourceManager resources = new ComponentResourceManager(typeof(UC_EventsModality));
 
         public UC_EventsModality()
@@ -19,6 +20,7 @@ namespace Sports4All
             InitializeComponent();
             _eventsController = new MyEventsController();
             _username = Session.Instance.LoggedUser;
+            _id = Convert.ToInt32(Id);
         }
 
         #region Properties
@@ -27,7 +29,6 @@ namespace Sports4All
             get { return _sportName; }
             set { _sportName = value; tbModalityName.Text = value; }
         }
-        public int Id { get; set; }
         private string _username { get; }
 
         public string Id { get; set; }
@@ -113,19 +114,14 @@ namespace Sports4All
             notifyIcon.ShowBalloonTip(30000);
         }
 
-        private void onLoad(object sender, EventArgs e)
-        {
-            if (!DesignMode) ListEventsBySport();
-        }
-
         public void ListEventsBySport()
         {
             flpEventListModality.Controls.Clear();
 
-            var EventsbySport = _eventsController.EventsBySport(Id);
+            var EventsbySport = _eventsController.EventsBySport(_id);
             var EventsbySportCount = EventsbySport.Count;
             var listitems = new UC_EventModalityItem[EventsbySportCount];
-            var Sport = _eventsController.RetrieveSingleSport(Id);
+            var Sport = _eventsController.RetrieveSingleSport(_id);
             tbModalityName.Text = Sport.ToList()[0].Name;
             for (var i = 0; i < EventsbySportCount; i++)
             {
@@ -170,10 +166,6 @@ namespace Sports4All
                 }
                 flpEventListModality.Controls.Add(listitems[i]);
             }
-        }
-
-        private void lblTitleFilter_Click(object sender, EventArgs e)
-        {
         }
     }
 }

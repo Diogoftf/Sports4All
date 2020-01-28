@@ -23,6 +23,7 @@ namespace Sports4All
         public UC_EventsSportsGrounds()
         {
             InitializeComponent();
+            _username = Session.Instance.LoggedUser;
             // ParkName = _parkController.GetPark(Id).Name;
             btnAllSports.BackColor = Color.LightBlue;
             _resources = new ComponentResourceManager(typeof(UC_EventsModality));
@@ -41,13 +42,8 @@ namespace Sports4All
             set { _parkName = value; tbSportsgroundName.Text = value; }
 
         }
-        public UC_EventsSportsGrounds()
-        {
-            InitializeComponent();
-            _username = Session.Instance.LoggedUser;
-          // ParkName = _parkController.GetPark(Id).Name;
-          btnAllSports.BackColor = Color.LightBlue;
-        }
+        #endregion
+
 
         private void UC_EventsSportsGrounds_Load(object sender, EventArgs e)
         {

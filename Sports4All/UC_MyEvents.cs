@@ -93,7 +93,7 @@ namespace Sports4All
         {
             // if (flpListMyEvents.Controls.Count > 0)
             flpListMyEvents.Controls.Clear();
-            var myReserves = eventsController.RetrieveUserReserves(_username);
+            var myReserves = _eventsController.RetrieveUserReserves(Username);
             var myReservesCounts = myReserves.Count;
             var listitems = new UC_NextEventsandReserveItem[myReservesCounts];
 
@@ -125,7 +125,7 @@ namespace Sports4All
             btnNextEvents.BackColor = Color.LightSkyBlue;
             btnFinishedEvents.BackColor = Color.LightGray;
             btnMinhasReservas.BackColor = Color.LightGray;
-            var nextEvents = eventsController.RetrieveNextEvents(_username);
+            var nextEvents = _eventsController.RetrieveNextEvents(Username);
             var nextEventsCount = nextEvents.Count;
             var listitems = new UC_NextEventsandReserveItem[nextEventsCount];
             for (var i = 0; i < nextEventsCount; i++)
@@ -147,7 +147,7 @@ namespace Sports4All
                     EventID = Convert.ToString(nextEvents.ToList()[i].EventId)
                 };
                 // listitems[i].HideCancelReserve(); 
-                if (_username.Equals(listitems[i].Owner))
+                if (Username.Equals(listitems[i].Owner))
                 {
                     listitems[i].ChangeJoinButton(false);
                 }

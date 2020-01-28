@@ -1,9 +1,7 @@
 ﻿using Sports4All.UserControls_Screens;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Sports4All.Controller;
-using Sports4All.UserControls_Screens;
 
 namespace Sports4All
 {
@@ -42,6 +40,7 @@ namespace Sports4All
         {
             MoveSidePanel(btn_Home);
             lbWelcomeUser.Text = "Bem vindo, " + Session.Instance.LoggedUser;
+            
             using (var db = new ModelContext())
             {
                 var user = db.Users.Include("Picture").Where(f => f.Username == Session.Instance.LoggedUser).Single();
@@ -153,13 +152,6 @@ namespace Sports4All
         private void AddUserControlsToForm()
         {
             AddUserControl<UC_Home>("UC_Home", "");
-            //AddUserControl<UC_Events>("UC_Events", "");
-            //AddUserControl<UC_SportsGround>("UC_SportsGround", "");
-            //AddUserControl<UC_Subscriptions>("UC_Subscriptions", "");
-            //AddUserControl<UC_Rank>("UC_Rank", "");
-            //AddUserControl<UC_MyEvents>("UC_MyEvents", "");
-            //AddUserControl<UC_AddFriend>("UC_AddFriend", "");
-            //AddUserControl<UC_UserProfile>("UC_UserProfile", "");
         }
 
     }

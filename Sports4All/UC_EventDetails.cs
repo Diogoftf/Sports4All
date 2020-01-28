@@ -122,7 +122,7 @@ namespace Sports4All
             CheckOwner();
         }
 
-        private void pickDateTimeOnly()
+        private void PickDateTimeOnly()
         {
             dtpStartEventTime.CustomFormat = "HH:mm";
             dtpStartEventTime.Format = DateTimePickerFormat.Custom;
@@ -131,12 +131,6 @@ namespace Sports4All
             dtpEndEventTime.CustomFormat = "HH:mm";
             dtpEndEventTime.Format = DateTimePickerFormat.Custom;
             dtpEndEventTime.ShowUpDown = true;
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            btnSaveChanges.Visible = true;
-            PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
         }
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
@@ -154,7 +148,7 @@ namespace Sports4All
             DateTime NewStartDate = DateTime.ParseExact(startdateTime, format, provider);
             DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
             // DateTime NewDate = new DateTime();
-            eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
+            _eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
         
         }
         private void PropertiesformEventDetails(bool Enabled, BorderStyle border, bool ReadOnly)
@@ -231,24 +225,6 @@ namespace Sports4All
         {
             btnSaveChanges.Visible = true;
             PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
-        }
-        private void btnSaveChanges_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show("Dados Guardados com Sucesso!");
-            btnSaveChanges.Visible = false;
-            PropertiesformEventDetails(false, BorderStyle.None, true);
-            string format = "dd/MM/yyyy HH:mm:ss";
-            int EventID = Convert.ToInt32(_eventID);
-            int MaxPlayes = Convert.ToInt32(_maxPlayers);
-            int MaxAge = Convert.ToInt32(_maxPlayerAge);
-            int MinAge = Convert.ToInt32(_minPlayerAge);
-            string startdateTime = dtpNextEventDate.Text + " " + dtpStartEventTime.Value.TimeOfDay;
-            string enddatetime = dtpNextEventDate.Text + " " + dtpEndEventTime.Value.TimeOfDay;
-            CultureInfo provider = CultureInfo.InvariantCulture;
-            DateTime NewStartDate = DateTime.ParseExact(startdateTime, format, provider);
-            DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
-            // DateTime NewDate = new DateTime();
-            eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
         }
     } 
 }

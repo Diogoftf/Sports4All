@@ -106,7 +106,6 @@
             this.uC_UnregisterButton1.TabIndex = 9;
             this.uC_UnregisterButton1.Username = null;
             this.uC_UnregisterButton1.Visible = false;
-            this.uC_UnregisterButton1.Load += new System.EventHandler(this.uC_UnregisterButton1_Load);
             // 
             // btnJoinEvent
             // 

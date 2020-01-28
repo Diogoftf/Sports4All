@@ -117,7 +117,7 @@ namespace Sports4All
 
         private void UC_EventModalityItem_Load(object sender, EventArgs e)
         {
-            if (!events.CheckUserInEvent(EventId, _username))
+            if (!_events.CheckUserInEvent(EventId, _username))
             {
                 btnJoinEvent.Visible = true;
                
@@ -150,7 +150,7 @@ namespace Sports4All
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            events.DeleteEvent(Convert.ToInt32(EventId));
+            _events.DeleteEvent(Convert.ToInt32(EventId));
         }
     }
 }

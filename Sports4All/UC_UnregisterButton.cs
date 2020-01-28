@@ -17,5 +17,10 @@ namespace Sports4All
         {
             InitializeComponent();
         }
+
+        #region Properties
+        public string Username { get; set; }
+        public int Eventid { get; set; }
+        #endregion
     }
 }
