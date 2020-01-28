@@ -1,50 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 
 namespace Sports4All.Controller
 {
-    public class ImagesController
+    public static class ImagesController
     {
-        private const int ImagesCount = 4;
-        private IList<string> imgs = new List<string>();
-        private readonly int PictureId = 23;//ID estático, futuramente para mudar.
-        private readonly string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-        //método usado no Seed para inserir as imagens na BD
-        public IList<string> InsertImagetoDB()
-        {
-            for (var i = 1; i <= ImagesCount; i++)
-            {
-                // User Preto
-                var localImage = @"C:\Users\Tiago.Gouveia\Documents\Imagens\user" + i + ".png";
-                var localData = File.ReadAllBytes(localImage);
-                localData.ToString();
-                var streamFinal = new MemoryStream(localData);
-                streamFinal.Position = 0;
-                var result = Convert.ToBase64String(localData);
-                imgs.Add(result);
+        private static readonly string ImagesPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images";
 
-                //using (var db = new ModelContext())
-                //{
-                //    var newPicture = new Picture();
-                //    newPicture.PictureId = i + 9;
-                //    newPicture.PictureBody = result;
-                //    db.Pictures.Add(newPicture);
-                //    db.SaveChanges();
-                //}
-            }
-            return imgs;
-        }
+        //public static void InsertPathImagesToDB()
+        //{
+        //    DirectoryInfo path = new DirectoryInfo(ImagesPath);
 
+        //    using (var db = new ModelContext())
+        //    {
+        //        foreach (var file in path.GetFiles())
+        //        {
+        //            Picture a = new Picture();
+        //            a.Path = file.Name;
+        //            db.Pictures.Add(a);
+        //        }
+        //        db.SaveChanges();
+        //    }
+        //}
 
-        public string GetImagefromDB(string PictureName)
+        public static Image GetImageFromID(int id)
         {
             using (var db = new ModelContext())
             {
-                var Picture = db.Pictures.Where(c => c.Path == PictureName).FirstOrDefault().Path;
-                return Picture;
+                var Picture = db.Pictures.Where(c => c.PictureId == id).FirstOrDefault().Path;
+                return Image.FromFile(ImagesPath + "\\" + Picture + ".png");
             }
         }
+
+        public static Image GetImageFromName(string name)
+        {
+            using (var db = new ModelContext())
+            {
+                var pictures = db.Pictures.Where( e => e.Path == name).SingleOrDefault().Path;
+                return Image.FromFile(ImagesPath + "\\" + pictures + ".png");
+            }
+        }
+
     }
 }

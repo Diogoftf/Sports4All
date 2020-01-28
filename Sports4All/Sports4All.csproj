@@ -158,12 +158,6 @@
     <Compile Include="UC_NextEventsandReserveItem.Designer.cs">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_HeaderUser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_HeaderUser.Designer.cs">
-      <DependentUpon>UC_HeaderUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_AddFriend.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -345,9 +339,6 @@
     <EmbeddedResource Include="UC_NextEventsandReserveItem.resx">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_HeaderUser.resx">
-      <DependentUpon>UC_HeaderUser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC_AddFriend.resx">
       <DependentUpon>UC_AddFriend.cs</DependentUpon>
     </EmbeddedResource>
@@ -517,6 +508,10 @@
     <Content Include="Images\cancel.png" />
     <Content Include="Images\close.png" />
     <Content Include="Images\delete.png" />
+    <Content Include="Images\Desporto1.png" />
+    <Content Include="Images\Desporto2.png" />
+    <Content Include="Images\Desporto3.png" />
+    <Content Include="Images\Desporto4.png" />
     <Content Include="Images\details.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\edit1.png" />
@@ -543,7 +538,7 @@
     <Content Include="Images\trophy.png" />
     <Content Include="Images\unsub_Button.png" />
     <Content Include="Images\user.png" />
-    <Content Include="Images\user1.png" />
+    <Content Include="Images\User1.png" />
     <Content Include="Images\User2.png" />
     <Content Include="Images\User3.png" />
     <Content Include="Images\User4.png" />

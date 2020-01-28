@@ -20,9 +20,8 @@ namespace Sports4All
 
             Session.Instance.LoggedUser = "paulo";
 
-            MyEventsController events = new MyEventsController();
+            //ImagesController.InsertPathImagesToDB();
 
-            //events.DeleteEvent(12);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(Form1.Instance);
