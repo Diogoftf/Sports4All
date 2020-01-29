@@ -13,9 +13,5 @@ namespace Sports4All
         void Detach(IObserver observer);
 
         void Notify();
-
-
-
-
     }
 }
