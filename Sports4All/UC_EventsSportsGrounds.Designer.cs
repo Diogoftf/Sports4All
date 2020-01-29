@@ -48,7 +48,8 @@
             // flpEventListSportsground
             // 
             this.flpEventListSportsground.AutoScroll = true;
-            this.flpEventListSportsground.Location = new System.Drawing.Point(15, 216);
+            this.flpEventListSportsground.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpEventListSportsground.Location = new System.Drawing.Point(41, 217);
             this.flpEventListSportsground.Name = "flpEventListSportsground";
             this.flpEventListSportsground.Size = new System.Drawing.Size(1010, 356);
             this.flpEventListSportsground.TabIndex = 22;
@@ -60,16 +61,16 @@
             this.plSportsgroundMenuSelect.Controls.Add(this.btnHandball);
             this.plSportsgroundMenuSelect.Controls.Add(this.btnTenis);
             this.plSportsgroundMenuSelect.Controls.Add(this.btnFootball);
-            this.plSportsgroundMenuSelect.Location = new System.Drawing.Point(12, 103);
+            this.plSportsgroundMenuSelect.Location = new System.Drawing.Point(41, 103);
             this.plSportsgroundMenuSelect.Name = "plSportsgroundMenuSelect";
-            this.plSportsgroundMenuSelect.Size = new System.Drawing.Size(986, 107);
+            this.plSportsgroundMenuSelect.Size = new System.Drawing.Size(1010, 107);
             this.plSportsgroundMenuSelect.TabIndex = 21;
             // 
             // tbEvents_title
             // 
             this.tbEvents_title.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbEvents_title.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEvents_title.Location = new System.Drawing.Point(3, 3);
+            this.tbEvents_title.Location = new System.Drawing.Point(3, 19);
             this.tbEvents_title.Name = "tbEvents_title";
             this.tbEvents_title.ReadOnly = true;
             this.tbEvents_title.Size = new System.Drawing.Size(205, 25);
@@ -134,7 +135,7 @@
             this.plTopContent.Controls.Add(this.tbSportsgroundName);
             this.plTopContent.Controls.Add(this.btnSub);
             this.plTopContent.Controls.Add(this.tbSubSportsGroundNotification);
-            this.plTopContent.Location = new System.Drawing.Point(5, 4);
+            this.plTopContent.Location = new System.Drawing.Point(41, 7);
             this.plTopContent.Name = "plTopContent";
             this.plTopContent.Size = new System.Drawing.Size(722, 93);
             this.plTopContent.TabIndex = 14;
@@ -144,7 +145,7 @@
             this.tbSportsgroundName.BackColor = System.Drawing.SystemColors.Control;
             this.tbSportsgroundName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSportsgroundName.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold);
-            this.tbSportsgroundName.Location = new System.Drawing.Point(89, 10);
+            this.tbSportsgroundName.Location = new System.Drawing.Point(50, 16);
             this.tbSportsgroundName.Name = "tbSportsgroundName";
             this.tbSportsgroundName.Size = new System.Drawing.Size(630, 35);
             this.tbSportsgroundName.TabIndex = 7;
@@ -155,7 +156,7 @@
             this.btnSub.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSub.Image = ((System.Drawing.Image)(resources.GetObject("btnSub.Image")));
-            this.btnSub.Location = new System.Drawing.Point(36, 3);
+            this.btnSub.Location = new System.Drawing.Point(3, 3);
             this.btnSub.Name = "btnSub";
             this.btnSub.Size = new System.Drawing.Size(51, 47);
             this.btnSub.TabIndex = 10;
@@ -182,7 +183,7 @@
             this.Controls.Add(this.btnAddEvent);
             this.Name = "UC_EventsSportsGrounds";
             this.Size = new System.Drawing.Size(1089, 622);
-            this.Load += new System.EventHandler(this.Recintos_Load);
+            this.Load += new System.EventHandler(this.UC_EventsSportsGrounds_Load);
             this.plSportsgroundMenuSelect.ResumeLayout(false);
             this.plSportsgroundMenuSelect.PerformLayout();
             this.plTopContent.ResumeLayout(false);

@@ -11,7 +11,6 @@ namespace Sports4All.Controller
 
         public void RegisterUser(string email, string password, string username, string age, string cellphone,
             int pictureId, string county)
-
         {
             using (var db = new ModelContext())
             {
@@ -25,18 +24,41 @@ namespace Sports4All.Controller
                     PictureId = pictureId
                 };
 
-                var query = db.Counties.Where(f => f.Name == county).First();
+                var query = db.Counties.Where(f => f.Name.Equals(county)).First();
                 newUser.CountyId = query.CountyId;
 
-                UserClassification userClassification = new UserClassification();
-                userClassification.Points = userClassification.Ratio =
-                userClassification.SkillAverage = userClassification.FairplayAverage = 0;
+                UserClassification userClassification = CreateUserClassification(newUser);
 
-                userClassification.User = newUser;
                 db.Users.Add(newUser);
                 db.Classifications.Add(userClassification);
                 db.SaveChanges();
             }
+        }
+
+        public UserClassification CreateUserClassification(User user)
+        {
+            using (var db = new ModelContext())
+            {
+                var query = db.Classifications;
+                int classificationId = 0;
+
+                if (query.Any())
+                {
+                    var biggestClassificationId = query.OrderByDescending(u => u.ClassificationId).FirstOrDefault().ClassificationId;
+                    classificationId = biggestClassificationId + 1;
+                }
+
+                UserClassification userClassification = new UserClassification();
+                userClassification.ClassificationId = classificationId;
+
+                userClassification.Points = 0;
+                userClassification.Ratio = 0;
+                userClassification.SkillAverage = 0;
+                userClassification.FairplayAverage = 0;
+
+                return userClassification;
+            }
+
         }
         public bool EmailExists(string email)
         {
@@ -82,6 +104,17 @@ namespace Sports4All.Controller
             }
 
             return false;
+        }
+
+        public string GetUsername(string email)
+        {
+            using (var db = new ModelContext())
+            {
+                var username = db.Users.FirstOrDefault(x => x.Email.Equals(email)).Username;
+
+                return username;
+            }
+
         }
 
         public ICollection<County> RetrieveCounties()

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
@@ -20,16 +21,19 @@ namespace Sports4All
         private string _sport;
         private Color _color;
         private Image _SportPicture;
+        private MyEventsController _eventsController;
 
         public int Id { get; set; }
 
         public string resetNameProprieties //
         {
             set { lblDate.Text = lblEventOwner.Text = lblEventOwnerValue.Text = lblSportsGround.Text = lblstart_Hour.Text = lblPlayers.Text = lblPlace.Text = value;
-                //this.Size = new Size(400,170);
-                
-
             }
+        }
+
+        public Image DisableDeleteImage //
+        {
+            set { pbDelete.Image = value; }
         }
 
         public Image DisableImage //
@@ -108,37 +112,34 @@ namespace Sports4All
         public UC_HomeMyEventsItem()
         {
             InitializeComponent();
+            _eventsController = new MyEventsController();
 
             //se for meu evento, mostrar o pbEdit
         }
 
-        private void pbEdit_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void pbMoreDetails_Click(object sender, EventArgs e)
         {
-            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventDetails"))
-            {
-                UC_EventDetails uc = new UC_EventDetails { Dock = DockStyle.Fill };
-                uc.EventId = Id;
-                Form1.Instance.PnlContainer.Controls.Add(uc);
-            }
+            Form1.Instance.BringUcToFront<UC_EventDetails>("UC_EventDetails", Id.ToString());
+        }
 
-            Form1.Instance.PnlContainer.Controls["UC_EventDetails"].BringToFront();
-
-            if (Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventDetails"))
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            if (_organizador == Session.Instance.LoggedUser)
             {
-                foreach (UserControl x in Form1.Instance.PnlContainer.Controls)
+                DialogResult result = MessageBox.Show("Deseja apagar o evento?", "Confirme", MessageBoxButtons.YesNoCancel);
+
+                if ((result == DialogResult.Yes))
                 {
-                    if (Form1.Instance.PnlContainer.Controls.GetChildIndex(x) == 0)
-                    {
-                        Form1.Instance.FrontControl = x;
-                        UC_EventDetails j = (UC_EventDetails)x;
-                        j.EventId = Id;
-                        j.PopulateUserControl();
-                    }
+                    _eventsController.DeleteEvent(this.Id);
+                }
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Deseja sair do evento?", "Confirme", MessageBoxButtons.YesNoCancel);
+
+                if((result == DialogResult.Yes))
+                {
+                    _eventsController.UnregisterUser(this.Id,Session.Instance.LoggedUser);
                 }
             }
         }

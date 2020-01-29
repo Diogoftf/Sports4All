@@ -7,22 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_AddFriend : UserControl, IUserControl
+    public partial class UC_UnregisterButton : UserControl
     {
-        public UC_AddFriend()
+        public UC_UnregisterButton()
         {
             InitializeComponent();
         }
 
         #region Properties
-        public string Id { get; set; }
+        public string Username { get; set; }
+        public int Eventid { get; set; }
         #endregion
-
-        public void Populate()
-        {
-        }
     }
 }

@@ -44,37 +44,34 @@ namespace Sports4All.Migrations
             listAddresses.Add(new Address() { AddressId = 2, PostalCode = "9200-098", Street = "Rua do muro nº1", CountyId = 1 });
 
             ICollection<Picture> listPictures = new Collection<Picture>();
-            listPictures.Add(new Picture() { PictureId = 1, Path = "User" });
+            listPictures.Add(new Picture() { PictureId = 1, Path = "User1" });
             listPictures.Add(new Picture() { PictureId = 2, Path = "User2" });
-            listPictures.Add(new Picture() { PictureId = 3, Path = "Desporto1" });
-            listPictures.Add(new Picture() { PictureId = 4, Path = "Desporto2" });
-            listPictures.Add(new Picture() { PictureId = 5, Path = "Desporto3" });
-            listPictures.Add(new Picture() { PictureId = 6, Path = "Desporto4" });
-            listPictures.Add(new Picture() { PictureId = 7, Path = "Park1" });
-            listPictures.Add(new Picture() { PictureId = 8, Path = "Park2" });
+            listPictures.Add(new Picture() { PictureId = 3, Path = "User3" });
+            listPictures.Add(new Picture() { PictureId = 4, Path = "User4" });
+            listPictures.Add(new Picture() { PictureId = 5, Path = "Desporto1" });
+            listPictures.Add(new Picture() { PictureId = 6, Path = "Desporto2" });
+            listPictures.Add(new Picture() { PictureId = 7, Path = "Desporto3" });
+            listPictures.Add(new Picture() { PictureId = 8, Path = "Desporto4" });
+            listPictures.Add(new Picture() { PictureId = 9, Path = "Park1" });
+            listPictures.Add(new Picture() { PictureId = 10, Path = "Park2" });
 
             ICollection<Sport> listSports = new Collection<Sport>();
-            listSports.Add(new Sport() { SportId = 1, Name = "Futebol", Picture = listPictures.ToList()[2] });
-            listSports.Add(new Sport() { SportId = 2, Name = "Ténis", Picture = listPictures.ToList()[3] });
-            listSports.Add(new Sport() { SportId = 3, Name = "Futsal", Picture = listPictures.ToList()[4] });
-            listSports.Add(new Sport() { SportId = 4, Name = "Andebol", Picture = listPictures.ToList()[5] });
-
-          /*  listPictures.ToList()[2].Sport = listSports.ToList()[0];
-            listPictures.ToList()[3].Sport = listSports.ToList()[1];
-            listPictures.ToList()[4].Sport = listSports.ToList()[2];
-            listPictures.ToList()[5].Sport = listSports.ToList()[3];*/
+            listSports.Add(new Sport() { SportId = 1, Name = "Futebol", Picture = listPictures.ToList()[4] });
+            listSports.Add(new Sport() { SportId = 2, Name = "Ténis", Picture = listPictures.ToList()[5] });
+            listSports.Add(new Sport() { SportId = 3, Name = "Futsal", Picture = listPictures.ToList()[6] });
+            listSports.Add(new Sport() { SportId = 4, Name = "Andebol", Picture = listPictures.ToList()[7] });
 
             ICollection<User> listUsers = new Collection<User>();
             listUsers.Add(new User() { PictureId = listPictures.ToList()[0].PictureId, Username = "andreMx", Age = 23, Email = "andre@gmail.com", Password = "123", PhoneNumber = 961451719, CountyId = listCounties.ToList()[3].CountyId });
             listUsers.Add(new User() { PictureId = listPictures.ToList()[1].PictureId, Username = "ruben21", Age = 23, Email = "ruben1@gmail.com", Password = "123", PhoneNumber = 916656789, CountyId = listCounties.ToList()[2].CountyId });
 
             ICollection<Park> listParks = new Collection<Park>();
-            listParks.Add(new Park() { ParkId = 1, Name = "Agua de Pena", Address = listAddresses.ToList()[0], Description = "Teste Descrição1", Picture = listPictures.ToList()[6] });
-            listParks.Add(new Park() { ParkId = 2, Name = "Ludens Padel", Address = listAddresses.ToList()[1], Description = "Teste Descrição2", Picture = listPictures.ToList()[7] });
+            listParks.Add(new Park() { ParkId = 1, Name = "Agua de Pena", Address = listAddresses.ToList()[0], Description = "Teste Descrição1", Picture = listPictures.ToList()[8] });
+            listParks.Add(new Park() { ParkId = 2, Name = "Ludens Padel", Address = listAddresses.ToList()[1], Description = "Teste Descrição2", Picture = listPictures.ToList()[9] });
 
             ICollection<Ground> listGrounds = new Collection<Ground>();
-            listGrounds.Add(new Ground() { GroundId = 1, ParkId = 1, Sports = listSports.ToList(), Picture = listPictures.ToList()[6] });
-            listGrounds.Add(new Ground() { GroundId = 2, ParkId = 2, Sports = listSports.ToList(), Picture = listPictures.ToList()[7] });
+            listGrounds.Add(new Ground() { GroundId = 1, ParkId = 1, Sports = listSports.ToList(), Picture = listPictures.ToList()[8] });
+            listGrounds.Add(new Ground() { GroundId = 2, ParkId = 2, Sports = listSports.ToList(), Picture = listPictures.ToList()[9] });
 
              DateTime dateStartEvent = new DateTime(2020, 2, 18);
              dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);

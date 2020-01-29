@@ -117,7 +117,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.dtpStartEventTime, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(326, 308);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(326, 276);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
@@ -173,9 +173,9 @@
             // 
             this.lbPlayersAge.AutoSize = true;
             this.lbPlayersAge.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbPlayersAge.Location = new System.Drawing.Point(4, 473);
+            this.lbPlayersAge.Location = new System.Drawing.Point(4, 441);
             this.lbPlayersAge.Name = "lbPlayersAge";
-            this.lbPlayersAge.Size = new System.Drawing.Size(315, 144);
+            this.lbPlayersAge.Size = new System.Drawing.Size(315, 176);
             this.lbPlayersAge.TabIndex = 15;
             this.lbPlayersAge.Text = "Idade";
             this.lbPlayersAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -184,7 +184,7 @@
             // 
             this.lbSchedule.AutoSize = true;
             this.lbSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbSchedule.Location = new System.Drawing.Point(4, 306);
+            this.lbSchedule.Location = new System.Drawing.Point(4, 274);
             this.lbSchedule.Name = "lbSchedule";
             this.lbSchedule.Size = new System.Drawing.Size(315, 126);
             this.lbSchedule.TabIndex = 4;
@@ -195,7 +195,7 @@
             // 
             this.lbDate.AutoSize = true;
             this.lbDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbDate.Location = new System.Drawing.Point(4, 266);
+            this.lbDate.Location = new System.Drawing.Point(4, 234);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(315, 39);
             this.lbDate.TabIndex = 3;
@@ -206,7 +206,7 @@
             // 
             this.lbSport.AutoSize = true;
             this.lbSport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbSport.Location = new System.Drawing.Point(4, 226);
+            this.lbSport.Location = new System.Drawing.Point(4, 194);
             this.lbSport.Name = "lbSport";
             this.lbSport.Size = new System.Drawing.Size(315, 39);
             this.lbSport.TabIndex = 2;
@@ -217,7 +217,7 @@
             // 
             this.lbLocation.AutoSize = true;
             this.lbLocation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbLocation.Location = new System.Drawing.Point(4, 186);
+            this.lbLocation.Location = new System.Drawing.Point(4, 154);
             this.lbLocation.Name = "lbLocation";
             this.lbLocation.Size = new System.Drawing.Size(315, 39);
             this.lbLocation.TabIndex = 1;
@@ -226,7 +226,7 @@
             // 
             // tbLocation
             // 
-            this.tbLocation.Location = new System.Drawing.Point(326, 188);
+            this.tbLocation.Location = new System.Drawing.Point(326, 156);
             this.tbLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLocation.Name = "tbLocation";
             this.tbLocation.ReadOnly = true;
@@ -236,7 +236,7 @@
             // cbEnclosure
             // 
             this.cbEnclosure.FormattingEnabled = true;
-            this.cbEnclosure.Location = new System.Drawing.Point(326, 148);
+            this.cbEnclosure.Location = new System.Drawing.Point(326, 116);
             this.cbEnclosure.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbEnclosure.Name = "cbEnclosure";
             this.cbEnclosure.Size = new System.Drawing.Size(526, 35);
@@ -246,7 +246,7 @@
             // cbSport
             // 
             this.cbSport.FormattingEnabled = true;
-            this.cbSport.Location = new System.Drawing.Point(326, 228);
+            this.cbSport.Location = new System.Drawing.Point(326, 196);
             this.cbSport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbSport.Name = "cbSport";
             this.cbSport.Size = new System.Drawing.Size(526, 35);
@@ -256,7 +256,7 @@
             // cbPlayersNumber
             // 
             this.cbPlayersNumber.FormattingEnabled = true;
-            this.cbPlayersNumber.Location = new System.Drawing.Point(326, 435);
+            this.cbPlayersNumber.Location = new System.Drawing.Point(326, 403);
             this.cbPlayersNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbPlayersNumber.Name = "cbPlayersNumber";
             this.cbPlayersNumber.Size = new System.Drawing.Size(526, 35);
@@ -266,7 +266,7 @@
             // 
             this.lbPlayersNumber.AutoSize = true;
             this.lbPlayersNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbPlayersNumber.Location = new System.Drawing.Point(4, 433);
+            this.lbPlayersNumber.Location = new System.Drawing.Point(4, 401);
             this.lbPlayersNumber.Name = "lbPlayersNumber";
             this.lbPlayersNumber.Size = new System.Drawing.Size(315, 39);
             this.lbPlayersNumber.TabIndex = 11;
@@ -276,7 +276,7 @@
             // dtpEventDate
             // 
             this.dtpEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEventDate.Location = new System.Drawing.Point(326, 268);
+            this.dtpEventDate.Location = new System.Drawing.Point(326, 236);
             this.dtpEventDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpEventDate.Name = "dtpEventDate";
             this.dtpEventDate.Size = new System.Drawing.Size(526, 35);
@@ -286,7 +286,7 @@
             // 
             this.lbEnclosure.AutoSize = true;
             this.lbEnclosure.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbEnclosure.Location = new System.Drawing.Point(4, 146);
+            this.lbEnclosure.Location = new System.Drawing.Point(4, 114);
             this.lbEnclosure.Name = "lbEnclosure";
             this.lbEnclosure.Size = new System.Drawing.Size(315, 39);
             this.lbEnclosure.TabIndex = 0;
@@ -302,14 +302,14 @@
             this.tableLayoutPanel2.Controls.Add(this.lbMaxAge, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.cbMinAge, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.cbMaxAge, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(326, 475);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(326, 443);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(380, 107);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(380, 108);
             this.tableLayoutPanel2.TabIndex = 16;
             // 
             // lbMinAge
@@ -318,7 +318,7 @@
             this.lbMinAge.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbMinAge.Location = new System.Drawing.Point(3, 0);
             this.lbMinAge.Name = "lbMinAge";
-            this.lbMinAge.Size = new System.Drawing.Size(62, 53);
+            this.lbMinAge.Size = new System.Drawing.Size(62, 54);
             this.lbMinAge.TabIndex = 0;
             this.lbMinAge.Text = "Min";
             this.lbMinAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -327,7 +327,7 @@
             // 
             this.lbMaxAge.AutoSize = true;
             this.lbMaxAge.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMaxAge.Location = new System.Drawing.Point(3, 53);
+            this.lbMaxAge.Location = new System.Drawing.Point(3, 54);
             this.lbMaxAge.Name = "lbMaxAge";
             this.lbMaxAge.Size = new System.Drawing.Size(62, 54);
             this.lbMaxAge.TabIndex = 1;
@@ -341,20 +341,18 @@
             this.cbMinAge.Location = new System.Drawing.Point(71, 2);
             this.cbMinAge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMinAge.Name = "cbMinAge";
-            this.cbMinAge.Size = new System.Drawing.Size(306, 35);
+            this.cbMinAge.Size = new System.Drawing.Size(319, 35);
             this.cbMinAge.TabIndex = 2;
-            this.cbMinAge.SelectedIndexChanged += new System.EventHandler(this.cbMinAge_SelectedIndexChanged);
             // 
             // cbMaxAge
             // 
             this.cbMaxAge.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbMaxAge.FormattingEnabled = true;
-            this.cbMaxAge.Location = new System.Drawing.Point(71, 55);
+            this.cbMaxAge.Location = new System.Drawing.Point(71, 56);
             this.cbMaxAge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMaxAge.Name = "cbMaxAge";
-            this.cbMaxAge.Size = new System.Drawing.Size(306, 35);
+            this.cbMaxAge.Size = new System.Drawing.Size(319, 35);
             this.cbMaxAge.TabIndex = 3;
-            this.cbMaxAge.SelectedIndexChanged += new System.EventHandler(this.cbMaxAge_SelectedIndexChanged);
             // 
             // lblEvent
             // 
@@ -373,7 +371,7 @@
             this.lblMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMaterials.Location = new System.Drawing.Point(4, 41);
             this.lblMaterials.Name = "lblMaterials";
-            this.lblMaterials.Size = new System.Drawing.Size(315, 104);
+            this.lblMaterials.Size = new System.Drawing.Size(315, 72);
             this.lblMaterials.TabIndex = 19;
             this.lblMaterials.Text = "Materiais";
             this.lblMaterials.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -397,7 +395,7 @@
             this.checkedListBox1.Location = new System.Drawing.Point(326, 43);
             this.checkedListBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(242, 100);
+            this.checkedListBox1.Size = new System.Drawing.Size(242, 68);
             this.checkedListBox1.TabIndex = 21;
             this.checkedListBox1.Visible = false;
             // 

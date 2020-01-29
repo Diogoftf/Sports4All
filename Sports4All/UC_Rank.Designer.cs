@@ -141,7 +141,6 @@
             this.lblClassification.TabIndex = 29;
             this.lblClassification.Text = "Classificação";
             this.lblClassification.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblClassification.Click += new System.EventHandler(this.lblEventOwnerValue_Click);
             // 
             // lblName2
             // 

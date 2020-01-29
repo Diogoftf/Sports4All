@@ -108,6 +108,17 @@
     <Compile Include="Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
+    <Compile Include="IObserver.cs" />
+    <Compile Include="ISubject.cs" />
+    <Compile Include="IUserControl.cs" />
+    <Compile Include="Migrations\202001252230589_M001.cs" />
+    <Compile Include="Migrations\202001252230589_M001.designer.cs">
+      <DependentUpon>202001252230589_M001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001271601040_M002.cs" />
+    <Compile Include="Migrations\202001271601040_M002.designer.cs">
+      <DependentUpon>202001271601040_M002.cs</DependentUpon>
+    </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="CircularButton.cs">
       <SubType>Component</SubType>
@@ -129,10 +140,6 @@
     <Compile Include="Evaluation.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Ground.cs" />
-    <Compile Include="Migrations\202001241216501_M001.cs" />
-    <Compile Include="Migrations\202001241216501_M001.designer.cs">
-      <DependentUpon>202001241216501_M001.cs</DependentUpon>
-    </Compile>
     <Compile Include="ParkEvaluation.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Material.cs" />
@@ -151,12 +158,6 @@
     </Compile>
     <Compile Include="UC_NextEventsandReserveItem.Designer.cs">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_HeaderUser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_HeaderUser.Designer.cs">
-      <DependentUpon>UC_HeaderUser.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_AddFriend.cs">
       <SubType>UserControl</SubType>
@@ -236,12 +237,6 @@
     <Compile Include="UC_UserProfile.Designer.cs">
       <DependentUpon>UC_UserProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_EventModalityItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_EventModalityItem.Designer.cs">
-      <DependentUpon>UC_EventModalityItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_EventMyEventsItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -253,12 +248,6 @@
     </Compile>
     <Compile Include="UC_EventsModality.Designer.cs">
       <DependentUpon>UC_EventsModality.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_EventSportsGroundItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_EventSportsGroundItem.Designer.cs">
-      <DependentUpon>UC_EventSportsGroundItem.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_EventsSportsGrounds.cs">
       <SubType>UserControl</SubType>
@@ -276,6 +265,12 @@
     <Compile Include="User.cs" />
     <Compile Include="UserClassification.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="UC_UnregisterButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_UnregisterButton.Designer.cs">
+      <DependentUpon>UC_UnregisterButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserEvaluation.cs" />
     <Compile Include="View\UserControls_Items\UC_EventItem.cs">
       <SubType>UserControl</SubType>
@@ -324,14 +319,14 @@
     <EmbeddedResource Include="Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001241216501_M001.resx">
-      <DependentUpon>202001241216501_M001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001252230589_M001.resx">
+      <DependentUpon>202001252230589_M001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001271601040_M002.resx">
+      <DependentUpon>202001271601040_M002.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_NextEventsandReserveItem.resx">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_HeaderUser.resx">
-      <DependentUpon>UC_HeaderUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_AddFriend.resx">
       <DependentUpon>UC_AddFriend.cs</DependentUpon>
@@ -375,20 +370,17 @@
     <EmbeddedResource Include="UC_UserProfile.resx">
       <DependentUpon>UC_UserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventModalityItem.resx">
-      <DependentUpon>UC_EventModalityItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC_EventMyEventsItem.resx">
       <DependentUpon>UC_EventMyEventsItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_EventsModality.resx">
       <DependentUpon>UC_EventsModality.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventSportsGroundItem.resx">
-      <DependentUpon>UC_EventSportsGroundItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC_EventsSportsGrounds.resx">
       <DependentUpon>UC_EventsSportsGrounds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_UnregisterButton.resx">
+      <DependentUpon>UC_UnregisterButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls_Items\UC_EventItem.resx">
       <DependentUpon>UC_EventItem.cs</DependentUpon>
@@ -421,6 +413,7 @@
     <EmbeddedResource Include="View\UserControls_Screens\UC_Subscriptions.resx">
       <DependentUpon>UC_Subscriptions.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -488,6 +481,51 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\add.bmp" />
+    <Content Include="Images\Add.png" />
+    <Content Include="Images\addButton.png" />
+    <Content Include="Images\agreement.png" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\calendar1.png" />
+    <Content Include="Images\cancel.png" />
+    <Content Include="Images\close.png" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\Desporto1.png" />
+    <Content Include="Images\Desporto2.png" />
+    <Content Include="Images\Desporto3.png" />
+    <Content Include="Images\Desporto4.png" />
+    <Content Include="Images\details.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\edit1.png" />
+    <Content Include="Images\fairplay.png" />
+    <Content Include="Images\foot_Icon.png" />
+    <Content Include="Images\friend.png" />
+    <Content Include="Images\group.png" />
+    <Content Include="Images\group1.png" />
+    <Content Include="Images\group2.png" />
+    <Content Include="Images\info.png" />
+    <Content Include="Images\join_iconImage.png" />
+    <Content Include="Images\matches.png" />
+    <Content Include="Images\medal.png" />
+    <Content Include="Images\medal1.png" />
+    <Content Include="Images\medal2.png" />
+    <Content Include="Images\playground.png" />
+    <Content Include="Images\ratio.png" />
+    <Content Include="Images\search.png" />
+    <Content Include="Images\skill.png" />
+    <Content Include="Images\star.png" />
+    <Content Include="Images\star1.png" />
+    <Content Include="Images\stats.png" />
+    <Content Include="Images\sub_Button.png" />
+    <Content Include="Images\trophy.png" />
+    <Content Include="Images\unsub_Button.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\User1.png" />
+    <Content Include="Images\User2.png" />
+    <Content Include="Images\User3.png" />
+    <Content Include="Images\User4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

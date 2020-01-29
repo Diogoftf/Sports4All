@@ -1,31 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sports4All.UserControls_Items;
 
 namespace Sports4All.UserControls_Screens
 {
-    public partial class UC_Subscriptions : UserControl
+    public partial class UC_Subscriptions : UserControl, IUserControl
     {
         public UC_Subscriptions()
         {
             InitializeComponent();
         }
 
+        #region Properties
+        public string Id { get; set; }
+        #endregion
         private void UC_Subscriptions_Load(object sender, EventArgs e)
+        {
+            if (DesignMode) return;
+            Populate();
+        }
+
+        public void Populate()
         {
             PopulateItemsSports(pnlSports);
         }
-
         private void PopulateItemsSports(Panel p)
         {
             p.Controls.Clear();
@@ -37,8 +39,6 @@ namespace Sports4All.UserControls_Screens
                 "https://dovethemes.com/wp-content/uploads/2016/12/Small-Waterfall.jpg",
                 "https://dovethemes.com/wp-content/uploads/2016/12/Island-of-Love.jpg"
             };
-
-            ImageList img = new ImageList {ImageSize = new Size(140, 140), ColorDepth = ColorDepth.Depth32Bit};
 
             UC_SubscriptionItem[] listItems = new UC_SubscriptionItem[imageList.Count];
 
@@ -69,8 +69,6 @@ namespace Sports4All.UserControls_Screens
                 "https://dovethemes.com/wp-content/uploads/2016/09/Sea-Turtle.jpg"
             };
 
-            ImageList img = new ImageList {ImageSize = new Size(140, 140), ColorDepth = ColorDepth.Depth32Bit};
-
             UC_SubscriptionItem[] listItems = new UC_SubscriptionItem[imageList.Count];
 
             for (int i = 0; i < imageList.Count; i++)
@@ -97,8 +95,6 @@ namespace Sports4All.UserControls_Screens
                 "https://dovethemes.com/wp-content/uploads/2016/09/Endless-Fields.jpg",
                 "https://dovethemes.com/wp-content/uploads/2016/09/Mountain-Sunrise.jpg"
             };
-
-            ImageList img = new ImageList {ImageSize = new Size(140, 140), ColorDepth = ColorDepth.Depth32Bit};
 
             UC_SubscriptionItem[] listItems = new UC_SubscriptionItem[imageList.Count];
 

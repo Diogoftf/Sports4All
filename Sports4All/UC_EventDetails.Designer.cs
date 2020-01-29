@@ -62,7 +62,7 @@
             // flpUsersEvent
             // 
             this.flpUsersEvent.AutoScroll = true;
-            this.flpUsersEvent.Location = new System.Drawing.Point(693, 53);
+            this.flpUsersEvent.Location = new System.Drawing.Point(632, 64);
             this.flpUsersEvent.Name = "flpUsersEvent";
             this.flpUsersEvent.Size = new System.Drawing.Size(345, 530);
             this.flpUsersEvent.TabIndex = 45;
@@ -102,7 +102,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 17F);
-            this.label1.Location = new System.Drawing.Point(776, 11);
+            this.label1.Location = new System.Drawing.Point(698, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 36);
             this.label1.TabIndex = 39;
@@ -113,7 +113,7 @@
             // 
             this.lbParkName.AutoSize = true;
             this.lbParkName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbParkName.Location = new System.Drawing.Point(332, 24);
+            this.lbParkName.Location = new System.Drawing.Point(310, 23);
             this.lbParkName.Name = "lbParkName";
             this.lbParkName.Size = new System.Drawing.Size(342, 23);
             this.lbParkName.TabIndex = 38;
@@ -124,7 +124,7 @@
             // 
             this.lbEventId.AutoSize = true;
             this.lbEventId.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.lbEventId.Location = new System.Drawing.Point(96, 12);
+            this.lbEventId.Location = new System.Drawing.Point(129, 11);
             this.lbEventId.Name = "lbEventId";
             this.lbEventId.Size = new System.Drawing.Size(117, 37);
             this.lbEventId.TabIndex = 37;
@@ -211,7 +211,7 @@
             // 
             // pbPark
             // 
-            this.pbPark.Location = new System.Drawing.Point(404, 78);
+            this.pbPark.Location = new System.Drawing.Point(366, 64);
             this.pbPark.Name = "pbPark";
             this.pbPark.Size = new System.Drawing.Size(213, 171);
             this.pbPark.TabIndex = 46;
@@ -267,11 +267,10 @@
             this.btnEdit.Size = new System.Drawing.Size(30, 27);
             this.btnEdit.TabIndex = 51;
             this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(325, 418);
+            this.btnSaveChanges.Location = new System.Drawing.Point(209, 528);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(107, 32);
             this.btnSaveChanges.TabIndex = 52;
@@ -344,8 +343,10 @@
             // 
             // UC_EventDetails
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.lbEventId);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpEndEventTime);
@@ -364,7 +365,6 @@
             this.Controls.Add(this.lbEventDetails);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbParkName);
-            this.Controls.Add(this.lbEventId);
             this.Controls.Add(this.lblUserPhoneValue);
             this.Controls.Add(this.lblOwnerValue);
             this.Controls.Add(this.lblMaxPlayers);
@@ -376,7 +376,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_EventDetails";
             this.Size = new System.Drawing.Size(1090, 622);
-            this.Load += new System.EventHandler(this.UC_EventsDetailsB_Load);
+            this.Load += new System.EventHandler(this.UC_EventsDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPark)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

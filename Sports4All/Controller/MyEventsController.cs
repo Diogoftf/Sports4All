@@ -3,23 +3,30 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
+using System.Windows;
 
 namespace Sports4All.Controller
 {
     public class MyEventsController
     {
-        private readonly DateTime _todayDate = DateTime.Now;
-        private ICollection<Event> _userEvents = new Collection<Event>();
-        private ICollection<User> User = new Collection<User>();
+        private readonly DateTime _todayDate;
+        private ICollection<Event> _userEvents;
+        private ICollection<User> _user;
         private int _userCompletedEventsCount { get; set; }
         private int _userNextEventsCount { get; set; }
         private int _userReservesCount { get; set; }
 
+        public MyEventsController()
+        {
+            _todayDate = DateTime.Now;
+            _userEvents = new Collection<Event>();
+            _user = new Collection<User>();
+        }
         public ICollection<Event> RetrieveCompletedEvents(string username)
         {
             using (var db = new ModelContext())
             {
-                var UserCompletedEvents = db.Events.Where(c => c.Users.Any(i => i.Username == username))
+                var UserCompletedEvents = db.Events.Where(c => c.Users.Any(i => i.Username.Equals(username)))
                     .Where(c => c.StartDate <= _todayDate)
                     .Include("Evaluations")
                     .Include("Reserve.Sport")
@@ -36,7 +43,7 @@ namespace Sports4All.Controller
         {
             using (var db = new ModelContext())
             {
-                var UserEvents = db.Events.Where(c => c.Users.Any(i => i.Username == username))
+                var UserEvents = db.Events.Where(c => c.Users.Any(i => i.Username.Equals(username)))
                     .Where(c => c.StartDate >= _todayDate)
                     .Include("Evaluations")
                     .Include("Reserve.Sport")
@@ -53,8 +60,8 @@ namespace Sports4All.Controller
         {
             using (var db = new ModelContext())
             {
-                var UserReserves = db.Reserves.Where(c => c.User.Username == username)
-                    .Where(c => c.Event != null || c.Event.EndDate >= _todayDate)
+                var UserReserves = db.Reserves.Where(c => c.User.Username.Equals(username))
+                    .Where(c => c.Event != null && c.Event.EndDate >= _todayDate)
                     .Include("Event.Users")
                     .Include("Sport")
                     .Include("Ground.Park").ToList();
@@ -70,7 +77,7 @@ namespace Sports4All.Controller
             using (var db = new ModelContext())
             {
                 var Evaluations = db.Evaluations
-                    .Where(c => c.EvaluatorId == username && c.EventId == eventId)
+                    .Where(c => c.EvaluatorId.Equals(username) && c.EventId == eventId)
                     .ToList();
                 if (Evaluations.Count != 0) state = true;
             }
@@ -88,6 +95,7 @@ namespace Sports4All.Controller
                     .Include("Reserve.Ground.Park")
                     .Include("Users")
                     .ToList();
+
                 return EventsbySport;
             }
         }
@@ -106,12 +114,32 @@ namespace Sports4All.Controller
             }
         }
 
+        public ICollection<Sport> RetrieveSingleSport(int sportId)
+        {
+            using (var db = new ModelContext())
+            {
+                var Sport = db.Sports
+                    .Where(c => c.SportId== sportId)
+                    .ToList();
+                return Sport;
+            }
+        }
+        public ICollection<Park> RetrieveSinglePark(int parkId)
+        {
+            using (var db = new ModelContext())
+            {
+                var Sport = db.Parks
+                    .Where(c => c.ParkId == parkId)
+                    .ToList();
+                return Sport;
+            }
+        }
         public ICollection<Event> EventsbyGroundandSport(int parkId, string sport)
         {
             using (var db = new ModelContext())
             {
                 var EventsbyGroundt = db.Events
-                    .Where(c => c.Reserve.Ground.Park.ParkId == parkId && c.Reserve.Sport.Name == sport &&
+                    .Where(c => c.Reserve.Ground.Park.ParkId == parkId && c.Reserve.Sport.Name.Equals(sport) &&
                                 c.StartDate > _todayDate)
                     .Include("Reserve.Sport")
                     .Include("Reserve.Ground.Park")
@@ -138,18 +166,56 @@ namespace Sports4All.Controller
             }
         }
 
-        //**nao funciona!!!! Corrigir o Delete
         public void DeleteEvent(int EventId)
         {
             using (var context = new ModelContext())
             {
-                var eventRecord = context.Events
-                    .Where(a => a.EventId == EventId)
-                    .FirstOrDefault();
-                context.Events.Remove(eventRecord);
+                var reserveRecord = context.Reserves
+                    .Include("Uses")
+                    .Include("Event")
+                    .Include("Ground")
+                    .Include("Sport")
+                    .Include("User")
+                    .Where(e => e.Event.EventId == EventId).Single();
+
+                 context.Events.Remove(reserveRecord.Event);
+                context.Reserves.Remove(reserveRecord);
                 context.SaveChanges();
+                MessageBox.Show("Reserva eliminada com sucesso");
+
             }
         }
+
+
+        public void UnregisterUser(int eventId, string username)
+        {
+
+            using (var context = new ModelContext())
+            {
+          
+                var events = context.Events.Find(eventId);
+                var users = context.Users.Find(username);
+
+                context.Entry(events).Collection("Users").Load();
+                events.Users.Remove(users);
+                context.SaveChanges();
+                MessageBox.Show("Saíste com sucesso do Evento");
+            }
+        }
+
+        //public void GetOutEvent(int eventId, string username)
+        //{
+
+        //    using (var context = new ModelContext())
+        //    {
+        //        var eventRecord = context.Events
+        //            .Where(a => a.EventId == eventId)
+        //            .Include("Reserve")
+        //            .FirstOrDefault();
+        //        context.Events.Remove(eventRecord);
+        //        context.SaveChanges();
+        //    }
+        //}
 
         /*UC_EVentDetails*
          *Função que retorna todos os utilizadores presentes no evento. Argumento:EventID.
@@ -172,7 +238,7 @@ namespace Sports4All.Controller
             {
                 var SingleEvent = db.Events
                     .Where(c => c.EventId == eventId)
-                    .Include("Reserve")
+                    .Include("Reserve.Ground.Park")
                     .FirstOrDefault();
                 return SingleEvent;
             }
@@ -183,7 +249,7 @@ namespace Sports4All.Controller
             using (var db = new ModelContext())
             {
                 var SingleUser = db.Users
-                    .Where(c => c.Username == username)
+                    .Where(c => c.Username.Equals(username))
                     .FirstOrDefault();
                 return SingleUser;
             }
@@ -197,7 +263,7 @@ namespace Sports4All.Controller
 
             //Event e = RetrieveSingleEvent(eventId);
             foreach (var user in users)
-                if (user.Username == u.Username)
+                if (user.Username.Equals(u.Username))
                 {
                     result = true;
                     break;
@@ -216,7 +282,7 @@ namespace Sports4All.Controller
                     .FirstOrDefault();
 
                 var SingleUser = db.Users
-                    .Where(c => c.Username == username)
+                    .Where(c => c.Username.Equals(username))
                     .FirstOrDefault();
 
                 Event.Users.Add(SingleUser);

@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sports4All.Controller;
 
@@ -26,6 +18,7 @@ namespace Sports4All
         private string _sport;
         private string _lotation;
         private string _eventId;
+        private string _username { get; set; }
         public string EventID
         {
             get { return _eventId; }
@@ -72,83 +65,42 @@ namespace Sports4All
         public UC_NextEventsandReserveItem()
         {
             InitializeComponent();
-
+            _username = Session.Instance.LoggedUser;
+            foreach (Control c in uC_UnregisterButton1.Controls)
+            {
+                c.Click += Unregister;
+            }
         }
 
-
-        private void label1_Click(object sender, EventArgs e)
+        public void BringToFrontUnregister(bool state)
         {
-
+            uC_UnregisterButton1.Visible = state;
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        public void ChangeJoinEventbtn(bool state)
         {
-
+            btnJoinEvent.Visible = state;
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        public void ChangeCancelbtn(bool state)
         {
-
+            btnCancel.Visible = state;
         }
 
-        private void plEventDate_Paint(object sender, PaintEventArgs e)
+        private void Unregister(object sender, EventArgs e)
         {
-
+            _eventsController.UnregisterUser(Convert.ToInt32(_eventId), _username);
         }
 
-        private void lblMonth_Event_Click(object sender, EventArgs e)
+        private void btnJoinEvent_Click(object sender, EventArgs e)
         {
-
+            _eventsController.JoinEvent(Convert.ToInt32(EventID), _username);
+            MessageBox.Show("Juntou-se ao evento com sucesso!");
+            btnJoinEvent.Enabled = false;
+            uC_UnregisterButton1.Visible = true;
         }
-
-        private void lblSpaceAvailableValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plEventData_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblEventOwnerValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblSpaceAvailable_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEventOwner_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEventHour_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEventHourValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plLine_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        public void HideJoinButton()
-        {
-            btnCancel.Visible = false;
-        }
-
         private void btn_CancelEvent(object sender, EventArgs e)
         {
-
             _eventsController.DeleteEvent(Convert.ToInt32(_eventId));
 
         }

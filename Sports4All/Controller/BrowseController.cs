@@ -42,11 +42,12 @@ namespace Sports4All.Controller
 
             using (var db = new ModelContext())
             {
-                var reservesList = db.Reserves.ToList();
+                DateTime currentTime = DateTime.Now;
+                var eventsList = db.Events.Include("Reserve").Where(x => x.StartDate > currentTime).ToList();
 
-                foreach (var reserve in reservesList)
+                foreach (var ev in eventsList)
                 {
-                    int id = reserve.SportId;
+                    int id = ev.Reserve.SportId;
                     if (!sportsIds.Contains(id))
                     {
                         sportsIds.Add(id);

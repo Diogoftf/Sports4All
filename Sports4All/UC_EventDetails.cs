@@ -1,29 +1,33 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_EventDetails : UserControl
+    public partial class UC_EventDetails : UserControl, IUserControl
     {
-        private MyEventsController eventsController;
+        private MyEventsController _eventsController;
         private string _maxPlayers;
         private string _maxPlayerAge;
         private string _minPlayerAge;
         private string _eventDate;
         private string _startHour;
         private string _endHour;
-        private int _eventID; 
+        private int _eventID;
+        private string _parkname;
+
+        public string ParkName
+        {
+            get => _parkname;
+            set
+            {
+                _parkname = value;
+                lbParkName.Text = value;
+            }
+        }
 
         #region  EventDetails
         public int EventId
@@ -91,25 +95,42 @@ namespace Sports4All
                 dtpNextEventDate.Text = value;
             }
         }
+
+        public string Id { get; set; }
         #endregion
 
         public UC_EventDetails()
         {
             InitializeComponent();
-            pickDateTimeOnly();
-           // _eventID = 1;// VALOR PARA TESTE!!!!!!!!!!
+            PickDateTimeOnly();
+            _eventsController = new MyEventsController();
+            Id = _eventID.ToString();
+            // _eventID = 1;// VALOR PARA TESTE!!!!!!!!!!
         }
 
-        private void pickDateTimeOnly()
-        {
 
-            
+        private void UC_EventsDetails_Load(object sender, EventArgs e)
+        {
+            if (DesignMode) return;
+            Populate();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        public void Populate()
         {
-            btnSaveChanges.Visible = true;
-            PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
+            PopulateUsersList();
+            PopulateEventDetails();
+            CheckOwner();
+        }
+
+        private void PickDateTimeOnly()
+        {
+            dtpStartEventTime.CustomFormat = "HH:mm";
+            dtpStartEventTime.Format = DateTimePickerFormat.Custom;
+            dtpStartEventTime.ShowUpDown = true;
+
+            dtpEndEventTime.CustomFormat = "HH:mm";
+            dtpEndEventTime.Format = DateTimePickerFormat.Custom;
+            dtpEndEventTime.ShowUpDown = true;
         }
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
@@ -127,8 +148,8 @@ namespace Sports4All
             DateTime NewStartDate = DateTime.ParseExact(startdateTime, format, provider);
             DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
             // DateTime NewDate = new DateTime();
-
-            eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
+            _eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
+        
         }
         private void PropertiesformEventDetails(bool Enabled, BorderStyle border, bool ReadOnly)
         {
@@ -157,28 +178,12 @@ namespace Sports4All
             _minPlayerAge = tbminAge.Text;
         }
 
-        private void UC_EventsDetailsB_Load(object sender, EventArgs e)
-        {
-            if (!DesignMode)
-            {
-                eventsController = new MyEventsController();
-                PopulateEventDetails();
-                PopulateUsersList();
-            }
-        }
-
-        public void PopulateUserControl()
-        {
-            PopulateUsersList();
-            PopulateEventDetails();
-        }
-
         private void PopulateUsersList()
         {
-            ICollection<User> enrolledUsers = eventsController.RetrieveEnrolledUsers(_eventID);
+            flpUsersEvent.Controls.Clear();
+            ICollection<User> enrolledUsers = _eventsController.RetrieveEnrolledUsers(_eventID);
             int enrolledUsersCount = enrolledUsers.Count;
             UC_UserinEventItem[] listusers = new UC_UserinEventItem[enrolledUsersCount];
-            
 
             for (int i = 0; i < enrolledUsersCount; i++)
             {
@@ -191,29 +196,35 @@ namespace Sports4All
                 };
                 flpUsersEvent.Controls.Add(listusers[i]);
             }
-        }
 
+        }
         private void PopulateEventDetails()
         {
-            var SingleEvent = eventsController.RetrieveSingleEvent(_eventID);
+
+            var SingleEvent = _eventsController.RetrieveSingleEvent(_eventID);
             lbEventId.Text = "Evento #" + SingleEvent.EventId;
             lblOwnerValue.Text = SingleEvent.Reserve.UserId;
             //lblUserPhoneValue.Text = Convert.ToString(SingleEvent.Reserve.User.PhoneNumber); campo está a Null na BD ainda, propriedade navegação.
             dtpNextEventDate.Text = SingleEvent.StartDate.ToLongDateString();
             dtpStartEventTime.Text = SingleEvent.StartDate.ToShortTimeString();
             dtpEndEventTime.Text = SingleEvent.EndDate.ToShortTimeString();
-            tbMaxPlayers.Text =Convert.ToString(SingleEvent.MaxPlayers);
+            tbMaxPlayers.Text = Convert.ToString(SingleEvent.MaxPlayers);
             tbMaxAge.Text = Convert.ToString(SingleEvent.MaxAge);
             tbminAge.Text = Convert.ToString(SingleEvent.MinAge);
             //**Ver Nome do Parque ainda**
+            ParkName = SingleEvent.Reserve.Ground.Park.Name;
 
         }
 
-        private void mC_Calendar_DateChanged(object sender, DateRangeEventArgs e)
+        public void CheckOwner()
         {
-
-
-
+            if (lblOwnerValue.Text != Session.Instance.LoggedUser) btnEdit.Visible = false;
         }
-    }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            btnSaveChanges.Visible = true;
+            PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
+        }
+    } 
 }

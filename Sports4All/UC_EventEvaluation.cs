@@ -1,68 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sports4All.Properties;
 using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_EventEvaluation : UserControl
+    public partial class UC_EventEvaluation : UserControl, IUserControl
     {
-        //public int EventId { get; set; }
-        public int EventId = 1;
+        private UC_SportsgroundEvItem _uc;
+        private ICollection<UC_PlayerEvaluationItem> _evaluationItems;
+        private EvaluationController _evaluationController;
+        private Event _ev;
 
-        private UC_SportsgroundEvItem uc;
-
-        private ICollection<UC_PlayerEvaluationItem> evaluationItems;
-        EvaluationController _evaluationController = new EvaluationController();
         public UC_EventEvaluation()
         {
             InitializeComponent();
-            evaluationItems = new List<UC_PlayerEvaluationItem>();
-            uc = UC_SportsgroundEvItem1;
+            _uc = UC_SportsgroundEvItem1;
+            _evaluationItems = new List<UC_PlayerEvaluationItem>();
+            _evaluationController = new EvaluationController();
+            _ev = new Event();
         }
+
+        #region Properties
+        public int EventId { get; set; }
+        public string Id { get; set; }
+        #endregion
 
         private void UCEventEvaluation_Load(object sender, EventArgs e)
         {
-            populateItems();
+            if (DesignMode) return;
+            Id = EventId.ToString();
+            Populate();
         }
 
         private void circularButton1_Click(object sender, EventArgs e)
         {
-            _evaluationController.SetParkEvaluation(uc.ParkId, uc.ParkQuality, uc.ParkPrice, EventId);
+            DialogResult result = MessageBox.Show("Deseja submeter as avaliações?", "Confirmation", MessageBoxButtons.YesNoCancel);
 
-            foreach (var evaluationUser in evaluationItems)
+            if (result == DialogResult.Yes)
+            {
+                SubmitEvaluations();
+                Form1.Instance.BringUcToFront<UC_MyEvents>("UC_MyEvents", Id);
+            }
+        }
+
+        public void SubmitEvaluations() 
+        {
+            _evaluationController.SetParkEvaluation(_uc.ParkId, _uc.ParkQuality, _uc.ParkPrice, EventId);
+
+            foreach (var evaluationUser in _evaluationItems)
             {
                 _evaluationController.SetUserEvaluation(evaluationUser.Username,
                     evaluationUser.PlayerSkill,
                     evaluationUser.PlayerFairplay,
                     EventId);
             }
+            _ev.Notify();
         }
 
-        private void populateItems()
+        public void Populate()
         {
             flpPlayersEvaluation.Controls.Clear();
 
+            //Event ev = _evaluationController.GetEvent(EventId);
+
             Park park = _evaluationController.GetEventPark(EventId);
 
-            uc.ParkName = park.Name;
-            //FALTA DEFINIR A IMAGEM
+            _uc.ParkId = park.ParkId;
 
+            _ev.Attach(park);
+
+            _uc.ParkName = park.Name;
+            //FALTA DEFINIR A IMAGEM
 
             foreach (User user in _evaluationController.GetEvaluableUsers(EventId) )
             {
                 UC_PlayerEvaluationItem playerEvaluation = new UC_PlayerEvaluationItem();
                 playerEvaluation.Username = user.Username;
-                
-                evaluationItems.Add(playerEvaluation);
+                _evaluationItems.Add(playerEvaluation);
                 flpPlayersEvaluation.Controls.Add(playerEvaluation);
+
+                _ev.Attach(user);
             }
 
         }

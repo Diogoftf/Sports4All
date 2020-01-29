@@ -11,18 +11,36 @@ using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_SportsgroundDesc : UserControl
+    public partial class UC_SportsgroundDesc : UserControl, IUserControl
     {
         private ParkDescriptionController _parkDescriptionController;
-        public int Id { get; set; }
+        private bool _controlSub = false;
 
         public UC_SportsgroundDesc()
         {
-            _parkDescriptionController = new ParkDescriptionController();
-
             InitializeComponent();
+            _parkDescriptionController = new ParkDescriptionController(); 
         }
 
+        #region Properties
+        public string Id { get; set; }
+        #endregion
+
+        private void UC_SportsgroundDesc_Load(object sender, EventArgs e)
+        {
+            if (DesignMode) return;
+            Populate();
+        }
+
+        public void Populate()
+        {
+            int id = Convert.ToInt32(Id);
+
+            lbSportsgndName.Text = _parkDescriptionController.GetPark(id).Name;
+            tbDescription.Text = _parkDescriptionController.GetPark(id).Description;
+            //pbPark.Image = _parkDescriptionController.GetPark(Id).Picture;
+            lblSportsList.Text = GetFormatedSportsList();
+        }
 
         public String GetFormatedSportsList()
         {
@@ -39,43 +57,22 @@ namespace Sports4All
             return trimmed;
         }
 
-        private void UC_SportsgroundDesc_Load(object sender, EventArgs e)
-        {
-            PopulateUserControl();
-        }
-
-        public void PopulateUserControl()
-        {
-            lbSportsgndName.Text = _parkDescriptionController.GetPark(Id).Name;
-            tbDescription.Text = _parkDescriptionController.GetPark(Id).Description;
-            //pbPark.Image = _parkDescriptionController.GetPark(Id).Picture;
-            lblSportsList.Text = GetFormatedSportsList();
-        }
-
         private void btnSeeEvents_Click(object sender, EventArgs e)
         {
+            Form1.Instance.BringUcToFront<UC_EventsSportsGrounds>("UC_EventsSportsGrounds", Id);
+        }
 
-            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventsSportsGrounds"))
+        private void pbSubscribe_Click(object sender, EventArgs e)
+        {
+            if (!_controlSub)
             {
-                UC_EventsSportsGrounds uc = new UC_EventsSportsGrounds { Dock = DockStyle.Fill };
-                uc.Id = Id;
-                Form1.Instance.PnlContainer.Controls.Add(uc);
+                pbSubscribe.Image = Image.FromFile(@"..\..\Images\" + "sub_Button.png");
+                _controlSub = true;
             }
-
-            Form1.Instance.PnlContainer.Controls["UC_EventsSportsGrounds"].BringToFront();
-
-            if (Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventsSportsGrounds"))
+            else
             {
-                foreach (UserControl x in Form1.Instance.PnlContainer.Controls)
-                {
-                    if (Form1.Instance.PnlContainer.Controls.GetChildIndex(x) == 0)
-                    {
-                        Form1.Instance.FrontControl = x;
-                        UC_EventsSportsGrounds j = (UC_EventsSportsGrounds)x;
-                        j.Id = Id;
-                        j.ListEventsbyGround();
-                    }
-                }
+                pbSubscribe.Image = Image.FromFile(@"..\..\Images\" + "unsub_Button.png");
+                _controlSub = false;
             }
         }
     }
