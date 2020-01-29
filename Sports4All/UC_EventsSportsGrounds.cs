@@ -30,6 +30,7 @@ namespace Sports4All
             _eventsController = new MyEventsController();
             _parkController = new ParkDescriptionController();
             _eventsList = new Collection<Event>();
+            
         }
 
         #region Properties
@@ -46,13 +47,14 @@ namespace Sports4All
 
         private void UC_EventsSportsGrounds_Load(object sender, EventArgs e)
         {
-            if (DesignMode) return;
             _id = Convert.ToInt32(Id);
+            if (DesignMode) return;
             Populate();
         }
 
         public void Populate()
         {
+           
             flpEventListSportsground.Controls.Clear();
             _eventsList = _eventsController.EventsByGround(Convert.ToInt32(Id));
             if (!DesignMode) ListEventsbyGround();
@@ -62,10 +64,10 @@ namespace Sports4All
         {
             flpEventListSportsground.Controls.Clear();
             var EventsbyGroundCount = _eventsList.Count;
-            UC_EventSportsGroundItem[] listitems = new UC_EventSportsGroundItem[EventsbyGroundCount];
-            var Park = _eventsController.RetrieveSinglePark(_id);
-            tbSportsgroundName.Text = Park.ToList()[0].Name;
-    
+            UC_NextEventsandReserveItem[] listitems = new UC_NextEventsandReserveItem[EventsbyGroundCount];
+            var Park = _parkController.GetPark(Convert.ToInt32(Id));
+            ParkName = Park.Name;
+
             for (int i = 0; i < EventsbyGroundCount; i++)
             {
                 var users = _eventsList.ToList()[i].Users.ToList();
@@ -74,20 +76,20 @@ namespace Sports4All
                 var hour = _eventsList.ToList()[i].StartDate.ToShortTimeString();
                 var month = _eventsList.ToList()[i].StartDate.ToLongDateString();
                 month = month.Substring(6, 3).ToUpper();
-                listitems[i] = new UC_EventSportsGroundItem
+                listitems[i] = new UC_NextEventsandReserveItem
                 {
-                Owner = _eventsList.ToList()[0].Reserve.UserId,
-                SportGround = _eventsList.ToList()[0].Reserve.Ground.Park.Name,
-                Hour = _eventsList.ToList()[i].StartDate.ToShortTimeString(),
-                Day = Convert.ToString(_eventsList.ToList()[i].StartDate.Day),
-                Month = month,
-                Lotation = usersCount + "/" + maxUsers,
-                EventId = _eventsList.ToList()[0].EventId
+                    Owner = _eventsList.ToList()[0].Reserve.UserId,
+                    SportGround = _eventsList.ToList()[0].Reserve.Ground.Park.Name,
+                    Hour = _eventsList.ToList()[i].StartDate.ToShortTimeString(),
+                    Day = Convert.ToString(_eventsList.ToList()[i].StartDate.Day),
+                    Month = month,
+                    Lotation = usersCount + "/" + maxUsers,
+                    EventID = Convert.ToString(_eventsList.ToList()[0].EventId)
                 };
 
-                if (usersCount == maxUsers) listitems[i].DisableJoinEventbtn();  // remove botao para se juntar ao evento
+                 if (usersCount == maxUsers)
+                    listitems[i].ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
                 foreach (var user in users)
-                {
                     if (user.Username == _username) // já estou no evento
                     {
                         listitems[i].ChangeJoinEventbtn(false);
@@ -96,7 +98,6 @@ namespace Sports4All
                         {
                             // sou o owner, botao de remover evento
                             listitems[i].ChangeCancelbtn(true);
-
                         }
                         else
                         {
@@ -105,8 +106,7 @@ namespace Sports4All
                         }
                         break;
                     }
-                    // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
-                }
+                // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
 
                 flpEventListSportsground.Controls.Add(listitems[i]);
             }
@@ -196,7 +196,7 @@ namespace Sports4All
                 btnHandball.BackColor = Color.LightBlue;
                 btnAllSports.BackColor = Color.LightGray;
                 flpEventListSportsground.Controls.Clear();
-                _eventsList =_eventsController.EventsbyGroundandSport(_id, btnHandball.Text);
+                _eventsList = _eventsController.EventsbyGroundandSport(_id, btnHandball.Text);
                 ListEventsbyGround();
             }
         }
@@ -216,3 +216,4 @@ namespace Sports4All
         }
     }
 }
+

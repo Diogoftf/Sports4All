@@ -88,7 +88,6 @@ namespace Sports4All
                 }
             }
         }
-
         private void MyReserves()
         {
             // if (flpListMyEvents.Controls.Count > 0)
@@ -115,10 +114,18 @@ namespace Sports4All
                     Lotation = usersCount + "/" + maxUsers,
                     EventID = Convert.ToString(myReserves.ToList()[i].Event.EventId)
                 };
+                if (Username.Equals(listitems[i].Owner))
+                {
+                    listitems[i].ChangeJoinEventbtn(false);
+                }
+                else
+                {
+                    listitems[i].ChangeCancelbtn(false);
+                    listitems[i].ChangeJoinEventbtn(true);
+                }
                 flpListMyEvents.Controls.Add(listitems[i]);
             }
         }
-
         private void btnNextEvents_Click(object sender, EventArgs e)
         {
             flpListMyEvents.Controls.Clear();
@@ -149,15 +156,13 @@ namespace Sports4All
                 // listitems[i].HideCancelReserve(); 
                 if (Username.Equals(listitems[i].Owner))
                 {
-                    listitems[i].ChangeJoinButton(false);
+                    listitems[i].ChangeJoinEventbtn(false);
                 }
                 else
                 {
-                    listitems[i].HideCancelReserve();
-                    listitems[i].ChangeJoinButton(true);
+                    listitems[i].ChangeCancelbtn(false);
+                    listitems[i].ChangeJoinEventbtn(true);
                 }
-
-
                 flpListMyEvents.Controls.Add(listitems[i]);
             }
         }

@@ -237,12 +237,6 @@
     <Compile Include="UC_UserProfile.Designer.cs">
       <DependentUpon>UC_UserProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_EventModalityItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_EventModalityItem.Designer.cs">
-      <DependentUpon>UC_EventModalityItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_EventMyEventsItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -254,12 +248,6 @@
     </Compile>
     <Compile Include="UC_EventsModality.Designer.cs">
       <DependentUpon>UC_EventsModality.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_EventSportsGroundItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_EventSportsGroundItem.Designer.cs">
-      <DependentUpon>UC_EventSportsGroundItem.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_EventsSportsGrounds.cs">
       <SubType>UserControl</SubType>
@@ -382,17 +370,11 @@
     <EmbeddedResource Include="UC_UserProfile.resx">
       <DependentUpon>UC_UserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventModalityItem.resx">
-      <DependentUpon>UC_EventModalityItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC_EventMyEventsItem.resx">
       <DependentUpon>UC_EventMyEventsItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_EventsModality.resx">
       <DependentUpon>UC_EventsModality.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventSportsGroundItem.resx">
-      <DependentUpon>UC_EventSportsGroundItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_EventsSportsGrounds.resx">
       <DependentUpon>UC_EventsSportsGrounds.cs</DependentUpon>
