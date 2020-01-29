@@ -9,13 +9,19 @@ namespace Sports4All.Controller
 {
     public class MyEventsController
     {
-        private readonly DateTime _todayDate = DateTime.Now;
-        private ICollection<Event> _userEvents = new Collection<Event>();
-        private ICollection<User> User = new Collection<User>();
+        private readonly DateTime _todayDate;
+        private ICollection<Event> _userEvents;
+        private ICollection<User> _user;
         private int _userCompletedEventsCount { get; set; }
         private int _userNextEventsCount { get; set; }
         private int _userReservesCount { get; set; }
 
+        public MyEventsController()
+        {
+            _todayDate = DateTime.Now;
+            _userEvents = new Collection<Event>();
+            _user = new Collection<User>();
+        }
         public ICollection<Event> RetrieveCompletedEvents(string username)
         {
             using (var db = new ModelContext())
@@ -89,6 +95,7 @@ namespace Sports4All.Controller
                     .Include("Reserve.Ground.Park")
                     .Include("Users")
                     .ToList();
+
                 return EventsbySport;
             }
         }

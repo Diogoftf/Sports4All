@@ -32,16 +32,12 @@ namespace Sports4All
 
         private void rbtnQuality_CheckedChanged(object sender, EventArgs e)
         {
-            // This is the correct control.
             RadioButton rb = (RadioButton)sender;
-
             ParkQuality = Convert.ToInt32(rb.Text);
         }
         private void rbtnPrice_CheckedChanged(object sender, EventArgs e)
         {
-            // This is the correct control.
             RadioButton rb = (RadioButton)sender;
-
             ParkPrice = Convert.ToInt32(rb.Text);
         }
     }

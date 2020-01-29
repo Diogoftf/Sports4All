@@ -11,21 +11,36 @@ using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_Rank : UserControl
+    public partial class UC_Rank : UserControl, IUserControl
     {
         private RankController _rankController;
 
+    
         public UC_Rank()
         {
             InitializeComponent();
         }
 
-        private void lblEventOwnerValue_Click(object sender, EventArgs e)
+        #region Properties
+        public string Id { get; set; }
+        #endregion
+
+        private void UC_Rank_Load(object sender, EventArgs e)
         {
+            if (DesignMode) return;
+            Populate();
 
         }
 
-        private void load_Rank(bool top10)
+        public void Populate()
+        {
+            _rankController = new RankController();
+            //_rankController.UserPointsCalculator(); // PROVISORIO //
+            //_rankController.ParkPointsCalculator(); // PROVISORIO //
+            Load_Rank(true);
+        }
+
+        private void Load_Rank(bool top10)
         {
             lblName1.Text = "Utilizador";
             lblName2.Text = "Partidas";
@@ -63,26 +78,14 @@ namespace Sports4All
 
         }
 
-        private void UC_Rank_Load(object sender, EventArgs e)
-        {
-            if(!DesignMode)
-            {
-                _rankController = new RankController();
-                //_rankController.UserPointsCalculator(); // PROVISORIO //
-                //_rankController.ParkPointsCalculator(); // PROVISORIO //
-                load_Rank(true);
-            }
-
-        }
-
         private void btnTop10_Click(object sender, EventArgs e)
         {
-            load_Rank(true);
+            Load_Rank(true);
         }
 
         private void btnGlobalRank_Click(object sender, EventArgs e)
         {
-            load_Rank(false);
+            Load_Rank(false);
         }
 
         private void btnTopRecintos_Click(object sender, EventArgs e)

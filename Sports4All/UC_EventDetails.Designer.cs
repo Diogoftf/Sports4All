@@ -267,7 +267,6 @@
             this.btnEdit.Size = new System.Drawing.Size(30, 27);
             this.btnEdit.TabIndex = 51;
             this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
             // btnSaveChanges
             // 
@@ -377,7 +376,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_EventDetails";
             this.Size = new System.Drawing.Size(1090, 622);
-            this.Load += new System.EventHandler(this.UC_EventsDetailsB_Load);
+            this.Load += new System.EventHandler(this.UC_EventsDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPark)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

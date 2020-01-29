@@ -11,7 +11,7 @@ using Sports4All.Controller;
 
 namespace Sports4All
 {
-    public partial class UC_Home : UserControl
+    public partial class UC_Home : UserControl, IUserControl
     {
         private HomeController _homeController;
         private ICollection<UC_HomeMyEventsItem> _MyEvents = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
@@ -30,20 +30,53 @@ namespace Sports4All
         public UC_Home()
         {
             InitializeComponent();
+        }
 
+        #region Properties
+        public string Id { get; set; }
+        #endregion
 
+        private void UC_Home_Load(object sender, EventArgs e)
+        {
+            if (DesignMode) return;
+            Populate();
+        }
+
+        public void Populate()
+        {
+            if (!DesignMode)
+            {
+
+                _homeController = new HomeController();
+                flpInfoStats.Visible = false;
+                ProgressBarInitializer();
+                dtpNextEventDate.MinDate = dtpMySportDate.MinDate = DateTime.Now;
+                dtpMySportDate.Format = dtpNextEventDate.Format = DateTimePickerFormat.Custom;
+                dtpMySportDate.CustomFormat = dtpNextEventDate.CustomFormat = "dd-MM-yyyy";
+
+                _noMyEventsitems.Sport = _noMyEventsitems.Recinto = _noMyEventsitems.Organizador = _noMyEventsitems.DateTime = "";
+                _noMyEventsitems.NoEvents = "Não tens nenhum evento :(";
+                _noMyEventsitems.DisableImage = null;
+                _noMyEventsitems.resetNameProprieties = "";
+
+                _noSuggestionsEventsitems.Sport = _noMyEventsitems.Recinto = _noMyEventsitems.Organizador = _noMyEventsitems.DateTime = "";
+                _noSuggestionsEventsitems.NoEvents = "Não existem sugestões :(";
+                _noSuggestionsEventsitems.DisableImage = null;
+                _noSuggestionsEventsitems.resetNameProprieties = "";
+
+                PopulateMyEventsList();
+                PopulateMySuggestionsList();
+                PopulateComboBox();
+                infoStatsDescription();
+                userStatsDetails();
+            }
         }
 
         private void btnCreateEvent_Click(object sender, EventArgs e)
         {
-            UC_CreateEvent1.Visible = true;
+            Form1.Instance.BringUcToFront<UC_CreateEvent>("UC_CreateEvent", "");
         }
 
-
-        private void lbMySportDate_Click(object sender, EventArgs e)
-        {
-
-        }
 
         public void ProgressBarInitializer()
         {
@@ -92,43 +125,6 @@ namespace Sports4All
                 flpMyEvents.Controls.Add(_noMyEventsitems);
         }
 
-        private void UC_Home_Load(object sender, EventArgs e)
-        {
-            if(!DesignMode)
-            {
-                
-                _homeController = new HomeController();
-                InitializateElements();
-            }
-
-        }
-
-        private void InitializateElements()
-        {
-            UC_CreateEvent1.Visible = false;
-            flpInfoStats.Visible = false;
-            ProgressBarInitializer();
-            dtpNextEventDate.MinDate = dtpMySportDate.MinDate = DateTime.Now;
-            dtpMySportDate.Format = dtpNextEventDate.Format = DateTimePickerFormat.Custom;
-            dtpMySportDate.CustomFormat = dtpNextEventDate.CustomFormat = "dd-MM-yyyy";
-
-            _noMyEventsitems.Sport = _noMyEventsitems.Recinto = _noMyEventsitems.Organizador = _noMyEventsitems.DateTime = "";
-            _noMyEventsitems.NoEvents = "Não tens nenhum evento :(";
-            _noMyEventsitems.DisableImage = null;
-            _noMyEventsitems.resetNameProprieties = "";
-
-            _noSuggestionsEventsitems.Sport = _noMyEventsitems.Recinto = _noMyEventsitems.Organizador = _noMyEventsitems.DateTime = "";
-            _noSuggestionsEventsitems.NoEvents = "Não existem sugestões :(";
-            _noSuggestionsEventsitems.DisableImage = null;
-            _noSuggestionsEventsitems.resetNameProprieties = "";
-
-            PopulateMyEventsList();
-            PopulateMySuggestionsList();
-            PopulateComboBox();
-            infoStatsDescription();
-            userStatsDetails();
-        }
-
         private void infoStatsDescription()
         {
             rtbInfoStats.SelectionFont = new Font("Century Gothic", 11, FontStyle.Bold);
@@ -151,16 +147,6 @@ namespace Sports4All
                 lbSkillValue.Text = _homeController.getMyStats().ToList()[2];
                 lbRacioValue.Text = _homeController.getMyStats().ToList()[3];
             }
-
-        }
-
-        private void lbHighlights_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbNextEventDate_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -303,11 +289,6 @@ namespace Sports4All
                 flpEventSuggestions.Controls.Add(_noSuggestionsEventsitems);
         }
 
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pbInfo_MouseHover(object sender, EventArgs e)
         {
             flpInfoStats.Visible = true;
@@ -318,44 +299,9 @@ namespace Sports4All
             flpInfoStats.Visible = false;
         }
 
-        private void rtbInfoStats_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbMatchesPlayed_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pbInfo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             flpInfoStats.Visible = false;
-        }
-
-        private void lbNextLevel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UC_Home_Enter(object sender, EventArgs e)
-        {
-            //InitializateElements();
-        }
-
-        private void UC_CreateEvent1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void dtpNextEventDate_ValueChanged(object sender, EventArgs e)

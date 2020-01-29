@@ -66,7 +66,6 @@
             this.lblRemainingTimeEvaluation.Size = new System.Drawing.Size(198, 20);
             this.lblRemainingTimeEvaluation.TabIndex = 1;
             this.lblRemainingTimeEvaluation.Text = "Restam 5 dias para Avaliar";
-            this.lblRemainingTimeEvaluation.Click += new System.EventHandler(this.lbRemainingTimeEvaluation_Click);
             // 
             // btnEvaluate
             // 
@@ -96,7 +95,6 @@
             this.plEventData.Name = "plEventData";
             this.plEventData.Size = new System.Drawing.Size(942, 129);
             this.plEventData.TabIndex = 3;
-            this.plEventData.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pbModality
             // 

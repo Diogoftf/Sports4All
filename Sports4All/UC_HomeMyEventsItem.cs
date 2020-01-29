@@ -21,7 +21,7 @@ namespace Sports4All
         private string _sport;
         private Color _color;
         private Image _SportPicture;
-        private MyEventsController _eventsController = new MyEventsController();
+        private MyEventsController _eventsController;
 
         public int Id { get; set; }
 
@@ -112,39 +112,14 @@ namespace Sports4All
         public UC_HomeMyEventsItem()
         {
             InitializeComponent();
+            _eventsController = new MyEventsController();
 
             //se for meu evento, mostrar o pbEdit
         }
 
-        private void pbEdit_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void pbMoreDetails_Click(object sender, EventArgs e)
         {
-            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventDetails"))
-            {
-                UC_EventDetails uc = new UC_EventDetails { Dock = DockStyle.Fill };
-                uc.EventId = Id;
-                Form1.Instance.PnlContainer.Controls.Add(uc);
-            }
-
-            Form1.Instance.PnlContainer.Controls["UC_EventDetails"].BringToFront();
-
-            if (Form1.Instance.PnlContainer.Controls.ContainsKey("UC_EventDetails"))
-            {
-                foreach (UserControl x in Form1.Instance.PnlContainer.Controls)
-                {
-                    if (Form1.Instance.PnlContainer.Controls.GetChildIndex(x) == 0)
-                    {
-                        Form1.Instance.FrontControl = x;
-                        UC_EventDetails j = (UC_EventDetails)x;
-                        j.EventId = Id;
-                        j.PopulateUserControl();
-                    }
-                }
-            }
+            Form1.Instance.BringUcToFront<UC_EventDetails>("UC_EventDetails", Id.ToString());
         }
 
         private void pbDelete_Click(object sender, EventArgs e)

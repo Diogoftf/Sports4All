@@ -10,27 +10,33 @@ using Sports4All.UserControls_Items;
 
 namespace Sports4All
 {
-    public partial class UC_SportsGround : UserControl
+    public partial class UC_SportsGround : UserControl, IUserControl
     {
 
         private BrowseParksController _browseParksController;
-        private bool _handle = true;
-
         public UC_SportsGround()
         {
             InitializeComponent();
             _browseParksController = new BrowseParksController();
         }
 
+
+        #region Properties
+        public string Id { get; set; }
+        #endregion
+
         private void UC_SportsGround_Load(object sender, EventArgs e)
         {
             if (DesignMode) return;
+            Populate();
+        }
 
+        public void Populate()
+        {
             PopulateItems(true, 0);
             PopulateLocationComboBox();
             PopulateScoreComboBox();
         }
-
         private void PopulateItems(bool ascending, int id)
         {
             ICollection<Park> parks = _browseParksController.GetParksAscending(ascending, id);
@@ -39,7 +45,7 @@ namespace Sports4All
 
             List<String> imageList = new List<string>
             {
-                        "https://dovethemes.com/wp-content/uploads/2016/12/Eiffel-Tower-Theme.jpg",
+                "https://dovethemes.com/wp-content/uploads/2016/12/Eiffel-Tower-Theme.jpg",
             };
 
             UC_SportsGroundItem[] listItems = new UC_SportsGroundItem[parks.Count];
@@ -65,7 +71,6 @@ namespace Sports4All
 
         public void PopulateScoreComboBox()
         {
-            // Bind combobox to dictionary
             Dictionary<int, string> values = new Dictionary<int, string>
                 {
                     {1, "Ascendente"}, {2, "Descendente"}
@@ -73,9 +78,6 @@ namespace Sports4All
             cbScore.DataSource = new BindingSource(values, null);
             cbScore.DisplayMember = "Value";
             cbScore.ValueMember = "Key";
-
-            // Get combobox selection (in handler)
-            string value = ((KeyValuePair<int, string>)cbScore.SelectedItem).Value;
         }
 
         public void PopulateLocationComboBox()
@@ -90,9 +92,6 @@ namespace Sports4All
             cbLocation.ValueMember = "Key";
 
             cbLocation.SelectedValue = 0;
-
-            // Get combobox selection (in handler)
-            string value = ((KeyValuePair<int, string>)cbLocation.SelectedItem).Value;
         }
 
         private void SortItemChanged(object sender, EventArgs e)
@@ -109,6 +108,5 @@ namespace Sports4All
 
             return key == 1;
         }
-
     }
 }

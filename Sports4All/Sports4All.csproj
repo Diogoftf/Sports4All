@@ -110,6 +110,7 @@
     </Compile>
     <Compile Include="IObserver.cs" />
     <Compile Include="ISubject.cs" />
+    <Compile Include="IUserControl.cs" />
     <Compile Include="Migrations\202001252230589_M001.cs" />
     <Compile Include="Migrations\202001252230589_M001.designer.cs">
       <DependentUpon>202001252230589_M001.cs</DependentUpon>
@@ -412,6 +413,7 @@
     <EmbeddedResource Include="View\UserControls_Screens\UC_Subscriptions.resx">
       <DependentUpon>UC_Subscriptions.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

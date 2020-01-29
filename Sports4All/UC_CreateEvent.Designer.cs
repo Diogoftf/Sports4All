@@ -343,7 +343,6 @@
             this.cbMinAge.Name = "cbMinAge";
             this.cbMinAge.Size = new System.Drawing.Size(284, 30);
             this.cbMinAge.TabIndex = 2;
-            this.cbMinAge.SelectedIndexChanged += new System.EventHandler(this.cbMinAge_SelectedIndexChanged);
             // 
             // cbMaxAge
             // 
@@ -354,7 +353,6 @@
             this.cbMaxAge.Name = "cbMaxAge";
             this.cbMaxAge.Size = new System.Drawing.Size(284, 30);
             this.cbMaxAge.TabIndex = 3;
-            this.cbMaxAge.SelectedIndexChanged += new System.EventHandler(this.cbMaxAge_SelectedIndexChanged);
             // 
             // lblEvent
             // 
@@ -466,7 +464,7 @@
             this.Controls.Add(this.lbCreateEvent);
             this.Controls.Add(this.btnCancelEvent);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UC_CreateEvent";
             this.Size = new System.Drawing.Size(1090, 622);
             this.Load += new System.EventHandler(this.UC_CreateEvent_Load);

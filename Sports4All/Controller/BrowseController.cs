@@ -42,7 +42,8 @@ namespace Sports4All.Controller
 
             using (var db = new ModelContext())
             {
-                var reservesList = db.Reserves.ToList();
+                DateTime currentTime = DateTime.Now;
+                var reservesList = db.Reserves.Where(x => x.Date > currentTime).ToList();
 
                 foreach (var reserve in reservesList)
                 {
