@@ -20,7 +20,7 @@ namespace Sports4All
             InitializeComponent();
             _eventsController = new MyEventsController();
             _username = Session.Instance.LoggedUser;
-            _id = Convert.ToInt32(Id);
+           
         }
 
         #region Properties
@@ -36,6 +36,7 @@ namespace Sports4All
 
         private void onLoad(object sender, EventArgs e)
         {
+            _id = Convert.ToInt32(Id);
             if (DesignMode) return;
             Populate();
         }
@@ -48,7 +49,7 @@ namespace Sports4All
 
             var EventsbySport = _eventsController.EventsBySport(id);
             var EventsbySportCount = EventsbySport.Count;
-            UC_EventModalityItem[] listitems = new UC_EventModalityItem[EventsbySportCount];
+            UC_NextEventsandReserveItem[] listitems = new UC_NextEventsandReserveItem[EventsbySportCount];
             var Sport = _eventsController.RetrieveSingleSport(id);
             tbModalityName.Text = Sport.ToList()[0].Name;
             for (int i = 0; i < EventsbySportCount; i++)
@@ -58,9 +59,9 @@ namespace Sports4All
                 var hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString();
                 var month = EventsbySport.ToList()[i].StartDate.ToLongDateString();
                 month = month.Substring(6, 3).ToUpper();
-                listitems[i] = new UC_EventModalityItem
+                listitems[i] = new UC_NextEventsandReserveItem
                 {
-                    EventId = EventsbySport.ToList()[i].EventId,
+                    EventID = Convert.ToString(EventsbySport.ToList()[i].EventId),
                     Owner = EventsbySport.ToList()[i].Reserve.UserId,
                     SportGround = EventsbySport.ToList()[i].Reserve.Ground.Park.Name,
                     Hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString(),
@@ -69,7 +70,7 @@ namespace Sports4All
                     Lotation = usersCount + "/" + maxUsers
 
                 };
-                if (usersCount == maxUsers) listitems[i].DisableJoinEventbtn(); // remove botao para se juntar ao evento
+                if (usersCount == maxUsers) listitems[i].ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
                 flpEventListModality.Controls.Add(listitems[i]);
             }
         }
@@ -117,10 +118,10 @@ namespace Sports4All
         public void ListEventsBySport()
         {
             flpEventListModality.Controls.Clear();
-            var EventsbySport = _eventsController.EventsBySport(Id);
+            var EventsbySport = _eventsController.EventsBySport(_id);
             var EventsbySportCount = EventsbySport.Count;
             var listitems = new UC_NextEventsandReserveItem[EventsbySportCount];
-            var Sport = _eventsController.RetrieveSingleSport(Id);
+            var Sport = _eventsController.RetrieveSingleSport(_id);
             tbModalityName.Text = Sport.ToList()[0].Name;
             for (var i = 0; i < EventsbySportCount; i++)
             {

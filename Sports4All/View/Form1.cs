@@ -1,5 +1,6 @@
 ﻿using Sports4All.UserControls_Screens;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 using Sports4All.Controller;
 
@@ -35,7 +36,6 @@ namespace Sports4All
 
         public UserControl FrontControl { get; set; }
         #endregion
-
         private void Form1_Load(object sender, EventArgs e)
         {
             MoveSidePanel(btn_Home);
@@ -48,7 +48,6 @@ namespace Sports4All
             }
             _obj = this;
             AddUserControlsToForm();
-
         }
 
 

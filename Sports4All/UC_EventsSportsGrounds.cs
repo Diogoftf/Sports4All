@@ -30,7 +30,7 @@ namespace Sports4All
             _eventsController = new MyEventsController();
             _parkController = new ParkDescriptionController();
             _eventsList = new Collection<Event>();
-            _id = Convert.ToInt32(Id);
+            
         }
 
         #region Properties
@@ -47,22 +47,14 @@ namespace Sports4All
 
         private void UC_EventsSportsGrounds_Load(object sender, EventArgs e)
         {
+            _id = Convert.ToInt32(Id);
             if (DesignMode) return;
             Populate();
         }
 
         public void Populate()
         {
-            get => _parkName;
-            set
-            {
-                _parkName = value;
-                tbSportsgroundName.Text = value;
-            }
-        }
-
-        private void Recintos_Load(object sender, EventArgs e)
-        {
+           
             flpEventListSportsground.Controls.Clear();
             _eventsList = _eventsController.EventsByGround(Convert.ToInt32(Id));
             if (!DesignMode) ListEventsbyGround();
@@ -72,12 +64,11 @@ namespace Sports4All
         {
             flpEventListSportsground.Controls.Clear();
             var EventsbyGroundCount = _eventsList.Count;
-            var listitems = new UC_NextEventsandReserveItem[EventsbyGroundCount];
-            var Park = _parkController.GetPark(Id);
-
+            UC_NextEventsandReserveItem[] listitems = new UC_NextEventsandReserveItem[EventsbyGroundCount];
+            var Park = _parkController.GetPark(Convert.ToInt32(Id));
             ParkName = Park.Name;
 
-            for (var i = 0; i < EventsbyGroundCount; i++)
+            for (int i = 0; i < EventsbyGroundCount; i++)
             {
                 var users = _eventsList.ToList()[i].Users.ToList();
                 var usersCount = _eventsList.ToList()[i].Users.Count;
@@ -87,17 +78,16 @@ namespace Sports4All
                 month = month.Substring(6, 3).ToUpper();
                 listitems[i] = new UC_NextEventsandReserveItem
                 {
-                    EventID = Convert.ToString(_eventsList.ToList()[i].EventId),
-                    Owner = _eventsList.ToList()[i].Reserve.UserId,
-                    SportGround = _eventsList.ToList()[i].Reserve.Ground.Park.Name,
+                    Owner = _eventsList.ToList()[0].Reserve.UserId,
+                    SportGround = _eventsList.ToList()[0].Reserve.Ground.Park.Name,
                     Hour = _eventsList.ToList()[i].StartDate.ToShortTimeString(),
                     Day = Convert.ToString(_eventsList.ToList()[i].StartDate.Day),
                     Month = month,
                     Lotation = usersCount + "/" + maxUsers,
-                    Sport = _eventsList.ToList()[i].Reserve.Sport.Name
+                    EventID = Convert.ToString(_eventsList.ToList()[0].EventId)
                 };
 
-                if (usersCount == maxUsers)
+                 if (usersCount == maxUsers)
                     listitems[i].ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
                 foreach (var user in users)
                     if (user.Username == _username) // já estou no evento
@@ -114,7 +104,6 @@ namespace Sports4All
                             listitems[i].ChangeJoinEventbtn(false);
                             listitems[i].BringToFrontUnregister(true);
                         }
-
                         break;
                     }
                 // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
@@ -122,7 +111,6 @@ namespace Sports4All
                 flpEventListSportsground.Controls.Add(listitems[i]);
             }
         }
-
         private void mouseHover(object sender, EventArgs e)
         {
             if (!_controlSub) tbSubSportsGroundNotification.Visible = true;
@@ -148,18 +136,25 @@ namespace Sports4All
             {
                 btnSub.Image = ((System.Drawing.Image)(_resources.GetObject("subButton.Image")));
                 _controlSub = false;
-            }
-        }
 
+            }
+
+        }
         private void showNotification(string title, string body)
         {
-            var notifyIcon = new NotifyIcon();
+            NotifyIcon notifyIcon = new NotifyIcon();
             notifyIcon.Icon = SystemIcons.Application;
             notifyIcon.Visible = true;
 
-            if (title != null) notifyIcon.BalloonTipTitle = title;
+            if (title != null)
+            {
+                notifyIcon.BalloonTipTitle = title;
+            }
 
-            if (body != null) notifyIcon.BalloonTipText = body;
+            if (body != null)
+            {
+                notifyIcon.BalloonTipText = body;
+            }
 
             notifyIcon.ShowBalloonTip(30000);
         }
@@ -201,7 +196,7 @@ namespace Sports4All
                 btnHandball.BackColor = Color.LightBlue;
                 btnAllSports.BackColor = Color.LightGray;
                 flpEventListSportsground.Controls.Clear();
-                _eventsList =_eventsController.EventsbyGroundandSport(_id, btnHandball.Text);
+                _eventsList = _eventsController.EventsbyGroundandSport(_id, btnHandball.Text);
                 ListEventsbyGround();
             }
         }
@@ -221,3 +216,4 @@ namespace Sports4All
         }
     }
 }
+

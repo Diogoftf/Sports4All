@@ -114,7 +114,7 @@ namespace Sports4All
                     Lotation = usersCount + "/" + maxUsers,
                     EventID = Convert.ToString(myReserves.ToList()[i].Event.EventId)
                 };
-                if (_username.Equals(listitems[i].Owner))
+                if (Username.Equals(listitems[i].Owner))
                 {
                     listitems[i].ChangeJoinEventbtn(false);
                 }
