@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sports4All.Controller;
 
@@ -14,44 +11,50 @@ namespace Sports4All
 {
     public partial class UC_EventsSportsGrounds : UserControl
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsModality));
         private readonly MyEventsController _eventsController = new MyEventsController();
-        private ParkDescriptionController _parkController = new ParkDescriptionController();
+        private readonly ParkDescriptionController _parkController = new ParkDescriptionController();
+        private readonly ComponentResourceManager resources = new ComponentResourceManager(typeof(UC_EventsModality));
+        private bool _controlSub;
         private ICollection<Event> _eventsList = new Collection<Event>();
-        public int Id { get; set; }
-        private bool _controlSub = false;
         private string _parkName;
-        private string _username { get; set; }
 
-        public string ParkName
-        {
-
-            get { return _parkName; }
-            set { _parkName = value; tbSportsgroundName.Text = value; }
-
-        }
         public UC_EventsSportsGrounds()
         {
             InitializeComponent();
             _username = Session.Instance.LoggedUser;
             btnAllSports.BackColor = Color.LightBlue;
         }
+
+        public int Id { get; set; }
+        private string _username { get; }
+
+        public string ParkName
+        {
+            get => _parkName;
+            set
+            {
+                _parkName = value;
+                tbSportsgroundName.Text = value;
+            }
+        }
+
         private void Recintos_Load(object sender, EventArgs e)
         {
             flpEventListSportsground.Controls.Clear();
             _eventsList = _eventsController.EventsByGround(Id);
             if (!DesignMode) ListEventsbyGround();
         }
+
         public void ListEventsbyGround()
         {
             flpEventListSportsground.Controls.Clear();
             var EventsbyGroundCount = _eventsList.Count;
-            UC_NextEventsandReserveItem[] listitems = new UC_NextEventsandReserveItem[EventsbyGroundCount];
+            var listitems = new UC_NextEventsandReserveItem[EventsbyGroundCount];
             var Park = _parkController.GetPark(Id);
 
             ParkName = Park.Name;
-    
-            for (int i = 0; i < EventsbyGroundCount; i++)
+
+            for (var i = 0; i < EventsbyGroundCount; i++)
             {
                 var users = _eventsList.ToList()[i].Users.ToList();
                 var usersCount = _eventsList.ToList()[i].Users.Count;
@@ -71,13 +74,13 @@ namespace Sports4All
                     Sport = _eventsList.ToList()[i].Reserve.Sport.Name
                 };
 
-                if (usersCount == maxUsers) listitems[i].ChangeJoinEventbtn(false);  // remove botao para se juntar ao evento
+                if (usersCount == maxUsers)
+                    listitems[i].ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
                 foreach (var user in users)
-                {
                     if (user.Username == _username) // já estou no evento
                     {
                         listitems[i].ChangeJoinEventbtn(false);
-                        
+
                         if (listitems[i].Owner.Equals(_username))
                         {
                             // sou o owner, botao de remover evento
@@ -88,18 +91,18 @@ namespace Sports4All
                             listitems[i].ChangeJoinEventbtn(false);
                             listitems[i].BringToFrontUnregister(true);
                         }
+
                         break;
                     }
-                    // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
-                }
+                // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
 
                 flpEventListSportsground.Controls.Add(listitems[i]);
             }
         }
+
         private void mouseHover(object sender, EventArgs e)
         {
             if (!_controlSub) tbSubSportsGroundNotification.Visible = true;
-
         }
 
         private void mouseLeave(object sender, EventArgs e)
@@ -114,34 +117,28 @@ namespace Sports4All
                 tbSubSportsGroundNotification.Visible = false;
                 _controlSub = true;
                 //this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-                btnSub.Image = ((System.Drawing.Image)(resources.GetObject("sub_Button")));
-                showNotification("Recinto Subscrito!", "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
-                                  " gerir todos os seus favoritos!!!");
+                btnSub.Image = (Image) resources.GetObject("sub_Button");
+                showNotification("Recinto Subscrito!",
+                    "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
+                    " gerir todos os seus favoritos!!!");
             }
             //retira subscrição!
             else
             {
-                btnSub.Image = ((System.Drawing.Image)(resources.GetObject("subButton.Image")));
+                btnSub.Image = (Image) resources.GetObject("subButton.Image");
                 _controlSub = false;
-
             }
-
         }
+
         private void showNotification(string title, string body)
         {
-            NotifyIcon notifyIcon = new NotifyIcon();
+            var notifyIcon = new NotifyIcon();
             notifyIcon.Icon = SystemIcons.Application;
             notifyIcon.Visible = true;
 
-            if (title != null)
-            {
-                notifyIcon.BalloonTipTitle = title;
-            }
+            if (title != null) notifyIcon.BalloonTipTitle = title;
 
-            if (body != null)
-            {
-                notifyIcon.BalloonTipText = body;
-            }
+            if (body != null) notifyIcon.BalloonTipText = body;
 
             notifyIcon.ShowBalloonTip(30000);
         }
@@ -159,6 +156,7 @@ namespace Sports4All
                 ListEventsbyGround();
             }
         }
+
         private void btnTenis_Click(object sender, EventArgs e)
         {
             if (!DesignMode)
@@ -182,14 +180,13 @@ namespace Sports4All
                 btnHandball.BackColor = Color.LightBlue;
                 btnAllSports.BackColor = Color.LightGray;
                 flpEventListSportsground.Controls.Clear();
-                _eventsList =_eventsController.EventsbyGroundandSport(Id, btnHandball.Text);
+                _eventsList = _eventsController.EventsbyGroundandSport(Id, btnHandball.Text);
                 ListEventsbyGround();
             }
         }
 
         private void btnAllSports_Click(object sender, EventArgs e)
         {
-
             if (!DesignMode)
             {
                 btnAllSports.BackColor = Color.LightBlue;

@@ -34,6 +34,7 @@ namespace Sports4All
                 tbModalityName.Text = value;
             }
         }
+
         private void mouseHover(object sender, EventArgs e)
         {
             if (!_controlSub) tbSubNotification.Visible = true;
@@ -96,7 +97,7 @@ namespace Sports4All
                 var hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString();
                 var month = EventsbySport.ToList()[i].StartDate.ToLongDateString();
                 month = month.Substring(6, 3).ToUpper();
-                listitems[i] = new UC_NextEventsandReserveItem()
+                listitems[i] = new UC_NextEventsandReserveItem
                 {
                     EventID = Convert.ToString(EventsbySport.ToList()[i].EventId),
                     Owner = EventsbySport.ToList()[i].Reserve.UserId,
@@ -106,12 +107,11 @@ namespace Sports4All
                     Month = month,
                     Lotation = usersCount + "/" + maxUsers,
                     Sport = EventsbySport.ToList()[i].Reserve.Sport.Name
-               };
+                };
                 if (usersCount == maxUsers)
                     listitems[i].ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
 
                 foreach (var user in users)
-                {
                     if (user.Username == _username) // já estou no evento
                     {
                         listitems[i].ChangeJoinEventbtn(false);
@@ -125,10 +125,11 @@ namespace Sports4All
                             listitems[i].ChangeJoinEventbtn(false);
                             listitems[i].BringToFrontUnregister(true);
                         }
+
                         break;
                     }
-                    // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
-                }
+                // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
+
                 flpEventListModality.Controls.Add(listitems[i]);
             }
         }
