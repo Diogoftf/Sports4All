@@ -30,7 +30,6 @@ namespace Sports4All
             _eventsController = new MyEventsController();
             _parkController = new ParkDescriptionController();
             _eventsList = new Collection<Event>();
-            _id = Convert.ToInt32(Id);
         }
 
         #region Properties
@@ -48,6 +47,7 @@ namespace Sports4All
         private void UC_EventsSportsGrounds_Load(object sender, EventArgs e)
         {
             if (DesignMode) return;
+            _id = Convert.ToInt32(Id);
             Populate();
         }
 
