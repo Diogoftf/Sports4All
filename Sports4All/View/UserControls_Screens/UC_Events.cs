@@ -35,29 +35,16 @@ namespace Sports4All
 
             flpEvents.Controls.Clear();
 
-            List<string> imageList = new List<string>
+            foreach (var sport in sportsWithEvents)
             {
-                "https://dovethemes.com/wp-content/uploads/2016/12/Eiffel-Tower-Theme.jpg",
-            };
-
-            UC_EventItem[] listItems = new UC_EventItem[sportsWithEvents.Count];
-
-
-            WebClient w = new WebClient();
-            byte[] imageByte = w.DownloadData(imageList[0]);
-            MemoryStream stream = new MemoryStream(imageByte);
-
-
-            for (int i = 0; i < sportsWithEvents.Count; i++)
-            {
-                listItems[i] = new UC_EventItem
+                UC_EventItem uc = new UC_EventItem
                 {
-                    Title = sportsWithEvents.ElementAt(i).Name,
-                    Image = Image.FromStream(stream),
-                    Id = sportsWithEvents.ElementAt(i).SportId
+                    Title = sport.Name,
+                    Image = ImagesController.GetImageFromID(sport.Picture.PictureId),
+                    Id = sport.SportId
                 };
 
-                flpEvents.Controls.Add(listItems[i]);
+                flpEvents.Controls.Add(uc);
             }
         }
     }

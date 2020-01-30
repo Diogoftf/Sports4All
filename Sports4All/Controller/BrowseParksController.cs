@@ -1,10 +1,5 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sports4All.Controller
 {
@@ -58,16 +53,22 @@ namespace Sports4All.Controller
                 if (idLocation == 0)
                 {
                     parkList = value
-                        ? db.Parks.OrderBy(x => x.ParkClassification.QualityAverage).ToList()
-                        : db.Parks.OrderByDescending(x => x.ParkClassification.QualityAverage).ToList();
+                        ? db.Parks
+                        .Include("Picture")
+                        .OrderBy(x => x.ParkClassification.QualityAverage).ToList()
+                        : db.Parks
+                        .Include("Picture")
+                        .OrderByDescending(x => x.ParkClassification.QualityAverage).ToList();
                 }
                 
                 else
                 {
                     parkList = value ? db.Parks
+                            .Include("Picture")
                             .Where(a => a.Address.CountyId == idLocation)
                             .OrderBy(x => x.ParkClassification.QualityAverage).ToList()
                         : db.Parks
+                            .Include("Picture")
                             .Where(a => a.Address.CountyId == idLocation)
                             .OrderByDescending(x => x.ParkClassification.QualityAverage).ToList();
                 }

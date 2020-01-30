@@ -238,7 +238,7 @@ namespace Sports4All.Controller
             {
                 var SingleEvent = db.Events
                     .Where(c => c.EventId == eventId)
-                    .Include("Reserve.Ground.Park")
+                    .Include("Reserve.Ground.Park.Picture")
                     .FirstOrDefault();
                 return SingleEvent;
             }

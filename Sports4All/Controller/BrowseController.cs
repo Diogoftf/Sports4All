@@ -65,7 +65,7 @@ namespace Sports4All.Controller
 
             using (var db = new ModelContext())
             {
-                sport = db.Sports.Find(id);
+                sport = db.Sports.Include("Picture").FirstOrDefault(s => s.SportId == id);
                 Console.WriteLine(sport.Name + "\n" + sport.SportId);
 
             }

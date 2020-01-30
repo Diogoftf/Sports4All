@@ -4,15 +4,19 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
+using Sports4All.Controller;
 using Sports4All.UserControls_Items;
 
 namespace Sports4All.UserControls_Screens
 {
     public partial class UC_Subscriptions : UserControl, IUserControl
     {
+        private BrowseParksController _browseParksController;
+
         public UC_Subscriptions()
         {
             InitializeComponent();
+            _browseParksController = new BrowseParksController();
         }
 
         #region Properties
@@ -90,26 +94,17 @@ namespace Sports4All.UserControls_Screens
         {
             p.Controls.Clear();
 
-            List<String> imageList = new List<string>
+            ICollection<Park> parks = _browseParksController.GetParksAscending(true,1);
+
+            foreach (var park in parks)
             {
-                "https://dovethemes.com/wp-content/uploads/2016/09/Endless-Fields.jpg",
-                "https://dovethemes.com/wp-content/uploads/2016/09/Mountain-Sunrise.jpg"
-            };
-
-            UC_SubscriptionItem[] listItems = new UC_SubscriptionItem[imageList.Count];
-
-            for (int i = 0; i < imageList.Count; i++)
-            {
-                WebClient w = new WebClient();
-                byte[] imageByte = w.DownloadData(imageList[i]);
-                MemoryStream stream = new MemoryStream(imageByte);
-
-                listItems[i] = new UC_SubscriptionItem
+                UC_SubscriptionItem item = new UC_SubscriptionItem
                 {
-                    Title = "Título do recinto " + i, Image = Image.FromStream(stream)
+                    Title = park.Name,
+                    Image = ImagesController.GetImageFromID(park.Picture.PictureId)
                 };
 
-                p.Controls.Add(listItems[i]);
+                p.Controls.Add(item);
             }
         }
 
