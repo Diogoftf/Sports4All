@@ -182,19 +182,15 @@ namespace Sports4All
         {
             flpUsersEvent.Controls.Clear();
             ICollection<User> enrolledUsers = _eventsController.RetrieveEnrolledUsers(_eventID);
-            int enrolledUsersCount = enrolledUsers.Count;
-            UC_UserinEventItem[] listusers = new UC_UserinEventItem[enrolledUsersCount];
-
-            for (int i = 0; i < enrolledUsersCount; i++)
+            foreach (var user in enrolledUsers)
             {
-                listusers[i] = new UC_UserinEventItem()
+                UC_UserinEventItem _userInEvent = new UC_UserinEventItem()
                 {
-                    Username = enrolledUsers.ToList()[i].Username,
-                    PlayerAge = enrolledUsers.ToList()[i].Age + "Anos",
-                    UserID = enrolledUsers.ToList()[i].Username
-                    //PlayerSkill = enrolledUsers.ToList()[i].myStats.rankClassification.ToString()
+                    UserId = user.Username,
+                    PlayerAge = user.Age + "Anos",
+                    Image = ImagesController.GetImageFromID(user.PictureId)
                 };
-                flpUsersEvent.Controls.Add(listusers[i]);
+                flpUsersEvent.Controls.Add(_userInEvent);
             }
 
         }

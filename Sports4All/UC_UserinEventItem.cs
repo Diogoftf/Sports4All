@@ -18,41 +18,43 @@ namespace Sports4All
             InitializeComponent();
         }
 
-        private string _username;
+        private string _userId;
         private string _userAge;
         private string _playerSkill;
-        private Image _icon;
-        private string _userID;
+        private Image _image;
 
-        public string UserID
-        {
-            get => _userID;
-            set
-            {
-                _userID = value;
-            }
-        }
+        #region Properties
         public string PlayerAge
         {
             get => _userAge;
-            set { _userAge = value;
+            set
+            {
+                _userAge = value;
                 lbUserAge.Text = value;
             }
         }
 
-        public string Username
+        public string UserId
         {
-            get => _username;
-            set { _username = value; lblUsername.Text = value; }
+            get => _userId;
+            set { _userId = value; lblUsername.Text = value; }
         }
 
         public string PlayerSkill
         {
             get => _playerSkill;
-            set { _playerSkill = value;
+            set
+            {
+                _playerSkill = value;
                 lblUserRankingValue.Text = value;
             }
         }
+        public Image Image
+        {
+            get => _image;
+            set { _image = value; cpbPlayer.Image = value; }
+        }
 
-    }
+    } 
+    #endregion
 }
