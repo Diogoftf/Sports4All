@@ -52,10 +52,11 @@
             // pbModality
             // 
             this.pbModality.Image = ((System.Drawing.Image)(resources.GetObject("pbModality.Image")));
-            this.pbModality.Location = new System.Drawing.Point(466, 24);
-            this.pbModality.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbModality.Location = new System.Drawing.Point(350, 20);
+            this.pbModality.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbModality.Name = "pbModality";
-            this.pbModality.Size = new System.Drawing.Size(55, 54);
+            this.pbModality.Size = new System.Drawing.Size(41, 44);
+            this.pbModality.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbModality.TabIndex = 23;
             this.pbModality.TabStop = false;
             // 
@@ -63,7 +64,8 @@
             // 
             this.lblModalityName.AutoSize = true;
             this.lblModalityName.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblModalityName.Location = new System.Drawing.Point(750, -14);
+            this.lblModalityName.Location = new System.Drawing.Point(562, -11);
+            this.lblModalityName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblModalityName.Name = "lblModalityName";
             this.lblModalityName.Size = new System.Drawing.Size(72, 21);
             this.lblModalityName.TabIndex = 20;
@@ -74,9 +76,10 @@
             this.lblEventOwnerValue.AutoSize = true;
             this.lblEventOwnerValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblEventOwnerValue.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblEventOwnerValue.Location = new System.Drawing.Point(92, 16);
+            this.lblEventOwnerValue.Location = new System.Drawing.Point(69, 13);
+            this.lblEventOwnerValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEventOwnerValue.Name = "lblEventOwnerValue";
-            this.lblEventOwnerValue.Size = new System.Drawing.Size(272, 16);
+            this.lblEventOwnerValue.Size = new System.Drawing.Size(204, 13);
             this.lblEventOwnerValue.TabIndex = 19;
             this.lblEventOwnerValue.Text = "Rui Sousa";
             this.lblEventOwnerValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -86,9 +89,10 @@
             this.lblEventOwner.AutoSize = true;
             this.lblEventOwner.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblEventOwner.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEventOwner.Location = new System.Drawing.Point(3, 16);
+            this.lblEventOwner.Location = new System.Drawing.Point(2, 13);
+            this.lblEventOwner.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEventOwner.Name = "lblEventOwner";
-            this.lblEventOwner.Size = new System.Drawing.Size(83, 16);
+            this.lblEventOwner.Size = new System.Drawing.Size(63, 13);
             this.lblEventOwner.TabIndex = 18;
             this.lblEventOwner.Text = "Organizador:";
             this.lblEventOwner.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -98,9 +102,10 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblDate.Location = new System.Drawing.Point(3, 0);
+            this.lblDate.Location = new System.Drawing.Point(2, 0);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(83, 16);
+            this.lblDate.Size = new System.Drawing.Size(63, 13);
             this.lblDate.TabIndex = 17;
             this.lblDate.Text = "Data:";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -110,9 +115,10 @@
             this.lblstart_Hour.AutoSize = true;
             this.lblstart_Hour.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblstart_Hour.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblstart_Hour.Location = new System.Drawing.Point(92, 0);
+            this.lblstart_Hour.Location = new System.Drawing.Point(69, 0);
+            this.lblstart_Hour.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblstart_Hour.Name = "lblstart_Hour";
-            this.lblstart_Hour.Size = new System.Drawing.Size(272, 16);
+            this.lblstart_Hour.Size = new System.Drawing.Size(204, 13);
             this.lblstart_Hour.TabIndex = 16;
             this.lblstart_Hour.Text = "22/05/2020 | 19h";
             this.lblstart_Hour.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -122,9 +128,10 @@
             this.lblSportsGround.AutoSize = true;
             this.lblSportsGround.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSportsGround.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblSportsGround.Location = new System.Drawing.Point(92, 48);
+            this.lblSportsGround.Location = new System.Drawing.Point(69, 39);
+            this.lblSportsGround.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSportsGround.Name = "lblSportsGround";
-            this.lblSportsGround.Size = new System.Drawing.Size(272, 16);
+            this.lblSportsGround.Size = new System.Drawing.Size(204, 13);
             this.lblSportsGround.TabIndex = 15;
             this.lblSportsGround.Text = "Parque Desportivo de Água de Pena";
             this.lblSportsGround.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -134,9 +141,10 @@
             this.lblPlayers.AutoSize = true;
             this.lblPlayers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPlayers.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblPlayers.Location = new System.Drawing.Point(3, 32);
+            this.lblPlayers.Location = new System.Drawing.Point(2, 26);
+            this.lblPlayers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPlayers.Name = "lblPlayers";
-            this.lblPlayers.Size = new System.Drawing.Size(83, 16);
+            this.lblPlayers.Size = new System.Drawing.Size(63, 13);
             this.lblPlayers.TabIndex = 25;
             this.lblPlayers.Text = "Jogadores:";
             this.lblPlayers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,9 +154,10 @@
             this.lblHowManyPlayers.AutoSize = true;
             this.lblHowManyPlayers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHowManyPlayers.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblHowManyPlayers.Location = new System.Drawing.Point(92, 32);
+            this.lblHowManyPlayers.Location = new System.Drawing.Point(69, 26);
+            this.lblHowManyPlayers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHowManyPlayers.Name = "lblHowManyPlayers";
-            this.lblHowManyPlayers.Size = new System.Drawing.Size(272, 16);
+            this.lblHowManyPlayers.Size = new System.Drawing.Size(204, 13);
             this.lblHowManyPlayers.TabIndex = 26;
             this.lblHowManyPlayers.Text = "5/10";
             this.lblHowManyPlayers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -158,9 +167,10 @@
             this.lblPlace.AutoSize = true;
             this.lblPlace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPlace.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblPlace.Location = new System.Drawing.Point(3, 48);
+            this.lblPlace.Location = new System.Drawing.Point(2, 39);
+            this.lblPlace.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPlace.Name = "lblPlace";
-            this.lblPlace.Size = new System.Drawing.Size(83, 16);
+            this.lblPlace.Size = new System.Drawing.Size(63, 13);
             this.lblPlace.TabIndex = 27;
             this.lblPlace.Text = "Recinto:";
             this.lblPlace.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -169,7 +179,8 @@
             // 
             this.lblSport.AutoSize = true;
             this.lblSport.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSport.Location = new System.Drawing.Point(462, 2);
+            this.lblSport.Location = new System.Drawing.Point(346, 2);
+            this.lblSport.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSport.Name = "lblSport";
             this.lblSport.Size = new System.Drawing.Size(82, 19);
             this.lblSport.TabIndex = 28;
@@ -180,7 +191,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.45521F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.54479F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14F));
             this.tableLayoutPanel1.Controls.Add(this.lblDate, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblstart_Hour, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblPlace, 0, 3);
@@ -190,25 +201,25 @@
             this.tableLayoutPanel1.Controls.Add(this.lblEventOwnerValue, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblPlayers, 0, 2);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 2);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(367, 64);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(275, 52);
             this.tableLayoutPanel1.TabIndex = 29;
             // 
             // pbDelete
             // 
             this.pbDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
-            this.pbDelete.Location = new System.Drawing.Point(420, 39);
-            this.pbDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbDelete.Location = new System.Drawing.Point(315, 32);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbDelete.Name = "pbDelete";
-            this.pbDelete.Size = new System.Drawing.Size(28, 32);
+            this.pbDelete.Size = new System.Drawing.Size(21, 26);
             this.pbDelete.TabIndex = 31;
             this.pbDelete.TabStop = false;
             this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
@@ -217,17 +228,17 @@
             // 
             this.pbMoreDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbMoreDetails.Image = ((System.Drawing.Image)(resources.GetObject("pbMoreDetails.Image")));
-            this.pbMoreDetails.Location = new System.Drawing.Point(391, 39);
-            this.pbMoreDetails.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbMoreDetails.Location = new System.Drawing.Point(293, 32);
+            this.pbMoreDetails.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbMoreDetails.Name = "pbMoreDetails";
-            this.pbMoreDetails.Size = new System.Drawing.Size(24, 27);
+            this.pbMoreDetails.Size = new System.Drawing.Size(18, 22);
             this.pbMoreDetails.TabIndex = 32;
             this.pbMoreDetails.TabStop = false;
             this.pbMoreDetails.Click += new System.EventHandler(this.pbMoreDetails_Click);
             // 
             // UC_HomeMyEventsItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.pbMoreDetails);
@@ -238,7 +249,7 @@
             this.Controls.Add(this.lblModalityName);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UC_HomeMyEventsItem";
-            this.Size = new System.Drawing.Size(524, 70);
+            this.Size = new System.Drawing.Size(393, 57);
             ((System.ComponentModel.ISupportInitialize)(this.pbModality)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

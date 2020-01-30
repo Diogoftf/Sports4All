@@ -22,6 +22,7 @@ namespace Sports4All
         private Color _color;
         private Image _SportPicture;
         private MyEventsController _eventsController;
+        private Image _image;
 
         public int Id { get; set; }
 
@@ -29,6 +30,12 @@ namespace Sports4All
         {
             set { lblDate.Text = lblEventOwner.Text = lblEventOwnerValue.Text = lblSportsGround.Text = lblstart_Hour.Text = lblPlayers.Text = lblPlace.Text = value;
             }
+        }
+
+        public Image Image
+        {
+            get => _image;
+            set { _image = value; pbModality.Image = value; }
         }
 
         public Image DisableDeleteImage //
