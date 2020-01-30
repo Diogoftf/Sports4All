@@ -29,7 +29,7 @@ namespace Sports4All
         private void UCEventEvaluation_Load(object sender, EventArgs e)
         {
             if (DesignMode) return;
-            Id = EventId.ToString();
+            EventId = Convert.ToInt32(Id);
             Populate();
         }
 
