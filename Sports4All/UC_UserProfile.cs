@@ -28,14 +28,13 @@ namespace Sports4All
         public void Populate()
         {
             _userController = new UserController();
-            _userController.UserId = "andreMx"; //APAGAR DEPOIS
-            var user = _userController.GetUser(_userController.UserId);
-            IDictionary<string, string> classifications = _userController.GetUserClassification(_userController.UserId);
-            //cpbUser.Image = _userController.GetUser(_userController.UserId).Picture;
+            var user = _userController.GetUser(Id);
+            IDictionary<string, string> classifications = _userController.GetUserClassification(Id);
             lblUsername.Text = user.Username;
             lblUserEmail.Text = user.Email;
             lblUserPhone.Text = user.PhoneNumber.ToString();
-            lblUserEvents.Text = _userController.GetUserEvents(_userController.UserId);
+            lblUserEvents.Text = _userController.GetUserEvents(Id);
+            cpbUser.Image = ImagesController.GetImageFromID(user.PictureId);
             lblUserSubscribers.Text = "AINDA POR FAZER";
             lblUserSkill.Text = classifications["Skill"];
             lblUserFairPlay.Text = classifications["FairPlay"];

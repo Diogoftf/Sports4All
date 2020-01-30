@@ -70,12 +70,13 @@ namespace Sports4All
 
             _ev.Attach(park);
             _uc.ParkName = park.Name;
-            _uc.cp = ImagesController.GetImageFromID(park.Picture.PictureId);
+            _uc.ParkPicture= ImagesController.GetImageFromID(park.Picture.PictureId);
 
             foreach (User user in _evaluationController.GetEvaluableUsers(EventId) )
             {
                 UC_PlayerEvaluationItem playerEvaluation = new UC_PlayerEvaluationItem();
                 playerEvaluation.Username = user.Username;
+                playerEvaluation.Image = ImagesController.GetImageFromID(user.PictureId);
                 _evaluationItems.Add(playerEvaluation);
                 flpPlayersEvaluation.Controls.Add(playerEvaluation);
 

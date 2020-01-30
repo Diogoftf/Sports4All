@@ -21,17 +21,17 @@ namespace Sports4All
         }
 
         private string _username;
-        private Image _icon;
+        private Image _image;
 
         public string Username
         {
             get => _username;
             set { _username = value; lblUsername.Text = value; }
         }
-        public Image Icon
+        public Image Image
         {
-            get => _icon;
-            set { _icon = value; cpbPlayer.Image = value; }
+            get => _image;
+            set { _image = value; cpbPlayer.Image = value; }
         }
 
         public int PlayerSkill { get; set; }

@@ -12,7 +12,7 @@ namespace Sports4All.Controller
             using (var db = new ModelContext())
             {
                 var queryEvent = db.Events
-                    .Include("Reserve.Ground.Park")
+                    .Include("Reserve.Ground.Park.Picture")
                     .FirstOrDefault(x => x.EventId == eventId);
 
                 var eventPark = queryEvent.Reserve.Ground.Park;

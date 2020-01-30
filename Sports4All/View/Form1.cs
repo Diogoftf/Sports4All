@@ -145,7 +145,7 @@ namespace Sports4All
 
         private void PbUserImage_Click(object sender, EventArgs e)
         {
-            BringUcToFront<UC_UserProfile>("UC_UserProfile", "");
+            BringUcToFront<UC_UserProfile>("UC_UserProfile", Session.Instance.LoggedUser);
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
