@@ -14,6 +14,7 @@ namespace Sports4All
     public partial class UC_SportsgroundEvItem : UserControl
     {
         private string _parkname;
+        private Image _parkimage;
 
         public UC_SportsgroundEvItem()
         {
@@ -30,7 +31,10 @@ namespace Sports4All
         }
         public int ParkQuality { get; set; }
         public int ParkPrice { get; set; }
-        public string ParkPicture { get; set; }
+        public Image ParkPicture {
+            get => _parkimage;
+            set { _parkimage = value; cpbSportsground.Image = value; }
+        }
 
         private void rbtnQuality_CheckedChanged(object sender, EventArgs e)
         {

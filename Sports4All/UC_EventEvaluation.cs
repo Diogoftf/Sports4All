@@ -35,7 +35,7 @@ namespace Sports4All
 
         private void circularButton1_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Deseja submeter as avaliações?", "Confirmation", MessageBoxButtons.YesNoCancel);
+            DialogResult result = MessageBox.Show("Deseja submeter as avaliações?", "Confirmation", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -61,7 +61,7 @@ namespace Sports4All
         public void Populate()
         {
             flpPlayersEvaluation.Controls.Clear();
-
+            gpEventEvaluation.Text = _evaluationController.GetEvent(EventId).Name;
             //Event ev = _evaluationController.GetEvent(EventId);
 
             Park park = _evaluationController.GetEventPark(EventId);
@@ -69,9 +69,8 @@ namespace Sports4All
             _uc.ParkId = park.ParkId;
 
             _ev.Attach(park);
-
             _uc.ParkName = park.Name;
-            //FALTA DEFINIR A IMAGEM
+            _uc.cp = ImagesController.GetImageFromID(park.Picture.PictureId);
 
             foreach (User user in _evaluationController.GetEvaluableUsers(EventId) )
             {
