@@ -147,6 +147,7 @@ namespace Sports4All
 
         private void infoStatsDescription()
         {
+            rtbInfoStats.Clear();
             rtbInfoStats.SelectionFont = new Font("Century Gothic", 11, FontStyle.Bold);
             rtbInfoStats.SelectionColor = Color.Black;
             rtbInfoStats.SelectedText = "Pontuações: \n\n";
