@@ -54,6 +54,8 @@ namespace Sports4All
             {
                 var user = db.Users.Include("Picture").Where(f => f.Username == Session.Instance.LoggedUser).Single();
                 pbUserImage.Image = ImagesController.GetImageFromName(user.Picture.Path);
+                lbSkillValue.Text = user.UserClassification.SkillAverage.ToString();
+                lbFairplayValue.Text = user.UserClassification.FairplayAverage.ToString();
             }
             _obj = this;
             AddUserControlsToForm();
