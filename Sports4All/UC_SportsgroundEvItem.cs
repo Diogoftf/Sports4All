@@ -18,6 +18,8 @@ namespace Sports4All
         public UC_SportsgroundEvItem()
         {
             InitializeComponent();
+            ParkQuality = 3;
+            ParkPrice = 3;
         }
 
         public int ParkId { get; set; }

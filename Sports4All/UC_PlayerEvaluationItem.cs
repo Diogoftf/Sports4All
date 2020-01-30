@@ -16,6 +16,8 @@ namespace Sports4All
         public UC_PlayerEvaluationItem()
         {
             InitializeComponent();
+            PlayerSkill = 3;
+            PlayerFairplay = 3;
         }
 
         private string _username;

@@ -104,7 +104,6 @@ namespace Sports4All
             InitializeComponent();
             PickDateTimeOnly();
             _eventsController = new MyEventsController();
-            Id = _eventID.ToString();
             // _eventID = 1;// VALOR PARA TESTE!!!!!!!!!!
         }
 
@@ -112,6 +111,7 @@ namespace Sports4All
         private void UC_EventsDetails_Load(object sender, EventArgs e)
         {
             if (DesignMode) return;
+            EventId = Convert.ToInt32(Id);
             Populate();
         }
 
