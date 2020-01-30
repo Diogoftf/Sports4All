@@ -31,7 +31,7 @@ namespace Sports4All
         }
         public int ParkQuality { get; set; }
         public int ParkPrice { get; set; }
-        public Image ParkPicture {
+        public Image Image {
             get => _parkimage;
             set { _parkimage = value; cpbSportsground.Image = value; }
         }

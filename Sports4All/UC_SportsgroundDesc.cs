@@ -15,6 +15,7 @@ namespace Sports4All
     {
         private ParkDescriptionController _parkDescriptionController;
         private bool _controlSub = false;
+        private Image _image;
 
         public UC_SportsgroundDesc()
         {
@@ -24,6 +25,11 @@ namespace Sports4All
 
         #region Properties
         public string Id { get; set; }
+        public Image Image
+        {
+            get => _image;
+            set { _image = value; pbImage.Image = value; }
+        }
         #endregion
 
         private void UC_SportsgroundDesc_Load(object sender, EventArgs e)
@@ -35,10 +41,9 @@ namespace Sports4All
         public void Populate()
         {
             int id = Convert.ToInt32(Id);
-
             lbSportsgndName.Text = _parkDescriptionController.GetPark(id).Name;
             tbDescription.Text = _parkDescriptionController.GetPark(id).Description;
-            //pbPark.Image = _parkDescriptionController.GetPark(Id).Picture;
+            pbImage.Image = ImagesController.GetImageFromID(_parkDescriptionController.GetPark(id).Picture.PictureId);
             lblSportsList.Text = GetFormatedSportsList();
         }
 

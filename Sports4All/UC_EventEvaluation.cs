@@ -63,14 +63,11 @@ namespace Sports4All
             flpPlayersEvaluation.Controls.Clear();
             gpEventEvaluation.Text = _evaluationController.GetEvent(EventId).Name;
             //Event ev = _evaluationController.GetEvent(EventId);
-
             Park park = _evaluationController.GetEventPark(EventId);
-
             _uc.ParkId = park.ParkId;
-
-            _ev.Attach(park);
             _uc.ParkName = park.Name;
-            _uc.ParkPicture= ImagesController.GetImageFromID(park.Picture.PictureId);
+            _uc.Image= ImagesController.GetImageFromID(park.Picture.PictureId);
+            _ev.Attach(park);
 
             foreach (var user in _evaluationController.GetEvaluableUsers(EventId) )
             {

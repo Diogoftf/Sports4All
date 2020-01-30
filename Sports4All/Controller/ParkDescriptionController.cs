@@ -15,7 +15,7 @@ namespace Sports4All.Controller
         {
             using (var db = new ModelContext())
             {
-                var query = db.Parks.Find(ParkId);
+                var query = db.Parks.Include("Picture").FirstOrDefault(p => p.ParkId == ParkId);
                 return query;
             }
         }
