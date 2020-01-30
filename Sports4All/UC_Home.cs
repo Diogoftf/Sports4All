@@ -69,7 +69,23 @@ namespace Sports4All
                 PopulateComboBox();
                 infoStatsDescription();
                 userStatsDetails();
+                getTopClassificationDetails();
             }
+        }
+
+        private void getTopClassificationDetails()
+        {
+            using(var db = new ModelContext())
+            {
+                var userQuery = db.Classifications.OfType<UserClassification>().OrderByDescending(e => e.Points).Take(1).FirstOrDefault();
+
+                var parkQuery = db.Classifications.OfType<ParkClassification>().OrderByDescending(e => e.Points).Take(1).FirstOrDefault();
+
+                pbMonthuser.Image = ImagesController.GetImageFromID(userQuery.User.PictureId);
+                pbMonthEnclosure.Image = ImagesController.GetImageFromID(parkQuery.Park.Picture.PictureId);
+                lbUserName.Text = userQuery.User.Username;
+                lbParkName.Text = parkQuery.Park.Name;
+            } 
         }
 
         private void btnCreateEvent_Click(object sender, EventArgs e)
@@ -92,16 +108,20 @@ namespace Sports4All
 
         private void FillProgressBar(object sender, EventArgs e)
         {
-            _graphic = Graphics.FromImage(_bmp);
-            _graphic.Clear(Color.LightGray);
-            _graphic.FillRectangle(Brushes.LightGreen, new Rectangle(0, 0, (int)(_pbComplete * _pbUnit), _pbHEIGHT));
-            _graphic.DrawString(_pbComplete.ToString() + " pts", new Font("Arial", _pbHEIGHT / 2), Brushes.Black, new PointF(_pbWIDTH / 2 - _pbHEIGHT, _pbHEIGHT / 10));
-            pbProgressBar.Image = _bmp;
-            _pbComplete++;
-            if (_pbComplete > double.Parse(_homeController.getMyStats().ToList()[4]))
+            var myPoints = double.Parse(_homeController.getMyStats().ToList()[4]);
+            if (_pbComplete > myPoints)
             {
                 _graphic.Dispose();
                 _timerProgressBar.Stop();
+            }
+            else
+            {
+                _graphic = Graphics.FromImage(_bmp);
+                _graphic.Clear(Color.LightGray);
+                _graphic.FillRectangle(Brushes.LightGreen, new Rectangle(0, 0, (int)(_pbComplete * _pbUnit), _pbHEIGHT));
+                _graphic.DrawString(_pbComplete.ToString() + " pts", new Font("Arial", _pbHEIGHT / 2), Brushes.Black, new PointF(_pbWIDTH / 2 - _pbHEIGHT, _pbHEIGHT / 10));
+                pbProgressBar.Image = _bmp;
+                _pbComplete++;
             }
 
         }
