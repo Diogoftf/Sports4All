@@ -144,7 +144,6 @@
     <Compile Include="Park.cs" />
     <Compile Include="ParkClassification.cs" />
     <Compile Include="Picture.cs" />
-    <Compile Include="Points.cs" />
     <Compile Include="Controller\RankController.cs" />
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
