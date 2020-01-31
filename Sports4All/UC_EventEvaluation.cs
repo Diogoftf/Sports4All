@@ -55,7 +55,7 @@ namespace Sports4All
                     evaluationUser.PlayerFairplay,
                     EventId);
             }
-            _ev.Notify();
+            //_ev.Notify();
         }
 
         public void Populate()
@@ -67,7 +67,7 @@ namespace Sports4All
             _uc.ParkId = park.ParkId;
             _uc.ParkName = park.Name;
             _uc.Image= ImagesController.Instance.GetImageFromID(park.Picture.PictureId);
-            _ev.Attach(park);
+            //_ev.Attach(park);
 
             foreach (var user in _evaluationController.GetEvaluableUsers(EventId) )
             {
@@ -77,7 +77,7 @@ namespace Sports4All
                 _evaluationItems.Add(_playerEvaluation);
                 flpPlayersEvaluation.Controls.Add(_playerEvaluation);
 
-                _ev.Attach(user);
+                //_ev.Attach(user);
             }
 
         }

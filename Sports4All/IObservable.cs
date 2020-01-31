@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sports4All
 {
-    public interface ISubject
+    public delegate void UpdateHandler(IObservable source, object data);
+    public interface IObservable
     {
-        void Attach(IObserver observer);
-
-        void Detach(IObserver observer);
-
-        void Notify();
+        event UpdateHandler OnUpdate;
     }
 }

@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Sports4All
 {
-    public class User : IObserver
+    public class User
     {
-        private readonly RankController rankController;
         public string Username { get; set; }
         public int Age { get; set; }
         public string Email { get; set; }
@@ -25,14 +24,5 @@ namespace Sports4All
         public virtual ICollection<Reserve> Reserves { get; set; }
         public virtual ICollection<Event> Events { get; set; }
         public virtual Picture Picture { get; set; }
-        public User()
-        {
-            rankController = new RankController();
-        }
-
-        public void Update(ISubject subject)
-        {
-            rankController.UpdateUserClassification(Username);
-        }
     }
 }

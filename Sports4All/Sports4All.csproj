@@ -108,8 +108,9 @@
     <Compile Include="Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="IObserver.cs" />
-    <Compile Include="ISubject.cs" />
+    <Compile Include="EventObservable.cs" />
+    <Compile Include="IEvent.cs" />
+    <Compile Include="IObservable.cs" />
     <Compile Include="IUserControl.cs" />
     <Compile Include="Migrations\202001311502145_M001.cs" />
     <Compile Include="Migrations\202001311502145_M001.designer.cs">
@@ -119,6 +120,7 @@
     <Compile Include="Migrations\202001311800595_M002.designer.cs">
       <DependentUpon>202001311800595_M002.cs</DependentUpon>
     </Compile>
+    <Compile Include="Observable.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="CircularButton.cs">
       <SubType>Component</SubType>
