@@ -108,15 +108,12 @@
     <Compile Include="Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="CancelCommand.cs" />
-    <Compile Include="ICommand.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="ISubject.cs" />
     <Compile Include="IUserControl.cs" />
-    <Compile Include="JoinCommand.cs" />
-    <Compile Include="Migrations\202001271601040_M002.cs" />
-    <Compile Include="Migrations\202001271601040_M002.designer.cs">
-      <DependentUpon>202001271601040_M002.cs</DependentUpon>
+    <Compile Include="Migrations\202001311502145_M001.cs" />
+    <Compile Include="Migrations\202001311502145_M001.designer.cs">
+      <DependentUpon>202001311502145_M001.cs</DependentUpon>
     </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="CircularButton.cs">
@@ -147,7 +144,6 @@
     <Compile Include="Park.cs" />
     <Compile Include="ParkClassification.cs" />
     <Compile Include="Picture.cs" />
-    <Compile Include="Points.cs" />
     <Compile Include="Controller\RankController.cs" />
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
@@ -260,7 +256,6 @@
     <Compile Include="UC_MyEvents.Designer.cs">
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </Compile>
-    <Compile Include="UnregisterCommand.cs" />
     <Compile Include="Use.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserClassification.cs" />
@@ -319,8 +314,8 @@
     <EmbeddedResource Include="Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001271601040_M002.resx">
-      <DependentUpon>202001271601040_M002.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001311502145_M001.resx">
+      <DependentUpon>202001311502145_M001.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_NextEventsandReserveItem.resx">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
@@ -410,7 +405,6 @@
     <EmbeddedResource Include="View\UserControls_Screens\UC_Subscriptions.resx">
       <DependentUpon>UC_Subscriptions.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include=".editorconfig" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -465,9 +459,6 @@
     <None Include="Resources\goal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\sportsground1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
@@ -508,6 +499,8 @@
     <Content Include="Images\medal.png" />
     <Content Include="Images\medal1.png" />
     <Content Include="Images\medal2.png" />
+    <Content Include="Images\Park1.png" />
+    <Content Include="Images\Park2.png" />
     <Content Include="Images\playground.png" />
     <Content Include="Images\ratio.png" />
     <Content Include="Images\search.png" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace Sports4All
         private string _endHour;
         private int _eventID;
         private string _parkname;
+        private Image _image;
 
         public string ParkName
         {
@@ -94,6 +96,12 @@ namespace Sports4All
                 _eventDate = value;
                 dtpNextEventDate.Text = value;
             }
+        }
+
+        public Image Image
+        {
+            get => _image;
+            set { _image = value; pbPark.Image = value; }
         }
 
         public string Id { get; set; }
@@ -188,7 +196,7 @@ namespace Sports4All
                 {
                     UserId = user.Username,
                     PlayerAge = user.Age + "Anos",
-                    Image = ImagesController.GetImageFromID(user.PictureId)
+                    Image = ImagesController.Instance.GetImageFromID(user.PictureId)
                 };
                 flpUsersEvent.Controls.Add(_userInEvent);
             }
@@ -197,18 +205,19 @@ namespace Sports4All
         private void PopulateEventDetails()
         {
 
-            var SingleEvent = _eventsController.RetrieveSingleEvent(_eventID);
-            lbEventId.Text = "Evento #" + SingleEvent.EventId;
-            lblOwnerValue.Text = SingleEvent.Reserve.UserId;
+            var singleEvent = _eventsController.RetrieveSingleEvent(_eventID);
+            lbEventId.Text = "Evento #" + singleEvent.EventId;
+            lblOwnerValue.Text = singleEvent.Reserve.UserId;
             //lblUserPhoneValue.Text = Convert.ToString(SingleEvent.Reserve.User.PhoneNumber); campo está a Null na BD ainda, propriedade navegação.
-            dtpNextEventDate.Text = SingleEvent.StartDate.ToLongDateString();
-            dtpStartEventTime.Text = SingleEvent.StartDate.ToShortTimeString();
-            dtpEndEventTime.Text = SingleEvent.EndDate.ToShortTimeString();
-            tbMaxPlayers.Text = Convert.ToString(SingleEvent.MaxPlayers);
-            tbMaxAge.Text = Convert.ToString(SingleEvent.MaxAge);
-            tbminAge.Text = Convert.ToString(SingleEvent.MinAge);
+            dtpNextEventDate.Text = singleEvent.StartDate.ToLongDateString();
+            dtpStartEventTime.Text = singleEvent.StartDate.ToShortTimeString();
+            dtpEndEventTime.Text = singleEvent.EndDate.ToShortTimeString();
+            tbMaxPlayers.Text = Convert.ToString(singleEvent.MaxPlayers);
+            pbPark.Image = ImagesController.Instance.GetImageFromID(singleEvent.Reserve.Ground.Park.Picture.PictureId);
+            tbMaxAge.Text = Convert.ToString(singleEvent.MaxAge);
+            tbminAge.Text = Convert.ToString(singleEvent.MinAge);
             //**Ver Nome do Parque ainda**
-            ParkName = SingleEvent.Reserve.Ground.Park.Name;
+            ParkName = singleEvent.Reserve.Ground.Park.Name;
 
         }
 

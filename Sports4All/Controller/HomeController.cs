@@ -81,7 +81,7 @@ namespace Sports4All.Controller
 
             using (ModelContext db = new ModelContext())
             {
-                var query = db.Reserves.Include("Ground.Park").Include("Sport").Where(c => c.Event.EndDate > DateTime.Now).OrderByDescending(c => c.Date).ToList();
+                var query = db.Reserves.Include("Ground.Park").Include("Sport.Picture").Where(c => c.Event.EndDate > DateTime.Now).OrderByDescending(c => c.Date).ToList();
                 var whoIam = db.Users.Where(e => e.Username.Equals(Session.Instance.LoggedUser)).First();
 
                 foreach (Reserve a in query) // todos os eventos que esse user participou (Tanto os que esta inscrito, como reservou)

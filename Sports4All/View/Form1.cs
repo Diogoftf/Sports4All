@@ -53,7 +53,7 @@ namespace Sports4All
             using (var db = new ModelContext())
             {
                 var user = db.Users.Include("Picture").Where(f => f.Username == Session.Instance.LoggedUser).Single();
-                pbUserImage.Image = ImagesController.GetImageFromName(user.Picture.Path);
+                pbUserImage.Image = ImagesController.Instance.GetImageFromName(user.Picture.Path);
                 lbSkillValue.Text = user.UserClassification.SkillAverage.ToString();
                 lbFairplayValue.Text = user.UserClassification.FairplayAverage.ToString();
             }

@@ -12,11 +12,9 @@ namespace Sports4All
     {
         public ModelContext() : base("name=DataBaseContext")
         {
-
-            
-          //  Database.SetInitializer<ModelContext>(new DropCreateDatabaseAlways<ModelContext>());
+            //  Database.SetInitializer<ModelContext>(new DropCreateDatabaseAlways<ModelContext>());
             // Database.SetInitializer<ModelContext>(new DropCreateDatabaseIfModelChanges<ModelContext>());
-              Database.SetInitializer<ModelContext>(new CreateDatabaseIfNotExists<ModelContext>());
+             Database.SetInitializer<ModelContext>(new CreateDatabaseIfNotExists<ModelContext>());
         }
         public DbSet<Event> Events { get; set; }
         public DbSet<User> Users { get; set; }

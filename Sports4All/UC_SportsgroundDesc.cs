@@ -43,7 +43,7 @@ namespace Sports4All
             int id = Convert.ToInt32(Id);
             lbSportsgndName.Text = _parkDescriptionController.GetPark(id).Name;
             tbDescription.Text = _parkDescriptionController.GetPark(id).Description;
-            pbImage.Image = ImagesController.GetImageFromID(_parkDescriptionController.GetPark(id).Picture.PictureId);
+            pbImage.Image = ImagesController.Instance.GetImageFromID(_parkDescriptionController.GetPark(id).Picture.PictureId);
             lblSportsList.Text = GetFormatedSportsList();
         }
 

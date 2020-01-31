@@ -6,27 +6,25 @@ using System.Linq;
 
 namespace Sports4All.Controller
 {
-    public static class ImagesController
+    public sealed class ImagesController
     {
+        private static ImagesController _instance;
+
         private static readonly string ImagesPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images";
 
-        //public static void InsertPathImagesToDB()
-        //{
-        //    DirectoryInfo path = new DirectoryInfo(ImagesPath);
+        private ImagesController() { }
 
-        //    using (var db = new ModelContext())
-        //    {
-        //        foreach (var file in path.GetFiles())
-        //        {
-        //            Picture a = new Picture();
-        //            a.Path = file.Name;
-        //            db.Pictures.Add(a);
-        //        }
-        //        db.SaveChanges();
-        //    }
-        //}
+        public static ImagesController Instance
+        {
+            get
+            {
+                if (_instance == null) { _instance = new ImagesController(); }
 
-        public static Image GetImageFromID(int id)
+                return _instance;
+            }
+        }
+
+        public Image GetImageFromID(int id)
         {
             using (var db = new ModelContext())
             {
@@ -35,7 +33,7 @@ namespace Sports4All.Controller
             }
         }
 
-        public static Image GetImageFromName(string name)
+        public Image GetImageFromName(string name)
         {
             using (var db = new ModelContext())
             {

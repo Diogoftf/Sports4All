@@ -13,13 +13,13 @@ namespace Sports4All
 {
     public partial class UC_Home : UserControl, IUserControl
     {
-        private HomeController _homeController;
+        private HomeController _homeController = new HomeController();
         private ICollection<UC_HomeMyEventsItem> _MyEvents = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
         private ICollection<UC_HomeMyEventsItem> _EventSuggestions = new List<UC_HomeMyEventsItem>(); // pensar se fica ou nao
         private ICollection<Sport> _availableSports;
         private UC_HomeMyEventsItem _noMyEventsitems = new UC_HomeMyEventsItem();
         private UC_HomeMyEventsItem _noSuggestionsEventsitems = new UC_HomeMyEventsItem();
-
+        private RankController _rankController = new RankController();
         // Progress Bar//
         private double _pbUnit;
         private int _pbWIDTH, _pbHEIGHT, _pbComplete;
@@ -46,8 +46,6 @@ namespace Sports4All
         {
             if (!DesignMode)
             {
-
-                _homeController = new HomeController();
                 flpInfoStats.Visible = false;
                 ProgressBarInitializer();
                 dtpNextEventDate.MinDate = dtpMySportDate.MinDate = DateTime.Now;
@@ -81,8 +79,8 @@ namespace Sports4All
 
                 var parkQuery = db.Classifications.OfType<ParkClassification>().OrderByDescending(e => e.Points).Take(1).FirstOrDefault();
 
-                pbMonthuser.Image = ImagesController.GetImageFromID(userQuery.User.PictureId);
-                pbMonthEnclosure.Image = ImagesController.GetImageFromID(parkQuery.Park.Picture.PictureId);
+                pbMonthuser.Image = ImagesController.Instance.GetImageFromID(userQuery.User.PictureId);
+                pbMonthEnclosure.Image = ImagesController.Instance.GetImageFromID(parkQuery.Park.Picture.PictureId);
                 lbUserName.Text = userQuery.User.Username;
                 lbParkName.Text = parkQuery.Park.Name;
             } 
@@ -153,12 +151,12 @@ namespace Sports4All
             rtbInfoStats.SelectedText = "Pontuações: \n\n";
             rtbInfoStats.SelectionFont = new Font("Century Gothic", 9);
             rtbInfoStats.SelectionColor = Color.Black;
-            rtbInfoStats.SelectedText = "Reservas realizadas: " + Points._reservePerformed_Weight + " pontos \n" + "Eventos realizados: " + Points._eventPerformed_Weight + " pontos \n" + "Fairplay Global: " + Points._fairplay_Weight + " pontos \n" + "Habilidade Global: " + Points._skill_Weight + " pontos \n";
+            rtbInfoStats.SelectedText = "Reservas realizadas: " + _rankController._reservePerformed_Weight + " pontos \n" + "Eventos realizados: " + _rankController._eventPerformed_Weight + " pontos \n" + "Fairplay Global: " + _rankController._fairplay_Weight + " pontos \n" + "Habilidade Global: " + _rankController._skill_Weight + " pontos \n";
         }
 
         private void userStatsDetails()
         {
-            var current = Convert.ToInt32(double.Parse(_homeController.getMyStats().ToList()[4]) / Points._levelChange);
+            var current = Convert.ToInt32(double.Parse(_homeController.getMyStats().ToList()[4]) / _rankController._levelChange);
             lbCurrentLevel.Text = current.ToString();
             lbNextLevel.Text = (current+1).ToString();
             if (_homeController.getMyStats().ToList().Count > 0)
@@ -207,6 +205,7 @@ namespace Sports4All
                         ItemMyEvents.Slots = myEvent.ToList()[i].Users.Count.ToString() + "/" + myEvent.ToList()[i].MaxPlayers.ToString();
                         ItemMyEvents.Recinto = myEvent.ToList()[i].Reserve.Ground.Park.Name;
                         ItemMyEvents.Sport = myEvent.ToList()[i].Reserve.Sport.Name;
+                        ItemMyEvents.Image = ImagesController.Instance.GetImageFromID(myEvent.ToList()[i].Reserve.Sport.Picture.PictureId);
                         ItemMyEvents.Id = myEvent.ToList()[i].EventId;
                         _MyEvents.Add(ItemMyEvents);
                         flpMyEvents.Controls.Add(ItemMyEvents); //add to flowlayout
