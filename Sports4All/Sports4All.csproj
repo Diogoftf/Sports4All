@@ -108,9 +108,12 @@
     <Compile Include="Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
+    <Compile Include="CancelCommand.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="ISubject.cs" />
     <Compile Include="IUserControl.cs" />
+    <Compile Include="JoinCommand.cs" />
     <Compile Include="Migrations\202001271601040_M002.cs" />
     <Compile Include="Migrations\202001271601040_M002.designer.cs">
       <DependentUpon>202001271601040_M002.cs</DependentUpon>
@@ -257,6 +260,7 @@
     <Compile Include="UC_MyEvents.Designer.cs">
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnregisterCommand.cs" />
     <Compile Include="Use.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserClassification.cs" />

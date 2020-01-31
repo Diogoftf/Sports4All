@@ -18,7 +18,14 @@ namespace Sports4All
         private string _sport;
         private string _lotation;
         private string _eventId;
-        private string _username { get; set; }
+        private string _username;
+        private ICommand Icommand;
+
+        public string Username
+        {
+            get { return _username; }
+            set { _username = value;}
+        }
         public string EventID
         {
             get { return _eventId; }
@@ -64,6 +71,7 @@ namespace Sports4All
         #endregion
         public UC_NextEventsandReserveItem()
         {
+           
             InitializeComponent();
             _username = Session.Instance.LoggedUser;
             foreach (Control c in uC_UnregisterButton1.Controls)
@@ -89,20 +97,26 @@ namespace Sports4All
 
         private void Unregister(object sender, EventArgs e)
         {
-            _eventsController.UnregisterUser(Convert.ToInt32(_eventId), _username);
-        }
 
+            Icommand = new UnregisterCommand(this);
+            Icommand.Execute();
+            //_eventsController.UnregisterUser(Convert.ToInt32(_eventId), _username);
+        }
         private void btnJoinEvent_Click(object sender, EventArgs e)
         {
-            _eventsController.JoinEvent(Convert.ToInt32(EventID), _username);
+            Icommand = new JoinCommand(this);
+            Icommand.Execute();
+           // _eventsController.JoinEvent(Convert.ToInt32(EventID), _username);
             MessageBox.Show("Juntou-se ao evento com sucesso!");
             btnJoinEvent.Enabled = false;
             uC_UnregisterButton1.Visible = true;
         }
+
         private void btn_CancelEvent(object sender, EventArgs e)
         {
-            _eventsController.DeleteEvent(Convert.ToInt32(_eventId));
-
+            Icommand = new CancelCommand(this);
+            Icommand.Execute();
+            //_eventsController.DeleteEvent(Convert.ToInt32(_eventId));
         }
     }
 }

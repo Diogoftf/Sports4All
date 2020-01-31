@@ -44,16 +44,13 @@ namespace Sports4All
 
         private void FinishedEvents()
         {
-            //if (flpListMyEvents.Controls.Count > 0)
-                flpListMyEvents.Controls.Clear();
+            flpListMyEvents.Controls.Clear();
             var completedEvents = _eventsController.RetrieveCompletedEvents(Username);
             var completedEventsCounts = completedEvents.Count;
-
             var listitems = new UC_EventMyEventsItem[completedEventsCounts];
 
             for (var i = 0; i < completedEventsCounts; i++)
-            { 
-                //inverter if ; APENAS PARA TESTES, POUCOS DADOS NA BD
+            {
                 if (!_eventsController.VerifyEvaluation(completedEvents.ToList()[i].EventId, Username))
                 {
                     listitems[i] = new UC_EventMyEventsItem
@@ -67,12 +64,10 @@ namespace Sports4All
                         MessageInfo = "Avalie este evento!",
                         Change_BackColor = Color.LightCoral
                     };
-                    //listitems[i].DisableButtonEvaluation();
                     flpListMyEvents.Controls.Add(listitems[i]);
                 }
-                else
-                {
-                    listitems[i] = new UC_EventMyEventsItem
+                else {
+                    listitems[i] = new UC_EventMyEventsItem 
                     {
                         Avaliar = "Avaliado",
                         EventID = completedEvents.ToList()[i].EventId,
@@ -90,7 +85,6 @@ namespace Sports4All
         }
         private void MyReserves()
         {
-            // if (flpListMyEvents.Controls.Count > 0)
             flpListMyEvents.Controls.Clear();
             var myReserves = _eventsController.RetrieveUserReserves(Username);
             var myReservesCounts = myReserves.Count;
@@ -137,6 +131,7 @@ namespace Sports4All
             var listitems = new UC_NextEventsandReserveItem[nextEventsCount];
             for (var i = 0; i < nextEventsCount; i++)
             {
+                var users = nextEvents.ToList()[i].Users.ToList();
                 var usersCount = nextEvents.ToList()[i].Users.Count;
                 var maxUsers = nextEvents.ToList()[i].MaxPlayers;
                 var hour = nextEvents.ToList()[i].StartDate.ToShortTimeString();
@@ -153,17 +148,8 @@ namespace Sports4All
                     Lotation = usersCount + "/" + maxUsers,
                     EventID = Convert.ToString(nextEvents.ToList()[i].EventId)
                 };
-                // listitems[i].HideCancelReserve(); 
-                if (Username.Equals(listitems[i].Owner))
-                {
-                    listitems[i].ChangeJoinEventbtn(false);
-                }
-                else
-                {
-                    listitems[i].ChangeCancelbtn(false);
-                    listitems[i].ChangeJoinEventbtn(true);
-                }
-                flpListMyEvents.Controls.Add(listitems[i]);
+                var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, listitems[i], users, i, Username);
+                flpListMyEvents.Controls.Add(eventItem);
             }
         }
 
@@ -175,7 +161,6 @@ namespace Sports4All
             btnMinhasReservas.BackColor = Color.LightGray;
             if (!DesignMode) FinishedEvents();
         }
-
         private void btnMinhasReservas_Click(object sender, EventArgs e)
         {
             btnMinhasReservas.BackColor = Color.LightSkyBlue;

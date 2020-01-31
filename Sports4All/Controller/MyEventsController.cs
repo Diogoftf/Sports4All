@@ -289,5 +289,33 @@ namespace Sports4All.Controller
                 db.SaveChanges();
             }
         }
+
+        public UC_NextEventsandReserveItem ChangeButtons(int usersCount, int maxUsers, UC_NextEventsandReserveItem listitems, List<User> users, int i, string _username)
+        {
+            if (usersCount == maxUsers)
+                listitems.ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
+
+            foreach (var user in users)
+                if (user.Username == _username) // já estou no evento
+                {
+                    listitems.ChangeJoinEventbtn(false);
+                    if (listitems.Owner.Equals(_username))
+                    {
+                        // sou o owner, botao de remover evento
+                        listitems.ChangeCancelbtn(true);
+                    }
+                    else
+                    {
+                        listitems.ChangeJoinEventbtn(false);
+                        listitems.BringToFrontUnregister(true);
+                    }
+
+                    break;
+                }
+
+            return listitems;
+            // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
+        }
+
     }
 }

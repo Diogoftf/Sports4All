@@ -86,29 +86,8 @@ namespace Sports4All
                     Lotation = usersCount + "/" + maxUsers,
                     EventID = Convert.ToString(_eventsList.ToList()[0].EventId)
                 };
-
-                 if (usersCount == maxUsers)
-                    listitems[i].ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
-                foreach (var user in users)
-                    if (user.Username == _username) // já estou no evento
-                    {
-                        listitems[i].ChangeJoinEventbtn(false);
-
-                        if (listitems[i].Owner.Equals(_username))
-                        {
-                            // sou o owner, botao de remover evento
-                            listitems[i].ChangeCancelbtn(true);
-                        }
-                        else
-                        {
-                            listitems[i].ChangeJoinEventbtn(false);
-                            listitems[i].BringToFrontUnregister(true);
-                        }
-                        break;
-                    }
-                // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
-
-                flpEventListSportsground.Controls.Add(listitems[i]);
+                var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, listitems[i], users, i, _username);
+                flpEventListSportsground.Controls.Add(eventItem);
             }
         }
         private void mouseHover(object sender, EventArgs e)
@@ -186,7 +165,6 @@ namespace Sports4All
                 ListEventsbyGround();
             }
         }
-
         private void btnHandball_Click(object sender, EventArgs e)
         {
             if (!DesignMode)

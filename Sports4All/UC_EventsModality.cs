@@ -20,7 +20,6 @@ namespace Sports4All
             InitializeComponent();
             _eventsController = new MyEventsController();
             _username = Session.Instance.LoggedUser;
-           
         }
 
         #region Properties
@@ -43,14 +42,11 @@ namespace Sports4All
 
         public void Populate()
         {
-            int id = Convert.ToInt32(Id);
-
             flpEventListModality.Controls.Clear();
-
-            var EventsbySport = _eventsController.EventsBySport(id);
+            var EventsbySport = _eventsController.EventsBySport(_id);
             var EventsbySportCount = EventsbySport.Count;
             UC_NextEventsandReserveItem[] listitems = new UC_NextEventsandReserveItem[EventsbySportCount];
-            var Sport = _eventsController.RetrieveSingleSport(id);
+            var Sport = _eventsController.RetrieveSingleSport(_id);
             tbModalityName.Text = Sport.ToList()[0].Name;
             for (int i = 0; i < EventsbySportCount; i++)
             {
@@ -59,6 +55,7 @@ namespace Sports4All
                 var hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString();
                 var month = EventsbySport.ToList()[i].StartDate.ToLongDateString();
                 month = month.Substring(6, 3).ToUpper();
+
                 listitems[i] = new UC_NextEventsandReserveItem
                 {
                     EventID = Convert.ToString(EventsbySport.ToList()[i].EventId),
@@ -74,7 +71,6 @@ namespace Sports4All
                 flpEventListModality.Controls.Add(listitems[i]);
             }
         }
-
         private void mouseHover(object sender, EventArgs e)
         {
             if (!_controlSub) tbSubNotification.Visible = true;
@@ -101,7 +97,6 @@ namespace Sports4All
                 _controlSub = false;
             }
         }
-        
         private void ShowNotification(string title, string body)
         {
             var notifyIcon = new NotifyIcon();
@@ -115,57 +110,36 @@ namespace Sports4All
             notifyIcon.ShowBalloonTip(30000);
         }
 
-        public void ListEventsBySport()
-        {
-            flpEventListModality.Controls.Clear();
-            var EventsbySport = _eventsController.EventsBySport(_id);
-            var EventsbySportCount = EventsbySport.Count;
-            var listitems = new UC_NextEventsandReserveItem[EventsbySportCount];
-            var Sport = _eventsController.RetrieveSingleSport(_id);
-            tbModalityName.Text = Sport.ToList()[0].Name;
-            for (var i = 0; i < EventsbySportCount; i++)
-            {
-                var users = EventsbySport.ToList()[i].Users.ToList();
-                var usersCount = EventsbySport.ToList()[i].Users.Count;
-                var maxUsers = EventsbySport.ToList()[i].MaxPlayers;
-                var hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString();
-                var month = EventsbySport.ToList()[i].StartDate.ToLongDateString();
-                month = month.Substring(6, 3).ToUpper();
-                listitems[i] = new UC_NextEventsandReserveItem
-                {
-                    EventID = Convert.ToString(EventsbySport.ToList()[i].EventId),
-                    Owner = EventsbySport.ToList()[i].Reserve.UserId,
-                    SportGround = EventsbySport.ToList()[i].Reserve.Ground.Park.Name,
-                    Hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString(),
-                    Day = Convert.ToString(EventsbySport.ToList()[i].StartDate.Day),
-                    Month = month,
-                    Lotation = usersCount + "/" + maxUsers,
-                    Sport = EventsbySport.ToList()[i].Reserve.Sport.Name
-                };
-                if (usersCount == maxUsers)
-                    listitems[i].ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
+        //public void ListEventsBySport()
+        //{
+        //    flpEventListModality.Controls.Clear();
+        //    var EventsbySport = _eventsController.EventsBySport(_id);
+        //    var EventsbySportCount = EventsbySport.Count;
+        //    var listitems = new UC_NextEventsandReserveItem[EventsbySportCount];
+        //    var Sport = _eventsController.RetrieveSingleSport(_id);
+        //    tbModalityName.Text = Sport.ToList()[0].Name;
+        //    for (var i = 0; i < EventsbySportCount; i++)
+        //    {
+        //        var users = EventsbySport.ToList()[i].Users.ToList();
+        //        var usersCount = EventsbySport.ToList()[i].Users.Count;
+        //        var maxUsers = EventsbySport.ToList()[i].MaxPlayers;
+        //        var hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString();
+        //        var month = EventsbySport.ToList()[i].StartDate.ToLongDateString();
+        //        month = month.Substring(6, 3).ToUpper();
+        //        listitems[i] = new UC_NextEventsandReserveItem
+        //        {
+        //            EventID = Convert.ToString(EventsbySport.ToList()[i].EventId),
+        //            Owner = EventsbySport.ToList()[i].Reserve.UserId,
+        //            SportGround = EventsbySport.ToList()[i].Reserve.Ground.Park.Name,
+        //            Hour = EventsbySport.ToList()[i].StartDate.ToShortTimeString(),
+        //            Day = Convert.ToString(EventsbySport.ToList()[i].StartDate.Day),
+        //            Month = month,
+        //            Lotation = usersCount + "/" + maxUsers,
+        //            Sport = EventsbySport.ToList()[i].Reserve.Sport.Name
+        //        };
 
-                foreach (var user in users)
-                    if (user.Username == _username) // já estou no evento
-                    {
-                        listitems[i].ChangeJoinEventbtn(false);
-                        if (listitems[i].Owner.Equals(_username))
-                        {
-                            // sou o owner, botao de remover evento
-                            listitems[i].ChangeCancelbtn(true);
-                        }
-                        else
-                        {
-                            listitems[i].ChangeJoinEventbtn(false);
-                            listitems[i].BringToFrontUnregister(true);
-                        }
-
-                        break;
-                    }
-                // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
-
-                flpEventListModality.Controls.Add(listitems[i]);
-            }
+        //       var eventItem=  _eventsController.ChangeButtons(usersCount, maxUsers, listitems[i], users, i, _username);
+        //       flpEventListModality.Controls.Add(eventItem);
+        //   }
         }
     }
-}
