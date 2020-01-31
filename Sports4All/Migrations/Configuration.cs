@@ -24,8 +24,6 @@ namespace Sports4All.Migrations
         protected override void Seed(Sports4All.ModelContext context)
         {
 
-            //ImagesController imgsController = new ImagesController();
-
             ICollection<District> listDistricts = new Collection<District>();
 
             listDistricts.Add(new District() { DistrictId = 1, Name = "Madeira" });
