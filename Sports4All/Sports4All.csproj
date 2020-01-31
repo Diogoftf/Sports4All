@@ -115,6 +115,10 @@
     <Compile Include="Migrations\202001311502145_M001.designer.cs">
       <DependentUpon>202001311502145_M001.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001311800595_M002.cs" />
+    <Compile Include="Migrations\202001311800595_M002.designer.cs">
+      <DependentUpon>202001311800595_M002.cs</DependentUpon>
+    </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="CircularButton.cs">
       <SubType>Component</SubType>
@@ -316,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001311502145_M001.resx">
       <DependentUpon>202001311502145_M001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001311800595_M002.resx">
+      <DependentUpon>202001311800595_M002.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_NextEventsandReserveItem.resx">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
