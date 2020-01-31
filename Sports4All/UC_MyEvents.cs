@@ -10,7 +10,7 @@ namespace Sports4All
     public partial class UC_MyEvents : UserControl, IUserControl
     {
         private readonly MyEventsController _eventsController;
-        
+
         public UC_MyEvents()
         {
             InitializeComponent();
@@ -20,8 +20,10 @@ namespace Sports4All
         }
 
         #region Properties
+
         private string Username { get; set; }
         public string Id { get; set; }
+
         #endregion
 
         private void UC_MyEvents_Load(object sender, EventArgs e)
@@ -66,8 +68,9 @@ namespace Sports4All
                     };
                     flpListMyEvents.Controls.Add(listitems[i]);
                 }
-                else {
-                    listitems[i] = new UC_EventMyEventsItem 
+                else
+                {
+                    listitems[i] = new UC_EventMyEventsItem
                     {
                         Avaliar = "Avaliado",
                         EventID = completedEvents.ToList()[i].EventId,
@@ -83,6 +86,7 @@ namespace Sports4All
                 }
             }
         }
+
         private void MyReserves()
         {
             flpListMyEvents.Controls.Clear();
@@ -108,18 +112,11 @@ namespace Sports4All
                     Lotation = usersCount + "/" + maxUsers,
                     EventID = Convert.ToString(myReserves.ToList()[i].Event.EventId)
                 };
-                if (Username.Equals(listitems[i].Owner))
-                {
-                    listitems[i].ChangeJoinEventbtn(false);
-                }
-                else
-                {
-                    listitems[i].ChangeCancelbtn(false);
-                    listitems[i].ChangeJoinEventbtn(true);
-                }
-                flpListMyEvents.Controls.Add(listitems[i]);
+                var events = _eventsController.ChangeButtonsReserve(Username, listitems[i], i);
+                flpListMyEvents.Controls.Add(events);
             }
         }
+
         private void btnNextEvents_Click(object sender, EventArgs e)
         {
             flpListMyEvents.Controls.Clear();
@@ -161,6 +158,7 @@ namespace Sports4All
             btnMinhasReservas.BackColor = Color.LightGray;
             if (!DesignMode) FinishedEvents();
         }
+
         private void btnMinhasReservas_Click(object sender, EventArgs e)
         {
             btnMinhasReservas.BackColor = Color.LightSkyBlue;
@@ -169,5 +167,7 @@ namespace Sports4All
             flpListMyEvents.Controls.Clear();
             if (!DesignMode) MyReserves();
         }
+
+
     }
 }

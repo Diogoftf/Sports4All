@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Windows.Input;
+using Renci.SshNet;
 using Sports4All.Controller;
 
 namespace Sports4All

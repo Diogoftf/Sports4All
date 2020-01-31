@@ -99,7 +99,6 @@ namespace Sports4All.Controller
                 return EventsbySport;
             }
         }
-
         public ICollection<Event> EventsByGround(int parkId)
         {
             using (var db = new ModelContext())
@@ -165,7 +164,6 @@ namespace Sports4All.Controller
                 context.SaveChanges();
             }
         }
-
         public void DeleteEvent(int EventId)
         {
             using (var context = new ModelContext())
@@ -186,7 +184,6 @@ namespace Sports4All.Controller
             }
         }
 
-
         public void UnregisterUser(int eventId, string username)
         {
 
@@ -203,23 +200,6 @@ namespace Sports4All.Controller
             }
         }
 
-        //public void GetOutEvent(int eventId, string username)
-        //{
-
-        //    using (var context = new ModelContext())
-        //    {
-        //        var eventRecord = context.Events
-        //            .Where(a => a.EventId == eventId)
-        //            .Include("Reserve")
-        //            .FirstOrDefault();
-        //        context.Events.Remove(eventRecord);
-        //        context.SaveChanges();
-        //    }
-        //}
-
-        /*UC_EVentDetails*
-         *Função que retorna todos os utilizadores presentes no evento. Argumento:EventID.
-         */
         public ICollection<User> RetrieveEnrolledUsers(int eventId)
         {
             using (var db = new ModelContext())
@@ -254,7 +234,6 @@ namespace Sports4All.Controller
                 return SingleUser;
             }
         }
-
         public bool CheckUserInEvent(int eventId, string username)
         {
             var users = RetrieveEnrolledUsers(eventId);
@@ -315,6 +294,23 @@ namespace Sports4All.Controller
 
             return listitems;
             // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
+        }
+
+        public UC_NextEventsandReserveItem ChangeButtonsReserve(string Username, UC_NextEventsandReserveItem listitems, int i)
+        {
+            if (Username.Equals(listitems.Owner))
+            {
+                listitems.ChangeJoinEventbtn(false);
+            }
+            else
+            {
+                listitems.ChangeCancelbtn(false);
+                listitems.ChangeJoinEventbtn(true);
+            }
+
+            return listitems;
+
+
         }
 
     }

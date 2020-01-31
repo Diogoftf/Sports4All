@@ -21,7 +21,6 @@ namespace Sports4All
             this._eventItem = EventItem;
             this._username = this._eventItem.Username;
             this._eventid = Convert.ToInt32(this._eventItem.EventID);
-
         }
 
         public void Execute()
