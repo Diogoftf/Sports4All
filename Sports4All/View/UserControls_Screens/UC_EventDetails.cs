@@ -20,6 +20,18 @@ namespace Sports4All
         private int _eventID;
         private string _parkname;
         private Image _image;
+        private string _eventName;
+
+
+        public string EventName
+        {
+            get => _eventName;
+            set
+            {
+                _eventName = value;
+                lbEventId.Text ="Evento:"+ value;
+            }
+        }
 
         public string ParkName
         {
@@ -38,7 +50,7 @@ namespace Sports4All
             set
             {
                 _eventID = value;
-                lbEventIDValue.Text = Convert.ToString(value);
+                //lbEventIDValue.Text = Convert.ToString(value);
             }
         }
         public string StartHour
@@ -112,7 +124,6 @@ namespace Sports4All
             InitializeComponent();
             PickDateTimeOnly();
             _eventsController = new MyEventsController();
-            // _eventID = 1;// VALOR PARA TESTE!!!!!!!!!!
         }
 
 
@@ -216,9 +227,8 @@ namespace Sports4All
             pbPark.Image = ImagesController.Instance.GetImageFromID(singleEvent.Reserve.Ground.Park.Picture.PictureId);
             tbMaxAge.Text = Convert.ToString(singleEvent.MaxAge);
             tbminAge.Text = Convert.ToString(singleEvent.MinAge);
-            //**Ver Nome do Parque ainda**
             ParkName = singleEvent.Reserve.Ground.Park.Name;
-
+            EventName = singleEvent.Name;
         }
 
         public void CheckOwner()
@@ -231,5 +241,7 @@ namespace Sports4All
             btnSaveChanges.Visible = true;
             PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
         }
+
+ 
     } 
 }

@@ -269,7 +269,7 @@ namespace Sports4All.Controller
             }
         }
 
-        public UC_NextEventsandReserveItem ChangeButtons(int usersCount, int maxUsers, UC_NextEventsandReserveItem listitems, List<User> users, int i, string _username)
+        public UC_NextEventsandReserveItem ChangeButtons(int usersCount, int maxUsers, UC_NextEventsandReserveItem listitems, List<User> users, string _username)
         {
             if (usersCount == maxUsers)
                 listitems.ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
@@ -291,12 +291,10 @@ namespace Sports4All.Controller
 
                     break;
                 }
-
             return listitems;
-            // se nao encontrar o user nao faz nada, o joinBtn por defeito está a true
         }
 
-        public UC_NextEventsandReserveItem ChangeButtonsReserve(string Username, UC_NextEventsandReserveItem listitems, int i)
+        public UC_NextEventsandReserveItem ChangeButtonsReserve(string Username, UC_NextEventsandReserveItem listitems)
         {
             if (Username.Equals(listitems.Owner))
             {
@@ -307,10 +305,7 @@ namespace Sports4All.Controller
                 listitems.ChangeCancelbtn(false);
                 listitems.ChangeJoinEventbtn(true);
             }
-
             return listitems;
-
-
         }
 
     }

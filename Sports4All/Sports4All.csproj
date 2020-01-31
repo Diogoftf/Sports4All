@@ -155,112 +155,112 @@
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
     <Compile Include="Sport.cs" />
-    <Compile Include="UC_NextEventsandReserveItem.cs">
+    <Compile Include="View\UserControls_Items\UC_NextEventsandReserveItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_NextEventsandReserveItem.Designer.cs">
+    <Compile Include="View\UserControls_Items\UC_NextEventsandReserveItem.Designer.cs">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_AddFriend.cs">
+    <Compile Include="View\UserControls_Screens\UC_AddFriend.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_AddFriend.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_AddFriend.Designer.cs">
       <DependentUpon>UC_AddFriend.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_CreateEvent.cs">
+    <Compile Include="View\UserControls_Screens\UC_CreateEvent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_CreateEvent.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_CreateEvent.Designer.cs">
       <DependentUpon>UC_CreateEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Home.cs">
+    <Compile Include="View\UserControls_Screens\UC_Home.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_Home.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_Home.Designer.cs">
       <DependentUpon>UC_Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_HomeMyEventsItem.cs">
+    <Compile Include="View\UserControls_Items\UC_HomeMyEventsItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_HomeMyEventsItem.Designer.cs">
+    <Compile Include="View\UserControls_Items\UC_HomeMyEventsItem.Designer.cs">
       <DependentUpon>UC_HomeMyEventsItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_UserinEventItem.cs">
+    <Compile Include="View\UserControls_Items\UC_UserinEventItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_UserinEventItem.Designer.cs">
+    <Compile Include="View\UserControls_Items\UC_UserinEventItem.Designer.cs">
       <DependentUpon>UC_UserinEventItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Rank.cs">
+    <Compile Include="View\UserControls_Screens\UC_Rank.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_Rank.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_Rank.Designer.cs">
       <DependentUpon>UC_Rank.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_RankItems.cs">
+    <Compile Include="View\UserControls_Items\UC_RankItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_RankItems.Designer.cs">
+    <Compile Include="View\UserControls_Items\UC_RankItems.Designer.cs">
       <DependentUpon>UC_RankItems.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_SportsgroundEvItem.cs">
+    <Compile Include="View\UserControls_Items\UC_SportsgroundEvItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_SportsgroundEvItem.Designer.cs">
+    <Compile Include="View\UserControls_Items\UC_SportsgroundEvItem.Designer.cs">
       <DependentUpon>UC_SportsgroundEvItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_EventEvaluation.cs">
+    <Compile Include="View\UserControls_Screens\UC_EventEvaluation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_EventEvaluation.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_EventEvaluation.Designer.cs">
       <DependentUpon>UC_EventEvaluation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_PlayerEvaluationItem.cs">
+    <Compile Include="View\UserControls_Items\UC_PlayerEvaluationItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_PlayerEvaluationItem.Designer.cs">
+    <Compile Include="View\UserControls_Items\UC_PlayerEvaluationItem.Designer.cs">
       <DependentUpon>UC_PlayerEvaluationItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_SportsgroundDesc.cs">
+    <Compile Include="View\UserControls_Screens\UC_SportsgroundDesc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_SportsgroundDesc.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_SportsgroundDesc.Designer.cs">
       <DependentUpon>UC_SportsgroundDesc.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_EventDetails.cs">
+    <Compile Include="View\UserControls_Screens\UC_EventDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_EventDetails.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_EventDetails.Designer.cs">
       <DependentUpon>UC_EventDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_UserProfile.cs">
+    <Compile Include="View\UserControls_Screens\UC_UserProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_UserProfile.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_UserProfile.Designer.cs">
       <DependentUpon>UC_UserProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_EventMyEventsItem.cs">
+    <Compile Include="View\UserControls_Items\UC_EventMyEventsItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_EventMyEventsItem.Designer.cs">
+    <Compile Include="View\UserControls_Items\UC_EventMyEventsItem.Designer.cs">
       <DependentUpon>UC_EventMyEventsItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_EventsModality.cs">
+    <Compile Include="View\UserControls_Screens\UC_EventsModality.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_EventsModality.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_EventsModality.Designer.cs">
       <DependentUpon>UC_EventsModality.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_EventsSportsGrounds.cs">
+    <Compile Include="View\UserControls_Screens\UC_EventsSportsGrounds.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_EventsSportsGrounds.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_EventsSportsGrounds.Designer.cs">
       <DependentUpon>UC_EventsSportsGrounds.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_MyEvents.cs">
+    <Compile Include="View\UserControls_Screens\UC_MyEvents.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_MyEvents.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_MyEvents.Designer.cs">
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </Compile>
     <Compile Include="UnregisterCommand.cs" />
@@ -268,10 +268,10 @@
     <Compile Include="User.cs" />
     <Compile Include="UserClassification.cs" />
     <Compile Include="Controller\UserController.cs" />
-    <Compile Include="UC_UnregisterButton.cs">
+    <Compile Include="View\UserControls_Screens\UC_UnregisterButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_UnregisterButton.Designer.cs">
+    <Compile Include="View\UserControls_Screens\UC_UnregisterButton.Designer.cs">
       <DependentUpon>UC_UnregisterButton.cs</DependentUpon>
     </Compile>
     <Compile Include="UserEvaluation.cs" />
@@ -328,61 +328,61 @@
     <EmbeddedResource Include="Migrations\202001311800595_M002.resx">
       <DependentUpon>202001311800595_M002.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_NextEventsandReserveItem.resx">
+    <EmbeddedResource Include="View\UserControls_Items\UC_NextEventsandReserveItem.resx">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_AddFriend.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_AddFriend.resx">
       <DependentUpon>UC_AddFriend.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_CreateEvent.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_CreateEvent.resx">
       <DependentUpon>UC_CreateEvent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventEvaluation.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_EventEvaluation.resx">
       <DependentUpon>UC_EventEvaluation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_Home.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_Home.resx">
       <DependentUpon>UC_Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_HomeMyEventsItem.resx">
+    <EmbeddedResource Include="View\UserControls_Items\UC_HomeMyEventsItem.resx">
       <DependentUpon>UC_HomeMyEventsItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_MyEvents.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_MyEvents.resx">
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_UserinEventItem.resx">
+    <EmbeddedResource Include="View\UserControls_Items\UC_UserinEventItem.resx">
       <DependentUpon>UC_UserinEventItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_PlayerEvaluationItem.resx">
+    <EmbeddedResource Include="View\UserControls_Items\UC_PlayerEvaluationItem.resx">
       <DependentUpon>UC_PlayerEvaluationItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_Rank.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_Rank.resx">
       <DependentUpon>UC_Rank.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_RankItems.resx">
+    <EmbeddedResource Include="View\UserControls_Items\UC_RankItems.resx">
       <DependentUpon>UC_RankItems.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_SportsgroundDesc.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_SportsgroundDesc.resx">
       <DependentUpon>UC_SportsgroundDesc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_SportsgroundEvItem.resx">
+    <EmbeddedResource Include="View\UserControls_Items\UC_SportsgroundEvItem.resx">
       <DependentUpon>UC_SportsgroundEvItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventDetails.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_EventDetails.resx">
       <DependentUpon>UC_EventDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_UserProfile.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_UserProfile.resx">
       <DependentUpon>UC_UserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventMyEventsItem.resx">
+    <EmbeddedResource Include="View\UserControls_Items\UC_EventMyEventsItem.resx">
       <DependentUpon>UC_EventMyEventsItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventsModality.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_EventsModality.resx">
       <DependentUpon>UC_EventsModality.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_EventsSportsGrounds.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_EventsSportsGrounds.resx">
       <DependentUpon>UC_EventsSportsGrounds.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_UnregisterButton.resx">
+    <EmbeddedResource Include="View\UserControls_Screens\UC_UnregisterButton.resx">
       <DependentUpon>UC_UnregisterButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls_Items\UC_EventItem.resx">

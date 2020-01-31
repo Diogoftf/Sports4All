@@ -59,7 +59,6 @@ namespace Sports4All
             _eventsList = _eventsController.EventsByGround(Convert.ToInt32(Id));
             if (!DesignMode) ListEventsbyGround();
         }
-
         public void ListEventsbyGround()
         {
             flpEventListSportsground.Controls.Clear();
@@ -67,26 +66,24 @@ namespace Sports4All
             UC_NextEventsandReserveItem[] listitems = new UC_NextEventsandReserveItem[EventsbyGroundCount];
             var Park = _parkController.GetPark(Convert.ToInt32(Id));
             ParkName = Park.Name;
-
-            for (int i = 0; i < EventsbyGroundCount; i++)
+            UC_NextEventsandReserveItem _eventGround = new UC_NextEventsandReserveItem();
+            foreach (var eventGround in _eventsList)
             {
-                var users = _eventsList.ToList()[i].Users.ToList();
-                var usersCount = _eventsList.ToList()[i].Users.Count;
-                var maxUsers = _eventsList.ToList()[i].MaxPlayers;
-                var hour = _eventsList.ToList()[i].StartDate.ToShortTimeString();
-                var month = _eventsList.ToList()[i].StartDate.ToLongDateString();
+                var users = eventGround.Users.ToList();
+                var usersCount = eventGround.Users.Count;
+                var maxUsers = eventGround.MaxPlayers;
+                var hour = eventGround.StartDate.ToShortTimeString();
+                var month = eventGround.StartDate.ToLongDateString();
                 month = month.Substring(6, 3).ToUpper();
-                listitems[i] = new UC_NextEventsandReserveItem
-                {
-                    Owner = _eventsList.ToList()[0].Reserve.UserId,
-                    SportGround = _eventsList.ToList()[0].Reserve.Ground.Park.Name,
-                    Hour = _eventsList.ToList()[i].StartDate.ToShortTimeString(),
-                    Day = Convert.ToString(_eventsList.ToList()[i].StartDate.Day),
-                    Month = month,
-                    Lotation = usersCount + "/" + maxUsers,
-                    EventID = Convert.ToString(_eventsList.ToList()[0].EventId)
-                };
-                var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, listitems[i], users, i, _username);
+                _eventGround.Owner = _eventsList.ToList()[0].Reserve.UserId;
+                _eventGround.SportGround = _eventsList.ToList()[0].Reserve.Ground.Park.Name;
+                _eventGround.Hour = eventGround.StartDate.ToShortTimeString();
+                _eventGround.Day = Convert.ToString(eventGround.StartDate.Day);
+                _eventGround.Month = month;
+                _eventGround.Lotation = usersCount + "/" + maxUsers;
+                _eventGround.EventID = Convert.ToString(eventGround.EventId); // estava [0]!!!!
+               
+                var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _eventGround, users, _username);
                 flpEventListSportsground.Controls.Add(eventItem);
             }
         }
@@ -94,12 +91,10 @@ namespace Sports4All
         {
             if (!_controlSub) tbSubSportsGroundNotification.Visible = true;
         }
-
         private void mouseLeave(object sender, EventArgs e)
         {
             tbSubSportsGroundNotification.Visible = false;
         }
-
         private void subButton_Click(object sender, EventArgs e)
         {
             if (!_controlSub)
@@ -117,7 +112,6 @@ namespace Sports4All
                 _controlSub = false;
 
             }
-
         }
         private void showNotification(string title, string body)
         {
@@ -151,7 +145,6 @@ namespace Sports4All
                 ListEventsbyGround();
             }
         }
-
         private void btnTenis_Click(object sender, EventArgs e)
         {
             if (!DesignMode)
