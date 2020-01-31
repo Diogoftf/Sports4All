@@ -68,8 +68,8 @@ namespace Sports4All.Migrations
             listParks.Add(new Park() { ParkId = 2, Name = "Ludens Padel", Address = listAddresses.ToList()[1], Description = "Teste Descrição2", Picture = listPictures.ToList()[9] });
 
             ICollection<Ground> listGrounds = new Collection<Ground>();
-            listGrounds.Add(new Ground() { GroundId = 1, ParkId = 1, Sports = listSports.ToList(), Picture = listPictures.ToList()[8] });
-            listGrounds.Add(new Ground() { GroundId = 2, ParkId = 2, Sports = listSports.ToList(), Picture = listPictures.ToList()[9] });
+            listGrounds.Add(new Ground() { GroundId = 1, ParkId = 1, Price = 10, Sports = listSports.ToList(), Picture = listPictures.ToList()[8] });
+            listGrounds.Add(new Ground() { GroundId = 2, ParkId = 2, Price = 12, Sports = listSports.ToList(), Picture = listPictures.ToList()[9] });
 
              DateTime dateStartEvent = new DateTime(2020, 2, 18);
              dateStartEvent.Date.AddHours(12); dateStartEvent.Date.AddMinutes(00);
