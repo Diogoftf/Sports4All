@@ -405,7 +405,6 @@
     <EmbeddedResource Include="View\UserControls_Screens\UC_Subscriptions.resx">
       <DependentUpon>UC_Subscriptions.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include=".editorconfig" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -196,7 +196,7 @@ namespace Sports4All
                 {
                     UserId = user.Username,
                     PlayerAge = user.Age + "Anos",
-                    Image = ImagesController.GetImageFromID(user.PictureId)
+                    Image = ImagesController.Instance.GetImageFromID(user.PictureId)
                 };
                 flpUsersEvent.Controls.Add(_userInEvent);
             }
@@ -213,7 +213,7 @@ namespace Sports4All
             dtpStartEventTime.Text = singleEvent.StartDate.ToShortTimeString();
             dtpEndEventTime.Text = singleEvent.EndDate.ToShortTimeString();
             tbMaxPlayers.Text = Convert.ToString(singleEvent.MaxPlayers);
-            pbPark.Image = ImagesController.GetImageFromID(singleEvent.Reserve.Ground.Park.Picture.PictureId);
+            pbPark.Image = ImagesController.Instance.GetImageFromID(singleEvent.Reserve.Ground.Park.Picture.PictureId);
             tbMaxAge.Text = Convert.ToString(singleEvent.MaxAge);
             tbminAge.Text = Convert.ToString(singleEvent.MinAge);
             //**Ver Nome do Parque ainda**

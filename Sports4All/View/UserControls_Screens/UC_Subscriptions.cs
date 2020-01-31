@@ -101,7 +101,7 @@ namespace Sports4All.UserControls_Screens
                 UC_SubscriptionItem item = new UC_SubscriptionItem
                 {
                     Title = park.Name,
-                    Image = ImagesController.GetImageFromID(park.Picture.PictureId)
+                    Image = ImagesController.Instance.GetImageFromID(park.Picture.PictureId)
                 };
 
                 p.Controls.Add(item);

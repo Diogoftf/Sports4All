@@ -79,8 +79,8 @@ namespace Sports4All
 
                 var parkQuery = db.Classifications.OfType<ParkClassification>().OrderByDescending(e => e.Points).Take(1).FirstOrDefault();
 
-                pbMonthuser.Image = ImagesController.GetImageFromID(userQuery.User.PictureId);
-                pbMonthEnclosure.Image = ImagesController.GetImageFromID(parkQuery.Park.Picture.PictureId);
+                pbMonthuser.Image = ImagesController.Instance.GetImageFromID(userQuery.User.PictureId);
+                pbMonthEnclosure.Image = ImagesController.Instance.GetImageFromID(parkQuery.Park.Picture.PictureId);
                 lbUserName.Text = userQuery.User.Username;
                 lbParkName.Text = parkQuery.Park.Name;
             } 
@@ -205,7 +205,7 @@ namespace Sports4All
                         ItemMyEvents.Slots = myEvent.ToList()[i].Users.Count.ToString() + "/" + myEvent.ToList()[i].MaxPlayers.ToString();
                         ItemMyEvents.Recinto = myEvent.ToList()[i].Reserve.Ground.Park.Name;
                         ItemMyEvents.Sport = myEvent.ToList()[i].Reserve.Sport.Name;
-                        ItemMyEvents.Image = ImagesController.GetImageFromID(myEvent.ToList()[i].Reserve.Sport.Picture.PictureId);
+                        ItemMyEvents.Image = ImagesController.Instance.GetImageFromID(myEvent.ToList()[i].Reserve.Sport.Picture.PictureId);
                         ItemMyEvents.Id = myEvent.ToList()[i].EventId;
                         _MyEvents.Add(ItemMyEvents);
                         flpMyEvents.Controls.Add(ItemMyEvents); //add to flowlayout

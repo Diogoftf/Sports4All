@@ -50,7 +50,7 @@ namespace Sports4All
                     Title = park.Name,
                     Id = park.ParkId,
                     Score = _browseParksController.GetParkClassification(park.ParkId).QualityAverage + "/5",
-                    Image = ImagesController.GetImageFromID(park.Picture.PictureId)
+                    Image = ImagesController.Instance.GetImageFromID(park.Picture.PictureId)
                 };
 
                 flpSportsGround.Controls.Add(item);

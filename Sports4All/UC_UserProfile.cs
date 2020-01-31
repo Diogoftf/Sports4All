@@ -34,7 +34,7 @@ namespace Sports4All
             lblUserEmail.Text = user.Email;
             lblUserPhone.Text = user.PhoneNumber.ToString();
             lblUserEvents.Text = _userController.GetUserEvents(Id);
-            cpbUser.Image = ImagesController.GetImageFromID(user.PictureId);
+            cpbUser.Image = ImagesController.Instance.GetImageFromID(user.PictureId);
             lblUserSubscribers.Text = "AINDA POR FAZER";
             lblUserSkill.Text = classifications["Skill"];
             lblUserFairPlay.Text = classifications["FairPlay"];

@@ -66,14 +66,14 @@ namespace Sports4All
             Park park = _evaluationController.GetEventPark(EventId);
             _uc.ParkId = park.ParkId;
             _uc.ParkName = park.Name;
-            _uc.Image= ImagesController.GetImageFromID(park.Picture.PictureId);
+            _uc.Image= ImagesController.Instance.GetImageFromID(park.Picture.PictureId);
             _ev.Attach(park);
 
             foreach (var user in _evaluationController.GetEvaluableUsers(EventId) )
             {
                 UC_PlayerEvaluationItem _playerEvaluation = new UC_PlayerEvaluationItem();
                 _playerEvaluation.Username = user.Username;
-                _playerEvaluation.Image = ImagesController.GetImageFromID(user.PictureId);
+                _playerEvaluation.Image = ImagesController.Instance.GetImageFromID(user.PictureId);
                 _evaluationItems.Add(_playerEvaluation);
                 flpPlayersEvaluation.Controls.Add(_playerEvaluation);
 

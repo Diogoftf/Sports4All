@@ -40,7 +40,7 @@ namespace Sports4All
                 UC_EventItem uc = new UC_EventItem
                 {
                     Title = sport.Name,
-                    Image = ImagesController.GetImageFromID(sport.Picture.PictureId),
+                    Image = ImagesController.Instance.GetImageFromID(sport.Picture.PictureId),
                     Id = sport.SportId
                 };
 
