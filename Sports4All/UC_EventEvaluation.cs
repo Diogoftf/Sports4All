@@ -10,7 +10,9 @@ namespace Sports4All
         private UC_SportsgroundEvItem _uc;
         private ICollection<UC_PlayerEvaluationItem> _evaluationItems;
         private EvaluationController _evaluationController;
+        private RankController _rankController;
         private Event _ev;
+        private EventObservable _eventObservable;
 
         public UC_EventEvaluation()
         {
@@ -18,7 +20,9 @@ namespace Sports4All
             _uc = UC_SportsgroundEvItem1;
             _evaluationItems = new List<UC_PlayerEvaluationItem>();
             _evaluationController = new EvaluationController();
+            _rankController = new RankController();
             _ev = new Event();
+            _eventObservable = new EventObservable(_ev);
         }
 
         #region Properties
@@ -56,6 +60,7 @@ namespace Sports4All
                     EventId);
             }
             //_ev.Notify();
+            //_eventObservable.Notify();
         }
 
         public void Populate()
@@ -69,6 +74,9 @@ namespace Sports4All
             _uc.Image= ImagesController.Instance.GetImageFromID(park.Picture.PictureId);
             //_ev.Attach(park);
 
+            _eventObservable.OnUpdate += (o, d) => { Console.WriteLine("i'm here!"); _rankController.UpdateParkClassification(park.ParkId); };
+            
+
             foreach (var user in _evaluationController.GetEvaluableUsers(EventId) )
             {
                 UC_PlayerEvaluationItem _playerEvaluation = new UC_PlayerEvaluationItem();
@@ -76,6 +84,7 @@ namespace Sports4All
                 _playerEvaluation.Image = ImagesController.Instance.GetImageFromID(user.PictureId);
                 _evaluationItems.Add(_playerEvaluation);
                 flpPlayersEvaluation.Controls.Add(_playerEvaluation);
+                _eventObservable.OnUpdate += (o, d) => _rankController.UpdateUserClassification(user.Username);
 
                 //_ev.Attach(user);
             }

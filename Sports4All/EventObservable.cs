@@ -17,7 +17,7 @@ namespace Sports4All
 
         public DateTime EndDate { 
             get => Subject.EndDate; 
-            set { Subject.EndDate = value; Notify(); } 
+            set { Subject.EndDate = value;} 
         }
 
         public ICollection<Evaluation> Evaluations { 
@@ -27,27 +27,27 @@ namespace Sports4All
 
         public int EventId { 
             get => Subject.EventId;
-            set { Subject.EventId = value; Notify(); }
+            set { Subject.EventId = value; }
         }
 
         public int MaxAge { 
             get => Subject.MaxAge;
-            set { Subject.MaxAge = value; Notify(); }
+            set { Subject.MaxAge = value;}
         }
 
         public int MaxPlayers { 
             get => Subject.MaxPlayers;
-            set { Subject.MaxPlayers = value; Notify(); }
+            set { Subject.MaxPlayers = value; }
         }
 
         public int MinAge { 
             get => Subject.MinAge;
-            set { Subject.MinAge = value; Notify(); }
+            set { Subject.MinAge = value; }
         }
 
         public string Name { 
             get => Subject?.Name;
-            set { Subject.Name = value; Notify(); }
+            set { Subject.Name = value; }
         }
 
         public Reserve Reserve { 

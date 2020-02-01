@@ -10,7 +10,7 @@ namespace Sports4All
     {
         public event UpdateHandler OnUpdate;
 
-        protected void Notify(object aData = null)
+        public void Notify(object aData = null)
         {
             OnUpdate?.Invoke(this, aData);
         }
