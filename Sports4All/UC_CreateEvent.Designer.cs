@@ -60,10 +60,15 @@
             this.pbEvent = new System.Windows.Forms.PictureBox();
             this.btnCancelEvent = new System.Windows.Forms.Button();
             this.btnCreateEvent = new System.Windows.Forms.Button();
+            this.lbAmount = new System.Windows.Forms.Label();
+            this.lbEuro = new System.Windows.Forms.Label();
+            this.lbMoney = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEvent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -105,7 +110,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1201, 630);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1201, 627);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // tbLocation
@@ -223,7 +228,7 @@
             this.lbPlayersAge.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbPlayersAge.Location = new System.Drawing.Point(4, 475);
             this.lbPlayersAge.Name = "lbPlayersAge";
-            this.lbPlayersAge.Size = new System.Drawing.Size(315, 154);
+            this.lbPlayersAge.Size = new System.Drawing.Size(315, 151);
             this.lbPlayersAge.TabIndex = 15;
             this.lbPlayersAge.Text = "Idade";
             this.lbPlayersAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -396,7 +401,7 @@
             // 
             this.lbCreateEvent.AutoSize = true;
             this.lbCreateEvent.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
-            this.lbCreateEvent.Location = new System.Drawing.Point(394, 32);
+            this.lbCreateEvent.Location = new System.Drawing.Point(119, 25);
             this.lbCreateEvent.Name = "lbCreateEvent";
             this.lbCreateEvent.Size = new System.Drawing.Size(166, 30);
             this.lbCreateEvent.TabIndex = 17;
@@ -406,7 +411,7 @@
             // 
             this.pbEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbEvent.Image = ((System.Drawing.Image)(resources.GetObject("pbEvent.Image")));
-            this.pbEvent.Location = new System.Drawing.Point(297, 5);
+            this.pbEvent.Location = new System.Drawing.Point(35, 0);
             this.pbEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbEvent.Name = "pbEvent";
             this.pbEvent.Size = new System.Drawing.Size(78, 75);
@@ -420,7 +425,7 @@
             this.btnCancelEvent.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.btnCancelEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelEvent.Image")));
             this.btnCancelEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelEvent.Location = new System.Drawing.Point(616, 718);
+            this.btnCancelEvent.Location = new System.Drawing.Point(618, 728);
             this.btnCancelEvent.Margin = new System.Windows.Forms.Padding(0, 2, 3, 2);
             this.btnCancelEvent.Name = "btnCancelEvent";
             this.btnCancelEvent.Size = new System.Drawing.Size(168, 58);
@@ -436,7 +441,7 @@
             this.btnCreateEvent.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.btnCreateEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateEvent.Image")));
             this.btnCreateEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateEvent.Location = new System.Drawing.Point(423, 718);
+            this.btnCreateEvent.Location = new System.Drawing.Point(428, 728);
             this.btnCreateEvent.Margin = new System.Windows.Forms.Padding(150, 2, 3, 2);
             this.btnCreateEvent.Name = "btnCreateEvent";
             this.btnCreateEvent.Size = new System.Drawing.Size(176, 58);
@@ -446,10 +451,54 @@
             this.btnCreateEvent.UseVisualStyleBackColor = true;
             this.btnCreateEvent.Click += new System.EventHandler(this.btnCreateEvent_Click_1);
             // 
+            // lbAmount
+            // 
+            this.lbAmount.AutoSize = true;
+            this.lbAmount.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lbAmount.Location = new System.Drawing.Point(966, 31);
+            this.lbAmount.Name = "lbAmount";
+            this.lbAmount.Size = new System.Drawing.Size(109, 23);
+            this.lbAmount.TabIndex = 23;
+            this.lbAmount.Text = "Montante:";
+            // 
+            // lbEuro
+            // 
+            this.lbEuro.AutoSize = true;
+            this.lbEuro.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lbEuro.Location = new System.Drawing.Point(1127, 31);
+            this.lbEuro.Name = "lbEuro";
+            this.lbEuro.Size = new System.Drawing.Size(21, 23);
+            this.lbEuro.TabIndex = 24;
+            this.lbEuro.Text = "€";
+            // 
+            // lbMoney
+            // 
+            this.lbMoney.AutoSize = true;
+            this.lbMoney.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lbMoney.Location = new System.Drawing.Point(1081, 31);
+            this.lbMoney.Name = "lbMoney";
+            this.lbMoney.Size = new System.Drawing.Size(21, 23);
+            this.lbMoney.TabIndex = 25;
+            this.lbMoney.Text = "0";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(930, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
             // UC_CreateEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lbMoney);
+            this.Controls.Add(this.lbEuro);
+            this.Controls.Add(this.lbAmount);
             this.Controls.Add(this.btnCreateEvent);
             this.Controls.Add(this.pbEvent);
             this.Controls.Add(this.lbCreateEvent);
@@ -457,7 +506,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UC_CreateEvent";
-            this.Size = new System.Drawing.Size(1226, 778);
+            this.Size = new System.Drawing.Size(1226, 797);
             this.Load += new System.EventHandler(this.UC_CreateEvent_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -466,6 +515,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEvent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,5 +554,9 @@
         private System.Windows.Forms.TextBox tbLocation;
         private System.Windows.Forms.ComboBox cbSport;
         private System.Windows.Forms.FlowLayoutPanel flpMaterial;
+        private System.Windows.Forms.Label lbAmount;
+        private System.Windows.Forms.Label lbEuro;
+        private System.Windows.Forms.Label lbMoney;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
