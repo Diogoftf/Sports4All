@@ -92,7 +92,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "UC_MaterialItem";
-            this.Size = new System.Drawing.Size(377, 66);
+            this.Size = new System.Drawing.Size(438, 66);
             this.Load += new System.EventHandler(this.UC_MaterialItem_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

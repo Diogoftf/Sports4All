@@ -53,12 +53,12 @@ namespace Sports4All
             dtpEndEventTime.Format = DateTimePickerFormat.Custom;
             dtpEndEventTime.ShowUpDown = true;
 
-            for (int i = 1; i < 21; i++)
+            for (int i = 2; i < 22; i+=2)
             {
                 cbPlayersNumber.Items.Add(i);
             }
             
-            for (int i = 5; i < 60; i+=5)
+            for (int i = 5; i < 100; i+=5)
             {
                 cbMinAge.Items.Add(i);
                 cbMaxAge.Items.Add(i);
@@ -121,15 +121,16 @@ namespace Sports4All
         private void clearFields()
         {
             txtEventName.Clear();
-            cbPark.SelectedIndex = -1;
+            cbPark.Items.Clear();
             tbLocation.Clear();
-            cbSport.SelectedIndex = -1;
+            cbSport.Items.Clear();
             dtpEventDate.MinDate = DateTime.Now;
             dtpStartEventTime.MinDate = DateTime.Now;
             dtpEndEventTime.MinDate = DateTime.Now;
-            cbPlayersNumber.SelectedIndex = -1;
-            cbMinAge.SelectedIndex = -1;
-            cbMaxAge.SelectedIndex = -1;
+            cbPlayersNumber.Items.Clear();
+            cbMinAge.Items.Clear();
+            cbMaxAge.Items.Clear();
+            cbPlayersNumber.Items.Clear();
         }
 
         private void cbPark_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,21 +147,6 @@ namespace Sports4All
                         .Where(f => f.Name.Equals(cbPark.Text)).FirstOrDefault();
 
                     tbLocation.Text = Park.Address.Street + ", " + Park.Address.PostalCode + ", " + Park.Address.County.Name;
-
-                    flpMaterial.Controls.Clear();
-                    if (Park.Materials.ToList().Count > 0)
-                    {
-                        for (int k = 0; k < Park.Materials.ToList().Count; k++)
-                        {
-                            UC_MaterialItem temp = new UC_MaterialItem();
-                            temp.Material = Park.Materials.ToList()[k].Name;
-                            temp.PopulateQuantity(Park.Materials.ToList()[k].Available);
-                            temp.Preço = Park.Materials.ToList()[k].Price + " €";
-                            flpMaterial.Controls.Add(temp);
-                           
-                        }
-                    }
-
 
                     for (int i = 0; i < Park.Grounds.Count; i++)
                     {
@@ -179,21 +165,42 @@ namespace Sports4All
             {
                 using (ModelContext db = new ModelContext())
                 {
-                    var sport = db.Sports.Where(f => f.Name.Equals(cbSport.Text)).First();
+                    var sport = db.Sports
+                        .Where(f => f.Name.Equals(cbSport.Text)).First();
 
-                    var desportoRecinto = db.Grounds.Where(f => f.Park.Name.Equals(cbPark.Text)).ToList();
+                    var parkId = db.Parks.First(f => f.Name == cbPark.Text).ParkId;
 
-                    for (int i = 0; i < desportoRecinto.Count; i++)
+                    var groundsRecinto = db.Grounds.Where(f => f.Park.Name.Equals(cbPark.Text)).ToList();
+
+                    for (int i = 0; i < groundsRecinto.Count; i++)
                     {
-                        for (int j = 0; j < desportoRecinto[i].Sports.ToList().Count; j++)
+                        for (int j = 0; j < groundsRecinto[i].Sports.ToList().Count; j++)
                         {
-                            if (desportoRecinto[i].Sports.ToList()[j].SportId == sport.SportId)
+                            if (groundsRecinto[i].Sports.ToList()[j].SportId == sport.SportId)//
                             {
-                                _reserve.GroundId = desportoRecinto[i].GroundId;
+                                _reserve.GroundId = groundsRecinto[i].GroundId;
+                                _reserve.SportId = sport.SportId;
                             }
                         }
                     }
-                    _reserve.SportId = sport.SportId;
+
+                    //listMaterials.Add(new Material() { MaterialId = 1, Available = 4, Price = 6, Name = "Bola", SportId = listSports.ToList()[0].SportId, ParkId = listParks.ToList()[0].ParkId});
+                    var materiais = db.Materials
+                        .Where(f => f.Sport.SportId == _reserve.SportId && f.ParkId == parkId).ToList();
+
+                    flpMaterial.Controls.Clear();
+                    if (materiais.Count > 0)
+                    {
+                        for (int k = 0; k < materiais.Count; k++)
+                        {
+                            UC_MaterialItem temp = new UC_MaterialItem();
+                            temp.Material = materiais[k].Name;
+                            temp.PopulateQuantity(materiais[k].Available);
+                            temp.Preço = materiais[k].Price + " €";
+                            flpMaterial.Controls.Add(temp);
+
+                        }
+                    }
                 }
             }
         }

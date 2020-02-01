@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_CreateEvent));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbLocation = new System.Windows.Forms.TextBox();
+            this.cbSport = new System.Windows.Forms.ComboBox();
+            this.flpMaterial = new System.Windows.Forms.FlowLayoutPanel();
             this.cbPark = new System.Windows.Forms.ComboBox();
             this.lbPark = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -42,8 +45,6 @@
             this.lbDate = new System.Windows.Forms.Label();
             this.lbSport = new System.Windows.Forms.Label();
             this.lbLocation = new System.Windows.Forms.Label();
-            this.tbLocation = new System.Windows.Forms.TextBox();
-            this.cbSport = new System.Windows.Forms.ComboBox();
             this.cbPlayersNumber = new System.Windows.Forms.ComboBox();
             this.lbPlayersNumber = new System.Windows.Forms.Label();
             this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
@@ -55,7 +56,6 @@
             this.cbMaxAge = new System.Windows.Forms.ComboBox();
             this.lblEvent = new System.Windows.Forms.Label();
             this.txtEventName = new System.Windows.Forms.TextBox();
-            this.flpMaterial = new System.Windows.Forms.FlowLayoutPanel();
             this.lbCreateEvent = new System.Windows.Forms.Label();
             this.pbEvent = new System.Windows.Forms.PictureBox();
             this.btnCancelEvent = new System.Windows.Forms.Button();
@@ -72,6 +72,9 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.tbLocation, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.cbSport, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.flpMaterial, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.cbPark, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbPark, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 6);
@@ -80,8 +83,6 @@
             this.tableLayoutPanel1.Controls.Add(this.lbDate, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.lbSport, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.lbLocation, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.tbLocation, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.cbSport, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.cbPlayersNumber, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.lbPlayersNumber, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.dtpEventDate, 1, 5);
@@ -89,7 +90,6 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.lblEvent, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtEventName, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.flpMaterial, 1, 2);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 84);
@@ -105,8 +105,35 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1201, 615);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1201, 630);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // tbLocation
+            // 
+            this.tbLocation.Location = new System.Drawing.Point(326, 230);
+            this.tbLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbLocation.Name = "tbLocation";
+            this.tbLocation.ReadOnly = true;
+            this.tbLocation.Size = new System.Drawing.Size(526, 35);
+            this.tbLocation.TabIndex = 28;
+            // 
+            // cbSport
+            // 
+            this.cbSport.FormattingEnabled = true;
+            this.cbSport.Location = new System.Drawing.Point(326, 83);
+            this.cbSport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbSport.Name = "cbSport";
+            this.cbSport.Size = new System.Drawing.Size(526, 35);
+            this.cbSport.TabIndex = 26;
+            this.cbSport.SelectedIndexChanged += new System.EventHandler(this.cbSport_SelectedIndexChanged);
+            // 
+            // flpMaterial
+            // 
+            this.flpMaterial.AutoScroll = true;
+            this.flpMaterial.Location = new System.Drawing.Point(326, 124);
+            this.flpMaterial.Name = "flpMaterial";
+            this.flpMaterial.Size = new System.Drawing.Size(647, 100);
+            this.flpMaterial.TabIndex = 27;
             // 
             // cbPark
             // 
@@ -196,7 +223,7 @@
             this.lbPlayersAge.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbPlayersAge.Location = new System.Drawing.Point(4, 475);
             this.lbPlayersAge.Name = "lbPlayersAge";
-            this.lbPlayersAge.Size = new System.Drawing.Size(315, 139);
+            this.lbPlayersAge.Size = new System.Drawing.Size(315, 154);
             this.lbPlayersAge.TabIndex = 15;
             this.lbPlayersAge.Text = "Idade";
             this.lbPlayersAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -231,38 +258,19 @@
             this.lbSport.Name = "lbSport";
             this.lbSport.Size = new System.Drawing.Size(315, 39);
             this.lbSport.TabIndex = 2;
-            this.lbSport.Text = "Desporto";
+            this.lbSport.Text = "Endereço";
             this.lbSport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbLocation
             // 
             this.lbLocation.AutoSize = true;
             this.lbLocation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbLocation.Location = new System.Drawing.Point(4, 188);
+            this.lbLocation.Location = new System.Drawing.Point(4, 121);
             this.lbLocation.Name = "lbLocation";
-            this.lbLocation.Size = new System.Drawing.Size(315, 39);
+            this.lbLocation.Size = new System.Drawing.Size(315, 106);
             this.lbLocation.TabIndex = 1;
-            this.lbLocation.Text = "Localização";
+            this.lbLocation.Text = "Material";
             this.lbLocation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbLocation
-            // 
-            this.tbLocation.Location = new System.Drawing.Point(326, 190);
-            this.tbLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbLocation.Name = "tbLocation";
-            this.tbLocation.ReadOnly = true;
-            this.tbLocation.Size = new System.Drawing.Size(526, 35);
-            this.tbLocation.TabIndex = 6;
-            // 
-            // cbSport
-            // 
-            this.cbSport.FormattingEnabled = true;
-            this.cbSport.Location = new System.Drawing.Point(326, 230);
-            this.cbSport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbSport.Name = "cbSport";
-            this.cbSport.Size = new System.Drawing.Size(526, 35);
-            this.cbSport.TabIndex = 8;
-            this.cbSport.SelectedIndexChanged += new System.EventHandler(this.cbSport_SelectedIndexChanged);
             // 
             // cbPlayersNumber
             // 
@@ -299,9 +307,9 @@
             this.lbMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbMaterial.Location = new System.Drawing.Point(4, 81);
             this.lbMaterial.Name = "lbMaterial";
-            this.lbMaterial.Size = new System.Drawing.Size(315, 106);
+            this.lbMaterial.Size = new System.Drawing.Size(315, 39);
             this.lbMaterial.TabIndex = 0;
-            this.lbMaterial.Text = "Material";
+            this.lbMaterial.Text = "Desporto";
             this.lbMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
@@ -383,14 +391,6 @@
             this.txtEventName.Name = "txtEventName";
             this.txtEventName.Size = new System.Drawing.Size(526, 35);
             this.txtEventName.TabIndex = 20;
-            // 
-            // flpMaterial
-            // 
-            this.flpMaterial.AutoScroll = true;
-            this.flpMaterial.Location = new System.Drawing.Point(326, 84);
-            this.flpMaterial.Name = "flpMaterial";
-            this.flpMaterial.Size = new System.Drawing.Size(526, 100);
-            this.flpMaterial.TabIndex = 26;
             // 
             // lbCreateEvent
             // 
@@ -479,8 +479,6 @@
         private System.Windows.Forms.Label lbSport;
         private System.Windows.Forms.Label lbLocation;
         private System.Windows.Forms.Label lbMaterial;
-        private System.Windows.Forms.TextBox tbLocation;
-        private System.Windows.Forms.ComboBox cbSport;
         private System.Windows.Forms.ComboBox cbPlayersNumber;
         private System.Windows.Forms.Label lbPlayersNumber;
         private System.Windows.Forms.Button btnCancelEvent;
@@ -502,7 +500,9 @@
         private System.Windows.Forms.TextBox txtEventName;
         private System.Windows.Forms.ComboBox cbPark;
         private System.Windows.Forms.Label lbPark;
-        private System.Windows.Forms.FlowLayoutPanel flpMaterial;
         private System.Windows.Forms.Button btnCreateEvent;
+        private System.Windows.Forms.TextBox tbLocation;
+        private System.Windows.Forms.ComboBox cbSport;
+        private System.Windows.Forms.FlowLayoutPanel flpMaterial;
     }
 }
