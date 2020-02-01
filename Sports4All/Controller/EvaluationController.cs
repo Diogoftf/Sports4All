@@ -49,7 +49,7 @@ namespace Sports4All.Controller
 
             using (var db = new ModelContext())
             {
-                var loggedUser = Session.Instance.LoggedUser;
+                var loggedUser = Session.Instance.LoggedUsername;
 
                 var queryEvent = db.Events.Include("Users.UserEvaluations").FirstOrDefault( x => x.EventId == eventId);
                 usersList = queryEvent.Users;
@@ -83,7 +83,7 @@ namespace Sports4All.Controller
                     Skill = playerSkill,
                     FairPlay = playerFairplay,
                     UserId = playerId,
-                    EvaluatorId = Session.Instance.LoggedUser,
+                    EvaluatorId = Session.Instance.LoggedUsername,
                     EventId = eventId
                 };
                 db.Evaluations.Add(userEvaluation);
@@ -111,12 +111,13 @@ namespace Sports4All.Controller
                     Quality = parkQuality,
                     Price = parkPrice,
                     ParkId = parkId,
-                    EvaluatorId = Session.Instance.LoggedUser,
+                    EvaluatorId = Session.Instance.LoggedUsername,
                     EventId = eventId
                 };
                 db.Evaluations.Add(parkEvaluation);
                 db.SaveChanges();
             }
+
         }
 
         //public  GetUserEvaluation(int eventId)

@@ -3,7 +3,6 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using Sports4All.Controller;
-using System.Linq;
 
 namespace Sports4All
 {
@@ -17,13 +16,14 @@ namespace Sports4All
             // =============================================================
             //
             // //APAGAR ISTO DEPOIS E COMEÇAR O PROGRAMA NO LOGIN
-            Session.Instance.LoggedUser = "ruben21";
+           // Session.Instance.LoggedUser = "ruben21";
             //
             // =============================================================
 
             InitializeComponent();
 
             (new Core.DropShaddow()).ApplyShadows(this);
+            
         }
 
         public static Form1 Instance
@@ -48,11 +48,11 @@ namespace Sports4All
         private void Form1_Load(object sender, EventArgs e)
         {
             MoveSidePanel(btn_Home);
-            lbWelcomeUser.Text = "Bem vindo, " + Session.Instance.LoggedUser;
+            lbWelcomeUser.Text = "Bem vindo, " + Session.Instance.LoggedUsername;
             
             using (var db = new ModelContext())
             {
-                var user = db.Users.Include("Picture").Where(f => f.Username == Session.Instance.LoggedUser).Single();
+                var user = db.Users.Include("Picture").Where(f => f.Username == Session.Instance.LoggedUsername).Single();
                 pbUserImage.Image = ImagesController.Instance.GetImageFromName(user.Picture.Path);
                 lbSkillValue.Text = user.UserClassification.SkillAverage.ToString();
                 lbFairplayValue.Text = user.UserClassification.FairplayAverage.ToString();
@@ -145,7 +145,7 @@ namespace Sports4All
 
         private void PbUserImage_Click(object sender, EventArgs e)
         {
-            BringUcToFront<UC_UserProfile>("UC_UserProfile", Session.Instance.LoggedUser);
+            BringUcToFront<UC_UserProfile>("UC_UserProfile", Session.Instance.LoggedUsername);
         }
 
         private void BtnExit_Click(object sender, EventArgs e)

@@ -131,7 +131,7 @@ namespace Sports4All
 
         private void pbDelete_Click(object sender, EventArgs e)
         {
-            if (_organizador == Session.Instance.LoggedUser)
+            if (_organizador == Session.Instance.LoggedUsername)
             {
                 DialogResult result = MessageBox.Show("Deseja apagar o evento?", "Confirme", MessageBoxButtons.YesNo);
 
@@ -146,7 +146,7 @@ namespace Sports4All
 
                 if(result == DialogResult.Yes)
                 {
-                    _eventsController.UnregisterUser(this.Id,Session.Instance.LoggedUser);
+                    _eventsController.UnregisterUser(this.Id,Session.Instance.LoggedUsername);
                 }
             }
         }

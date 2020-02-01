@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sports4All
 {
-    public class UserClassification : Classification
+    public class UserClassification : Classification, IUserClassification
     {
         public double FairplayAverage { get; set; }
         public double SkillAverage { get; set; }

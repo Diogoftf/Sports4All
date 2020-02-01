@@ -23,7 +23,7 @@ namespace Sports4All.Controller
 
             using (ModelContext db = new ModelContext())
             {
-                var myStats = db.Classifications.OfType<UserClassification>().Where(e => e.User.Username.Equals(Session.Instance.LoggedUser)).First();
+                var myStats = db.Classifications.OfType<UserClassification>().Where(e => e.User.Username.Equals(Session.Instance.LoggedUsername)).First();
 
                 userStats.Add(myStats.User.Events.Count.ToString());
                 userStats.Add(myStats.FairplayAverage.ToString());
@@ -42,7 +42,7 @@ namespace Sports4All.Controller
             {
 
                 // Query para dar Sugestões            
-                var query = db.Reserves.Include("Event.Users").Include("User").Include("Ground.Park").Include("Sport").Where(e => e.User.Username != Session.Instance.LoggedUser && e.Event.StartDate > DateTime.Now && (e.Event.Users.Count) < e.Event.MaxPlayers
+                var query = db.Reserves.Include("Event.Users").Include("User").Include("Ground.Park").Include("Sport").Where(e => e.User.Username != Session.Instance.LoggedUsername && e.Event.StartDate > DateTime.Now && (e.Event.Users.Count) < e.Event.MaxPlayers
                     && (e.Ground.Park.Address.CountyId == e.User.CountyId || e.Ground.Park.Address.County.DistrictId == e.User.County.DistrictId
                      && e.Event.Users.Contains(e.User) == false)).ToList();
 
@@ -53,7 +53,7 @@ namespace Sports4All.Controller
                 {
                     for(int j = 0; j < query.ToList()[i].Event.Users.Count; j++)
                     {
-                        if(query.ToList()[i].Event.Users.ToList()[j].Username == Session.Instance.LoggedUser)
+                        if(query.ToList()[i].Event.Users.ToList()[j].Username == Session.Instance.LoggedUsername)
                         {
                             aux = true;
                         }
@@ -82,13 +82,13 @@ namespace Sports4All.Controller
             using (ModelContext db = new ModelContext())
             {
                 var query = db.Reserves.Include("Ground.Park").Include("Sport.Picture").Where(c => c.Event.EndDate > DateTime.Now).OrderByDescending(c => c.Date).ToList();
-                var whoIam = db.Users.Where(e => e.Username.Equals(Session.Instance.LoggedUser)).First();
+                var whoIam = db.Users.Where(e => e.Username.Equals(Session.Instance.LoggedUsername)).First();
 
                 foreach (Reserve a in query) // todos os eventos que esse user participou (Tanto os que esta inscrito, como reservou)
                 {
                     for(int i = 0; i < a.Event.Users.ToList().Count; i++)
                     {
-                        if(a.Event.Users.ToList()[i].Username.Equals(Session.Instance.LoggedUser))
+                        if(a.Event.Users.ToList()[i].Username.Equals(Session.Instance.LoggedUsername))
                         {
                             myEvents.Add(a.Event);
                             break;

@@ -15,7 +15,7 @@ namespace Sports4All.Controller
 
         public readonly double _ParkPrice_Weight = 3;
         public readonly double _ParkQuality_Weight = 4;
-        public ICollection<UserClassification> getTopUsers()
+        public ICollection<UserClassification> GetTopUsers()
         {
 
             using (var db = new ModelContext())
@@ -25,7 +25,7 @@ namespace Sports4All.Controller
 
         }
 
-        public ICollection<ParkClassification> getTopRecintos()
+        public ICollection<ParkClassification> GetTopRecintos()
         {
             using (var db = new ModelContext())
             {
@@ -76,9 +76,11 @@ namespace Sports4All.Controller
                 reservsPerformed = query.Reserves.Count;
             }
 
-            double avgPoints = avgFairPlay * this._fairplay_Weight + avgSkill * this._skill_Weight +
-                avgRatio * this._ratio_Weight + eventsPerformed * this._eventPerformed_Weight +
-                reservsPerformed * this._reservePerformed_Weight;
+            double avgPoints = avgFairPlay * _fairplay_Weight 
+                + avgSkill * _skill_Weight 
+                + avgRatio * _ratio_Weight 
+                + eventsPerformed * _eventPerformed_Weight 
+                + reservsPerformed * _reservePerformed_Weight;
 
             avgPoints = Math.Round(avgPoints, 2);
 
@@ -101,7 +103,7 @@ namespace Sports4All.Controller
 
         private double GetUserSkillAvg(ICollection<UserEvaluation> userEvaluations)
         {
-            int skillSum = 0;
+            double skillSum = 0;
 
             foreach (var evaluation in userEvaluations)
             {
@@ -110,8 +112,6 @@ namespace Sports4All.Controller
 
             double avgSkill = skillSum / userEvaluations.Count();
 
-            avgSkill = this._skill_Weight;
-
             avgSkill = Math.Round(avgSkill, 2);
 
             return avgSkill;
@@ -119,7 +119,7 @@ namespace Sports4All.Controller
 
         private double GetUseFairPlayAvg(ICollection<UserEvaluation> userEvaluations)
         {
-            int fairPlaySum = 0;
+            double fairPlaySum = 0;
 
             foreach (var evaluation in userEvaluations)
             {
@@ -127,8 +127,6 @@ namespace Sports4All.Controller
             }
 
             double avgFairPlay = fairPlaySum / userEvaluations.Count();
-
-            avgFairPlay *= this._fairplay_Weight;
 
             avgFairPlay = Math.Round(avgFairPlay, 2);
 
@@ -206,13 +204,14 @@ namespace Sports4All.Controller
                 
                 foreach(Ground a in query.Grounds)
                 {
-                    reservesPerformed += a.Reserves.Count();
+                    if (a.Reserves != null) { reservesPerformed += a.Reserves.Count(); };
                 }
             }
 
-            double points = avgPrice * this._ParkPrice_Weight + avgQuality * this._ParkQuality_Weight +
-                        reservesPerformed * this._reservePerformed_Weight +
-                        avgRatio * this._ratio_Weight;
+            double points = avgPrice * _ParkPrice_Weight 
+                + avgQuality * _ParkQuality_Weight 
+                + reservesPerformed * _reservePerformed_Weight 
+                + avgRatio * _ratio_Weight;
 
             points = Math.Round(points, 2);
 
@@ -243,7 +242,7 @@ namespace Sports4All.Controller
 
         public double GetParkQualityAvg(ICollection<ParkEvaluation> parkEvaluations)
         {
-            int qualitySum = 0;
+            double qualitySum = 0;
 
             foreach (var evaluation in parkEvaluations)
             {
@@ -252,8 +251,6 @@ namespace Sports4All.Controller
 
             double avgQuality = qualitySum / parkEvaluations.Count();
 
-            avgQuality *= this._ParkQuality_Weight;
-
             avgQuality = Math.Round(avgQuality, 2);
 
             return avgQuality;
@@ -261,7 +258,7 @@ namespace Sports4All.Controller
 
         public double GetParkPriceAvg(ICollection<ParkEvaluation> parkEvaluations)
         {
-            int priceSum = 0;
+            double priceSum = 0;
 
             foreach (var evaluation in parkEvaluations)
             {
@@ -269,8 +266,6 @@ namespace Sports4All.Controller
             }
 
             double avgPrice = priceSum / parkEvaluations.Count();
-
-            avgPrice *= this._ParkPrice_Weight;
 
             avgPrice = Math.Round(avgPrice, 2);
 

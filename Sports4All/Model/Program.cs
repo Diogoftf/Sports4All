@@ -20,13 +20,13 @@ namespace Sports4All
             //Event e = new Event();
             //e.Name = "Arroz";
 
-            Session.Instance.LoggedUser = "paulo";
+            Session.Instance.LoggedUsername = "paulo";
 
             //ImagesController.InsertPathImagesToDB();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Form1.Instance);
+            Application.Run(new Authentication());
         }
     }
 }

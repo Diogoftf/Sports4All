@@ -23,7 +23,7 @@ namespace Sports4All
         public UC_EventsSportsGrounds()
         {
             InitializeComponent();
-            _username = Session.Instance.LoggedUser;
+            _username = Session.Instance.LoggedUsername;
             // ParkName = _parkController.GetPark(Id).Name;
             btnAllSports.BackColor = Color.LightBlue;
             _resources = new ComponentResourceManager(typeof(UC_EventsModality));

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sports4All
 {
-    public class ParkEvaluation : Evaluation
+    public class ParkEvaluation : Evaluation, IParkEvaluation
     {
         public int Quality { get; set; }
         public int Price { get; set; }

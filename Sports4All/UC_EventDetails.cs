@@ -223,7 +223,7 @@ namespace Sports4All
 
         public void CheckOwner()
         {
-            if (lblOwnerValue.Text != Session.Instance.LoggedUser) btnEdit.Visible = false;
+            if (lblOwnerValue.Text != Session.Instance.LoggedUsername) btnEdit.Visible = false;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

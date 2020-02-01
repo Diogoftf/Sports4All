@@ -65,7 +65,7 @@ namespace Sports4All
         public UC_NextEventsandReserveItem()
         {
             InitializeComponent();
-            _username = Session.Instance.LoggedUser;
+            _username = Session.Instance.LoggedUsername;
             foreach (Control c in uC_UnregisterButton1.Controls)
             {
                 c.Click += Unregister;

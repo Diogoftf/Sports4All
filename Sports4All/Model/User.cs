@@ -13,7 +13,7 @@ namespace Sports4All
         public string Username { get; set; }
         public int Age { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }        
+        public string Password { get; set; }
         public int PhoneNumber { get; set; }
         public int CountyId { get; set; }
         public int PictureId { get; set; }

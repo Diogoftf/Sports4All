@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Sports4All
 {
-    public class Event : IEvent
+    public class Event
     {
         public int EventId { get; set; }
         public DateTime StartDate { get; set; }

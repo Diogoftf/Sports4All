@@ -198,7 +198,7 @@ namespace Sports4All
             {
                 using (ModelContext db = new ModelContext())
                 {
-                    var WhoAmI = db.Users.First(f => f.Username.Equals(Session.Instance.LoggedUser));
+                    var WhoAmI = db.Users.First(f => f.Username.Equals(Session.Instance.LoggedUsername));
                     _reserve.Date = DateTime.Now;
                     _reserve.Price = 10;
                     _reserve.UserId = WhoAmI.Username;

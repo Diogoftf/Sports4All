@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sports4All.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -10,9 +11,16 @@ namespace Sports4All
     public sealed class Session
     {
         private static Session _instance;
-        public string LoggedUser { get; set; }
+        private EvaluationController _evaluationController;
 
-        private Session() { }
+        public string LoggedUsername { get; set; }
+
+        public User GetLoggedUser { get => _evaluationController.GetUser(LoggedUsername); }
+
+        private Session() 
+        {
+            _evaluationController = new EvaluationController();
+        }
 
         public static Session Instance
         {

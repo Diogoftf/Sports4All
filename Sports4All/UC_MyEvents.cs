@@ -15,7 +15,7 @@ namespace Sports4All
         {
             InitializeComponent();
 
-            Username = Session.Instance.LoggedUser;
+            Username = Session.Instance.LoggedUsername;
             _eventsController = new MyEventsController();
         }
 

@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
-using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace Sports4All
@@ -71,6 +70,7 @@ namespace Sports4All
             {
                 if (checkedValues())
                 {
+                    _username = _authController.GetUsername(_email);
                     StoreUsername(_username);
                     Hide();
                     Form1.Instance.Show();
@@ -165,7 +165,7 @@ namespace Sports4All
 
         private void StoreUsername(string username)
         {
-            Session.Instance.LoggedUser = username;
+            Session.Instance.LoggedUsername = username;
         }
 
         private void tbRegEmail_Validating(object sender, CancelEventArgs e)
