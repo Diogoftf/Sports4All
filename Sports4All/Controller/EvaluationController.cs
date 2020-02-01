@@ -5,7 +5,7 @@ namespace Sports4All.Controller
 {
     class EvaluationController
     {
-        private List<IObserver> _observers = new List<IObserver>();
+        //private List<IObserver> _observers = new List<IObserver>();
 
         public Park GetEventPark(int eventId)
         {

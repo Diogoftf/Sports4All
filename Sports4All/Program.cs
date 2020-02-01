@@ -17,6 +17,8 @@ namespace Sports4All
         [STAThread]
         static void Main()
         {
+            //Event e = new Event();
+            //e.Name = "Arroz";
 
             Session.Instance.LoggedUser = "paulo";
 
