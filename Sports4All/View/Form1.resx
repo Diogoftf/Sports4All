@@ -144,21 +144,6 @@
         rkJggg==
 </value>
   </data>
-  <data name="btnAddfriend.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAi5JREFUaEPtlktrFEEUhccHahRBJIIL42gcu2HeTzKIOGTrQgMyRFR8kEBASMCF
-        SUgwi2xEhYAgQnxABLMIZOWPyO/yu3LSOGknm2TSDd4PLt2nunvq3Kq6NZVxHMdxHMdxnD9ks9kzlUrl
-        RbVafUes12q1hXK5PKbH6QbD9zG7xrUTBMFwq9W6zP1NYo2kxvVaP47rmgyYvIv5FckYjUZjwkKyB5K7
-        RnyUTAYSWCqVSnXJGLlc7jQJfpLsIS0JvCFakv+E519sWUlGpCIBRncWE1XJGMxOSAKLkhmK+47NmgXf
-        feD7nV2ttgt69WjA0Awd35KMYYaJeUlL6AqmxywwO4He2tUWtuT06uCxzjDxgyK9qqYYhUJhBGMb7XZ7
-        SE0RfJvsEmJdB/V6/bVkXzD5iihIRiSegGGjy2XfvZx3fuq2B2ZumASeSCYD5q7bCEvGoD5eNpvNUDKd
-        kMB2Pp8/Jfk3x4rF4i/dpxdMPqYWYkcGZuc2M/BMMr1g8ilb5QPJCNru8WxKMr1gdMF2JMkIqw/2+WXJ
-        9GH/siyfz/sVKc9GqZGvzEReTclDwV7E0BzxnlGOjfxeSNSSeGu7Fd9cUnMyYHiS2GDJ9D3/9INCL5HE
-        N5J4pKajo9vtnsC4nTwP3LkNAomsdjqdk2oaPBjvshSmJQ8MCTyn+B9KDh5GbZ0IwjA8fxjBIe8GSXzX
-        zw8Wzixn6WyZBDYPM5jVJa7n1I3jOI7jOI7z/5DJ/AaHPpZ7QvqbvgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="pbUserImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

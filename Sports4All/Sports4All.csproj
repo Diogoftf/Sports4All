@@ -152,17 +152,17 @@
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
     <Compile Include="Sport.cs" />
+    <Compile Include="UC_MaterialItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MaterialItem.Designer.cs">
+      <DependentUpon>UC_MaterialItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_NextEventsandReserveItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_NextEventsandReserveItem.Designer.cs">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_AddFriend.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_AddFriend.Designer.cs">
-      <DependentUpon>UC_AddFriend.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_CreateEvent.cs">
       <SubType>UserControl</SubType>
@@ -324,11 +324,11 @@
     <EmbeddedResource Include="Migrations\202001311800595_M002.resx">
       <DependentUpon>202001311800595_M002.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_MaterialItem.resx">
+      <DependentUpon>UC_MaterialItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_NextEventsandReserveItem.resx">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_AddFriend.resx">
-      <DependentUpon>UC_AddFriend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_CreateEvent.resx">
       <DependentUpon>UC_CreateEvent.cs</DependentUpon>

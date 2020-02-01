@@ -35,10 +35,10 @@ namespace Sports4All
             {
                  List<Park> recintos = context.Parks.ToList();
 
-                 cbEnclosure.Items.Clear();
+                 cbPark.Items.Clear();
                  for (int i = 0; i < recintos.Count; i++)
                  {
-                     cbEnclosure.Items.Add(recintos[i].Name);
+                    cbPark.Items.Add(recintos[i].Name);
                  }
                   
             }
@@ -58,7 +58,7 @@ namespace Sports4All
                 cbPlayersNumber.Items.Add(i);
             }
             
-            for (int i = 5; i < 60; i++)
+            for (int i = 5; i < 60; i+=5)
             {
                 cbMinAge.Items.Add(i);
                 cbMaxAge.Items.Add(i);
@@ -74,7 +74,7 @@ namespace Sports4All
             {
                 MessageBox.Show("Devera inserir o nome do evento");
             }
-            else if (cbEnclosure.SelectedIndex < 0)
+            else if (cbPark.SelectedIndex < 0)
             {
                 MessageBox.Show("Devera selecionar o parque desportivo.");
             }
@@ -121,7 +121,7 @@ namespace Sports4All
         private void clearFields()
         {
             txtEventName.Clear();
-            cbEnclosure.SelectedIndex = -1;
+            cbPark.SelectedIndex = -1;
             tbLocation.Clear();
             cbSport.SelectedIndex = -1;
             dtpEventDate.MinDate = DateTime.Now;
@@ -132,24 +132,41 @@ namespace Sports4All
             cbMaxAge.SelectedIndex = -1;
         }
 
-        private void cbEnclosure_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbPark_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbEnclosure.SelectedIndex != -1)
+            if(cbPark.SelectedIndex != -1)
             {
                 using (ModelContext db = new ModelContext())
                 {
                     cbSport.Items.Clear();
-                    var localizacaoRecinto = db.Parks.Include("Address.County").Where(f => f.Name.Equals(cbEnclosure.Text)).ToList()[0].Address;
+                    var Park = db.Parks
+                        .Include("Address.County")
+                        .Include("Grounds")
+                        .Include("Materials")
+                        .Where(f => f.Name.Equals(cbPark.Text)).FirstOrDefault();
 
-                    tbLocation.Text = localizacaoRecinto.Street + ", " + localizacaoRecinto.PostalCode + ", " + localizacaoRecinto.County.Name;
+                    tbLocation.Text = Park.Address.Street + ", " + Park.Address.PostalCode + ", " + Park.Address.County.Name;
 
-                    var recintosPark = db.Parks.Include("Grounds").Where(f => f.Name.Equals(cbEnclosure.Text)).ToList()[0].Grounds.ToList();
-
-                    for (int i = 0; i < recintosPark.Count; i++)
+                    flpMaterial.Controls.Clear();
+                    if (Park.Materials.ToList().Count > 0)
                     {
-                        for (int j = 0; j < recintosPark[i].Sports.Count; j++)
+                        for (int k = 0; k < Park.Materials.ToList().Count; k++)
                         {
-                            cbSport.Items.Add(recintosPark[i].Sports.ToList()[j].Name);
+                            UC_MaterialItem temp = new UC_MaterialItem();
+                            temp.Material = Park.Materials.ToList()[k].Name;
+                            temp.PopulateQuantity(Park.Materials.ToList()[k].Available);
+                            temp.Preço = Park.Materials.ToList()[k].Price + " €";
+                            flpMaterial.Controls.Add(temp);
+                           
+                        }
+                    }
+
+
+                    for (int i = 0; i < Park.Grounds.Count; i++)
+                    {
+                        for (int j = 0; j < Park.Grounds.ToList()[i].Sports.Count; j++)
+                        {
+                            cbSport.Items.Add(Park.Grounds.ToList()[i].Sports.ToList()[j].Name);
                         }
                     }
                 }
@@ -164,7 +181,7 @@ namespace Sports4All
                 {
                     var sport = db.Sports.Where(f => f.Name.Equals(cbSport.Text)).First();
 
-                    var desportoRecinto = db.Grounds.Where(f => f.Park.Name.Equals(cbEnclosure.Text)).ToList();
+                    var desportoRecinto = db.Grounds.Where(f => f.Park.Name.Equals(cbPark.Text)).ToList();
 
                     for (int i = 0; i < desportoRecinto.Count; i++)
                     {
@@ -193,36 +210,71 @@ namespace Sports4All
 
         private void btnCreateEvent_Click_1(object sender, EventArgs e)
         {
+            ICollection<Use> materialUsage = new HashSet<Use>();
+
             //Se nao ocorreu nenhum erro ao verificar os campos da criação de um evento no Home
-            if (checkIntegrity())
+          //  if (checkIntegrity())
             {
                 using (ModelContext db = new ModelContext())
                 {
                     var WhoAmI = db.Users.First(f => f.Username.Equals(Session.Instance.LoggedUser));
+                    
+                    for(int i = 0; i < flpMaterial.Controls.Count; i++)
+                    {
+                        UC_MaterialItem item = flpMaterial.Controls[i] as UC_MaterialItem;
+                        if (item.Quantidade > 0)
+                        {
+                            var use = new Use();
+                            var query = db.Materials.Where(f => f.Name == item.Material).First();
+                            use.MaterialId = query.MaterialId;
+                            use.Quantity = item.Quantidade;
+                            use.Reserve = _reserve;
+                            materialUsage.Add(use);
+                        }
+                    }
+                                       
                     _reserve.Date = DateTime.Now;
                     _reserve.Price = 10;
                     _reserve.UserId = WhoAmI.Username;
                     _reserve.Event = _event;
+                    if (materialUsage.Count > 0) _reserve.Uses = materialUsage;
 
                     _event.Name = txtEventName.Text;
                     _event.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
                     _event.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
                     _event.Name = txtEventName.Text;
+                    
+                    /* TEMPORARIO SOMENTE PARA FACILITAR OS TESTES */
                     var users = db.Users.ToList();
                     ICollection<User> listUsers = new Collection<User>();
-                    foreach(User a in users)
+                    foreach(User ba in users)
                     {
-                        listUsers.Add(a);
+                        listUsers.Add(ba);
                     }
-                    //listUsers.Add(WhoAmI);
+                    /* TEMPORARIO SOMENTE PARA FACILITAR OS TESTES */
+
                     _event.Users = listUsers;
                     _event.MinAge = Convert.ToInt32(cbMinAge.Text);
                     _event.MaxAge = Convert.ToInt32(cbMaxAge.Text);
                     _event.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
+
+                    for (int i = 0; i < materialUsage.Count; i++)
+                    {
+                        var query = db.Materials.Find(materialUsage.ToList()[i].MaterialId);
+
+
+                        if (query.Available - materialUsage.ToList()[i].Quantity < 0)
+                            query.Available = 0;
+                        else
+                            query.Available -= materialUsage.ToList()[i].Quantity;
+
+                        db.Uses.Add(materialUsage.ToList()[i]);
+                    }
+
                     db.Reserves.Add(_reserve);
                     db.Events.Add(_event);
                     db.SaveChanges();
-                    MessageBox.Show("Evento criado com sucesso!");
+                    MessageBox.Show("Reserva criada com sucesso!");
 
                     ReturnHome();
                 }

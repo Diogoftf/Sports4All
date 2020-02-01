@@ -132,11 +132,6 @@ namespace Sports4All
 
         }
 
-        private void Btn_Addfriend_Click(object sender, EventArgs e)
-        {
-            BringUcToFront<UC_AddFriend>("UC_AddFriend", "");
-        }
-
         private void BtnRanking_Click(object sender, EventArgs e)
         {
             MoveSidePanel(btnRanking);

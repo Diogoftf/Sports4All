@@ -44,7 +44,6 @@
             this.lbWelcomeUser = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnNotification = new System.Windows.Forms.Button();
-            this.btnAddfriend = new System.Windows.Forms.Button();
             this.pbUserImage = new System.Windows.Forms.PictureBox();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.lbSkillValue = new System.Windows.Forms.Label();
@@ -274,23 +273,6 @@
             this.btnNotification.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNotification.UseVisualStyleBackColor = true;
             // 
-            // btnAddfriend
-            // 
-            this.btnAddfriend.FlatAppearance.BorderSize = 0;
-            this.btnAddfriend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddfriend.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddfriend.ForeColor = System.Drawing.Color.White;
-            this.btnAddfriend.Image = ((System.Drawing.Image)(resources.GetObject("btnAddfriend.Image")));
-            this.btnAddfriend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddfriend.Location = new System.Drawing.Point(1458, 40);
-            this.btnAddfriend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAddfriend.Name = "btnAddfriend";
-            this.btnAddfriend.Size = new System.Drawing.Size(62, 52);
-            this.btnAddfriend.TabIndex = 58;
-            this.btnAddfriend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddfriend.UseVisualStyleBackColor = true;
-            this.btnAddfriend.Click += new System.EventHandler(this.Btn_Addfriend_Click);
-            // 
             // pbUserImage
             // 
             this.pbUserImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -308,7 +290,7 @@
             // panelContainer
             // 
             this.panelContainer.Location = new System.Drawing.Point(323, 137);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(4);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1312, 790);
             this.panelContainer.TabIndex = 71;
@@ -344,7 +326,6 @@
             this.Controls.Add(this.btnNotification);
             this.Controls.Add(this.lbPointsUser);
             this.Controls.Add(this.lbSkillUser);
-            this.Controls.Add(this.btnAddfriend);
             this.Controls.Add(this.lbWelcomeUser);
             this.Controls.Add(this.pbUserImage);
             this.Controls.Add(this.panel2);
@@ -381,7 +362,6 @@
         private System.Windows.Forms.Button btnNotification;
         private System.Windows.Forms.Label lbPointsUser;
         private System.Windows.Forms.Label lbSkillUser;
-        private System.Windows.Forms.Button btnAddfriend;
         private System.Windows.Forms.Label lbWelcomeUser;
         private System.Windows.Forms.PictureBox pbUserImage;
         private System.Windows.Forms.Panel panelContainer;
