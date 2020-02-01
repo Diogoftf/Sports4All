@@ -27,7 +27,6 @@ namespace Sports4All.Migrations
         private readonly ICollection<User> listUsers = new Collection<User>();
         private readonly ICollection<Material> materialsUse = new Collection<Material>();
 
-
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
@@ -38,32 +37,46 @@ namespace Sports4All.Migrations
             //}
         }
 
-        private void AddDistricts()
+        private void AddDistricts(ModelContext context)
         {
             listDistricts.Add(new District {DistrictId = 1, Name = "Madeira"});
             listDistricts.Add(new District {DistrictId = 2, Name = "Açores"});
+            
+            foreach (District district in listDistricts)
+            {
+                context.Districts.AddOrUpdate(district);
+            }
+
         }
 
-        private void AddCountries()
+        private void AddCountries(ModelContext context)
         {
             listCounties.Add(new County {CountyId = 1, DistrictId = 1, Name = "Machico"});
             listCounties.Add(new County {CountyId = 2, DistrictId = 2, Name = "São Miguel"});
             listCounties.Add(new County {CountyId = 3, DistrictId = 1, Name = "Funchal"});
             listCounties.Add(new County {CountyId = 4, DistrictId = 1, Name = "São Vicente"});
             listCounties.Add(new County {CountyId = 5, DistrictId = 1, Name = "Santa Cruz"});
+
+            foreach (County county in listCounties)
+            {
+                context.Counties.AddOrUpdate(county);
+            }
         }
 
-
-        private void AddAddress()
+        private void AddAddress(ModelContext context)
         {
             listAddresses.Add(new Address
                 {AddressId = 1, PostalCode = "9200-209", Street = "Rua da fontinha nº2", CountyId = 1});
             listAddresses.Add(new Address
                 {AddressId = 2, PostalCode = "9200-098", Street = "Rua do muro nº1", CountyId = 1});
+
+            foreach (Address address in listAddresses)
+            {
+                context.Addresses.AddOrUpdate(address);
+            }
         }
 
-
-        private void AddPicture()
+        private void AddPicture(ModelContext context)
         {
             listPictures.Add(new Picture {PictureId = 1, Path = "User1"});
             listPictures.Add(new Picture {PictureId = 2, Path = "User2"});
@@ -75,17 +88,27 @@ namespace Sports4All.Migrations
             listPictures.Add(new Picture {PictureId = 8, Path = "Desporto4"});
             listPictures.Add(new Picture {PictureId = 9, Path = "Park1"});
             listPictures.Add(new Picture {PictureId = 10, Path = "Park2"});
+
+            foreach (Picture picture in listPictures)
+            {
+                context.Pictures.AddOrUpdate(picture);
+            }
         }
 
-        private void AddSport()
+        private void AddSport(ModelContext context)
         {
             listSports.Add(new Sport {SportId = 1, Name = "Futebol", Picture = listPictures.ToList()[4]});
             listSports.Add(new Sport {SportId = 2, Name = "Ténis", Picture = listPictures.ToList()[5]});
             listSports.Add(new Sport {SportId = 3, Name = "Futsal", Picture = listPictures.ToList()[6]});
             listSports.Add(new Sport {SportId = 4, Name = "Andebol", Picture = listPictures.ToList()[7]});
+
+            foreach (Sport sport in listSports)
+            {
+                context.Sports.AddOrUpdate(sport);
+            }
         }
 
-        private void AddUser()
+        private void AddUser(ModelContext context)
         {
             listUsers.Add(new User
             {
@@ -99,9 +122,14 @@ namespace Sports4All.Migrations
                 Email = "ruben1@gmail.com", Password = "123", PhoneNumber = 916656789,
                 CountyId = listCounties.ToList()[2].CountyId
             });
+
+            foreach (User user in listUsers)
+            {
+                context.Users.AddOrUpdate(user);
+            }
         }
 
-        private void AddPark()
+        private void AddPark(ModelContext context)
         {
             listParks.Add(new Park
             {
@@ -113,10 +141,15 @@ namespace Sports4All.Migrations
                 ParkId = 2, Name = "Ludens Padel", Address = listAddresses.ToList()[1],
                 Description = "Teste Descrição2", Picture = listPictures.ToList()[9]
             });
+
+            foreach (Park park in listParks)
+            {
+                context.Parks.AddOrUpdate(park);
+            }
         }
 
 
-        private void AddGround()
+        private void AddGround(ModelContext context)
         {
             listGrounds.Add(new Ground
             {
@@ -126,9 +159,14 @@ namespace Sports4All.Migrations
             {
                 GroundId = 2, ParkId = 2, Price = 12, Sports = listSports.ToList(), Picture = listPictures.ToList()[9]
             });
+
+            foreach (Ground ground in listGrounds)
+            {
+                context.Grounds.AddOrUpdate(ground);
+            }
         }
 
-        private void AddReserve()
+        private void AddReserve(ModelContext context)
         {
             dateStartEvent.Date.AddHours(12);
             dateStartEvent.Date.AddMinutes(00);
@@ -144,10 +182,15 @@ namespace Sports4All.Migrations
                 SportId = listSports.ToList()[1].SportId, GroundId = listGrounds.ToList()[1].GroundId,
                 Date = dateStartEvent
             });
+
+            foreach (Reserve reserve in listReserves)
+            {
+                context.Reserves.AddOrUpdate(reserve);
+            }
         }
 
 
-        private void AddEvent()
+        private void AddEvent(ModelContext context)
         {
             var dateEndEvent = dateStartEvent;
             dateStartEvent.Date.AddHours(12);
@@ -169,8 +212,13 @@ namespace Sports4All.Migrations
                 EventId = 2, StartDate = dateStartEvent, EndDate = dateEndEvent, MaxPlayers = 6, MinAge = 10,
                 Reserve = listReserves.ToList()[1], MaxAge = 18, Name = "Jogo Amigavel de Futebol", Users = listUsers
             });
+
+            foreach (Event events in listEvents)
+            {
+                context.Events.AddOrUpdate(events);
+            }
         }
-        private void AddUserEvaluation()
+        private void AddUserEvaluation(ModelContext context)
         {
             listUserEvaluations.Add(new UserEvaluation
             {
@@ -184,9 +232,14 @@ namespace Sports4All.Migrations
                 EventId = listEvents.ToList()[1].EventId, Skill = 3, FairPlay = 2,
                 UserId = listUsers.ToList()[1].Username
             });
+
+            foreach (UserEvaluation userEvaluation in listUserEvaluations)
+            {
+                context.Evaluations.AddOrUpdate(userEvaluation);
+            }
         }
 
-        private void AddParkEvaluation()
+        private void AddParkEvaluation(ModelContext context)
         {
             listParkEvaluation.Add(new ParkEvaluation
             {
@@ -208,9 +261,13 @@ namespace Sports4All.Migrations
                 EvaluationId = 8, EvaluatorId = listUsers.ToList()[1].Username,
                 EventId = listEvents.ToList()[1].EventId, Quality = 4, Price = 4, ParkId = listParks.ToList()[1].ParkId
             });
+            foreach (ParkEvaluation parkEvaluation in listParkEvaluation)
+            {
+                context.Evaluations.AddOrUpdate(parkEvaluation);
+            }
         }
 
-        private void ParkClassification()
+        private void ParkClassification(ModelContext context)
         {
             listParkClassifications.Add(new ParkClassification
             {
@@ -222,9 +279,14 @@ namespace Sports4All.Migrations
                 ClassificationId = 2, Park = listParks.ToList()[1], Points = 0, PriceAverage = 0, QualityAverage = 0,
                 Ratio = 0
             });
+
+            foreach (ParkClassification parkClassification in listParkClassifications)
+            {
+                context.Classifications.AddOrUpdate(parkClassification);
+            }
         }
 
-        private void UserClassification()
+        private void UserClassification(ModelContext context)
         {
             listUserClassifications.Add(new UserClassification
             {
@@ -236,9 +298,14 @@ namespace Sports4All.Migrations
                 ClassificationId = 4, User = listUsers.ToList()[1], Points = 0, SkillAverage = 0, FairplayAverage = 0,
                 Ratio = 0
             });
+
+            foreach (UserClassification userClassification in listUserClassifications)
+            {
+                context.Classifications.AddOrUpdate(userClassification);
+            }
         }
 
-        private void AddMaterial()
+        private void AddMaterial(ModelContext context)
         {
             listMaterials.Add(new Material
             {
@@ -251,6 +318,10 @@ namespace Sports4All.Migrations
                 ParkId = listParks.ToList()[0].ParkId
             });
 
+            foreach (Material material in listMaterials)
+            {
+                context.Materials.AddOrUpdate(material);
+            }
 
             materialsUse.Add(listMaterials.ToList()[0]);
             ICollection<int> listQuantityUse = new Collection<int>();
@@ -265,25 +336,36 @@ namespace Sports4All.Migrations
                 UseId = 2, MaterialId = listMaterials.ElementAt(1).MaterialId, Quantity = 1,
                 ReserveId = listReserves.ElementAt(1).ReserveId
             });
+
+            foreach (Use use in listUse)
+            {
+                context.Uses.AddOrUpdate(use);
+            }
+        }
+
+        private void Evaluations()
+        {
+
+
         }
 
         protected override void Seed(ModelContext context)
         {
-            AddDistricts();
-            AddCountries();
-            AddAddress();
-            AddPicture();
-            AddSport();
-            AddUser();
-            AddPark();
-            AddGround();
-            AddReserve();
-            AddEvent();
-            AddUserEvaluation();
-            AddParkEvaluation();
-            ParkClassification();
-            UserClassification();
-            AddMaterial();
+            AddDistricts(context);
+            AddCountries(context);
+            AddAddress(context);
+            AddPicture(context);
+            AddSport(context);
+            AddUser(context);
+            AddPark(context);
+            AddGround(context);
+            AddReserve(context);
+            AddEvent(context);
+            AddUserEvaluation(context);
+            AddParkEvaluation(context);
+            ParkClassification(context);
+            UserClassification(context);
+            AddMaterial(context);
             // Esta lista contem todas as avaliações feitas da josefa aos utilizadores desse evento especifico
             // Esta lista contem todas as avaliações feitas da josefa aos recintos
             ICollection<Evaluation> listEvaluationsRuben = new Collection<Evaluation>();
@@ -291,41 +373,11 @@ namespace Sports4All.Migrations
             ICollection<Event> listEventsRuben = new Collection<Event>();
             listReservesRuben.Add(listReserves.ToList()[1]);
             listEventsRuben.Add(listEvents.ToList()[0]);
-
             foreach (var user in listUserEvaluations) 
                 listEvaluationsRuben.Add(user);
             foreach (var ground in listParkEvaluation) 
                 listEvaluationsRuben.Add(ground);
-            foreach (var county in listCounties) 
-                context.Counties.AddOrUpdate(county);
-            foreach (var address in listAddresses) 
-                context.Addresses.AddOrUpdate(address);
-            foreach (var picture in listPictures) 
-                context.Pictures.AddOrUpdate(picture);
-            foreach (var user in listUsers) 
-                context.Users.AddOrUpdate(user);
-            foreach (var sport in listSports) 
-                context.Sports.AddOrUpdate(sport);
-            foreach (var park in listParks) 
-                context.Parks.AddOrUpdate(park);
-            foreach (var ground in listGrounds) 
-                context.Grounds.AddOrUpdate(ground);
-            foreach (var reserve in listReserves) 
-                context.Reserves.AddOrUpdate(reserve);
-            foreach (var events in listEvents) 
-                context.Events.AddOrUpdate(events);
-            foreach (var userEvaluation in listUserEvaluations) 
-                context.Evaluations.AddOrUpdate(userEvaluation);
-            foreach (var parkEvaluation in listParkEvaluation)
-                context.Evaluations.AddOrUpdate(parkEvaluation);
-            foreach (var parkClassification in listParkClassifications)
-                context.Classifications.AddOrUpdate(parkClassification);
-            foreach (var userClassification in listUserClassifications)
-                context.Classifications.AddOrUpdate(userClassification);
-            foreach (var material in listMaterials) 
-                context.Materials.AddOrUpdate(material);
-            foreach (var use in listUse) 
-                context.Uses.AddOrUpdate(use);
+          
             base.Seed(context);
         }
     }
