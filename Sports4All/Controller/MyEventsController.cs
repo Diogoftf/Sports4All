@@ -29,8 +29,8 @@ namespace Sports4All.Controller
                 var UserCompletedEvents = db.Events.Where(c => c.Users.Any(i => i.Username.Equals(username)))
                     .Where(c => c.StartDate <= _todayDate)
                     .Include("Evaluations")
-                    .Include("Reserve.Sport")
-                    .Include("Reserve.Ground.Park")
+                    .Include("Reserve.Sport.Picture")
+                    .Include("Reserve.Ground.Park.Picture")
                     .Include("Users")
                     .ToList();
                 Console.WriteLine("Completed Eventos:" + UserCompletedEvents.ToList());
@@ -85,17 +85,30 @@ namespace Sports4All.Controller
             return state;
         }
 
-        public ICollection<Event> EventsBySport(int sportId)
+        public ICollection<Event> EventsBySport(int sportId, int idLocation)
         {
             using (var db = new ModelContext())
             {
-                var EventsbySport = db.Events
-                    .Where(c => c.Reserve.Sport.SportId == sportId && c.StartDate > _todayDate)
-                    .Include("Reserve.Sport")
-                    .Include("Reserve.Ground.Park")
-                    .Include("Users")
-                    .ToList();
-
+                List<Event> EventsbySport;
+                if (idLocation == 0)
+                {
+                    EventsbySport = db.Events
+                        .Where(c => c.Reserve.Sport.SportId == sportId && c.StartDate > _todayDate)
+                        .Include("Reserve.Sport")
+                        .Include("Reserve.Ground.Park")
+                        .Include("Users")
+                        .ToList();
+                }
+                else
+                {
+                    EventsbySport = db.Events
+                        .Where(c => c.Reserve.Sport.SportId == sportId && c.StartDate > _todayDate 
+                                    && c.Reserve.Ground.Park.Address.CountyId == idLocation)
+                        .Include("Reserve.Sport")
+                        .Include("Reserve.Ground.Park")
+                        .Include("Users")
+                        .ToList();
+                }
                 return EventsbySport;
             }
         }
@@ -206,6 +219,7 @@ namespace Sports4All.Controller
             {
                 var EnrolledUsers = db.Users
                     .Where(c => c.Events.Any(i => i.EventId == eventId))
+                    .Include("UserClassification")
                     .ToList();
 
                 return EnrolledUsers;
@@ -219,6 +233,7 @@ namespace Sports4All.Controller
                 var SingleEvent = db.Events
                     .Where(c => c.EventId == eventId)
                     .Include("Reserve.Ground.Park.Picture")
+                    .Include("Reserve.User")
                     .FirstOrDefault();
                 return SingleEvent;
             }
@@ -293,7 +308,6 @@ namespace Sports4All.Controller
                 }
             return listitems;
         }
-
         public UC_NextEventsandReserveItem ChangeButtonsReserve(string Username, UC_NextEventsandReserveItem listitems)
         {
             if (Username.Equals(listitems.Owner))

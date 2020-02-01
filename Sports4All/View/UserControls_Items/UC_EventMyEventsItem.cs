@@ -21,6 +21,13 @@ namespace Sports4All
         private string _date;
         private string _park;
         private string _messageInfo;
+        private Image _image;
+
+        public Image Image
+        {
+            get => _image;
+            set { _image = value; pbModality.Image = value; }
+        }
 
         public string MessageInfo
         {

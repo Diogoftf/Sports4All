@@ -22,7 +22,6 @@ namespace Sports4All
         private Image _image;
         private string _eventName;
 
-
         public string EventName
         {
             get => _eventName;
@@ -153,7 +152,6 @@ namespace Sports4All
         }
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Dados Guardados com Sucesso!");
             btnSaveChanges.Visible = false;
             PropertiesformEventDetails(false, BorderStyle.None, true);
             string format = "dd/MM/yyyy HH:mm:ss";
@@ -166,15 +164,12 @@ namespace Sports4All
             CultureInfo provider = CultureInfo.InvariantCulture;
             DateTime NewStartDate = DateTime.ParseExact(startdateTime, format, provider);
             DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
-            // DateTime NewDate = new DateTime();
             _eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
         
         }
         private void PropertiesformEventDetails(bool Enabled, BorderStyle border, bool ReadOnly)
         {
             dtpNextEventDate.Enabled = Enabled;
-            // tbEventDate.Enabled = Enabled;
-            //dtpNextEventDate.BorderStyle = border;
             tbMaxAge.ReadOnly = ReadOnly;
             tbMaxAge.Enabled = Enabled;
             tbMaxAge.BorderStyle = border;
@@ -207,6 +202,7 @@ namespace Sports4All
                 {
                     UserId = user.Username,
                     PlayerAge = user.Age + "Anos",
+                    PlayerSkill = Convert.ToString(user.UserClassification.Points),
                     Image = ImagesController.Instance.GetImageFromID(user.PictureId)
                 };
                 flpUsersEvent.Controls.Add(_userInEvent);
@@ -215,11 +211,10 @@ namespace Sports4All
         }
         private void PopulateEventDetails()
         {
-
             var singleEvent = _eventsController.RetrieveSingleEvent(_eventID);
             lbEventId.Text = "Evento #" + singleEvent.EventId;
             lblOwnerValue.Text = singleEvent.Reserve.UserId;
-            //lblUserPhoneValue.Text = Convert.ToString(SingleEvent.Reserve.User.PhoneNumber); campo está a Null na BD ainda, propriedade navegação.
+            lblUserPhoneValue.Text = Convert.ToString(singleEvent.Reserve.User.PhoneNumber);
             dtpNextEventDate.Text = singleEvent.StartDate.ToLongDateString();
             dtpStartEventTime.Text = singleEvent.StartDate.ToShortTimeString();
             dtpEndEventTime.Text = singleEvent.EndDate.ToShortTimeString();
@@ -235,13 +230,10 @@ namespace Sports4All
         {
             if (lblOwnerValue.Text != Session.Instance.LoggedUser) btnEdit.Visible = false;
         }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             btnSaveChanges.Visible = true;
             PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
         }
-
- 
     } 
 }

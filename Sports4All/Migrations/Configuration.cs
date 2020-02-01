@@ -343,12 +343,6 @@ namespace Sports4All.Migrations
             }
         }
 
-        private void Evaluations()
-        {
-
-
-        }
-
         protected override void Seed(ModelContext context)
         {
             AddDistricts(context);

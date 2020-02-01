@@ -73,11 +73,8 @@ namespace Sports4All.Controller
                             .OrderByDescending(x => x.ParkClassification.QualityAverage).ToList();
                 }
             }
-
             return parkList;
-
         }
-
         public ParkClassification GetParkClassification(int id)
         {
             ParkClassification classification;
@@ -87,7 +84,6 @@ namespace Sports4All.Controller
                 var classifications = db.Classifications.Include("Park");
                 classification = classifications.OfType<ParkClassification>().Where(x => x.Park.ParkId == id).FirstOrDefault();
             }
-
             return classification;
         }
     }

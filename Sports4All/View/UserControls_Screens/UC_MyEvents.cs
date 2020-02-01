@@ -61,23 +61,26 @@ namespace Sports4All
                     _finishedEvent.Park = completeEvent.Reserve.Ground.Park.Name;
                     _finishedEvent.MessageInfo = "Avalie este evento!";
                     _finishedEvent.Change_BackColor = Color.LightCoral;
+                    _finishedEvent.Image = ImagesController.Instance.GetImageFromID(completeEvent.Reserve.Sport.Picture.PictureId);
                 }
                 else
                 {
-                    _finishedEvent.Avaliar = "Avaliado";
-                    _finishedEvent.EventID = completeEvent.EventId;
-                    _finishedEvent.Owner = completeEvent.Reserve.UserId;
-                    _finishedEvent.Sport = completeEvent.Reserve.Sport.Name;
-                    _finishedEvent.Date = completeEvent.StartDate.ToLongDateString();
-                    _finishedEvent.Park = completeEvent.Reserve.Ground.Park.Name;
-                    _finishedEvent.MessageInfo = "Já avaliou este evento!";
-                    _finishedEvent.Change_BackColor = Color.LightCoral;
+                        _finishedEvent.Avaliar = "Avaliado";
+                        _finishedEvent.EventID = completeEvent.EventId;
+                        _finishedEvent.Owner = completeEvent.Reserve.UserId;
+                        _finishedEvent.Sport = completeEvent.Reserve.Sport.Name;
+                        _finishedEvent.Date = completeEvent.StartDate.ToLongDateString();
+                        _finishedEvent.Park = completeEvent.Reserve.Ground.Park.Name;
+                        _finishedEvent.MessageInfo = "Já avaliou este evento!";
+                        _finishedEvent.Change_BackColor = Color.LightCoral;
+                        flpListMyEvents.Controls.Add(_finishedEvent);
+                        _finishedEvent.Image = ImagesController.Instance.GetImageFromID(completeEvent.Reserve.Sport.Picture.PictureId);
+                 }
+                    _finishedEvent.DisableButtonEvaluation();
                     flpListMyEvents.Controls.Add(_finishedEvent);
                 }
-                _finishedEvent.DisableButtonEvaluation();
-                flpListMyEvents.Controls.Add(_finishedEvent);
             }
-        }
+        
 
         private void MyReserves()
         {

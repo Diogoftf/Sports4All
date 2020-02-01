@@ -61,9 +61,9 @@
             // flpUsersEvent
             // 
             this.flpUsersEvent.AutoScroll = true;
-            this.flpUsersEvent.Location = new System.Drawing.Point(561, 89);
+            this.flpUsersEvent.Location = new System.Drawing.Point(554, 56);
             this.flpUsersEvent.Name = "flpUsersEvent";
-            this.flpUsersEvent.Size = new System.Drawing.Size(345, 530);
+            this.flpUsersEvent.Size = new System.Drawing.Size(313, 530);
             this.flpUsersEvent.TabIndex = 45;
             // 
             // lbIdadeMax
@@ -100,10 +100,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 17F);
-            this.label1.Location = new System.Drawing.Point(665, 37);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label1.Location = new System.Drawing.Point(642, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 36);
+            this.label1.Size = new System.Drawing.Size(85, 23);
             this.label1.TabIndex = 39;
             this.label1.Text = "Inscritos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -111,12 +111,12 @@
             // lbParkName
             // 
             this.lbParkName.AutoSize = true;
-            this.lbParkName.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lbParkName.Location = new System.Drawing.Point(387, 17);
+            this.lbParkName.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lbParkName.Location = new System.Drawing.Point(369, 17);
             this.lbParkName.Name = "lbParkName";
-            this.lbParkName.Size = new System.Drawing.Size(293, 21);
+            this.lbParkName.Size = new System.Drawing.Size(154, 23);
             this.lbParkName.TabIndex = 38;
-            this.lbParkName.Text = "Parque Desportivo Água de Pena";
+            this.lbParkName.Text = "Água de Pena";
             this.lbParkName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbEventId
@@ -210,9 +210,10 @@
             // 
             // pbPark
             // 
-            this.pbPark.Location = new System.Drawing.Point(391, 64);
+            this.pbPark.Location = new System.Drawing.Point(373, 56);
             this.pbPark.Name = "pbPark";
             this.pbPark.Size = new System.Drawing.Size(143, 124);
+            this.pbPark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPark.TabIndex = 46;
             this.pbPark.TabStop = false;
             // 
@@ -332,9 +333,8 @@
             // 
             // UC_EventDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.Controls.Add(this.lbEventId);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -362,8 +362,9 @@
             this.Controls.Add(this.lblProprietario);
             this.Controls.Add(this.plLine);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
             this.Name = "UC_EventDetails";
-            this.Size = new System.Drawing.Size(1090, 622);
+            this.Size = new System.Drawing.Size(1089, 622);
             this.Load += new System.EventHandler(this.UC_EventsDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPark)).EndInit();
             this.ResumeLayout(false);

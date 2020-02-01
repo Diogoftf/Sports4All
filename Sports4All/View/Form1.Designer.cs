@@ -65,18 +65,18 @@
             this.panel1.Controls.Add(this.btn_Home);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(314, 941);
+            this.panel1.Size = new System.Drawing.Size(262, 784);
             this.panel1.TabIndex = 0;
             // 
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.OliveDrab;
-            this.SidePanel.Location = new System.Drawing.Point(2, 94);
-            this.SidePanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SidePanel.Location = new System.Drawing.Point(2, 78);
+            this.SidePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SidePanel.Name = "SidePanel";
-            this.SidePanel.Size = new System.Drawing.Size(14, 82);
+            this.SidePanel.Size = new System.Drawing.Size(12, 68);
             this.SidePanel.TabIndex = 4;
             // 
             // btnRanking
@@ -87,10 +87,10 @@
             this.btnRanking.ForeColor = System.Drawing.Color.White;
             this.btnRanking.Image = global::Sports4All.Properties.Resources.goal;
             this.btnRanking.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRanking.Location = new System.Drawing.Point(18, 504);
-            this.btnRanking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRanking.Location = new System.Drawing.Point(15, 420);
+            this.btnRanking.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRanking.Name = "btnRanking";
-            this.btnRanking.Size = new System.Drawing.Size(296, 82);
+            this.btnRanking.Size = new System.Drawing.Size(247, 68);
             this.btnRanking.TabIndex = 4;
             this.btnRanking.Text = "       Classificações";
             this.btnRanking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -105,10 +105,10 @@
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Image = global::Sports4All.Properties.Resources._event;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(18, 422);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button6.Location = new System.Drawing.Point(15, 352);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(296, 82);
+            this.button6.Size = new System.Drawing.Size(247, 68);
             this.button6.TabIndex = 4;
             this.button6.Text = "       Minhas Partidas";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -123,10 +123,10 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = global::Sports4All.Properties.Resources.ui;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(18, 340);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button4.Location = new System.Drawing.Point(15, 283);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(296, 82);
+            this.button4.Size = new System.Drawing.Size(247, 68);
             this.button4.TabIndex = 4;
             this.button4.Text = "       Subscrições";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -141,10 +141,10 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = global::Sports4All.Properties.Resources.stadium;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(18, 258);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button3.Location = new System.Drawing.Point(15, 215);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(296, 82);
+            this.button3.Size = new System.Drawing.Size(247, 68);
             this.button3.TabIndex = 4;
             this.button3.Text = "       Parques                Desportivos";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -159,10 +159,10 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = global::Sports4All.Properties.Resources.soccer;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(18, 174);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Location = new System.Drawing.Point(15, 145);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(296, 82);
+            this.button2.Size = new System.Drawing.Size(247, 68);
             this.button2.TabIndex = 4;
             this.button2.Text = "       Eventos";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -177,10 +177,10 @@
             this.btn_Home.ForeColor = System.Drawing.Color.White;
             this.btn_Home.Image = global::Sports4All.Properties.Resources.empire_state_building__2_;
             this.btn_Home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Home.Location = new System.Drawing.Point(18, 91);
-            this.btn_Home.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_Home.Location = new System.Drawing.Point(15, 76);
+            this.btn_Home.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(296, 82);
+            this.btn_Home.Size = new System.Drawing.Size(247, 68);
             this.btn_Home.TabIndex = 4;
             this.btn_Home.Text = "       Home";
             this.btn_Home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -191,10 +191,10 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.OliveDrab;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(314, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Location = new System.Drawing.Point(262, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1334, 14);
+            this.panel2.Size = new System.Drawing.Size(1111, 12);
             this.panel2.TabIndex = 1;
             // 
             // panel5
@@ -202,20 +202,19 @@
             this.panel5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel5.Location = new System.Drawing.Point(314, 128);
+            this.panel5.Location = new System.Drawing.Point(262, 107);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1856, 2);
+            this.panel5.Size = new System.Drawing.Size(1547, 2);
             this.panel5.TabIndex = 70;
             // 
             // lbPointsUser
             // 
             this.lbPointsUser.AutoSize = true;
             this.lbPointsUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPointsUser.Location = new System.Drawing.Point(463, 67);
-            this.lbPointsUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPointsUser.Location = new System.Drawing.Point(386, 56);
             this.lbPointsUser.Name = "lbPointsUser";
-            this.lbPointsUser.Size = new System.Drawing.Size(46, 22);
+            this.lbPointsUser.Size = new System.Drawing.Size(41, 18);
             this.lbPointsUser.TabIndex = 61;
             this.lbPointsUser.Text = "Skill:";
             // 
@@ -223,10 +222,9 @@
             // 
             this.lbSkillUser.AutoSize = true;
             this.lbSkillUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSkillUser.Location = new System.Drawing.Point(463, 91);
-            this.lbSkillUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSkillUser.Location = new System.Drawing.Point(386, 76);
             this.lbSkillUser.Name = "lbSkillUser";
-            this.lbSkillUser.Size = new System.Drawing.Size(84, 22);
+            this.lbSkillUser.Size = new System.Drawing.Size(71, 18);
             this.lbSkillUser.TabIndex = 59;
             this.lbSkillUser.Text = "Fairplay:";
             // 
@@ -234,10 +232,10 @@
             // 
             this.lbWelcomeUser.AutoSize = true;
             this.lbWelcomeUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWelcomeUser.Location = new System.Drawing.Point(463, 24);
+            this.lbWelcomeUser.Location = new System.Drawing.Point(386, 20);
             this.lbWelcomeUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbWelcomeUser.Name = "lbWelcomeUser";
-            this.lbWelcomeUser.Size = new System.Drawing.Size(254, 23);
+            this.lbWelcomeUser.Size = new System.Drawing.Size(220, 21);
             this.lbWelcomeUser.TabIndex = 57;
             this.lbWelcomeUser.Text = "Bem-vindo, <USERNAME>";
             // 
@@ -249,10 +247,10 @@
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(1585, 38);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExit.Location = new System.Drawing.Point(1321, 32);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(48, 54);
+            this.btnExit.Size = new System.Drawing.Size(40, 45);
             this.btnExit.TabIndex = 66;
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
@@ -266,10 +264,10 @@
             this.btnNotification.ForeColor = System.Drawing.Color.White;
             this.btnNotification.Image = ((System.Drawing.Image)(resources.GetObject("btnNotification.Image")));
             this.btnNotification.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotification.Location = new System.Drawing.Point(1529, 38);
-            this.btnNotification.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNotification.Location = new System.Drawing.Point(1274, 32);
+            this.btnNotification.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(48, 54);
+            this.btnNotification.Size = new System.Drawing.Size(40, 45);
             this.btnNotification.TabIndex = 68;
             this.btnNotification.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNotification.UseVisualStyleBackColor = true;
@@ -282,10 +280,10 @@
             this.btnAddfriend.ForeColor = System.Drawing.Color.White;
             this.btnAddfriend.Image = ((System.Drawing.Image)(resources.GetObject("btnAddfriend.Image")));
             this.btnAddfriend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddfriend.Location = new System.Drawing.Point(1458, 40);
-            this.btnAddfriend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddfriend.Location = new System.Drawing.Point(1215, 33);
+            this.btnAddfriend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddfriend.Name = "btnAddfriend";
-            this.btnAddfriend.Size = new System.Drawing.Size(62, 52);
+            this.btnAddfriend.Size = new System.Drawing.Size(52, 43);
             this.btnAddfriend.TabIndex = 58;
             this.btnAddfriend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddfriend.UseVisualStyleBackColor = true;
@@ -296,10 +294,10 @@
             this.pbUserImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbUserImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbUserImage.Image = ((System.Drawing.Image)(resources.GetObject("pbUserImage.Image")));
-            this.pbUserImage.Location = new System.Drawing.Point(340, 24);
+            this.pbUserImage.Location = new System.Drawing.Point(283, 20);
             this.pbUserImage.Margin = new System.Windows.Forms.Padding(2);
             this.pbUserImage.Name = "pbUserImage";
-            this.pbUserImage.Size = new System.Drawing.Size(100, 99);
+            this.pbUserImage.Size = new System.Drawing.Size(84, 83);
             this.pbUserImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbUserImage.TabIndex = 56;
             this.pbUserImage.TabStop = false;
@@ -307,35 +305,36 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.Location = new System.Drawing.Point(323, 137);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelContainer.Location = new System.Drawing.Point(269, 114);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1312, 790);
+            this.panelContainer.Size = new System.Drawing.Size(1093, 658);
             this.panelContainer.TabIndex = 71;
             // 
             // lbSkillValue
             // 
             this.lbSkillValue.AutoSize = true;
             this.lbSkillValue.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lbSkillValue.Location = new System.Drawing.Point(512, 67);
+            this.lbSkillValue.Location = new System.Drawing.Point(427, 56);
+            this.lbSkillValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSkillValue.Name = "lbSkillValue";
-            this.lbSkillValue.Size = new System.Drawing.Size(0, 21);
+            this.lbSkillValue.Size = new System.Drawing.Size(0, 20);
             this.lbSkillValue.TabIndex = 72;
             // 
             // lbFairplayValue
             // 
             this.lbFairplayValue.AutoSize = true;
             this.lbFairplayValue.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lbFairplayValue.Location = new System.Drawing.Point(553, 91);
+            this.lbFairplayValue.Location = new System.Drawing.Point(461, 76);
+            this.lbFairplayValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbFairplayValue.Name = "lbFairplayValue";
-            this.lbFairplayValue.Size = new System.Drawing.Size(0, 21);
+            this.lbFairplayValue.Size = new System.Drawing.Size(0, 20);
             this.lbFairplayValue.TabIndex = 75;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1648, 941);
+            this.ClientSize = new System.Drawing.Size(1373, 784);
             this.Controls.Add(this.lbFairplayValue);
             this.Controls.Add(this.lbSkillValue);
             this.Controls.Add(this.panelContainer);
@@ -350,9 +349,9 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximumSize = new System.Drawing.Size(1648, 941);
-            this.MinimumSize = new System.Drawing.Size(1648, 941);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(1373, 784);
+            this.MinimumSize = new System.Drawing.Size(1373, 784);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

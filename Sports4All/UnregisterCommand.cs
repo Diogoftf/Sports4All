@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Sports4All.Controller;
 
 namespace Sports4All
@@ -24,8 +25,18 @@ namespace Sports4All
 
         }
         public void Execute()
-        {
-            _eventsController.UnregisterUser(_eventid, _username);
+        { 
+            
+            DialogResult result = MessageBox.Show("Quer mesmo sair deste Evento?", 
+                            "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                _eventsController.UnregisterUser(_eventid, _username);
+                Form1.Instance.BringUcToFront<UC_Home>("UC_Home", "");
+            }
+
+
+           
         }
     }
 }

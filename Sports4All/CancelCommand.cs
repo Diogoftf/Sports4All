@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Sports4All
 {
-  public class CancelCommand : ICommand
+    public class CancelCommand : ICommand
     {
 
         private UC_NextEventsandReserveItem _eventItem;
@@ -21,9 +22,17 @@ namespace Sports4All
             this._eventid = Convert.ToInt32(this._eventItem.EventID);
 
         }
+
         public void Execute()
         {
-            _eventsController.DeleteEvent(_eventid);
+            DialogResult result = MessageBox.Show("Deseja cancelar a Reserva?", 
+                            "Confirmation", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                _eventsController.DeleteEvent(_eventid);
+                Form1.Instance.BringUcToFront<UC_Home>("UC_Home", "");
+            }
         }
     }
 }
