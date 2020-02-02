@@ -49,13 +49,13 @@ namespace Sports4All
         {
             MoveSidePanel(btn_Home);
             lbWelcomeUser.Text = "Bem vindo, " + Session.Instance.LoggedUser;
-            
             using (var db = new ModelContext())
             {
                 var user = db.Users.Include("Picture").Where(f => f.Username == Session.Instance.LoggedUser).Single();
                 pbUserImage.Image = ImagesController.Instance.GetImageFromName(user.Picture.Path);
                 lbSkillValue.Text = user.UserClassification.SkillAverage.ToString();
                 lbFairplayValue.Text = user.UserClassification.FairplayAverage.ToString();
+                lbPontosValue.Text = user.UserClassification.Points.ToString();
             }
             _obj = this;
             AddUserControlsToForm();

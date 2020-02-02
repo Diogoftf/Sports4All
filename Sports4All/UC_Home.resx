@@ -214,18 +214,18 @@
   </data>
   <data name="pbStats.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        oEbHNXJnTwAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="pbInfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

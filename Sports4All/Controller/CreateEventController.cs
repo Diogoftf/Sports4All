@@ -54,5 +54,39 @@ namespace Sports4All.Controller
                 return db.Materials.Where(f => f.Sport.SportId == sportId && f.ParkId == parkId).ToList();
             }
         }
+
+        public Material GetMaterial(string materialName)
+        {
+            using (ModelContext db = new ModelContext())
+            {
+                return db.Materials.Where(f => f.Name == materialName).First();
+            }
+        }
+
+        public User WhoAmI(string username)
+        {
+            using (ModelContext db = new ModelContext())
+            {
+                return db.Users.First(f => f.Username.Equals(username));
+            }
+        }
+
+        public void createReserve(Reserve r,Event e)
+        {
+            using (ModelContext db = new ModelContext())
+            {
+                if (r.Uses != null)
+                {
+                    for (int i = 0; i < r.Uses.Count; i++)
+                    {
+                        db.Uses.Add(r.Uses.ToList()[i]);
+                    }
+                }
+                db.Reserves.Add(r);
+                db.Events.Add(e);
+                db.SaveChanges();
+
+            }
+        }
     }
 }

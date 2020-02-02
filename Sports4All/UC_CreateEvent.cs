@@ -115,6 +115,7 @@ namespace Sports4All
         private void ReturnHome()
         {
             clearFields();
+            this.Parent.Controls.Remove(this);
             Form1.Instance.BringUcToFront<UC_Home>("UC_Home", Id);
         }
 
@@ -141,7 +142,7 @@ namespace Sports4All
 
                 tbLocation.Text = parkChoosed.Address.Street + ", " + parkChoosed.Address.PostalCode + ", " + parkChoosed.Address.County.Name;
 
-                cbSport.Items.Clear();
+                cbSport.Items.Clear(); cbSport.SelectedIndex = -1;
                 for (int i = 0; i < parkChoosed.Grounds.Count; i++)
                 {
                     for (int j = 0; j < parkChoosed.Grounds.ToList()[i].Sports.Count; j++)
@@ -211,70 +212,67 @@ namespace Sports4All
 
         private void btnCreateEvent_Click_1(object sender, EventArgs e)
         {
-            ICollection<Use> materialUsage = new HashSet<Use>();
+            ICollection<Use> materialSelected = new HashSet<Use>();
 
             //Se nao ocorreu nenhum erro ao verificar os campos da criação de um evento no Home
-          //  if (checkIntegrity())
+            if (checkIntegrity())
             {
                 using (ModelContext db = new ModelContext())
                 {
-                    var WhoAmI = db.Users.First(f => f.Username.Equals(Session.Instance.LoggedUser));
-                    
-                    for(int i = 0; i < flpMaterial.Controls.Count; i++)
+                    var WhoAmI = _createEventController.WhoAmI(Session.Instance.LoggedUser);
+
+                    for (int i = 0; i < flpMaterial.Controls.Count; i++)
                     {
                         UC_MaterialItem item = flpMaterial.Controls[i] as UC_MaterialItem;
                         if (item.Quantidade > 0)
                         {
                             var use = new Use();
-                            var query = db.Materials.Where(f => f.Name == item.Material).First();
+                            var query = _createEventController.GetMaterial(item.Material);
                             use.MaterialId = query.MaterialId;
                             use.Quantity = item.Quantidade;
                             use.Reserve = _reserve;
-                            materialUsage.Add(use);
+                            materialSelected.Add(use);
                         }
                     }
                                        
                     _reserve.Date = DateTime.Now;
-                    _reserve.Price = 10;
+                    //_reserve.Price = 10;
                     _reserve.UserId = WhoAmI.Username;
                     _reserve.Event = _event;
-                    if (materialUsage.Count > 0) _reserve.Uses = materialUsage;
+
+                    if (materialSelected.Count > 0) _reserve.Uses = materialSelected;
 
                     _event.Name = txtEventName.Text;
                     _event.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
                     _event.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
                     _event.Name = txtEventName.Text;
-                    
-                    /* TEMPORARIO SOMENTE PARA FACILITAR OS TESTES */
+
+                    /**** TEMPORARIO SOMENTE PARA FACILITAR OS TESTES *****/
                     var users = db.Users.ToList();
                     ICollection<User> listUsers = new Collection<User>();
-                    foreach(User ba in users)
+
+                    foreach (User ba in users)
                     {
                         listUsers.Add(ba);
                     }
-                    /* TEMPORARIO SOMENTE PARA FACILITAR OS TESTES */
 
                     _event.Users = listUsers;
+                    /**** TEMPORARIO SOMENTE PARA FACILITAR OS TESTES ****/
+
                     _event.MinAge = Convert.ToInt32(cbMinAge.Text);
                     _event.MaxAge = Convert.ToInt32(cbMaxAge.Text);
                     _event.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
 
-                    for (int i = 0; i < materialUsage.Count; i++)
+                    for (int i = 0; i < materialSelected.Count; i++)
                     {
-                        //var query = db.Materials.Find(materialUsage.ToList()[i].MaterialId);
-
-
-                        //if (query.Available - materialUsage.ToList()[i].Quantity < 0)
-                        //    query.Available = 0;
-                        //else
-                        //    query.Available -= materialUsage.ToList()[i].Quantity;
-
-                        db.Uses.Add(materialUsage.ToList()[i]);
+                        db.Uses.Add(materialSelected.ToList()[i]);
                     }
 
                     db.Reserves.Add(_reserve);
                     db.Events.Add(_event);
                     db.SaveChanges();
+                    //_createEventController.createReserve(_reserve, _event);
+
                     MessageBox.Show("Reserva criada com sucesso!");
 
                     ReturnHome();

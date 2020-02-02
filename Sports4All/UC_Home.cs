@@ -20,6 +20,8 @@ namespace Sports4All
         private UC_HomeMyEventsItem _noMyEventsitems = new UC_HomeMyEventsItem();
         private UC_HomeMyEventsItem _noSuggestionsEventsitems = new UC_HomeMyEventsItem();
         private RankController _rankController = new RankController();
+        private double _pointsToNextLevel { get; set; }
+
         // Progress Bar//
         private double _pbUnit;
         private int _pbWIDTH, _pbHEIGHT, _pbComplete;
@@ -30,6 +32,7 @@ namespace Sports4All
         public UC_Home()
         {
             InitializeComponent();
+            _pointsToNextLevel = pointsRemaining();
         }
 
         #region Properties
@@ -62,6 +65,7 @@ namespace Sports4All
                 _noSuggestionsEventsitems.DisableImage = null;
                 _noSuggestionsEventsitems.resetNameProprieties = "";
 
+                pointsRemaining();
                 PopulateMyEventsList();
                 PopulateMySuggestionsList();
                 PopulateComboBox();
@@ -104,10 +108,16 @@ namespace Sports4All
             _timerProgressBar.Start();
         }
 
+        private double pointsRemaining()
+        {
+            var auxiliar = double.Parse(lbNextLevel.Text) * 100.0;
+
+            return auxiliar - double.Parse(_homeController.getMyStats().ToList()[4]);
+        }
+
         private void FillProgressBar(object sender, EventArgs e)
         {
-            var myPoints = double.Parse(_homeController.getMyStats().ToList()[4]);
-            if (_pbComplete > myPoints)
+            if (_pbComplete >= _pointsToNextLevel)
             {
                 _graphic.Dispose();
                 _timerProgressBar.Stop();
