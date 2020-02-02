@@ -92,8 +92,9 @@ namespace Sports4All
                 var usersCount = reserves.Event.Users.Count;
                 var maxUsers   =   reserves.Event.MaxPlayers;
                 var hour     =     reserves.Event.StartDate.ToShortTimeString();
-                var month = reserves.Event.StartDate.ToLongDateString();
-                month = month.Substring(6, 3).ToUpper();
+                var date = reserves.Event.StartDate.ToLongDateString();
+                var partsOfDate = date.Split();
+                var month = partsOfDate[2].Substring(0, 3).ToUpper();
 
                 UC_NextEventsandReserveItem _reserve = new UC_NextEventsandReserveItem();
                 _reserve.Day = Convert.ToString(reserves.Event.StartDate.Day);
@@ -124,8 +125,9 @@ namespace Sports4All
                 var usersCount = nextEvent.Users.Count;
                 var maxUsers = nextEvent.MaxPlayers;
                 var hour = nextEvent.StartDate.ToShortTimeString();
-                var month = nextEvent.StartDate.ToLongDateString();
-                month = month.Substring(6, 3).ToUpper();
+                var date = nextEvent.StartDate.ToLongDateString();
+                var partsOfDate = date.Split();
+                var month = partsOfDate[2].Substring(0, 3).ToUpper();
                 UC_NextEventsandReserveItem _nextEvent = new UC_NextEventsandReserveItem();
                 _nextEvent.Day = Convert.ToString(nextEvent.StartDate.Day);
                 _nextEvent.Month = month;
