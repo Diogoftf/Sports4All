@@ -20,9 +20,7 @@ namespace Sports4All
             _eventsController = new MyEventsController();
             this._eventItem = EventItem;
             this._eventid = Convert.ToInt32(this._eventItem.EventID);
-
         }
-
         public void Execute()
         {
             DialogResult result = MessageBox.Show("Deseja cancelar a Reserva?", 
