@@ -68,7 +68,7 @@ namespace Sports4All.Controller
             using (ModelContext db = new ModelContext())
             {
                 return db.Users.First(f => f.Username.Equals(username));
-            }
+            } 
         }
 
         public void createReserve(Reserve r,Event e)
