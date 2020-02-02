@@ -57,8 +57,9 @@ namespace Sports4All
                 var usersCount = eventsportj.Users.Count;
                 var maxUsers = eventsportj.MaxPlayers;
                 var hour = eventsportj.StartDate.ToShortTimeString();
-                var month = eventsportj.StartDate.ToLongDateString();
-                month = month.Substring(6, 3).ToUpper();
+                var date = eventsportj.StartDate.ToLongDateString();
+                var partsOfDate = date.Split( );
+                var month = partsOfDate[2].Substring(0, 3).ToUpper();
                 _eventSport.EventID = Convert.ToString(eventsportj.EventId);
                 _eventSport.Owner = eventsportj.Reserve.UserId;
                 _eventSport.SportGround = eventsportj.Reserve.Ground.Park.Name;

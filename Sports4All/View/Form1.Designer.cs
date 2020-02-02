@@ -86,7 +86,7 @@
             this.btnRanking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRanking.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRanking.ForeColor = System.Drawing.Color.White;
-            this.btnRanking.Image = global::Sports4All.Properties.Resources.goal;
+            this.btnRanking.Image = ((System.Drawing.Image)(resources.GetObject("btnRanking.Image")));
             this.btnRanking.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRanking.Location = new System.Drawing.Point(15, 420);
             this.btnRanking.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -104,7 +104,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = global::Sports4All.Properties.Resources._event;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.Location = new System.Drawing.Point(15, 352);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -122,7 +122,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = global::Sports4All.Properties.Resources.ui;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(15, 283);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -140,7 +140,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = global::Sports4All.Properties.Resources.stadium;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(15, 215);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -158,7 +158,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::Sports4All.Properties.Resources.soccer;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(15, 145);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -176,7 +176,7 @@
             this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Home.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Home.ForeColor = System.Drawing.Color.White;
-            this.btn_Home.Image = global::Sports4All.Properties.Resources.empire_state_building__2_;
+            this.btn_Home.Image = ((System.Drawing.Image)(resources.GetObject("btn_Home.Image")));
             this.btn_Home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Home.Location = new System.Drawing.Point(15, 76);
             this.btn_Home.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -263,7 +263,6 @@
             this.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotification.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotification.ForeColor = System.Drawing.Color.White;
-            this.btnNotification.Image = ((System.Drawing.Image)(resources.GetObject("btnNotification.Image")));
             this.btnNotification.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNotification.Location = new System.Drawing.Point(1274, 32);
             this.btnNotification.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -277,7 +276,6 @@
             // 
             this.pbUserImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbUserImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbUserImage.Image = ((System.Drawing.Image)(resources.GetObject("pbUserImage.Image")));
             this.pbUserImage.Location = new System.Drawing.Point(283, 20);
             this.pbUserImage.Margin = new System.Windows.Forms.Padding(2);
             this.pbUserImage.Name = "pbUserImage";
