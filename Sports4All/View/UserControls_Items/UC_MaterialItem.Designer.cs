@@ -58,6 +58,7 @@
             this.cbQtty.Name = "cbQtty";
             this.cbQtty.Size = new System.Drawing.Size(70, 25);
             this.cbQtty.TabIndex = 2;
+            this.cbQtty.SelectedIndexChanged += new System.EventHandler(this.cbQtty_SelectedIndexChanged);
             // 
             // tableLayoutPanel1
             // 

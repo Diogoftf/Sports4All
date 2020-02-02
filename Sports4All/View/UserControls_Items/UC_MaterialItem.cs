@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.CreateEvent;
 
 namespace Sports4All
 {
@@ -17,9 +18,16 @@ namespace Sports4All
         private string _qtty;
         private string _price;
 
+        private Label _totalPrice;
+        private IPriceEntity _priceEntity { get; set; }
 
-        public int Id { get; set; }
 
+        public Label TotalQuantidade 
+        {
+            set { _totalPrice = value; }
+
+            get => _totalPrice;
+        }
         public string Preço //
         {
             set
@@ -52,9 +60,10 @@ namespace Sports4All
 
         #endregion
 
-        public UC_MaterialItem()
+        public UC_MaterialItem(IPriceEntity _priceEntity)
         {
             InitializeComponent();
+            this._priceEntity = _priceEntity;
         }
 
         private void UC_MaterialItem_Load(object sender, EventArgs e)
@@ -68,7 +77,24 @@ namespace Sports4All
             {
                 cbQtty.Items.Add(i);
             }
-            cbQtty.SelectedIndex = 0;
+           // cbQtty.SelectedIndex = 0;
+        }
+
+        private void cbQtty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            int quantidade =  cbQtty.SelectedIndex;
+
+
+           switch (_material)
+           {
+                case "Raquete": _priceEntity = new Raquete(_priceEntity, quantidade);
+                    break;
+                case "Bola"   : _priceEntity = new Bola(_priceEntity, quantidade);
+                    break;
+           }
+           MessageBox.Show("Valor:" + _priceEntity.getCost());
+           TotalQuantidade.Text = Convert.ToString(_priceEntity.getCost());
         }
     }
 }

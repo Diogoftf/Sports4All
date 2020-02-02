@@ -80,8 +80,6 @@ namespace Sports4All
                     flpListMyEvents.Controls.Add(_finishedEvent);
                 }
             }
-        
-
         private void MyReserves()
         {
             flpListMyEvents.Controls.Clear();

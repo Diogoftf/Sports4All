@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Sports4All.Controller
 {
-    class CreateEventController
+ public class CreateEventController
     {
         public ICollection<Park> GetAllParks()
         {

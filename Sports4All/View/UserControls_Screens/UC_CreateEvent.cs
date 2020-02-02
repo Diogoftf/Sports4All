@@ -5,15 +5,16 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
 using Sports4All.Controller;
+using Sports4All.CreateEvent;
 
 namespace Sports4All
 {
     public partial class UC_CreateEvent : UserControl, IUserControl
     {
+        private IPriceEntity _priceEntity { get;set; }
         private CreateEventController _createEventController { get; set; }
         private Reserve _reserve { get; set; }
         private Event _event { get; set; }
-
         public UC_CreateEvent()
         {
             InitializeComponent();
@@ -159,6 +160,7 @@ namespace Sports4All
             if (cbSport.SelectedIndex != -1)
             {
 
+           
                 var sport = _createEventController.GetSport(cbSport.Text);
 
                 var parkId = _createEventController.GetPark(cbPark.Text).ParkId;
@@ -175,7 +177,10 @@ namespace Sports4All
                             _reserve.SportId = sport.SportId;
                             _reserve.Price = groundsRecinto[i].Price;
                             lbMoney.Text = _reserve.Price.ToString();
+                            _priceEntity = groundsRecinto[i];
+
                         }
+
                     }
                 }
 
@@ -187,12 +192,12 @@ namespace Sports4All
                 {
                     for (int k = 0; k < materiais.Count; k++)
                     {
-                        UC_MaterialItem temp = new UC_MaterialItem();
+                        UC_MaterialItem temp = new UC_MaterialItem(_priceEntity);
                         temp.Material = materiais[k].Name;
                         temp.PopulateQuantity(materiais[k].Available);
                         temp.Preço = materiais[k].Price.ToString();
                         flpMaterial.Controls.Add(temp);
-
+                        temp.TotalQuantidade = lbMoney;
                     }
                 }
 
@@ -200,15 +205,20 @@ namespace Sports4All
 
         }
 
+    private void cbQuantity(object sender, EventArgs e)
+    {
+
+   
+    }
         private void btnCreateEvent_Click_1(object sender, EventArgs e)
         {
                 ICollection<Use> materialUsage = new HashSet<Use>();
                 ICollection<User> listUsers = new Collection<User>();
                 CreateEventController _createEventController = new CreateEventController();
 
-                //Se nao ocorreu nenhum erro ao verificar os campos da criação de um evento no Home
-                //  if (checkIntegrity())
                 _createEventController.RetrieveMaterial(flpMaterial, materialUsage, _reserve);
+                
+                
                 _createEventController.InsertDataReserve(_reserve, _event, materialUsage);
                 _reserve.ReserveId = _createEventController.getIdReserve();
                 _event.EventId = _createEventController.getIdEvent();
@@ -217,11 +227,10 @@ namespace Sports4All
                 _event.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
                 _event.Name = txtEventName.Text;
 
-                // _createEventController.InsertUserNewEvent(listUsers,_event);
-
                 _event.MinAge = Convert.ToInt32(cbMinAge.Text);
                 _event.MaxAge = Convert.ToInt32(cbMaxAge.Text);
                 _event.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
+
 
                 _createEventController.createReserve(materialUsage, _reserve, _event);
                 _createEventController.InsertUserNewEvent(_event);
