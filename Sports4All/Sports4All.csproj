@@ -447,39 +447,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btnExit.Image.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Webp.net-resizeimage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Webp.net-resizeimage %283%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Webp.net-resizeimage %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Webp.net-resizeimage %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\empire-state-building %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\soccer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\stadium.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ui.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\event.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\goal.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
@@ -496,6 +463,7 @@
     <Content Include="Images\Add.png" />
     <Content Include="Images\addButton.png" />
     <Content Include="Images\agreement.png" />
+    <None Include="Images\btnExit.Image.png" />
     <Content Include="Images\calendar.png" />
     <Content Include="Images\calendar1.png" />
     <Content Include="Images\cancel.png" />
@@ -508,9 +476,11 @@
     <Content Include="Images\details.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\edit1.png" />
+    <None Include="Images\event.png" />
+    <None Include="Images\empire-state-building %282%29.png" />
     <Content Include="Images\fairplay.png" />
     <Content Include="Images\foot_Icon.png" />
-    <Content Include="Images\friend.png" />
+    <None Include="Images\goal.png" />
     <Content Include="Images\group.png" />
     <Content Include="Images\group1.png" />
     <Content Include="Images\group2.png" />
@@ -526,11 +496,14 @@
     <Content Include="Images\ratio.png" />
     <Content Include="Images\search.png" />
     <Content Include="Images\skill.png" />
+    <None Include="Images\stadium.png" />
+    <None Include="Images\soccer.png" />
     <Content Include="Images\star.png" />
     <Content Include="Images\star1.png" />
     <Content Include="Images\stats.png" />
     <Content Include="Images\sub_Button.png" />
     <Content Include="Images\trophy.png" />
+    <None Include="Images\ui.png" />
     <Content Include="Images\unsub_Button.png" />
     <Content Include="Images\user.png" />
     <Content Include="Images\User1.png" />
