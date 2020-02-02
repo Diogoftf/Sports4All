@@ -109,6 +109,7 @@
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
     <Compile Include="CancelCommand.cs" />
+    <Compile Include="Controller\CreateEventController.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="ISubject.cs" />
@@ -155,6 +156,12 @@
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
     <Compile Include="Sport.cs" />
+    <Compile Include="View\UserControls_Items\UC_MaterialItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls_Items\UC_MaterialItem.Designer.cs">
+      <DependentUpon>UC_MaterialItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls_Items\UC_NextEventsandReserveItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -327,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001311800595_M002.resx">
       <DependentUpon>202001311800595_M002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls_Items\UC_MaterialItem.resx">
+      <DependentUpon>UC_MaterialItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls_Items\UC_NextEventsandReserveItem.resx">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>

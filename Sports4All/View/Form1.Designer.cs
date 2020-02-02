@@ -44,11 +44,12 @@
             this.lbWelcomeUser = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnNotification = new System.Windows.Forms.Button();
-            this.btnAddfriend = new System.Windows.Forms.Button();
             this.pbUserImage = new System.Windows.Forms.PictureBox();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.lbSkillValue = new System.Windows.Forms.Label();
             this.lbFairplayValue = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbPontosValue = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserImage)).BeginInit();
             this.SuspendLayout();
@@ -212,7 +213,7 @@
             // 
             this.lbPointsUser.AutoSize = true;
             this.lbPointsUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPointsUser.Location = new System.Drawing.Point(386, 56);
+            this.lbPointsUser.Location = new System.Drawing.Point(386, 41);
             this.lbPointsUser.Name = "lbPointsUser";
             this.lbPointsUser.Size = new System.Drawing.Size(41, 18);
             this.lbPointsUser.TabIndex = 61;
@@ -222,7 +223,7 @@
             // 
             this.lbSkillUser.AutoSize = true;
             this.lbSkillUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSkillUser.Location = new System.Drawing.Point(386, 76);
+            this.lbSkillUser.Location = new System.Drawing.Point(386, 63);
             this.lbSkillUser.Name = "lbSkillUser";
             this.lbSkillUser.Size = new System.Drawing.Size(71, 18);
             this.lbSkillUser.TabIndex = 59;
@@ -232,7 +233,7 @@
             // 
             this.lbWelcomeUser.AutoSize = true;
             this.lbWelcomeUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWelcomeUser.Location = new System.Drawing.Point(386, 20);
+            this.lbWelcomeUser.Location = new System.Drawing.Point(385, 16);
             this.lbWelcomeUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbWelcomeUser.Name = "lbWelcomeUser";
             this.lbWelcomeUser.Size = new System.Drawing.Size(220, 21);
@@ -272,23 +273,6 @@
             this.btnNotification.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNotification.UseVisualStyleBackColor = true;
             // 
-            // btnAddfriend
-            // 
-            this.btnAddfriend.FlatAppearance.BorderSize = 0;
-            this.btnAddfriend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddfriend.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddfriend.ForeColor = System.Drawing.Color.White;
-            this.btnAddfriend.Image = ((System.Drawing.Image)(resources.GetObject("btnAddfriend.Image")));
-            this.btnAddfriend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddfriend.Location = new System.Drawing.Point(1215, 33);
-            this.btnAddfriend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAddfriend.Name = "btnAddfriend";
-            this.btnAddfriend.Size = new System.Drawing.Size(52, 43);
-            this.btnAddfriend.TabIndex = 58;
-            this.btnAddfriend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddfriend.UseVisualStyleBackColor = true;
-            this.btnAddfriend.Click += new System.EventHandler(this.Btn_Addfriend_Click);
-            // 
             // pbUserImage
             // 
             this.pbUserImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -314,27 +298,51 @@
             // 
             this.lbSkillValue.AutoSize = true;
             this.lbSkillValue.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lbSkillValue.Location = new System.Drawing.Point(427, 56);
+            this.lbSkillValue.Location = new System.Drawing.Point(428, 40);
             this.lbSkillValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSkillValue.Name = "lbSkillValue";
-            this.lbSkillValue.Size = new System.Drawing.Size(0, 20);
+            this.lbSkillValue.Size = new System.Drawing.Size(17, 20);
             this.lbSkillValue.TabIndex = 72;
+            this.lbSkillValue.Text = "1";
             // 
             // lbFairplayValue
             // 
             this.lbFairplayValue.AutoSize = true;
             this.lbFairplayValue.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lbFairplayValue.Location = new System.Drawing.Point(461, 76);
+            this.lbFairplayValue.Location = new System.Drawing.Point(462, 61);
             this.lbFairplayValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbFairplayValue.Name = "lbFairplayValue";
-            this.lbFairplayValue.Size = new System.Drawing.Size(0, 20);
+            this.lbFairplayValue.Size = new System.Drawing.Size(17, 20);
             this.lbFairplayValue.TabIndex = 75;
+            this.lbFairplayValue.Text = "1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(386, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 18);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "Pontos:";
+            // 
+            // lbPontosValue
+            // 
+            this.lbPontosValue.AutoSize = true;
+            this.lbPontosValue.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPontosValue.Location = new System.Drawing.Point(451, 84);
+            this.lbPontosValue.Name = "lbPontosValue";
+            this.lbPontosValue.Size = new System.Drawing.Size(17, 20);
+            this.lbPontosValue.TabIndex = 77;
+            this.lbPontosValue.Text = "1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1373, 784);
+            this.Controls.Add(this.lbPontosValue);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbFairplayValue);
             this.Controls.Add(this.lbSkillValue);
             this.Controls.Add(this.panelContainer);
@@ -343,7 +351,6 @@
             this.Controls.Add(this.btnNotification);
             this.Controls.Add(this.lbPointsUser);
             this.Controls.Add(this.lbSkillUser);
-            this.Controls.Add(this.btnAddfriend);
             this.Controls.Add(this.lbWelcomeUser);
             this.Controls.Add(this.pbUserImage);
             this.Controls.Add(this.panel2);
@@ -380,12 +387,13 @@
         private System.Windows.Forms.Button btnNotification;
         private System.Windows.Forms.Label lbPointsUser;
         private System.Windows.Forms.Label lbSkillUser;
-        private System.Windows.Forms.Button btnAddfriend;
         private System.Windows.Forms.Label lbWelcomeUser;
         private System.Windows.Forms.PictureBox pbUserImage;
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.Label lbSkillValue;
         private System.Windows.Forms.Label lbFairplayValue;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbPontosValue;
     }
 }
 

@@ -20,6 +20,8 @@ namespace Sports4All
         private UC_HomeMyEventsItem _noMyEventsitems = new UC_HomeMyEventsItem();
         private UC_HomeMyEventsItem _noSuggestionsEventsitems = new UC_HomeMyEventsItem();
         private RankController _rankController = new RankController();
+        private double _pointsToNextLevel { get; set; }
+
         // Progress Bar//
         private double _pbUnit;
         private int _pbWIDTH, _pbHEIGHT, _pbComplete;
@@ -30,6 +32,7 @@ namespace Sports4All
         public UC_Home()
         {
             InitializeComponent();
+            _pointsToNextLevel = pointsRemaining();
         }
 
         #region Properties
@@ -62,6 +65,7 @@ namespace Sports4All
                 _noSuggestionsEventsitems.DisableImage = null;
                 _noSuggestionsEventsitems.resetNameProprieties = "";
 
+                pointsRemaining();
                 PopulateMyEventsList();
                 PopulateMySuggestionsList();
                 PopulateComboBox();
@@ -73,7 +77,7 @@ namespace Sports4All
 
         private void getTopClassificationDetails()
         {
-            using(var db = new ModelContext())
+            using (var db = new ModelContext())
             {
                 var userQuery = db.Classifications.OfType<UserClassification>().OrderByDescending(e => e.Points).Take(1).FirstOrDefault();
 
@@ -83,7 +87,7 @@ namespace Sports4All
                 pbMonthEnclosure.Image = ImagesController.Instance.GetImageFromID(parkQuery.Park.Picture.PictureId);
                 lbUserName.Text = userQuery.User.Username;
                 lbParkName.Text = parkQuery.Park.Name;
-            } 
+            }
         }
 
         private void btnCreateEvent_Click(object sender, EventArgs e)
@@ -98,16 +102,29 @@ namespace Sports4All
             _pbHEIGHT = pbProgressBar.Height;
             _pbUnit = _pbWIDTH / 100.0;
             _pbComplete = 0;
-            _bmp = new Bitmap(_pbWIDTH, _pbHEIGHT);  
+            _bmp = new Bitmap(_pbWIDTH, _pbHEIGHT);
             _timerProgressBar.Tick += new EventHandler(this.FillProgressBar);
             _timerProgressBar.Interval = 10;
             _timerProgressBar.Start();
         }
 
+        private double pointsRemaining()
+        {
+            var auxiliar = double.Parse(lbNextLevel.Text) * 100.0;
+            var auxiliar2 = 100 - (auxiliar - double.Parse(_homeController.getMyStats().ToList()[4]));
+            
+            if (auxiliar2 <= 0)
+            {
+                auxiliar2 = 0;
+            }
+
+
+            return auxiliar2;
+        }
+
         private void FillProgressBar(object sender, EventArgs e)
         {
-            var myPoints = double.Parse(_homeController.getMyStats().ToList()[4]);
-            if (_pbComplete > myPoints)
+            if (_pbComplete >= _pointsToNextLevel)
             {
                 _graphic.Dispose();
                 _timerProgressBar.Stop();
@@ -139,7 +156,7 @@ namespace Sports4All
 
             }
 
-            if(flpMyEvents.Controls.Count == 0)
+            if (flpMyEvents.Controls.Count == 0)
                 flpMyEvents.Controls.Add(_noMyEventsitems);
         }
 
@@ -158,7 +175,7 @@ namespace Sports4All
         {
             var current = Convert.ToInt32(double.Parse(_homeController.getMyStats().ToList()[4]) / _rankController._levelChange);
             lbCurrentLevel.Text = current.ToString();
-            lbNextLevel.Text = (current+1).ToString();
+            lbNextLevel.Text = (current + 1).ToString();
             if (_homeController.getMyStats().ToList().Count > 0)
             {
                 lbMatchesPlayedValue.Text = _homeController.getMyStats().ToList()[0];
@@ -275,7 +292,7 @@ namespace Sports4All
                 }
             }
 
-            if(flpMyEvents.Controls.Count == 0 )
+            if (flpMyEvents.Controls.Count == 0)
                 flpMyEvents.Controls.Add(_noMyEventsitems);
         }
 
