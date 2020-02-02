@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.btnRanking = new System.Windows.Forms.Button();
@@ -43,7 +42,6 @@
             this.lbSkillUser = new System.Windows.Forms.Label();
             this.lbWelcomeUser = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnNotification = new System.Windows.Forms.Button();
             this.pbUserImage = new System.Windows.Forms.PictureBox();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.lbSkillValue = new System.Windows.Forms.Label();
@@ -246,7 +244,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Image = global::Sports4All.Properties.Resources.btnExit_Image;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.Location = new System.Drawing.Point(1321, 32);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -257,27 +255,10 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
-            // btnNotification
-            // 
-            this.btnNotification.FlatAppearance.BorderSize = 0;
-            this.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotification.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNotification.ForeColor = System.Drawing.Color.White;
-            this.btnNotification.Image = ((System.Drawing.Image)(resources.GetObject("btnNotification.Image")));
-            this.btnNotification.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotification.Location = new System.Drawing.Point(1274, 32);
-            this.btnNotification.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(40, 45);
-            this.btnNotification.TabIndex = 68;
-            this.btnNotification.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNotification.UseVisualStyleBackColor = true;
-            // 
             // pbUserImage
             // 
             this.pbUserImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbUserImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbUserImage.Image = ((System.Drawing.Image)(resources.GetObject("pbUserImage.Image")));
             this.pbUserImage.Location = new System.Drawing.Point(283, 20);
             this.pbUserImage.Margin = new System.Windows.Forms.Padding(2);
             this.pbUserImage.Name = "pbUserImage";
@@ -348,7 +329,6 @@
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnNotification);
             this.Controls.Add(this.lbPointsUser);
             this.Controls.Add(this.lbSkillUser);
             this.Controls.Add(this.lbWelcomeUser);
@@ -384,7 +364,6 @@
         private System.Windows.Forms.Button btn_Home;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnNotification;
         private System.Windows.Forms.Label lbPointsUser;
         private System.Windows.Forms.Label lbSkillUser;
         private System.Windows.Forms.Label lbWelcomeUser;

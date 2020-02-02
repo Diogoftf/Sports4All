@@ -110,8 +110,10 @@
     </Compile>
     <Compile Include="CancelCommand.cs" />
     <Compile Include="Controller\CreateEventController.cs" />
+    <Compile Include="Patterns\Strategy\ExpertReserveStrategy.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IObserver.cs" />
+    <Compile Include="Patterns\Strategy\IReserveStrategy.cs" />
     <Compile Include="ISubject.cs" />
     <Compile Include="IUserControl.cs" />
     <Compile Include="JoinCommand.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="Migrations\202001311800595_M002.designer.cs">
       <DependentUpon>202001311800595_M002.cs</DependentUpon>
     </Compile>
+    <Compile Include="Patterns\Strategy\NoviceReserveStrategy.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="CircularButton.cs">
       <SubType>Component</SubType>
@@ -442,6 +445,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="Patterns\Observer\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
