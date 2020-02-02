@@ -267,13 +267,13 @@ namespace Sports4All
 
                     for (int i = 0; i < materialUsage.Count; i++)
                     {
-                        var query = db.Materials.Find(materialUsage.ToList()[i].MaterialId);
+                        //var query = db.Materials.Find(materialUsage.ToList()[i].MaterialId);
 
 
-                        if (query.Available - materialUsage.ToList()[i].Quantity < 0)
-                            query.Available = 0;
-                        else
-                            query.Available -= materialUsage.ToList()[i].Quantity;
+                        //if (query.Available - materialUsage.ToList()[i].Quantity < 0)
+                        //    query.Available = 0;
+                        //else
+                        //    query.Available -= materialUsage.ToList()[i].Quantity;
 
                         db.Uses.Add(materialUsage.ToList()[i]);
                     }
