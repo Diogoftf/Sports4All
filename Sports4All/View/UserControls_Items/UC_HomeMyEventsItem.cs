@@ -131,22 +131,27 @@ namespace Sports4All
 
         private void pbDelete_Click(object sender, EventArgs e)
         {
+            DialogResult result;
             if (_organizador == Session.Instance.LoggedUser)
             {
-                DialogResult result = MessageBox.Show("Deseja apagar o evento?", "Confirme", MessageBoxButtons.YesNo);
+                result = MessageBox.Show("Deseja apagar o evento?", "Confirme", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
                     _eventsController.DeleteEvent(this.Id);
+                    MessageBox.Show("Reserva eliminada com sucesso");
+                    Form1.Instance.BringUcToFront<UC_Home>("UC_Home", Id.ToString());
                 }
             }
             else
             {
-                DialogResult result = MessageBox.Show("Deseja sair do evento?", "Confirme", MessageBoxButtons.YesNo);
+                result = MessageBox.Show("Deseja sair do evento?", "Confirme", MessageBoxButtons.YesNo);
 
                 if(result == DialogResult.Yes)
                 {
                     _eventsController.UnregisterUser(this.Id,Session.Instance.LoggedUser);
+                    MessageBox.Show("Saíste com sucesso do Evento");
+                    Form1.Instance.BringUcToFront<UC_Home>("UC_Home", Id.ToString());
                 }
             }
         }

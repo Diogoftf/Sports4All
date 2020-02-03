@@ -192,7 +192,7 @@ namespace Sports4All.Controller
                  context.Events.Remove(reserveRecord.Event);
                 context.Reserves.Remove(reserveRecord);
                 context.SaveChanges();
-                MessageBox.Show("Reserva eliminada com sucesso");
+                
 
             }
         }
@@ -209,7 +209,6 @@ namespace Sports4All.Controller
                 context.Entry(events).Collection("Users").Load();
                 events.Users.Remove(users);
                 context.SaveChanges();
-                MessageBox.Show("Saíste com sucesso do Evento");
             }
         }
 
