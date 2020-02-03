@@ -98,7 +98,7 @@
             this.lbPlayersAge.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbPlayersAge.Location = new System.Drawing.Point(4, 399);
             this.lbPlayersAge.Name = "lbPlayersAge";
-            this.lbPlayersAge.Size = new System.Drawing.Size(257, 102);
+            this.lbPlayersAge.Size = new System.Drawing.Size(257, 120);
             this.lbPlayersAge.TabIndex = 15;
             this.lbPlayersAge.Text = "Idade";
             this.lbPlayersAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -333,7 +333,7 @@
             this.btnCreateEvent.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.btnCreateEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateEvent.Image")));
             this.btnCreateEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateEvent.Location = new System.Drawing.Point(379, 579);
+            this.btnCreateEvent.Location = new System.Drawing.Point(372, 588);
             this.btnCreateEvent.Margin = new System.Windows.Forms.Padding(133, 2, 3, 2);
             this.btnCreateEvent.Name = "btnCreateEvent";
             this.btnCreateEvent.Size = new System.Drawing.Size(156, 46);
@@ -349,7 +349,7 @@
             this.btnCancelEvent.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.btnCancelEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelEvent.Image")));
             this.btnCancelEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelEvent.Location = new System.Drawing.Point(548, 579);
+            this.btnCancelEvent.Location = new System.Drawing.Point(548, 588);
             this.btnCancelEvent.Margin = new System.Windows.Forms.Padding(0, 2, 3, 2);
             this.btnCancelEvent.Name = "btnCancelEvent";
             this.btnCancelEvent.Size = new System.Drawing.Size(149, 46);
@@ -461,7 +461,6 @@
             this.tableLayoutPanel1.Controls.Add(this.cbPark, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbPark, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.lbPlayersAge, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.lbSchedule, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.lbDate, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.lbSport, 0, 4);
@@ -470,9 +469,10 @@
             this.tableLayoutPanel1.Controls.Add(this.lbPlayersNumber, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.dtpEventDate, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.lbMaterial, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.lblEvent, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtEventName, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbPlayersAge, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 8);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 64);
@@ -488,7 +488,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1068, 502);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1068, 520);
             this.tableLayoutPanel1.TabIndex = 27;
             // 
             // UC_CreateEvent

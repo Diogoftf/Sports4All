@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Sports4All.CreateEvent
 {
-  public  class BolaDecorator : MaterialDecorator
+  public  class RaqueteDecorator: MaterialDecorator
     {
-        public BolaDecorator(IPriceEntity ground, int quantidade) : base(ground, quantidade)
+        public RaqueteDecorator(IPriceEntity ground, int quantidade, double price) : base(ground, quantidade, price)
         {
-            this._price = 6;
             this._quantidade = quantidade;
+            this._price = price;
         }
 
         public override double getCost()
@@ -19,5 +19,6 @@ namespace Sports4All.CreateEvent
             return (base.getCost() + this._price) * this._quantidade;
         }
 
+      
     }
 }

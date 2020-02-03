@@ -111,10 +111,10 @@
     <Compile Include="CancelCommand.cs" />
     <Compile Include="Controller\CreateEventController.cs" />
     <Compile Include="Patterns\Strategy\ExpertReserveStrategy.cs" />
-    <Compile Include="CreateEvent\BolaDecorator.cs" />
-    <Compile Include="CreateEvent\IPriceEntity.cs" />
-    <Compile Include="CreateEvent\MaterialDecorator.cs" />
-    <Compile Include="CreateEvent\RaqueteDecorator.cs" />
+    <Compile Include="Decorator\BolaDecorator.cs" />
+    <Compile Include="Decorator\IPriceEntity.cs" />
+    <Compile Include="Decorator\MaterialDecorator.cs" />
+    <Compile Include="Decorator\RaqueteDecorator.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="Patterns\Strategy\IReserveStrategy.cs" />

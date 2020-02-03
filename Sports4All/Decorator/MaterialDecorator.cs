@@ -13,10 +13,11 @@ namespace Sports4All.CreateEvent
         private IPriceEntity _ground;
         private int quantidade;
 
-        protected MaterialDecorator(IPriceEntity ground, int quantidade)
+        protected MaterialDecorator(IPriceEntity ground, int quantidade, double price)
         {
             this._ground = ground;
             this.quantidade = quantidade;
+            this._price = price;
         }
 
         public virtual double getCost()

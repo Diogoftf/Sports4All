@@ -210,28 +210,31 @@ namespace Sports4All
         {
             ComboBox eventOriginator = (ComboBox)sender;
 
-            switch ("Raquete")
+            for (int i = 0; i < flpMaterial.Controls.Count; i++)
             {
-                case "Raquete":
-                    _priceEntity = new RaqueteDecorator(_priceEntity, eventOriginator.SelectedIndex);
-                    break;
-                case "Bola":
-                    _priceEntity = new BolaDecorator(_priceEntity, eventOriginator.SelectedIndex);
-                    break;
+                UC_MaterialItem uc_material = (UC_MaterialItem)flpMaterial.Controls[i];
+                if (uc_material.CBQuantidade.Equals(eventOriginator))
+                {
+                    switch (uc_material.Material)
+                    {
+                        case "Raquete":
+                            _priceEntity = new RaqueteDecorator(_priceEntity, eventOriginator.SelectedIndex, Convert.ToDouble(uc_material.Preço));
+                            break;
+                        case "Bola":
+                            _priceEntity = new BolaDecorator(_priceEntity, eventOriginator.SelectedIndex, Convert.ToDouble(uc_material.Preço));
+                            break;
+                    }
+                }
+
             }
 
-            lbMoney.Text = Convert.ToString(_priceEntity.getCost());
+                lbMoney.Text = Convert.ToString(_priceEntity.getCost());
 
         }
 
-        private void cbQuantity(object sender, EventArgs e)
-    {
-
-   
-    }
         private void btnCreateEvent_Click_1(object sender, EventArgs e)
         {
-            //if(checkIntegrity())
+            if(checkIntegrity())
             {
                 ICollection<Use> materialUsage = new HashSet<Use>();
                 ICollection<User> listUsers = new Collection<User>();
