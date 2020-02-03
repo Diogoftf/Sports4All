@@ -259,6 +259,7 @@
             // 
             // btnNotification
             // 
+            this.btnNotification.Enabled = false;
             this.btnNotification.FlatAppearance.BorderSize = 0;
             this.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotification.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

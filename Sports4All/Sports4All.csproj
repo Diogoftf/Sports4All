@@ -102,20 +102,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
-    <Compile Include="Authentication.cs">
+    <Compile Include="View\Authentication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authentication.Designer.cs">
+    <Compile Include="View\Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
     <Compile Include="CancelCommand.cs" />
     <Compile Include="Controller\CreateEventController.cs" />
-    <Compile Include="Decorator\TimeDecorator.cs" />
+    <Compile Include="Patterns\Decorator\TimeDecorator.cs" />
     <Compile Include="Patterns\Strategy\ExpertReserveStrategy.cs" />
-    <Compile Include="Decorator\BolaDecorator.cs" />
-    <Compile Include="Decorator\IPriceEntity.cs" />
-    <Compile Include="Decorator\Decorator.cs" />
-    <Compile Include="Decorator\RaqueteDecorator.cs" />
+    <Compile Include="Patterns\Decorator\BolaDecorator.cs" />
+    <Compile Include="Patterns\Decorator\IPriceEntity.cs" />
+    <Compile Include="Patterns\Decorator\Decorator.cs" />
+    <Compile Include="Patterns\Decorator\RaqueteDecorator.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="Patterns\Strategy\IReserveStrategy.cs" />
@@ -334,7 +334,7 @@
     <Compile Include="View\UserControls_Screens\UC_Subscriptions.Designer.cs">
       <DependentUpon>UC_Subscriptions.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Authentication.resx">
+    <EmbeddedResource Include="View\Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001311502145_M001.resx">
