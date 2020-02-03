@@ -242,10 +242,8 @@ namespace Sports4All
 
                 _createEventController.RetrieveMaterial(flpMaterial, materialUsage, _reserve);
                 _createEventController.InsertDataReserve(_reserve, _event, materialUsage);
-                _reserve.ReserveId = _createEventController.getIdReserve();
                 _reserve.Price = _priceEntity.getCost();
 
-                _event.EventId = _createEventController.getIdEvent();
                 _event.Name = txtEventName.Text;
                 _event.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
                 _event.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;

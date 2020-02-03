@@ -130,21 +130,5 @@ namespace Sports4All.Controller
                 context.SaveChanges();
             }
         }
-
-        public int getIdReserve()
-        {
-            using (ModelContext db = new ModelContext())
-            {
-                return ++db.Reserves.OrderByDescending(e => e.ReserveId).ToList()[0].ReserveId;
-            }
-        }
-
-        public int getIdEvent()
-        {
-            using (ModelContext db = new ModelContext())
-            {
-                return ++db.Events.OrderByDescending(e => e.EventId).ToList()[0].EventId;
-            }
-        }
     }
 }
