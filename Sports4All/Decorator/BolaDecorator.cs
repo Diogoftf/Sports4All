@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sports4All.CreateEvent
+namespace Sports4All.Decorator
 {
-  public  class BolaDecorator : MaterialDecorator
+  public  class BolaDecorator : Decorator
     {
         public BolaDecorator(IPriceEntity ground, int quantidade, double price) : base(ground, quantidade, price)
         {

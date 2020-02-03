@@ -110,10 +110,11 @@
     </Compile>
     <Compile Include="CancelCommand.cs" />
     <Compile Include="Controller\CreateEventController.cs" />
+    <Compile Include="Decorator\TimeDecorator.cs" />
     <Compile Include="Patterns\Strategy\ExpertReserveStrategy.cs" />
     <Compile Include="Decorator\BolaDecorator.cs" />
     <Compile Include="Decorator\IPriceEntity.cs" />
-    <Compile Include="Decorator\MaterialDecorator.cs" />
+    <Compile Include="Decorator\Decorator.cs" />
     <Compile Include="Decorator\RaqueteDecorator.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IObserver.cs" />

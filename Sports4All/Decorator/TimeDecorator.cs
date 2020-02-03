@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sports4All.Decorator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Sports4All.Decorator
 {
-  public  class RaqueteDecorator: Decorator
+    class TimeDecorator : Decorator
     {
-        public RaqueteDecorator(IPriceEntity ground, int quantidade, double price) : base(ground, quantidade, price)
+        public TimeDecorator(IPriceEntity ground, int quantidade, double price) : base(ground, quantidade, price)
         {
             this._quantidade = quantidade;
             this._price = price;
@@ -16,9 +17,8 @@ namespace Sports4All.Decorator
 
         public override double getCost()
         {
-            return (base.getCost() + this._price) * this._quantidade;
+            return base.getCost() + this._price * this._quantidade;
         }
 
-      
     }
 }

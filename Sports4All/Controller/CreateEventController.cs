@@ -49,6 +49,14 @@ namespace Sports4All.Controller
             }
         }
 
+        public Ground GetGround(int groundId)
+        {
+            using (ModelContext db = new ModelContext())
+            {
+                return db.Grounds.Include("Sports").FirstOrDefault(f => f.GroundId.Equals(groundId));
+            }
+        }
+
         public ICollection<Material> GetMaterialsFromSport(int sportId, int parkId)
         {
             using (ModelContext db = new ModelContext())

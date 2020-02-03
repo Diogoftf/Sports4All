@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sports4All.CreateEvent
+namespace Sports4All.Decorator
 {
-   public abstract class MaterialDecorator : IPriceEntity
+   public abstract class Decorator : IPriceEntity
    {
         public int _quantidade;
         public double _price = 0.0;
         private IPriceEntity _ground;
         private int quantidade;
 
-        protected MaterialDecorator(IPriceEntity ground, int quantidade, double price)
+        protected Decorator(IPriceEntity ground, int quantidade, double price)
         {
             this._ground = ground;
             this.quantidade = quantidade;
