@@ -15,14 +15,19 @@ namespace Sports4All
     {
         #region Properties
         private string _material;
-        private string _qtty;
+        private ComboBox _cbQtty;
         private string _price;
 
         private Label _totalPrice;
         private IPriceEntity _priceEntity { get; set; }
 
+        public ComboBox CBQuantidade
+        {
+            get => cbQtty;
+        }
 
-        public Label TotalQuantidade 
+
+        public Label TotalPrice
         {
             set { _totalPrice = value; }
 
@@ -77,24 +82,11 @@ namespace Sports4All
             {
                 cbQtty.Items.Add(i);
             }
-           // cbQtty.SelectedIndex = 0;
         }
 
         private void cbQtty_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            int quantidade =  cbQtty.SelectedIndex;
-
-
-           switch (_material)
-           {
-                case "Raquete": _priceEntity = new Raquete(_priceEntity, quantidade);
-                    break;
-                case "Bola"   : _priceEntity = new Bola(_priceEntity, quantidade);
-                    break;
-           }
-           MessageBox.Show("Valor:" + _priceEntity.getCost());
-           TotalQuantidade.Text = Convert.ToString(_priceEntity.getCost());
         }
     }
 }

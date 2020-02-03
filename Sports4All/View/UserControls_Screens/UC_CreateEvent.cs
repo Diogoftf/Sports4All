@@ -197,7 +197,8 @@ namespace Sports4All
                         temp.PopulateQuantity(materiais[k].Available);
                         temp.Preço = materiais[k].Price.ToString();
                         flpMaterial.Controls.Add(temp);
-                        temp.TotalQuantidade = lbMoney;
+                        temp.TotalPrice = lbMoney;
+                        temp.CBQuantidade.SelectedIndexChanged += new EventHandler(CB_MaterialQuantity_Handler);
                     }
                 }
 
@@ -205,22 +206,42 @@ namespace Sports4All
 
         }
 
-    private void cbQuantity(object sender, EventArgs e)
+        private void CB_MaterialQuantity_Handler(object sender, EventArgs e)
+        {
+            ComboBox eventOriginator = (ComboBox)sender;
+
+            switch ("Raquete")
+            {
+                case "Raquete":
+                    _priceEntity = new RaqueteDecorator(_priceEntity, eventOriginator.SelectedIndex);
+                    break;
+                case "Bola":
+                    _priceEntity = new BolaDecorator(_priceEntity, eventOriginator.SelectedIndex);
+                    break;
+            }
+
+            lbMoney.Text = Convert.ToString(_priceEntity.getCost());
+
+        }
+
+        private void cbQuantity(object sender, EventArgs e)
     {
 
    
     }
         private void btnCreateEvent_Click_1(object sender, EventArgs e)
         {
+            //if(checkIntegrity())
+            {
                 ICollection<Use> materialUsage = new HashSet<Use>();
                 ICollection<User> listUsers = new Collection<User>();
                 CreateEventController _createEventController = new CreateEventController();
 
                 _createEventController.RetrieveMaterial(flpMaterial, materialUsage, _reserve);
-                
-                
                 _createEventController.InsertDataReserve(_reserve, _event, materialUsage);
                 _reserve.ReserveId = _createEventController.getIdReserve();
+                _reserve.Price = _priceEntity.getCost();
+
                 _event.EventId = _createEventController.getIdEvent();
                 _event.Name = txtEventName.Text;
                 _event.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
@@ -236,6 +257,7 @@ namespace Sports4All
                 _createEventController.InsertUserNewEvent(_event);
                 MessageBox.Show("Reserva criada com sucesso!");
                 ReturnHome();
+            }
 
         }
     }

@@ -111,7 +111,6 @@ namespace Sports4All.Controller
         public void InsertDataReserve(Reserve Reserve, Event Event, ICollection<Use> materialUsage)
         {
             Reserve.Date = DateTime.Now;
-            Reserve.Price = 10;
             Reserve.UserId = Session.Instance.LoggedUser;
             Reserve.Event = Event;
 
