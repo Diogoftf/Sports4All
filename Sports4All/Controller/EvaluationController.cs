@@ -69,11 +69,11 @@ namespace Sports4All.Controller
             using (var db = new ModelContext())
             {
                 var query = db.Evaluations;
-                int evaluationId = 0;
+                int evaluationId = 1;
 
                 if (query.Any())
                 {
-                    var biggestEvaluationId = query.OrderByDescending(u => u.EvaluationId).FirstOrDefault().EvaluationId;
+                    var biggestEvaluationId = query.Max(x => x.EvaluationId);
                     evaluationId = biggestEvaluationId + 1;
                 }
 
@@ -97,11 +97,11 @@ namespace Sports4All.Controller
             {
 
                 var query = db.Evaluations;
-                int evaluationId = 0;
+                int evaluationId = 1;
 
                 if(query.Any())
                 {
-                    var biggestEvaluationId = query.OrderByDescending(u => u.EvaluationId).FirstOrDefault().EvaluationId;
+                    var biggestEvaluationId = query.Max(x => x.EvaluationId);
                     evaluationId = biggestEvaluationId + 1;
                 }
 
