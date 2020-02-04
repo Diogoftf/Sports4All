@@ -102,13 +102,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="IButton.cs" />
     <Compile Include="View\Authentication.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="CancelCommand.cs" />
+    <Compile Include="CancelButton.cs" />
     <Compile Include="Controller\CreateEventController.cs" />
     <Compile Include="Patterns\Decorator\TimeDecorator.cs" />
     <Compile Include="Patterns\Strategy\ExpertReserveStrategy.cs" />
@@ -116,12 +117,11 @@
     <Compile Include="Patterns\Decorator\IPriceEntity.cs" />
     <Compile Include="Patterns\Decorator\Decorator.cs" />
     <Compile Include="Patterns\Decorator\RaqueteDecorator.cs" />
-    <Compile Include="ICommand.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="Patterns\Strategy\IReserveStrategy.cs" />
     <Compile Include="ISubject.cs" />
     <Compile Include="IUserControl.cs" />
-    <Compile Include="JoinCommand.cs" />
+    <Compile Include="JoinButton.cs" />
     <Compile Include="Migrations\202001311502145_M001.cs" />
     <Compile Include="Migrations\202001311502145_M001.designer.cs">
       <DependentUpon>202001311502145_M001.cs</DependentUpon>
@@ -278,7 +278,7 @@
     <Compile Include="View\UserControls_Screens\UC_MyEvents.Designer.cs">
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </Compile>
-    <Compile Include="UnregisterCommand.cs" />
+    <Compile Include="UnregisterButton.cs" />
     <Compile Include="Use.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserClassification.cs" />

@@ -42,7 +42,6 @@ namespace Sports4All
         {
             flpListMyEvents.Controls.Clear();
         }
-
         private void FinishedEvents()
         {
             flpListMyEvents.Controls.Clear();

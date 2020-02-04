@@ -120,8 +120,6 @@ namespace Sports4All
         {
             InitializeComponent();
             _eventsController = new MyEventsController();
-
-            //se for meu evento, mostrar o pbEdit
         }
 
         private void pbMoreDetails_Click(object sender, EventArgs e)

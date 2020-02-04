@@ -60,7 +60,6 @@
             // 
             // flpUsersEvent
             // 
-            this.flpUsersEvent.AutoScroll = true;
             this.flpUsersEvent.Location = new System.Drawing.Point(554, 56);
             this.flpUsersEvent.Name = "flpUsersEvent";
             this.flpUsersEvent.Size = new System.Drawing.Size(313, 530);
@@ -163,7 +162,7 @@
             // 
             this.lblEventDate.AutoSize = true;
             this.lblEventDate.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventDate.Location = new System.Drawing.Point(62, 352);
+            this.lblEventDate.Location = new System.Drawing.Point(62, 383);
             this.lblEventDate.Name = "lblEventDate";
             this.lblEventDate.Size = new System.Drawing.Size(52, 19);
             this.lblEventDate.TabIndex = 31;
@@ -271,7 +270,7 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(209, 528);
+            this.btnSaveChanges.Location = new System.Drawing.Point(203, 554);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(107, 32);
             this.btnSaveChanges.TabIndex = 52;
@@ -286,7 +285,7 @@
             this.dtpNextEventDate.Enabled = false;
             this.dtpNextEventDate.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.dtpNextEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNextEventDate.Location = new System.Drawing.Point(130, 344);
+            this.dtpNextEventDate.Location = new System.Drawing.Point(131, 375);
             this.dtpNextEventDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpNextEventDate.Name = "dtpNextEventDate";
             this.dtpNextEventDate.Size = new System.Drawing.Size(171, 32);
@@ -296,7 +295,7 @@
             // 
             this.dtpEndEventTime.Enabled = false;
             this.dtpEndEventTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEndEventTime.Location = new System.Drawing.Point(88, 490);
+            this.dtpEndEventTime.Location = new System.Drawing.Point(88, 510);
             this.dtpEndEventTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpEndEventTime.Name = "dtpEndEventTime";
             this.dtpEndEventTime.Size = new System.Drawing.Size(182, 28);
@@ -306,7 +305,7 @@
             // 
             this.dtpStartEventTime.Enabled = false;
             this.dtpStartEventTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpStartEventTime.Location = new System.Drawing.Point(88, 426);
+            this.dtpStartEventTime.Location = new System.Drawing.Point(88, 443);
             this.dtpStartEventTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpStartEventTime.Name = "dtpStartEventTime";
             this.dtpStartEventTime.Size = new System.Drawing.Size(182, 28);
@@ -316,7 +315,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(62, 401);
+            this.label5.Location = new System.Drawing.Point(65, 422);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 19);
             this.label5.TabIndex = 83;
@@ -326,7 +325,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(62, 462);
+            this.label6.Location = new System.Drawing.Point(62, 489);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 19);
             this.label6.TabIndex = 84;
@@ -334,7 +333,8 @@
             // 
             // UC_EventDetails
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.Controls.Add(this.lbEventId);
             this.Controls.Add(this.label6);

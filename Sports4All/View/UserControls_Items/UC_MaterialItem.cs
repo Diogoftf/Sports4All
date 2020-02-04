@@ -78,23 +78,5 @@ namespace Sports4All
                 cbQtty.Items.Add(i);
             }
         }
-
-        //private void cbQtty_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    int quantidade = cbQtty.SelectedIndex;
-
-
-        //    switch (_material)
-        //    {
-        //        case "Raquete":
-        //            _priceEntity = new RaqueteDecorator(_priceEntity, quantidade);
-        //            break;
-        //        case "Bola":
-        //            _priceEntity = new BolaDecorator(_priceEntity, quantidade);
-        //            break;
-        //    }
-            
-        //    TotalPrice.Text = Convert.ToString(_priceEntity.getCost());
-        //}
     }
 }
