@@ -36,6 +36,17 @@ namespace Sports4All.Controller
 
         }
 
+        public User GetUserLogged(string username)
+        {
+            using(var db = new ModelContext())
+            {
+                return db.Users
+                    .Include("Picture")
+                    .Include("UserClassification")
+                    .First(f => f.Username.Equals(username));
+            }
+        }
+
         public ICollection<Reserve> getEventSuggestions()
         {
             using (ModelContext db = new ModelContext())
