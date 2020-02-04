@@ -48,7 +48,7 @@ namespace Sports4All
             flpListMyEvents.Controls.Clear();
             var completedEvents = _eventsController.RetrieveCompletedEvents(Username);
             var completedEventsCounts = completedEvents.Count;
-            foreach (var completeEvent in completedEvents.Take(_numberEventsShow))
+            foreach (var completeEvent in completedEvents)
             {
                 UC_EventMyEventsItem _finishedEvent = new UC_EventMyEventsItem();
                 if (!_eventsController.VerifyEvaluation(completeEvent.EventId, Username))
@@ -75,9 +75,9 @@ namespace Sports4All
                         _finishedEvent.Change_BackColor = Color.LightCoral;
                         flpListMyEvents.Controls.Add(_finishedEvent);
                         _finishedEvent.Image = ImagesController.Instance.GetImageFromID(completeEvent.Reserve.Sport.Picture.PictureId);
-                 }
-                    _finishedEvent.DisableButtonEvaluation();
-                    flpListMyEvents.Controls.Add(_finishedEvent);
+                        _finishedEvent.DisableButtonEvaluation();
+                }
+                flpListMyEvents.Controls.Add(_finishedEvent);
                 }
             }
         private void MyReserves()
