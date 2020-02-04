@@ -176,12 +176,6 @@
     <Compile Include="View\UserControls_Items\UC_NextEventsandReserveItem.Designer.cs">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls_Screens\UC_AddFriend.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\UserControls_Screens\UC_AddFriend.Designer.cs">
-      <DependentUpon>UC_AddFriend.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\UserControls_Screens\UC_CreateEvent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -348,9 +342,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls_Items\UC_NextEventsandReserveItem.resx">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls_Screens\UC_AddFriend.resx">
-      <DependentUpon>UC_AddFriend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls_Screens\UC_CreateEvent.resx">
       <DependentUpon>UC_CreateEvent.cs</DependentUpon>
