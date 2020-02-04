@@ -11,6 +11,7 @@ namespace Sports4All
     {
         private readonly MyEventsController _eventsController;
 
+        private const int _numberEventsShow = 10;
         public UC_MyEvents()
         {
             InitializeComponent();
@@ -47,7 +48,7 @@ namespace Sports4All
             flpListMyEvents.Controls.Clear();
             var completedEvents = _eventsController.RetrieveCompletedEvents(Username);
             var completedEventsCounts = completedEvents.Count;
-            foreach (var completeEvent in completedEvents)
+            foreach (var completeEvent in completedEvents.Take(_numberEventsShow))
             {
                 UC_EventMyEventsItem _finishedEvent = new UC_EventMyEventsItem();
                 if (!_eventsController.VerifyEvaluation(completeEvent.EventId, Username))
@@ -84,7 +85,7 @@ namespace Sports4All
             flpListMyEvents.Controls.Clear();
             var myReserves = _eventsController.RetrieveUserReserves(Username);
             var myReservesCounts = myReserves.Count;
-            foreach (var reserves in myReserves)
+            foreach (var reserves in myReserves.Take(_numberEventsShow))
             {
                 var usersCount = reserves.Event.Users.Count;
                 var maxUsers   =   reserves.Event.MaxPlayers;
@@ -116,7 +117,7 @@ namespace Sports4All
             btnMinhasReservas.BackColor = Color.LightGray;
             var nextEvents = _eventsController.RetrieveNextEvents(Username);
             var nextEventsCount = nextEvents.Count;
-            foreach (var nextEvent in nextEvents)
+            foreach (var nextEvent in nextEvents.Take(_numberEventsShow))
             {
                 var users = nextEvent.Users.ToList();
                 var usersCount = nextEvent.Users.Count;
