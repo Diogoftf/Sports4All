@@ -132,7 +132,6 @@ namespace Sports4All
             }
             else
             {
-                
                 _graphic.Clear(Color.LightGray);
                 _graphic.FillRectangle(Brushes.LightGreen, new Rectangle(0, 0, (int)(_pbComplete * _pbUnit), _pbHEIGHT));
                 _graphic.DrawString(_pbComplete.ToString() + " pts", new Font("Arial", _pbHEIGHT / 2), Brushes.Black, new PointF(_pbWIDTH / 2 - _pbHEIGHT, _pbHEIGHT / 10));
@@ -152,7 +151,7 @@ namespace Sports4All
 
                 if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy").Equals(dtpMySportDate.Value.Date.ToString("dd-MM-yyyy")) || DateTime.Now.ToString("dd-MM-yyyy").Equals(dtpMySportDate.Value.Date.ToString("dd-MM-yyyy")))
                 {
-                    flpMyEvents.Controls.Add(_MyEvents.ToList()[i]);
+                    flpMyEvents.Controls.Add(_MyEvents.ToList()[i]); //add to flowlayout
                 }
 
             }
@@ -169,10 +168,7 @@ namespace Sports4All
             rtbInfoStats.SelectedText = "Pontuações: \n\n";
             rtbInfoStats.SelectionFont = new Font("Century Gothic", 9);
             rtbInfoStats.SelectionColor = Color.Black;
-            rtbInfoStats.SelectedText = "Reservas realizadas: " + _rankController._reservePerformed_Weight + " pontos \n" + 
-                                        "Eventos realizados: " + _rankController._eventPerformed_Weight + 
-                                        " pontos \n" + "Fairplay Global: " + _rankController._fairplay_Weight + 
-                                        " pontos \n" + "Habilidade Global: " + _rankController._skill_Weight + " pontos \n";
+            rtbInfoStats.SelectedText = "Reservas realizadas: " + _rankController._reservePerformed_Weight + " pontos \n" + "Eventos realizados: " + _rankController._eventPerformed_Weight + " pontos \n" + "Fairplay Global: " + _rankController._fairplay_Weight + " pontos \n" + "Habilidade Global: " + _rankController._skill_Weight + " pontos \n";
         }
 
         private void userStatsDetails()
@@ -229,13 +225,13 @@ namespace Sports4All
                         ItemMyEvents.Image = ImagesController.Instance.GetImageFromID(myEvent.ToList()[i].Reserve.Sport.Picture.PictureId);
                         ItemMyEvents.Id = myEvent.ToList()[i].EventId;
                         _MyEvents.Add(ItemMyEvents);
-                        flpMyEvents.Controls.Add(ItemMyEvents); 
+                        flpMyEvents.Controls.Add(ItemMyEvents); //add to flowlayout
                     }
                 }
             }
             else
             {
-                flpMyEvents.Controls.Add(_noMyEventsitems); 
+                flpMyEvents.Controls.Add(_noMyEventsitems); //add to flowlayout
             }
         }
 
@@ -259,13 +255,13 @@ namespace Sports4All
                         ItemSuggestion.Id = EventSuggestions.ToList()[i].Event.EventId;
                         ItemSuggestion.DisableDeleteImage = null;
                         _EventSuggestions.Add(ItemSuggestion);
-                        flpEventSuggestions.Controls.Add(ItemSuggestion);
+                        flpEventSuggestions.Controls.Add(ItemSuggestion); //add to flowlayout
                     }
                 }
             }
             else
             {
-                flpEventSuggestions.Controls.Add(_noSuggestionsEventsitems);
+                flpEventSuggestions.Controls.Add(_noSuggestionsEventsitems); //add to flowlayout
             }
         }
 
@@ -280,7 +276,7 @@ namespace Sports4All
                 {
                     for (int i = 0; i < _MyEvents.Count; i++)
                     {
-                        flpMyEvents.Controls.Add(_MyEvents.ToList()[i]);
+                        flpMyEvents.Controls.Add(_MyEvents.ToList()[i]); //add to flowlayout
                     }
                 }
                 else
@@ -289,7 +285,7 @@ namespace Sports4All
                     {
                         if (_MyEvents.ToList()[i].Sport.Equals(cbMySport.Text))
                         {
-                            flpMyEvents.Controls.Add(_MyEvents.ToList()[i]);
+                            flpMyEvents.Controls.Add(_MyEvents.ToList()[i]); //add to flowlayout
                         }
 
                     }
@@ -310,7 +306,7 @@ namespace Sports4All
                 {
                     for (int i = 0; i < _EventSuggestions.Count; i++)
                     {
-                        flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]);
+                        flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]); //add to flowlayout
                     }
                 }
                 else
@@ -319,7 +315,7 @@ namespace Sports4All
                     {
                         if (_EventSuggestions.ToList()[i].Sport.Equals(cbNextSport.Text))
                         {
-                            flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]);
+                            flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]); //add to flowlayout
                         }
 
                     }
@@ -355,8 +351,9 @@ namespace Sports4All
 
                 if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy").Equals(dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy")) || DateTime.Now.ToString("dd-MM-yyyy").Equals(dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy")))
                 {
-                    flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]);
+                    flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]); //add to flowlayout
                 }
+
             }
 
             if (flpEventSuggestions.Controls.Count == 0)

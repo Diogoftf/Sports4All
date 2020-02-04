@@ -10,7 +10,7 @@ namespace Sports4All
     public partial class Form1 : Form
     {
         private static Form1 _obj;
-
+        private HomeController _homeController;
         private Form1()
         {
 
@@ -22,7 +22,7 @@ namespace Sports4All
             // =============================================================
 
             InitializeComponent();
-
+            _homeController = new HomeController();
             (new Core.DropShaddow()).ApplyShadows(this);
         }
 
@@ -49,14 +49,12 @@ namespace Sports4All
         {
             MoveSidePanel(btn_Home);
             lbWelcomeUser.Text = "Bem vindo, " + Session.Instance.LoggedUser;
-            using (var db = new ModelContext())
-            {
-                var user = db.Users.Include("Picture").Where(f => f.Username == Session.Instance.LoggedUser).Single();
-                pbUserImage.Image = ImagesController.Instance.GetImageFromName(user.Picture.Path);
-                lbSkillValue.Text = user.UserClassification.SkillAverage.ToString();
-                lbFairplayValue.Text = user.UserClassification.FairplayAverage.ToString();
-                lbPontosValue.Text = user.UserClassification.Points.ToString();
-            }
+
+            pbUserImage.Image = ImagesController.Instance.GetImageFromName(_homeController.GetUserLogged(Session.Instance.LoggedUser).Picture.Path);
+            lbSkillValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.SkillAverage.ToString();
+            lbFairplayValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.FairplayAverage.ToString();
+            lbPontosValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.Points.ToString();
+
             _obj = this;
             AddUserControlsToForm();
         }

@@ -237,14 +237,13 @@ namespace Sports4All
             if(checkIntegrity())
             {
                 decorateGroundSelected();
-                var value = _priceEntity.getCost();
+
                 DialogResult result = MessageBox.Show("Montante: " + _priceEntity.getCost() + "€" + " \nDeseja criar a reserva? ", "Confirme", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
                     ICollection<Use> materialUsage = new HashSet<Use>();
-                    ICollection<User> listUsers = new Collection<User>();
-                    CreateEventController _createEventController = new CreateEventController();
+
                     _createEventController.RetrieveMaterial(flpMaterial, materialUsage, _reserve);
                     _createEventController.InsertDataReserve(_reserve, _event, materialUsage);
                     _reserve.Price = _priceEntity.getCost();
