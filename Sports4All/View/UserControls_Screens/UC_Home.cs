@@ -124,6 +124,7 @@ namespace Sports4All
 
         private void FillProgressBar(object sender, EventArgs e)
         {
+            _graphic = Graphics.FromImage(_bmp);
             if (_pbComplete >= _pointsToNextLevel)
             {
                 _graphic.Dispose();
@@ -131,7 +132,6 @@ namespace Sports4All
             }
             else
             {
-                _graphic = Graphics.FromImage(_bmp);
                 _graphic.Clear(Color.LightGray);
                 _graphic.FillRectangle(Brushes.LightGreen, new Rectangle(0, 0, (int)(_pbComplete * _pbUnit), _pbHEIGHT));
                 _graphic.DrawString(_pbComplete.ToString() + " pts", new Font("Arial", _pbHEIGHT / 2), Brushes.Black, new PointF(_pbWIDTH / 2 - _pbHEIGHT, _pbHEIGHT / 10));
