@@ -33,7 +33,6 @@ namespace Sports4All.Controller
                     .Include("Reserve.Ground.Park.Picture")
                     .Include("Users")
                     .ToList();
-                Console.WriteLine("Completed Eventos:" + UserCompletedEvents.ToList());
                 _userCompletedEventsCount = UserCompletedEvents.Count;
                 return UserCompletedEvents;
             }
@@ -50,7 +49,6 @@ namespace Sports4All.Controller
                     .Include("Reserve.Ground.Park")
                     .Include("Users")
                     .ToList();
-                Console.WriteLine("Proximos Eventos:" + UserEvents.ToList());
                 _userNextEventsCount = UserEvents.Count;
                 return UserEvents;
             }
@@ -65,7 +63,6 @@ namespace Sports4All.Controller
                     .Include("Event.Users")
                     .Include("Sport")
                     .Include("Ground.Park").ToList();
-                Console.WriteLine("Reservas:" + UserReserves.ToList());
                 _userReservesCount = UserReserves.Count;
                 return UserReserves;
             }
