@@ -85,50 +85,7 @@ namespace Sports4All
                 flpEventListSportsground.Controls.Add(_eventGround);
             }
         }
-        private void mouseHover(object sender, EventArgs e)
-        {
-            if (!_controlSub) tbSubSportsGroundNotification.Visible = true;
-        }
-        private void mouseLeave(object sender, EventArgs e)
-        {
-            tbSubSportsGroundNotification.Visible = false;
-        }
-        private void subButton_Click(object sender, EventArgs e)
-        {
-            if (!_controlSub)
-            {
-                tbSubSportsGroundNotification.Visible = false;
-                _controlSub = true;
-                btnSub.Image = ((System.Drawing.Image)(_resources.GetObject("sub_Button")));
-                showNotification("Recinto Subscrito!", "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
-                                  " gerir todos os seus favoritos!!!");
-            }
-            else
-            {
-                btnSub.Image = ((System.Drawing.Image)(_resources.GetObject("subButton.Image")));
-                _controlSub = false;
-
-            }
-        }
-        private void showNotification(string title, string body)
-        {
-            NotifyIcon notifyIcon = new NotifyIcon();
-            notifyIcon.Icon = SystemIcons.Application;
-            notifyIcon.Visible = true;
-
-            if (title != null)
-            {
-                notifyIcon.BalloonTipTitle = title;
-            }
-
-            if (body != null)
-            {
-                notifyIcon.BalloonTipText = body;
-            }
-
-            notifyIcon.ShowBalloonTip(30000);
-        }
-
+       
         private void btnFootball_Click(object sender, EventArgs e)
         {
             if (!DesignMode)
@@ -181,6 +138,11 @@ namespace Sports4All
                 _eventsList = _eventsController.EventsByGround(Convert.ToInt32(Id));
                 ListEventsbyGround();
             }
+        }
+
+        private void btnAddEvent_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
