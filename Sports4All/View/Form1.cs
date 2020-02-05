@@ -48,7 +48,6 @@ namespace Sports4All
         {
             MoveSidePanel(btn_Home);
             lbWelcomeUser.Text = "Bem vindo, " + Session.Instance.LoggedUser;
-
             pbUserImage.Image = ImagesController.Instance.GetImageFromName(_homeController.GetUserLogged(Session.Instance.LoggedUser).Picture.Path);
             lbSkillValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.SkillAverage.ToString();
             lbFairplayValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.FairplayAverage.ToString();
