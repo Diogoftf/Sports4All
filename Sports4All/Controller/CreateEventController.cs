@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
 
 namespace Sports4All.Controller
@@ -65,7 +62,7 @@ namespace Sports4All.Controller
             }
         }
 
-        public User WhoAmI(string username)
+        public User GetCurrentUser(string username)
         {
             using (ModelContext db = new ModelContext())
             {
@@ -73,7 +70,7 @@ namespace Sports4All.Controller
             }
         }
 
-        public void createReserve(ICollection<Use> materialUsage, Reserve Reserve, Event Event)
+        public void CreateReserve(ICollection<Use> materialUsage, Reserve Reserve, Event Event)
         {
             using (var db = new ModelContext())
             {
@@ -132,7 +129,7 @@ namespace Sports4All.Controller
             }
         }
 
-        public int getIdReserve()
+        public int GetIdReserve()
         {
             using (ModelContext db = new ModelContext())
             {
@@ -140,12 +137,52 @@ namespace Sports4All.Controller
             }
         }
 
-        public int getIdEvent()
+        public int GetIdEvent()
         {
             using (ModelContext db = new ModelContext())
             {
                 return ++db.Events.OrderByDescending(e => e.EventId).ToList()[0].EventId;
             }
+        }
+
+        public IDictionary<int, string> GetSportsDictionary()
+        {
+            IDictionary<int, string> sports = new Dictionary<int, string>();
+
+            using (var db = new ModelContext())
+            {
+                var sportsList = db.Sports.ToList();
+
+                foreach (var sport in sportsList)
+                {
+                    sports.Add(sport.SportId, sport.Name);
+                }
+            }
+
+            return sports;
+        }
+
+        public IDictionary<int, string> GetLocationsDictionary(int sportId)
+        {
+            IDictionary<int, string> locations = new Dictionary<int, string>();
+
+            using (var db = new ModelContext())
+            {
+                var sportGrounds = db.Sports
+                    .Include("Grounds.Park.Address.County")
+                    .FirstOrDefault(x => x.SportId == sportId).Grounds;
+
+                foreach (var ground in sportGrounds)
+                {
+                    var county = ground.Park.Address.County;
+                    if (!locations.ContainsKey(county.CountyId))
+                    {
+                        locations.Add(county.CountyId, county.Name);
+                    }
+                    
+                }
+            }
+            return locations;
         }
     }
 }

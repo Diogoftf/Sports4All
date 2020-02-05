@@ -206,12 +206,7 @@ namespace Sports4All
                 ICollection<User> listUsers = new Collection<User>();
                 CreateEventController _createEventController = new CreateEventController();
 
-                //Se nao ocorreu nenhum erro ao verificar os campos da criação de um evento no Home
-                //  if (checkIntegrity())
-                _createEventController.RetrieveMaterial(flpMaterial, materialUsage, _reserve);
-                _createEventController.InsertDataReserve(_reserve, _event, materialUsage);
-                _reserve.ReserveId = _createEventController.getIdReserve();
-                _event.EventId = _createEventController.getIdEvent();
+            
                 _event.Name = txtEventName.Text;
                 _event.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
                 _event.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
@@ -223,7 +218,7 @@ namespace Sports4All
                 _event.MaxAge = Convert.ToInt32(cbMaxAge.Text);
                 _event.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
 
-                _createEventController.createReserve(materialUsage, _reserve, _event);
+                _createEventController.CreateReserve(materialUsage, _reserve, _event);
                 _createEventController.InsertUserNewEvent(_event);
                 MessageBox.Show("Reserva criada com sucesso!");
                 ReturnHome();

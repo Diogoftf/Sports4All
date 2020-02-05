@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2BDDB774-9994-45CD-A910-8A07B4C7AFA6}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sports4All</RootNamespace>
     <AssemblyName>Sports4All</AssemblyName>
@@ -110,6 +110,57 @@
     </Compile>
     <Compile Include="CancelCommand.cs" />
     <Compile Include="Controller\CreateEventController.cs" />
+    <Compile Include="EventCreationManager.cs" />
+    <Compile Include="Patterns\State\AskForMaterialState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Patterns\State\AskForMaterialState.Designer.cs">
+      <DependentUpon>AskForMaterialState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patterns\State\DefineUsersState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Patterns\State\DefineUsersState.Designer.cs">
+      <DependentUpon>DefineUsersState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patterns\State\EventNameState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Patterns\State\EventNameState.Designer.cs">
+      <DependentUpon>EventNameState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patterns\State\IReserveFormState.cs" />
+    <Compile Include="Patterns\State\ReserveNoviceForm.cs" />
+    <Compile Include="Patterns\State\SelectHourParkState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Patterns\State\SelectHourParkState.Designer.cs">
+      <DependentUpon>SelectHourParkState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patterns\State\SelectLocationState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Patterns\State\SelectLocationState.Designer.cs">
+      <DependentUpon>SelectLocationState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patterns\State\SelectMaterialState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Patterns\State\SelectMaterialState.Designer.cs">
+      <DependentUpon>SelectMaterialState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patterns\State\SelectSportState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Patterns\State\SelectSportState.Designer.cs">
+      <DependentUpon>SelectSportState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patterns\State\ShowPriceState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Patterns\State\ShowPriceState.Designer.cs">
+      <DependentUpon>ShowPriceState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Patterns\Strategy\ExpertReserveStrategy.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IObserver.cs" />
@@ -159,6 +210,18 @@
     <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
     <Compile Include="Sport.cs" />
+    <Compile Include="View\UserControls_Items\NextScreenButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls_Items\NextScreenButton.Designer.cs">
+      <DependentUpon>NextScreenButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls_Items\PreviousScreenButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls_Items\PreviousScreenButton.Designer.cs">
+      <DependentUpon>PreviousScreenButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls_Items\UC_MaterialItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -338,6 +401,36 @@
     <EmbeddedResource Include="Migrations\202001311800595_M002.resx">
       <DependentUpon>202001311800595_M002.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Patterns\State\AskForMaterialState.resx">
+      <DependentUpon>AskForMaterialState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patterns\State\DefineUsersState.resx">
+      <DependentUpon>DefineUsersState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patterns\State\EventNameState.resx">
+      <DependentUpon>EventNameState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patterns\State\SelectHourParkState.resx">
+      <DependentUpon>SelectHourParkState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patterns\State\SelectLocationState.resx">
+      <DependentUpon>SelectLocationState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patterns\State\SelectMaterialState.resx">
+      <DependentUpon>SelectMaterialState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patterns\State\SelectSportState.resx">
+      <DependentUpon>SelectSportState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patterns\State\ShowPriceState.resx">
+      <DependentUpon>ShowPriceState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls_Items\NextScreenButton.resx">
+      <DependentUpon>NextScreenButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls_Items\PreviousScreenButton.resx">
+      <DependentUpon>PreviousScreenButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls_Items\UC_MaterialItem.resx">
       <DependentUpon>UC_MaterialItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -494,9 +587,11 @@
     <Content Include="Images\medal.png" />
     <Content Include="Images\medal1.png" />
     <Content Include="Images\medal2.png" />
+    <Content Include="Images\next.png" />
     <Content Include="Images\Park1.png" />
     <Content Include="Images\Park2.png" />
     <Content Include="Images\playground.png" />
+    <Content Include="Images\previous.png" />
     <Content Include="Images\ratio.png" />
     <Content Include="Images\search.png" />
     <Content Include="Images\skill.png" />
