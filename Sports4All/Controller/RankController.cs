@@ -11,7 +11,7 @@ namespace Sports4All.Controller
         public readonly double _fairplay_Weight = 4;
         public readonly double _skill_Weight = 3;
         public readonly double _ratio_Weight = 2;
-        public readonly double _levelChange = 100; // variavel somente usada para determinar a quantidade de pontos necessaria para transitar de nivel
+        public readonly double _levelChange = 100;
 
         public readonly double _ParkPrice_Weight = 3;
         public readonly double _ParkQuality_Weight = 4;
@@ -202,7 +202,7 @@ namespace Sports4All.Controller
             double reservesPerformed = 0;
             using(var db = new ModelContext())
             {
-                var query = db.Parks.Where(e => e.ParkId == parkId).FirstOrDefault();
+                var query = db.Parks.Include("Grounds.Reserves").Where(e => e.ParkId == parkId).FirstOrDefault();
                 
                 foreach(Ground a in query.Grounds)
                 {

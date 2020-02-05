@@ -254,7 +254,6 @@ namespace Sports4All.Controller
             var u = RetrieveSingleUser(username);
             var result = false;
 
-            //Event e = RetrieveSingleEvent(eventId);
             foreach (var user in users)
                 if (user.Username.Equals(u.Username))
                 {
@@ -286,15 +285,14 @@ namespace Sports4All.Controller
         public UC_NextEventsandReserveItem ChangeButtons(int usersCount, int maxUsers, UC_NextEventsandReserveItem listitems, List<User> users, string _username)
         {
             if (usersCount == maxUsers)
-                listitems.ChangeJoinEventbtn(false); // remove botao para se juntar ao evento
+                listitems.ChangeJoinEventbtn(false);
 
             foreach (var user in users)
-                if (user.Username == _username) // já estou no evento
+                if (user.Username == _username)
                 {
                     listitems.ChangeJoinEventbtn(false);
                     if (listitems.Owner.Equals(_username))
                     {
-                        // sou o owner, botao de remover evento
                         listitems.ChangeCancelbtn(true);
                     }
                     else

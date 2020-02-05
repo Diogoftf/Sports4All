@@ -118,17 +118,5 @@ namespace Sports4All.Controller
                 db.SaveChanges();
             }
         }
-
-        //public  GetUserEvaluation(int eventId)
-        //{
-        //    ICollection<User> usersList;
-        //    using (var db = new ModelContext())
-        //    {
-
-        //        var queryEvent = db.Events.Include("Users.Evaluation").FirstOrDefault();
-        //        usersList = queryEvent.Users;
-        //        return usersList;
-        //    }
-        //}
     }
 }

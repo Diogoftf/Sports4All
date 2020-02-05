@@ -100,7 +100,6 @@ namespace Sports4All
                     "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
                     " gerir todos os seus favoritos!!!");
             }
-            //retira subscrição!
             else
             {
                 btnSub.Image = Image.FromFile(@"..\..\Images\" + "unsub_Button.png");

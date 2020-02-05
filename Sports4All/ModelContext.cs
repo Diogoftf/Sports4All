@@ -12,8 +12,6 @@ namespace Sports4All
     {
         public ModelContext() : base("name=DataBaseContext")
         {
-            //  Database.SetInitializer<ModelContext>(new DropCreateDatabaseAlways<ModelContext>());
-            // Database.SetInitializer<ModelContext>(new DropCreateDatabaseIfModelChanges<ModelContext>());
              Database.SetInitializer<ModelContext>(new CreateDatabaseIfNotExists<ModelContext>());
         }
         public DbSet<Event> Events { get; set; }
@@ -48,14 +46,12 @@ namespace Sports4All
             modelBuilder.Entity<Classification>().HasKey<int>(s => s.ClassificationId);
             modelBuilder.Entity<Use>().HasKey<int>(s => s.UseId);
 
-            //one to many
             modelBuilder.Entity<Evaluation>()
                 .HasRequired<Event>(g => g.Event)
                 .WithMany(s => s.Evaluations)
                 .HasForeignKey<int>(s => s.EventId)
                 .WillCascadeOnDelete(false);
 
-            //many to many
             modelBuilder.Entity<Event>()
                 .HasMany<User>(s => s.Users)
                 .WithMany(c => c.Events)
@@ -66,68 +62,57 @@ namespace Sports4All
                     cs.ToTable("EventsUsers");
                 });
 
-            //one to one
             modelBuilder.Entity<Event>()
                 .HasRequired(s => s.Reserve)
                 .WithRequiredPrincipal(ad => ad.Event)
                 .WillCascadeOnDelete(true);
 
-            //one to many
             modelBuilder.Entity<Evaluation>()
                 .HasRequired<User>(g => g.Evaluator)
                 .WithMany(s => s.Evaluations)
                 .HasForeignKey<string>(s => s.EvaluatorId)
                 .WillCascadeOnDelete(false);
 
-            //one to many
             modelBuilder.Entity<User>()
                 .HasRequired<Picture>(g => g.Picture)
                 .WithMany(s => s.Users)
                 .HasForeignKey<int>(s => s.PictureId)
                 .WillCascadeOnDelete(false);
 
-            //one to many
             modelBuilder.Entity<Reserve>()
                 .HasRequired<User>(g => g.User)
                 .WithMany(s => s.Reserves)
                 .HasForeignKey<string>(s => s.UserId)
                 .WillCascadeOnDelete(false);
 
-            //one to zero or one
             modelBuilder.Entity<Address>()
                 .HasOptional(s => s.Park)
                 .WithOptionalPrincipal(ad => ad.Address);
 
-            //one to many
             modelBuilder.Entity<Ground>()
                 .HasRequired<Park>(g => g.Park)
                 .WithMany(s => s.Grounds)
                 .HasForeignKey<int>(s => s.ParkId)
                 .WillCascadeOnDelete(false);
 
-            //one to zero or one
             modelBuilder.Entity<Picture>()
                 .HasOptional(s => s.Park)
                 .WithOptionalPrincipal(ad => ad.Picture);
 
-            //one to zero or one
             modelBuilder.Entity<Picture>()
                 .HasOptional(s => s.Ground)
                 .WithOptionalPrincipal(ad => ad.Picture);
 
-            //one to zero or one
             modelBuilder.Entity<Picture>()
                 .HasOptional(s => s.Sport)
                 .WithOptionalPrincipal(ad => ad.Picture);
 
-            //one to many
             modelBuilder.Entity<Reserve>()
                 .HasRequired<Sport>(g => g.Sport)
                 .WithMany(s => s.Reserves)
                 .HasForeignKey<int>(s => s.SportId)
                 .WillCascadeOnDelete(false);
 
-            //many to many
             modelBuilder.Entity<Sport>()
                 .HasMany<Ground>(s => s.Grounds)
                 .WithMany(c => c.Sports)
@@ -138,27 +123,23 @@ namespace Sports4All
                     cs.ToTable("SportsGrounds");
                 });
 
-            //one to many
             modelBuilder.Entity<User>()
                 .HasRequired<County>(g => g.County)
                 .WithMany(s => s.Users)
                 .HasForeignKey<int>(s => s.CountyId)
                 .WillCascadeOnDelete(false);
 
-            //one to many
             modelBuilder.Entity<Address>()
                 .HasRequired<County>(g => g.County)
                 .WithMany(s => s.Addresses)
                 .HasForeignKey<int>(s => s.CountyId);
 
-            //one to many
             modelBuilder.Entity<County>()
                 .HasRequired<District>(g => g.District)
                 .WithMany(s => s.Counties)
                 .HasForeignKey<int>(s => s.DistrictId)
                 .WillCascadeOnDelete(false);
 
-            //one to many
             modelBuilder.Entity<Reserve>()
                 .HasRequired<Ground>(g => g.Ground)
                 .WithMany(s => s.Reserves)
@@ -198,51 +179,42 @@ namespace Sports4All
                 .Property(p => p.ClassificationId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
-            //one to one
             modelBuilder.Entity<UserClassification>()
                 .HasRequired(s => s.User)
                 .WithRequiredPrincipal(ad => ad.UserClassification);
 
-            //one to one
             modelBuilder.Entity<ParkClassification>()
                 .HasRequired(s => s.Park)
                 .WithRequiredPrincipal(ad => ad.ParkClassification);
 
-            //one to many
             modelBuilder.Entity<UserEvaluation>()
                 .HasRequired<User>(g => g.Evaluated)
                 .WithMany(s => s.UserEvaluations)
                 .HasForeignKey<string>(s => s.UserId)
                 .WillCascadeOnDelete(false);
 
-            //one to many
             modelBuilder.Entity<ParkEvaluation>()
                 .HasRequired<Park>(g => g.Park)
                 .WithMany(s => s.ParkEvaluations)
                 .HasForeignKey<int>(s => s.ParkId)
                 .WillCascadeOnDelete(false);
 
-
-            //one to many
             modelBuilder.Entity<Material>()
                 .HasRequired<Park>(g => g.Park)
                 .WithMany(s => s.Materials)
                 .HasForeignKey<int>(s => s.ParkId);
 
-            //one to many
             modelBuilder.Entity<Material>()
                 .HasRequired<Sport>(g => g.Sport)
                 .WithMany(s => s.Materials)
                 .HasForeignKey<int>(s => s.SportId);
 
-            ////one to many
             modelBuilder.Entity<Use>()
                 .HasRequired<Material>(g => g.Material)
                 .WithMany(s => s.Uses)
                 .HasForeignKey<int>(s => s.MaterialId)
                 .WillCascadeOnDelete(false);
 
-            ////one to many
             modelBuilder.Entity<Use>()
                 .HasRequired<Reserve>(g => g.Reserve)
                 .WithMany(s => s.Uses)

@@ -19,7 +19,6 @@ namespace Sports4All.Controller
                 return query;
             }
         }
-        //A funcionar bem, devolve os desportos que se podem realizar num determinado parque
         public ICollection<string> GetParkAvailableSports(int ParkId)
         {
             ICollection<string> availableSports = new HashSet<string>();
@@ -30,26 +29,11 @@ namespace Sports4All.Controller
                 {
                     foreach (var sport in ground.Sports)
                     {
-                        for (int i = 0; i < ground.Sports.Count; i++)
-                        {
-                            availableSports.Add(ground.Sports.ToList()[i].Name);
-                        }
+                        availableSports.Add(sport.Name);
                     }
                 }
             }
             return availableSports;
         }
-
-        //public bool IsSubscribed(int id)
-        //{
-        //    using (var db = new ModelContext())
-        //    {
-        //        var query = db.Users.Find(AuthProperties.LoggedUser);
-        //        if (query.Parks)
-        //        {
-
-        //        }
-        //    }
-        //}
     }
 }

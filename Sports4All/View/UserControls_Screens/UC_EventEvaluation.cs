@@ -62,7 +62,6 @@ namespace Sports4All
         {
             flpPlayersEvaluation.Controls.Clear();
             gpEventEvaluation.Text = _evaluationController.GetEvent(EventId).Name;
-            //Event ev = _evaluationController.GetEvent(EventId);
             Park park = _evaluationController.GetEventPark(EventId);
             _uc.ParkId = park.ParkId;
             _uc.ParkName = park.Name;

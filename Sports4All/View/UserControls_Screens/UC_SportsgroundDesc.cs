@@ -51,7 +51,7 @@ namespace Sports4All
         {
             StringBuilder builder = new StringBuilder();
 
-            foreach (var sport in _parkDescriptionController.GetParkAvailableSports(1))
+            foreach (var sport in _parkDescriptionController.GetParkAvailableSports(Convert.ToInt32(Id)))
             {
                 builder.Append(sport).Append("|");
             }

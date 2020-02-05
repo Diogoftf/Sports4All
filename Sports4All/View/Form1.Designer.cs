@@ -33,7 +33,6 @@
             this.SidePanel = new System.Windows.Forms.Panel();
             this.btnRanking = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
@@ -60,7 +59,6 @@
             this.panel1.Controls.Add(this.SidePanel);
             this.panel1.Controls.Add(this.btnRanking);
             this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btn_Home);
@@ -88,7 +86,7 @@
             this.btnRanking.ForeColor = System.Drawing.Color.White;
             this.btnRanking.Image = ((System.Drawing.Image)(resources.GetObject("btnRanking.Image")));
             this.btnRanking.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRanking.Location = new System.Drawing.Point(15, 420);
+            this.btnRanking.Location = new System.Drawing.Point(15, 352);
             this.btnRanking.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRanking.Name = "btnRanking";
             this.btnRanking.Size = new System.Drawing.Size(247, 68);
@@ -106,7 +104,7 @@
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(15, 352);
+            this.button6.Location = new System.Drawing.Point(15, 283);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(247, 68);
@@ -115,24 +113,6 @@
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Btn_MyEvents_Click);
-            // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(15, 283);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(247, 68);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "       Subscrições";
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Btn_Subscriptions_Click);
             // 
             // button3
             // 
@@ -377,7 +357,6 @@
         private System.Windows.Forms.Panel SidePanel;
         private System.Windows.Forms.Button btnRanking;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private UC_SportsGround recintosControl1;
         private System.Windows.Forms.Button btn_Home;

@@ -30,11 +30,6 @@ namespace Sports4All.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-
-            //if (System.Diagnostics.Debugger.IsAttached == false)
-            //{
-            //    System.Diagnostics.Debugger.Launch();
-            //}
         }
 
         private void AddDistricts(ModelContext context)
@@ -134,12 +129,12 @@ namespace Sports4All.Migrations
             listParks.Add(new Park
             {
                 ParkId = 1, Name = "Agua de Pena", Address = listAddresses.ToList()[0],
-                Description = "Teste Descrição1", Picture = listPictures.ToList()[8]
+                Description = "O Complexo Desportivo de Água de Pena é um arrojado projeto aberto ao público, que se desenvolve sob a plataforma do aeroporto da Madeira. O complexo dispõe de Campos de hóquei, Patinagem, Futsal, Minibasket, Voleibol, Andebol, Futebol, Volei de praia, Ténis, Padel, Squash, Madeirabol, áreas de skate/bmx e de desportos radicais, como slide e escalada.", Picture = listPictures.ToList()[8]
             });
             listParks.Add(new Park
             {
-                ParkId = 2, Name = "Ludens Padel", Address = listAddresses.ToList()[1],
-                Description = "Teste Descrição2", Picture = listPictures.ToList()[9]
+                ParkId = 2, Name = "Centro Desportivo da Madeira", Address = listAddresses.ToList()[1],
+                Description = "Localizado no vale da Ribeira Brava, é um moderno espaço polivalente concebido para a prática de várias modalidades desportivas.", Picture = listPictures.ToList()[9]
             });
 
             foreach (Park park in listParks)
@@ -360,8 +355,6 @@ namespace Sports4All.Migrations
             ParkClassification(context);
             UserClassification(context);
             AddMaterial(context);
-            // Esta lista contem todas as avaliações feitas da josefa aos utilizadores desse evento especifico
-            // Esta lista contem todas as avaliações feitas da josefa aos recintos
             ICollection<Evaluation> listEvaluationsRuben = new Collection<Evaluation>();
             ICollection<Reserve> listReservesRuben = new Collection<Reserve>();
             ICollection<Event> listEventsRuben = new Collection<Event>();
