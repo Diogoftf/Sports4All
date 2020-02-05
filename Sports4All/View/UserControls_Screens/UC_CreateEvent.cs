@@ -251,7 +251,6 @@ namespace Sports4All
                     _event.Name = txtEventName.Text;
                     _event.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
                     _event.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
-                    _event.Name = txtEventName.Text;
 
                     _event.MinAge = Convert.ToInt32(cbMinAge.Text);
                     _event.MaxAge = Convert.ToInt32(cbMaxAge.Text);
