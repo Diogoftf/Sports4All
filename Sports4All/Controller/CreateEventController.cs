@@ -101,12 +101,12 @@ namespace Sports4All.Controller
                 for (var i = 0; i < flp.Controls.Count; i++)
                 {
                     var item = flp.Controls[i] as UC_MaterialItem;
-                    if (item.Quantidade > 0)
+                    if (item.Quantity > 0)
                     {
                         var use = new Use();
                         var query = db.Materials.Where(f => f.Name == item.Material).First();
                         use.MaterialId = query.MaterialId;
-                        use.Quantity = item.Quantidade;
+                        use.Quantity = item.Quantity;
                         use.Reserve = Reserve;
                         materialUsage.Add(use);
                     }

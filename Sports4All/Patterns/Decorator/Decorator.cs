@@ -8,7 +8,7 @@ namespace Sports4All.Decorator
 {
    public abstract class Decorator : IPriceEntity
    {
-        public int _quantidade;
+        public int _quantity;
         public double _price = 0.0;
         private IPriceEntity _ground;
         private int quantidade;

@@ -62,16 +62,17 @@
             this.plSportsgndEvaluation.Controls.Add(this.pnlQuality);
             this.plSportsgndEvaluation.Controls.Add(this.pnlPrice);
             this.plSportsgndEvaluation.Controls.Add(this.cpbSportsground);
-            this.plSportsgndEvaluation.Location = new System.Drawing.Point(4, 4);
+            this.plSportsgndEvaluation.Location = new System.Drawing.Point(4, 5);
+            this.plSportsgndEvaluation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.plSportsgndEvaluation.Name = "plSportsgndEvaluation";
-            this.plSportsgndEvaluation.Size = new System.Drawing.Size(650, 155);
+            this.plSportsgndEvaluation.Size = new System.Drawing.Size(731, 194);
             this.plSportsgndEvaluation.TabIndex = 0;
             // 
             // lblParkName
             // 
-            this.lblParkName.Location = new System.Drawing.Point(29, 10);
+            this.lblParkName.Location = new System.Drawing.Point(33, 12);
             this.lblParkName.Name = "lblParkName";
-            this.lblParkName.Size = new System.Drawing.Size(148, 23);
+            this.lblParkName.Size = new System.Drawing.Size(166, 29);
             this.lblParkName.TabIndex = 28;
             this.lblParkName.Text = "label1";
             this.lblParkName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -86,18 +87,19 @@
             this.pnlQuality.Controls.Add(this.rbtnQuality3);
             this.pnlQuality.Controls.Add(this.rbtnQuality4);
             this.pnlQuality.Controls.Add(this.rbtnQuality5);
-            this.pnlQuality.Location = new System.Drawing.Point(232, 8);
+            this.pnlQuality.Location = new System.Drawing.Point(261, 10);
+            this.pnlQuality.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlQuality.Name = "pnlQuality";
-            this.pnlQuality.Size = new System.Drawing.Size(371, 67);
+            this.pnlQuality.Size = new System.Drawing.Size(417, 84);
             this.pnlQuality.TabIndex = 27;
             // 
             // lblQuality
             // 
             this.lblQuality.AutoSize = true;
             this.lblQuality.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblQuality.Location = new System.Drawing.Point(3, 12);
+            this.lblQuality.Location = new System.Drawing.Point(3, 15);
             this.lblQuality.Name = "lblQuality";
-            this.lblQuality.Size = new System.Drawing.Size(235, 20);
+            this.lblQuality.Size = new System.Drawing.Size(280, 21);
             this.lblQuality.TabIndex = 15;
             this.lblQuality.Text = "Avalie a qualidade do parque:";
             // 
@@ -105,9 +107,10 @@
             // 
             this.rbtnQuality1.AutoSize = true;
             this.rbtnQuality1.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnQuality1.Location = new System.Drawing.Point(52, 37);
+            this.rbtnQuality1.Location = new System.Drawing.Point(58, 46);
+            this.rbtnQuality1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnQuality1.Name = "rbtnQuality1";
-            this.rbtnQuality1.Size = new System.Drawing.Size(38, 24);
+            this.rbtnQuality1.Size = new System.Drawing.Size(45, 25);
             this.rbtnQuality1.TabIndex = 10;
             this.rbtnQuality1.Text = "1";
             this.rbtnQuality1.UseVisualStyleBackColor = true;
@@ -117,9 +120,9 @@
             // 
             this.lblGood.AutoSize = true;
             this.lblGood.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblGood.Location = new System.Drawing.Point(288, 37);
+            this.lblGood.Location = new System.Drawing.Point(324, 46);
             this.lblGood.Name = "lblGood";
-            this.lblGood.Size = new System.Drawing.Size(41, 20);
+            this.lblGood.Size = new System.Drawing.Size(49, 21);
             this.lblGood.TabIndex = 17;
             this.lblGood.Text = "Bom";
             // 
@@ -127,9 +130,10 @@
             // 
             this.rbtnQuality2.AutoSize = true;
             this.rbtnQuality2.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnQuality2.Location = new System.Drawing.Point(100, 37);
+            this.rbtnQuality2.Location = new System.Drawing.Point(112, 46);
+            this.rbtnQuality2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnQuality2.Name = "rbtnQuality2";
-            this.rbtnQuality2.Size = new System.Drawing.Size(38, 24);
+            this.rbtnQuality2.Size = new System.Drawing.Size(45, 25);
             this.rbtnQuality2.TabIndex = 11;
             this.rbtnQuality2.Text = "2";
             this.rbtnQuality2.UseVisualStyleBackColor = true;
@@ -139,9 +143,9 @@
             // 
             this.lblBad.AutoSize = true;
             this.lblBad.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblBad.Location = new System.Drawing.Point(3, 39);
+            this.lblBad.Location = new System.Drawing.Point(3, 49);
             this.lblBad.Name = "lblBad";
-            this.lblBad.Size = new System.Drawing.Size(43, 20);
+            this.lblBad.Size = new System.Drawing.Size(50, 21);
             this.lblBad.TabIndex = 16;
             this.lblBad.Text = "Mau";
             // 
@@ -150,9 +154,10 @@
             this.rbtnQuality3.AutoSize = true;
             this.rbtnQuality3.Checked = true;
             this.rbtnQuality3.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnQuality3.Location = new System.Drawing.Point(148, 37);
+            this.rbtnQuality3.Location = new System.Drawing.Point(166, 46);
+            this.rbtnQuality3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnQuality3.Name = "rbtnQuality3";
-            this.rbtnQuality3.Size = new System.Drawing.Size(38, 24);
+            this.rbtnQuality3.Size = new System.Drawing.Size(45, 25);
             this.rbtnQuality3.TabIndex = 12;
             this.rbtnQuality3.TabStop = true;
             this.rbtnQuality3.Text = "3";
@@ -163,9 +168,10 @@
             // 
             this.rbtnQuality4.AutoSize = true;
             this.rbtnQuality4.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnQuality4.Location = new System.Drawing.Point(196, 37);
+            this.rbtnQuality4.Location = new System.Drawing.Point(220, 46);
+            this.rbtnQuality4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnQuality4.Name = "rbtnQuality4";
-            this.rbtnQuality4.Size = new System.Drawing.Size(38, 24);
+            this.rbtnQuality4.Size = new System.Drawing.Size(45, 25);
             this.rbtnQuality4.TabIndex = 13;
             this.rbtnQuality4.Text = "4";
             this.rbtnQuality4.UseVisualStyleBackColor = true;
@@ -175,9 +181,10 @@
             // 
             this.rbtnQuality5.AutoSize = true;
             this.rbtnQuality5.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnQuality5.Location = new System.Drawing.Point(244, 37);
+            this.rbtnQuality5.Location = new System.Drawing.Point(274, 46);
+            this.rbtnQuality5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnQuality5.Name = "rbtnQuality5";
-            this.rbtnQuality5.Size = new System.Drawing.Size(38, 24);
+            this.rbtnQuality5.Size = new System.Drawing.Size(45, 25);
             this.rbtnQuality5.TabIndex = 14;
             this.rbtnQuality5.Text = "5";
             this.rbtnQuality5.UseVisualStyleBackColor = true;
@@ -193,18 +200,19 @@
             this.pnlPrice.Controls.Add(this.rbtnPrice5);
             this.pnlPrice.Controls.Add(this.rbtnPrice3);
             this.pnlPrice.Controls.Add(this.rbtnPrice4);
-            this.pnlPrice.Location = new System.Drawing.Point(232, 81);
+            this.pnlPrice.Location = new System.Drawing.Point(261, 101);
+            this.pnlPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlPrice.Name = "pnlPrice";
-            this.pnlPrice.Size = new System.Drawing.Size(371, 64);
+            this.pnlPrice.Size = new System.Drawing.Size(417, 80);
             this.pnlPrice.TabIndex = 26;
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblPrice.Location = new System.Drawing.Point(18, 9);
+            this.lblPrice.Location = new System.Drawing.Point(20, 11);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(205, 20);
+            this.lblPrice.Size = new System.Drawing.Size(244, 21);
             this.lblPrice.TabIndex = 23;
             this.lblPrice.Text = "Avalie o preço do parque:";
             // 
@@ -212,9 +220,9 @@
             // 
             this.lblExpensive.AutoSize = true;
             this.lblExpensive.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblExpensive.Location = new System.Drawing.Point(303, 36);
+            this.lblExpensive.Location = new System.Drawing.Point(341, 45);
             this.lblExpensive.Name = "lblExpensive";
-            this.lblExpensive.Size = new System.Drawing.Size(46, 20);
+            this.lblExpensive.Size = new System.Drawing.Size(54, 21);
             this.lblExpensive.TabIndex = 25;
             this.lblExpensive.Text = "Caro";
             // 
@@ -222,9 +230,10 @@
             // 
             this.rbtnPrice1.AutoSize = true;
             this.rbtnPrice1.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnPrice1.Location = new System.Drawing.Point(67, 34);
+            this.rbtnPrice1.Location = new System.Drawing.Point(75, 42);
+            this.rbtnPrice1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnPrice1.Name = "rbtnPrice1";
-            this.rbtnPrice1.Size = new System.Drawing.Size(38, 24);
+            this.rbtnPrice1.Size = new System.Drawing.Size(45, 25);
             this.rbtnPrice1.TabIndex = 18;
             this.rbtnPrice1.Text = "1";
             this.rbtnPrice1.UseVisualStyleBackColor = true;
@@ -234,9 +243,9 @@
             // 
             this.lblCheap.AutoSize = true;
             this.lblCheap.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.lblCheap.Location = new System.Drawing.Point(3, 36);
+            this.lblCheap.Location = new System.Drawing.Point(3, 45);
             this.lblCheap.Name = "lblCheap";
-            this.lblCheap.Size = new System.Drawing.Size(58, 20);
+            this.lblCheap.Size = new System.Drawing.Size(68, 21);
             this.lblCheap.TabIndex = 24;
             this.lblCheap.Text = "Barato";
             // 
@@ -244,9 +253,10 @@
             // 
             this.rbtnPrice2.AutoSize = true;
             this.rbtnPrice2.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnPrice2.Location = new System.Drawing.Point(115, 34);
+            this.rbtnPrice2.Location = new System.Drawing.Point(129, 42);
+            this.rbtnPrice2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnPrice2.Name = "rbtnPrice2";
-            this.rbtnPrice2.Size = new System.Drawing.Size(38, 24);
+            this.rbtnPrice2.Size = new System.Drawing.Size(45, 25);
             this.rbtnPrice2.TabIndex = 19;
             this.rbtnPrice2.Text = "2";
             this.rbtnPrice2.UseVisualStyleBackColor = true;
@@ -256,9 +266,10 @@
             // 
             this.rbtnPrice5.AutoSize = true;
             this.rbtnPrice5.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnPrice5.Location = new System.Drawing.Point(259, 34);
+            this.rbtnPrice5.Location = new System.Drawing.Point(291, 42);
+            this.rbtnPrice5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnPrice5.Name = "rbtnPrice5";
-            this.rbtnPrice5.Size = new System.Drawing.Size(38, 24);
+            this.rbtnPrice5.Size = new System.Drawing.Size(45, 25);
             this.rbtnPrice5.TabIndex = 22;
             this.rbtnPrice5.Text = "5";
             this.rbtnPrice5.UseVisualStyleBackColor = true;
@@ -269,9 +280,10 @@
             this.rbtnPrice3.AutoSize = true;
             this.rbtnPrice3.Checked = true;
             this.rbtnPrice3.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnPrice3.Location = new System.Drawing.Point(163, 34);
+            this.rbtnPrice3.Location = new System.Drawing.Point(183, 42);
+            this.rbtnPrice3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnPrice3.Name = "rbtnPrice3";
-            this.rbtnPrice3.Size = new System.Drawing.Size(38, 24);
+            this.rbtnPrice3.Size = new System.Drawing.Size(45, 25);
             this.rbtnPrice3.TabIndex = 20;
             this.rbtnPrice3.TabStop = true;
             this.rbtnPrice3.Text = "3";
@@ -282,9 +294,10 @@
             // 
             this.rbtnPrice4.AutoSize = true;
             this.rbtnPrice4.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.rbtnPrice4.Location = new System.Drawing.Point(211, 34);
+            this.rbtnPrice4.Location = new System.Drawing.Point(237, 42);
+            this.rbtnPrice4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnPrice4.Name = "rbtnPrice4";
-            this.rbtnPrice4.Size = new System.Drawing.Size(38, 24);
+            this.rbtnPrice4.Size = new System.Drawing.Size(45, 25);
             this.rbtnPrice4.TabIndex = 21;
             this.rbtnPrice4.Text = "4";
             this.rbtnPrice4.UseVisualStyleBackColor = true;
@@ -293,20 +306,22 @@
             // cpbSportsground
             // 
             this.cpbSportsground.Image = ((System.Drawing.Image)(resources.GetObject("cpbSportsground.Image")));
-            this.cpbSportsground.Location = new System.Drawing.Point(52, 46);
+            this.cpbSportsground.Location = new System.Drawing.Point(62, 45);
+            this.cpbSportsground.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cpbSportsground.Name = "cpbSportsground";
-            this.cpbSportsground.Size = new System.Drawing.Size(91, 91);
+            this.cpbSportsground.Size = new System.Drawing.Size(102, 114);
             this.cpbSportsground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cpbSportsground.TabIndex = 9;
             this.cpbSportsground.TabStop = false;
             // 
             // UC_SportsgroundEvItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.plSportsgndEvaluation);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_SportsgroundEvItem";
-            this.Size = new System.Drawing.Size(658, 159);
+            this.Size = new System.Drawing.Size(740, 199);
             this.plSportsgndEvaluation.ResumeLayout(false);
             this.pnlQuality.ResumeLayout(false);
             this.pnlQuality.PerformLayout();

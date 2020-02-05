@@ -43,15 +43,16 @@ namespace Sports4All
 
         public void PopulateItems(int key)
         {
-            _id = Convert.ToInt32(Id);
             flpEventListModality.Controls.Clear();
             var EventsbySport = _eventsController.EventsBySport(_id,key);
             var EventsbySportCount = EventsbySport.Count;
             var Sport = _eventsController.RetrieveSingleSport(_id);
             tbModalityName.Text = Sport.ToList()[0].Name;
+            var _eventSport = new UC_NextEventsandReserveItem();
+
             foreach (var eventsportj in EventsbySport)
             {
-                var _eventSport = new UC_NextEventsandReserveItem();
+
                 var users = eventsportj.Users.ToList();
                 var usersCount = eventsportj.Users.Count;
                 var maxUsers = eventsportj.MaxPlayers;
@@ -65,7 +66,6 @@ namespace Sports4All
                 _eventSport.Hour = eventsportj.StartDate.ToShortTimeString();
                 _eventSport.Day = Convert.ToString(eventsportj.StartDate.Day);
                 _eventSport.Month = month;
-                _eventSport.Sport = eventsportj.Reserve.Sport.Name;
                 _eventSport.Lotation = usersCount + "/" + maxUsers;
                 var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _eventSport, users, _username);
                 flpEventListModality.Controls.Add(_eventSport);
@@ -74,9 +74,9 @@ namespace Sports4All
 
         private void onLoad(object sender, EventArgs e)
         {
-           
-            if (DesignMode) return;
             _id = Convert.ToInt32(Id);
+            if (DesignMode) return;
+           
             Populate();
         }
 

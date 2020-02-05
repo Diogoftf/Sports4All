@@ -1,5 +1,4 @@
-﻿using Sports4All.Controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -8,7 +7,6 @@ namespace Sports4All.Patterns.State
     public partial class SelectHourParkState : UserControl, IReserveFormState
     {
         private ReserveNoviceForm _reserveNoviceForm;
-        private CreateEventController _createEventController;
 
         public SelectHourParkState()
         {
@@ -19,7 +17,6 @@ namespace Sports4All.Patterns.State
         {
             InitializeComponent();
             _reserveNoviceForm = reserveNoviceForm;
-            _createEventController = new CreateEventController();
         }
 
         public string Id { get; set; }

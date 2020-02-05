@@ -78,10 +78,6 @@ namespace Sports4All
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("My message here");
-        }
 
         public void DisableButtonEvaluation()
         {

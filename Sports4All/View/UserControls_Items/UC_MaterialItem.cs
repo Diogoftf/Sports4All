@@ -15,13 +15,11 @@ namespace Sports4All
     {
         #region Properties
         private string _material;
-        private ComboBox _cbQtty;
         private string _price;
-
         private Label _totalPrice;
         private IPriceEntity _priceEntity { get; set; }
 
-        public ComboBox CBQuantidade
+        public ComboBox CbQuantity
         {
             get => cbQtty;
         }
@@ -46,7 +44,7 @@ namespace Sports4All
             get => lblMaterial.Text;
         }
 
-        public int Quantidade
+        public int Quantity
         {
             get => cbQtty.SelectedIndex;
         }
@@ -59,9 +57,9 @@ namespace Sports4All
             this._priceEntity = _priceEntity;
         }
 
-        public void PopulateQuantity(int qttd)
+        public void PopulateQuantity(int quantity)
         {
-            for (int i = 0; i <= qttd; i++)
+            for (int i = 0; i <= quantity; i++)
             {
                 cbQtty.Items.Add(i);
             }
