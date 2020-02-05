@@ -228,7 +228,7 @@ namespace Sports4All
                     _event.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
 
 
-                    _createEventController.createReserve(materialUsage, _reserve, _event);
+                    _createEventController.CreateReserve(materialUsage, _reserve, _event);
                     _createEventController.InsertUserNewEvent(_event);
                     MessageBox.Show("Reserva criada com sucesso!");
                     ReturnHome();
