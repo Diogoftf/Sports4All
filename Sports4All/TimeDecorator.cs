@@ -11,13 +11,13 @@ namespace Sports4All.Decorator
     {
         public TimeDecorator(IPriceEntity ground, int quantidade, double price) : base(ground, quantidade, price)
         {
-            this._quantidade = quantidade;
+            this._quantity = quantidade;
             this._price = price;
         }
 
         public override double getCost()
         {
-            return base.getCost() + this._price * this._quantidade;
+            return base.getCost() + this._price * this._quantity;
         }
 
     }

@@ -34,12 +34,12 @@ namespace Sports4All
 
         public void Populate()
         {
-            ICollection<Park> recintos = _createEventController.GetAllParks();
-
+            ICollection<Park> groundsList = _createEventController.GetAllParks();
             cbPark.Items.Clear();
-            for (int i = 0; i < recintos.Count; i++)
+
+            foreach (var ground in groundsList)
             {
-                cbPark.Items.Add(recintos.ToList()[i].Name);
+                cbPark.Items.Add(ground.Name);
             }
 
             dtpEventDate.MinDate = DateTime.Today;
@@ -68,7 +68,7 @@ namespace Sports4All
 
         private bool checkIntegrity()
         {
-            bool verificador = false;
+            bool isOk = false;
 
             if (txtEventName.TextLength < 1)
             {
@@ -101,10 +101,10 @@ namespace Sports4All
             }
             else
             {
-                verificador = true;
+                isOk = true;
             }
 
-            return verificador;
+            return isOk;
         }
 
         private void btnCancelEvent_Click(object sender, EventArgs e)
@@ -115,7 +115,7 @@ namespace Sports4All
         private void ReturnHome()
         {
             clearFields();
-            this.Parent.Controls.Remove(this);
+            Parent.Controls.Remove(this);
             Form1.Instance.BringUcToFront<UC_Home>("UC_Home", Id);
         }
 
@@ -145,11 +145,11 @@ namespace Sports4All
                 tbLocation.Text = parkChoosed.Address.Street + ", " + parkChoosed.Address.PostalCode + ", " + parkChoosed.Address.County.Name;
 
                 cbSport.Items.Clear(); cbSport.SelectedIndex = -1;
-                for (int i = 0; i < parkChoosed.Grounds.Count; i++)
+                foreach (var ground in parkChoosed.Grounds)
                 {
-                    for (int j = 0; j < parkChoosed.Grounds.ToList()[i].Sports.Count; j++)
+                    foreach (var s in ground.Sports)
                     {
-                        cbSport.Items.Add(parkChoosed.Grounds.ToList()[i].Sports.ToList()[j].Name);
+                        cbSport.Items.Add(s.Name);
                     }
                 }
 
@@ -160,41 +160,36 @@ namespace Sports4All
         {
             if (cbSport.SelectedIndex != -1)
             {
-
-           
                 var sport = _createEventController.GetSport(cbSport.Text);
-
                 var parkId = _createEventController.GetPark(cbPark.Text).ParkId;
+                var parkGrounds = _createEventController.GetGrounds(cbPark.Text).ToList();
 
-                var groundsRecinto = _createEventController.GetGrounds(cbPark.Text).ToList();
-
-                for (int i = 0; i < groundsRecinto.Count; i++)
+               
+                foreach (var ground in parkGrounds)
                 {
-                    for (int j = 0; j < groundsRecinto[i].Sports.ToList().Count; j++)
+                    foreach (var s in ground.Sports)
                     {
-                        if (groundsRecinto[i].Sports.ToList()[j].SportId == sport.SportId)
+                        if (s.SportId == sport.SportId)
                         {
-                            _reserve.GroundId = groundsRecinto[i].GroundId;
+                            _reserve.GroundId = ground.GroundId;
                             _reserve.SportId = sport.SportId;
-                            _priceEntity = groundsRecinto[i];
-
+                            _priceEntity = ground;
                         }
-
                     }
                 }
 
-                var materiais = _createEventController.GetMaterialsFromSport(_reserve.SportId, parkId).ToList();
+                var materialList = _createEventController.GetMaterialsFromSport(_reserve.SportId, parkId).ToList();
 
                 flpMaterial.Controls.Clear();
 
-                if (materiais.Count > 0)
+                if (materialList.Count > 0)
                 {
-                    for (int k = 0; k < materiais.Count; k++)
+                    foreach (var material in materialList)
                     {
                         UC_MaterialItem temp = new UC_MaterialItem(_priceEntity);
-                        temp.Material = materiais[k].Name;
-                        temp.PopulateQuantity(materiais[k].Available);
-                        temp.Preço = materiais[k].Price.ToString();
+                        temp.Material = material.Name;
+                        temp.PopulateQuantity(material.Available);
+                        temp.Price = material.Price.ToString();
                         flpMaterial.Controls.Add(temp);
                     }
                 }
@@ -227,7 +222,6 @@ namespace Sports4All
                     _event.MaxAge = Convert.ToInt32(cbMaxAge.Text);
                     _event.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
 
-
                     _createEventController.CreateReserve(materialUsage, _reserve, _event);
                     _createEventController.InsertUserNewEvent(_event);
                     MessageBox.Show("Reserva criada com sucesso!");
@@ -243,18 +237,18 @@ namespace Sports4All
 
         private void decorateGroundSelected()
         {
-            for (int i = 0; i < flpMaterial.Controls.Count; i++)
+            foreach (var control in flpMaterial.Controls)
             {
-                UC_MaterialItem uc_material = (UC_MaterialItem)flpMaterial.Controls[i];
-                if (uc_material.Quantidade > 0 )
+                UC_MaterialItem uc_material = (UC_MaterialItem)control;
+                if (uc_material.Quantity > 0 )
                 {
                     switch (uc_material.Material)
                     {
                         case "Raquete":
-                            _priceEntity = new RaqueteDecorator(_priceEntity, uc_material.Quantidade, Convert.ToDouble(uc_material.Preço));
+                            _priceEntity = new RacketDecorator(_priceEntity, uc_material.Quantity, Convert.ToDouble(uc_material.Price));
                             break;
                         case "Bola":
-                            _priceEntity = new BolaDecorator(_priceEntity, uc_material.Quantidade, Convert.ToDouble(uc_material.Preço));
+                            _priceEntity = new BallDecorator(_priceEntity, uc_material.Quantity, Convert.ToDouble(uc_material.Price));
                             break;
                     }
                 }
