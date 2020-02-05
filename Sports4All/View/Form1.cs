@@ -166,11 +166,10 @@ namespace Sports4All
         private void AddUserControlsToForm()
         {
             
-            UC_Home ens = new UC_Home();
-            ReserveNoviceForm rnf = new ReserveNoviceForm();
+            //ReserveNoviceForm rnf = new ReserveNoviceForm();
             //ens.BringToFront();
             //AddUserControl<EventNameState>("EventNameState", "");
-            //AddUserControl<UC_Home>("UC_Home", "");
+            AddUserControl<UC_Home>("UC_Home", "");
         }
     }
 }
