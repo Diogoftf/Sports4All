@@ -50,13 +50,15 @@ namespace Sports4All
 
             foreach (var completeEvent in completedEvents)
             {
-                UC_EventMyEventsItem _finishedEvent = new UC_EventMyEventsItem();
-                _finishedEvent.EventID = completeEvent.EventId;
-                _finishedEvent.Owner = completeEvent.Reserve.UserId;
-                _finishedEvent.Sport = completeEvent.Reserve.Sport.Name;
-                _finishedEvent.Date = completeEvent.StartDate.ToLongDateString();
-                _finishedEvent.Park = completeEvent.Reserve.Ground.Park.Name;
-                _finishedEvent.Image = ImagesController.Instance.GetImageFromID(completeEvent.Reserve.Sport.Picture.PictureId);
+                UC_EventMyEventsItem _finishedEvent = new UC_EventMyEventsItem
+                {
+                    EventID = completeEvent.EventId,
+                    Owner = completeEvent.Reserve.UserId,
+                    Sport = completeEvent.Reserve.Sport.Name,
+                    Date = completeEvent.StartDate.ToLongDateString(),
+                    Park = completeEvent.Reserve.Ground.Park.Name,
+                    Image = ImagesController.Instance.GetImageFromID(completeEvent.Reserve.Sport.Picture.PictureId)
+                };
 
                 if (!_eventsController.VerifyEvaluation(completeEvent.EventId, Username))
                 {
