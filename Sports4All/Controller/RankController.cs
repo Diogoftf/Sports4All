@@ -202,7 +202,7 @@ namespace Sports4All.Controller
             double reservesPerformed = 0;
             using(var db = new ModelContext())
             {
-                var query = db.Parks.Where(e => e.ParkId == parkId).FirstOrDefault();
+                var query = db.Parks.Include("Grounds.Reserves").Where(e => e.ParkId == parkId).FirstOrDefault();
                 
                 foreach(Ground a in query.Grounds)
                 {
