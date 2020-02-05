@@ -47,35 +47,29 @@ namespace Sports4All
         {
             flpListMyEvents.Controls.Clear();
             var completedEvents = _eventsController.RetrieveCompletedEvents(Username);
-            var completedEventsCounts = completedEvents.Count;
+
             foreach (var completeEvent in completedEvents)
             {
                 UC_EventMyEventsItem _finishedEvent = new UC_EventMyEventsItem();
+                _finishedEvent.EventID = completeEvent.EventId;
+                _finishedEvent.Owner = completeEvent.Reserve.UserId;
+                _finishedEvent.Sport = completeEvent.Reserve.Sport.Name;
+                _finishedEvent.Date = completeEvent.StartDate.ToLongDateString();
+                _finishedEvent.Park = completeEvent.Reserve.Ground.Park.Name;
+                _finishedEvent.Image = ImagesController.Instance.GetImageFromID(completeEvent.Reserve.Sport.Picture.PictureId);
+
                 if (!_eventsController.VerifyEvaluation(completeEvent.EventId, Username))
                 {
                     _finishedEvent.Avaliar = "Avaliar";
-                    _finishedEvent.EventID = completeEvent.EventId;
-                    _finishedEvent.Owner = completeEvent.Reserve.UserId;
-                    _finishedEvent.Sport = completeEvent.Reserve.Sport.Name;
-                    _finishedEvent.Date = completeEvent.StartDate.ToLongDateString();
-                    _finishedEvent.Park = completeEvent.Reserve.Ground.Park.Name;
                     _finishedEvent.MessageInfo = "Avalie este evento!";
                     _finishedEvent.Change_BackColor = Color.LightCoral;
-                    _finishedEvent.Image = ImagesController.Instance.GetImageFromID(completeEvent.Reserve.Sport.Picture.PictureId);
                 }
                 else
                 {
-                        _finishedEvent.Avaliar = "Avaliado";
-                        _finishedEvent.EventID = completeEvent.EventId;
-                        _finishedEvent.Owner = completeEvent.Reserve.UserId;
-                        _finishedEvent.Sport = completeEvent.Reserve.Sport.Name;
-                        _finishedEvent.Date = completeEvent.StartDate.ToLongDateString();
-                        _finishedEvent.Park = completeEvent.Reserve.Ground.Park.Name;
-                        _finishedEvent.MessageInfo = "Já avaliou este evento!";
-                        _finishedEvent.Change_BackColor = Color.LightCoral;
-                        flpListMyEvents.Controls.Add(_finishedEvent);
-                        _finishedEvent.Image = ImagesController.Instance.GetImageFromID(completeEvent.Reserve.Sport.Picture.PictureId);
-                        _finishedEvent.DisableButtonEvaluation();
+                    _finishedEvent.Avaliar = "Avaliado";
+                    _finishedEvent.MessageInfo = "Já avaliou este evento!";
+                    _finishedEvent.Change_BackColor = Color.Green;
+                    _finishedEvent.DisableButtonEvaluation();
                 }
                 flpListMyEvents.Controls.Add(_finishedEvent);
                 }
@@ -84,7 +78,6 @@ namespace Sports4All
         {
             flpListMyEvents.Controls.Clear();
             var myReserves = _eventsController.RetrieveUserReserves(Username);
-            var myReservesCounts = myReserves.Count;
             foreach (var reserves in myReserves.Take(_numberEventsShow))
             {
                 var usersCount = reserves.Event.Users.Count;
@@ -94,15 +87,17 @@ namespace Sports4All
                 var partsOfDate = date.Split();
                 var month = partsOfDate[2].Substring(0, 3).ToUpper();
 
-                UC_NextEventsandReserveItem _reserve = new UC_NextEventsandReserveItem();
-                _reserve.Day = Convert.ToString(reserves.Event.StartDate.Day);
-                _reserve.Month = month;
-                _reserve.Hour = reserves.Event.StartDate.ToShortTimeString();
-                _reserve.Owner = reserves.UserId;
-                _reserve.SportGround = reserves.Ground.Park.Name;
-                _reserve.Sport = reserves.Sport.Name;
-                _reserve.Lotation = usersCount + "/" + maxUsers;
-                _reserve.EventID = Convert.ToString(reserves.Event.EventId);
+                UC_NextEventsandReserveItem _reserve = new UC_NextEventsandReserveItem
+                {
+                    Day = Convert.ToString(reserves.Event.StartDate.Day),
+                    Month = month,
+                    Hour = reserves.Event.StartDate.ToShortTimeString(),
+                    Owner = reserves.UserId,
+                    SportGround = reserves.Ground.Park.Name,
+                    Sport = reserves.Sport.Name,
+                    Lotation = usersCount + "/" + maxUsers,
+                    EventID = Convert.ToString(reserves.Event.EventId)
+                };
 
                 var events = _eventsController.ChangeButtonsReserve(Username, _reserve);
                 flpListMyEvents.Controls.Add(events);
@@ -115,8 +110,8 @@ namespace Sports4All
             btnNextEvents.BackColor = Color.LightSkyBlue;
             btnFinishedEvents.BackColor = Color.LightGray;
             btnMinhasReservas.BackColor = Color.LightGray;
+
             var nextEvents = _eventsController.RetrieveNextEvents(Username);
-            var nextEventsCount = nextEvents.Count;
             foreach (var nextEvent in nextEvents.Take(_numberEventsShow))
             {
                 var users = nextEvent.Users.ToList();
@@ -126,16 +121,21 @@ namespace Sports4All
                 var date = nextEvent.StartDate.ToLongDateString();
                 var partsOfDate = date.Split();
                 var month = partsOfDate[2].Substring(0, 3).ToUpper();
-                UC_NextEventsandReserveItem _nextEvent = new UC_NextEventsandReserveItem();
-                _nextEvent.Day = Convert.ToString(nextEvent.StartDate.Day);
-                _nextEvent.Month = month;
-                _nextEvent.Hour = nextEvent.StartDate.ToShortTimeString();
-                _nextEvent.Owner = nextEvent.Reserve.UserId;
-                _nextEvent.SportGround = nextEvent.Reserve.Ground.Park.Name;
-                _nextEvent.Sport = nextEvent.Reserve.Sport.Name;
-                _nextEvent.Lotation = usersCount + "/" + maxUsers;
-                _nextEvent.EventID = Convert.ToString(nextEvent.EventId);
+
+                UC_NextEventsandReserveItem _nextEvent = new UC_NextEventsandReserveItem
+                {
+                    Day = Convert.ToString(nextEvent.StartDate.Day),
+                    Month = month,
+                    Hour = nextEvent.StartDate.ToShortTimeString(),
+                    Owner = nextEvent.Reserve.UserId,
+                    SportGround = nextEvent.Reserve.Ground.Park.Name,
+                    Sport = nextEvent.Reserve.Sport.Name,
+                    Lotation = usersCount + "/" + maxUsers,
+                    EventID = Convert.ToString(nextEvent.EventId)
+                };
+
                 var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _nextEvent, users, Username);
+
                 flpListMyEvents.Controls.Add(eventItem);
             }
         }
