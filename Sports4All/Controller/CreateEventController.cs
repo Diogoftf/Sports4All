@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
 
 namespace Sports4All.Controller
@@ -73,7 +70,7 @@ namespace Sports4All.Controller
             }
         }
 
-        public User WhoAmI(string username)
+        public User GetCurrentUser(string username)
         {
             using (ModelContext db = new ModelContext())
             {
@@ -81,7 +78,7 @@ namespace Sports4All.Controller
             }
         }
 
-        public void createReserve(ICollection<Use> materialUsage, Reserve Reserve, Event Event)
+        public void CreateReserve(ICollection<Use> materialUsage, Reserve Reserve, Event Event)
         {
             using (var db = new ModelContext())
             {

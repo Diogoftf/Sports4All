@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Sports4All.Controller;
 using System.Linq;
+using Sports4All.Patterns.State;
 
 namespace Sports4All
 {
@@ -44,6 +45,7 @@ namespace Sports4All
 
         public UserControl FrontControl { get; set; }
         #endregion
+
         private void Form1_Load(object sender, EventArgs e)
         {
             MoveSidePanel(btn_Home);
@@ -58,15 +60,22 @@ namespace Sports4All
         }
 
 
-        public void BringUcToFront<T>(string ucName, string id) where T : UserControl, IUserControl, new()
+        public void BringUcToFront<T>(string ucName, string id, ReserveNoviceForm reserveNoviceForm = null) where T : UserControl, IUserControl, new()
         {
             if (!Instance.PnlContainer.Controls.ContainsKey(ucName))
             {
-                AddUserControl<T>(ucName, id);
+                if(reserveNoviceForm == null)
+                {
+                    AddUserControl<T>(ucName, id);
+                }
+                else
+                {
+                    AddUserControl<T>(ucName, id, reserveNoviceForm);
+                }
             }
             else
             {
-                CreateAndAddUserControl<T>(ucName, id);
+                ShowUserControl<T>(ucName, id);
             }
         }
 
@@ -79,7 +88,18 @@ namespace Sports4All
             Instance.PnlContainer.Controls[ucName].BringToFront();
         }
 
-        private void CreateAndAddUserControl<T>(string ucName, string id) where T : UserControl, IUserControl, new()
+        private void AddUserControl<T>(string ucName, string id, ReserveNoviceForm reserveNoviceForm) where T : UserControl, IUserControl
+        {
+            UserControl uc = (T)Activator.CreateInstance(typeof(T), reserveNoviceForm);
+            uc.Dock = DockStyle.Fill;
+            IUserControl j = (IUserControl)uc;
+            j.Id = id;
+            Instance.PnlContainer.Controls.Add(uc);
+            FrontControl = uc;
+            Instance.PnlContainer.Controls[ucName].BringToFront();
+        }
+
+        private void ShowUserControl<T>(string ucName, string id) where T : UserControl, IUserControl
         {
             foreach (UserControl c in Instance.PnlContainer.Controls)
             {
@@ -145,7 +165,12 @@ namespace Sports4All
 
         private void AddUserControlsToForm()
         {
-            AddUserControl<UC_Home>("UC_Home", "");
+            
+            UC_Home ens = new UC_Home();
+            ReserveNoviceForm rnf = new ReserveNoviceForm();
+            //ens.BringToFront();
+            //AddUserControl<EventNameState>("EventNameState", "");
+            //AddUserControl<UC_Home>("UC_Home", "");
         }
     }
 }

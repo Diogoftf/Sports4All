@@ -29,10 +29,7 @@ namespace Sports4All.Controller
                 {
                     foreach (var sport in ground.Sports)
                     {
-                        for (int i = 0; i < ground.Sports.Count; i++)
-                        {
-                            availableSports.Add(ground.Sports.ToList()[i].Name);
-                        }
+                        availableSports.Add(sport.Name);
                     }
                 }
             }
