@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sports4All
+namespace Sports4All.Decorator
 {
-    interface ICommand
+  public  interface IPriceEntity
     {
-        void Execute();
-
+        double getCost();
     }
 }

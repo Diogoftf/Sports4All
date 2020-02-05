@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sports4All.Controller;
+using Sports4All.Decorator;
 
 namespace Sports4All
 {
@@ -17,11 +18,6 @@ namespace Sports4All
         [STAThread]
         static void Main()
         {
-
-            Session.Instance.LoggedUser = "paulo";
-
-            //ImagesController.InsertPathImagesToDB();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(Form1.Instance);

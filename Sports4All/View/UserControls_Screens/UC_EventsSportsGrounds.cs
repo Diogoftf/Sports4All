@@ -24,13 +24,11 @@ namespace Sports4All
         {
             InitializeComponent();
             _username = Session.Instance.LoggedUser;
-            // ParkName = _parkController.GetPark(Id).Name;
             btnAllSports.BackColor = Color.LightBlue;
             _resources = new ComponentResourceManager(typeof(UC_EventsModality));
             _eventsController = new MyEventsController();
             _parkController = new ParkDescriptionController();
             _eventsList = new Collection<Event>();
-            
         }
 
         #region Properties
@@ -82,7 +80,7 @@ namespace Sports4All
                 _eventGround.Day = Convert.ToString(eventGround.StartDate.Day);
                 _eventGround.Month = month;
                 _eventGround.Lotation = usersCount + "/" + maxUsers;
-                _eventGround.EventID = Convert.ToString(eventGround.EventId); // estava [0]!!!!
+                _eventGround.EventID = Convert.ToString(eventGround.EventId);
                
                 var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _eventGround, users, _username);
                 flpEventListSportsground.Controls.Add(eventItem);
@@ -102,7 +100,6 @@ namespace Sports4All
             {
                 tbSubSportsGroundNotification.Visible = false;
                 _controlSub = true;
-                //this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
                 btnSub.Image = ((System.Drawing.Image)(_resources.GetObject("sub_Button")));
                 showNotification("Recinto Subscrito!", "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
                                   " gerir todos os seus favoritos!!!");

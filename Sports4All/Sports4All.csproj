@@ -102,13 +102,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
-    <Compile Include="Authentication.cs">
+    <Compile Include="IButton.cs" />
+    <Compile Include="View\Authentication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authentication.Designer.cs">
+    <Compile Include="View\Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="CancelCommand.cs" />
+    <Compile Include="CancelButton.cs" />
     <Compile Include="Controller\CreateEventController.cs" />
     <Compile Include="EventCreationManager.cs" />
     <Compile Include="Patterns\State\AskForMaterialState.cs">
@@ -162,12 +163,15 @@
       <DependentUpon>ShowPriceState.cs</DependentUpon>
     </Compile>
     <Compile Include="Patterns\Strategy\ExpertReserveStrategy.cs" />
-    <Compile Include="ICommand.cs" />
+    <Compile Include="Patterns\Decorator\BolaDecorator.cs" />
+    <Compile Include="Patterns\Decorator\IPriceEntity.cs" />
+    <Compile Include="Patterns\Decorator\Decorator.cs" />
+    <Compile Include="Patterns\Decorator\RaqueteDecorator.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="Patterns\Strategy\IReserveStrategy.cs" />
     <Compile Include="ISubject.cs" />
     <Compile Include="IUserControl.cs" />
-    <Compile Include="JoinCommand.cs" />
+    <Compile Include="JoinButton.cs" />
     <Compile Include="Migrations\202001311502145_M001.cs" />
     <Compile Include="Migrations\202001311502145_M001.designer.cs">
       <DependentUpon>202001311502145_M001.cs</DependentUpon>
@@ -233,12 +237,6 @@
     </Compile>
     <Compile Include="View\UserControls_Items\UC_NextEventsandReserveItem.Designer.cs">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls_Screens\UC_AddFriend.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\UserControls_Screens\UC_AddFriend.Designer.cs">
-      <DependentUpon>UC_AddFriend.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls_Screens\UC_CreateEvent.cs">
       <SubType>UserControl</SubType>
@@ -336,7 +334,7 @@
     <Compile Include="View\UserControls_Screens\UC_MyEvents.Designer.cs">
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </Compile>
-    <Compile Include="UnregisterCommand.cs" />
+    <Compile Include="UnregisterButton.cs" />
     <Compile Include="Use.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserClassification.cs" />
@@ -386,20 +384,17 @@
     <Compile Include="View\UserControls_Screens\UC_SportsGround.Designer.cs">
       <DependentUpon>UC_SportsGround.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls_Screens\UC_Subscriptions.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\UserControls_Screens\UC_Subscriptions.Designer.cs">
-      <DependentUpon>UC_Subscriptions.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Authentication.resx">
+    <EmbeddedResource Include="View\Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001311502145_M001.resx">
       <DependentUpon>202001311502145_M001.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001311800595_M002.resx">
       <DependentUpon>202001311800595_M002.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Patterns\State\AskForMaterialState.resx">
       <DependentUpon>AskForMaterialState.cs</DependentUpon>
@@ -436,9 +431,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls_Items\UC_NextEventsandReserveItem.resx">
       <DependentUpon>UC_NextEventsandReserveItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls_Screens\UC_AddFriend.resx">
-      <DependentUpon>UC_AddFriend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls_Screens\UC_CreateEvent.resx">
       <DependentUpon>UC_CreateEvent.cs</DependentUpon>
@@ -519,9 +511,6 @@
     <EmbeddedResource Include="View\UserControls_Screens\UC_SportsGround.resx">
       <DependentUpon>UC_SportsGround.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls_Screens\UC_Subscriptions.resx">
-      <DependentUpon>UC_Subscriptions.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -567,9 +556,9 @@
     <Content Include="Images\close.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\Desporto1.png" />
-    <Content Include="Images\Desporto2.png" />
     <Content Include="Images\Desporto3.png" />
     <Content Include="Images\Desporto4.png" />
+    <Content Include="Images\Desporto2.png" />
     <Content Include="Images\details.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\edit1.png" />

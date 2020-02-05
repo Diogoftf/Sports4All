@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using System.Collections.ObjectModel;
 using Sports4All.Controller;
+using Sports4All.Decorator;
 
 namespace Sports4All
 {
     public partial class UC_CreateEvent : UserControl, IUserControl
     {
+        private IPriceEntity _priceEntity { get;set; }
         private CreateEventController _createEventController { get; set; }
         private Reserve _reserve { get; set; }
         private Event _event { get; set; }
-
         public UC_CreateEvent()
         {
             InitializeComponent();
@@ -52,6 +51,7 @@ namespace Sports4All
             dtpEndEventTime.CustomFormat = "HH:mm";
             dtpEndEventTime.Format = DateTimePickerFormat.Custom;
             dtpEndEventTime.ShowUpDown = true;
+            dtpEndEventTime.MinDate = DateTime.Now.AddHours(1.0);
 
             for (int i = 2; i < 22; i += 2)
             {
@@ -121,17 +121,19 @@ namespace Sports4All
 
         private void clearFields()
         {
+            cbPark.SelectedIndex = -1;
+            cbSport.SelectedIndex = -1;
+            cbPlayersNumber.SelectedIndex = -1;
+            cbMinAge.SelectedIndex = -1;
+            cbMaxAge.SelectedIndex = -1;
             txtEventName.Clear();
-            cbPark.Items.Clear();
             tbLocation.Clear();
             cbSport.Items.Clear();
             dtpEventDate.MinDate = DateTime.Now;
             dtpStartEventTime.MinDate = DateTime.Now;
-            dtpEndEventTime.MinDate = DateTime.Now;
-            cbPlayersNumber.Items.Clear();
-            cbMinAge.Items.Clear();
-            cbMaxAge.Items.Clear();
-            cbPlayersNumber.Items.Clear();
+            dtpEndEventTime.MinDate = DateTime.Now.AddHours(1.0);
+            _priceEntity = null;
+            flpMaterial.Controls.Clear();
         }
 
         private void cbPark_SelectedIndexChanged(object sender, EventArgs e)
@@ -159,6 +161,7 @@ namespace Sports4All
             if (cbSport.SelectedIndex != -1)
             {
 
+           
                 var sport = _createEventController.GetSport(cbSport.Text);
 
                 var parkId = _createEventController.GetPark(cbPark.Text).ParkId;
@@ -169,13 +172,14 @@ namespace Sports4All
                 {
                     for (int j = 0; j < groundsRecinto[i].Sports.ToList().Count; j++)
                     {
-                        if (groundsRecinto[i].Sports.ToList()[j].SportId == sport.SportId)//
+                        if (groundsRecinto[i].Sports.ToList()[j].SportId == sport.SportId)
                         {
                             _reserve.GroundId = groundsRecinto[i].GroundId;
                             _reserve.SportId = sport.SportId;
-                            _reserve.Price = groundsRecinto[i].Price;
-                            lbMoney.Text = _reserve.Price.ToString();
+                            _priceEntity = groundsRecinto[i];
+
                         }
+
                     }
                 }
 
@@ -187,12 +191,11 @@ namespace Sports4All
                 {
                     for (int k = 0; k < materiais.Count; k++)
                     {
-                        UC_MaterialItem temp = new UC_MaterialItem();
+                        UC_MaterialItem temp = new UC_MaterialItem(_priceEntity);
                         temp.Material = materiais[k].Name;
                         temp.PopulateQuantity(materiais[k].Available);
                         temp.Preço = materiais[k].Price.ToString();
                         flpMaterial.Controls.Add(temp);
-
                     }
                 }
 
@@ -202,26 +205,68 @@ namespace Sports4All
 
         private void btnCreateEvent_Click_1(object sender, EventArgs e)
         {
-                ICollection<Use> materialUsage = new HashSet<Use>();
-                ICollection<User> listUsers = new Collection<User>();
-                CreateEventController _createEventController = new CreateEventController();
+            if(checkIntegrity())
+            {
+                decorateGroundSelected();
 
-            
-                _event.Name = txtEventName.Text;
-                _event.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
-                _event.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
-                _event.Name = txtEventName.Text;
+                DialogResult result = MessageBox.Show("Montante: " + _priceEntity.getCost() + "€" + " \nDeseja criar a reserva? ", "Confirme", MessageBoxButtons.YesNo);
 
-                // _createEventController.InsertUserNewEvent(listUsers,_event);
+                if (result == DialogResult.Yes)
+                {
+                    ICollection<Use> materialUsage = new HashSet<Use>();
 
-                _event.MinAge = Convert.ToInt32(cbMinAge.Text);
-                _event.MaxAge = Convert.ToInt32(cbMaxAge.Text);
-                _event.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
+                    _createEventController.RetrieveMaterial(flpMaterial, materialUsage, _reserve);
+                    _createEventController.InsertDataReserve(_reserve, _event, materialUsage);
+                    _reserve.Price = _priceEntity.getCost();
 
-                _createEventController.CreateReserve(materialUsage, _reserve, _event);
-                _createEventController.InsertUserNewEvent(_event);
-                MessageBox.Show("Reserva criada com sucesso!");
-                ReturnHome();
+                    _event.Name = txtEventName.Text;
+                    _event.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
+                    _event.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
+
+                    _event.MinAge = Convert.ToInt32(cbMinAge.Text);
+                    _event.MaxAge = Convert.ToInt32(cbMaxAge.Text);
+                    _event.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
+
+
+                    _createEventController.createReserve(materialUsage, _reserve, _event);
+                    _createEventController.InsertUserNewEvent(_event);
+                    MessageBox.Show("Reserva criada com sucesso!");
+                    ReturnHome();
+                }
+                else
+                {
+                    clearFields();
+                }
+
+            }
+        }
+
+        private void decorateGroundSelected()
+        {
+            for (int i = 0; i < flpMaterial.Controls.Count; i++)
+            {
+                UC_MaterialItem uc_material = (UC_MaterialItem)flpMaterial.Controls[i];
+                if (uc_material.Quantidade > 0 )
+                {
+                    switch (uc_material.Material)
+                    {
+                        case "Raquete":
+                            _priceEntity = new RaqueteDecorator(_priceEntity, uc_material.Quantidade, Convert.ToDouble(uc_material.Preço));
+                            break;
+                        case "Bola":
+                            _priceEntity = new BolaDecorator(_priceEntity, uc_material.Quantidade, Convert.ToDouble(uc_material.Preço));
+                            break;
+                    }
+                }
+            }
+
+            int NumberOfHoursPlaying = Convert.ToInt32(dtpEndEventTime.Value.Subtract(dtpStartEventTime.Value).TotalHours);
+
+            if (NumberOfHoursPlaying > 1)
+            {
+                NumberOfHoursPlaying-=1;
+                _priceEntity = new TimeDecorator(_priceEntity,NumberOfHoursPlaying, _createEventController.GetGround(_reserve.GroundId).Price);
+            }
 
         }
     }

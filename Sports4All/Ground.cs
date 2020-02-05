@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sports4All.Decorator;
 
 namespace Sports4All
 {
-   public class Ground
+   public class Ground : IPriceEntity
     {
         public int GroundId { get; set; }
         public virtual ICollection<Sport> Sports { get; set; }
@@ -17,5 +18,9 @@ namespace Sports4All
         public virtual Picture Picture { get; set; }
         public  ICollection<Reserve> Reserves { get; set; }
 
+        public double getCost()
+        {
+            return this.Price;
+        }
     }
 }

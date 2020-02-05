@@ -36,12 +36,21 @@ namespace Sports4All.Controller
 
         }
 
+        public User GetUserLogged(string username)
+        {
+            using(var db = new ModelContext())
+            {
+                return db.Users
+                    .Include("Picture")
+                    .Include("UserClassification")
+                    .First(f => f.Username.Equals(username));
+            }
+        }
+
         public ICollection<Reserve> getEventSuggestions()
         {
             using (ModelContext db = new ModelContext())
-            {
-
-                // Query para dar Sugestões            
+            {         
                 var query = db.Reserves.Include("Event.Users").Include("User").Include("Ground.Park").Include("Sport").Where(e => e.User.Username != Session.Instance.LoggedUser && e.Event.StartDate > DateTime.Now && (e.Event.Users.Count) < e.Event.MaxPlayers
                     && (e.Ground.Park.Address.CountyId == e.User.CountyId || e.Ground.Park.Address.County.DistrictId == e.User.County.DistrictId
                      && e.Event.Users.Contains(e.User) == false)).ToList();
@@ -84,7 +93,7 @@ namespace Sports4All.Controller
                 var query = db.Reserves.Include("Ground.Park").Include("Sport.Picture").Where(c => c.Event.EndDate > DateTime.Now).OrderByDescending(c => c.Date).ToList();
                 var whoIam = db.Users.Where(e => e.Username.Equals(Session.Instance.LoggedUser)).First();
 
-                foreach (Reserve a in query) // todos os eventos que esse user participou (Tanto os que esta inscrito, como reservou)
+                foreach (Reserve a in query)
                 {
                     for(int i = 0; i < a.Event.Users.ToList().Count; i++)
                     {

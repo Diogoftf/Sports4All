@@ -22,7 +22,7 @@ namespace Sports4All
         private string _lotation;
         private string _eventId;
         private string _username;
-        private ICommand Icommand;
+        private IButton IButton;
 
         public string Username
         {
@@ -82,7 +82,6 @@ namespace Sports4All
                 c.Click += Unregister;
             }
         }
-
         public void BringToFrontUnregister(bool state)
         {
             uC_UnregisterButton1.Visible = state;
@@ -100,16 +99,13 @@ namespace Sports4All
 
         private void Unregister(object sender, EventArgs e)
         {
-
-            Icommand = new UnregisterCommand(this);
-            Icommand.Execute();
-            //_eventsController.UnregisterUser(Convert.ToInt32(_eventId), _username);
+            IButton = new UnregisterButton(this);
+            IButton.Execute();
         }
         private void btnJoinEvent_Click(object sender, EventArgs e)
         {
-            Icommand = new JoinCommand(this);
-            Icommand.Execute();
-           // _eventsController.JoinEvent(Convert.ToInt32(EventID), _username);
+            IButton = new JoinButton(this);
+            IButton.Execute();
             MessageBox.Show("Juntou-se ao evento com sucesso!");
             btnJoinEvent.Enabled = false;
             uC_UnregisterButton1.Visible = true;
@@ -117,9 +113,8 @@ namespace Sports4All
 
         private void btn_CancelEvent(object sender, EventArgs e)
         {
-            Icommand = new CancelCommand(this);
-            Icommand.Execute();
-            //_eventsController.DeleteEvent(Convert.ToInt32(_eventId));
+            IButton = new CancelButton(this);
+            IButton.Execute();
         }
     }
 }

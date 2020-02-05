@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sports4All.Decorator;
 
 namespace Sports4All
 {
@@ -14,52 +15,48 @@ namespace Sports4All
     {
         #region Properties
         private string _material;
-        private string _qtty;
+        private ComboBox _cbQtty;
         private string _price;
 
+        private Label _totalPrice;
+        private IPriceEntity _priceEntity { get; set; }
 
-        public int Id { get; set; }
-
-        public string Preço //
+        public ComboBox CBQuantidade
         {
-            set
-            {
-                _price = lblPrice.Text = value;
-            }
+            get => cbQtty;
+        }
+
+        public Label TotalPrice
+        {
+            set { _totalPrice = value; }
+
+            get => _totalPrice;
+        }
+        public string Preço
+        {
+            set => _price = lblPrice.Text = value;
 
             get => _price;
         }
 
-        public string Material //
+        public string Material
         {
-            set
-            {
-                _material = lblMaterial.Text = value;
-            }
+            set => _material = lblMaterial.Text = value;
 
             get => lblMaterial.Text;
         }
 
         public int Quantidade
         {
-            //set
-            //{
-            //    cbQtty.Items.Add(value);
-            //}
-
             get => cbQtty.SelectedIndex;
         }
 
         #endregion
 
-        public UC_MaterialItem()
+        public UC_MaterialItem(IPriceEntity _priceEntity)
         {
             InitializeComponent();
-        }
-
-        private void UC_MaterialItem_Load(object sender, EventArgs e)
-        {
-
+            this._priceEntity = _priceEntity;
         }
 
         public void PopulateQuantity(int qttd)
@@ -68,7 +65,6 @@ namespace Sports4All
             {
                 cbQtty.Items.Add(i);
             }
-            cbQtty.SelectedIndex = 0;
         }
     }
 }

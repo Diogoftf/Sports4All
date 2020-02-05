@@ -154,7 +154,7 @@ namespace Sports4All
         {
             btnSaveChanges.Visible = false;
             PropertiesformEventDetails(false, BorderStyle.None, true);
-            string format = "dd/MM/yyyy HH:mm:ss";
+            string format = "dd/MM/yyyy HH:mm";
             int EventID = Convert.ToInt32(_eventID);
             int MaxPlayes = Convert.ToInt32(_maxPlayers);
             int MaxAge = Convert.ToInt32(_maxPlayerAge);

@@ -44,7 +44,7 @@ namespace Sports4All.Controller
 
                 if (query.Any())
                 {
-                    var biggestClassificationId = query.OrderByDescending(u => u.ClassificationId).FirstOrDefault().ClassificationId;
+                    var biggestClassificationId = query.Max(u => u.ClassificationId);
                     classificationId = biggestClassificationId + 1;
                 }
 

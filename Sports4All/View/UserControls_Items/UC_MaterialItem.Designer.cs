@@ -53,8 +53,8 @@
             // cbQtty
             // 
             this.cbQtty.FormattingEnabled = true;
-            this.cbQtty.Location = new System.Drawing.Point(101, 8);
-            this.cbQtty.Margin = new System.Windows.Forms.Padding(3, 6, 3, 2);
+            this.cbQtty.Location = new System.Drawing.Point(101, 11);
+            this.cbQtty.Margin = new System.Windows.Forms.Padding(3, 9, 3, 2);
             this.cbQtty.Name = "cbQtty";
             this.cbQtty.Size = new System.Drawing.Size(70, 25);
             this.cbQtty.TabIndex = 2;

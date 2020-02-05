@@ -1,5 +1,4 @@
-﻿using Sports4All.UserControls_Screens;
-using System;
+﻿using System;
 using System.Linq;
 using System.Windows.Forms;
 using Sports4All.Controller;
@@ -11,7 +10,7 @@ namespace Sports4All
     public partial class Form1 : Form
     {
         private static Form1 _obj;
-
+        private HomeController _homeController;
         private Form1()
         {
 
@@ -23,7 +22,7 @@ namespace Sports4All
             // =============================================================
 
             InitializeComponent();
-
+            _homeController = new HomeController();
             (new Core.DropShaddow()).ApplyShadows(this);
         }
 
@@ -51,14 +50,12 @@ namespace Sports4All
         {
             MoveSidePanel(btn_Home);
             lbWelcomeUser.Text = "Bem vindo, " + Session.Instance.LoggedUser;
-            using (var db = new ModelContext())
-            {
-                var user = db.Users.Include("Picture").Where(f => f.Username == Session.Instance.LoggedUser).Single();
-                pbUserImage.Image = ImagesController.Instance.GetImageFromName(user.Picture.Path);
-                lbSkillValue.Text = user.UserClassification.SkillAverage.ToString();
-                lbFairplayValue.Text = user.UserClassification.FairplayAverage.ToString();
-                lbPontosValue.Text = user.UserClassification.Points.ToString();
-            }
+
+            pbUserImage.Image = ImagesController.Instance.GetImageFromName(_homeController.GetUserLogged(Session.Instance.LoggedUser).Picture.Path);
+            lbSkillValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.SkillAverage.ToString();
+            lbFairplayValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.FairplayAverage.ToString();
+            lbPontosValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.Points.ToString();
+
             _obj = this;
             AddUserControlsToForm();
         }
@@ -66,7 +63,6 @@ namespace Sports4All
 
         public void BringUcToFront<T>(string ucName, string id, ReserveNoviceForm reserveNoviceForm = null) where T : UserControl, IUserControl, new()
         {
-            //Instance.PnlContainer.Controls.Clear();
             if (!Instance.PnlContainer.Controls.ContainsKey(ucName))
             {
                 if(reserveNoviceForm == null)
@@ -136,12 +132,6 @@ namespace Sports4All
         {
             MoveSidePanel(button3);
             BringUcToFront<UC_SportsGround>("UC_SportsGround", "");
-        }
-
-        private void Btn_Subscriptions_Click(object sender, EventArgs e)
-        {
-            MoveSidePanel(button4);
-            BringUcToFront<UC_Subscriptions>("UC_Subscriptions", "");
         }
 
         private void Btn_MyEvents_Click(object sender, EventArgs e)

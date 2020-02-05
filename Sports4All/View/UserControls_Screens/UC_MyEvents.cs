@@ -11,6 +11,7 @@ namespace Sports4All
     {
         private readonly MyEventsController _eventsController;
 
+        private const int _numberEventsShow = 10;
         public UC_MyEvents()
         {
             InitializeComponent();
@@ -42,7 +43,6 @@ namespace Sports4All
         {
             flpListMyEvents.Controls.Clear();
         }
-
         private void FinishedEvents()
         {
             flpListMyEvents.Controls.Clear();
@@ -75,19 +75,17 @@ namespace Sports4All
                         _finishedEvent.Change_BackColor = Color.LightCoral;
                         flpListMyEvents.Controls.Add(_finishedEvent);
                         _finishedEvent.Image = ImagesController.Instance.GetImageFromID(completeEvent.Reserve.Sport.Picture.PictureId);
-                 }
-                    _finishedEvent.DisableButtonEvaluation();
-                    flpListMyEvents.Controls.Add(_finishedEvent);
+                        _finishedEvent.DisableButtonEvaluation();
+                }
+                flpListMyEvents.Controls.Add(_finishedEvent);
                 }
             }
-        
-
         private void MyReserves()
         {
             flpListMyEvents.Controls.Clear();
             var myReserves = _eventsController.RetrieveUserReserves(Username);
             var myReservesCounts = myReserves.Count;
-            foreach (var reserves in myReserves)
+            foreach (var reserves in myReserves.Take(_numberEventsShow))
             {
                 var usersCount = reserves.Event.Users.Count;
                 var maxUsers   =   reserves.Event.MaxPlayers;
@@ -119,7 +117,7 @@ namespace Sports4All
             btnMinhasReservas.BackColor = Color.LightGray;
             var nextEvents = _eventsController.RetrieveNextEvents(Username);
             var nextEventsCount = nextEvents.Count;
-            foreach (var nextEvent in nextEvents)
+            foreach (var nextEvent in nextEvents.Take(_numberEventsShow))
             {
                 var users = nextEvent.Users.ToList();
                 var usersCount = nextEvent.Users.Count;

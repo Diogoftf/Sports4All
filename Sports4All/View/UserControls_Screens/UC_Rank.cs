@@ -63,7 +63,7 @@ namespace Sports4All
                         rankItems.Utilizador = topUsers.ToList()[i].User.Username.ToString();
                         rankItems.PartidasJogadas = topUsers.ToList()[i].User.Events.Count.ToString();
                         rankItems.Pontos = topUsers.ToList()[i].Points.ToString();
-                        flpRank.Controls.Add(rankItems); //add to flowlayout
+                        flpRank.Controls.Add(rankItems);
                     }
                 }
             }
@@ -72,7 +72,7 @@ namespace Sports4All
                 UC_RankItems rankItems = new UC_RankItems();
                 rankItems.Classificacao = rankItems.PartidasJogadas = rankItems.Pontos = "";
                 rankItems.Utilizador = "Não existem jogadores com pontos";
-                flpRank.Controls.Add(rankItems); //add to flowlayout
+                flpRank.Controls.Add(rankItems);
             }
 
 
@@ -103,14 +103,15 @@ namespace Sports4All
                 {
                         UC_RankItems rankItems = new UC_RankItems();
                         rankItems.Classificacao = (i + 1).ToString();
-                        rankItems.Utilizador = RecintosClassification.ToList()[i].Park.Name.ToString(); // nome
+                        rankItems.Utilizador = RecintosClassification.ToList()[i].Park.Name.ToString(); 
                         foreach(Ground a in RecintosClassification.ToList()[i].Park.Grounds)
                         {
                             auxiliarPartidasJogadas += a.Reserves.Count;
                         }
-                        rankItems.PartidasJogadas = RecintosClassification.ToList()[i].QualityAverage.ToString() + " / " + RecintosClassification.ToList()[i].PriceAverage.ToString(); // Qualidade / Preço
-                        rankItems.Pontos = RecintosClassification.ToList()[i].Points.ToString(); //Points
-                        flpRank.Controls.Add(rankItems); //add to flowlayout
+                        rankItems.PartidasJogadas = RecintosClassification.ToList()[i].QualityAverage.ToString() + " / " +
+                                                    RecintosClassification.ToList()[i].PriceAverage.ToString(); 
+                        rankItems.Pontos = RecintosClassification.ToList()[i].Points.ToString(); 
+                        flpRank.Controls.Add(rankItems);
                 }
             }
             else
@@ -118,7 +119,7 @@ namespace Sports4All
                 UC_RankItems rankItems = new UC_RankItems();
                 rankItems.Classificacao = rankItems.PartidasJogadas = rankItems.Pontos = "";
                 rankItems.Utilizador = "Não existem recintos avaliados";
-                flpRank.Controls.Add(rankItems); //add to flowlayout
+                flpRank.Controls.Add(rankItems); 
 
             }
         }

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Sports4All.Controller
 {
-    class CreateEventController
+ public class CreateEventController
     {
         public ICollection<Park> GetAllParks()
         {
@@ -43,6 +43,14 @@ namespace Sports4All.Controller
             using (ModelContext db = new ModelContext())
             {
                 return db.Grounds.Include("Sports").Where(f => f.Park.Name.Equals(parkName)).ToList();
+            }
+        }
+
+        public Ground GetGround(int groundId)
+        {
+            using (ModelContext db = new ModelContext())
+            {
+                return db.Grounds.Include("Sports").FirstOrDefault(f => f.GroundId.Equals(groundId));
             }
         }
 
@@ -108,7 +116,6 @@ namespace Sports4All.Controller
         public void InsertDataReserve(Reserve Reserve, Event Event, ICollection<Use> materialUsage)
         {
             Reserve.Date = DateTime.Now;
-            Reserve.Price = 10;
             Reserve.UserId = Session.Instance.LoggedUser;
             Reserve.Event = Event;
 
@@ -127,62 +134,6 @@ namespace Sports4All.Controller
                 events.Users.Add(users);
                 context.SaveChanges();
             }
-        }
-
-        public int GetIdReserve()
-        {
-            using (ModelContext db = new ModelContext())
-            {
-                return ++db.Reserves.OrderByDescending(e => e.ReserveId).ToList()[0].ReserveId;
-            }
-        }
-
-        public int GetIdEvent()
-        {
-            using (ModelContext db = new ModelContext())
-            {
-                return ++db.Events.OrderByDescending(e => e.EventId).ToList()[0].EventId;
-            }
-        }
-
-        public IDictionary<int, string> GetSportsDictionary()
-        {
-            IDictionary<int, string> sports = new Dictionary<int, string>();
-
-            using (var db = new ModelContext())
-            {
-                var sportsList = db.Sports.ToList();
-
-                foreach (var sport in sportsList)
-                {
-                    sports.Add(sport.SportId, sport.Name);
-                }
-            }
-
-            return sports;
-        }
-
-        public IDictionary<int, string> GetLocationsDictionary(int sportId)
-        {
-            IDictionary<int, string> locations = new Dictionary<int, string>();
-
-            using (var db = new ModelContext())
-            {
-                var sportGrounds = db.Sports
-                    .Include("Grounds.Park.Address.County")
-                    .FirstOrDefault(x => x.SportId == sportId).Grounds;
-
-                foreach (var ground in sportGrounds)
-                {
-                    var county = ground.Park.Address.County;
-                    if (!locations.ContainsKey(county.CountyId))
-                    {
-                        locations.Add(county.CountyId, county.Name);
-                    }
-                    
-                }
-            }
-            return locations;
         }
     }
 }

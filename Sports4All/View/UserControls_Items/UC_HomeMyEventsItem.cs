@@ -16,17 +16,15 @@ namespace Sports4All
         #region Properties
         private string _recinto;
         private string _slots;
-        private string _organizador;
+        private string _owner;
         private string _dateTime;
         private string _sport;
-        private Color _color;
-        private Image _SportPicture;
         private MyEventsController _eventsController;
         private Image _image;
 
         public int Id { get; set; }
 
-        public string resetNameProprieties //
+        public string resetNameProprieties
         {
             set { lblDate.Text = lblEventOwner.Text = lblEventOwnerValue.Text = lblSportsGround.Text = lblstart_Hour.Text = lblPlayers.Text = lblPlace.Text = value;
             }
@@ -38,22 +36,17 @@ namespace Sports4All
             set { _image = value; pbModality.Image = value; }
         }
 
-        public Image DisableDeleteImage //
+        public Image DisableDeleteImage
         {
             set { pbDelete.Image = value; }
         }
 
-        public Image DisableImage //
+        public Image DisableImage
         {
             set { pbModality.Image = pbMoreDetails.Image = pbDelete.Image = value; }
         }
 
-        public Image SportPicture
-        {
-            set { _SportPicture = value; } // provisorio
-        }
-
-        public string Sport //Quantidade de jogadores por evento
+        public string Sport
         {
 
             get { return _sport; }
@@ -61,7 +54,7 @@ namespace Sports4All
 
         }
 
-        public string Recinto //Quantidade de jogadores por evento
+        public string Recinto
         {
 
             get { return _recinto; }
@@ -69,7 +62,7 @@ namespace Sports4All
 
         }
 
-        public string Slots //Quantidade de jogadores por evento
+        public string Slots
         {
 
             get { return _slots; }
@@ -77,7 +70,7 @@ namespace Sports4All
 
         }
 
-        public string NoEvents //Quantidade de jogadores por evento
+        public string NoEvents
         {
 
             get { return _slots; }
@@ -90,11 +83,11 @@ namespace Sports4All
 
         }
 
-        public string Organizador
+        public string Owner
         {
 
-            get { return _organizador; }
-            set { _organizador = value; lblEventOwnerValue.Text = value; }
+            get { return _owner; }
+            set { _owner = value; lblEventOwnerValue.Text = value; }
 
         }
 
@@ -106,22 +99,12 @@ namespace Sports4All
 
         }
 
-        public Color Color
-        {
-
-            get { return _color; }
-            set { _color = value; this.BackColor = value; }
-
-        }
-
         #endregion
 
         public UC_HomeMyEventsItem()
         {
             InitializeComponent();
             _eventsController = new MyEventsController();
-
-            //se for meu evento, mostrar o pbEdit
         }
 
         private void pbMoreDetails_Click(object sender, EventArgs e)
@@ -131,22 +114,27 @@ namespace Sports4All
 
         private void pbDelete_Click(object sender, EventArgs e)
         {
-            if (_organizador == Session.Instance.LoggedUser)
+            DialogResult result;
+            if (_owner == Session.Instance.LoggedUser)
             {
-                DialogResult result = MessageBox.Show("Deseja apagar o evento?", "Confirme", MessageBoxButtons.YesNo);
+                result = MessageBox.Show("Deseja apagar o evento?", "Confirme", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
                     _eventsController.DeleteEvent(this.Id);
+                    MessageBox.Show("Reserva eliminada com sucesso");
+                    Form1.Instance.BringUcToFront<UC_Home>("UC_Home", Id.ToString());
                 }
             }
             else
             {
-                DialogResult result = MessageBox.Show("Deseja sair do evento?", "Confirme", MessageBoxButtons.YesNo);
+                result = MessageBox.Show("Deseja sair do evento?", "Confirme", MessageBoxButtons.YesNo);
 
                 if(result == DialogResult.Yes)
                 {
                     _eventsController.UnregisterUser(this.Id,Session.Instance.LoggedUser);
+                    MessageBox.Show("Saíste com sucesso do Evento");
+                    Form1.Instance.BringUcToFront<UC_Home>("UC_Home", Id.ToString());
                 }
             }
         }
