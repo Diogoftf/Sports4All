@@ -44,12 +44,25 @@ namespace Sports4All.Patterns.State
 
         public void PopulateComboBox()
         {
-            //IDictionary<int, string> sports = _createEventController.GetSportsDictionary();
+            IDictionary<int, string> sports = _createEventController.GetSportsDictionary();
 
-            //cbSelectSport.DataSource = new BindingSource(sports, null);
-            //cbSelectSport.DisplayMember = "Value";
-            //cbSelectSport.ValueMember = "Key";
-            //cbSelectSport.SelectedValue = 0;
+            cbSelectSport.DataSource = new BindingSource(sports, null);
+            cbSelectSport.DisplayMember = "Value";
+            cbSelectSport.ValueMember = "Key";
+
+            if (sports.Count > 0)
+            {
+                foreach (KeyValuePair<int, string> pair in sports)
+                {
+                    cbSelectSport.SelectedValue = pair.Key;
+                    EventCreationManager.Instance.SportId = pair.Key;
+                    return;
+                }
+            }
+            else
+            {
+                nextScreenButton.Hide();
+            }
         }
 
         public void Display()

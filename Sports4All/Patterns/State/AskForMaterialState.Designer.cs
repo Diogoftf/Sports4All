@@ -73,6 +73,7 @@
             this.rbNo.TabStop = true;
             this.rbNo.Text = "Não";
             this.rbNo.UseVisualStyleBackColor = true;
+            this.rbNo.CheckedChanged += new System.EventHandler(this.rbCheckedChanged);
             // 
             // rbYes
             // 
@@ -84,6 +85,7 @@
             this.rbYes.TabIndex = 11;
             this.rbYes.Text = "Sim";
             this.rbYes.UseVisualStyleBackColor = true;
+            this.rbYes.CheckedChanged += new System.EventHandler(this.rbCheckedChanged);
             // 
             // AskForMaterialState
             // 
@@ -96,6 +98,7 @@
             this.Controls.Add(this.previousScreenButton);
             this.Name = "AskForMaterialState";
             this.Size = new System.Drawing.Size(1090, 622);
+            this.Load += new System.EventHandler(this.AskForMaterialState_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

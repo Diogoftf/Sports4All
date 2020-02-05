@@ -40,5 +40,17 @@ namespace Sports4All
             lblUserFairPlay.Text = classifications["FairPlay"];
         }
 
+        private void rbtn_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+            if(rb.Name == "rbtnExpert")
+            {
+                Session.Instance.IsExperientUser = true;
+            }
+            else
+            {
+                Session.Instance.IsExperientUser = false;
+            }
+        }
     }
 }

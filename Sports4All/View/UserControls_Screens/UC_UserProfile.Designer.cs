@@ -237,6 +237,7 @@
             this.rbtnNovice.TabStop = true;
             this.rbtnNovice.Text = "Novato";
             this.rbtnNovice.UseVisualStyleBackColor = true;
+            this.rbtnNovice.CheckedChanged += new System.EventHandler(this.rbtn_CheckedChanged);
             // 
             // rbtnExpert
             // 
@@ -248,6 +249,7 @@
             this.rbtnExpert.TabStop = true;
             this.rbtnExpert.Text = "Experiente";
             this.rbtnExpert.UseVisualStyleBackColor = true;
+            this.rbtnExpert.CheckedChanged += new System.EventHandler(this.rbtn_CheckedChanged);
             // 
             // plLine
             // 

@@ -11,8 +11,12 @@ namespace Sports4All
     {
         private static Session _instance;
         public string LoggedUser { get; set; }
+        public bool IsExperientUser { get; set; }
 
-        private Session() { }
+        private Session() 
+        {
+            IsExperientUser = false;
+        }
 
         public static Session Instance
         {

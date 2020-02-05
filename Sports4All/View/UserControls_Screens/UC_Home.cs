@@ -10,6 +10,7 @@ namespace Sports4All
 {
     public partial class UC_Home : UserControl, IUserControl
     {
+        private IReserveStrategy _reserveStrategy;
         private HomeController _homeController = new HomeController();
         private ICollection<UC_HomeMyEventsItem> _MyEvents = new List<UC_HomeMyEventsItem>();
         private ICollection<UC_HomeMyEventsItem> _EventSuggestions = new List<UC_HomeMyEventsItem>();
@@ -88,7 +89,16 @@ namespace Sports4All
 
         private void btnCreateEvent_Click(object sender, EventArgs e)
         {
-            Form1.Instance.BringUcToFront<UC_CreateEvent>("UC_CreateEvent", "");
+            if(Session.Instance.IsExperientUser)
+            {
+                _reserveStrategy = new ExpertReserveStrategy();
+            }
+            else
+            {
+                _reserveStrategy = new NoviceReserveStrategy();
+            }
+
+            _reserveStrategy.DisplayReserveForm();
         }
 
 

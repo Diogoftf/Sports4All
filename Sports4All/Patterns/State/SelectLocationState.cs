@@ -49,13 +49,26 @@ namespace Sports4All.Patterns.State
 
         public void PopulateComboBox()
         {
-            //int sportId = EventCreationManager.Instance.SportId;
-            //IDictionary<int, string> sports = _createEventController.GetLocationsDictionary(sportId);
+            int sportId = EventCreationManager.Instance.SportId;
+            IDictionary<int, string> locations = _createEventController.GetLocationsDictionary(sportId);
 
-            //cbSelectLocation.DataSource = new BindingSource(sports, null);
-            //cbSelectLocation.DisplayMember = "Value";
-            //cbSelectLocation.ValueMember = "Key";
-            //cbSelectLocation.SelectedValue = 0;
+            cbSelectLocation.DataSource = new BindingSource(locations, null);
+            cbSelectLocation.DisplayMember = "Value";
+            cbSelectLocation.ValueMember = "Key";
+
+            if(locations.Count > 0)
+            {
+                foreach (KeyValuePair<int, string> pair in locations)
+                {
+                    cbSelectLocation.SelectedValue = pair.Key;
+                    EventCreationManager.Instance.LocationId = pair.Key;
+                    return;
+                }
+            }
+            else
+            {
+                nextScreenButton.Hide();
+            }
         }
 
         private void SelectLocationState_Load(object sender, EventArgs e)

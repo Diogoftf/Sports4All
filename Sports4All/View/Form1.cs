@@ -165,10 +165,6 @@ namespace Sports4All
 
         private void AddUserControlsToForm()
         {
-            
-            //ReserveNoviceForm rnf = new ReserveNoviceForm();
-            //ens.BringToFront();
-            //AddUserControl<EventNameState>("EventNameState", "");
             AddUserControl<UC_Home>("UC_Home", "");
         }
     }

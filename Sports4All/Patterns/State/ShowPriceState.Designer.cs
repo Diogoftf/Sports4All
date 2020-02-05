@@ -92,6 +92,7 @@
             this.Controls.Add(this.previousScreenButton);
             this.Name = "ShowPriceState";
             this.Size = new System.Drawing.Size(1090, 622);
+            this.Load += new System.EventHandler(this.ShowPriceState_Load);
             this.ResumeLayout(false);
 
         }

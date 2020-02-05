@@ -34,15 +34,19 @@ namespace Sports4All
 
         public int LocationId { get; set; }
 
-        public DateTime EventStartDate { get; set; }
+        public int ParkId { get; set; }
 
-        public DateTime EventEndDate { get; set; }
+        public DateTime EventStartDate { get; set; }
+        public DateTime EventStartTime { get; set; }
+        public DateTime EventEndTime{ get; set; }
 
         public int MinAge { get; set; }
 
         public int MaxAge { get; set; }
 
         public int MaxPlayers { get; set; }
+
+        public string AddMaterial { get; set; }
 
         public void CreateReserve()
         {

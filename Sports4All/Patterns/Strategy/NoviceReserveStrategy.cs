@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Sports4All.Patterns.State;
 
 namespace Sports4All
 {
@@ -10,7 +6,7 @@ namespace Sports4All
     {
         public void DisplayReserveForm()
         {
-            throw new NotImplementedException();
+            ReserveNoviceForm reserveNoviceForm = new ReserveNoviceForm();
         }
     }
 }

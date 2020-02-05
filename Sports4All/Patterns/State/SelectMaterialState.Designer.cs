@@ -62,9 +62,9 @@
             // 
             // flpMaterial
             // 
-            this.flpMaterial.Location = new System.Drawing.Point(290, 236);
+            this.flpMaterial.Location = new System.Drawing.Point(382, 236);
             this.flpMaterial.Name = "flpMaterial";
-            this.flpMaterial.Size = new System.Drawing.Size(496, 152);
+            this.flpMaterial.Size = new System.Drawing.Size(325, 152);
             this.flpMaterial.TabIndex = 13;
             // 
             // SelectMaterialState
@@ -77,6 +77,7 @@
             this.Controls.Add(this.previousScreenButton);
             this.Name = "SelectMaterialState";
             this.Size = new System.Drawing.Size(1090, 622);
+            this.Load += new System.EventHandler(this.SelectMaterialState_Load);
             this.ResumeLayout(false);
 
         }

@@ -32,9 +32,9 @@
             this.previousScreenButton = new Sports4All.View.UserControls_Items.PreviousScreenButton();
             this.lblMaxPlayers = new System.Windows.Forms.Label();
             this.cbPlayersNumber = new System.Windows.Forms.ComboBox();
-            this.cbMaxPlayers = new System.Windows.Forms.ComboBox();
+            this.cbMaxPlayersAge = new System.Windows.Forms.ComboBox();
             this.lblMinAge = new System.Windows.Forms.Label();
-            this.cbMinPlayers = new System.Windows.Forms.ComboBox();
+            this.cbMinPlayersAge = new System.Windows.Forms.ComboBox();
             this.lblMaxAge = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -73,16 +73,18 @@
             this.cbPlayersNumber.Name = "cbPlayersNumber";
             this.cbPlayersNumber.Size = new System.Drawing.Size(96, 33);
             this.cbPlayersNumber.TabIndex = 14;
+            this.cbPlayersNumber.SelectionChangeCommitted += new System.EventHandler(this.cbPlayersNumber_SelectionChangeCommitted);
             // 
-            // cbMaxPlayers
+            // cbMaxPlayersAge
             // 
-            this.cbMaxPlayers.Font = new System.Drawing.Font("Century Gothic", 13F);
-            this.cbMaxPlayers.FormattingEnabled = true;
-            this.cbMaxPlayers.Location = new System.Drawing.Point(493, 279);
-            this.cbMaxPlayers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbMaxPlayers.Name = "cbMaxPlayers";
-            this.cbMaxPlayers.Size = new System.Drawing.Size(96, 33);
-            this.cbMaxPlayers.TabIndex = 16;
+            this.cbMaxPlayersAge.Font = new System.Drawing.Font("Century Gothic", 13F);
+            this.cbMaxPlayersAge.FormattingEnabled = true;
+            this.cbMaxPlayersAge.Location = new System.Drawing.Point(493, 279);
+            this.cbMaxPlayersAge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbMaxPlayersAge.Name = "cbMaxPlayersAge";
+            this.cbMaxPlayersAge.Size = new System.Drawing.Size(96, 33);
+            this.cbMaxPlayersAge.TabIndex = 16;
+            this.cbMaxPlayersAge.SelectedIndexChanged += new System.EventHandler(this.cbMaxPlayersAge_SelectedIndexChanged);
             // 
             // lblMinAge
             // 
@@ -94,15 +96,16 @@
             this.lblMinAge.Text = "Idade mínima dos jogadores:";
             this.lblMinAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbMinPlayers
+            // cbMinPlayersAge
             // 
-            this.cbMinPlayers.Font = new System.Drawing.Font("Century Gothic", 13F);
-            this.cbMinPlayers.FormattingEnabled = true;
-            this.cbMinPlayers.Location = new System.Drawing.Point(493, 423);
-            this.cbMinPlayers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbMinPlayers.Name = "cbMinPlayers";
-            this.cbMinPlayers.Size = new System.Drawing.Size(96, 33);
-            this.cbMinPlayers.TabIndex = 18;
+            this.cbMinPlayersAge.Font = new System.Drawing.Font("Century Gothic", 13F);
+            this.cbMinPlayersAge.FormattingEnabled = true;
+            this.cbMinPlayersAge.Location = new System.Drawing.Point(493, 423);
+            this.cbMinPlayersAge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbMinPlayersAge.Name = "cbMinPlayersAge";
+            this.cbMinPlayersAge.Size = new System.Drawing.Size(96, 33);
+            this.cbMinPlayersAge.TabIndex = 18;
+            this.cbMinPlayersAge.SelectedIndexChanged += new System.EventHandler(this.cbMinPlayersAge_SelectedIndexChanged);
             // 
             // lblMaxAge
             // 
@@ -118,9 +121,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.Controls.Add(this.cbMinPlayers);
+            this.Controls.Add(this.cbMinPlayersAge);
             this.Controls.Add(this.lblMaxAge);
-            this.Controls.Add(this.cbMaxPlayers);
+            this.Controls.Add(this.cbMaxPlayersAge);
             this.Controls.Add(this.lblMinAge);
             this.Controls.Add(this.cbPlayersNumber);
             this.Controls.Add(this.lblMaxPlayers);
@@ -128,6 +131,7 @@
             this.Controls.Add(this.previousScreenButton);
             this.Name = "DefineUsersState";
             this.Size = new System.Drawing.Size(1090, 622);
+            this.Load += new System.EventHandler(this.DefineUsersState_Load);
             this.ResumeLayout(false);
 
         }
@@ -138,9 +142,9 @@
         private View.UserControls_Items.PreviousScreenButton previousScreenButton;
         private System.Windows.Forms.Label lblMaxPlayers;
         private System.Windows.Forms.ComboBox cbPlayersNumber;
-        private System.Windows.Forms.ComboBox cbMaxPlayers;
+        private System.Windows.Forms.ComboBox cbMaxPlayersAge;
         private System.Windows.Forms.Label lblMinAge;
-        private System.Windows.Forms.ComboBox cbMinPlayers;
+        private System.Windows.Forms.ComboBox cbMinPlayersAge;
         private System.Windows.Forms.Label lblMaxAge;
     }
 }

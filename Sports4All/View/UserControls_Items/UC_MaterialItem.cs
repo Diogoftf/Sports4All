@@ -32,7 +32,7 @@ namespace Sports4All
 
             get => _totalPrice;
         }
-        public string Preço
+        public string Price
         {
             set => _price = lblPrice.Text = value;
 

@@ -1,5 +1,6 @@
 ﻿using Sports4All.Controller;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Sports4All.Patterns.State
@@ -30,6 +31,7 @@ namespace Sports4All.Patterns.State
 
         public void NextScreen()
         {
+            SetDateTimeValues();
             _reserveNoviceForm.SetState(_reserveNoviceForm.AskForMaterialState);
         }
 
@@ -40,23 +42,63 @@ namespace Sports4All.Patterns.State
 
         public void Populate()
         {
+            PopulateDateTime();
+            PopulateComboBox();
 
+            nextScreenButton.ReserveNoviceForm = _reserveNoviceForm;
+            previousScreenButton.ReserveNoviceForm = _reserveNoviceForm;
         }
 
         public void PopulateComboBox()
         {
             int locationId = EventCreationManager.Instance.LocationId;
-            //IDictionary<int, string> sports = _createEventController.GetLocationsDictionary(sportId);
+            IDictionary<int, string> parks = _createEventController.GetParksOfLocation(locationId);
 
-            //cbSelectLocation.DataSource = new BindingSource(sports, null);
-            //cbSelectLocation.DisplayMember = "Value";
-            //cbSelectLocation.ValueMember = "Key";
-            //cbSelectLocation.SelectedValue = 0;
+            cbSelectPark.DataSource = new BindingSource(parks, null);
+            cbSelectPark.DisplayMember = "Value";
+            cbSelectPark.ValueMember = "Key";
+
+
+            if (parks.Count > 0)
+            {
+                foreach (KeyValuePair<int, string> pair in parks)
+                {
+                    cbSelectPark.SelectedValue = pair.Key;
+                    EventCreationManager.Instance.ParkId = pair.Key;
+                    return;
+                }
+            }
+            else
+            {
+                nextScreenButton.Hide();
+            }
         }
 
         private void SelectHourParkState_Load(object sender, EventArgs e)
         {
             Populate();
+        }
+
+        private void PopulateDateTime()
+        {
+            dtpEventStartDate.MinDate = DateTime.Today;
+
+            dtpEventStartTime.CustomFormat = "HH:mm";
+            dtpEventStartTime.Format = DateTimePickerFormat.Custom;
+            dtpEventStartTime.ShowUpDown = true;
+            dtpEventStartTime.MinDate = DateTime.Now;
+
+            dtpEventEndTime.CustomFormat = "HH:mm";
+            dtpEventEndTime.Format = DateTimePickerFormat.Custom;
+            dtpEventEndTime.ShowUpDown = true;
+            dtpEventEndTime.MinDate = DateTime.Now.AddHours(1.0);
+        }
+
+        private void SetDateTimeValues()
+        {
+            EventCreationManager.Instance.EventStartDate = dtpEventStartDate.Value;
+            EventCreationManager.Instance.EventStartTime = dtpEventStartTime.Value;
+            EventCreationManager.Instance.EventEndTime = dtpEventEndTime.Value;
         }
     }
 }

@@ -194,7 +194,7 @@ namespace Sports4All
                         UC_MaterialItem temp = new UC_MaterialItem(_priceEntity);
                         temp.Material = materiais[k].Name;
                         temp.PopulateQuantity(materiais[k].Available);
-                        temp.Preço = materiais[k].Price.ToString();
+                        temp.Price = materiais[k].Price.ToString();
                         flpMaterial.Controls.Add(temp);
                     }
                 }
@@ -251,10 +251,10 @@ namespace Sports4All
                     switch (uc_material.Material)
                     {
                         case "Raquete":
-                            _priceEntity = new RaqueteDecorator(_priceEntity, uc_material.Quantidade, Convert.ToDouble(uc_material.Preço));
+                            _priceEntity = new RaqueteDecorator(_priceEntity, uc_material.Quantidade, Convert.ToDouble(uc_material.Price));
                             break;
                         case "Bola":
-                            _priceEntity = new BolaDecorator(_priceEntity, uc_material.Quantidade, Convert.ToDouble(uc_material.Preço));
+                            _priceEntity = new BolaDecorator(_priceEntity, uc_material.Quantidade, Convert.ToDouble(uc_material.Price));
                             break;
                     }
                 }

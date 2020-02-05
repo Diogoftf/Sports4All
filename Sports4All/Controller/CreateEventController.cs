@@ -178,5 +178,30 @@ namespace Sports4All.Controller
 
             return sports;
         }
+
+        public IDictionary<int, string> GetParksOfLocation(int idLocation)
+        {
+            IDictionary<int, string> parks = new Dictionary<int, string>();
+
+            using (ModelContext db = new ModelContext())
+            {
+                var parksQuery = db.Parks
+                    .Include("Address")
+                    .Where(x => x.Address.CountyId == idLocation);
+
+                foreach (var park in parksQuery)
+                {
+                    if (!parks.ContainsKey(park.ParkId))
+                    {
+                        var parkId = park.ParkId;
+                        var parkName = park.Name;
+                        parks.Add(parkId, parkName);
+                    }
+                }
+
+            }
+
+            return parks;
+        }
     }
 }

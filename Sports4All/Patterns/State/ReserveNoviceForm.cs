@@ -21,10 +21,10 @@ namespace Sports4All.Patterns.State
             SelectSportState = new SelectSportState(this);
             SelectLocationState = new SelectLocationState(this);
             SelectHourParkState = new SelectHourParkState(this);
-           // AskForMaterialState = new AskForMaterialState(this);
-           // SelectMaterialState = new SelectMaterialState(this);
-            //DefineUsersState = new DefineUsersState(this);
-            //ShowPriceState = new ShowPriceState(this);
+            AskForMaterialState = new AskForMaterialState(this);
+            SelectMaterialState = new SelectMaterialState(this);
+            DefineUsersState = new DefineUsersState(this);
+            ShowPriceState = new ShowPriceState(this);
 
             _state = EventNameState;
             _state.Display();
