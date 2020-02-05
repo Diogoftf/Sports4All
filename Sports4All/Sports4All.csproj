@@ -322,12 +322,6 @@
     <Compile Include="View\UserControls_Screens\UC_SportsGround.Designer.cs">
       <DependentUpon>UC_SportsGround.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls_Screens\UC_Subscriptions.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\UserControls_Screens\UC_Subscriptions.Designer.cs">
-      <DependentUpon>UC_Subscriptions.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="View\Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
@@ -421,9 +415,6 @@
     </Compile>
     <EmbeddedResource Include="View\UserControls_Screens\UC_SportsGround.resx">
       <DependentUpon>UC_SportsGround.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls_Screens\UC_Subscriptions.resx">
-      <DependentUpon>UC_Subscriptions.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
