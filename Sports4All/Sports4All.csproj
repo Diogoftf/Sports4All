@@ -330,12 +330,15 @@
     </Compile>
     <EmbeddedResource Include="View\Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001311502145_M001.resx">
       <DependentUpon>202001311502145_M001.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001311800595_M002.resx">
       <DependentUpon>202001311800595_M002.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls_Items\UC_MaterialItem.resx">
       <DependentUpon>UC_MaterialItem.cs</DependentUpon>

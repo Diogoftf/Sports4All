@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using System.Collections.ObjectModel;
 using Sports4All.Controller;
 using Sports4All.Decorator;
 
@@ -174,7 +172,7 @@ namespace Sports4All
                 {
                     for (int j = 0; j < groundsRecinto[i].Sports.ToList().Count; j++)
                     {
-                        if (groundsRecinto[i].Sports.ToList()[j].SportId == sport.SportId)//
+                        if (groundsRecinto[i].Sports.ToList()[j].SportId == sport.SportId)
                         {
                             _reserve.GroundId = groundsRecinto[i].GroundId;
                             _reserve.SportId = sport.SportId;
@@ -198,39 +196,12 @@ namespace Sports4All
                         temp.PopulateQuantity(materiais[k].Available);
                         temp.Preço = materiais[k].Price.ToString();
                         flpMaterial.Controls.Add(temp);
-                        //temp.CBQuantidade.SelectedIndexChanged += new EventHandler(CB_MaterialQuantity_Handler);
                     }
                 }
 
             }
 
         }
-
-        //private void CB_MaterialQuantity_Handler(object sender, EventArgs e)
-        //{
-        //    ComboBox eventOriginator = (ComboBox)sender;
-
-        //    for (int i = 0; i < flpMaterial.Controls.Count; i++)
-        //    {
-        //        UC_MaterialItem uc_material = (UC_MaterialItem)flpMaterial.Controls[i];
-        //        if (uc_material.CBQuantidade.Equals(eventOriginator))
-        //        {
-        //            switch (uc_material.Material)
-        //            {
-        //                case "Raquete":
-        //                    _priceEntity = new RaqueteDecorator(_priceEntity, eventOriginator.SelectedIndex, Convert.ToDouble(uc_material.Preço));
-        //                    break;
-        //                case "Bola":
-        //                    _priceEntity = new BolaDecorator(_priceEntity, eventOriginator.SelectedIndex, Convert.ToDouble(uc_material.Preço));
-        //                    break;
-        //            }
-        //        }
-
-        //    }
-
-        //        lbMoney.Text = Convert.ToString(_priceEntity.getCost());
-
-        //}
 
         private void btnCreateEvent_Click_1(object sender, EventArgs e)
         {

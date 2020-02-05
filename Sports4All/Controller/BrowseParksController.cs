@@ -5,7 +5,6 @@ namespace Sports4All.Controller
 {
     class BrowseParksController
     {
-        //a funcionar, retorna os Ids dos concelhos que têm reservas| tanto faço isto com ids como com names, é ver o que preferes
         public ICollection<int> GetReservesCountyIds()
         {
             ICollection<int> countyIds = new HashSet<int>();

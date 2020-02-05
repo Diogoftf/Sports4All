@@ -26,29 +26,22 @@ namespace Sports4All
             get => cbQtty;
         }
 
-
         public Label TotalPrice
         {
             set { _totalPrice = value; }
 
             get => _totalPrice;
         }
-        public string Preço //
+        public string Preço
         {
-            set
-            {
-                _price = lblPrice.Text = value;
-            }
+            set => _price = lblPrice.Text = value;
 
             get => _price;
         }
 
-        public string Material //
+        public string Material
         {
-            set
-            {
-                _material = lblMaterial.Text = value;
-            }
+            set => _material = lblMaterial.Text = value;
 
             get => lblMaterial.Text;
         }
@@ -64,11 +57,6 @@ namespace Sports4All
         {
             InitializeComponent();
             this._priceEntity = _priceEntity;
-        }
-
-        private void UC_MaterialItem_Load(object sender, EventArgs e)
-        {
-
         }
 
         public void PopulateQuantity(int qttd)

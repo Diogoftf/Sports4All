@@ -30,11 +30,6 @@ namespace Sports4All.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-
-            //if (System.Diagnostics.Debugger.IsAttached == false)
-            //{
-            //    System.Diagnostics.Debugger.Launch();
-            //}
         }
 
         private void AddDistricts(ModelContext context)
@@ -360,8 +355,6 @@ namespace Sports4All.Migrations
             ParkClassification(context);
             UserClassification(context);
             AddMaterial(context);
-            // Esta lista contem todas as avaliações feitas da josefa aos utilizadores desse evento especifico
-            // Esta lista contem todas as avaliações feitas da josefa aos recintos
             ICollection<Evaluation> listEvaluationsRuben = new Collection<Evaluation>();
             ICollection<Reserve> listReservesRuben = new Collection<Reserve>();
             ICollection<Event> listEventsRuben = new Collection<Event>();

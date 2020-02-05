@@ -62,7 +62,6 @@ namespace Sports4All
 
         public void BringUcToFront<T>(string ucName, string id) where T : UserControl, IUserControl, new()
         {
-            //Instance.PnlContainer.Controls.Clear();
             if (!Instance.PnlContainer.Controls.ContainsKey(ucName))
             {
                 AddUserControl<T>(ucName, id);
