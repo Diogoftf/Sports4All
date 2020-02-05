@@ -237,6 +237,7 @@
             // 
             // cPB4
             // 
+            //this.cPB4.Image = global::Sports4All.Properties.Resources.Webp_net_resizeimage__1_;
             this.cPB4.Location = new System.Drawing.Point(762, 284);
             this.cPB4.Margin = new System.Windows.Forms.Padding(2);
             this.cPB4.Name = "cPB4";
@@ -248,6 +249,7 @@
             // 
             // cPB3
             // 
+           // this.cPB3.Image = global::Sports4All.Properties.Resources.Webp_net_resizeimage__2_;
             this.cPB3.Location = new System.Drawing.Point(583, 284);
             this.cPB3.Margin = new System.Windows.Forms.Padding(2);
             this.cPB3.Name = "cPB3";
@@ -259,6 +261,7 @@
             // 
             // cPB2
             // 
+          //  this.cPB2.Image = global::Sports4All.Properties.Resources.Webp_net_resizeimage__3_;
             this.cPB2.Location = new System.Drawing.Point(406, 284);
             this.cPB2.Margin = new System.Windows.Forms.Padding(2);
             this.cPB2.Name = "cPB2";
@@ -270,6 +273,7 @@
             // 
             // cPB1
             // 
+          //  this.cPB1.Image = global::Sports4All.Properties.Resources.Webp_net_resizeimage;
             this.cPB1.Location = new System.Drawing.Point(238, 284);
             this.cPB1.Margin = new System.Windows.Forms.Padding(2);
             this.cPB1.Name = "cPB1";
@@ -529,6 +533,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
+           // this.btnExit.Image = global::Sports4All.Properties.Resources.btnExit_Image;
             this.btnExit.Location = new System.Drawing.Point(1058, 14);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExit.Name = "btnExit";
@@ -542,7 +547,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1120, 601);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.tabControl1);

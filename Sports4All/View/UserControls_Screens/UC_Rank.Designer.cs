@@ -172,9 +172,8 @@
             // 
             // UC_Rank
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoSize = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnTopRecintos);
             this.Controls.Add(this.tbpClassification);
             this.Controls.Add(this.flpRank);

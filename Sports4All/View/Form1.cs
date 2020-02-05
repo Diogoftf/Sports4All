@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Sports4All.Controller;
+using System.Linq;
 using Sports4All.Patterns.State;
 
 namespace Sports4All
@@ -163,6 +165,7 @@ namespace Sports4All
 
         private void AddUserControlsToForm()
         {
+            
             //ReserveNoviceForm rnf = new ReserveNoviceForm();
             //ens.BringToFront();
             //AddUserControl<EventNameState>("EventNameState", "");
