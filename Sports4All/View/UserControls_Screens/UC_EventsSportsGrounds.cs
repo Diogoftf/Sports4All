@@ -52,8 +52,6 @@ namespace Sports4All
 
         public void Populate()
         {
-           
-            flpEventListSportsground.Controls.Clear();
             _eventsList = _eventsController.EventsByGround(Convert.ToInt32(Id));
             if (!DesignMode) ListEventsbyGround();
         }
@@ -64,9 +62,10 @@ namespace Sports4All
             UC_NextEventsandReserveItem[] listitems = new UC_NextEventsandReserveItem[EventsbyGroundCount];
             var Park = _parkController.GetPark(Convert.ToInt32(Id));
             ParkName = Park.Name;
-            UC_NextEventsandReserveItem _eventGround = new UC_NextEventsandReserveItem();
+            
             foreach (var eventGround in _eventsList)
             {
+                UC_NextEventsandReserveItem _eventGround = new UC_NextEventsandReserveItem();
                 var users = eventGround.Users.ToList();
                 var usersCount = eventGround.Users.Count;
                 var maxUsers = eventGround.MaxPlayers;
@@ -77,13 +76,13 @@ namespace Sports4All
                 _eventGround.Owner = _eventsList.ToList()[0].Reserve.UserId;
                 _eventGround.SportGround = _eventsList.ToList()[0].Reserve.Ground.Park.Name;
                 _eventGround.Hour = eventGround.StartDate.ToShortTimeString();
+                _eventGround.Sport = eventGround.Reserve.Sport.Name;
                 _eventGround.Day = Convert.ToString(eventGround.StartDate.Day);
                 _eventGround.Month = month;
                 _eventGround.Lotation = usersCount + "/" + maxUsers;
                 _eventGround.EventID = Convert.ToString(eventGround.EventId);
-               
-                var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _eventGround, users, _username);
-                flpEventListSportsground.Controls.Add(eventItem);
+               var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _eventGround, users, _username);
+                flpEventListSportsground.Controls.Add(_eventGround);
             }
         }
         private void mouseHover(object sender, EventArgs e)
@@ -179,7 +178,7 @@ namespace Sports4All
                 btnFootball.BackColor = Color.LightGray;
                 btnHandball.BackColor = Color.LightGray;
                 flpEventListSportsground.Controls.Clear();
-                _eventsList = _eventsController.EventsByGround(_id);
+                _eventsList = _eventsController.EventsByGround(Convert.ToInt32(Id));
                 ListEventsbyGround();
             }
         }
