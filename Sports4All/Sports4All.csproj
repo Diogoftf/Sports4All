@@ -470,9 +470,9 @@
     <Content Include="Images\close.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\Desporto1.png" />
-    <Content Include="Images\Desporto2.png" />
     <Content Include="Images\Desporto3.png" />
     <Content Include="Images\Desporto4.png" />
+    <Content Include="Images\Desporto2.png" />
     <Content Include="Images\details.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\edit1.png" />
