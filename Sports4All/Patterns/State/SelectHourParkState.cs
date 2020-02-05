@@ -1,5 +1,7 @@
-﻿using Sports4All.Controller;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Sports4All.Patterns.State
@@ -7,7 +9,6 @@ namespace Sports4All.Patterns.State
     public partial class SelectHourParkState : UserControl, IReserveFormState
     {
         private ReserveNoviceForm _reserveNoviceForm;
-        private CreateEventController _createEventController;
 
         public SelectHourParkState()
         {
@@ -18,7 +19,6 @@ namespace Sports4All.Patterns.State
         {
             InitializeComponent();
             _reserveNoviceForm = reserveNoviceForm;
-            _createEventController = new CreateEventController();
         }
 
         public string Id { get; set; }
@@ -40,18 +40,7 @@ namespace Sports4All.Patterns.State
 
         public void Populate()
         {
-
-        }
-
-        public void PopulateComboBox()
-        {
-            int locationId = EventCreationManager.Instance.LocationId;
-            //IDictionary<int, string> sports = _createEventController.GetLocationsDictionary(sportId);
-
-            //cbSelectLocation.DataSource = new BindingSource(sports, null);
-            //cbSelectLocation.DisplayMember = "Value";
-            //cbSelectLocation.ValueMember = "Key";
-            //cbSelectLocation.SelectedValue = 0;
+            throw new NotImplementedException();
         }
 
         private void SelectHourParkState_Load(object sender, EventArgs e)

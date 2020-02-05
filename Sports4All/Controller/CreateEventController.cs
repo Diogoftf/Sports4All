@@ -135,48 +135,5 @@ namespace Sports4All.Controller
                 context.SaveChanges();
             }
         }
-
-        public IDictionary<int, string> GetLocationsDictionary(int sportId)
-        {
-            IDictionary<int, string> locations = new Dictionary<int, string>();
-
-            using (ModelContext db = new ModelContext())
-            {
-                var groundsOfSport = db.Sports.Include("Grounds.Park.Address.County").FirstOrDefault(x => x.SportId == sportId).Grounds;
-                
-                foreach(var ground in groundsOfSport)
-                {
-                    if (!locations.ContainsKey(ground.Park.Address.CountyId))
-                    {
-                        var countyId = ground.Park.Address.CountyId;
-                        var countyName = ground.Park.Address.County.Name;
-                        locations.Add(countyId, countyName);
-                    }
-                }
-
-            }
-
-            return locations;
-        }
-
-        public IDictionary<int, string> GetSportsDictionary()
-        {
-            IDictionary<int, string> sports = new Dictionary<int, string>();
-
-            using (ModelContext db = new ModelContext())
-            {
-                var sportsQuery = db.Sports;
-
-                foreach (var sport in sportsQuery)
-                {
-                    var sportId = sport.SportId;
-                    var sportName = sport.Name;
-                    sports.Add(sportId, sportName);
-                }
-
-            }
-
-            return sports;
-        }
     }
 }

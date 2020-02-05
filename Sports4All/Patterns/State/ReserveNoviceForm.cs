@@ -17,12 +17,12 @@ namespace Sports4All.Patterns.State
 
         public ReserveNoviceForm()
         {
-            EventNameState = new EventNameState(this);
-            SelectSportState = new SelectSportState(this);
-            SelectLocationState = new SelectLocationState(this);
-            SelectHourParkState = new SelectHourParkState(this);
-           // AskForMaterialState = new AskForMaterialState(this);
-           // SelectMaterialState = new SelectMaterialState(this);
+            //EventNameState = new EventNameState(this);
+            //SelectSportState = new SelectSportState(this);
+            //SelectLocationState = new SelectLocationState(this);
+            //SelectHourParkState = new SelectHourParkState(this);
+            //AskForMaterialState = new AskForMaterialState(this);
+            //SelectMaterialState = new SelectMaterialState(this);
             //DefineUsersState = new DefineUsersState(this);
             //ShowPriceState = new ShowPriceState(this);
 

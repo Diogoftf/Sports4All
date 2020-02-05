@@ -55,7 +55,6 @@ namespace Sports4All.UserControls_Items
         private void UC_EventItem_DoubleClick(object sender, EventArgs e)
         { 
             Form1.Instance.BringUcToFront<UC_EventsModality>("UC_EventsModality", Id.ToString());
-
         }
     }
 }

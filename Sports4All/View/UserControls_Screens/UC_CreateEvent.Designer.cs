@@ -70,9 +70,9 @@
             // 
             this.lbMaxAge.AutoSize = true;
             this.lbMaxAge.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMaxAge.Location = new System.Drawing.Point(3, 43);
+            this.lbMaxAge.Location = new System.Drawing.Point(3, 54);
             this.lbMaxAge.Name = "lbMaxAge";
-            this.lbMaxAge.Size = new System.Drawing.Size(49, 43);
+            this.lbMaxAge.Size = new System.Drawing.Size(62, 54);
             this.lbMaxAge.TabIndex = 1;
             this.lbMaxAge.Text = "Max";
             this.lbMaxAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -81,19 +81,19 @@
             // 
             this.cbMaxAge.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbMaxAge.FormattingEnabled = true;
-            this.cbMaxAge.Location = new System.Drawing.Point(58, 47);
-            this.cbMaxAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
+            this.cbMaxAge.Location = new System.Drawing.Point(71, 59);
+            this.cbMaxAge.Margin = new System.Windows.Forms.Padding(3, 5, 3, 2);
             this.cbMaxAge.Name = "cbMaxAge";
-            this.cbMaxAge.Size = new System.Drawing.Size(414, 30);
+            this.cbMaxAge.Size = new System.Drawing.Size(457, 35);
             this.cbMaxAge.TabIndex = 3;
             // 
             // lbPlayersAge
             // 
             this.lbPlayersAge.AutoSize = true;
             this.lbPlayersAge.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbPlayersAge.Location = new System.Drawing.Point(4, 399);
+            this.lbPlayersAge.Location = new System.Drawing.Point(4, 473);
             this.lbPlayersAge.Name = "lbPlayersAge";
-            this.lbPlayersAge.Size = new System.Drawing.Size(257, 120);
+            this.lbPlayersAge.Size = new System.Drawing.Size(315, 176);
             this.lbPlayersAge.TabIndex = 15;
             this.lbPlayersAge.Text = "Idade";
             this.lbPlayersAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -102,9 +102,9 @@
             // 
             this.lbSchedule.AutoSize = true;
             this.lbSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbSchedule.Location = new System.Drawing.Point(4, 261);
+            this.lbSchedule.Location = new System.Drawing.Point(4, 306);
             this.lbSchedule.Name = "lbSchedule";
-            this.lbSchedule.Size = new System.Drawing.Size(257, 102);
+            this.lbSchedule.Size = new System.Drawing.Size(315, 126);
             this.lbSchedule.TabIndex = 4;
             this.lbSchedule.Text = "Horário";
             this.lbSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,9 +113,9 @@
             // 
             this.lbDate.AutoSize = true;
             this.lbDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbDate.Location = new System.Drawing.Point(4, 226);
+            this.lbDate.Location = new System.Drawing.Point(4, 266);
             this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(257, 34);
+            this.lbDate.Size = new System.Drawing.Size(315, 39);
             this.lbDate.TabIndex = 3;
             this.lbDate.Text = "Data";
             this.lbDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,9 +124,9 @@
             // 
             this.lbSport.AutoSize = true;
             this.lbSport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbSport.Location = new System.Drawing.Point(4, 191);
+            this.lbSport.Location = new System.Drawing.Point(4, 226);
             this.lbSport.Name = "lbSport";
-            this.lbSport.Size = new System.Drawing.Size(257, 34);
+            this.lbSport.Size = new System.Drawing.Size(315, 39);
             this.lbSport.TabIndex = 2;
             this.lbSport.Text = "Endereço";
             this.lbSport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,9 +135,9 @@
             // 
             this.lbLocation.AutoSize = true;
             this.lbLocation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbLocation.Location = new System.Drawing.Point(4, 106);
+            this.lbLocation.Location = new System.Drawing.Point(4, 121);
             this.lbLocation.Name = "lbLocation";
-            this.lbLocation.Size = new System.Drawing.Size(257, 84);
+            this.lbLocation.Size = new System.Drawing.Size(315, 104);
             this.lbLocation.TabIndex = 1;
             this.lbLocation.Text = "Material";
             this.lbLocation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,48 +145,48 @@
             // cbPlayersNumber
             // 
             this.cbPlayersNumber.FormattingEnabled = true;
-            this.cbPlayersNumber.Location = new System.Drawing.Point(268, 366);
+            this.cbPlayersNumber.Location = new System.Drawing.Point(326, 435);
             this.cbPlayersNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbPlayersNumber.Name = "cbPlayersNumber";
-            this.cbPlayersNumber.Size = new System.Drawing.Size(468, 30);
+            this.cbPlayersNumber.Size = new System.Drawing.Size(526, 35);
             this.cbPlayersNumber.TabIndex = 12;
             // 
             // cbMinAge
             // 
             this.cbMinAge.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbMinAge.FormattingEnabled = true;
-            this.cbMinAge.Location = new System.Drawing.Point(58, 4);
-            this.cbMinAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
+            this.cbMinAge.Location = new System.Drawing.Point(71, 5);
+            this.cbMinAge.Margin = new System.Windows.Forms.Padding(3, 5, 3, 2);
             this.cbMinAge.Name = "cbMinAge";
-            this.cbMinAge.Size = new System.Drawing.Size(414, 30);
+            this.cbMinAge.Size = new System.Drawing.Size(457, 35);
             this.cbMinAge.TabIndex = 2;
             // 
             // cbSport
             // 
             this.cbSport.FormattingEnabled = true;
-            this.cbSport.Location = new System.Drawing.Point(268, 73);
+            this.cbSport.Location = new System.Drawing.Point(326, 83);
             this.cbSport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbSport.Name = "cbSport";
-            this.cbSport.Size = new System.Drawing.Size(468, 30);
+            this.cbSport.Size = new System.Drawing.Size(526, 35);
             this.cbSport.TabIndex = 26;
             this.cbSport.SelectedIndexChanged += new System.EventHandler(this.cbSport_SelectedIndexChanged);
             // 
             // flpMaterial
             // 
             this.flpMaterial.AutoScroll = true;
-            this.flpMaterial.Location = new System.Drawing.Point(268, 108);
+            this.flpMaterial.Location = new System.Drawing.Point(326, 123);
             this.flpMaterial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpMaterial.Name = "flpMaterial";
-            this.flpMaterial.Size = new System.Drawing.Size(575, 80);
+            this.flpMaterial.Size = new System.Drawing.Size(647, 100);
             this.flpMaterial.TabIndex = 27;
             // 
             // cbPark
             // 
             this.cbPark.FormattingEnabled = true;
-            this.cbPark.Location = new System.Drawing.Point(268, 38);
+            this.cbPark.Location = new System.Drawing.Point(326, 43);
             this.cbPark.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbPark.Name = "cbPark";
-            this.cbPark.Size = new System.Drawing.Size(468, 30);
+            this.cbPark.Size = new System.Drawing.Size(526, 35);
             this.cbPark.TabIndex = 25;
             this.cbPark.SelectedIndexChanged += new System.EventHandler(this.cbPark_SelectedIndexChanged);
             // 
@@ -194,9 +194,9 @@
             // 
             this.lbPark.AutoSize = true;
             this.lbPark.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbPark.Location = new System.Drawing.Point(4, 36);
+            this.lbPark.Location = new System.Drawing.Point(4, 41);
             this.lbPark.Name = "lbPark";
-            this.lbPark.Size = new System.Drawing.Size(257, 34);
+            this.lbPark.Size = new System.Drawing.Size(315, 39);
             this.lbPark.TabIndex = 24;
             this.lbPark.Text = "Parque Desportivo";
             this.lbPark.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -210,23 +210,23 @@
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.dtpStartEventTime, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(268, 263);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(326, 308);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(288, 98);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(324, 122);
             this.tableLayoutPanel3.TabIndex = 17;
             // 
             // dtpEndEventTime
             // 
             this.dtpEndEventTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEndEventTime.Location = new System.Drawing.Point(93, 56);
-            this.dtpEndEventTime.Margin = new System.Windows.Forms.Padding(3, 7, 3, 2);
+            this.dtpEndEventTime.Location = new System.Drawing.Point(110, 70);
+            this.dtpEndEventTime.Margin = new System.Windows.Forms.Padding(3, 9, 3, 2);
             this.dtpEndEventTime.Name = "dtpEndEventTime";
-            this.dtpEndEventTime.Size = new System.Drawing.Size(182, 30);
+            this.dtpEndEventTime.Size = new System.Drawing.Size(204, 35);
             this.dtpEndEventTime.TabIndex = 15;
             // 
             // label1
@@ -235,7 +235,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 49);
+            this.label1.Size = new System.Drawing.Size(101, 61);
             this.label1.TabIndex = 0;
             this.label1.Text = "Entrada";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -244,9 +244,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 49);
+            this.label2.Location = new System.Drawing.Point(3, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 49);
+            this.label2.Size = new System.Drawing.Size(101, 61);
             this.label2.TabIndex = 1;
             this.label2.Text = "Saida";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -254,20 +254,20 @@
             // dtpStartEventTime
             // 
             this.dtpStartEventTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpStartEventTime.Location = new System.Drawing.Point(93, 7);
-            this.dtpStartEventTime.Margin = new System.Windows.Forms.Padding(3, 7, 3, 2);
+            this.dtpStartEventTime.Location = new System.Drawing.Point(110, 9);
+            this.dtpStartEventTime.Margin = new System.Windows.Forms.Padding(3, 9, 3, 2);
             this.dtpStartEventTime.Name = "dtpStartEventTime";
-            this.dtpStartEventTime.Size = new System.Drawing.Size(182, 30);
+            this.dtpStartEventTime.Size = new System.Drawing.Size(204, 35);
             this.dtpStartEventTime.TabIndex = 14;
             // 
             // pbEvent
             // 
             this.pbEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbEvent.Image = ((System.Drawing.Image)(resources.GetObject("pbEvent.Image")));
-            this.pbEvent.Location = new System.Drawing.Point(438, 0);
+            this.pbEvent.Location = new System.Drawing.Point(493, 0);
             this.pbEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbEvent.Name = "pbEvent";
-            this.pbEvent.Size = new System.Drawing.Size(69, 60);
+            this.pbEvent.Size = new System.Drawing.Size(78, 75);
             this.pbEvent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEvent.TabIndex = 30;
             this.pbEvent.TabStop = false;
@@ -276,19 +276,19 @@
             // 
             this.lbCreateEvent.AutoSize = true;
             this.lbCreateEvent.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
-            this.lbCreateEvent.Location = new System.Drawing.Point(513, 20);
+            this.lbCreateEvent.Location = new System.Drawing.Point(577, 25);
             this.lbCreateEvent.Name = "lbCreateEvent";
-            this.lbCreateEvent.Size = new System.Drawing.Size(140, 26);
+            this.lbCreateEvent.Size = new System.Drawing.Size(166, 30);
             this.lbCreateEvent.TabIndex = 29;
             this.lbCreateEvent.Text = "Criar Evento";
             // 
             // tbLocation
             // 
-            this.tbLocation.Location = new System.Drawing.Point(268, 193);
+            this.tbLocation.Location = new System.Drawing.Point(326, 228);
             this.tbLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLocation.Name = "tbLocation";
             this.tbLocation.ReadOnly = true;
-            this.tbLocation.Size = new System.Drawing.Size(468, 30);
+            this.tbLocation.Size = new System.Drawing.Size(526, 35);
             this.tbLocation.TabIndex = 28;
             // 
             // btnCreateEvent
@@ -297,10 +297,10 @@
             this.btnCreateEvent.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.btnCreateEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateEvent.Image")));
             this.btnCreateEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateEvent.Location = new System.Drawing.Point(372, 588);
-            this.btnCreateEvent.Margin = new System.Windows.Forms.Padding(133, 2, 3, 2);
+            this.btnCreateEvent.Location = new System.Drawing.Point(418, 735);
+            this.btnCreateEvent.Margin = new System.Windows.Forms.Padding(150, 2, 3, 2);
             this.btnCreateEvent.Name = "btnCreateEvent";
-            this.btnCreateEvent.Size = new System.Drawing.Size(156, 46);
+            this.btnCreateEvent.Size = new System.Drawing.Size(176, 58);
             this.btnCreateEvent.TabIndex = 31;
             this.btnCreateEvent.Text = "Reservar";
             this.btnCreateEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -313,10 +313,10 @@
             this.btnCancelEvent.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.btnCancelEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelEvent.Image")));
             this.btnCancelEvent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelEvent.Location = new System.Drawing.Point(548, 588);
+            this.btnCancelEvent.Location = new System.Drawing.Point(616, 735);
             this.btnCancelEvent.Margin = new System.Windows.Forms.Padding(0, 2, 3, 2);
             this.btnCancelEvent.Name = "btnCancelEvent";
-            this.btnCancelEvent.Size = new System.Drawing.Size(149, 46);
+            this.btnCancelEvent.Size = new System.Drawing.Size(168, 58);
             this.btnCancelEvent.TabIndex = 28;
             this.btnCancelEvent.Text = "Cancelar";
             this.btnCancelEvent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -327,9 +327,9 @@
             // 
             this.lbPlayersNumber.AutoSize = true;
             this.lbPlayersNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbPlayersNumber.Location = new System.Drawing.Point(4, 364);
+            this.lbPlayersNumber.Location = new System.Drawing.Point(4, 433);
             this.lbPlayersNumber.Name = "lbPlayersNumber";
-            this.lbPlayersNumber.Size = new System.Drawing.Size(257, 34);
+            this.lbPlayersNumber.Size = new System.Drawing.Size(315, 39);
             this.lbPlayersNumber.TabIndex = 11;
             this.lbPlayersNumber.Text = "Quantidade de Jogadores";
             this.lbPlayersNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -337,19 +337,19 @@
             // dtpEventDate
             // 
             this.dtpEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEventDate.Location = new System.Drawing.Point(268, 228);
+            this.dtpEventDate.Location = new System.Drawing.Point(326, 268);
             this.dtpEventDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpEventDate.Name = "dtpEventDate";
-            this.dtpEventDate.Size = new System.Drawing.Size(468, 30);
+            this.dtpEventDate.Size = new System.Drawing.Size(526, 35);
             this.dtpEventDate.TabIndex = 13;
             // 
             // lbMaterial
             // 
             this.lbMaterial.AutoSize = true;
             this.lbMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMaterial.Location = new System.Drawing.Point(4, 71);
+            this.lbMaterial.Location = new System.Drawing.Point(4, 81);
             this.lbMaterial.Name = "lbMaterial";
-            this.lbMaterial.Size = new System.Drawing.Size(257, 34);
+            this.lbMaterial.Size = new System.Drawing.Size(315, 39);
             this.lbMaterial.TabIndex = 0;
             this.lbMaterial.Text = "Desporto";
             this.lbMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -363,14 +363,14 @@
             this.tableLayoutPanel2.Controls.Add(this.lbMaxAge, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.cbMinAge, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.cbMaxAge, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(268, 401);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(326, 475);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(468, 86);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(526, 108);
             this.tableLayoutPanel2.TabIndex = 16;
             // 
             // lbMinAge
@@ -379,7 +379,7 @@
             this.lbMinAge.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbMinAge.Location = new System.Drawing.Point(3, 0);
             this.lbMinAge.Name = "lbMinAge";
-            this.lbMinAge.Size = new System.Drawing.Size(49, 43);
+            this.lbMinAge.Size = new System.Drawing.Size(62, 54);
             this.lbMinAge.TabIndex = 0;
             this.lbMinAge.Text = "Min";
             this.lbMinAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -390,17 +390,17 @@
             this.lblEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblEvent.Location = new System.Drawing.Point(4, 1);
             this.lblEvent.Name = "lblEvent";
-            this.lblEvent.Size = new System.Drawing.Size(257, 34);
+            this.lblEvent.Size = new System.Drawing.Size(315, 39);
             this.lblEvent.TabIndex = 18;
             this.lblEvent.Text = "Nome do Evento";
             this.lblEvent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtEventName
             // 
-            this.txtEventName.Location = new System.Drawing.Point(268, 3);
+            this.txtEventName.Location = new System.Drawing.Point(326, 3);
             this.txtEventName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEventName.Name = "txtEventName";
-            this.txtEventName.Size = new System.Drawing.Size(468, 30);
+            this.txtEventName.Size = new System.Drawing.Size(526, 35);
             this.txtEventName.TabIndex = 20;
             // 
             // tableLayoutPanel1
@@ -429,7 +429,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 8);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 64);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 80);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 9;
@@ -442,21 +442,21 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1068, 520);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1202, 650);
             this.tableLayoutPanel1.TabIndex = 27;
             // 
             // UC_CreateEvent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pbEvent);
             this.Controls.Add(this.lbCreateEvent);
             this.Controls.Add(this.btnCreateEvent);
             this.Controls.Add(this.btnCancelEvent);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UC_CreateEvent";
-            this.Size = new System.Drawing.Size(1090, 622);
+            this.Size = new System.Drawing.Size(1226, 778);
             this.Load += new System.EventHandler(this.UC_CreateEvent_Load);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
