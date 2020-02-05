@@ -1,5 +1,4 @@
-﻿using Sports4All.UserControls_Screens;
-using System;
+﻿using System;
 using System.Linq;
 using System.Windows.Forms;
 using Sports4All.Controller;
@@ -113,12 +112,6 @@ namespace Sports4All
         {
             MoveSidePanel(button3);
             BringUcToFront<UC_SportsGround>("UC_SportsGround", "");
-        }
-
-        private void Btn_Subscriptions_Click(object sender, EventArgs e)
-        {
-            MoveSidePanel(button4);
-            BringUcToFront<UC_Subscriptions>("UC_Subscriptions", "");
         }
 
         private void Btn_MyEvents_Click(object sender, EventArgs e)

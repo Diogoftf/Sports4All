@@ -322,12 +322,6 @@
     <Compile Include="View\UserControls_Screens\UC_SportsGround.Designer.cs">
       <DependentUpon>UC_SportsGround.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls_Screens\UC_Subscriptions.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\UserControls_Screens\UC_Subscriptions.Designer.cs">
-      <DependentUpon>UC_Subscriptions.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="View\Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -425,9 +419,6 @@
     <EmbeddedResource Include="View\UserControls_Screens\UC_SportsGround.resx">
       <DependentUpon>UC_SportsGround.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls_Screens\UC_Subscriptions.resx">
-      <DependentUpon>UC_Subscriptions.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -473,9 +464,9 @@
     <Content Include="Images\close.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\Desporto1.png" />
-    <Content Include="Images\Desporto2.png" />
     <Content Include="Images\Desporto3.png" />
     <Content Include="Images\Desporto4.png" />
+    <Content Include="Images\Desporto2.png" />
     <Content Include="Images\details.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\edit1.png" />
