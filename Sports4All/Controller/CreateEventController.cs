@@ -62,22 +62,6 @@ namespace Sports4All.Controller
             }
         }
 
-        public Material GetMaterial(string materialName)
-        {
-            using (ModelContext db = new ModelContext())
-            {
-                return db.Materials.Where(f => f.Name == materialName).First();
-            }
-        }
-
-        public User GetCurrentUser(string username)
-        {
-            using (ModelContext db = new ModelContext())
-            {
-                return db.Users.First(f => f.Username.Equals(username));
-            }
-        }
-
         public void CreateReserve(ICollection<Use> materialUsage, Reserve Reserve, Event Event)
         {
             using (var db = new ModelContext())

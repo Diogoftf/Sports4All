@@ -16,7 +16,6 @@ namespace Sports4All.Controller
             }
 
         }
-
         public ICollection<string> getMyStats()
         {
             ICollection<string> userStats = new List<string>();

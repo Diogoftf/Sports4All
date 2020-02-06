@@ -36,7 +36,6 @@
             this.btnHandball = new System.Windows.Forms.Button();
             this.btnTenis = new System.Windows.Forms.Button();
             this.btnFootball = new System.Windows.Forms.Button();
-            this.btnAddEvent = new System.Windows.Forms.Button();
             this.plTopContent = new System.Windows.Forms.Panel();
             this.tbSportsgroundName = new System.Windows.Forms.TextBox();
             this.btnSub = new System.Windows.Forms.Button();
@@ -117,19 +116,6 @@
             this.btnFootball.UseVisualStyleBackColor = true;
             this.btnFootball.Click += new System.EventHandler(this.btnFootball_Click);
             // 
-            // btnAddEvent
-            // 
-            this.btnAddEvent.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAddEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAddEvent.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnAddEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddEvent.Image = ((System.Drawing.Image)(resources.GetObject("btnAddEvent.Image")));
-            this.btnAddEvent.Location = new System.Drawing.Point(470, 569);
-            this.btnAddEvent.Name = "btnAddEvent";
-            this.btnAddEvent.Size = new System.Drawing.Size(103, 72);
-            this.btnAddEvent.TabIndex = 20;
-            this.btnAddEvent.UseVisualStyleBackColor = false;
-            // 
             // plTopContent
             // 
             this.plTopContent.Controls.Add(this.tbSportsgroundName);
@@ -180,7 +166,6 @@
             this.Controls.Add(this.plTopContent);
             this.Controls.Add(this.flpEventListSportsground);
             this.Controls.Add(this.plSportsgroundMenuSelect);
-            this.Controls.Add(this.btnAddEvent);
             this.Name = "UC_EventsSportsGrounds";
             this.Size = new System.Drawing.Size(1089, 622);
             this.Load += new System.EventHandler(this.UC_EventsSportsGrounds_Load);
@@ -200,7 +185,6 @@
         private System.Windows.Forms.Button btnHandball;
         private System.Windows.Forms.Button btnTenis;
         private System.Windows.Forms.Button btnFootball;
-        private System.Windows.Forms.Button btnAddEvent;
         private System.Windows.Forms.Panel plTopContent;
         private System.Windows.Forms.TextBox tbSportsgroundName;
         private System.Windows.Forms.Button btnSub;

@@ -24,7 +24,6 @@ namespace Sports4All.Controller
             }
 
         }
-
         public ICollection<ParkClassification> getTopRecintos()
         {
             using (var db = new ModelContext())
