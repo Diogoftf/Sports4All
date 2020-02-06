@@ -1,5 +1,4 @@
-﻿
-namespace Sports4All
+﻿namespace Sports4All
 {
     public interface IReserveStrategy
     {

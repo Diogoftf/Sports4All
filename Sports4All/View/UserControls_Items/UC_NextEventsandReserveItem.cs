@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
-using System.Windows.Input;
-using Renci.SshNet;
 using Sports4All.Controller;
 
 namespace Sports4All
@@ -77,6 +74,7 @@ namespace Sports4All
            
             InitializeComponent();
             _username = Session.Instance.LoggedUser;
+            
             foreach (Control c in uC_UnregisterButton1.Controls)
             {
                 c.Click += Unregister;

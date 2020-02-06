@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Sports4All.Controller;
 
@@ -58,7 +59,7 @@ namespace Sports4All.Patterns.State
             cbSelectPark.ValueMember = "Key";
 
 
-            if (parks.Count > 0)
+            if (parks.Any())
             {
                 foreach (KeyValuePair<int, string> pair in parks)
                 {

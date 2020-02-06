@@ -1,6 +1,7 @@
 ﻿using Sports4All.Controller;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Sports4All.Patterns.State
@@ -56,7 +57,7 @@ namespace Sports4All.Patterns.State
             cbSelectLocation.DisplayMember = "Value";
             cbSelectLocation.ValueMember = "Key";
 
-            if(locations.Count > 0)
+            if (locations.Any())
             {
                 foreach (KeyValuePair<int, string> pair in locations)
                 {

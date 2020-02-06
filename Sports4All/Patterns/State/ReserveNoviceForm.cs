@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sports4All.Patterns.State
+﻿namespace Sports4All.Patterns.State
 {
     public class ReserveNoviceForm
     {

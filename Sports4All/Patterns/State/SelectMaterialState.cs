@@ -56,14 +56,14 @@ namespace Sports4All.Patterns.State
 
             var materials = _createEventController.GetMaterialsFromSport(sportId, parkId).ToList();
             
-            if (materials.Count > 0)
+            if (materials.Any())
             {
-                for (int k = 0; k < materials.Count; k++)
+                foreach (var material in materials)
                 {
                     UC_MaterialItem temp = new UC_MaterialItem(_priceEntity);
-                    temp.Material = materials[k].Name;
-                    temp.PopulateQuantity(materials[k].Available);
-                    temp.Price = materials[k].Price.ToString();
+                    temp.Material = material.Name;
+                    temp.PopulateQuantity(material.Available);
+                    temp.Price = material.Price.ToString();
                     flpMaterial.Controls.Add(temp);
                 }
             }
