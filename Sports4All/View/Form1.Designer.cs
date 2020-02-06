@@ -364,7 +364,6 @@
         private System.Windows.Forms.Button btnRanking;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button3;
-        private UC_SportsGround recintosControl1;
         private System.Windows.Forms.Button btn_Home;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnExit;

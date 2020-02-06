@@ -1,23 +1,16 @@
-﻿using Sports4All.Decorator;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sports4All.Decorator
+﻿namespace Sports4All.Decorator
 {
     class TimeDecorator : Decorator
     {
-        public TimeDecorator(IPriceEntity ground, int quantidade, double price) : base(ground, quantidade, price)
+        public TimeDecorator(IPriceEntity ground, int quantity, double price) : base(ground, quantity, price)
         {
-            this._quantidade = quantidade;
-            this._price = price;
+            _quantity = quantity;
+            _price = price;
         }
 
         public override double getCost()
         {
-            return base.getCost() + this._price * this._quantidade;
+            return base.getCost() + _price * _quantity;
         }
 
     }

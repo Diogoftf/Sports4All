@@ -3,9 +3,14 @@ using System.Linq;
 
 namespace Sports4All.Controller
 {
-    class EvaluationController
+    public class EvaluationController
     {
-        private List<IObserver> _observers = new List<IObserver>();
+        private RankController _rankController;
+
+        public EvaluationController()
+        {
+            _rankController = new RankController();
+        }
 
         public Park GetEventPark(int eventId)
         {
@@ -87,6 +92,8 @@ namespace Sports4All.Controller
                 db.Evaluations.Add(userEvaluation);
                 db.SaveChanges();
             }
+
+            _rankController.UpdateUserClassification(playerId);
         }
 
         internal void SetParkEvaluation(int parkId, int parkQuality, int parkPrice, int eventId)
@@ -115,6 +122,8 @@ namespace Sports4All.Controller
                 db.Evaluations.Add(parkEvaluation);
                 db.SaveChanges();
             }
+
+            _rankController.UpdateParkClassification(parkId);
         }
     }
 }

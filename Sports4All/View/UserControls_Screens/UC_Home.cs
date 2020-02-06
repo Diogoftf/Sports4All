@@ -105,7 +105,7 @@ namespace Sports4All
             _pbUnit = _pbWIDTH / 100.0;
             _pbComplete = 0;
             _bmp = new Bitmap(_pbWIDTH, _pbHEIGHT);
-            _timerProgressBar.Tick += new EventHandler(this.FillProgressBar);
+            _timerProgressBar.Tick += new EventHandler(FillProgressBar);
             _timerProgressBar.Interval = 10;
             _timerProgressBar.Start();
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Sports4All.Controller
@@ -12,10 +11,10 @@ namespace Sports4All.Controller
         public readonly double _skill_Weight = 3;
         public readonly double _ratio_Weight = 2;
         public readonly double _levelChange = 100;
-
         public readonly double _ParkPrice_Weight = 3;
         public readonly double _ParkQuality_Weight = 4;
-        public ICollection<UserClassification> getTopUsers()
+
+        public ICollection<UserClassification> GetTopUsers()
         {
 
             using (var db = new ModelContext())
@@ -24,7 +23,7 @@ namespace Sports4All.Controller
             }
 
         }
-        public ICollection<ParkClassification> getTopRecintos()
+        public ICollection<ParkClassification> GetTopGrounds()
         {
             using (var db = new ModelContext())
             {
@@ -40,7 +39,7 @@ namespace Sports4All.Controller
             {
                 ICollection<UserEvaluation> userEvaluations = GetUserEvaluations(username);
 
-                double avgFairPlay = GetUseFairPlayAvg(userEvaluations);
+                double avgFairPlay = GetUserFairPlayAvg(userEvaluations);
                 double avgSkill = GetUserSkillAvg(userEvaluations);
                 double avgRatio = GetUserRatio(username);
                 double Points = GetUserPoints(username);
@@ -48,10 +47,10 @@ namespace Sports4All.Controller
                 var userClassification = db.Classifications.Include("User").OfType<UserClassification>()
                     .FirstOrDefault(x => x.User.Username.Equals(username));
 
-                userClassification.FairplayAverage = Math.Round(avgFairPlay, 2);
-                userClassification.SkillAverage = Math.Round(avgSkill, 2);
-                userClassification.Ratio = Math.Round(avgRatio, 2);
-                userClassification.Points = Math.Round(Points, 2);
+                userClassification.FairplayAverage = avgFairPlay;
+                userClassification.SkillAverage = avgSkill;
+                userClassification.Ratio = avgRatio;
+                userClassification.Points = Points;
 
                 db.SaveChanges();
             }
@@ -61,7 +60,7 @@ namespace Sports4All.Controller
         {
             ICollection<UserEvaluation> userEvaluations = GetUserEvaluations(username);
 
-            double avgFairPlay = GetUseFairPlayAvg(userEvaluations);
+            double avgFairPlay = GetUserFairPlayAvg(userEvaluations);
             double avgSkill = GetUserSkillAvg(userEvaluations);
             double avgRatio = GetUserRatio(username);
             double eventsPerformed = 0;
@@ -75,61 +74,63 @@ namespace Sports4All.Controller
                 reservsPerformed = query.Reserves.Count;
             }
 
-            double avgPoints = avgFairPlay * this._fairplay_Weight + avgSkill * this._skill_Weight +
-                avgRatio * this._ratio_Weight + eventsPerformed * this._eventPerformed_Weight +
-                reservsPerformed * this._reservePerformed_Weight;
-
-            avgPoints = Math.Round(avgPoints, 2);
+            double avgPoints = avgFairPlay * _fairplay_Weight
+                + avgSkill * _skill_Weight
+                + avgRatio * _ratio_Weight
+                + eventsPerformed * _eventPerformed_Weight
+                + reservsPerformed * _reservePerformed_Weight;
 
             return avgPoints;
         }
 
         public double GetUserRatio(string username)
         {
-            ICollection<UserEvaluation> userEvaluations = GetUserEvaluations(username);
+            double avgRatio = 0;
+            ICollection <UserEvaluation> userEvaluations = GetUserEvaluations(username);
 
-            double avgFairPlay = GetUseFairPlayAvg(userEvaluations);
+            double avgFairPlay = GetUserFairPlayAvg(userEvaluations);
             double avgSkill = GetUserSkillAvg(userEvaluations);
 
-            double avgRatio = avgFairPlay / avgSkill;
-
-            avgRatio = Math.Round(avgRatio, 2);
-
+            if (userEvaluations.Any())
+            {
+                avgRatio = avgFairPlay / avgSkill;
+            }
+            
             return avgRatio;
         }
 
         private double GetUserSkillAvg(ICollection<UserEvaluation> userEvaluations)
         {
-            int skillSum = 0;
+            double avgSkill = 0;
+            double skillSum = 0;
 
             foreach (var evaluation in userEvaluations)
             {
                 skillSum += evaluation.Skill;
             }
 
-            double avgSkill = skillSum / userEvaluations.Count();
-
-            avgSkill = this._skill_Weight;
-
-            avgSkill = Math.Round(avgSkill, 2);
+            if (userEvaluations.Any())
+            {
+                avgSkill = skillSum / userEvaluations.Count();
+            }
 
             return avgSkill;
         }
 
-        private double GetUseFairPlayAvg(ICollection<UserEvaluation> userEvaluations)
+        private double GetUserFairPlayAvg(ICollection<UserEvaluation> userEvaluations)
         {
-            int fairPlaySum = 0;
+            double avgFairPlay = 0;
+            double fairPlaySum = 0;
 
             foreach (var evaluation in userEvaluations)
             {
                 fairPlaySum += evaluation.FairPlay;
             }
-
-            double avgFairPlay = fairPlaySum / userEvaluations.Count();
-
-            avgFairPlay *= this._fairplay_Weight;
-
-            avgFairPlay = Math.Round(avgFairPlay, 2);
+            
+            if(userEvaluations.Any())
+            {
+                avgFairPlay = fairPlaySum / userEvaluations.Count();
+            }
 
             return avgFairPlay;
         }
@@ -149,9 +150,7 @@ namespace Sports4All.Controller
                         userEvaluations.Add(evaluation);
                     }
                 }
-
                 return userEvaluations;
-
             }
         }
 
@@ -169,10 +168,10 @@ namespace Sports4All.Controller
                 var parkClassification = db.Classifications.Include("Park").OfType<ParkClassification>()
                     .FirstOrDefault(x => x.Park.ParkId == parkId);
 
-                parkClassification.PriceAverage = Math.Round(avgPrice, 2);
-                parkClassification.QualityAverage = Math.Round(avgQuality, 2);
-                parkClassification.Points = Math.Round(Points, 2);
-                parkClassification.Ratio = Math.Round(avgRatio, 2);
+                parkClassification.PriceAverage = avgPrice;
+                parkClassification.QualityAverage = avgQuality;
+                parkClassification.Points = Points;
+                parkClassification.Ratio = avgRatio;
 
                 db.SaveChanges();
             }
@@ -186,8 +185,6 @@ namespace Sports4All.Controller
             double avgQuality = GetParkQualityAvg(parkEvaluations);
             double avgRatio = avgQuality / avgPrice;
 
-            avgRatio = Math.Round(avgRatio, 2);
-
             return avgRatio;
         }
 
@@ -199,21 +196,20 @@ namespace Sports4All.Controller
             double avgQuality = GetParkQualityAvg(parkEvaluations);
             double avgRatio = GetParkRatio(parkId);
             double reservesPerformed = 0;
-            using(var db = new ModelContext())
+            using (var db = new ModelContext())
             {
-                var query = db.Parks.Include("Grounds.Reserves").Where(e => e.ParkId == parkId).FirstOrDefault();
-                
-                foreach(Ground a in query.Grounds)
+                var query = db.Parks.Where(e => e.ParkId == parkId).FirstOrDefault();
+
+                foreach (Ground a in query.Grounds)
                 {
-                    reservesPerformed += a.Reserves.Count();
+                    if (a.Reserves != null) { reservesPerformed += a.Reserves.Count(); };
                 }
             }
 
-            double points = avgPrice * this._ParkPrice_Weight + avgQuality * this._ParkQuality_Weight +
-                        reservesPerformed * this._reservePerformed_Weight +
-                        avgRatio * this._ratio_Weight;
-
-            points = Math.Round(points, 2);
+            double points = (avgPrice * _ParkPrice_Weight)
+                + (avgQuality * _ParkQuality_Weight)
+                + (reservesPerformed * _reservePerformed_Weight)
+                + (avgRatio * _ratio_Weight);
 
             return points;
         }
@@ -242,7 +238,7 @@ namespace Sports4All.Controller
 
         public double GetParkQualityAvg(ICollection<ParkEvaluation> parkEvaluations)
         {
-            int qualitySum = 0;
+            double qualitySum = 0;
 
             foreach (var evaluation in parkEvaluations)
             {
@@ -251,16 +247,12 @@ namespace Sports4All.Controller
 
             double avgQuality = qualitySum / parkEvaluations.Count();
 
-            avgQuality *= this._ParkQuality_Weight;
-
-            avgQuality = Math.Round(avgQuality, 2);
-
             return avgQuality;
         }
 
         public double GetParkPriceAvg(ICollection<ParkEvaluation> parkEvaluations)
         {
-            int priceSum = 0;
+            double priceSum = 0;
 
             foreach (var evaluation in parkEvaluations)
             {
@@ -268,10 +260,6 @@ namespace Sports4All.Controller
             }
 
             double avgPrice = priceSum / parkEvaluations.Count();
-
-            avgPrice *= this._ParkPrice_Weight;
-
-            avgPrice = Math.Round(avgPrice, 2);
 
             return avgPrice;
         }

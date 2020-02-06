@@ -13,7 +13,6 @@ namespace Sports4All.Patterns.State
         private CreateEventController _createEventController;
         public SelectHourParkState()
         {
-            _createEventController = new CreateEventController();
             InitializeComponent();
         }
 

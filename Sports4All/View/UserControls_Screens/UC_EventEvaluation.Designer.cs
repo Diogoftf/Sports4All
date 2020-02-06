@@ -92,7 +92,7 @@
             this.cbtnConfirmar.TabIndex = 2;
             this.cbtnConfirmar.Text = "Confirmar!";
             this.cbtnConfirmar.UseVisualStyleBackColor = false;
-            this.cbtnConfirmar.Click += new System.EventHandler(this.circularButton1_Click);
+            this.cbtnConfirmar.Click += new System.EventHandler(this.CircularButton1_Click);
             // 
             // UC_EventEvaluation
             // 
