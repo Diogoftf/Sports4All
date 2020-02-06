@@ -10,7 +10,7 @@
 
         public override double getCost()
         {
-            return (base.getCost() + _price) * _quantity;
+            return base.getCost() + _price * _quantity;
         }
 
       

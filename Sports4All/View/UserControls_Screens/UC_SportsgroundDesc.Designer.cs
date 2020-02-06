@@ -43,7 +43,7 @@
             // 
             // lbSportsgndName
             // 
-            this.lbSportsgndName.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.lbSportsgndName.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.lbSportsgndName.Location = new System.Drawing.Point(70, 42);
             this.lbSportsgndName.MaximumSize = new System.Drawing.Size(683, 38);
             this.lbSportsgndName.MinimumSize = new System.Drawing.Size(683, 38);
