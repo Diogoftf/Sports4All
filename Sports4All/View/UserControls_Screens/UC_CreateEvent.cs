@@ -43,7 +43,6 @@ namespace Sports4All
             }
 
             dtpEventDate.MinDate = DateTime.Today;
-
             dtpStartEventTime.CustomFormat = "HH:mm";
             dtpStartEventTime.Format = DateTimePickerFormat.Custom;
             dtpStartEventTime.ShowUpDown = true;
@@ -95,7 +94,7 @@ namespace Sports4All
             {
                 MessageBox.Show("Devera selecionar a Idade de jogadores.");
             }
-            else if (Int32.Parse(cbMaxAge.SelectedItem.ToString()) <= Int32.Parse(cbMinAge.SelectedItem.ToString()) || Int32.Parse(cbMinAge.SelectedItem.ToString()) >= Int32.Parse(cbMaxAge.SelectedItem.ToString()))
+            else if (int.Parse(cbMaxAge.SelectedItem.ToString()) <= Int32.Parse(cbMinAge.SelectedItem.ToString()) || Int32.Parse(cbMinAge.SelectedItem.ToString()) >= Int32.Parse(cbMaxAge.SelectedItem.ToString()))
             {
                 MessageBox.Show("A idade dos jogadores que irao participar nao é valida");
             }
@@ -163,7 +162,6 @@ namespace Sports4All
                 var sport = _createEventController.GetSport(cbSport.Text);
                 var parkId = _createEventController.GetPark(cbPark.Text).ParkId;
                 var parkGrounds = _createEventController.GetGrounds(cbPark.Text).ToList();
-
                
                 foreach (var ground in parkGrounds)
                 {
@@ -182,12 +180,14 @@ namespace Sports4All
 
                 flpMaterial.Controls.Clear();
 
-                if (materialList.Count > 0)
+                if (materialList.Any())
                 {
                     foreach (var material in materialList)
                     {
-                        UC_MaterialItem temp = new UC_MaterialItem(_priceEntity);
-                        temp.Material = material.Name;
+                        UC_MaterialItem temp = new UC_MaterialItem(_priceEntity)
+                        {
+                            Material = material.Name
+                        };
                         temp.PopulateQuantity(material.Available);
                         temp.Price = material.Price.ToString();
                         flpMaterial.Controls.Add(temp);
@@ -249,6 +249,8 @@ namespace Sports4All
                             break;
                         case "Bola":
                             _priceEntity = new BallDecorator(_priceEntity, uc_material.Quantity, Convert.ToDouble(uc_material.Price));
+                            break;
+                        default:
                             break;
                     }
                 }
