@@ -7,10 +7,11 @@ namespace Sports4All
 {
     public partial class UC_EventEvaluation : UserControl, IUserControl
     {
-        private UC_SportsgroundEvItem _uc;
-        private ICollection<UC_PlayerEvaluationItem> _evaluationItems;
-        private EvaluationController _evaluationController;
-        private Event _ev;
+        private readonly UC_SportsgroundEvItem _uc;
+        private readonly ICollection<UC_PlayerEvaluationItem> _evaluationItems;
+        private readonly EvaluationController _evaluationController;
+        private readonly ParkEvaluation _parkEvaluation;
+        private readonly UserEvaluation _userEvaluation;
 
         public UC_EventEvaluation()
         {
@@ -18,7 +19,8 @@ namespace Sports4All
             _uc = UC_SportsgroundEvItem1;
             _evaluationItems = new List<UC_PlayerEvaluationItem>();
             _evaluationController = new EvaluationController();
-            _ev = new Event();
+            _parkEvaluation = new ParkEvaluation();
+            _userEvaluation = new UserEvaluation();
         }
 
         #region Properties
@@ -33,7 +35,7 @@ namespace Sports4All
             Populate();
         }
 
-        private void circularButton1_Click(object sender, EventArgs e)
+        private void CircularButton1_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Deseja submeter as avaliações?", "Confirmation", MessageBoxButtons.YesNo);
 
@@ -47,7 +49,7 @@ namespace Sports4All
         public void SubmitEvaluations() 
         {
             _evaluationController.SetParkEvaluation(_uc.ParkId, _uc.ParkQuality, _uc.ParkPrice, EventId);
-
+            
             foreach (var evaluationUser in _evaluationItems)
             {
                 _evaluationController.SetUserEvaluation(evaluationUser.Username,
@@ -55,7 +57,6 @@ namespace Sports4All
                     evaluationUser.PlayerFairplay,
                     EventId);
             }
-            _ev.Notify();
         }
 
         public void Populate()
@@ -66,7 +67,6 @@ namespace Sports4All
             _uc.ParkId = park.ParkId;
             _uc.ParkName = park.Name;
             _uc.Image= ImagesController.Instance.GetImageFromID(park.Picture.PictureId);
-            _ev.Attach(park);
 
             foreach (var user in _evaluationController.GetEvaluableUsers(EventId) )
             {
@@ -78,7 +78,6 @@ namespace Sports4All
 
                 _evaluationItems.Add(_playerEvaluation);
                 flpPlayersEvaluation.Controls.Add(_playerEvaluation);
-                _ev.Attach(user);
             }
 
         }

@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2BDDB774-9994-45CD-A910-8A07B4C7AFA6}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sports4All</RootNamespace>
     <AssemblyName>Sports4All</AssemblyName>
@@ -168,9 +168,7 @@
     <Compile Include="Patterns\Decorator\IPriceEntity.cs" />
     <Compile Include="Patterns\Decorator\Decorator.cs" />
     <Compile Include="Patterns\Decorator\RacketDecorator.cs" />
-    <Compile Include="IObserver.cs" />
     <Compile Include="Patterns\Strategy\IReserveStrategy.cs" />
-    <Compile Include="ISubject.cs" />
     <Compile Include="IUserControl.cs" />
     <Compile Include="JoinButton.cs" />
     <Compile Include="Migrations\202001311502145_M001.cs" />
@@ -528,7 +526,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="Patterns\Observer\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

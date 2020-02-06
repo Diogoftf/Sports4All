@@ -40,7 +40,7 @@ namespace Sports4All
             lblName2.Text = "Partidas";
             lblName3.Text = "Pontos";
             flpRank.Controls.Clear();
-            ICollection<UserClassification> topUsers = _rankController.getTopUsers();
+            ICollection<UserClassification> topUsers = _rankController.GetTopUsers();
             var aux = topUsers.Count;
             
             if (top10)
@@ -91,7 +91,7 @@ namespace Sports4All
             lblName2.Text = "Qualidade / Preço";
             lblName3.Text = "Pontos";
             var auxiliarPartidasJogadas = 0;
-            ICollection<ParkClassification> RecintosClassification = _rankController.getTopRecintos();
+            ICollection<ParkClassification> RecintosClassification = _rankController.GetTopGrounds();
 
             if (RecintosClassification.Any())
             {

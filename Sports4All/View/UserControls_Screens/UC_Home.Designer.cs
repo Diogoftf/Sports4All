@@ -881,7 +881,6 @@
         private System.Windows.Forms.Label lbNextLevel;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pbInfo;
-        private System.Windows.Forms.Label lbInfoStats;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox rtbInfoStats;
         private System.Windows.Forms.FlowLayoutPanel flpInfoStats;

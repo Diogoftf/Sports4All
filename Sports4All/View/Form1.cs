@@ -8,7 +8,7 @@ namespace Sports4All
     public partial class Form1 : Form
     {
         private static Form1 _obj;
-        private HomeController _homeController;
+        private readonly HomeController _homeController;
         private Form1()
         {
 
