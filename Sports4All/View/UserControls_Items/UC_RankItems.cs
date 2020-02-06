@@ -5,40 +5,38 @@ namespace Sports4All
     public partial class UC_RankItems : UserControl
     {
         #region Properties
-        private string _classificacao;
-        private string _utilizador;
-        private string _partidasJogadas;
-        private string _pontos;
+        private string _classification;
+        private string _user;
+        private string _playedGames;
+        private string _points;
 
-        public string Classificacao 
+        public string Classification 
         {
-            get { return _classificacao; }
-            set { _classificacao = value; lbUserRank.Text = value; }
+            get { return _classification; }
+            set { _classification = value; lbUserRank.Text = value; }
 
         }
 
-        public string Utilizador 
+        public string User 
         {
-            get { return _utilizador; }
-            set { _utilizador = value; lblUsername.Text = value; }
+            get { return _user; }
+            set { _user = value; lblUsername.Text = value; }
 
         }
 
-        public string PartidasJogadas
+        public string GamesPlayed
         {
-            get { return _partidasJogadas; }
-            set { _partidasJogadas = value; lblGamesPlayed.Text = value; }
+            get { return _playedGames; }
+            set { _playedGames = value; lblGamesPlayed.Text = value; }
 
         }
 
-        public string Pontos
+        public string Points
         {
-            get { return _pontos; }
-            set { _pontos = value; lblPoints.Text = value; }
+            get { return _points; }
+            set { _points = value; lblPoints.Text = value; }
 
         }
-
-
         #endregion
 
         public UC_RankItems()

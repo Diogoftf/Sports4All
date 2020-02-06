@@ -29,8 +29,6 @@ namespace Sports4All
         public void Populate()
         {
             _rankController = new RankController();
-            //_rankController.UserPointsCalculator(); // PROVISORIO //
-            //_rankController.ParkPointsCalculator(); // PROVISORIO //
             Load_Rank(true);
         }
 
@@ -56,10 +54,10 @@ namespace Sports4All
                     {
                         UC_RankItems rankItems = new UC_RankItems
                         {
-                            Classificacao = (i + 1).ToString(),
-                            Utilizador = topUsers.ToList()[i].User.Username.ToString(),
-                            PartidasJogadas = topUsers.ToList()[i].User.Events.Count.ToString(),
-                            Pontos = topUsers.ToList()[i].Points.ToString()
+                            Classification = (i + 1).ToString(),
+                            User = topUsers.ToList()[i].User.Username.ToString(),
+                            GamesPlayed = topUsers.ToList()[i].User.Events.Count.ToString(),
+                            Points = topUsers.ToList()[i].Points.ToString()
                         };
                         flpRank.Controls.Add(rankItems);
                     }
@@ -68,8 +66,8 @@ namespace Sports4All
             else
             {
                 UC_RankItems rankItems = new UC_RankItems();
-                rankItems.Classificacao = rankItems.PartidasJogadas = rankItems.Pontos = "";
-                rankItems.Utilizador = "Não existem jogadores com pontos";
+                rankItems.Classification = rankItems.GamesPlayed = rankItems.Points = "";
+                rankItems.User = "Não existem jogadores com pontos";
                 flpRank.Controls.Add(rankItems);
             }
         }
@@ -84,43 +82,43 @@ namespace Sports4All
             Load_Rank(false);
         }
 
-        private void btnTopRecintos_Click(object sender, EventArgs e)
+        private void btnTopGrounds_Click(object sender, EventArgs e)
         {
             flpRank.Controls.Clear();
             lblName1.Text = "Nome";
             lblName2.Text = "Qualidade / Preço";
             lblName3.Text = "Pontos";
-            var auxiliarPartidasJogadas = 0;
-            ICollection<ParkClassification> RecintosClassification = _rankController.GetTopGrounds();
+            var gamesPlayedAux = 0;
+            ICollection<ParkClassification> GroundsClassification = _rankController.GetTopGrounds();
 
-            if (RecintosClassification.Any())
+            if (GroundsClassification.Any())
             {
-                for (int i = 0; i < RecintosClassification.Count; i++)
+                for (int i = 0; i < GroundsClassification.Count; i++)
                 {
                     UC_RankItems rankItems = new UC_RankItems
                     {
-                        Classificacao = (i + 1).ToString(),
-                        Utilizador = RecintosClassification.ToList()[i].Park.Name.ToString()
+                        Classification = (i + 1).ToString(),
+                        User = GroundsClassification.ToList()[i].Park.Name.ToString()
                     };
 
-                    foreach (Ground a in RecintosClassification.ToList()[i].Park.Grounds)
+                    foreach (Ground a in GroundsClassification.ToList()[i].Park.Grounds)
                         {
-                            auxiliarPartidasJogadas += a.Reserves.Count;
+                            gamesPlayedAux += a.Reserves.Count;
                         }
 
-                    rankItems.PartidasJogadas = RecintosClassification.ToList()[i].QualityAverage.ToString()
+                    rankItems.GamesPlayed = GroundsClassification.ToList()[i].QualityAverage.ToString()
                         + " / "
-                        + RecintosClassification.ToList()[i].PriceAverage.ToString();
+                        + GroundsClassification.ToList()[i].PriceAverage.ToString();
 
-                    rankItems.Pontos = RecintosClassification.ToList()[i].Points.ToString();
+                    rankItems.Points = GroundsClassification.ToList()[i].Points.ToString();
                     flpRank.Controls.Add(rankItems);
                 }
             }
             else
             {
                 UC_RankItems rankItems = new UC_RankItems();
-                rankItems.Classificacao = rankItems.PartidasJogadas = rankItems.Pontos = "";
-                rankItems.Utilizador = "Não existem recintos avaliados";
+                rankItems.Classification = rankItems.GamesPlayed = rankItems.Points = "";
+                rankItems.User = "Não existem recintos avaliados";
                 flpRank.Controls.Add(rankItems); 
 
             }

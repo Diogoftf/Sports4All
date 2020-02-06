@@ -31,6 +31,7 @@ namespace Sports4All
             HideTabHeaders();
             EnableValidationFromTab(tabRegister, false);
             PopulateCounties();
+            PopulateImages();
         }
 
         public void HideTabHeaders()
@@ -38,6 +39,14 @@ namespace Sports4All
             tabControl1.Appearance = TabAppearance.FlatButtons;
             tabControl1.ItemSize = new Size(0, 1);
             tabControl1.SizeMode = TabSizeMode.Fixed;
+        }
+
+        public void PopulateImages()
+        {
+            cPB1.Image = ImagesController.Instance.GetImageFromName("User1");
+            cPB2.Image = ImagesController.Instance.GetImageFromName("User2");
+            cPB3.Image = ImagesController.Instance.GetImageFromName("User3");
+            cPB4.Image = ImagesController.Instance.GetImageFromName("User4");
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -65,6 +74,7 @@ namespace Sports4All
             {
                 if (checkedValues())
                 {
+                    _username = _authController.GetUsername(_email);
                     StoreUsername(_username);
                     Hide();
                     Form1.Instance.Show();
@@ -153,6 +163,7 @@ namespace Sports4All
             }
 
             _authController.RegisterUser(_email, _password, _username, _age, _cellphone,_selectedPicture, _countyId);
+            StoreUsername(_username); 
             return true;
             
         }

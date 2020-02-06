@@ -11,14 +11,6 @@ namespace Sports4All
         private readonly HomeController _homeController;
         private Form1()
         {
-
-            // =============================================================
-            //
-            // //APAGAR ISTO DEPOIS E COMEÇAR O PROGRAMA NO LOGIN
-            Session.Instance.LoggedUser = "ruben21";
-            //
-            // =============================================================
-
             InitializeComponent();
             _homeController = new HomeController();
             (new Core.DropShaddow()).ApplyShadows(this);
@@ -54,7 +46,6 @@ namespace Sports4All
             lbSkillValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.SkillAverage.ToString();
             lbFairplayValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.FairplayAverage.ToString();
             lbPontosValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.Points.ToString();
-
 
             _obj = this;
             AddUserControlsToForm();

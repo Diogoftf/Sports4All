@@ -48,7 +48,6 @@ namespace Sports4All
             set
             {
                 _eventID = value;
-                //lbEventIDValue.Text = Convert.ToString(value);
             }
         }
         public string StartHour

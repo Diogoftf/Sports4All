@@ -48,13 +48,16 @@ namespace Sports4All.Controller
                     classificationId = biggestClassificationId + 1;
                 }
 
-                UserClassification userClassification = new UserClassification();
-                userClassification.ClassificationId = classificationId;
+                UserClassification userClassification = new UserClassification
+                {
+                    ClassificationId = classificationId,
 
-                userClassification.Points = 0;
-                userClassification.Ratio = 0;
-                userClassification.SkillAverage = 0;
-                userClassification.FairplayAverage = 0;
+                    Points = 0,
+                    Ratio = 0,
+                    SkillAverage = 0,
+                    FairplayAverage = 0,
+                    User = user
+                };
 
                 return userClassification;
             }
