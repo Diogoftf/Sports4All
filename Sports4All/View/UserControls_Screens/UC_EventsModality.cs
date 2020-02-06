@@ -52,7 +52,6 @@ namespace Sports4All
 
             foreach (var eventsportj in EventsbySport)
             {
-
                 var users = eventsportj.Users.ToList();
                 var usersCount = eventsportj.Users.Count;
                 var maxUsers = eventsportj.MaxPlayers;
@@ -76,7 +75,6 @@ namespace Sports4All
         {
             _id = Convert.ToInt32(Id);
             if (DesignMode) return;
-           
             Populate();
         }
 
@@ -96,8 +94,8 @@ namespace Sports4All
             {
                 btnSub.Image = Image.FromFile(@"..\..\Images\" + "sub_Button.png");
                 _controlSub = true;
-                ShowNotification("Recinto Subscrito!",
-                    "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
+                ShowNotification("Evento Subscrito!",
+                    "O evento foi subscrito com Sucesso.Aceda às suas Subscrições para " +
                     " gerir todos os seus favoritos!!!");
             }
             else

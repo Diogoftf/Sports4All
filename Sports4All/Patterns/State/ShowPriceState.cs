@@ -34,6 +34,7 @@ namespace Sports4All.Patterns.State
 
         public void NextScreen()
         {
+            EventCreationManager.Instance.CreateEvent();
             MessageBox.Show("Reserva criada com sucesso!");
             Form1.Instance.BringUcToFront<UC_Home>("UC_Home", "");
         }

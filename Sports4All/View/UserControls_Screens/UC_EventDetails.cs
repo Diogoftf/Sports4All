@@ -125,7 +125,6 @@ namespace Sports4All
             _eventsController = new MyEventsController();
         }
 
-
         private void UC_EventsDetails_Load(object sender, EventArgs e)
         {
             if (DesignMode) return;

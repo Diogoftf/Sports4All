@@ -101,12 +101,12 @@ namespace Sports4All
                 tbSubSportsGroundNotification.Visible = false;
                 _controlSub = true;
                 btnSub.Image = ((System.Drawing.Image)(_resources.GetObject("sub_Button")));
-                showNotification("Recinto Subscrito!", "O recinto X foi subscrito com Sucesso.Aceda às suas Subscrições para " +
+                showNotification("Recinto Subscrito!", "O recinto foi subscrito com Sucesso.Aceda às suas Subscrições para " +
                                   " gerir todos os seus favoritos!!!");
             }
             else
             {
-                btnSub.Image = ((System.Drawing.Image)(_resources.GetObject("subButton.Image")));
+                btnSub.Image = ((Image)(_resources.GetObject("subButton.Image")));
                 _controlSub = false;
 
             }

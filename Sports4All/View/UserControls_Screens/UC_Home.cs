@@ -66,8 +66,8 @@ namespace Sports4All
                 PopulateMyEventsList();
                 PopulateMySuggestionsList();
                 PopulateComboBox();
-                infoStatsDescription();
-                userStatsDetails();
+                InfoStatsDescription();
+                UserStatsDetails();
                 getTopClassificationDetails();
             }
         }
@@ -116,16 +116,14 @@ namespace Sports4All
 
         private double pointsRemaining()
         {
-            var auxiliar = double.Parse(lbNextLevel.Text) * 100.0;
-            var auxiliar2 = 100 - (auxiliar - double.Parse(_homeController.getMyStats().ToList()[4]));
+            var aux = double.Parse(lbNextLevel.Text) * 100.0;
+            var aux2 = 100 - (aux - double.Parse(_homeController.getMyStats().ToList()[4]));
             
-            if (auxiliar2 <= 0)
+            if (aux2 <= 0)
             {
-                auxiliar2 = 0;
+                aux2 = 0;
             }
-
-
-            return auxiliar2;
+            return aux2;
         }
 
         private void FillProgressBar(object sender, EventArgs e)
@@ -151,22 +149,21 @@ namespace Sports4All
         {
             flpMyEvents.Controls.Clear();
 
-            for (int i = 0; i < _MyEvents.Count; i++)
+            foreach (var ev in _MyEvents)
             {
-                string[] dateStart = _MyEvents.ToList()[i].DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
+                string[] dateStart = ev.DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
 
                 if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy").Equals(dtpMySportDate.Value.Date.ToString("dd-MM-yyyy")) || DateTime.Now.ToString("dd-MM-yyyy").Equals(dtpMySportDate.Value.Date.ToString("dd-MM-yyyy")))
                 {
-                    flpMyEvents.Controls.Add(_MyEvents.ToList()[i]);
+                    flpMyEvents.Controls.Add(ev);
                 }
-
             }
 
             if (flpMyEvents.Controls.Count == 0)
                 flpMyEvents.Controls.Add(_noMyEventsitems);
         }
 
-        private void infoStatsDescription()
+        private void InfoStatsDescription()
         {
             rtbInfoStats.Clear();
             rtbInfoStats.SelectionFont = new Font("Century Gothic", 11, FontStyle.Bold);
@@ -177,7 +174,7 @@ namespace Sports4All
             rtbInfoStats.SelectedText = "Reservas realizadas: " + _rankController._reservePerformed_Weight + " pontos \n" + "Eventos realizados: " + _rankController._eventPerformed_Weight + " pontos \n" + "Fairplay Global: " + _rankController._fairplay_Weight + " pontos \n" + "Habilidade Global: " + _rankController._skill_Weight + " pontos \n";
         }
 
-        private void userStatsDetails()
+        private void UserStatsDetails()
         {
             var current = Convert.ToInt32(double.Parse(_homeController.getMyStats().ToList()[4]) / _rankController._levelChange);
             lbCurrentLevel.Text = current.ToString();
@@ -197,9 +194,9 @@ namespace Sports4All
             _availableSports = _homeController.getSports();
             cbMySport.Items.Clear();
             cbNextSport.Items.Clear();
-
             cbMySport.Items.Add("");
             cbNextSport.Items.Add("");
+
             foreach (Sport s in _availableSports)
             {
                 cbMySport.Items.Add(s.Name);

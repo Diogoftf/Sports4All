@@ -48,11 +48,6 @@ namespace Sports4All
 
         public string AddMaterial { get; set; }
 
-        public void CreateReserve()
-        {
-
-        }
-
         public void CreateEvent()
         {
 
