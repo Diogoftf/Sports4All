@@ -37,16 +37,14 @@
             this.lblSportsList = new System.Windows.Forms.Label();
             this.lblAvailableSports = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
-            this.pbSubscribe = new System.Windows.Forms.PictureBox();
             this.plSportsgroundProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSubscribe)).BeginInit();
             this.SuspendLayout();
             // 
             // lbSportsgndName
             // 
             this.lbSportsgndName.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.lbSportsgndName.Location = new System.Drawing.Point(117, 42);
+            this.lbSportsgndName.Location = new System.Drawing.Point(70, 42);
             this.lbSportsgndName.MaximumSize = new System.Drawing.Size(683, 38);
             this.lbSportsgndName.MinimumSize = new System.Drawing.Size(683, 38);
             this.lbSportsgndName.Name = "lbSportsgndName";
@@ -97,7 +95,7 @@
             // pbImage
             // 
             this.pbImage.Location = new System.Drawing.Point(549, 17);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(4);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(371, 300);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -141,23 +139,11 @@
     " ex, a imperdiet nibh suscipit at. Seria que não mas num lugar distante aqui per" +
     "to, ele anda e tresanda a lixo.";
             // 
-            // pbSubscribe
-            // 
-            this.pbSubscribe.Image = ((System.Drawing.Image)(resources.GetObject("pbSubscribe.Image")));
-            this.pbSubscribe.Location = new System.Drawing.Point(76, 44);
-            this.pbSubscribe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbSubscribe.Name = "pbSubscribe";
-            this.pbSubscribe.Size = new System.Drawing.Size(35, 37);
-            this.pbSubscribe.TabIndex = 2;
-            this.pbSubscribe.TabStop = false;
-            this.pbSubscribe.Click += new System.EventHandler(this.pbSubscribe_Click);
-            // 
             // UC_SportsgroundDesc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.plSportsgroundProfile);
-            this.Controls.Add(this.pbSubscribe);
             this.Controls.Add(this.btnSeeEvents);
             this.Controls.Add(this.lbSportsgndName);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -167,7 +153,6 @@
             this.plSportsgroundProfile.ResumeLayout(false);
             this.plSportsgroundProfile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSubscribe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,7 +166,6 @@
         private System.Windows.Forms.Label lblAvailableSports;
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Label lblSportsList;
-        private System.Windows.Forms.PictureBox pbSubscribe;
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Label lbParkDescription;
     }

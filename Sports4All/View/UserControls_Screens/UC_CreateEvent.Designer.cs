@@ -79,12 +79,12 @@
             // 
             // cbMaxAge
             // 
-            this.cbMaxAge.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbMaxAge.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbMaxAge.FormattingEnabled = true;
             this.cbMaxAge.Location = new System.Drawing.Point(58, 47);
             this.cbMaxAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
             this.cbMaxAge.Name = "cbMaxAge";
-            this.cbMaxAge.Size = new System.Drawing.Size(414, 30);
+            this.cbMaxAge.Size = new System.Drawing.Size(410, 30);
             this.cbMaxAge.TabIndex = 3;
             // 
             // lbPlayersAge
@@ -153,12 +153,12 @@
             // 
             // cbMinAge
             // 
-            this.cbMinAge.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbMinAge.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbMinAge.FormattingEnabled = true;
             this.cbMinAge.Location = new System.Drawing.Point(58, 4);
             this.cbMinAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
             this.cbMinAge.Name = "cbMinAge";
-            this.cbMinAge.Size = new System.Drawing.Size(414, 30);
+            this.cbMinAge.Size = new System.Drawing.Size(410, 30);
             this.cbMinAge.TabIndex = 2;
             // 
             // cbSport

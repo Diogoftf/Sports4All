@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EventsSportsGrounds));
             this.flpEventListSportsground = new System.Windows.Forms.FlowLayoutPanel();
             this.plSportsgroundMenuSelect = new System.Windows.Forms.Panel();
             this.tbEvents_title = new System.Windows.Forms.TextBox();
@@ -38,8 +37,6 @@
             this.btnFootball = new System.Windows.Forms.Button();
             this.plTopContent = new System.Windows.Forms.Panel();
             this.tbSportsgroundName = new System.Windows.Forms.TextBox();
-            this.btnSub = new System.Windows.Forms.Button();
-            this.tbSubSportsGroundNotification = new System.Windows.Forms.TextBox();
             this.plSportsgroundMenuSelect.SuspendLayout();
             this.plTopContent.SuspendLayout();
             this.SuspendLayout();
@@ -119,8 +116,6 @@
             // plTopContent
             // 
             this.plTopContent.Controls.Add(this.tbSportsgroundName);
-            this.plTopContent.Controls.Add(this.btnSub);
-            this.plTopContent.Controls.Add(this.tbSubSportsGroundNotification);
             this.plTopContent.Location = new System.Drawing.Point(41, 7);
             this.plTopContent.Name = "plTopContent";
             this.plTopContent.Size = new System.Drawing.Size(722, 93);
@@ -131,33 +126,11 @@
             this.tbSportsgroundName.BackColor = System.Drawing.SystemColors.Control;
             this.tbSportsgroundName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSportsgroundName.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold);
-            this.tbSportsgroundName.Location = new System.Drawing.Point(50, 16);
+            this.tbSportsgroundName.Location = new System.Drawing.Point(3, 15);
             this.tbSportsgroundName.Name = "tbSportsgroundName";
             this.tbSportsgroundName.Size = new System.Drawing.Size(630, 35);
             this.tbSportsgroundName.TabIndex = 7;
             this.tbSportsgroundName.Text = "Complexo Desportivo Água de pena";
-            // 
-            // btnSub
-            // 
-            this.btnSub.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSub.Image = ((System.Drawing.Image)(resources.GetObject("btnSub.Image")));
-            this.btnSub.Location = new System.Drawing.Point(3, 3);
-            this.btnSub.Name = "btnSub";
-            this.btnSub.Size = new System.Drawing.Size(51, 47);
-            this.btnSub.TabIndex = 10;
-            this.btnSub.UseVisualStyleBackColor = true;
-            this.btnSub.Click += new System.EventHandler(this.subButton_Click);
-            // 
-            // tbSubSportsGroundNotification
-            // 
-            this.tbSubSportsGroundNotification.Location = new System.Drawing.Point(3, 56);
-            this.tbSubSportsGroundNotification.Name = "tbSubSportsGroundNotification";
-            this.tbSubSportsGroundNotification.ReadOnly = true;
-            this.tbSubSportsGroundNotification.Size = new System.Drawing.Size(184, 22);
-            this.tbSubSportsGroundNotification.TabIndex = 11;
-            this.tbSubSportsGroundNotification.Text = "Subscreva este Recinto!";
-            this.tbSubSportsGroundNotification.Visible = false;
             // 
             // UC_EventsSportsGrounds
             // 
@@ -187,7 +160,5 @@
         private System.Windows.Forms.Button btnFootball;
         private System.Windows.Forms.Panel plTopContent;
         private System.Windows.Forms.TextBox tbSportsgroundName;
-        private System.Windows.Forms.Button btnSub;
-        private System.Windows.Forms.TextBox tbSubSportsGroundNotification;
     }
 }

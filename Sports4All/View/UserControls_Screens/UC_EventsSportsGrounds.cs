@@ -87,49 +87,6 @@ namespace Sports4All
                 flpEventListSportsground.Controls.Add(eventItem);
             }
         }
-        private void mouseHover(object sender, EventArgs e)
-        {
-            if (!_controlSub) tbSubSportsGroundNotification.Visible = true;
-        }
-        private void mouseLeave(object sender, EventArgs e)
-        {
-            tbSubSportsGroundNotification.Visible = false;
-        }
-        private void subButton_Click(object sender, EventArgs e)
-        {
-            if (!_controlSub)
-            {
-                tbSubSportsGroundNotification.Visible = false;
-                _controlSub = true;
-                btnSub.Image = ((Image)(_resources.GetObject("sub_Button")));
-                ShowNotification("Recinto Subscrito!", "O recinto foi subscrito com Sucesso.Aceda às suas Subscrições para " +
-                                  " gerir todos os seus favoritos!!!");
-            }
-            else
-            {
-                btnSub.Image = ((Image)(_resources.GetObject("subButton.Image")));
-                _controlSub = false;
-
-            }
-        }
-        private void ShowNotification(string title, string body)
-        {
-            NotifyIcon notifyIcon = new NotifyIcon();
-            notifyIcon.Icon = SystemIcons.Application;
-            notifyIcon.Visible = true;
-
-            if (title != null)
-            {
-                notifyIcon.BalloonTipTitle = title;
-            }
-
-            if (body != null)
-            {
-                notifyIcon.BalloonTipText = body;
-            }
-
-            notifyIcon.ShowBalloonTip(30000);
-        }
 
         private void btnFootball_Click(object sender, EventArgs e)
         {

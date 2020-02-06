@@ -62,18 +62,5 @@ namespace Sports4All
             Form1.Instance.BringUcToFront<UC_EventsSportsGrounds>("UC_EventsSportsGrounds", Id);
         }
 
-        private void pbSubscribe_Click(object sender, EventArgs e)
-        {
-            if (!_controlSub)
-            {
-                pbSubscribe.Image = Image.FromFile(@"..\..\Images\" + "sub_Button.png");
-                _controlSub = true;
-            }
-            else
-            {
-                pbSubscribe.Image = Image.FromFile(@"..\..\Images\" + "unsub_Button.png");
-                _controlSub = false;
-            }
-        }
     }
 }
