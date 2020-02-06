@@ -56,7 +56,53 @@ O Sports4All encontra-se dividido nas seguintes camadas, de acordo com o modelo 
 * **ViewModel**: atua como conversor de dados, transformando os dados do Model de modo a serem utilizados pela View. É também responsável por passar comandos da View para o Model. Deste modo, ajuda a manter o estado da View e atualiza o Model de acordo com as ações do utilizador;
 * **Model**: objetos/dados a partir do qual serão realizadas as operações com a base de dados.
 
+### Modelo da Base de Dados
+
+
+## Frameworks Utilizadas
+
+### Entity Framework (SQL SERVER da Azure)
+Para o desenvolvimento do projeto, foi utilizado o Entity Framework que permite trabalhar com uma base de dados através de objetos .NET [3].
+
+O Entity permite realizar o mapeamento dos elementos da base de dados para os elementos de nossa aplicação orientada a objetos, possuindo três linhas principais de utilização: Database First, Model First e Code First. No projeto abordamos a utilização do Code First, sobre o qual foi possível descrever as classes, para posteriormente o entity framework, gerar automaticamente a base de dados.
+
+### Fluent API
+No projeto utilizou-se o Fluent API e Entity Framework Code First, para realizar o mapeamento relacional, sendo que o Fluent API oferece mais funcionalidades comparado com Data Annotations.
+
+## Padrões de desenho
+Um padrão é uma solução para um problema num contexto. O contexto é a situação para a qual o padrão se aplica e deve ser uma situação recorrente. O problema é o objetivo que estamos a tentar atingir, mas também os constrangimentos que ocorrem no contexto. A solução é um desenho geral que podemos aplicar para atingir o objectivo e resolver os constrangimentos [4]
+
+### Padrão de Criação
+Os Padrões de Criação envolvem a instanciação de objetos e oferecem uma forma de desligar o cliente dos objectos que necessita instanciar. Auxilia a construção de sistemas flexíveis e abstrai o processo de instanciação, ajudando a tornar o sistema independente  quanto à forma como os objetos são criados, compostos e representados.
+
+#### Singleton
+Assegura que uma classe só possui uma instância e proporciona um acesso global a essa instância.
+
+No nosso projeto, o Singleton foi utilizado para armazenar informações do utilizador autenticado (Session.cs), para o formulário principal da aplicação (Form1.cs) e na classe EventCreationManager.cs, responsável pela criação de eventos (no caso em que o utilizador é do tipo Novato).
+
+### Padrão Estrutural
+Os Padrões Estruturais permitem compor classes e objetos em estruturas maiores.
+
+#### Decorator
+Permite anexar responsabilidades a um objeto dinamicamente.
+
+No nosso projeto, aquando da criação de uma reserva, o utilizador pode adicionar materiais ou definir o número de horas do evento, posteriormente o objeto reserva é decorado, aumentando dinamicamente o preço associado à reserva.
+
+### Padrão Comportamental
+Os Padrões de Comportamento estão relacionados com a forma como as classes e objetos interagem e distribuem as responsabilidades.
+
+#### Strategy
+Este padrão de desenho permite definir uma família de algoritmos, colocar cada um deles numa classe separada e tornar os seus objetos permutáveis.
+
+O padrão strategy deve ser usado quando são necessárias variantes de um algoritmo. No nosso projeto, o padrão foi utilizado para o processo de criação de eventos que possui duas variantes:
+* Criação de evento por parte de um utilizador experiente;
+* Criação de evento por parte de utilizador novato.
+
 ## Referências
 [1] A. Lusa, "Portugueses fazem cada vez menos exercício físico", Observador, 2020. [Online]. Available: https://observador.pt/2019/01/24/portugueses-fazem-cada-vez-menos-exercicio-fisico/. [Accessed: 06- Feb- 2020].
 
 [2] "Portugueses são dos que menos exercício praticam na Europa", DN, 2020. [Online]. Available: https://www.dn.pt/vida-e-futuro/portugueses-sao-dos-que-menos-exercicio-praticam-na-europa-10735355.html. [Accessed: 06- Feb- 2020].
+
+[3]"Visão geral do Entity Framework 6 – EF6", Docs.microsoft.com, 2020. [Online]. Available: https://docs.microsoft.com/pt-br/ef/ef6/. [Accessed: 06- Feb- 2020].
+
+[4] Desenho e Implementação de Software, https://moodle.cee.uma.pt/course/view.php?id=61
