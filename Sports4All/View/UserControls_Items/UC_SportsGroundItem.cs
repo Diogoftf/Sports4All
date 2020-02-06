@@ -20,8 +20,9 @@ namespace Sports4All.UserControls_Items
         #region Properties
 
         private string _title;
-        private string _score;
+        private string _quality;
         private Image _image;
+        private string _price;
 
         [Category("Custom Props")]
         public string Title
@@ -33,11 +34,21 @@ namespace Sports4All.UserControls_Items
         }
 
         [Category("Custom Props")]
-        public string Score
+        public string Quality
         {
-            get { return _score; }
-            set { _score = value;
-                lblScore.Text = "Avaliação: " + value;
+            get { return _quality; }
+            set { _quality = value;
+                lblQuality.Text = "Qualidade: " + value;
+            }
+        }
+
+        public string Price
+        {
+            get { return _price; }
+            set
+            {
+                _price = value;
+                lblPrice.Text = "Preço: " + value;
             }
         }
 

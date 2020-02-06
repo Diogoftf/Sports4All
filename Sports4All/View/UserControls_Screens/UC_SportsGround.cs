@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Net;
-using System.IO;
-using System.Linq;
 using Sports4All.Controller;
 using Sports4All.UserControls_Items;
 
@@ -48,7 +45,8 @@ namespace Sports4All
                 {
                     Title = park.Name,
                     Id = park.ParkId,
-                    Score = _browseParksController.GetParkClassification(park.ParkId).QualityAverage + "/5",
+                    Quality = _browseParksController.GetParkClassification(park.ParkId).QualityAverage + "/5",
+                    Price = _browseParksController.GetParkClassification(park.ParkId).PriceAverage + "/5",
                     Image = ImagesController.Instance.GetImageFromID(park.Picture.PictureId)
                 };
 
