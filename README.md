@@ -98,6 +98,12 @@ O padrão strategy deve ser usado quando são necessárias variantes de um algor
 * Criação de evento por parte de um utilizador experiente;
 * Criação de evento por parte de utilizador novato.
 
+![GitHub Logo](/RMImages/strategy.png)
+
+### State
+Permite que um objeto altere o seu comportamento quando o seu estado interno for alterado [5]. No projeto, o state foi utilizado para os diferentes estados (ecrãs) da criação de um evento por parte de um utilizador novato:
+
+
 ## Referências
 [1] A. Lusa, "Portugueses fazem cada vez menos exercício físico", Observador, 2020. [Online]. Available: https://observador.pt/2019/01/24/portugueses-fazem-cada-vez-menos-exercicio-fisico/. [Accessed: 06- Feb- 2020].
 
@@ -106,3 +112,5 @@ O padrão strategy deve ser usado quando são necessárias variantes de um algor
 [3]"Visão geral do Entity Framework 6 – EF6", Docs.microsoft.com, 2020. [Online]. Available: https://docs.microsoft.com/pt-br/ef/ef6/. [Accessed: 06- Feb- 2020].
 
 [4] Desenho e Implementação de Software, https://moodle.cee.uma.pt/course/view.php?id=61
+
+[5] "State", Refactoring.guru, 2020. [Online]. Available: https://refactoring.guru/design-patterns/state. [Accessed: 06- Feb- 2020].
