@@ -159,7 +159,7 @@ namespace Sports4All.Controller
         }
 
         public void UpdateEventRecord(int ReserveId, int maxAge, int minAge, int maxPlayers, DateTime startDate,
-            DateTime endDate)
+            DateTime endDate,string name)
         {
             using (var context = new ModelContext())
             {
@@ -171,6 +171,7 @@ namespace Sports4All.Controller
                 reserveRecord[0].Event.MaxPlayers = maxPlayers;
                 reserveRecord[0].Event.StartDate = startDate;
                 reserveRecord[0].Event.EndDate = endDate;
+                reserveRecord[0].Event.Name = name;
                 context.SaveChanges();
             }
         }

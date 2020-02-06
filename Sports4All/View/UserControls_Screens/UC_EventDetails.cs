@@ -29,6 +29,7 @@ namespace Sports4All
             {
                 _eventName = value;
                 lbEventId.Text ="Evento:"+ value;
+                tbNameEvent.Text = value;
             }
         }
 
@@ -163,7 +164,8 @@ namespace Sports4All
             CultureInfo provider = CultureInfo.InvariantCulture;
             DateTime NewStartDate = DateTime.ParseExact(startdateTime, format, provider);
             DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
-            _eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate);
+           // string Name = EventName;
+            _eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate, EventName);
         
         }
         private void PropertiesformEventDetails(bool Enabled, BorderStyle border, bool ReadOnly)
@@ -181,6 +183,9 @@ namespace Sports4All
             dtpNextEventDate.Enabled = Enabled;
             dtpStartEventTime.Enabled = Enabled;
             dtpEndEventTime.Enabled = Enabled;
+            tbNameEvent.BorderStyle = border;
+            tbNameEvent.Enabled = Enabled;
+            tbNameEvent.ReadOnly = ReadOnly;
             UpdateFormFields();
         }
 
@@ -189,6 +194,7 @@ namespace Sports4All
             _maxPlayerAge = tbMaxAge.Text;
             _maxPlayers = tbMaxPlayers.Text;
             _minPlayerAge = tbminAge.Text;
+            _eventName = tbNameEvent.Text;
         }
 
         private void PopulateUsersList()
@@ -233,6 +239,11 @@ namespace Sports4All
         {
             btnSaveChanges.Visible = true;
             PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     } 
 }

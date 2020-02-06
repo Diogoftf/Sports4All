@@ -41,8 +41,6 @@ namespace Sports4All.Controller
                 return queryUser;
             }
         }
-
-       
         public ICollection<User> GetEvaluableUsers(int eventId)
         {
             ICollection<User> usersList;
