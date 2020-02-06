@@ -51,5 +51,10 @@ namespace Sports4All
                 Session.Instance.IsExperientUser = false;
             }
         }
+
+        private void lbBackHome_Click(object sender, EventArgs e)
+        {
+            Form1.Instance.BringUcToFront<UC_Home>("UC_Home", "");
+        }
     }
 }
