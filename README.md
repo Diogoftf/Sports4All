@@ -49,7 +49,7 @@ Abaixo listam-se algumas das funcionalidades da aplicação:
 * Destaques semanais (de utilizador e de parque desportivo).
 
 ### Modelo
-O Sports4All encontra-se dividido nas seguintes camadas, semelhante com o modelo MVVM (Model View ViewModel): 
+O Sports4All encontra-se dividido nas seguintes camadas, semelhante ao modelo MVVM (Model View ViewModel): 
 
 ![GitHub Logo](/RMImages/model.png)
 
