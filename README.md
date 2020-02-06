@@ -58,7 +58,7 @@ O Sports4All encontra-se dividido nas seguintes camadas, de acordo com o modelo 
 * **Model**: objetos/dados a partir do qual serão realizadas as operações com a base de dados.
 
 ### Modelo da Base de Dados
-![GitHub Logo](/RMImages/eFDiagram.png)
+![GitHub Logo](/RMImages/EFDiagram.bmp)
 
 ## Frameworks Utilizadas
 
@@ -116,11 +116,11 @@ Apesar de apresentar pequenas lacunas achamos que cumprimos com o que nos propus
 
 Consideramos que o desenvolvimento deste projeto foi enriquecedor proporcionando o uso de novos recursos como o Entity Framework e o Fluent API na construção de uma aplicação Desktop, na linguagem C#. Seguindo as boas regras de programação e os padrões de desenho, conteúdo predominante nesta unidade curricular, chegamos ao fim deste trabalho satisfeitos com os resultados alcançados.
 
-Em suma, este foi um projeto que apesar de trabalhoso nos deu imenso prazer em desenvolver pois fez-nos pensar a um nível que normalmente não pensamos e nos proporcionou a aquisição de novos conhecimentos.
+Este foi um projeto que apesar de trabalhoso nos deu imenso prazer em desenvolver pois fez-nos pensar a um nível que normalmente não pensamos e nos proporcionou a aquisição de novos conhecimentos.
 
 Além disso, este projeto foi essencial para que pudéssemos colocar em prática alguns dos conceitos teóricos lecionados nas aulas. Deste modo, ficámos com outra noção da importância dos princípios SOLID, padrões de desenho que apresentam boas práticas para uma programação orientada a objetos, auxiliando na construção de um código de fácil leitura, manutenção e extensão.
 
-Apesar da complexidade da proposta acima descrita conseguimos atingir o nível exigido para esta unidade curricular.
+Em suma, apesar da complexidade da proposta acima descrita conseguimos atingir o nível exigido para esta unidade curricular.
 
 ## Referências
 [1] A. Lusa, "Portugueses fazem cada vez menos exercício físico", Observador, 2020. [Online]. Available: https://observador.pt/2019/01/24/portugueses-fazem-cada-vez-menos-exercicio-fisico/. [Accessed: 06- Feb- 2020].
