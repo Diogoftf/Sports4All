@@ -103,6 +103,7 @@ O padrão strategy deve ser usado quando são necessárias variantes de um algor
 ### State
 Permite que um objeto altere o seu comportamento quando o seu estado interno for alterado [5]. No projeto, o state foi utilizado para os diferentes estados (ecrãs) da criação de um evento por parte de um utilizador novato:
 
+![GitHub Logo](/RMImages/state.png)
 
 ## Referências
 [1] A. Lusa, "Portugueses fazem cada vez menos exercício físico", Observador, 2020. [Online]. Available: https://observador.pt/2019/01/24/portugueses-fazem-cada-vez-menos-exercicio-fisico/. [Accessed: 06- Feb- 2020].
