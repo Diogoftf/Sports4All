@@ -83,10 +83,6 @@ namespace Sports4All
                 MessageBox.Show("Devera selecionar o desporto.");
 
             }
-            /*  else if (dtpStartEventTime.Value.Date.Hour == dtpEndEventTime.Value.Date.Hour && dtpStartEventTime.Value.Date.Minute == dtpEndEventTime.Value.Date.Minute)
-              {
-                  MessageBox.Show("As datas do evento são incoerentes.");
-              }*/
             else if (cbPlayersNumber.SelectedIndex < 0)
             {
                 MessageBox.Show("Devera selecionar o numero de jogadores.");

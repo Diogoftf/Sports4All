@@ -47,6 +47,7 @@
             this.rbtnNovice = new System.Windows.Forms.RadioButton();
             this.rbtnExpert = new System.Windows.Forms.RadioButton();
             this.plLine = new System.Windows.Forms.Panel();
+            this.lbBackHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbSkill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFairPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpbUser)).BeginInit();
@@ -237,10 +238,21 @@
             this.plLine.Size = new System.Drawing.Size(575, 1);
             this.plLine.TabIndex = 0;
             // 
+            // lbBackHome
+            // 
+            this.lbBackHome.Location = new System.Drawing.Point(447, 557);
+            this.lbBackHome.Name = "lbBackHome";
+            this.lbBackHome.Size = new System.Drawing.Size(182, 45);
+            this.lbBackHome.TabIndex = 21;
+            this.lbBackHome.Text = "Voltar";
+            this.lbBackHome.UseVisualStyleBackColor = true;
+            this.lbBackHome.Click += new System.EventHandler(this.lbBackHome_Click);
+            // 
             // UC_UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.lbBackHome);
             this.Controls.Add(this.rbtnExpert);
             this.Controls.Add(this.rbtnNovice);
             this.Controls.Add(this.lblTypeOfUser);
@@ -290,5 +302,6 @@
         private System.Windows.Forms.RadioButton rbtnNovice;
         private System.Windows.Forms.RadioButton rbtnExpert;
         private System.Windows.Forms.Panel plLine;
+        private System.Windows.Forms.Button lbBackHome;
     }
 }
