@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 using Sports4All.Controller;
 
@@ -22,6 +21,17 @@ namespace Sports4All
         private Image _image;
         private string _eventName;
 
+        
+        public string ParkName
+        {
+            get => _parkname;
+            set
+            {
+                _parkname = value;
+                lbParkName.Text = value;
+            }
+        }
+        #region  EventDetails
         public string EventName
         {
             get => _eventName;
@@ -32,18 +42,6 @@ namespace Sports4All
                 tbNameEvent.Text = value;
             }
         }
-
-        public string ParkName
-        {
-            get => _parkname;
-            set
-            {
-                _parkname = value;
-                lbParkName.Text = value;
-            }
-        }
-
-        #region  EventDetails
         public int EventId
         {
             get => _eventID;
@@ -62,7 +60,6 @@ namespace Sports4All
                 dtpStartEventTime.Text = value;
             }
         }
-
         public string EndHour
         {
             get => _endHour;
@@ -164,10 +161,9 @@ namespace Sports4All
             CultureInfo provider = CultureInfo.InvariantCulture;
             DateTime NewStartDate = DateTime.ParseExact(startdateTime, format, provider);
             DateTime NewEndDate = DateTime.ParseExact(enddatetime, format, provider);
-           // string Name = EventName;
             _eventsController.UpdateEventRecord(EventID, MaxAge, MinAge, MaxPlayes, NewStartDate, NewEndDate, EventName);
-        
         }
+
         private void PropertiesformEventDetails(bool Enabled, BorderStyle border, bool ReadOnly)
         {
             dtpNextEventDate.Enabled = Enabled;
@@ -212,8 +208,8 @@ namespace Sports4All
                 };
                 flpUsersEvent.Controls.Add(_userInEvent);
             }
-
         }
+
         private void PopulateEventDetails()
         {
             var singleEvent = _eventsController.RetrieveSingleEvent(_eventID);
@@ -235,15 +231,11 @@ namespace Sports4All
         {
             if (lblOwnerValue.Text != Session.Instance.LoggedUser) btnEdit.Visible = false;
         }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
             btnSaveChanges.Visible = true;
             PropertiesformEventDetails(true, BorderStyle.Fixed3D, false);
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     } 
 }

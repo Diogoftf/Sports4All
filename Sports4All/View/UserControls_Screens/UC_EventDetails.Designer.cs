@@ -342,7 +342,6 @@
             this.lbeventNameEvent.Size = new System.Drawing.Size(65, 19);
             this.lbeventNameEvent.TabIndex = 85;
             this.lbeventNameEvent.Text = "Nome:";
-            this.lbeventNameEvent.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbNameEvent
             // 
