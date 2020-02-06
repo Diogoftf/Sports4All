@@ -168,7 +168,7 @@
             this.btnTopRecintos.Text = "Top Recintos";
             this.btnTopRecintos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTopRecintos.UseVisualStyleBackColor = true;
-            this.btnTopRecintos.Click += new System.EventHandler(this.btnTopRecintos_Click);
+            this.btnTopRecintos.Click += new System.EventHandler(this.btnTopGrounds_Click);
             // 
             // UC_Rank
             // 
