@@ -106,6 +106,17 @@ Permite que um objeto altere o seu comportamento quando o seu estado interno for
 
 ![GitHub Logo](/RMImages/state.png)
 
+## Preocupações de Desenho
+A utilização do modelo semelhante ao MVVM apresentado anteriormente, possibilita que tenhamos uma separação de responsabilidades entre camadas de aplicações. Com a utilização deste modelo a migração para outra aplicação (por exemplo mobile app) estaria facilitada. Além disso caso venhamos a precisar de utilizar uma outra interface esta alteração seria feita de forma fluida uma vez que a lógica de negócio e os dados estão separados.
+
+A utilização do padrão Singleton permite uma redução do consumo de memória desnecessário da utilização de várias instâncias de uma classe. Assim, como apenas temos uma instância da classe temos também mais controlo sobre o acesso às propriedades e métodos da mesma.
+A utilização do Strategy permite que no futuro o processo de adição de novas estratégias de criação de eventos seja facilitado.
+
+O padrão State permite facilitar a passagem de um estado para o outro e possibilita a adição de novos estados (etapas no processo de criação do evento).
+
+A utilização de genéricos no nosso projeto permite facilitar o processo de adição de novos User Controls no formulário principal da aplicação.
+
+
 ## Trabalho Futuro
 No futuro, esta aplicação poderia ser desenvolvida para uma versão mobile e assim permitir maior mobilidade para a gestão dos eventos, tendo a seu dispor funcionalidades para este efeito. Contudo, a versão Desktop teria sempre utilidade aquando da criação de vários tipos de conta para o sistema, mais concretamente para um Funcionário de um certo Parque Desportivo. Isto permitiria aos Parques adicionar novas quantidades de material assim como alterar o preço dos mesmos. Um exemplo demonstrativo deste cenário é alturas em que o recinto deseja realizar um desconto no aluguer de material.
 
