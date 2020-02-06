@@ -13,7 +13,7 @@ Ao longo deste relatório serão abordados os principais tópicos relacionados c
 De acordo com algumas pesquisas, os portugueses são dos que menos praticam exercício na Europa e fazem cada vez menos exercício físico, seja por falta de tempo, interesse ou motivação [1][2].
 
 ![GitHub Logo](/RMImages/resultado.png)
-Format: ![Alt Text](url)
+Referência: ![Diário de Notícias: Portugueses são dos que menos exercício praticam na Europa](https://www.dn.pt/vida-e-futuro/portugueses-sao-dos-que-menos-exercicio-praticam-na-europa-10735355.html)
 
 
 
