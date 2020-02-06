@@ -7,7 +7,7 @@ namespace Sports4All
     {
         public ModelContext() : base("name=DataBaseContext")
         {
-             Database.SetInitializer(new CreateDatabaseIfNotExists<ModelContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<ModelContext>());
         }
         public DbSet<Event> Events { get; set; }
         public DbSet<User> Users { get; set; }

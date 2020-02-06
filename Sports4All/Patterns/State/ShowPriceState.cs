@@ -53,5 +53,6 @@ namespace Sports4All.Patterns.State
         {
             lblPriceValue.Text = EventCreationManager.Instance.IPriceEntity.getCost().ToString() + " €";
         }
+
     }
 }
