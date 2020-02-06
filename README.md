@@ -105,6 +105,22 @@ Permite que um objeto altere o seu comportamento quando o seu estado interno for
 
 ![GitHub Logo](/RMImages/state.png)
 
+## Trabalho Futuro
+No futuro, esta aplicação poderia ser desenvolvida para uma versão mobile e assim permitir maior mobilidade para a gestão dos eventos, tendo a seu dispor funcionalidades para este efeito. Contudo, a versão Desktop teria sempre utilidade aquando da criação de vários tipos de conta para o sistema, mais concretamente para um Funcionário de um certo Parque Desportivo. Isto permitiria aos Parques adicionar novas quantidades de material assim como alterar o preço dos mesmos. Um exemplo demonstrativo deste cenário é alturas em que o recinto deseja realizar um desconto no aluguer de material.
+
+No que diz respeito à parte funcional, houve certos aspectos definidos na fase inicial deste projeto que não foram implementados. A adição de amigos, subscrição de parques/eventos bem como as notificações e sugestões de eventos são pontos que queremos cobrir futuramente, consolidando assim os conhecimentos adquiridos sobre padrões de desenho. De realçar ainda que o futuro não passa apenas pela implementação de novas funcionalidades mas melhorar o trabalho realizado até ao momento. Para tal, teríamos de usar threads para melhorar o desempenho da aplicação tornando a interação do utilizador mais fluída. Dado que a parte core deste projeto é a criação de eventos, a criação de módulos independentes com algoritmos de otimização para a gestão total das reservas seria uma medida vantajosa a implementar.
+
+## Conclusão
+Apesar de apresentar pequenas lacunas achamos que cumprimos com o que nos propusemos e apresentamos uma solução consistente que certamente facilitaria a marcação de eventos desportivos entre amigos.
+
+Consideramos que o desenvolvimento deste projeto foi enriquecedor proporcionando o uso de novos recursos como o Entity Framework e o Fluent API na construção de uma aplicação Desktop, na linguagem C#. Seguindo as boas regras de programação e os padrões de desenho, conteúdo predominante nesta unidade curricular, chegamos ao fim deste trabalho satisfeitos com os resultados alcançados.
+
+Em suma, este foi um projeto que apesar de trabalhoso nos deu imenso prazer em desenvolver pois fez-nos pensar a um nível que normalmente não pensamos e nos proporcionou a aquisição de novos conhecimentos.
+
+Além disso, este projeto foi essencial para que pudéssemos colocar em prática alguns dos conceitos teóricos lecionados nas aulas. Deste modo, ficámos com outra noção da importância dos princípios SOLID, padrões de desenho que apresentam boas práticas para uma programação orientada a objetos, auxiliando na construção de um código de fácil leitura, manutenção e extensão.
+
+Apesar da complexidade da proposta acima descrita conseguimos atingir o nível exigido para esta unidade curricular.
+
 ## Referências
 [1] A. Lusa, "Portugueses fazem cada vez menos exercício físico", Observador, 2020. [Online]. Available: https://observador.pt/2019/01/24/portugueses-fazem-cada-vez-menos-exercicio-fisico/. [Accessed: 06- Feb- 2020].
 
