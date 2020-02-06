@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sports4All.Controller;
 
@@ -15,7 +10,6 @@ namespace Sports4All
     {
         private RankController _rankController;
 
-    
         public UC_Rank()
         {
             InitializeComponent();
@@ -47,22 +41,26 @@ namespace Sports4All
             lblName3.Text = "Pontos";
             flpRank.Controls.Clear();
             ICollection<UserClassification> topUsers = _rankController.getTopUsers();
-            var auxiliar = topUsers.Count;
+            var aux = topUsers.Count;
             
             if (top10)
-                auxiliar = 10;
+            {
+                aux = 10;
+            }
 
-            if (topUsers.Count > 0)
+            if (topUsers.Any())
             {
                 for (int i = 0; i < topUsers.Count; i++)
                 {
-                    if (i < auxiliar)
+                    if (i < aux)
                     {
-                        UC_RankItems rankItems = new UC_RankItems();
-                        rankItems.Classificacao = (i+1).ToString();
-                        rankItems.Utilizador = topUsers.ToList()[i].User.Username.ToString();
-                        rankItems.PartidasJogadas = topUsers.ToList()[i].User.Events.Count.ToString();
-                        rankItems.Pontos = topUsers.ToList()[i].Points.ToString();
+                        UC_RankItems rankItems = new UC_RankItems
+                        {
+                            Classificacao = (i + 1).ToString(),
+                            Utilizador = topUsers.ToList()[i].User.Username.ToString(),
+                            PartidasJogadas = topUsers.ToList()[i].User.Events.Count.ToString(),
+                            Pontos = topUsers.ToList()[i].Points.ToString()
+                        };
                         flpRank.Controls.Add(rankItems);
                     }
                 }
@@ -74,8 +72,6 @@ namespace Sports4All
                 rankItems.Utilizador = "Não existem jogadores com pontos";
                 flpRank.Controls.Add(rankItems);
             }
-
-
         }
 
         private void btnTop10_Click(object sender, EventArgs e)
@@ -97,21 +93,27 @@ namespace Sports4All
             var auxiliarPartidasJogadas = 0;
             ICollection<ParkClassification> RecintosClassification = _rankController.getTopRecintos();
 
-            if (RecintosClassification.ToList().Count > 0)
+            if (RecintosClassification.Any())
             {
                 for (int i = 0; i < RecintosClassification.Count; i++)
                 {
-                        UC_RankItems rankItems = new UC_RankItems();
-                        rankItems.Classificacao = (i + 1).ToString();
-                        rankItems.Utilizador = RecintosClassification.ToList()[i].Park.Name.ToString(); 
-                        foreach(Ground a in RecintosClassification.ToList()[i].Park.Grounds)
+                    UC_RankItems rankItems = new UC_RankItems
+                    {
+                        Classificacao = (i + 1).ToString(),
+                        Utilizador = RecintosClassification.ToList()[i].Park.Name.ToString()
+                    };
+
+                    foreach (Ground a in RecintosClassification.ToList()[i].Park.Grounds)
                         {
                             auxiliarPartidasJogadas += a.Reserves.Count;
                         }
-                        rankItems.PartidasJogadas = RecintosClassification.ToList()[i].QualityAverage.ToString() + " / " +
-                                                    RecintosClassification.ToList()[i].PriceAverage.ToString(); 
-                        rankItems.Pontos = RecintosClassification.ToList()[i].Points.ToString(); 
-                        flpRank.Controls.Add(rankItems);
+
+                    rankItems.PartidasJogadas = RecintosClassification.ToList()[i].QualityAverage.ToString()
+                        + " / "
+                        + RecintosClassification.ToList()[i].PriceAverage.ToString();
+
+                    rankItems.Pontos = RecintosClassification.ToList()[i].Points.ToString();
+                    flpRank.Controls.Add(rankItems);
                 }
             }
             else

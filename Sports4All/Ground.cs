@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Sports4All.Decorator;
 
 namespace Sports4All
@@ -20,7 +15,7 @@ namespace Sports4All
 
         public double getCost()
         {
-            return this.Price;
+            return Price;
         }
     }
 }

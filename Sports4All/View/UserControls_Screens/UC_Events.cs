@@ -1,9 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Net;
-using System.IO;
-using System.Drawing;
-using System.Linq;
 using Sports4All.Controller;
 using Sports4All.UserControls_Items;
 

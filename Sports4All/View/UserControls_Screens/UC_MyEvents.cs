@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,7 +14,6 @@ namespace Sports4All
         public UC_MyEvents()
         {
             InitializeComponent();
-
             Username = Session.Instance.LoggedUser;
             _eventsController = new MyEventsController();
         }
@@ -33,16 +31,12 @@ namespace Sports4All
             Populate();
             btnFinishedEvents.BackColor = Color.LightSkyBlue;
         }
-
+        
         public void Populate()
         {
             FinishedEvents();
         }
 
-        private void button_ProximosEventos_Click(object sender, EventArgs e)
-        {
-            flpListMyEvents.Controls.Clear();
-        }
         private void FinishedEvents()
         {
             flpListMyEvents.Controls.Clear();
@@ -76,10 +70,12 @@ namespace Sports4All
                 flpListMyEvents.Controls.Add(_finishedEvent);
                 }
             }
+
         private void MyReserves()
         {
             flpListMyEvents.Controls.Clear();
             var myReserves = _eventsController.RetrieveUserReserves(Username);
+            
             foreach (var reserves in myReserves.Take(_numberEventsShow))
             {
                 var usersCount = reserves.Event.Users.Count;
@@ -114,6 +110,7 @@ namespace Sports4All
             btnMinhasReservas.BackColor = Color.LightGray;
 
             var nextEvents = _eventsController.RetrieveNextEvents(Username);
+
             foreach (var nextEvent in nextEvents.Take(_numberEventsShow))
             {
                 var users = nextEvent.Users.ToList();
@@ -137,7 +134,6 @@ namespace Sports4All
                 };
 
                 var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _nextEvent, users, Username);
-
                 flpListMyEvents.Controls.Add(eventItem);
             }
         }

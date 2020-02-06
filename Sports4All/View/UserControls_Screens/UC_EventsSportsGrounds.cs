@@ -18,12 +18,12 @@ namespace Sports4All
         private bool _controlSub = false;
         private string _parkName;
         private int _id;
-        private string _username { get; set; }
+        private string Username { get; set; }
 
         public UC_EventsSportsGrounds()
         {
             InitializeComponent();
-            _username = Session.Instance.LoggedUser;
+            Username = Session.Instance.LoggedUser;
             btnAllSports.BackColor = Color.LightBlue;
             _resources = new ComponentResourceManager(typeof(UC_EventsModality));
             _eventsController = new MyEventsController();
@@ -52,11 +52,11 @@ namespace Sports4All
 
         public void Populate()
         {
-           
             flpEventListSportsground.Controls.Clear();
             _eventsList = _eventsController.EventsByGround(Convert.ToInt32(Id));
             if (!DesignMode) ListEventsbyGround();
         }
+
         public void ListEventsbyGround()
         {
             flpEventListSportsground.Controls.Clear();
@@ -65,6 +65,7 @@ namespace Sports4All
             var Park = _parkController.GetPark(Convert.ToInt32(Id));
             ParkName = Park.Name;
             UC_NextEventsandReserveItem _eventGround = new UC_NextEventsandReserveItem();
+
             foreach (var eventGround in _eventsList)
             {
                 var users = eventGround.Users.ToList();
@@ -82,7 +83,7 @@ namespace Sports4All
                 _eventGround.Lotation = usersCount + "/" + maxUsers;
                 _eventGround.EventID = Convert.ToString(eventGround.EventId);
                
-                var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _eventGround, users, _username);
+                var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _eventGround, users, Username);
                 flpEventListSportsground.Controls.Add(eventItem);
             }
         }
@@ -100,8 +101,8 @@ namespace Sports4All
             {
                 tbSubSportsGroundNotification.Visible = false;
                 _controlSub = true;
-                btnSub.Image = ((System.Drawing.Image)(_resources.GetObject("sub_Button")));
-                showNotification("Recinto Subscrito!", "O recinto foi subscrito com Sucesso.Aceda às suas Subscrições para " +
+                btnSub.Image = ((Image)(_resources.GetObject("sub_Button")));
+                ShowNotification("Recinto Subscrito!", "O recinto foi subscrito com Sucesso.Aceda às suas Subscrições para " +
                                   " gerir todos os seus favoritos!!!");
             }
             else
@@ -111,7 +112,7 @@ namespace Sports4All
 
             }
         }
-        private void showNotification(string title, string body)
+        private void ShowNotification(string title, string body)
         {
             NotifyIcon notifyIcon = new NotifyIcon();
             notifyIcon.Icon = SystemIcons.Application;

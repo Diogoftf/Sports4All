@@ -6,16 +6,16 @@ namespace Sports4All
     public class EventCreationManager
     {
         private static EventCreationManager _instance;
-        private CreateEventController _createEventController { get; set; }
+        private CreateEventController CreateEventController { get; set; }
         private Reserve _reserve { get; set; }
-        private Event _event { get; set; }
+        private Event Event { get; set; }
 
         private EventCreationManager()
         {
             _reserve = new Reserve();
-            _createEventController = new CreateEventController();
+            CreateEventController = new CreateEventController();
             _reserve.Price = 0;
-            _event = new Event();
+            Event = new Event();
         }
 
         public static EventCreationManager Instance

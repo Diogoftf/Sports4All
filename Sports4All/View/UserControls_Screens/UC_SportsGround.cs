@@ -20,7 +20,6 @@ namespace Sports4All
             _browseParksController = new BrowseParksController();
         }
 
-
         #region Properties
         public string Id { get; set; }
         #endregion
@@ -78,7 +77,6 @@ namespace Sports4All
             cbLocation.DataSource = new BindingSource(values, null);
             cbLocation.DisplayMember = "Value";
             cbLocation.ValueMember = "Key";
-
             cbLocation.SelectedValue = 0;
         }
 

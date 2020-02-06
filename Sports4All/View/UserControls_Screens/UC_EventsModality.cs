@@ -16,6 +16,7 @@ namespace Sports4All
         private string _sportName;
         private ComponentResourceManager resources = new ComponentResourceManager(typeof(UC_EventsModality));
         private BrowseParksController _browseParksController;
+
         public UC_EventsModality()
         {
             InitializeComponent();
@@ -45,7 +46,7 @@ namespace Sports4All
         {
             flpEventListModality.Controls.Clear();
             var EventsbySport = _eventsController.EventsBySport(_id,key);
-            var EventsbySportCount = EventsbySport.Count;
+            _ = EventsbySport.Count;
             var Sport = _eventsController.RetrieveSingleSport(_id);
             tbModalityName.Text = Sport.ToList()[0].Name;
             var _eventSport = new UC_NextEventsandReserveItem();

@@ -13,7 +13,6 @@ namespace Sports4All
     {
         private readonly AuthController _authController;
         private int _selectedPicture;
-
         private string _email = "";
         private string _password = "";
         private string _username = "";
@@ -228,11 +227,11 @@ namespace Sports4All
         {
             if (string.IsNullOrEmpty(tbRegPhone.Text))
             {
-                ShowErrorMessage(e, tbRegPhone, "Please enter your phone number.");
+                ShowErrorMessage(e, tbRegPhone, "Por favor, insira o seu número de telemóvel.");
             }
             else if (!IsNumberWithNDigits(tbRegPhone.Text, 9))
             {
-                ShowErrorMessage(e, tbRegPhone, "Please enter a valid number (9 digits).");
+                ShowErrorMessage(e, tbRegPhone, "Por favor, insira um número de telemóvel válido (9 digitos).");
             }
             else
             {
@@ -273,7 +272,7 @@ namespace Sports4All
 
         private bool IsNumberWithNDigits(string input, int size)
         {
-            return (input.Length == size && input.All(Char.IsDigit));
+            return (input.Length == size && input.All(char.IsDigit));
         }
 
         public static void EnableTab(TabPage page, bool enable)
@@ -316,21 +315,11 @@ namespace Sports4All
         }
 
         private void PopulateCounties()
-        {
-
-            //ComboboxItem item = new ComboboxItem();
-            //item.Text = "Item text1";
-            //item.Value = 12;
-
-            //comboBox1.Items.Add(item);
-
-            //comboBox1.SelectedIndex = 0;
-            
+        {   
             foreach (var county in _authController.RetrieveCounties())
             {
                 cbCounty.Items.Add(county.Name);
             }
-
         }
 
         private void cbCounty_SelectedIndexChanged(object sender, EventArgs e)

@@ -32,12 +32,10 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
-            this.lblSubscribers = new System.Windows.Forms.Label();
             this.lblEvents = new System.Windows.Forms.Label();
             this.lblUserEmail = new System.Windows.Forms.Label();
             this.lblUserPhone = new System.Windows.Forms.Label();
             this.lblUserEvents = new System.Windows.Forms.Label();
-            this.lblUserSubscribers = new System.Windows.Forms.Label();
             this.lblSkill = new System.Windows.Forms.Label();
             this.lblFairPlay = new System.Windows.Forms.Label();
             this.lblUserSkill = new System.Windows.Forms.Label();
@@ -80,19 +78,9 @@
             this.lblPhone.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.lblPhone.Location = new System.Drawing.Point(392, 172);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(167, 23);
+            this.lblPhone.Size = new System.Drawing.Size(122, 23);
             this.lblPhone.TabIndex = 3;
-            this.lblPhone.Text = "Phone Number :";
-            // 
-            // lblSubscribers
-            // 
-            this.lblSubscribers.AutoSize = true;
-            this.lblSubscribers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.lblSubscribers.Location = new System.Drawing.Point(392, 304);
-            this.lblSubscribers.Name = "lblSubscribers";
-            this.lblSubscribers.Size = new System.Drawing.Size(155, 23);
-            this.lblSubscribers.TabIndex = 5;
-            this.lblSubscribers.Text = "# Subscritores :";
+            this.lblPhone.Text = "Telemóvel :";
             // 
             // lblEvents
             // 
@@ -118,7 +106,7 @@
             // 
             this.lblUserPhone.AutoSize = true;
             this.lblUserPhone.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.lblUserPhone.Location = new System.Drawing.Point(565, 172);
+            this.lblUserPhone.Location = new System.Drawing.Point(520, 172);
             this.lblUserPhone.Name = "lblUserPhone";
             this.lblUserPhone.Size = new System.Drawing.Size(109, 23);
             this.lblUserPhone.TabIndex = 8;
@@ -133,16 +121,6 @@
             this.lblUserEvents.Size = new System.Drawing.Size(101, 23);
             this.lblUserEvents.TabIndex = 9;
             this.lblUserEvents.Text = "Nr Events";
-            // 
-            // lblUserSubscribers
-            // 
-            this.lblUserSubscribers.AutoSize = true;
-            this.lblUserSubscribers.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.lblUserSubscribers.Location = new System.Drawing.Point(553, 304);
-            this.lblUserSubscribers.Name = "lblUserSubscribers";
-            this.lblUserSubscribers.Size = new System.Drawing.Size(144, 23);
-            this.lblUserSubscribers.TabIndex = 10;
-            this.lblUserSubscribers.Text = "Nr Subscribers";
             // 
             // lblSkill
             // 
@@ -219,7 +197,7 @@
             // 
             this.lblTypeOfUser.AutoSize = true;
             this.lblTypeOfUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTypeOfUser.Location = new System.Drawing.Point(392, 426);
+            this.lblTypeOfUser.Location = new System.Drawing.Point(392, 381);
             this.lblTypeOfUser.Name = "lblTypeOfUser";
             this.lblTypeOfUser.Size = new System.Drawing.Size(299, 23);
             this.lblTypeOfUser.TabIndex = 18;
@@ -230,7 +208,7 @@
             this.rbtnNovice.AutoSize = true;
             this.rbtnNovice.Checked = true;
             this.rbtnNovice.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnNovice.Location = new System.Drawing.Point(697, 425);
+            this.rbtnNovice.Location = new System.Drawing.Point(697, 380);
             this.rbtnNovice.Name = "rbtnNovice";
             this.rbtnNovice.Size = new System.Drawing.Size(102, 26);
             this.rbtnNovice.TabIndex = 19;
@@ -242,7 +220,7 @@
             // rbtnExpert
             // 
             this.rbtnExpert.AutoSize = true;
-            this.rbtnExpert.Location = new System.Drawing.Point(805, 426);
+            this.rbtnExpert.Location = new System.Drawing.Point(805, 381);
             this.rbtnExpert.Name = "rbtnExpert";
             this.rbtnExpert.Size = new System.Drawing.Size(127, 26);
             this.rbtnExpert.TabIndex = 20;
@@ -272,9 +250,7 @@
             this.Controls.Add(this.lblUserEvents);
             this.Controls.Add(this.pbFairPlay);
             this.Controls.Add(this.lblUserEmail);
-            this.Controls.Add(this.lblSubscribers);
             this.Controls.Add(this.pbSkill);
-            this.Controls.Add(this.lblUserSubscribers);
             this.Controls.Add(this.lblUserPhone);
             this.Controls.Add(this.lblEvents);
             this.Controls.Add(this.plLine);
@@ -299,12 +275,10 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.Label lblSubscribers;
         private System.Windows.Forms.Label lblEvents;
         private System.Windows.Forms.Label lblUserEmail;
         private System.Windows.Forms.Label lblUserPhone;
         private System.Windows.Forms.Label lblUserEvents;
-        private System.Windows.Forms.Label lblUserSubscribers;
         private System.Windows.Forms.Label lblSkill;
         private System.Windows.Forms.Label lblFairPlay;
         private System.Windows.Forms.Label lblUserSkill;
