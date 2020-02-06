@@ -80,5 +80,15 @@ namespace Sports4All.Patterns.State
             int id = ((KeyValuePair<int, string>)cbSelectSport.SelectedItem).Key;
             EventCreationManager.Instance.SportId = id;
         }
+
+        private void cbSelectSport_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nextScreenButton_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

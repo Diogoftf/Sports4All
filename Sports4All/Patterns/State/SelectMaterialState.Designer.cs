@@ -41,6 +41,7 @@
             this.nextScreenButton.ReserveNoviceForm = null;
             this.nextScreenButton.Size = new System.Drawing.Size(63, 63);
             this.nextScreenButton.TabIndex = 10;
+            this.nextScreenButton.Load += new System.EventHandler(this.nextScreenButton_Load);
             // 
             // previousScreenButton
             // 
