@@ -18,12 +18,12 @@ namespace Sports4All
         private bool _controlSub = false;
         private string _parkName;
         private int _id;
-        private string Username { get; set; }
+        private string _username { get; set; }
 
         public UC_EventsSportsGrounds()
         {
             InitializeComponent();
-            Username = Session.Instance.LoggedUser;
+            _username = Session.Instance.LoggedUser;
             btnAllSports.BackColor = Color.LightBlue;
             _resources = new ComponentResourceManager(typeof(UC_EventsModality));
             _eventsController = new MyEventsController();
@@ -52,11 +52,9 @@ namespace Sports4All
 
         public void Populate()
         {
-            flpEventListSportsground.Controls.Clear();
             _eventsList = _eventsController.EventsByGround(Convert.ToInt32(Id));
             if (!DesignMode) ListEventsbyGround();
         }
-
         public void ListEventsbyGround()
         {
             flpEventListSportsground.Controls.Clear();
@@ -64,10 +62,10 @@ namespace Sports4All
             UC_NextEventsandReserveItem[] listitems = new UC_NextEventsandReserveItem[EventsbyGroundCount];
             var Park = _parkController.GetPark(Convert.ToInt32(Id));
             ParkName = Park.Name;
-            UC_NextEventsandReserveItem _eventGround = new UC_NextEventsandReserveItem();
 
             foreach (var eventGround in _eventsList)
             {
+                UC_NextEventsandReserveItem _eventGround = new UC_NextEventsandReserveItem();
                 var users = eventGround.Users.ToList();
                 var usersCount = eventGround.Users.Count;
                 var maxUsers = eventGround.MaxPlayers;
@@ -78,14 +76,32 @@ namespace Sports4All
                 _eventGround.Owner = _eventsList.ToList()[0].Reserve.UserId;
                 _eventGround.SportGround = _eventsList.ToList()[0].Reserve.Ground.Park.Name;
                 _eventGround.Hour = eventGround.StartDate.ToShortTimeString();
+                _eventGround.Sport = eventGround.Reserve.Sport.Name;
                 _eventGround.Day = Convert.ToString(eventGround.StartDate.Day);
                 _eventGround.Month = month;
                 _eventGround.Lotation = usersCount + "/" + maxUsers;
                 _eventGround.EventID = Convert.ToString(eventGround.EventId);
-               
-                var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _eventGround, users, Username);
-                flpEventListSportsground.Controls.Add(eventItem);
+                var eventItem = _eventsController.ChangeButtons(usersCount, maxUsers, _eventGround, users, _username);
+                flpEventListSportsground.Controls.Add(_eventGround);
             }
+        }
+        private void showNotification(string title, string body)
+        {
+            NotifyIcon notifyIcon = new NotifyIcon();
+            notifyIcon.Icon = SystemIcons.Application;
+            notifyIcon.Visible = true;
+
+            if (title != null)
+            {
+                notifyIcon.BalloonTipTitle = title;
+            }
+
+            if (body != null)
+            {
+                notifyIcon.BalloonTipText = body;
+            }
+
+            notifyIcon.ShowBalloonTip(30000);
         }
 
         private void btnFootball_Click(object sender, EventArgs e)
@@ -137,7 +153,7 @@ namespace Sports4All
                 btnFootball.BackColor = Color.LightGray;
                 btnHandball.BackColor = Color.LightGray;
                 flpEventListSportsground.Controls.Clear();
-                _eventsList = _eventsController.EventsByGround(_id);
+                _eventsList = _eventsController.EventsByGround(Convert.ToInt32(Id));
                 ListEventsbyGround();
             }
         }
