@@ -89,7 +89,7 @@
             this.btnHandball.Name = "btnHandball";
             this.btnHandball.Size = new System.Drawing.Size(113, 33);
             this.btnHandball.TabIndex = 2;
-            this.btnHandball.Text = "ANDEBOL";
+            this.btnHandball.Text = "FUTSAL";
             this.btnHandball.UseVisualStyleBackColor = true;
             this.btnHandball.Click += new System.EventHandler(this.btnHandball_Click);
             // 
