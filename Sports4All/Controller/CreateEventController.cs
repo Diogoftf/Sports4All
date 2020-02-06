@@ -107,21 +107,20 @@ namespace Sports4All.Controller
             }
         }
 
-        public void RetrieveMaterial(FlowLayoutPanel flp, ICollection<Use> materialUsage, Reserve Reserve)
+        public void RetrieveMaterial(List<UC_MaterialItem> materials, ICollection<Use> materialUsage, Reserve Reserve)
         {
             using (var db = new ModelContext())
             {
                 var WhoAmI = db.Users.First(f => f.Username.Equals(Session.Instance.LoggedUser));
 
-                for (var i = 0; i < flp.Controls.Count; i++)
+                foreach (var material in materials)
                 {
-                    var item = flp.Controls[i] as UC_MaterialItem;
-                    if (item.Quantity > 0)
+                    if (material.Quantity > 0)
                     {
                         var use = new Use();
-                        var query = db.Materials.Where(f => f.Name == item.Material).First();
+                        var query = db.Materials.Where(f => f.Name == material.Material).First();
                         use.MaterialId = query.MaterialId;
-                        use.Quantity = item.Quantity;
+                        use.Quantity = material.Quantity;
                         use.Reserve = Reserve;
                         materialUsage.Add(use);
                     }

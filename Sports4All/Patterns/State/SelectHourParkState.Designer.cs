@@ -70,6 +70,7 @@
             this.dtpEventStartDate.Name = "dtpEventStartDate";
             this.dtpEventStartDate.Size = new System.Drawing.Size(176, 34);
             this.dtpEventStartDate.TabIndex = 14;
+            this.dtpEventStartDate.ValueChanged += new System.EventHandler(this.SetDateTimeValues);
             // 
             // dtpEventStartTime
             // 
@@ -81,6 +82,7 @@
             this.dtpEventStartTime.Name = "dtpEventStartTime";
             this.dtpEventStartTime.Size = new System.Drawing.Size(135, 34);
             this.dtpEventStartTime.TabIndex = 15;
+            this.dtpEventStartTime.ValueChanged += new System.EventHandler(this.dtpEventStartTime_ValueChanged);
             // 
             // dtpEventEndTime
             // 
@@ -92,6 +94,7 @@
             this.dtpEventEndTime.Name = "dtpEventEndTime";
             this.dtpEventEndTime.Size = new System.Drawing.Size(135, 34);
             this.dtpEventEndTime.TabIndex = 17;
+            this.dtpEventEndTime.ValueChanged += new System.EventHandler(this.dtpEventEndTime_ValueChanged);
             // 
             // lblPark
             // 

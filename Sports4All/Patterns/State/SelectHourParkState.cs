@@ -32,8 +32,7 @@ namespace Sports4All.Patterns.State
 
         public void NextScreen()
         {
-            SetDateTimeValues();
-            DecorateGroundFromParkSelected();
+            EventCreationManager.Instance.DecorateGroundFromParkSelected();
             _reserveNoviceForm.SetState(_reserveNoviceForm.AskForMaterialState);
         }
 
@@ -41,39 +40,13 @@ namespace Sports4All.Patterns.State
         {
             _reserveNoviceForm.SetState(_reserveNoviceForm.SelectLocationState);
         }
-
-        public void DecorateGroundFromParkSelected()
-        {
-                var sport = _createEventController.GetSportFromId(EventCreationManager.Instance.SportId);
-                var parkId = _createEventController.GetParkFromId(EventCreationManager.Instance.ParkId).ParkId;
-                var parkGrounds = _createEventController.GetGroundsFromId(EventCreationManager.Instance.ParkId).ToList();
-
-                foreach (var ground in parkGrounds)
-                {
-                    foreach (var s in ground.Sports)
-                    {
-                        if (s.SportId == sport.SportId)
-                        {
-                            EventCreationManager.Instance.Reserve.GroundId = ground.GroundId;
-                            EventCreationManager.Instance.Reserve.SportId = sport.SportId;
-                            EventCreationManager.Instance.IPriceEntity = ground;
-                        }
-                    }
-                }
-
-            int NumberOfHoursPlaying = Convert.ToInt32(dtpEventEndTime.Value.Subtract(dtpEventStartTime.Value).TotalHours);
-
-            if (NumberOfHoursPlaying > 1)
-            {
-                NumberOfHoursPlaying -= 1;
-                EventCreationManager.Instance.IPriceEntity = new TimeDecorator(EventCreationManager.Instance.IPriceEntity, NumberOfHoursPlaying, _createEventController.GetGround(EventCreationManager.Instance.Reserve.GroundId).Price);
-            }
-        }
+        
 
         public void Populate()
         {
             PopulateDateTime();
             PopulateComboBox();
+            SetDateTimeValues();
 
             nextScreenButton.ReserveNoviceForm = _reserveNoviceForm;
             previousScreenButton.ReserveNoviceForm = _reserveNoviceForm;
@@ -87,7 +60,6 @@ namespace Sports4All.Patterns.State
             cbSelectPark.DataSource = new BindingSource(parks, null);
             cbSelectPark.DisplayMember = "Value";
             cbSelectPark.ValueMember = "Key";
-
 
             if (parks.Any())
             {
@@ -133,7 +105,23 @@ namespace Sports4All.Patterns.State
 
         private void cbSelectPark_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int id = ((KeyValuePair<int, string>)cbSelectPark.SelectedItem).Key;
+            EventCreationManager.Instance.ParkId = id;
+        }
 
+        private void SetDateTimeValues(object sender, EventArgs e)
+        {
+            SetDateTimeValues();
+        }
+
+        private void dtpEventStartTime_ValueChanged(object sender, EventArgs e)
+        {
+            SetDateTimeValues();
+        }
+
+        private void dtpEventEndTime_ValueChanged(object sender, EventArgs e)
+        {
+            SetDateTimeValues();
         }
     }
 }

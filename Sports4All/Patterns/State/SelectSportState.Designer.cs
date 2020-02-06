@@ -52,7 +52,6 @@
             this.cbSelectSport.Name = "cbSelectSport";
             this.cbSelectSport.Size = new System.Drawing.Size(295, 33);
             this.cbSelectSport.TabIndex = 2;
-            this.cbSelectSport.SelectedIndexChanged += new System.EventHandler(this.cbSelectSport_SelectedIndexChanged);
             this.cbSelectSport.SelectionChangeCommitted += new System.EventHandler(this.cbSelectSport_SelectedValueChanged);
             // 
             // nextScreenButton
@@ -62,7 +61,6 @@
             this.nextScreenButton.ReserveNoviceForm = null;
             this.nextScreenButton.Size = new System.Drawing.Size(63, 63);
             this.nextScreenButton.TabIndex = 4;
-            this.nextScreenButton.Load += new System.EventHandler(this.nextScreenButton_Load);
             // 
             // previousScreenButton
             // 
