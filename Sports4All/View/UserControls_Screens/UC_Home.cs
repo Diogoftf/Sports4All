@@ -29,7 +29,7 @@ namespace Sports4All
         public UC_Home()
         {
             InitializeComponent();
-            _pointsToNextLevel = pointsRemaining();
+            _pointsToNextLevel = PointsRemaining();
         }
 
         #region Properties
@@ -62,22 +62,21 @@ namespace Sports4All
                 _noSuggestionsEventsitems.DisableImage = null;
                 _noSuggestionsEventsitems.resetNameProprieties = "";
 
-                pointsRemaining();
+                PointsRemaining();
                 PopulateMyEventsList();
                 PopulateMySuggestionsList();
                 PopulateComboBox();
                 InfoStatsDescription();
                 UserStatsDetails();
-                getTopClassificationDetails();
+                GetTopClassificationDetails();
             }
         }
 
-        private void getTopClassificationDetails()
+        private void GetTopClassificationDetails()
         {
             using (var db = new ModelContext())
             {
                 var userQuery = db.Classifications.OfType<UserClassification>().OrderByDescending(e => e.Points).Take(1).FirstOrDefault();
-
                 var parkQuery = db.Classifications.OfType<ParkClassification>().OrderByDescending(e => e.Points).Take(1).FirstOrDefault();
 
                 pbMonthuser.Image = ImagesController.Instance.GetImageFromID(userQuery.User.PictureId);
@@ -97,10 +96,8 @@ namespace Sports4All
             {
                 _reserveStrategy = new NoviceReserveStrategy();
             }
-
             _reserveStrategy.DisplayReserveForm();
         }
-
 
         public void ProgressBarInitializer()
         {
@@ -114,7 +111,7 @@ namespace Sports4All
             _timerProgressBar.Start();
         }
 
-        private double pointsRemaining()
+        private double PointsRemaining()
         {
             var aux = double.Parse(lbNextLevel.Text) * 100.0;
             var aux2 = 100 - (aux - double.Parse(_homeController.getMyStats().ToList()[4]));
@@ -138,11 +135,10 @@ namespace Sports4All
             {
                 _graphic.Clear(Color.LightGray);
                 _graphic.FillRectangle(Brushes.LightGreen, new Rectangle(0, 0, (int)(_pbComplete * _pbUnit), _pbHEIGHT));
-                _graphic.DrawString(_pbComplete.ToString() + " pts", new Font("Arial", _pbHEIGHT / 2), Brushes.Black, new PointF(_pbWIDTH / 2 - _pbHEIGHT, _pbHEIGHT / 10));
+                _graphic.DrawString(_pbComplete.ToString() + " pts", new Font("Arial", _pbHEIGHT / 2), Brushes.Black, new PointF((_pbWIDTH / 2) - _pbHEIGHT, _pbHEIGHT / 10));
                 pbProgressBar.Image = _bmp;
                 _pbComplete++;
             }
-
         }
 
         private void dtpMySportDate_ValueChanged(object sender, EventArgs e)
@@ -153,7 +149,8 @@ namespace Sports4All
             {
                 string[] dateStart = ev.DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
 
-                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy").Equals(dtpMySportDate.Value.Date.ToString("dd-MM-yyyy")) || DateTime.Now.ToString("dd-MM-yyyy").Equals(dtpMySportDate.Value.Date.ToString("dd-MM-yyyy")))
+                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy").Equals(dtpMySportDate.Value.Date.ToString("dd-MM-yyyy"))
+                    || DateTime.Now.ToString("dd-MM-yyyy").Equals(dtpMySportDate.Value.Date.ToString("dd-MM-yyyy")))
                 {
                     flpMyEvents.Controls.Add(ev);
                 }
@@ -179,7 +176,8 @@ namespace Sports4All
             var current = Convert.ToInt32(double.Parse(_homeController.getMyStats().ToList()[4]) / _rankController._levelChange);
             lbCurrentLevel.Text = current.ToString();
             lbNextLevel.Text = (current + 1).ToString();
-            if (_homeController.getMyStats().ToList().Count > 0)
+
+            if (_homeController.getMyStats().Any())
             {
                 lbMatchesPlayedValue.Text = _homeController.getMyStats().ToList()[0];
                 lbFairplayValue.Text = _homeController.getMyStats().ToList()[1];
@@ -206,27 +204,30 @@ namespace Sports4All
 
         private void PopulateMyEventsList()
         {
-            ICollection<Event> myEvent = _homeController.getMyEvents();
+            ICollection<Event> myEventsList = _homeController.getMyEvents();
             flpMyEvents.Controls.Clear();
             flpEventSuggestions.Controls.Clear();
             _MyEvents.Clear();
             _EventSuggestions.Clear();
 
-            if (myEvent.Count > 0)
+            if (myEventsList.Any())
             {
-
-                for (int i = 0; i < myEvent.Count; i++)
+                for (int i = 0; i < myEventsList.Count; i++)
                 {
                     if (i < 3)
                     {
-                        UC_HomeMyEventsItem ItemMyEvents = new UC_HomeMyEventsItem();
-                        ItemMyEvents.DateTime = myEvent.ToList()[i].StartDate.ToString("dd/MM/yyyy HH:mm") + " || " + myEvent.ToList()[i].EndDate.ToString("HH:mm");
-                        ItemMyEvents.Owner = myEvent.ToList()[i].Reserve.UserId;
-                        ItemMyEvents.Slots = myEvent.ToList()[i].Users.Count.ToString() + "/" + myEvent.ToList()[i].MaxPlayers.ToString();
-                        ItemMyEvents.Recinto = myEvent.ToList()[i].Reserve.Ground.Park.Name;
-                        ItemMyEvents.Sport = myEvent.ToList()[i].Reserve.Sport.Name;
-                        ItemMyEvents.Image = ImagesController.Instance.GetImageFromID(myEvent.ToList()[i].Reserve.Sport.Picture.PictureId);
-                        ItemMyEvents.Id = myEvent.ToList()[i].EventId;
+                        UC_HomeMyEventsItem ItemMyEvents = new UC_HomeMyEventsItem
+                        {
+                            DateTime = myEventsList.ToList()[i].StartDate.ToString("dd/MM/yyyy HH:mm")
+                            + " || "
+                            + myEventsList.ToList()[i].EndDate.ToString("HH:mm"),
+                            Owner = myEventsList.ToList()[i].Reserve.UserId,
+                            Slots = myEventsList.ToList()[i].Users.Count.ToString() + "/" + myEventsList.ToList()[i].MaxPlayers.ToString(),
+                            Recinto = myEventsList.ToList()[i].Reserve.Ground.Park.Name,
+                            Sport = myEventsList.ToList()[i].Reserve.Sport.Name,
+                            Image = ImagesController.Instance.GetImageFromID(myEventsList.ToList()[i].Reserve.Sport.Picture.PictureId),
+                            Id = myEventsList.ToList()[i].EventId
+                        };
                         _MyEvents.Add(ItemMyEvents);
                         flpMyEvents.Controls.Add(ItemMyEvents);
                     }
@@ -243,20 +244,24 @@ namespace Sports4All
             ICollection<Reserve> EventSuggestions = _homeController.getEventSuggestions();
             flpEventSuggestions.Controls.Clear();
 
-            if (EventSuggestions.Count > 0)
+            if (EventSuggestions.Any())
             {
                 for (int i = 0; i < EventSuggestions.Count; i++)
                 {
                     if (i < 3)
                     {
-                        UC_HomeMyEventsItem ItemSuggestion = new UC_HomeMyEventsItem();
-                        ItemSuggestion.DateTime = EventSuggestions.ToList()[i].Event.StartDate.ToString() + " || " + EventSuggestions.ToList()[i].Event.EndDate.ToShortTimeString();
-                        ItemSuggestion.Owner = EventSuggestions.ToList()[i].UserId;
-                        ItemSuggestion.Slots = EventSuggestions.ToList()[i].Event.Users.Count + "/" + EventSuggestions.ToList()[i].Event.MaxPlayers.ToString();
-                        ItemSuggestion.Recinto = EventSuggestions.ToList()[i].Ground.Park.Name;
-                        ItemSuggestion.Sport = EventSuggestions.ToList()[i].Sport.Name;
-                        ItemSuggestion.Id = EventSuggestions.ToList()[i].Event.EventId;
-                        ItemSuggestion.DisableDeleteImage = null;
+                        UC_HomeMyEventsItem ItemSuggestion = new UC_HomeMyEventsItem
+                        {
+                            DateTime = EventSuggestions.ToList()[i].Event.StartDate.ToString()
+                            + " || "
+                            + EventSuggestions.ToList()[i].Event.EndDate.ToShortTimeString(),
+                            Owner = EventSuggestions.ToList()[i].UserId,
+                            Slots = EventSuggestions.ToList()[i].Event.Users.Count + "/" + EventSuggestions.ToList()[i].Event.MaxPlayers.ToString(),
+                            Recinto = EventSuggestions.ToList()[i].Ground.Park.Name,
+                            Sport = EventSuggestions.ToList()[i].Sport.Name,
+                            Id = EventSuggestions.ToList()[i].Event.EventId,
+                            DisableDeleteImage = null
+                        };
                         _EventSuggestions.Add(ItemSuggestion);
                         flpEventSuggestions.Controls.Add(ItemSuggestion);
                     }
@@ -268,30 +273,36 @@ namespace Sports4All
             }
         }
 
-
         private void cbMySport_SelectedIndexChanged(object sender, EventArgs e)
         {
             flpMyEvents.Controls.Clear();
 
-            if (_MyEvents.Count > 0)
+            if (_MyEvents.Any())
             {
-                if (cbMySport.SelectedIndex == 0)
+                switch (cbMySport.SelectedIndex)
                 {
-                    for (int i = 0; i < _MyEvents.Count; i++)
-                    {
-                        flpMyEvents.Controls.Add(_MyEvents.ToList()[i]);
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < _MyEvents.Count; i++)
-                    {
-                        if (_MyEvents.ToList()[i].Sport.Equals(cbMySport.Text))
+                    case 0:
                         {
-                            flpMyEvents.Controls.Add(_MyEvents.ToList()[i]);
+                            foreach (var ev in _MyEvents)
+                            {
+                                flpMyEvents.Controls.Add(ev);
+                            }
+
+                            break;
                         }
 
-                    }
+                    default:
+                        {
+                            foreach (var ev in _MyEvents)
+                            {
+                                if (ev.Sport.Equals(cbMySport.Text))
+                                {
+                                    flpMyEvents.Controls.Add(ev);
+                                }
+                            }
+
+                            break;
+                        }
                 }
             }
 
@@ -303,28 +314,33 @@ namespace Sports4All
         {
             flpEventSuggestions.Controls.Clear();
 
-            if (_EventSuggestions.Count > 0)
+            if (_EventSuggestions.Any())
             {
-                if (cbNextSport.SelectedIndex == 0)
+                switch (cbNextSport.SelectedIndex)
                 {
-                    for (int i = 0; i < _EventSuggestions.Count; i++)
-                    {
-                        flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]);
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < _EventSuggestions.Count; i++)
-                    {
-                        if (_EventSuggestions.ToList()[i].Sport.Equals(cbNextSport.Text))
+                    case 0:
                         {
-                            flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]);
+                            foreach (var ev in _EventSuggestions)
+                            {
+                                flpEventSuggestions.Controls.Add(ev);
+                            }
+                            break;
                         }
 
-                    }
+                    default:
+                        {
+                            foreach (var ev in _EventSuggestions)
+                            {
+                                if (ev.Sport.Equals(cbNextSport.Text))
+                                {
+                                    flpEventSuggestions.Controls.Add(ev);
+                                }
+                            }
+
+                            break;
+                        }
                 }
             }
-
             if (flpEventSuggestions.Controls.Count == 0)
                 flpEventSuggestions.Controls.Add(_noSuggestionsEventsitems);
         }
@@ -348,15 +364,15 @@ namespace Sports4All
         {
             flpEventSuggestions.Controls.Clear();
 
-            for (int i = 0; i < _EventSuggestions.Count; i++)
+            foreach (var ev in _EventSuggestions)
             {
-                string[] dateStart = _EventSuggestions.ToList()[i].DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
+                string[] dateStart = ev.DateTime.Split(new string[] { " || " }, StringSplitOptions.None);
 
-                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy").Equals(dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy")) || DateTime.Now.ToString("dd-MM-yyyy").Equals(dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy")))
+                if (DateTime.Parse(dateStart[0]).Date.ToString("dd-MM-yyyy").Equals(dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy"))
+                    || DateTime.Now.ToString("dd-MM-yyyy").Equals(dtpNextEventDate.Value.Date.ToString("dd-MM-yyyy")))
                 {
-                    flpEventSuggestions.Controls.Add(_EventSuggestions.ToList()[i]);
+                    flpEventSuggestions.Controls.Add(ev);
                 }
-
             }
 
             if (flpEventSuggestions.Controls.Count == 0)
