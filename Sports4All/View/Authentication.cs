@@ -30,7 +30,6 @@ namespace Sports4All
             (new Core.DropShaddow()).ApplyShadows(this);
             HideTabHeaders();
             EnableValidationFromTab(tabRegister, false);
-            //EnableTab(tabRegister, false);
             PopulateCounties();
         }
 
@@ -51,8 +50,6 @@ namespace Sports4All
             tabControl1.SelectedIndex = 1;
             EnableValidationFromTab(tabRegister, true);
             EnableValidationFromTab(tabLogin, false);
-            //EnableTab(tabLogin, false);
-            //EnableTab(tabRegister, true);
         }
 
         private void linkLog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -60,8 +57,6 @@ namespace Sports4All
             tabControl1.SelectedIndex = 0;
             EnableValidationFromTab(tabLogin, true);
             EnableValidationFromTab(tabRegister, false);
-            //EnableTab(tabRegister, false);
-            //EnableTab(tabLogin, true);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
