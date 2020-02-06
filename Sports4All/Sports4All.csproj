@@ -101,8 +101,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
     <Compile Include="IButton.cs" />
+    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Classification.cs" />
+    <Compile Include="Model\County.cs" />
+    <Compile Include="Model\District.cs" />
+    <Compile Include="Model\Evaluation.cs" />
+    <Compile Include="Model\Event.cs" />
+    <Compile Include="Model\Ground.cs" />
+    <Compile Include="Model\Material.cs" />
+    <Compile Include="Model\Park.cs" />
+    <Compile Include="Model\ParkClassification.cs" />
+    <Compile Include="Model\ParkEvaluation.cs" />
+    <Compile Include="Model\Picture.cs" />
+    <Compile Include="Model\Reserve.cs" />
+    <Compile Include="Model\Sport.cs" />
+    <Compile Include="Model\Use.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserClassification.cs" />
+    <Compile Include="Model\UserEvaluation.cs" />
     <Compile Include="Patterns\Decorator\TimeDecorator.cs" />
     <Compile Include="View\Authentication.cs">
       <SubType>Form</SubType>
@@ -187,7 +204,6 @@
     <Compile Include="CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classification.cs" />
     <Compile Include="Controller\AuthController.cs" />
     <Compile Include="Controller\BrowseController.cs" />
     <Compile Include="Controller\BrowseParksController.cs" />
@@ -196,22 +212,10 @@
     <Compile Include="Controller\MyEventsController.cs" />
     <Compile Include="Controller\ParkDescriptionController.cs" />
     <Compile Include="Core\DropShaddow.cs" />
-    <Compile Include="County.cs" />
-    <Compile Include="District.cs" />
-    <Compile Include="Evaluation.cs" />
-    <Compile Include="Event.cs" />
-    <Compile Include="Ground.cs" />
-    <Compile Include="ParkEvaluation.cs" />
     <Compile Include="Controller\HomeController.cs" />
-    <Compile Include="Material.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="ModelContext.cs" />
-    <Compile Include="Park.cs" />
-    <Compile Include="ParkClassification.cs" />
-    <Compile Include="Picture.cs" />
+    <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Controller\RankController.cs" />
-    <Compile Include="Reserve.cs" />
-    <Compile Include="Sport.cs" />
     <Compile Include="View\UserControls_Items\NextScreenButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -333,9 +337,6 @@
       <DependentUpon>UC_MyEvents.cs</DependentUpon>
     </Compile>
     <Compile Include="UnregisterButton.cs" />
-    <Compile Include="Use.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserClassification.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="View\UserControls_Screens\UC_UnregisterButton.cs">
       <SubType>UserControl</SubType>
@@ -343,7 +344,6 @@
     <Compile Include="View\UserControls_Screens\UC_UnregisterButton.Designer.cs">
       <DependentUpon>UC_UnregisterButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserEvaluation.cs" />
     <Compile Include="View\UserControls_Items\UC_EventItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -523,9 +523,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
