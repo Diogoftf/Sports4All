@@ -114,7 +114,7 @@ namespace Sports4All
         {
             var aux = double.Parse(lbNextLevel.Text) * 100.0;
 
-            _pointsToNextLevel = 100 - (aux - double.Parse(_homeController.getMyStats().ToList()[4]));
+            _pointsToNextLevel = 100 - (aux - double.Parse(_homeController.GetMyStats().ToList()[4]));
         }
 
         private void FillProgressBar(object sender, EventArgs e)
@@ -168,7 +168,7 @@ namespace Sports4All
         private void UserStatsDetails()
         {
 
-            var current = Math.Truncate(double.Parse(_homeController.getMyStats().ToList()[4]) / _rankController._levelChange);
+            var current = Math.Truncate(double.Parse(_homeController.GetMyStats().ToList()[4]) / _rankController._levelChange);
             lbCurrentLevel.Text = current.ToString();
             lbNextLevel.Text = (current + 1).ToString();
 
