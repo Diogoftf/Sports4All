@@ -87,7 +87,12 @@ namespace Sports4All
 
         private void btnCreateEvent_Click(object sender, EventArgs e)
         {
-            if(Session.Instance.IsExperientUser)
+            OpenCreateReserveForm();
+        }
+
+        private void OpenCreateReserveForm()
+        {
+            if (Session.Instance.IsExperientUser)
             {
                 _reserveStrategy = new ExpertReserveStrategy();
             }
