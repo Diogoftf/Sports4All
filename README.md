@@ -1,5 +1,5 @@
 # Sports4All
-![GitHub Logo](/RMImages/StartImage.png)
+![GitHub Logo](/RMImages/startImage.png)
 
 ## Introdução
 Neste projeto pretende-se desenvolver um sistema tendo em conta os padrões e as boas práticas de software, para a unidade curricular de Desenho e Implementação de Software. Para o sistema apresentado e tendo em conta a unidade curricular em que o mesmo se enquadra foram utilizados os seguintes padrões: Singleton, State, Decorator e Strategy.
@@ -58,7 +58,7 @@ O Sports4All encontra-se dividido nas seguintes camadas, de acordo com o modelo 
 * **Model**: objetos/dados a partir do qual serão realizadas as operações com a base de dados.
 
 ### Modelo da Base de Dados
-![GitHub Logo](/RMImages/EFDiagram.png)
+![GitHub Logo](/RMImages/eFDiagram.png)
 
 ## Frameworks Utilizadas
 
