@@ -50,7 +50,7 @@ Abaixo listam-se algumas das funcionalidades da aplicação:
 ### Modelo
 O Sports4All encontra-se dividido nas seguintes camadas, de acordo com o modelo MVVM (Model View ViewModel): 
 
-![](/RMImages/model.png) | width=100)
+![GitHub Logo](/RMImages/model.png)
 
 * **View**: relacionada com a apresentação da aplicação (camada com a qual o utilizador interage);
 * **ViewModel**: atua como conversor de dados, transformando os dados do Model de modo a serem utilizados pela View. É também responsável por passar comandos da View para o Model. Deste modo, ajuda a manter o estado da View e atualiza o Model de acordo com as ações do utilizador;
