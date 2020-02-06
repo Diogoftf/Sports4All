@@ -37,7 +37,7 @@
             this.lblName1 = new System.Windows.Forms.Label();
             this.lblClassification = new System.Windows.Forms.Label();
             this.lblName2 = new System.Windows.Forms.Label();
-            this.btnTopRecintos = new System.Windows.Forms.Button();
+            this.btnTopParks = new System.Windows.Forms.Button();
             this.tbpClassification.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,27 +154,27 @@
             this.lblName2.Text = "Partidas";
             this.lblName2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnTopRecintos
+            // btnTopGrounds
             // 
-            this.btnTopRecintos.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnTopRecintos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnTopRecintos.Image = ((System.Drawing.Image)(resources.GetObject("btnTopRecintos.Image")));
-            this.btnTopRecintos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTopRecintos.Location = new System.Drawing.Point(798, 18);
-            this.btnTopRecintos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnTopRecintos.Name = "btnTopRecintos";
-            this.btnTopRecintos.Size = new System.Drawing.Size(182, 55);
-            this.btnTopRecintos.TabIndex = 81;
-            this.btnTopRecintos.Text = "Top Recintos";
-            this.btnTopRecintos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTopRecintos.UseVisualStyleBackColor = true;
-            this.btnTopRecintos.Click += new System.EventHandler(this.btnTopGrounds_Click);
+            this.btnTopParks.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnTopParks.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnTopParks.Image = ((System.Drawing.Image)(resources.GetObject("btnTopRecintos.Image")));
+            this.btnTopParks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTopParks.Location = new System.Drawing.Point(798, 18);
+            this.btnTopParks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTopParks.Name = "btnTopRecintos";
+            this.btnTopParks.Size = new System.Drawing.Size(182, 55);
+            this.btnTopParks.TabIndex = 81;
+            this.btnTopParks.Text = "Top Recintos";
+            this.btnTopParks.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTopParks.UseVisualStyleBackColor = true;
+            this.btnTopParks.Click += new System.EventHandler(this.btnTopGrounds_Click);
             // 
             // UC_Rank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnTopRecintos);
+            this.Controls.Add(this.btnTopParks);
             this.Controls.Add(this.tbpClassification);
             this.Controls.Add(this.flpRank);
             this.Controls.Add(this.btnGlobalRank);
@@ -198,6 +198,6 @@
         private System.Windows.Forms.Label lblClassification;
         private System.Windows.Forms.Label lblName3;
         private System.Windows.Forms.Label lblName2;
-        private System.Windows.Forms.Button btnTopRecintos;
+        private System.Windows.Forms.Button btnTopParks;
     }
 }
