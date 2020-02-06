@@ -103,7 +103,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="IButton.cs" />
-    <Compile Include="TimeDecorator.cs" />
+    <Compile Include="Patterns\Decorator\TimeDecorator.cs" />
     <Compile Include="View\Authentication.cs">
       <SubType>Form</SubType>
     </Compile>
