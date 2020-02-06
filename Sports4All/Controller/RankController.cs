@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Sports4All.Controller
@@ -99,7 +100,7 @@ namespace Sports4All.Controller
             return avgRatio;
         }
 
-        private double GetUserSkillAvg(ICollection<UserEvaluation> userEvaluations)
+        public double GetUserSkillAvg(ICollection<UserEvaluation> userEvaluations)
         {
             double avgSkill = 0;
             double skillSum = 0;
@@ -117,7 +118,7 @@ namespace Sports4All.Controller
             return avgSkill;
         }
 
-        private double GetUserFairPlayAvg(ICollection<UserEvaluation> userEvaluations)
+        public double GetUserFairPlayAvg(ICollection<UserEvaluation> userEvaluations)
         {
             double avgFairPlay = 0;
             double fairPlaySum = 0;
@@ -135,7 +136,7 @@ namespace Sports4All.Controller
             return avgFairPlay;
         }
 
-        private ICollection<UserEvaluation> GetUserEvaluations(string username)
+        public ICollection<UserEvaluation> GetUserEvaluations(string username)
         {
             using (var db = new ModelContext())
             {
@@ -198,7 +199,7 @@ namespace Sports4All.Controller
             double reservesPerformed = 0;
             using (var db = new ModelContext())
             {
-                var query = db.Parks.Where(e => e.ParkId == parkId).FirstOrDefault();
+                var query = db.Parks.Where(e => e.ParkId == parkId).Include("Grounds.Reserves").FirstOrDefault();
 
                 foreach (Ground a in query.Grounds)
                 {

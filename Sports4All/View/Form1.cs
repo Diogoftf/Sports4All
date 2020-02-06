@@ -34,6 +34,8 @@ namespace Sports4All
             }
         }
 
+
+
         #region Properties
         public Panel PnlContainer
         {
@@ -52,6 +54,7 @@ namespace Sports4All
             lbSkillValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.SkillAverage.ToString();
             lbFairplayValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.FairplayAverage.ToString();
             lbPontosValue.Text = _homeController.GetUserLogged(Session.Instance.LoggedUser).UserClassification.Points.ToString();
+
 
             _obj = this;
             AddUserControlsToForm();
@@ -164,6 +167,12 @@ namespace Sports4All
         private void AddUserControlsToForm()
         {
             AddUserControl<UC_Home>("UC_Home", "");
+        }
+
+        public void UpdateUserPoints(double Points)
+        {
+            lbPontosValue.Text   =   Convert.ToString(Points);
+  
         }
     }
 }

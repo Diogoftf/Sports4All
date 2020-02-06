@@ -10,16 +10,24 @@ namespace Sports4All
     public partial class UC_CreateEvent : UserControl, IUserControl
     {
         private IPriceEntity _priceEntity { get;set; }
+       private ICollection<UserEvaluation> _userEvaluations { get; set; }
         private CreateEventController _createEventController { get; set; }
+        private RankController _rankController { get; set; }
         private Reserve _reserve { get; set; }
         private Event Event { get; set; }
+        private string _username { get; set; }
+
+        private int _parkId { get; set; }
         public UC_CreateEvent()
         {
             InitializeComponent();
             _reserve = new Reserve();
             _createEventController = new CreateEventController();
+            _rankController = new RankController();
             _reserve.Price = 0;
             Event = new Event();
+            _username = Session.Instance.LoggedUser;
+
         }
 
         #region Properties
@@ -161,7 +169,7 @@ namespace Sports4All
             if (cbSport.SelectedIndex != -1)
             {
                 var sport = _createEventController.GetSport(cbSport.Text);
-                var parkId = _createEventController.GetPark(cbPark.Text).ParkId;
+                _parkId = _createEventController.GetPark(cbPark.Text).ParkId;
                 var parkGrounds = _createEventController.GetGrounds(cbPark.Text).ToList();
 
                
@@ -178,7 +186,7 @@ namespace Sports4All
                     }
                 }
 
-                var materialList = _createEventController.GetMaterialsFromSport(_reserve.SportId, parkId).ToList();
+                var materialList = _createEventController.GetMaterialsFromSport(_reserve.SportId, _parkId).ToList();
 
                 flpMaterial.Controls.Clear();
 
@@ -195,7 +203,6 @@ namespace Sports4All
                 }
 
             }
-
         }
 
         private void btnCreateEvent_Click_1(object sender, EventArgs e)
@@ -224,7 +231,9 @@ namespace Sports4All
 
                     _createEventController.CreateReserve(materialUsage, _reserve, Event);
                     _createEventController.InsertUserNewEvent(Event);
-                    MessageBox.Show("Reserva criada com sucesso!");
+                    _rankController.UpdateUserClassification(_username);
+                    _rankController.UpdateParkClassification(_parkId);
+                    Form1.Instance.UpdateUserPoints(_rankController.GetUserPoints(_username));
                     ReturnHome();
                 }
                 else
