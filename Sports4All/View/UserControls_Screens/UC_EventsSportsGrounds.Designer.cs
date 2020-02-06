@@ -99,7 +99,7 @@
             this.btnTenis.Name = "btnTenis";
             this.btnTenis.Size = new System.Drawing.Size(113, 33);
             this.btnTenis.TabIndex = 1;
-            this.btnTenis.Text = "TENIS";
+            this.btnTenis.Text = "TÉNIS";
             this.btnTenis.UseVisualStyleBackColor = true;
             this.btnTenis.Click += new System.EventHandler(this.btnTenis_Click);
             // 

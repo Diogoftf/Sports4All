@@ -42,7 +42,7 @@ namespace Sports4All
             flpListMyEvents.Controls.Clear();
             var completedEvents = _eventsController.RetrieveCompletedEvents(Username);
 
-            foreach (var completeEvent in completedEvents)
+            foreach (var completeEvent in completedEvents.Take(_numberEventsShow))
             {
                 UC_EventMyEventsItem _finishedEvent = new UC_EventMyEventsItem
                 {
