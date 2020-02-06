@@ -10,7 +10,7 @@ namespace Sports4All
     {
         private readonly MyEventsController _eventsController;
 
-        private const int _numberEventsShow = 10;
+        private const int _numberEventsShow = 5;
         public UC_MyEvents()
         {
             InitializeComponent();
