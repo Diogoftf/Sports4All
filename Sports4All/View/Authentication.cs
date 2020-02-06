@@ -74,6 +74,7 @@ namespace Sports4All
             {
                 if (checkedValues())
                 {
+                    _username = _authController.GetUsername(_email);
                     StoreUsername(_username);
                     Hide();
                     Form1.Instance.Show();
@@ -162,6 +163,7 @@ namespace Sports4All
             }
 
             _authController.RegisterUser(_email, _password, _username, _age, _cellphone,_selectedPicture, _countyId);
+            StoreUsername(_username); 
             return true;
             
         }
