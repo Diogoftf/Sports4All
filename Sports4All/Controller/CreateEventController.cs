@@ -29,6 +29,20 @@ namespace Sports4All.Controller
             }
         }
 
+        public Park GetParkFromId(int parkId)
+        {
+            using (ModelContext db = new ModelContext())
+            {
+                var Park = db.Parks
+                    .Include("Address.County")
+                    .Include("Grounds.Sports")
+                    .Include("Materials")
+                    .Where(f => f.ParkId.Equals(parkId)).FirstOrDefault();
+
+                return Park;
+            }
+        }
+
         public Sport GetSport(string sportName)
         {
             using (ModelContext db = new ModelContext())
@@ -38,11 +52,28 @@ namespace Sports4All.Controller
             }
         }
 
+        public Sport GetSportFromId(int Sportid)
+        {
+            using (ModelContext db = new ModelContext())
+            {
+                return db.Sports.Where(f => f.SportId.Equals(Sportid)).First();
+
+            }
+        }
+
         public ICollection<Ground> GetGrounds(string parkName)
         {
             using (ModelContext db = new ModelContext())
             {
                 return db.Grounds.Include("Sports").Where(f => f.Park.Name.Equals(parkName)).ToList();
+            }
+        }
+
+        public ICollection<Ground> GetGroundsFromId(int parkId)
+        {
+            using (ModelContext db = new ModelContext())
+            {
+                return db.Grounds.Include("Sports").Where(f => f.Park.ParkId.Equals(parkId)).ToList();
             }
         }
 

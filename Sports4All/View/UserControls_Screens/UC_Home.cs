@@ -29,7 +29,6 @@ namespace Sports4All
         public UC_Home()
         {
             InitializeComponent();
-            _pointsToNextLevel = PointsRemaining();
         }
 
         #region Properties
@@ -62,13 +61,13 @@ namespace Sports4All
                 _noSuggestionsEventsitems.DisableImage = null;
                 _noSuggestionsEventsitems.resetNameProprieties = "";
 
-                PointsRemaining();
                 PopulateMyEventsList();
                 PopulateMySuggestionsList();
                 PopulateComboBox();
                 InfoStatsDescription();
                 UserStatsDetails();
                 GetTopClassificationDetails();
+                PointsRemaining();
             }
         }
 
@@ -111,16 +110,11 @@ namespace Sports4All
             _timerProgressBar.Start();
         }
 
-        private double PointsRemaining()
+        private void PointsRemaining()
         {
             var aux = double.Parse(lbNextLevel.Text) * 100.0;
-            var aux2 = 100 - (aux - double.Parse(_homeController.getMyStats().ToList()[4]));
-            
-            if (aux2 <= 0)
-            {
-                aux2 = 0;
-            }
-            return aux2;
+
+            _pointsToNextLevel = 100 - (aux - double.Parse(_homeController.getMyStats().ToList()[4]));
         }
 
         private void FillProgressBar(object sender, EventArgs e)
@@ -173,7 +167,8 @@ namespace Sports4All
 
         private void UserStatsDetails()
         {
-            var current = Convert.ToInt32(double.Parse(_homeController.getMyStats().ToList()[4]) / _rankController._levelChange);
+
+            var current = Math.Truncate(double.Parse(_homeController.getMyStats().ToList()[4]) / _rankController._levelChange);
             lbCurrentLevel.Text = current.ToString();
             lbNextLevel.Text = (current + 1).ToString();
 

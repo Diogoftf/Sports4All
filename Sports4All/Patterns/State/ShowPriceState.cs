@@ -16,6 +16,7 @@ namespace Sports4All.Patterns.State
         {
             InitializeComponent();
             _reserveNoviceForm = reserveNoviceForm;
+            //lblPriceValue.Text = EventCreationManager.Instance.IPriceEntity.ToString();
         }
 
         public string Id { get; set; }

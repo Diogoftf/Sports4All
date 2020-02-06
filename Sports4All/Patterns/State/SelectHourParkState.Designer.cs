@@ -111,6 +111,7 @@
             this.cbSelectPark.Name = "cbSelectPark";
             this.cbSelectPark.Size = new System.Drawing.Size(511, 33);
             this.cbSelectPark.TabIndex = 19;
+            this.cbSelectPark.SelectedIndexChanged += new System.EventHandler(this.cbSelectPark_SelectedIndexChanged);
             // 
             // lblEndTime
             // 

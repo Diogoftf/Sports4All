@@ -33,6 +33,7 @@ namespace Sports4All.Patterns.State
 
         public void NextScreen()
         {
+            DecorateGroundFromMaterialSelected();
             _reserveNoviceForm.SetState(_reserveNoviceForm.DefineUsersState);
         }
 
@@ -69,10 +70,36 @@ namespace Sports4All.Patterns.State
             }
         }
 
+        public void DecorateGroundFromMaterialSelected()
+        {
+            foreach (var control in flpMaterial.Controls)
+            {
+                UC_MaterialItem uc_material = (UC_MaterialItem)control;
+                if (uc_material.Quantity > 0)
+                {
+                    switch (uc_material.Material)
+                    {
+                        case "Raquete":
+                            _priceEntity = new RacketDecorator(EventCreationManager.Instance.IPriceEntity, uc_material.Quantity, Convert.ToDouble(uc_material.Price));
+                            break;
+                        case "Bola":
+                            _priceEntity = new BallDecorator(EventCreationManager.Instance.IPriceEntity, uc_material.Quantity, Convert.ToDouble(uc_material.Price));
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
         private void SelectMaterialState_Load(object sender, EventArgs e)
         {
             Populate();
         }
 
+        private void nextScreenButton_Load(object sender, EventArgs e)
+        {
+            DecorateGroundFromMaterialSelected();
+        }
     }
 }

@@ -1,10 +1,13 @@
 ﻿using Sports4All.Controller;
+using Sports4All.Decorator;
 using System;
 
 namespace Sports4All
 {
     public class EventCreationManager
     {
+        private IPriceEntity _priceEntity { get; set; }
+
         private static EventCreationManager _instance;
         private CreateEventController CreateEventController { get; set; }
         private Reserve _reserve { get; set; }
@@ -27,6 +30,10 @@ namespace Sports4All
                 return _instance;
             }
         }
+
+        public IPriceEntity IPriceEntity { get => _priceEntity; set => _priceEntity = value; }
+
+        public Reserve Reserve { get => _reserve;}
 
         public string EventName { get; set; }
 

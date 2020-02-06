@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Sports4All.Controller;
+using Sports4All.Decorator;
 
 namespace Sports4All.Patterns.State
 {
@@ -19,6 +20,7 @@ namespace Sports4All.Patterns.State
         public SelectHourParkState(ReserveNoviceForm reserveNoviceForm)
         {
             InitializeComponent();
+            _createEventController = new CreateEventController();
             _reserveNoviceForm = reserveNoviceForm;
         }
 
@@ -32,12 +34,41 @@ namespace Sports4All.Patterns.State
         public void NextScreen()
         {
             SetDateTimeValues();
+            DecorateGroundFromParkSelected();
             _reserveNoviceForm.SetState(_reserveNoviceForm.AskForMaterialState);
         }
 
         public void PreviousScreen()
         {
             _reserveNoviceForm.SetState(_reserveNoviceForm.SelectLocationState);
+        }
+
+        public void DecorateGroundFromParkSelected()
+        {
+                var sport = _createEventController.GetSportFromId(EventCreationManager.Instance.SportId);
+                var parkId = _createEventController.GetParkFromId(EventCreationManager.Instance.ParkId).ParkId;
+                var parkGrounds = _createEventController.GetGroundsFromId(EventCreationManager.Instance.ParkId).ToList();
+
+                foreach (var ground in parkGrounds)
+                {
+                    foreach (var s in ground.Sports)
+                    {
+                        if (s.SportId == sport.SportId)
+                        {
+                            EventCreationManager.Instance.Reserve.GroundId = ground.GroundId;
+                            EventCreationManager.Instance.Reserve.SportId = sport.SportId;
+                            EventCreationManager.Instance.IPriceEntity = ground;
+                        }
+                    }
+                }
+
+            int NumberOfHoursPlaying = Convert.ToInt32(dtpEventEndTime.Value.Subtract(dtpEventStartTime.Value).TotalHours);
+
+            if (NumberOfHoursPlaying > 1)
+            {
+                NumberOfHoursPlaying -= 1;
+                EventCreationManager.Instance.IPriceEntity = new TimeDecorator(EventCreationManager.Instance.IPriceEntity, NumberOfHoursPlaying, _createEventController.GetGround(EventCreationManager.Instance.Reserve.GroundId).Price);
+            }
         }
 
         public void Populate()
@@ -99,6 +130,11 @@ namespace Sports4All.Patterns.State
             EventCreationManager.Instance.EventStartDate = dtpEventStartDate.Value;
             EventCreationManager.Instance.EventStartTime = dtpEventStartTime.Value;
             EventCreationManager.Instance.EventEndTime = dtpEventEndTime.Value;
+        }
+
+        private void cbSelectPark_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
