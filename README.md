@@ -12,6 +12,11 @@ Ao longo deste relatório serão abordados os principais tópicos relacionados c
 ## Necessidade/Oportunidade Identificada
 De acordo com algumas pesquisas, os portugueses são dos que menos praticam exercício na Europa e fazem cada vez menos exercício físico, seja por falta de tempo, interesse ou motivação [1][2].
 
+![GitHub Logo](/RMImages/resultado.png)
+Format: ![Alt Text](url)
+
+
+
 ## Referências
 [1] A. Lusa, "Portugueses fazem cada vez menos exercício físico", Observador, 2020. [Online]. Available: https://observador.pt/2019/01/24/portugueses-fazem-cada-vez-menos-exercicio-fisico/. [Accessed: 06- Feb- 2020].
 
