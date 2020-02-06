@@ -42,6 +42,8 @@ namespace Sports4All
 
         public void Populate()
         {
+            clearFields();
+
             ICollection<Park> groundsList = _createEventController.GetAllParks();
             cbPark.Items.Clear();
 
@@ -91,10 +93,6 @@ namespace Sports4All
                 MessageBox.Show("Devera selecionar o desporto.");
 
             }
-            /*  else if (dtpStartEventTime.Value.Date.Hour == dtpEndEventTime.Value.Date.Hour && dtpStartEventTime.Value.Date.Minute == dtpEndEventTime.Value.Date.Minute)
-              {
-                  MessageBox.Show("As datas do evento são incoerentes.");
-              }*/
             else if (cbPlayersNumber.SelectedIndex < 0)
             {
                 MessageBox.Show("Devera selecionar o numero de jogadores.");
@@ -122,18 +120,21 @@ namespace Sports4All
 
         private void ReturnHome()
         {
-            clearFields();
-            Parent.Controls.Remove(this);
             Form1.Instance.BringUcToFront<UC_Home>("UC_Home", Id);
         }
 
         private void clearFields()
         {
+            cbMinAge.Items.Clear();
+            cbMaxAge.Items.Clear();
+            cbPlayersNumber.Items.Clear();
+
             cbPark.SelectedIndex = -1;
             cbSport.SelectedIndex = -1;
             cbPlayersNumber.SelectedIndex = -1;
             cbMinAge.SelectedIndex = -1;
             cbMaxAge.SelectedIndex = -1;
+
             txtEventName.Clear();
             tbLocation.Clear();
             cbSport.Items.Clear();
@@ -209,15 +210,16 @@ namespace Sports4All
         {
             if(checkIntegrity())
             {
-                decorateGroundSelected();
+                DecorateGroundSelected();
 
                 DialogResult result = MessageBox.Show("Montante: " + _priceEntity.getCost() + "€" + " \nDeseja criar a reserva? ", "Confirme", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
                     ICollection<Use> materialUsage = new HashSet<Use>();
+                    List<UC_MaterialItem> materials = AddFlowPanelMaterials();
 
-                    _createEventController.RetrieveMaterial(flpMaterial, materialUsage, _reserve);
+                    _createEventController.RetrieveMaterial(materials, materialUsage, _reserve);
                     _createEventController.InsertDataReserve(_reserve, Event, materialUsage);
                     _reserve.Price = _priceEntity.getCost();
 
@@ -244,7 +246,19 @@ namespace Sports4All
             }
         }
 
-        private void decorateGroundSelected()
+        private List<UC_MaterialItem> AddFlowPanelMaterials()
+        {
+            List<UC_MaterialItem> materials = new List<UC_MaterialItem>();
+
+            foreach (UC_MaterialItem material in flpMaterial.Controls)
+            {
+                materials.Add(material);
+            }
+
+            return materials;
+        }
+
+        private void DecorateGroundSelected()
         {
             foreach (var control in flpMaterial.Controls)
             {

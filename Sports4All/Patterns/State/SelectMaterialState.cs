@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Sports4All.Controller;
@@ -33,7 +34,7 @@ namespace Sports4All.Patterns.State
 
         public void NextScreen()
         {
-            DecorateGroundFromMaterialSelected();
+            EventCreationManager.Instance.DecorateGroundFromMaterialSelected();
             _reserveNoviceForm.SetState(_reserveNoviceForm.DefineUsersState);
         }
 
@@ -52,6 +53,8 @@ namespace Sports4All.Patterns.State
 
         public void PopulateMaterial()
         {
+            flpMaterial.Controls.Clear();
+
             int sportId = EventCreationManager.Instance.SportId;
             int parkId = EventCreationManager.Instance.ParkId;
 
@@ -62,6 +65,7 @@ namespace Sports4All.Patterns.State
                 foreach (var material in materials)
                 {
                     UC_MaterialItem temp = new UC_MaterialItem(_priceEntity);
+                    temp.CbQuantity.SelectionChangeCommitted += new EventHandler(this.SaveMaterials);
                     temp.Material = material.Name;
                     temp.PopulateQuantity(material.Available);
                     temp.Price = material.Price.ToString();
@@ -70,26 +74,21 @@ namespace Sports4All.Patterns.State
             }
         }
 
-        public void DecorateGroundFromMaterialSelected()
+        public void SaveMaterials(object sender, EventArgs e)
         {
+            List<UC_MaterialItem> materialItems = new List<UC_MaterialItem>();
+
             foreach (var control in flpMaterial.Controls)
             {
                 UC_MaterialItem uc_material = (UC_MaterialItem)control;
+
                 if (uc_material.Quantity > 0)
                 {
-                    switch (uc_material.Material)
-                    {
-                        case "Raquete":
-                            _priceEntity = new RacketDecorator(EventCreationManager.Instance.IPriceEntity, uc_material.Quantity, Convert.ToDouble(uc_material.Price));
-                            break;
-                        case "Bola":
-                            _priceEntity = new BallDecorator(EventCreationManager.Instance.IPriceEntity, uc_material.Quantity, Convert.ToDouble(uc_material.Price));
-                            break;
-                        default:
-                            break;
-                    }
+                    materialItems.Add(uc_material);
                 }
             }
+
+            EventCreationManager.Instance.SetMaterialsItems(materialItems);
         }
 
         private void SelectMaterialState_Load(object sender, EventArgs e)
@@ -97,9 +96,5 @@ namespace Sports4All.Patterns.State
             Populate();
         }
 
-        private void nextScreenButton_Load(object sender, EventArgs e)
-        {
-            DecorateGroundFromMaterialSelected();
-        }
     }
 }

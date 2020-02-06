@@ -210,7 +210,6 @@
     <Compile Include="ParkClassification.cs" />
     <Compile Include="Picture.cs" />
     <Compile Include="Controller\RankController.cs" />
-    <Compile Include="SizeProperties.cs" />
     <Compile Include="Reserve.cs" />
     <Compile Include="Sport.cs" />
     <Compile Include="View\UserControls_Items\NextScreenButton.cs">
