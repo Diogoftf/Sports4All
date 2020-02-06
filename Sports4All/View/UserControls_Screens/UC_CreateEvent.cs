@@ -12,14 +12,14 @@ namespace Sports4All
         private IPriceEntity _priceEntity { get;set; }
         private CreateEventController _createEventController { get; set; }
         private Reserve _reserve { get; set; }
-        private Event _event { get; set; }
+        private Event Event { get; set; }
         public UC_CreateEvent()
         {
             InitializeComponent();
             _reserve = new Reserve();
             _createEventController = new CreateEventController();
             _reserve.Price = 0;
-            _event = new Event();
+            Event = new Event();
         }
 
         #region Properties
@@ -43,6 +43,7 @@ namespace Sports4All
             }
 
             dtpEventDate.MinDate = DateTime.Today;
+
             dtpStartEventTime.CustomFormat = "HH:mm";
             dtpStartEventTime.Format = DateTimePickerFormat.Custom;
             dtpStartEventTime.ShowUpDown = true;
@@ -94,7 +95,7 @@ namespace Sports4All
             {
                 MessageBox.Show("Devera selecionar a Idade de jogadores.");
             }
-            else if (int.Parse(cbMaxAge.SelectedItem.ToString()) <= Int32.Parse(cbMinAge.SelectedItem.ToString()) || Int32.Parse(cbMinAge.SelectedItem.ToString()) >= Int32.Parse(cbMaxAge.SelectedItem.ToString()))
+            else if (Int32.Parse(cbMaxAge.SelectedItem.ToString()) <= Int32.Parse(cbMinAge.SelectedItem.ToString()) || Int32.Parse(cbMinAge.SelectedItem.ToString()) >= Int32.Parse(cbMaxAge.SelectedItem.ToString()))
             {
                 MessageBox.Show("A idade dos jogadores que irao participar nao é valida");
             }
@@ -162,6 +163,7 @@ namespace Sports4All
                 var sport = _createEventController.GetSport(cbSport.Text);
                 var parkId = _createEventController.GetPark(cbPark.Text).ParkId;
                 var parkGrounds = _createEventController.GetGrounds(cbPark.Text).ToList();
+
                
                 foreach (var ground in parkGrounds)
                 {
@@ -180,14 +182,12 @@ namespace Sports4All
 
                 flpMaterial.Controls.Clear();
 
-                if (materialList.Any())
+                if (materialList.Count > 0)
                 {
                     foreach (var material in materialList)
                     {
-                        UC_MaterialItem temp = new UC_MaterialItem(_priceEntity)
-                        {
-                            Material = material.Name
-                        };
+                        UC_MaterialItem temp = new UC_MaterialItem(_priceEntity);
+                        temp.Material = material.Name;
                         temp.PopulateQuantity(material.Available);
                         temp.Price = material.Price.ToString();
                         flpMaterial.Controls.Add(temp);
@@ -211,19 +211,19 @@ namespace Sports4All
                     ICollection<Use> materialUsage = new HashSet<Use>();
 
                     _createEventController.RetrieveMaterial(flpMaterial, materialUsage, _reserve);
-                    _createEventController.InsertDataReserve(_reserve, _event, materialUsage);
+                    _createEventController.InsertDataReserve(_reserve, Event, materialUsage);
                     _reserve.Price = _priceEntity.getCost();
 
-                    _event.Name = txtEventName.Text;
-                    _event.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
-                    _event.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
+                    Event.Name = txtEventName.Text;
+                    Event.StartDate = dtpEventDate.Value.Date + dtpStartEventTime.Value.TimeOfDay;
+                    Event.EndDate = dtpEventDate.Value.Date + dtpEndEventTime.Value.TimeOfDay;
 
-                    _event.MinAge = Convert.ToInt32(cbMinAge.Text);
-                    _event.MaxAge = Convert.ToInt32(cbMaxAge.Text);
-                    _event.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
+                    Event.MinAge = Convert.ToInt32(cbMinAge.Text);
+                    Event.MaxAge = Convert.ToInt32(cbMaxAge.Text);
+                    Event.MaxPlayers = Convert.ToInt32(cbPlayersNumber.Text);
 
-                    _createEventController.CreateReserve(materialUsage, _reserve, _event);
-                    _createEventController.InsertUserNewEvent(_event);
+                    _createEventController.CreateReserve(materialUsage, _reserve, Event);
+                    _createEventController.InsertUserNewEvent(Event);
                     MessageBox.Show("Reserva criada com sucesso!");
                     ReturnHome();
                 }
@@ -249,8 +249,6 @@ namespace Sports4All
                             break;
                         case "Bola":
                             _priceEntity = new BallDecorator(_priceEntity, uc_material.Quantity, Convert.ToDouble(uc_material.Price));
-                            break;
-                        default:
                             break;
                     }
                 }

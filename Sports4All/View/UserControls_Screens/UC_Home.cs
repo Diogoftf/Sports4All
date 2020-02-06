@@ -114,7 +114,7 @@ namespace Sports4All
         private double PointsRemaining()
         {
             var aux = double.Parse(lbNextLevel.Text) * 100.0;
-            var aux2 = 100 - (aux - double.Parse(_homeController.getMyStats().ToList()[4]));
+            var aux2 = 100 - (aux - double.Parse(_homeController.GetMyStats().ToList()[4]));
             
             if (aux2 <= 0)
             {
@@ -173,23 +173,23 @@ namespace Sports4All
 
         private void UserStatsDetails()
         {
-            var current = Convert.ToInt32(double.Parse(_homeController.getMyStats().ToList()[4]) / _rankController._levelChange);
+            var current = Convert.ToInt32(double.Parse(_homeController.GetMyStats().ToList()[4]) / _rankController._levelChange);
             lbCurrentLevel.Text = current.ToString();
             lbNextLevel.Text = (current + 1).ToString();
 
-            if (_homeController.getMyStats().Any())
+            if (_homeController.GetMyStats().Any())
             {
-                lbMatchesPlayedValue.Text = _homeController.getMyStats().ToList()[0];
-                lbFairplayValue.Text = _homeController.getMyStats().ToList()[1];
-                lbSkillValue.Text = _homeController.getMyStats().ToList()[2];
-                lbRacioValue.Text = _homeController.getMyStats().ToList()[3];
+                lbMatchesPlayedValue.Text = _homeController.GetMyStats().ToList()[0];
+                lbFairplayValue.Text = _homeController.GetMyStats().ToList()[1];
+                lbSkillValue.Text = _homeController.GetMyStats().ToList()[2];
+                lbRacioValue.Text = _homeController.GetMyStats().ToList()[3];
             }
 
         }
 
         private void PopulateComboBox()
         {
-            _availableSports = _homeController.getSports();
+            _availableSports = _homeController.GetSports();
             cbMySport.Items.Clear();
             cbNextSport.Items.Clear();
             cbMySport.Items.Add("");
@@ -241,7 +241,7 @@ namespace Sports4All
 
         private void PopulateMySuggestionsList()
         {
-            ICollection<Reserve> EventSuggestions = _homeController.getEventSuggestions();
+            ICollection<Reserve> EventSuggestions = _homeController.GetEventSuggestions();
             flpEventSuggestions.Controls.Clear();
 
             if (EventSuggestions.Any())

@@ -8,7 +8,7 @@ namespace Sports4All.Controller
 {
     class HomeController
     {
-        public ICollection<Sport> getSports()
+        public ICollection<Sport> GetSports()
         {
             using (ModelContext db = new ModelContext())
             {
@@ -16,7 +16,7 @@ namespace Sports4All.Controller
             }
 
         }
-        public ICollection<string> getMyStats()
+        public ICollection<string> GetMyStats()
         {
             ICollection<string> userStats = new List<string>();
 
@@ -46,7 +46,7 @@ namespace Sports4All.Controller
             }
         }
 
-        public ICollection<Reserve> getEventSuggestions()
+        public ICollection<Reserve> GetEventSuggestions()
         {
             using (ModelContext db = new ModelContext())
             {         
@@ -89,7 +89,7 @@ namespace Sports4All.Controller
 
             using (ModelContext db = new ModelContext())
             {
-                var query = db.Reserves.Include("Ground.Park").Include("Sport.Picture").Where(c => c.Event.EndDate > DateTime.Now).OrderByDescending(c => c.Date).ToList();
+                var query = db.Reserves.Include("Ground.Park").Include("Sport.Picture").Where(c => c.Event.EndDate > DateTime.Now).OrderBy(c => c.Date).ToList();
                 var whoIam = db.Users.Where(e => e.Username.Equals(Session.Instance.LoggedUser)).First();
 
                 foreach (Reserve a in query)
@@ -104,7 +104,6 @@ namespace Sports4All.Controller
                     }
                 }
             }
-
             return myEvents;
 
         }
