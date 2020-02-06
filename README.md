@@ -49,9 +49,12 @@ Abaixo listam-se algumas das funcionalidades da aplicação:
 
 ### Modelo
 O Sports4All encontra-se dividido nas seguintes camadas, de acordo com o modelo MVVM (Model View ViewModel): 
-![GitHub Logo](/RMImages/resultado.png)
 
-<div style="text-align:center"> <img src="/RMImages/model.png" /> </div>
+![GitHub Logo](/RMImages/model.png)
+
+* **View**: relacionada com a apresentação da aplicação (camada com a qual o utilizador interage);
+* **ViewModel**: atua como conversor de dados, transformando os dados do Model de modo a serem utilizados pela View. É também responsável por passar comandos da View para o Model. Deste modo, ajuda a manter o estado da View e atualiza o Model de acordo com as ações do utilizador;
+* **Model**: objetos/dados a partir do qual serão realizadas as operações com a base de dados.
 
 ## Referências
 [1] A. Lusa, "Portugueses fazem cada vez menos exercício físico", Observador, 2020. [Online]. Available: https://observador.pt/2019/01/24/portugueses-fazem-cada-vez-menos-exercicio-fisico/. [Accessed: 06- Feb- 2020].
