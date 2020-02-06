@@ -49,8 +49,9 @@ Abaixo listam-se algumas das funcionalidades da aplicação:
 
 ### Modelo
 O Sports4All encontra-se dividido nas seguintes camadas, de acordo com o modelo MVVM (Model View ViewModel): 
+![GitHub Logo](/RMImages/resultado.png)
 
-<div style="text-align:center"> <img src="/RMImages/model.png)" /> </div>
+<div style="text-align:center"> <img src="/RMImages/model.png" /> </div>
 
 ## Referências
 [1] A. Lusa, "Portugueses fazem cada vez menos exercício físico", Observador, 2020. [Online]. Available: https://observador.pt/2019/01/24/portugueses-fazem-cada-vez-menos-exercicio-fisico/. [Accessed: 06- Feb- 2020].
